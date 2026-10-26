@@ -1,8 +1,12 @@
 <div align="center">
 
-# PXE-Touch-Macro-Project
+# PXE 안드로이드 터치 매크로
 
-## 👆 PXE 안드로이드 터치 매크로
+**PXE-Touch-Macro-Project**
+
+**기술 분류:** Android 자동화 › 접근성·화면 인식 › OCR·조건 기반 터치 실행
+
+
 
 ### 동작 편집 · 화면 글자 인식 · 플로팅 실행 컨트롤
 
@@ -15,7 +19,31 @@
 
 [빠른 시작](#quick-start) · [저장소 구성](#repository-structure) · [동작 구성](#data-settings)
 
+[예시 이미지](#preview)
+
 </div>
+
+<a name="preview"></a>
+
+## 🖼️ 예시로 보기
+
+<p align="center"><img src="assets/previews/historical-app-preview.png" width="322" alt="기존 앱 화면 · PXE-Touch-Macro-Project" /></p>
+
+**기존 앱 화면** — 6차에 보관된 실행 준비 안내 화면입니다. 당시 화면의 NEX 표기를 유지했으며 현재 PXE 버전의 실행 화면으로 제시하지 않습니다.
+
+
+
+<a name="input-processing-output"></a>
+
+## 🔄 입력·처리·출력
+
+| 단계 | 이 프로젝트에서 다루는 내용 |
+| :--- | :--- |
+| 입력 | 동작 목록·화면 글자·좌표 |
+| 처리 | AccessibilityService·ML Kit OCR·글자 조건·제스처 |
+| 출력 | 터치 실행·플로팅 상태·로그 |
+
+
 
 ---
 
