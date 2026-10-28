@@ -1,6 +1,6 @@
 PXE 1.5.0 · 15차 소스 빌드
 
-source의 빌드.ps1은 D:/PXE15Build 전용 연결로 JDK 17 / Gradle 8.13 / Android SDK 35를 사용합니다.
+source의 빌드.ps1은 D:/2026/PXE15Build 전용 연결로 JDK 17 / Gradle 8.13 / Android SDK 35를 사용합니다.
 기존 개인 서명 키와 앱 ID를 유지합니다. 키는 소스에 포함하지 않습니다.
 휴대전화용 ARM64 빌드를 먼저 저장하고 PC용 ARM64/x86_64 APK와 기기 검사 APK를 빌드합니다.
 납품 위치: D:/2026/PXE Project/15차

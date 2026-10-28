@@ -1,6 +1,6 @@
 $ErrorActionPreference = 'Stop'
 $source15 = 'D:\2026\PXE Project\15차\source'
-$bridge15 = 'D:\PXE15Build'
+$bridge15 = 'D:\2026\PXE15Build'
 $delivery15 = 'D:\2026\PXE Project\15차'
 $sourceLink15 = Get-Item -LiteralPath (Join-Path $bridge15 'source')
 if ($sourceLink15.LinkType -ne 'Junction' -or $sourceLink15.Target -ne $source15) { throw '15차 전용 빌드 연결을 확인하세요.' }

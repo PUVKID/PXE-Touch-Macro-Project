@@ -8,7 +8,7 @@ import sys
 sys.dont_write_bytecode = True
 from check_regression import ROOT, run
 
-BRIDGE = Path('D:/PXE15Build')
+BRIDGE = Path('D:/2026/PXE15Build')
 ADB = str(BRIDGE / 'android/android-sdk/platform-tools/adb.exe')
 PREFIX = [ADB, '-P', '5043', '-s', 'emulator-5598']
 PACKAGE = 'kr.yunseok.touchmacro'

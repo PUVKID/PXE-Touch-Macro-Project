@@ -10,7 +10,7 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 DELIVERY = ROOT.parent
-BRIDGE = Path('D:/PXE15Build')
+BRIDGE = Path('D:/2026/PXE15Build')
 CERTIFICATE = '57339c32b3661e18f18a7f9f7a08c539130211ab93ab0000812f99c949c5ad3e'
 
 
