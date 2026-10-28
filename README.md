@@ -1,17 +1,10 @@
 <div align="center">
 
-# 📱 PXE 안드로이드 터치 매크로
+# 🤖 PXE Project
 
-**PXE-Touch-Macro-Project**
+화면의 글자와 접근성 정보를 읽어 조건에 맞는 터치를 실행하는 Android 앱입니다.
 
 **기술 분류:** Android 자동화 › 접근성·화면 인식 › OCR·조건 기반 터치 실행
-
-
-
-### ✨ 동작 편집 · 화면 글자 인식 · 플로팅 실행 컨트롤
-
-터치·제스처·글자 조건을 순서대로 구성해 반복 작업을 실행합니다.<br>
-접근성 서비스와 한국어 OCR, 화면 위 컨트롤을 연결한 Android Java 앱입니다.
 
 ![Android](https://img.shields.io/badge/Android-3DDC84?style=flat-square&logo=android&logoColor=white)
 ![Java](https://img.shields.io/badge/Language-Java-ED8B00?style=flat-square)
@@ -28,6 +21,37 @@
 [15차 소스와 빌드 안내](15차/source/README.md)에서 최신 구현을 확인할 수 있습니다. 인식 방식의 적용 범위를 기본 설정에 표시하고, 캡처 간격 오류 후 정상 회복·목록 반복 대기·즉시 진입 선택을 개선했습니다. 기존 차수는 보존합니다.
 
 15차는 Gradle 설정·Manifest·리소스·나눔고딕 Bold와 기존 OFL 고지를 함께 포함합니다. 개인 키·프로필·실행 원문·APK·캐시는 공개하지 않습니다. 아래 과거 차수 설명과 사진은 당시 상태로 구분합니다.
+
+<a name="overview"></a>
+
+## 🗺️ 한눈에 보는 구성
+
+<p align="center"><img src="assets/overview.png" width="960" alt="프로젝트의 입력·처리·출력을 정리한 설명도" /></p>
+보관한 프로젝트 자료의 흐름을 정리한 설명도입니다.
+
+<a name="latest-changes"></a>
+## ✨ 이전 14차의 변화와 차수 탐색
+
+**14차 · 이전 보관본** — 청록 UI·터치 영역과 글자 재확인 분기
+
+- 청록색 UI·48dp 터치 영역·시스템 모션 설정을 적용합니다. 정지·일시정지·대상 앱 경계는 UI 변경과 함께 확인해야 합니다.
+- TEXT_TAP 재확인에서 글자가 사라지면 waitForever 상태의 원래 대기를 재개합니다. TEXT_NOT_FOUND 상세 오류 기록도 13차와 구별됩니다.
+
+[🔍 14차 자료 자세히 보기](docs/versions/14%EC%B0%A8.md) · [🗂️ 전체 차수 의미 비교](docs/VERSIONS.md)
+
+### 🧭 차수 바로가기
+
+[기본](docs/versions/%EA%B8%B0%EB%B3%B8.md) · [1차](docs/versions/1%EC%B0%A8.md) · [3차](docs/versions/3%EC%B0%A8.md) · [4차](docs/versions/4%EC%B0%A8.md) · [5차](docs/versions/5%EC%B0%A8.md) · [6차](docs/versions/6%EC%B0%A8.md) · [8차](docs/versions/8%EC%B0%A8.md) · [9차](docs/versions/9%EC%B0%A8.md) · [10차](docs/versions/10%EC%B0%A8.md) · [11차](docs/versions/11%EC%B0%A8.md) · [12차](docs/versions/12%EC%B0%A8.md) · [13차](docs/versions/13%EC%B0%A8.md) · [14차](docs/versions/14%EC%B0%A8.md) · [15차](15차/source/README.md) · [실행점검/2차](docs/versions/%EC%8B%A4%ED%96%89%EC%A0%90%EA%B2%80-2%EC%B0%A8.md)
+
+코드/의 차수 밖 NEX 자료와 실행점검/2차는 별도로 안내합니다. 실행점검/2차는 제품 앱의 2차가 아닙니다. 현재 공개 목록에 없는 제품 2차·7차의 변화는 추정하지 않았습니다.
+
+| 관심 있는 내용 | 바로가기 |
+| :--- | :--- |
+| 코드를 먼저 보고 싶어요 | [최신 원본 폴더](15%EC%B0%A8/source/) |
+| 이전과 무엇이 다른가요? | [차수별 해설과 근거](docs/VERSIONS.md) |
+| 어떻게 실행하나요? | [준비 조건과 실행 제약](#quick-start) |
+
+
 
 <a name="preview"></a>
 
