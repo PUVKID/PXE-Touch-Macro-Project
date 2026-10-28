@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "total_timeout_seconds": 480,
+  "device_profile": {
+    "avd": "PXE16",
+    "serial": "emulator-5598",
+    "adb_port": 5043,
+    "width": 1080,
+    "height": 2280,
+    "density": 420
+  },
+  "checks": [
+    {
+      "id": "적응 조건 대기와 동일 글자",
+      "argv": [
+        "{python}",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_device.py",
+        "AdaptiveWaitFlowTest"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 90,
+      "expected_tests": 8
+    },
+    {
+      "id": "일시정지 정지와 대상 창 전달 경계",
+      "argv": [
+        "{python}",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_device.py",
+        "AdaptiveWaitSafetyTest",
+        "TargetDispatchBoundaryTest",
+        "PauseStartSafetyTest"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 120,
+      "expected_tests": 8
+    },
+    {
+      "id": "실제 OCR 한 프레임100조건과 별도10좌표",
+      "argv": [
+        "{python}",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_device.py",
+        "OcrAccuracyCorpusTest"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 120,
+      "expected_tests": 1
+    },
+    {
+      "id": "입체 모델과 적응 설정 UI",
+      "argv": [
+        "{python}",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_device.py",
+        "PxeModelUiTest",
+        "PxeAdaptiveSettingsTest"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 120,
+      "expected_tests": 4
+    }
+  ],
+  "default_expected_tests": 21,
+  "small_screen": {
+    "classes": [
+      "PxeModelUiTest",
+      "PxeAdaptiveSettingsTest"
+    ],
+    "expected_tests": 4,
+    "size": "720x1280",
+    "density": 360,
+    "timeout_seconds": 120,
+    "shared_total_timeout_seconds": 480,
+    "restore": {
+      "size": "1080x2280",
+      "density": 420
+    },
+    "argv": [
+      "{python}",
+      "-B",
+      "-X",
+      "utf8",
+      "tools/check_device.py",
+      "PxeModelUiTest",
+      "PxeAdaptiveSettingsTest"
+    ],
+    "cwd": "."
+  }
+}
