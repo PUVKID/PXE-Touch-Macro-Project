@@ -6,13 +6,13 @@
 
 **기술 분류:** Android 자동화 › 접근성·화면 인식 › OCR·조건 기반 터치 실행
 
-![Android](https://img.shields.io/badge/Android-3DDC84?style=flat-square&logo=android&logoColor=white)
-![Java](https://img.shields.io/badge/Language-Java-ED8B00?style=flat-square)
-![OCR](https://img.shields.io/badge/OCR-ML_Kit-2563EB?style=flat-square)
+`Android`
+`Java`
+`OCR`
 
 [빠른 시작](#quick-start) · [저장소 구성](#repository-structure) · [동작 구성](#data-settings)
 
-[예시 이미지](#preview)
+[핵심 구성](#input-processing-output)
 
 </div>
 
@@ -20,14 +20,9 @@
 
 [15차 소스와 빌드 안내](15차/source/README.md)에서 최신 구현을 확인할 수 있습니다. 인식 방식의 적용 범위를 기본 설정에 표시하고, 캡처 간격 오류 후 정상 회복·목록 반복 대기·즉시 진입 선택을 개선했습니다. 기존 차수는 보존합니다.
 
-15차는 Gradle 설정·Manifest·리소스·나눔고딕 Bold와 기존 OFL 고지를 함께 포함합니다. 개인 키·프로필·실행 원문·APK·캐시는 공개하지 않습니다. 아래 과거 차수 설명과 사진은 당시 상태로 구분합니다.
+15차는 Gradle 설정·Manifest·리소스·나눔고딕 Bold와 기존 OFL 고지를 함께 포함합니다. 개인 키·프로필·실행 원문·APK·캐시는 공개하지 않습니다. 아래 과거 차수 설명은 당시 상태로 구분합니다.
 
 <a name="overview"></a>
-
-## 🗺️ 한눈에 보는 구성
-
-<p align="center"><img src="assets/overview.png" width="960" alt="프로젝트의 입력·처리·출력을 정리한 설명도" /></p>
-보관한 프로젝트 자료의 흐름을 정리한 설명도입니다.
 
 <a name="latest-changes"></a>
 ## ✨ 이전 14차의 변화와 차수 탐색
@@ -52,21 +47,7 @@
 | 어떻게 실행하나요? | [준비 조건과 실행 제약](#quick-start) |
 
 
-
 <a name="preview"></a>
-
-## 🖼️ 예시로 보기
-
-<p align="center"><img src="assets/previews/pxe15-list-settings.png" width="300" alt="15차 목록 인식 기본 설정" /> <img src="assets/previews/pxe15-step-settings.png" width="300" alt="15차 개별 글자 동작 기본 설정" /></p>
-
-**15차 실제 설정 화면** — 소유 Android 12 시험 장치에서 캡처했습니다. 입력 문구와 시간은 회귀 검사용 예시이며 사용자 프로필이나 블루스택 화면이 아닙니다. 기본 인식 방식과 접을 수 있는 추가 설정을 보여줍니다.
-
-
-<p align="center"><img src="assets/previews/historical-app-preview.png" width="322" alt="기존 앱 화면 · PXE-Touch-Macro-Project" /></p>
-
-**기존 앱 화면** — 6차에 보관된 실행 준비 안내 화면입니다. 당시 화면의 NEX 표기를 유지했으며 현재 PXE 버전의 실행 화면으로 제시하지 않습니다.
-
-
 
 <a name="input-processing-output"></a>
 
@@ -74,10 +55,9 @@
 
 | 단계 | 이 프로젝트에서 다루는 내용 |
 | :--- | :--- |
-| 입력 | 동작 목록·화면 글자·좌표 |
-| 처리 | AccessibilityService·ML Kit OCR·글자 조건·제스처 |
-| 출력 | 터치 실행·플로팅 상태·로그 |
-
+| 📥 입력 | 동작 목록·화면 글자·좌표 |
+| ⚙️ 처리 | AccessibilityService·ML Kit OCR·글자 조건·제스처 |
+| 📤 출력 | 터치 실행·플로팅 상태·로그 |
 
 
 ---
