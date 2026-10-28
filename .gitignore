@@ -23,3 +23,12 @@ node_modules/
 *.dll
 *.zip
 *.tar
+
+# PXE 로컬 실행·개인 서명·검사 원문은 공개하지 않습니다.
+**/work/
+**/evidence/
+**/.codex/
+**/local.properties
+**/key.properties
+*.jks
+*.keystore

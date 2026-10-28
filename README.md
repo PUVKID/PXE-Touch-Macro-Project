@@ -23,9 +23,20 @@
 
 </div>
 
+## 최신 15차 · 1.5.0
+
+[15차 소스와 빌드 안내](15차/source/README.md)에서 최신 구현을 확인할 수 있습니다. 인식 방식의 적용 범위를 기본 설정에 표시하고, 캡처 간격 오류 후 정상 회복·목록 반복 대기·즉시 진입 선택을 개선했습니다. 기존 차수는 보존합니다.
+
+15차는 Gradle 설정·Manifest·리소스·나눔고딕 Bold와 기존 OFL 고지를 함께 포함합니다. 개인 키·프로필·실행 원문·APK·캐시는 공개하지 않습니다. 아래 과거 차수 설명과 사진은 당시 상태로 구분합니다.
+
 <a name="preview"></a>
 
 ## 🖼️ 예시로 보기
+
+<p align="center"><img src="assets/previews/pxe15-list-settings.png" width="300" alt="15차 목록 인식 기본 설정" /> <img src="assets/previews/pxe15-step-settings.png" width="300" alt="15차 개별 글자 동작 기본 설정" /></p>
+
+**15차 실제 설정 화면** — 소유 Android 12 시험 장치에서 캡처했습니다. 입력 문구와 시간은 회귀 검사용 예시이며 사용자 프로필이나 블루스택 화면이 아닙니다. 기본 인식 방식과 접을 수 있는 추가 설정을 보여줍니다.
+
 
 <p align="center"><img src="assets/previews/historical-app-preview.png" width="322" alt="기존 앱 화면 · PXE-Touch-Macro-Project" /></p>
 
@@ -83,8 +94,8 @@ flowchart LR
 ```text
 .
 ├── 코드/
-├── 1차/ … 14차/
-├── 14차/source/
+├── 1차/ … 15차/
+├── 15차/source/
 │   ├── 빌드.ps1
 │   ├── app/src/main/java/kr/yunseok/touchmacro/
 │   │   ├── MainActivity.java
@@ -99,9 +110,9 @@ flowchart LR
 └── docs/VERSIONS.md
 ```
 
-- [14차 소스](14차/source/), [동작 모델](14차/source/app/src/main/java/kr/yunseok/touchmacro/Step.java).
-- [접근성 실행 서비스](14차/source/app/src/main/java/kr/yunseok/touchmacro/MacroService.java).
-- [기기 검사 코드](14차/source/app/src/androidTest/java/), [버전 기록](docs/VERSIONS.md).
+- [15차 소스](15차/source/), [동작 모델](15차/source/app/src/main/java/kr/yunseok/touchmacro/Step.java).
+- [접근성 실행 서비스](15차/source/app/src/main/java/kr/yunseok/touchmacro/MacroService.java).
+- [기기 검사 코드](15차/source/app/src/androidTest/java/), [버전 기록](docs/VERSIONS.md).
 
 <a name="implementation"></a>
 
@@ -115,7 +126,7 @@ flowchart LR
 
 매크로는 SharedPreferences의 JSON으로 저장하며 불러오기 실패 시 예제로 돌아가는 경로가 있습니다. `SetupFlow`의 초안·백업 보존 기능과 별개로 모든 실패에서 무손실 복구를 보장하지는 않습니다.
 
-`CaptureRequests`는 미완료 캡처를 최대 2개로 제한합니다. `CapturePacer`는 응답 뒤 기본 2초를 기다리고 거절 시 최대 12초까지 대기 간격을 늘립니다. `QueryLane`은 화면 읽기 동시 요청을 막으며, `WatchGate`는 두 번 이상의 연속 부재와 최소 부재 시간을 만족해야 중복 진입 잠금을 풉니다.
+`CaptureRequests`는 미완료 캡처를 최대 2개로 제한합니다. 15차의 `CapturePacer`는 실제 응답 뒤 API30에서 1.1초, API31 이상에서 0.5초를 기준으로 기다립니다. 간격 거절 시 최대 12초까지 늘리고 성공 뒤 기준까지 점진적으로 회복합니다. `QueryLane`은 화면 읽기 동시 요청을 막으며, `WatchGate`는 두 번 이상의 연속 부재와 최소 부재 시간을 만족해야 중복 진입 잠금을 풉니다.
 
 `TextRules`는 NFKC·공백·소문자 정규화를 거친 일치·포함 비교와 정규식 검색을 제공합니다. 제스처 경로는 1~20개, 경로당 점은 1~512개로 검사합니다. 원본 14차 개발 구성은 Java 17·AGP 8.9.1·Gradle 8.13·Android SDK 35이며, 최소 Android API 30과 ML Kit 한국어 인식 16.0.1을 사용합니다.
 
@@ -130,6 +141,7 @@ flowchart LR
 | 10~11차 | 네이티브 하단 탐색·카드 UI, 창 이벤트 기반 대상 앱 확인, AUTO 모드의 읽기 지연 시 OCR 전환을 추가합니다. |
 | 12~13차 | 계속 기다리기, 늦은 응답 폐기, 접힌 패널의 정지 버튼, 캡처 최대 2개·OCR Task 최대 1개와 연결 종료 처리를 보강합니다. |
 | 14차 | 청록색 UI·48dp 터치 영역·시스템 모션 설정을 적용하고, 글자 재확인에서 대상이 사라졌을 때 원래 대기를 재개하는 분기를 수정합니다. |
+| 15차 | 목록·개별 인식 방식의 기본 노출과 범위 안내, 캡처 간격의 정상 회복, 활성 탐지 반복 대기 축소, 선택형 즉시 진입과 설정 접기를 적용합니다. 전체 OCR·중심점 필터와 기존 보호는 유지합니다. |
 
 위자드 기본값은 완료 후 새로고침 대기 켜짐(`waitForRefresh=true`), 중복 방지 꺼짐(`preventDuplicate=false`)입니다. 완료 후 대기와 글자 부재에 따른 중복 잠금 해제는 서로 다른 설정입니다.
 
@@ -141,29 +153,22 @@ flowchart LR
 
 ## 🚀 빠른 시작
 
-현재 공개 사본은 Java 구현·검사·보조 스크립트를 중심으로 구성되어 있습니다. 14차의 최상위·앱 `build.gradle`, `settings.gradle`, `gradle.properties`, Gradle wrapper의 properties·JAR, `AndroidManifest.xml`, 나눔고딕 Bold 리소스가 빠져 있어 이 저장소를 내려받는 것만으로 빌드되지 않습니다.
-
-1. `14차/source`의 구현과 동작 모델을 먼저 살펴봅니다.
-2. 실행 프로젝트를 준비할 때 Android 프로젝트 설정·리소스·ML Kit 의존성을 원래 구성과 맞춥니다.
-3. 완전한 개발 환경에서 접근성 연결·텍스트 인식·중지 동작을 기기에서 확인합니다.
-
-기존 빌드 스크립트가 사용하는 Gradle 작업은 다음과 같습니다. 완전한 프로젝트 루트와 해당 Gradle 설치를 준비한 뒤 사용하는 명령입니다.
+최신 15차는 소스·Gradle 설정·Manifest·리소스와 글꼴 라이선스를 포함합니다. JDK17과 Android SDK35를 준비한 뒤 [15차 빌드 안내](15차/source/README.md)를 따릅니다. 과거 14차 공개 사본에서 일부 빌드 입력이 빠졌던 상태와 구분합니다.
 
 ```powershell
-gradle :app:assembleRelease :app:testDebugUnitTest :app:lintDebug --console=plain --no-watch-fs
+cd 15차/source
+.\gradlew.bat :app:assembleRelease :app:testDebugUnitTest :app:lintDebug
 ```
 
-`빌드.ps1`은 `D:\PXE14Build`의 전용 junction과 JDK·SDK·서명 경로를 사용하고 `local.properties`와 APK를 작성·복사합니다. 위 명령은 완전한 원래 프로젝트의 작업을 설명하며, 현재 공개 사본에서 실행 성공을 확인한 명령은 아닙니다.
+PC용은 `-PNEX_PC`로 ARM64와 x86_64를 함께 빌드합니다. 납품용 `빌드.ps1`은 로컬 전용 연결과 기존 개인 키를 요구합니다. 일반 개발 구성은 개인 서명이 없으면 debug 서명을 사용하므로 기존 개인 서명 앱의 업데이트를 보장하지 않습니다. 키는 공개하지 않습니다.
 
-원본 Gradle 구성은 개인 서명 설정이 없으면 debug 서명을 선택합니다. 앱 ID `kr.yunseok.touchmacro`·버전 `1.4.0`·버전코드 `14`가 같아도 서명이 다르면 기존 설치 앱의 업데이트를 보장할 수 없습니다. 개인 서명키는 공개하지 않습니다.
-
-이번 공개 정리에서는 Gradle 빌드·unit test·lint·instrumentation·실기기 실행을 하지 않았습니다. 저장된 과거 시험 기록과 테스트 코드의 PASS 문구는 이번 공개본의 실행 결과와 구분합니다.
+15차의 실제 로컬 검증과 한계는 변경 기록에 따로 적습니다. Android 소유 시험 장치의 결과를 사용자 블루스택이나 24시간 무중단 검증으로 표현하지 않습니다.
 
 <a name="data-settings"></a>
 
 ## 📊 데이터와 동작 구성
 
-| 항목 | 14차 코드의 구성 |
+| 항목 | 15차 코드의 구성 |
 | :--- | :--- |
 | 저장 스키마 | `schema = 1` |
 | 동작 수 | 1~500개 |
@@ -173,7 +178,7 @@ gradle :app:assembleRelease :app:testDebugUnitTest :app:lintDebug --console=plai
 | 실패 동작 | 정지·건너뛰기·뒤로 재시도·재시도·스크롤 재시도 |
 | 시간·반복 | 개별 동작과 전체 매크로 설정을 각각 검사 |
 
-계속 기다리기와 즉시 진행 옵션은 글자 터치·글자 대기 동작에 한정됩니다. UI 설명과 내부 직렬화 값을 바꿀 때는 저장된 매크로와의 호환성도 확인해야 합니다.
+개별 동작의 계속 기다리기와 즉시 진행은 글자 터치·글자 대기에 적용됩니다. 15차 목록 설정의 인식 즉시 들어가기는 별도 선택입니다. UI 설명과 내부 직렬화 값을 바꿀 때는 저장된 매크로와의 호환성도 확인해야 합니다.
 
 <a name="troubleshooting"></a>
 
