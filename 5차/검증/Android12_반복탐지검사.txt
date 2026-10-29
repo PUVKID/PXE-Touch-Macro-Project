@@ -1,0 +1,9 @@
+--------- beginning of main
+10-19 04:23:30.220  1947  1962 I TestRunner: run started: 2 tests
+10-19 04:23:30.221  1947  1962 I TestRunner: started: entersRunsExactlyFifteenBacksAndRefreshesAfterTenSeconds(kr.yunseok.touchmacro.WatchPresetTest)
+10-19 04:23:51.311  1947  1962 I NEX_PRESET_QA: PASS: chosen text tapped to enter, named macro exactly 15 rounds (not 225), BACK, full 10-second refresh wait, second entry with exactly 15 more actions, saved macro preserved
+10-19 04:23:51.314  1947  1962 I TestRunner: finished: entersRunsExactlyFifteenBacksAndRefreshesAfterTenSeconds(kr.yunseok.touchmacro.WatchPresetTest)
+10-19 04:23:51.781  1947  1962 I TestRunner: started: regionRefreshMacroBackRepeatAndCancellation(kr.yunseok.touchmacro.WatchFlowTest)
+10-19 04:24:43.139  1947  1962 I NEX_WATCH_QA: PASS: region exclusion, OCR trigger, saved macro execution, automatic BACK, refresh/repeat, optional duplicate delay, immediate return/re-detect, pause/stop cancellation, failure stops without BACK, compact collapsed control
+10-19 04:24:43.146  1947  1962 I TestRunner: finished: regionRefreshMacroBackRepeatAndCancellation(kr.yunseok.touchmacro.WatchFlowTest)
+10-19 04:24:43.609  1947  1962 I TestRunner: run finished: 2 tests, 0 failed, 0 ignored

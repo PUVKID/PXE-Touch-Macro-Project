@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="kr.yunseok.touchmacro.TimesTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-10-19T05:02:34.435Z" hostname="DESKTOP-Q56I31F" time="0.002">
+  <properties/>
+  <testcase name="rejectsBeyondPrecision" classname="kr.yunseok.touchmacro.TimesTest" time="0.001"/>
+  <testcase name="rejectsOverflow" classname="kr.yunseok.touchmacro.TimesTest" time="0.0"/>
+  <testcase name="rejectsNegative" classname="kr.yunseok.touchmacro.TimesTest" time="0.0"/>
+  <testcase name="secondsAreReadableAndLosslessForSavedTimings" classname="kr.yunseok.touchmacro.TimesTest" time="0.001"/>
+  <testcase name="rejectsNonNumber" classname="kr.yunseok.touchmacro.TimesTest" time="0.0"/>
+  <testcase name="minutesAndSecondsAreHumanReadable" classname="kr.yunseok.touchmacro.TimesTest" time="0.0"/>
+  <testcase name="decimalInputUsesSeconds" classname="kr.yunseok.touchmacro.TimesTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

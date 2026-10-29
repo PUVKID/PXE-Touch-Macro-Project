@@ -1,0 +1,1 @@
+PASS: APK integrity, original Nanum Gothic Bold font bytes, OFL license, Korean OCR model, ARM64 libraries

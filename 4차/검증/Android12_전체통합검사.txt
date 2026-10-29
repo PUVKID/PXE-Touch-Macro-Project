@@ -1,0 +1,12 @@
+--------- beginning of main
+10-19 02:40:00.466  2024  2040 I TestRunner: run started: 3 tests
+10-19 02:40:00.467  2024  2040 I TestRunner: started: realGesturesTextOcrBackRetryPauseAndStop(kr.yunseok.touchmacro.DeviceFlowTest)
+10-19 02:40:29.900  2024  2040 I YUNSEOK_QA: PASS: accessibility, Korean OCR offline, back/recheck, branches, tap-repeat, long, double, macro-loop, pause/resume, stop, input, save/load, retry limit
+10-19 02:40:29.900  2024  2040 I TestRunner: finished: realGesturesTextOcrBackRetryPauseAndStop(kr.yunseok.touchmacro.DeviceFlowTest)
+10-19 02:40:29.901  2024  2040 I TestRunner: started: newTextModesGesturesAndRecorder(kr.yunseok.touchmacro.NexFeatureTest)
+10-19 02:40:51.442  2024  2040 I NEX_QA  : PASS: text region, OCR preview, text offset, retry, curve, pinch, multitap, point capture, curve recording/replay, multi-touch recording/replay, foreground outside activity, dark palette
+10-19 02:40:51.442  2024  2040 I TestRunner: finished: newTextModesGesturesAndRecorder(kr.yunseok.touchmacro.NexFeatureTest)
+10-19 02:40:51.443  2024  2040 I TestRunner: started: regionRefreshMacroBackRepeatAndCancellation(kr.yunseok.touchmacro.WatchFlowTest)
+10-19 02:41:40.148  2024  2040 I NEX_WATCH_QA: PASS: region exclusion, OCR trigger, saved macro execution, automatic BACK, refresh/repeat, no immediate duplicate, pause/stop cancellation, failure stops without BACK, compact collapsed control
+10-19 02:41:40.153  2024  2040 I TestRunner: finished: regionRefreshMacroBackRepeatAndCancellation(kr.yunseok.touchmacro.WatchFlowTest)
+10-19 02:41:40.616  2024  2040 I TestRunner: run finished: 3 tests, 0 failed, 0 ignored

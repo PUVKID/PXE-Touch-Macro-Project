@@ -1,0 +1,6 @@
+--------- beginning of main
+10-19 04:53:44.496  2253  2267 I TestRunner: run started: 1 tests
+10-19 04:53:44.497  2253  2267 I TestRunner: started: regionRecordingAutomaticallyReturnAndSaveDelays(kr.yunseok.touchmacro.GuidedFlowTest)
+10-19 04:53:50.187  2253  2267 I NEX_GUIDE_QA: PASS: word entry, real drawn region, automatic return, real recorded/replayed gesture, automatic named save, original macro restored, second-based delays saved, guide ready
+10-19 04:53:50.188  2253  2267 I TestRunner: finished: regionRecordingAutomaticallyReturnAndSaveDelays(kr.yunseok.touchmacro.GuidedFlowTest)
+10-19 04:53:50.648  2253  2267 I TestRunner: run finished: 1 tests, 0 failed, 0 ignored

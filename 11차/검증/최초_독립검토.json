@@ -1,0 +1,13 @@
+{
+  "decision": "FAIL",
+  "requirements": [
+    {"passed": true, "requirement": "자동 모드에서 노드 조회 지연 후 OCR로 전환하고 실제 매크로 15회를 완료한다", "evidence": "ScreenDelayRecoveryTest 7개 중 자동 전환, OCR 전용 노드 0회, ACCESS 실패 시 무터치, 중단, 일시정지, 다른 앱 전환, 창 지연 검사 모두 통과. NEX12 Android 12의 versionCode 11 개인 서명 release에서 실제 OCR/터치와 제어된 지연 주입으로 확인했다."},
+    {"passed": true, "requirement": "지연 결과 폐기 및 UI 중단 응답성을 유지한다", "evidence": "ReaderResponsivenessTest 2개 통과. 독립적으로 실행한 전체 11개 중 이 2개는 성공 상태 0을 기록했다. QueryLane는 1개 작업만 허용하고 바쁜 상태에서 후속 작업을 쌓지 않는다."},
+    {"passed": true, "requirement": "기존 우선순위와 15회 반복, 뒤로가기와 대기 구조를 보존한다", "evidence": "runWatch의 우선순위 순회, 새 프레임 재확인, runSequence, backCount, cooldownMs 및 intervalSeconds 흐름을 직접 대조했다. 신규 지연 통합 검사에서 실제 15회 및 쉬는 중 진입을 확인했다. 전체 기존 Android 회귀의 독립 재실행은 아직 완료하지 않았다."},
+    {"passed": false, "requirement": "대상 앱 확인 실패 시 안내형 시작을 거절한다는 검사 근거가 재현 가능하다", "evidence": "tools/check_device.py ScreenDelayRecoveryTest ReaderResponsivenessTest RegionPackageSafetyTest 실행: 11개 중 1개 실패, 71.514초, 종료 코드 1. RegionPackageSafetyTest.unknownPackageDoesNotStartUnboundGuideProfile 33행 assertFalse(svc.running) 실패. 같은 메서드만 별도 실행해도 1개 중 1개 실패, 1.922초, 종료 코드 1. 새 WindowPackages를 주입한 후 실제 비동기 접근성 이벤트가 다시 매핑을 채울 가능성은 있으나 현재 로그만으로 원인 확정 불가. 제품 가드의 누락인지 테스트 주입의 경쟁인지 구분하는 보완이 필요하다. unknownPackageDoesNotOverwriteSavedRegion은 통과했다."},
+    {"passed": true, "requirement": "납품 APK의 버전, 앱 ID, ABI 및 기존 개인 서명을 유지한다", "evidence": "최종 두 APK의 SHA256은 부모 제공 값과 일치. 동일 해시의 ASCII 경로 검사본을 aapt dump badging 및 apksigner verify --print-certs로 직접 검사해 종료 코드 0. 앱 ID kr.yunseok.touchmacro, label PXE, code 11, version 1.1.0, min 30/target 35. PC arm64-v8a+x86_64, 휴대전화 arm64-v8a. 인증서 SHA256 57339c32b3661e18f18a7f9f7a08c539130211ab93ab0000812f99c949c5ad3e. 업데이트 자체는 구현자 검사 기록만 검토했고 독립 재실행 전이다."},
+    {"passed": true, "requirement": "프로젝트 고유 단위 검사 및 린트를 직접 실행한다", "evidence": "문서의 ASCII alias cwd에서 Gradle :app:testDebugUnitTest :app:lintDebug --console=plain --no-watch-fs --project-cache-dir work/.gradle 종료 코드 0. XML 합계 69개, 실패/오류/건너뜀 0. lint No issues found. 처음 한글 실경로 cwd 실행은 ClassNotFoundException 초기화 9개 실패/종료 코드 1이었고, 구현 변경 없이 문서의 ASCII alias 실행 위치로 교정했다. aapt 또한 한글 APK 경로에서 인코딩 오류가 발생하여 동일 해시의 ASCII 검사본으로 교정한 뒤 통과했다."}
+  ],
+  "role": {"agent_id": "/root/verify_delay", "requested_model": "gpt-6.1-sol", "requested_effort": "high", "native_role": "verifier", "server_runtime_identity": "미확인", "repair_used": 0},
+  "limits": ["사용자 LDPlayer 6개와 노트10+ 실기기는 이번 검사의 대상이 아니다.", "노드 지연 및 화면 실패 주입은 제어된 결함 주입이며 LDPlayer 내부 지연 원인 재현을 뜻하지 않는다.", "구현 파일과 사용자 설정은 수정하지 않았다. evidence와 제외된 work 검사 출력만 기록했다.", "중앙 명세 검사는 별도 verify 호출에서 실제 실행된다. 이 검토의 Android 실패 때문에 단위 검사 성공만으로 완료를 승인하지 않는다."]
+}

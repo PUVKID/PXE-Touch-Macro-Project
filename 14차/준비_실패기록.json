@@ -1,0 +1,18 @@
+[
+  {
+    "한국시각": "2026-10-26T01:00:43.5099933+09:00",
+    "요청": "read_thread turnLimit8 includeOutputs=true maxOutputCharsPerItem7000",
+    "오류": "Tool response exceeds the size limit. Request fewer turns or omit outputs. A single oversized turn cannot be returned by this tool.",
+    "원인": "반환크기초과",
+    "다음": "turnLimit2 includeOutputsfalse maxOutputCharsPerItem4000",
+    "코드변경": false
+  },
+  {
+    "한국시각": "2026-10-26T01:00:43.5132243+09:00",
+    "요청": "Get-Content product-design/0.1.56/scripts/user_context_preflight.py",
+    "오류": "Cannot find path because it does not exist.",
+    "원인": "스킬상대경로를패키지루트로잘못해석",
+    "다음": "rg --files로실제상대위치찾기",
+    "코드변경": false
+  }
+]

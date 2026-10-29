@@ -1,0 +1,12 @@
+
+kr.yunseok.touchmacro.PxeGuideFlowTest:.
+kr.yunseok.touchmacro.FloatingPlayTest:..
+kr.yunseok.touchmacro.PriorityFlowTest:.
+kr.yunseok.touchmacro.RepeatFlowTest:.
+kr.yunseok.touchmacro.WatchFlowTest:.
+
+Time: 55.714
+
+OK (6 tests)
+
+

@@ -1,0 +1,14 @@
+시험 대상: 8차 Debug APK, API31 x86_64 NEX12 자체 시험 기기
+
+kr.yunseok.touchmacro.ReaderResponsivenessTest: ..
+kr.yunseok.touchmacro.PriorityFlowTest: .
+kr.yunseok.touchmacro.RepeatFlowTest: .
+kr.yunseok.touchmacro.WatchPresetTest: .
+kr.yunseok.touchmacro.WatchFlowTest: .
+kr.yunseok.touchmacro.GuidedFlowTest: ..
+
+Time: 117.26
+OK (8 tests)
+
+위 내용은 시험 도구의 최종 결과를 기록한 것입니다.
+사용자 블루스택 대상 앱의 실기 시험 결과가 아닙니다.

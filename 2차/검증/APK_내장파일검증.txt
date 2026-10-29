@@ -1,0 +1,1 @@
+PASS: final APK CRC/SHA256, exact Nanum Gothic Bold bytes, OFL, Korean/Latin OCR assets, ARM64, unchanged Round 1

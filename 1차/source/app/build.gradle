@@ -1,0 +1,11 @@
+plugins { id 'com.android.application' }
+def signingProps = new Properties()
+def signingFile = rootProject.file('../../work/signing/key.properties')
+if (signingFile.exists()) { signingFile.withInputStream { signingProps.load(it) } }
+android { signingConfigs { personal { storeFile rootProject.file('../../work/signing/macro.jks'); storePassword signingProps.getProperty('storePassword', ''); keyAlias 'yunseokmacro'; keyPassword signingProps.getProperty('storePassword', '') } }
+ namespace 'kr.yunseok.touchmacro'; compileSdk 35
+ defaultConfig { applicationId 'kr.yunseok.touchmacro'; minSdk 30; targetSdk 35; versionCode 1; versionName '1.0.0'; testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner' }
+ compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+ buildTypes { release { minifyEnabled false; signingConfig (signingFile.exists() ? signingConfigs.personal : signingConfigs.debug); ndk { abiFilters 'arm64-v8a' } } }
+}
+dependencies { implementation 'com.google.mlkit:text-recognition-korean:16.0.1'; testImplementation 'junit:junit:4.13.2'; testImplementation 'org.json:json:20240303'; androidTestImplementation 'androidx.test:runner:1.6.2'; androidTestImplementation 'androidx.test.ext:junit:1.2.1' }

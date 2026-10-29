@@ -1,0 +1,9 @@
+--------- beginning of main
+10-13 12:31:55.736  1906  1921 I TestRunner: run started: 2 tests
+10-13 12:31:55.737  1906  1921 I TestRunner: started: realGesturesTextOcrBackRetryPauseAndStop(kr.yunseok.touchmacro.DeviceFlowTest)
+10-13 12:32:26.114  1906  1921 I YUNSEOK_QA: PASS: accessibility, Korean OCR offline, back/recheck, branches, tap-repeat, long, double, macro-loop, pause/resume, stop, input, save/load, retry limit
+10-13 12:32:26.115  1906  1921 I TestRunner: finished: realGesturesTextOcrBackRetryPauseAndStop(kr.yunseok.touchmacro.DeviceFlowTest)
+10-13 12:32:26.117  1906  1921 I TestRunner: started: newTextModesGesturesAndRecorder(kr.yunseok.touchmacro.NexFeatureTest)
+10-13 12:32:47.837  1906  1921 I NEX_QA  : PASS: text region, OCR preview, text offset, retry, curve, pinch, multitap, point capture, curve recording/replay, multi-touch recording/replay, foreground outside activity, dark palette
+10-13 12:32:47.837  1906  1921 I TestRunner: finished: newTextModesGesturesAndRecorder(kr.yunseok.touchmacro.NexFeatureTest)
+10-13 12:32:47.839  1906  1921 I TestRunner: run finished: 2 tests, 0 failed, 0 ignored

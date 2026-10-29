@@ -1,0 +1,1513 @@
+Package Groups (1)
+Package Group 0 id=0x7f packageCount=1 name=com.rise.automatic.autoclicker.clicker
+  Package 0 id=0x7f name=com.rise.automatic.autoclicker.clicker
+    type 14 configCount=1 entryCount=3
+      spec resource 0x7f0f0000 com.rise.automatic.autoclicker.clicker:plurals/dialog_msg_delete_more_configs_confirm: flags=0x00000000
+      spec resource 0x7f0f0001 com.rise.automatic.autoclicker.clicker:plurals/mtrl_badge_content_description: flags=0x00000000
+      spec resource 0x7f0f0002 com.rise.automatic.autoclicker.clicker:plurals/save_config_menu_number_of_items_selected: flags=0x00000000
+      config ko:
+        resource 0x7f0f0000 com.rise.automatic.autoclicker.clicker:plurals/dialog_msg_delete_more_configs_confirm: <bag>
+          Parent=0x00000000(Resolved=0x00000000), Count=2
+          #0 (Key=0x01000006): (string8) "선택한 항목을 삭제할까요?"
+          #1 (Key=0x01000004): (string8) "선택한 항목을 삭제할까요?"
+        resource 0x7f0f0001 com.rise.automatic.autoclicker.clicker:plurals/mtrl_badge_content_description: <bag>
+          Parent=0x00000000(Resolved=0x00000000), Count=2
+          #0 (Key=0x01000006): (string8) "새 알림 %d개"
+          #1 (Key=0x01000004): (string8) "새 알림 %d개"
+        resource 0x7f0f0002 com.rise.automatic.autoclicker.clicker:plurals/save_config_menu_number_of_items_selected: <bag>
+          Parent=0x00000000(Resolved=0x00000000), Count=3
+          #0 (Key=0x01000005): (string8) "%1$d개 선택됨"
+          #1 (Key=0x01000006): (string8) "%1$d개 선택됨"
+          #2 (Key=0x01000004): (string8) "%1$d개 선택됨"
+    type 16 configCount=1 entryCount=534
+      spec resource 0x7f110000 com.rise.automatic.autoclicker.clicker:string/abc_action_bar_home_description: flags=0x00000000
+      spec resource 0x7f110001 com.rise.automatic.autoclicker.clicker:string/abc_action_bar_up_description: flags=0x00000000
+      spec resource 0x7f110002 com.rise.automatic.autoclicker.clicker:string/abc_action_menu_overflow_description: flags=0x00000000
+      spec resource 0x7f110003 com.rise.automatic.autoclicker.clicker:string/abc_action_mode_done: flags=0x00000000
+      spec resource 0x7f110004 com.rise.automatic.autoclicker.clicker:string/abc_activity_chooser_view_see_all: flags=0x00000000
+      spec resource 0x7f110005 com.rise.automatic.autoclicker.clicker:string/abc_activitychooserview_choose_application: flags=0x00000000
+      spec resource 0x7f110006 com.rise.automatic.autoclicker.clicker:string/abc_capital_off: flags=0x00000000
+      spec resource 0x7f110007 com.rise.automatic.autoclicker.clicker:string/abc_capital_on: flags=0x00000000
+      spec resource 0x7f110008 com.rise.automatic.autoclicker.clicker:string/abc_menu_alt_shortcut_label: flags=0x00000000
+      spec resource 0x7f110009 com.rise.automatic.autoclicker.clicker:string/abc_menu_ctrl_shortcut_label: flags=0x00000000
+      spec resource 0x7f11000a com.rise.automatic.autoclicker.clicker:string/abc_menu_delete_shortcut_label: flags=0x00000000
+      spec resource 0x7f11000b com.rise.automatic.autoclicker.clicker:string/abc_menu_enter_shortcut_label: flags=0x00000000
+      spec resource 0x7f11000c com.rise.automatic.autoclicker.clicker:string/abc_menu_function_shortcut_label: flags=0x00000000
+      spec resource 0x7f11000d com.rise.automatic.autoclicker.clicker:string/abc_menu_meta_shortcut_label: flags=0x00000000
+      spec resource 0x7f11000e com.rise.automatic.autoclicker.clicker:string/abc_menu_shift_shortcut_label: flags=0x00000000
+      spec resource 0x7f11000f com.rise.automatic.autoclicker.clicker:string/abc_menu_space_shortcut_label: flags=0x00000000
+      spec resource 0x7f110010 com.rise.automatic.autoclicker.clicker:string/abc_menu_sym_shortcut_label: flags=0x00000000
+      spec resource 0x7f110011 com.rise.automatic.autoclicker.clicker:string/abc_prepend_shortcut_label: flags=0x00000000
+      spec resource 0x7f110012 com.rise.automatic.autoclicker.clicker:string/abc_search_hint: flags=0x00000000
+      spec resource 0x7f110013 com.rise.automatic.autoclicker.clicker:string/abc_searchview_description_clear: flags=0x00000000
+      spec resource 0x7f110014 com.rise.automatic.autoclicker.clicker:string/abc_searchview_description_query: flags=0x00000000
+      spec resource 0x7f110015 com.rise.automatic.autoclicker.clicker:string/abc_searchview_description_search: flags=0x00000000
+      spec resource 0x7f110016 com.rise.automatic.autoclicker.clicker:string/abc_searchview_description_submit: flags=0x00000000
+      spec resource 0x7f110017 com.rise.automatic.autoclicker.clicker:string/abc_searchview_description_voice: flags=0x00000000
+      spec resource 0x7f110018 com.rise.automatic.autoclicker.clicker:string/abc_shareactionprovider_share_with: flags=0x00000000
+      spec resource 0x7f110019 com.rise.automatic.autoclicker.clicker:string/abc_shareactionprovider_share_with_application: flags=0x00000000
+      spec resource 0x7f11001a com.rise.automatic.autoclicker.clicker:string/abc_toolbar_collapse_description: flags=0x00000000
+      spec resource 0x7f11001b com.rise.automatic.autoclicker.clicker:string/accessibility_service_description: flags=0x00000000
+      spec resource 0x7f11001c com.rise.automatic.autoclicker.clicker:string/accessibility_service_id: flags=0x00000000
+      spec resource 0x7f11001d com.rise.automatic.autoclicker.clicker:string/accessibility_service_name: flags=0x00000000
+      spec resource 0x7f11001e com.rise.automatic.autoclicker.clicker:string/activity_config: flags=0x00000000
+      spec resource 0x7f11001f com.rise.automatic.autoclicker.clicker:string/activity_customize: flags=0x00000000
+      spec resource 0x7f110020 com.rise.automatic.autoclicker.clicker:string/activity_iap: flags=0x00000000
+      spec resource 0x7f110021 com.rise.automatic.autoclicker.clicker:string/activity_translate: flags=0x00000000
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f110022
+      spec resource 0x7f110023 com.rise.automatic.autoclicker.clicker:string/app_name: flags=0x00000000
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f110024
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f110025
+      spec resource 0x7f110026 com.rise.automatic.autoclicker.clicker:string/bottomsheet_action_expand_halfway: flags=0x00000000
+      spec resource 0x7f110027 com.rise.automatic.autoclicker.clicker:string/character_counter_content_description: flags=0x00000000
+      spec resource 0x7f110028 com.rise.automatic.autoclicker.clicker:string/character_counter_overflowed_content_description: flags=0x00000000
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f110029
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f11002a
+      spec resource 0x7f11002b com.rise.automatic.autoclicker.clicker:string/chrome_tab_show_as_list_accessibility: flags=0x00000000
+      spec resource 0x7f11002c com.rise.automatic.autoclicker.clicker:string/chrome_tab_show_as_list_disable: flags=0x00000000
+      spec resource 0x7f11002d com.rise.automatic.autoclicker.clicker:string/chrome_tab_show_as_list_open: flags=0x00000000
+      spec resource 0x7f11002e com.rise.automatic.autoclicker.clicker:string/chrome_tab_show_as_list_settings: flags=0x00000000
+      spec resource 0x7f11002f com.rise.automatic.autoclicker.clicker:string/clear_text_end_icon_content_description: flags=0x00000000
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f110030
+      spec resource 0x7f110031 com.rise.automatic.autoclicker.clicker:string/common_google_play_services_enable_button: flags=0x00000000
+      spec resource 0x7f110032 com.rise.automatic.autoclicker.clicker:string/common_google_play_services_enable_text: flags=0x00000000
+      spec resource 0x7f110033 com.rise.automatic.autoclicker.clicker:string/common_google_play_services_enable_title: flags=0x00000000
+      spec resource 0x7f110034 com.rise.automatic.autoclicker.clicker:string/common_google_play_services_install_button: flags=0x00000000
+      spec resource 0x7f110035 com.rise.automatic.autoclicker.clicker:string/common_google_play_services_install_text: flags=0x00000000
+      spec resource 0x7f110036 com.rise.automatic.autoclicker.clicker:string/common_google_play_services_install_title: flags=0x00000000
+      spec resource 0x7f110037 com.rise.automatic.autoclicker.clicker:string/common_google_play_services_notification_channel_name: flags=0x00000000
+      spec resource 0x7f110038 com.rise.automatic.autoclicker.clicker:string/common_google_play_services_notification_ticker: flags=0x00000000
+      spec resource 0x7f110039 com.rise.automatic.autoclicker.clicker:string/common_google_play_services_unknown_issue: flags=0x00000000
+      spec resource 0x7f11003a com.rise.automatic.autoclicker.clicker:string/common_google_play_services_unsupported_text: flags=0x00000000
+      spec resource 0x7f11003b com.rise.automatic.autoclicker.clicker:string/common_google_play_services_update_button: flags=0x00000000
+      spec resource 0x7f11003c com.rise.automatic.autoclicker.clicker:string/common_google_play_services_update_text: flags=0x00000000
+      spec resource 0x7f11003d com.rise.automatic.autoclicker.clicker:string/common_google_play_services_update_title: flags=0x00000000
+      spec resource 0x7f11003e com.rise.automatic.autoclicker.clicker:string/common_google_play_services_updating_text: flags=0x00000000
+      spec resource 0x7f11003f com.rise.automatic.autoclicker.clicker:string/common_google_play_services_wear_update_text: flags=0x00000000
+      spec resource 0x7f110040 com.rise.automatic.autoclicker.clicker:string/common_open_on_phone: flags=0x00000000
+      spec resource 0x7f110041 com.rise.automatic.autoclicker.clicker:string/common_signin_button_text: flags=0x00000000
+      spec resource 0x7f110042 com.rise.automatic.autoclicker.clicker:string/common_signin_button_text_long: flags=0x00000000
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f110043
+      spec resource 0x7f110044 com.rise.automatic.autoclicker.clicker:string/control_panel_item_add: flags=0x00000000
+      spec resource 0x7f110045 com.rise.automatic.autoclicker.clicker:string/control_panel_item_back: flags=0x00000000
+      spec resource 0x7f110046 com.rise.automatic.autoclicker.clicker:string/control_panel_item_close: flags=0x00000000
+      spec resource 0x7f110047 com.rise.automatic.autoclicker.clicker:string/control_panel_item_collapse: flags=0x00000000
+      spec resource 0x7f110048 com.rise.automatic.autoclicker.clicker:string/control_panel_item_curve: flags=0x00000000
+      spec resource 0x7f110049 com.rise.automatic.autoclicker.clicker:string/control_panel_item_delete: flags=0x00000000
+      spec resource 0x7f11004a com.rise.automatic.autoclicker.clicker:string/control_panel_item_home: flags=0x00000000
+      spec resource 0x7f11004b com.rise.automatic.autoclicker.clicker:string/control_panel_item_launcher: flags=0x00000000
+      spec resource 0x7f11004c com.rise.automatic.autoclicker.clicker:string/control_panel_item_line: flags=0x00000000
+      spec resource 0x7f11004d com.rise.automatic.autoclicker.clicker:string/control_panel_item_notify: flags=0x00000000
+      spec resource 0x7f11004e com.rise.automatic.autoclicker.clicker:string/control_panel_item_pinch: flags=0x00000000
+      spec resource 0x7f11004f com.rise.automatic.autoclicker.clicker:string/control_panel_item_pinch_out: flags=0x00000000
+      spec resource 0x7f110050 com.rise.automatic.autoclicker.clicker:string/control_panel_item_play: flags=0x00000000
+      spec resource 0x7f110051 com.rise.automatic.autoclicker.clicker:string/control_panel_item_recording: flags=0x00000000
+      spec resource 0x7f110052 com.rise.automatic.autoclicker.clicker:string/control_panel_item_save: flags=0x00000000
+      spec resource 0x7f110053 com.rise.automatic.autoclicker.clicker:string/control_panel_item_settings: flags=0x00000000
+      spec resource 0x7f110054 com.rise.automatic.autoclicker.clicker:string/control_panel_item_visible: flags=0x00000000
+      spec resource 0x7f110055 com.rise.automatic.autoclicker.clicker:string/copy: flags=0x00000000
+      spec resource 0x7f110056 com.rise.automatic.autoclicker.clicker:string/copy_toast_msg: flags=0x00000000
+      spec resource 0x7f110057 com.rise.automatic.autoclicker.clicker:string/corner_orientation_labels_bottom_left: flags=0x00000000
+      spec resource 0x7f110058 com.rise.automatic.autoclicker.clicker:string/corner_orientation_labels_bottom_right: flags=0x00000000
+      spec resource 0x7f110059 com.rise.automatic.autoclicker.clicker:string/corner_orientation_labels_center: flags=0x00000000
+      spec resource 0x7f11005a com.rise.automatic.autoclicker.clicker:string/corner_orientation_labels_top_left: flags=0x00000000
+      spec resource 0x7f11005b com.rise.automatic.autoclicker.clicker:string/corner_orientation_labels_top_right: flags=0x00000000
+      spec resource 0x7f11005c com.rise.automatic.autoclicker.clicker:string/customization_card_click_point_size: flags=0x00000000
+      spec resource 0x7f11005d com.rise.automatic.autoclicker.clicker:string/customization_card_click_point_transparency: flags=0x00000000
+      spec resource 0x7f11005e com.rise.automatic.autoclicker.clicker:string/customization_card_control_panel_add_start_btn: flags=0x00000000
+      spec resource 0x7f11005f com.rise.automatic.autoclicker.clicker:string/customization_card_control_panel_dark_mode: flags=0x00000000
+      spec resource 0x7f110060 com.rise.automatic.autoclicker.clicker:string/customization_card_control_panel_keep_screen_on: flags=0x00000000
+      spec resource 0x7f110061 com.rise.automatic.autoclicker.clicker:string/customization_card_control_panel_orientation: flags=0x00000000
+      spec resource 0x7f110062 com.rise.automatic.autoclicker.clicker:string/customization_card_control_panel_pin_screen_edge: flags=0x00000000
+      spec resource 0x7f110063 com.rise.automatic.autoclicker.clicker:string/customization_card_control_panel_size: flags=0x00000000
+      spec resource 0x7f110064 com.rise.automatic.autoclicker.clicker:string/customization_card_control_panel_timer_visible: flags=0x00000000
+      spec resource 0x7f110065 com.rise.automatic.autoclicker.clicker:string/customization_card_control_panel_transparency: flags=0x00000000
+      spec resource 0x7f110066 com.rise.automatic.autoclicker.clicker:string/customization_item_order_more: flags=0x00000000
+      spec resource 0x7f110067 com.rise.automatic.autoclicker.clicker:string/customization_item_order_sort: flags=0x00000000
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f110068
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f110069
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f11006a
+      spec resource 0x7f11006b com.rise.automatic.autoclicker.clicker:string/dialog_action_cancel: flags=0x00000000
+      spec resource 0x7f11006c com.rise.automatic.autoclicker.clicker:string/dialog_action_close: flags=0x00000000
+      spec resource 0x7f11006d com.rise.automatic.autoclicker.clicker:string/dialog_action_confirm: flags=0x00000000
+      spec resource 0x7f11006e com.rise.automatic.autoclicker.clicker:string/dialog_action_create: flags=0x00000000
+      spec resource 0x7f11006f com.rise.automatic.autoclicker.clicker:string/dialog_action_delete: flags=0x00000000
+      spec resource 0x7f110070 com.rise.automatic.autoclicker.clicker:string/dialog_action_done: flags=0x00000000
+      spec resource 0x7f110071 com.rise.automatic.autoclicker.clicker:string/dialog_action_got_it: flags=0x00000000
+      spec resource 0x7f110072 com.rise.automatic.autoclicker.clicker:string/dialog_action_hide_demo: flags=0x00000000
+      spec resource 0x7f110073 com.rise.automatic.autoclicker.clicker:string/dialog_action_reactivate: flags=0x00000000
+      spec resource 0x7f110074 com.rise.automatic.autoclicker.clicker:string/dialog_action_remove_cache_cancel: flags=0x00000000
+      spec resource 0x7f110075 com.rise.automatic.autoclicker.clicker:string/dialog_action_remove_cache_ok: flags=0x00000000
+      spec resource 0x7f110076 com.rise.automatic.autoclicker.clicker:string/dialog_action_rename: flags=0x00000000
+      spec resource 0x7f110077 com.rise.automatic.autoclicker.clicker:string/dialog_action_reset: flags=0x00000000
+      spec resource 0x7f110078 com.rise.automatic.autoclicker.clicker:string/dialog_action_rewarded_watch_video: flags=0x00000000
+      spec resource 0x7f110079 com.rise.automatic.autoclicker.clicker:string/dialog_action_save: flags=0x00000000
+      spec resource 0x7f11007a com.rise.automatic.autoclicker.clicker:string/dialog_launcher_app_title: flags=0x00000000
+      spec resource 0x7f11007b com.rise.automatic.autoclicker.clicker:string/dialog_launcher_check_box: flags=0x00000000
+      spec resource 0x7f11007c com.rise.automatic.autoclicker.clicker:string/dialog_launcher_choose_application: flags=0x00000000
+      spec resource 0x7f11007d com.rise.automatic.autoclicker.clicker:string/dialog_launcher_no_app_selected: flags=0x00000000
+      spec resource 0x7f11007e com.rise.automatic.autoclicker.clicker:string/dialog_launcher_title: flags=0x00000000
+      spec resource 0x7f11007f com.rise.automatic.autoclicker.clicker:string/dialog_msg_close_confirm: flags=0x00000000
+      spec resource 0x7f110080 com.rise.automatic.autoclicker.clicker:string/dialog_msg_delay_start_time_info: flags=0x00000000
+      spec resource 0x7f110081 com.rise.automatic.autoclicker.clicker:string/dialog_msg_delete_config_confirm: flags=0x00000000
+      spec resource 0x7f110082 com.rise.automatic.autoclicker.clicker:string/dialog_msg_dont_show: flags=0x00000000
+      spec resource 0x7f110083 com.rise.automatic.autoclicker.clicker:string/dialog_msg_enter_backup_file_name: flags=0x00000000
+      spec resource 0x7f110084 com.rise.automatic.autoclicker.clicker:string/dialog_msg_file_exists_overwrite: flags=0x00000000
+      spec resource 0x7f110085 com.rise.automatic.autoclicker.clicker:string/dialog_msg_loading: flags=0x00000000
+      spec resource 0x7f110086 com.rise.automatic.autoclicker.clicker:string/dialog_msg_rename_this_config: flags=0x00000000
+      spec resource 0x7f110087 com.rise.automatic.autoclicker.clicker:string/dialog_msg_save_add_config_info: flags=0x00000000
+      spec resource 0x7f110088 com.rise.automatic.autoclicker.clicker:string/dialog_msg_settings_restore_confirm: flags=0x00000000
+      spec resource 0x7f110089 com.rise.automatic.autoclicker.clicker:string/dialog_msg_start_point_at_info: flags=0x00000000
+      spec resource 0x7f11008a com.rise.automatic.autoclicker.clicker:string/dialog_msg_start_point_at_title: flags=0x00000000
+      spec resource 0x7f11008b com.rise.automatic.autoclicker.clicker:string/dialog_msg_watch_ad: flags=0x00000000
+      spec resource 0x7f11008c com.rise.automatic.autoclicker.clicker:string/dialog_point_anti_detection: flags=0x00000000
+      spec resource 0x7f11008d com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_back_title: flags=0x00000000
+      spec resource 0x7f11008e com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_cycle_times: flags=0x00000000
+      spec resource 0x7f11008f com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_cycle_times_info: flags=0x00000000
+      spec resource 0x7f110090 com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_delay: flags=0x00000000
+      spec resource 0x7f110091 com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_delay_info: flags=0x00000000
+      spec resource 0x7f110092 com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_duration: flags=0x00000000
+      spec resource 0x7f110093 com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_duration_info: flags=0x00000000
+      spec resource 0x7f110094 com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_home_title: flags=0x00000000
+      spec resource 0x7f110095 com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_launch_app_title: flags=0x00000000
+      spec resource 0x7f110096 com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_loop_delay_info: flags=0x00000000
+      spec resource 0x7f110097 com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_multi_touch_title: flags=0x00000000
+      spec resource 0x7f110098 com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_notify_title: flags=0x00000000
+      spec resource 0x7f110099 com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_pinch_title: flags=0x00000000
+      spec resource 0x7f11009a com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_random_duration_info: flags=0x00000000
+      spec resource 0x7f11009b com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_random_interval_info: flags=0x00000000
+      spec resource 0x7f11009c com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_swipe_title: flags=0x00000000
+      spec resource 0x7f11009d com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_tap_title: flags=0x00000000
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f11009e
+      spec resource 0x7f11009f com.rise.automatic.autoclicker.clicker:string/draw_curve_over_size: flags=0x00000000
+      spec resource 0x7f1100a0 com.rise.automatic.autoclicker.clicker:string/draw_curve_over_time: flags=0x00000000
+      spec resource 0x7f1100a1 com.rise.automatic.autoclicker.clicker:string/edge_click_subtitle: flags=0x00000000
+      spec resource 0x7f1100a2 com.rise.automatic.autoclicker.clicker:string/edge_click_title: flags=0x00000000
+      spec resource 0x7f1100a3 com.rise.automatic.autoclicker.clicker:string/error_icon_content_description: flags=0x00000000
+      spec resource 0x7f1100a4 com.rise.automatic.autoclicker.clicker:string/expand_button_title: flags=0x00000000
+      spec resource 0x7f1100a5 com.rise.automatic.autoclicker.clicker:string/exposed_dropdown_menu_content_description: flags=0x00000000
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1100a6
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1100a7
+      spec resource 0x7f1100a8 com.rise.automatic.autoclicker.clicker:string/fallback_menu_item_copy_link: flags=0x00000000
+      spec resource 0x7f1100a9 com.rise.automatic.autoclicker.clicker:string/fallback_menu_item_open_in_browser: flags=0x00000000
+      spec resource 0x7f1100aa com.rise.automatic.autoclicker.clicker:string/fallback_menu_item_share_link: flags=0x00000000
+      spec resource 0x7f1100ab com.rise.automatic.autoclicker.clicker:string/feedback_chrome_tabs_title: flags=0x00000000
+      spec resource 0x7f1100ac com.rise.automatic.autoclicker.clicker:string/feedback_email_phone_factory: flags=0x00000000
+      spec resource 0x7f1100ad com.rise.automatic.autoclicker.clicker:string/feedback_email_software_version: flags=0x00000000
+      spec resource 0x7f1100ae com.rise.automatic.autoclicker.clicker:string/feedback_email_submit: flags=0x00000000
+      spec resource 0x7f1100af com.rise.automatic.autoclicker.clicker:string/feedback_email_system_version: flags=0x00000000
+      spec resource 0x7f1100b0 com.rise.automatic.autoclicker.clicker:string/feedback_email_title: flags=0x00000000
+      spec resource 0x7f1100b1 com.rise.automatic.autoclicker.clicker:string/feedback_force_close_title: flags=0x00000000
+      spec resource 0x7f1100b2 com.rise.automatic.autoclicker.clicker:string/feedback_info: flags=0x00000000
+      spec resource 0x7f1100b3 com.rise.automatic.autoclicker.clicker:string/feedback_not_working_title: flags=0x00000000
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1100b4
+      spec resource 0x7f1100b5 com.rise.automatic.autoclicker.clicker:string/force_close_teach_add_app_to_wl: flags=0x00000000
+      spec resource 0x7f1100b6 com.rise.automatic.autoclicker.clicker:string/force_close_teach_allow_background_activity: flags=0x00000000
+      spec resource 0x7f1100b7 com.rise.automatic.autoclicker.clicker:string/force_close_teach_app_battery_manager: flags=0x00000000
+      spec resource 0x7f1100b8 com.rise.automatic.autoclicker.clicker:string/force_close_teach_app_launch: flags=0x00000000
+      spec resource 0x7f1100b9 com.rise.automatic.autoclicker.clicker:string/force_close_teach_background_power_manager: flags=0x00000000
+      spec resource 0x7f1100ba com.rise.automatic.autoclicker.clicker:string/force_close_teach_battery: flags=0x00000000
+      spec resource 0x7f1100bb com.rise.automatic.autoclicker.clicker:string/force_close_teach_battery_saver: flags=0x00000000
+      spec resource 0x7f1100bc com.rise.automatic.autoclicker.clicker:string/force_close_teach_find_and_tap: flags=0x00000000
+      spec resource 0x7f1100bd com.rise.automatic.autoclicker.clicker:string/force_close_teach_manage_manually: flags=0x00000000
+      spec resource 0x7f1100be com.rise.automatic.autoclicker.clicker:string/force_close_teach_no_restrictions: flags=0x00000000
+      spec resource 0x7f1100bf com.rise.automatic.autoclicker.clicker:string/force_close_teach_not_restrict: flags=0x00000000
+      spec resource 0x7f1100c0 com.rise.automatic.autoclicker.clicker:string/force_close_teach_open_settings: flags=0x00000000
+      spec resource 0x7f1100c1 com.rise.automatic.autoclicker.clicker:string/force_close_teach_power_manager_before: flags=0x00000000
+      spec resource 0x7f1100c2 com.rise.automatic.autoclicker.clicker:string/force_close_teach_power_manager_cancel: flags=0x00000000
+      spec resource 0x7f1100c3 com.rise.automatic.autoclicker.clicker:string/force_close_teach_power_manager_goto_settings: flags=0x00000000
+      spec resource 0x7f1100c4 com.rise.automatic.autoclicker.clicker:string/force_close_teach_power_manager_info: flags=0x00000000
+      spec resource 0x7f1100c5 com.rise.automatic.autoclicker.clicker:string/force_close_teach_power_manager_info_step: flags=0x00000000
+      spec resource 0x7f1100c6 com.rise.automatic.autoclicker.clicker:string/force_close_teach_tap: flags=0x00000000
+      spec resource 0x7f1100c7 com.rise.automatic.autoclicker.clicker:string/force_close_teach_title: flags=0x00000000
+      spec resource 0x7f1100c8 com.rise.automatic.autoclicker.clicker:string/force_close_teach_turn_on: flags=0x00000000
+      spec resource 0x7f1100c9 com.rise.automatic.autoclicker.clicker:string/force_close_teach_unmonitored_app: flags=0x00000000
+      spec resource 0x7f1100ca com.rise.automatic.autoclicker.clicker:string/force_close_teach_unrestricted: flags=0x00000000
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1100cb
+      spec resource 0x7f1100cc com.rise.automatic.autoclicker.clicker:string/gesture_editor_delete_info: flags=0x00000000
+      spec resource 0x7f1100cd com.rise.automatic.autoclicker.clicker:string/gesture_editor_done_info: flags=0x00000000
+      spec resource 0x7f1100ce com.rise.automatic.autoclicker.clicker:string/gesture_editor_drag_info: flags=0x00000000
+      spec resource 0x7f1100cf com.rise.automatic.autoclicker.clicker:string/gesture_editor_help_info: flags=0x00000000
+      spec resource 0x7f1100d0 com.rise.automatic.autoclicker.clicker:string/gesture_editor_insert_info: flags=0x00000000
+      spec resource 0x7f1100d1 com.rise.automatic.autoclicker.clicker:string/gesture_editor_modify_info: flags=0x00000000
+      spec resource 0x7f1100d2 com.rise.automatic.autoclicker.clicker:string/gesture_editor_replace_info: flags=0x00000000
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1100d3
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1100d4
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1100d5
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1100d6
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1100d7
+      spec resource 0x7f1100d8 com.rise.automatic.autoclicker.clicker:string/hours: flags=0x00000000
+      spec resource 0x7f1100d9 com.rise.automatic.autoclicker.clicker:string/icon_content_description: flags=0x00000000
+      spec resource 0x7f1100da com.rise.automatic.autoclicker.clicker:string/item_view_role_description: flags=0x00000000
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1100db
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1100dc
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1100dd
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1100de
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1100df
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1100e0
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1100e1
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1100e2
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1100e3
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1100e4
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1100e5
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1100e6
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1100e7
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1100e8
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1100e9
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1100ea
+      spec resource 0x7f1100eb com.rise.automatic.autoclicker.clicker:string/main_activity_button_start: flags=0x00000000
+      spec resource 0x7f1100ec com.rise.automatic.autoclicker.clicker:string/main_activity_button_stop: flags=0x00000000
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1100ed
+      spec resource 0x7f1100ee com.rise.automatic.autoclicker.clicker:string/material_clock_toggle_content_description: flags=0x00000000
+      spec resource 0x7f1100ef com.rise.automatic.autoclicker.clicker:string/material_hour_selection: flags=0x00000000
+      spec resource 0x7f1100f0 com.rise.automatic.autoclicker.clicker:string/material_hour_suffix: flags=0x00000000
+      spec resource 0x7f1100f1 com.rise.automatic.autoclicker.clicker:string/material_minute_selection: flags=0x00000000
+      spec resource 0x7f1100f2 com.rise.automatic.autoclicker.clicker:string/material_minute_suffix: flags=0x00000000
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1100f3
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1100f4
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1100f5
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1100f6
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1100f7
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1100f8
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1100f9
+      spec resource 0x7f1100fa com.rise.automatic.autoclicker.clicker:string/material_timepicker_am: flags=0x00000000
+      spec resource 0x7f1100fb com.rise.automatic.autoclicker.clicker:string/material_timepicker_clock_mode_description: flags=0x00000000
+      spec resource 0x7f1100fc com.rise.automatic.autoclicker.clicker:string/material_timepicker_hour: flags=0x00000000
+      spec resource 0x7f1100fd com.rise.automatic.autoclicker.clicker:string/material_timepicker_minute: flags=0x00000000
+      spec resource 0x7f1100fe com.rise.automatic.autoclicker.clicker:string/material_timepicker_pm: flags=0x00000000
+      spec resource 0x7f1100ff com.rise.automatic.autoclicker.clicker:string/material_timepicker_select_time: flags=0x00000000
+      spec resource 0x7f110100 com.rise.automatic.autoclicker.clicker:string/material_timepicker_text_input_mode_description: flags=0x00000000
+      spec resource 0x7f110101 com.rise.automatic.autoclicker.clicker:string/max_duration_n_minutes: flags=0x00000000
+      spec resource 0x7f110102 com.rise.automatic.autoclicker.clicker:string/max_duration_one_minute: flags=0x00000000
+      spec resource 0x7f110103 com.rise.automatic.autoclicker.clicker:string/max_value: flags=0x00000000
+      spec resource 0x7f110104 com.rise.automatic.autoclicker.clicker:string/min_duration_n_milliseconds: flags=0x00000000
+      spec resource 0x7f110105 com.rise.automatic.autoclicker.clicker:string/min_duration_one_minute: flags=0x00000000
+      spec resource 0x7f110106 com.rise.automatic.autoclicker.clicker:string/min_value: flags=0x00000000
+      spec resource 0x7f110107 com.rise.automatic.autoclicker.clicker:string/minutes: flags=0x00000000
+      spec resource 0x7f110108 com.rise.automatic.autoclicker.clicker:string/ms: flags=0x00000000
+      spec resource 0x7f110109 com.rise.automatic.autoclicker.clicker:string/mtrl_badge_numberless_content_description: flags=0x00000000
+      spec resource 0x7f11010a com.rise.automatic.autoclicker.clicker:string/mtrl_chip_close_icon_content_description: flags=0x00000000
+      spec resource 0x7f11010b com.rise.automatic.autoclicker.clicker:string/mtrl_exceed_max_badge_number_content_description: flags=0x00000000
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f11010c
+      spec resource 0x7f11010d com.rise.automatic.autoclicker.clicker:string/mtrl_picker_a11y_next_month: flags=0x00000000
+      spec resource 0x7f11010e com.rise.automatic.autoclicker.clicker:string/mtrl_picker_a11y_prev_month: flags=0x00000000
+      spec resource 0x7f11010f com.rise.automatic.autoclicker.clicker:string/mtrl_picker_announce_current_selection: flags=0x00000000
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f110110
+      spec resource 0x7f110111 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_confirm: flags=0x00000000
+      spec resource 0x7f110112 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_date_header_selected: flags=0x00000000
+      spec resource 0x7f110113 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_date_header_title: flags=0x00000000
+      spec resource 0x7f110114 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_date_header_unselected: flags=0x00000000
+      spec resource 0x7f110115 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_day_of_week_column_header: flags=0x00000000
+      spec resource 0x7f110116 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_invalid_format: flags=0x00000000
+      spec resource 0x7f110117 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_invalid_format_example: flags=0x00000000
+      spec resource 0x7f110118 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_invalid_format_use: flags=0x00000000
+      spec resource 0x7f110119 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_invalid_range: flags=0x00000000
+      spec resource 0x7f11011a com.rise.automatic.autoclicker.clicker:string/mtrl_picker_navigate_to_year_description: flags=0x00000000
+      spec resource 0x7f11011b com.rise.automatic.autoclicker.clicker:string/mtrl_picker_out_of_range: flags=0x00000000
+      spec resource 0x7f11011c com.rise.automatic.autoclicker.clicker:string/mtrl_picker_range_header_only_end_selected: flags=0x00000000
+      spec resource 0x7f11011d com.rise.automatic.autoclicker.clicker:string/mtrl_picker_range_header_only_start_selected: flags=0x00000000
+      spec resource 0x7f11011e com.rise.automatic.autoclicker.clicker:string/mtrl_picker_range_header_selected: flags=0x00000000
+      spec resource 0x7f11011f com.rise.automatic.autoclicker.clicker:string/mtrl_picker_range_header_title: flags=0x00000000
+      spec resource 0x7f110120 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_range_header_unselected: flags=0x00000000
+      spec resource 0x7f110121 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_save: flags=0x00000000
+      spec resource 0x7f110122 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_text_input_date_hint: flags=0x00000000
+      spec resource 0x7f110123 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_text_input_date_range_end_hint: flags=0x00000000
+      spec resource 0x7f110124 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_text_input_date_range_start_hint: flags=0x00000000
+      spec resource 0x7f110125 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_text_input_day_abbr: flags=0x00000000
+      spec resource 0x7f110126 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_text_input_month_abbr: flags=0x00000000
+      spec resource 0x7f110127 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_text_input_year_abbr: flags=0x00000000
+      spec resource 0x7f110128 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_toggle_to_calendar_input_mode: flags=0x00000000
+      spec resource 0x7f110129 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_toggle_to_day_selection: flags=0x00000000
+      spec resource 0x7f11012a com.rise.automatic.autoclicker.clicker:string/mtrl_picker_toggle_to_text_input_mode: flags=0x00000000
+      spec resource 0x7f11012b com.rise.automatic.autoclicker.clicker:string/mtrl_picker_toggle_to_year_selection: flags=0x00000000
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f11012c
+      spec resource 0x7f11012d com.rise.automatic.autoclicker.clicker:string/native_body: flags=0x00000000
+      spec resource 0x7f11012e com.rise.automatic.autoclicker.clicker:string/native_headline: flags=0x00000000
+      spec resource 0x7f11012f com.rise.automatic.autoclicker.clicker:string/native_media_view: flags=0x00000000
+      spec resource 0x7f110130 com.rise.automatic.autoclicker.clicker:string/not_set: flags=0x00000000
+      spec resource 0x7f110131 com.rise.automatic.autoclicker.clicker:string/notification_running_service: flags=0x00000000
+      spec resource 0x7f110132 com.rise.automatic.autoclicker.clicker:string/notification_running_service_text: flags=0x00000000
+      spec resource 0x7f110133 com.rise.automatic.autoclicker.clicker:string/notification_running_service_title: flags=0x00000000
+      spec resource 0x7f110134 com.rise.automatic.autoclicker.clicker:string/notifications_permission_confirm: flags=0x00000000
+      spec resource 0x7f110135 com.rise.automatic.autoclicker.clicker:string/notifications_permission_decline: flags=0x00000000
+      spec resource 0x7f110136 com.rise.automatic.autoclicker.clicker:string/notifications_permission_title: flags=0x00000000
+      spec resource 0x7f110137 com.rise.automatic.autoclicker.clicker:string/offline_dialog_image_description: flags=0x00000000
+      spec resource 0x7f110138 com.rise.automatic.autoclicker.clicker:string/offline_dialog_text: flags=0x00000000
+      spec resource 0x7f110139 com.rise.automatic.autoclicker.clicker:string/offline_notification_title: flags=0x00000000
+      spec resource 0x7f11013a com.rise.automatic.autoclicker.clicker:string/offline_notification_title_with_advertiser: flags=0x00000000
+      spec resource 0x7f11013b com.rise.automatic.autoclicker.clicker:string/offline_opt_in_confirm: flags=0x00000000
+      spec resource 0x7f11013c com.rise.automatic.autoclicker.clicker:string/offline_opt_in_decline: flags=0x00000000
+      spec resource 0x7f11013d com.rise.automatic.autoclicker.clicker:string/offline_opt_in_message: flags=0x00000000
+      spec resource 0x7f11013e com.rise.automatic.autoclicker.clicker:string/offline_opt_in_title: flags=0x00000000
+      spec resource 0x7f11013f com.rise.automatic.autoclicker.clicker:string/onboarding_next: flags=0x00000000
+      spec resource 0x7f110140 com.rise.automatic.autoclicker.clicker:string/onboarding_skip: flags=0x00000000
+      spec resource 0x7f110141 com.rise.automatic.autoclicker.clicker:string/onboarding_slide1_subtitle: flags=0x00000000
+      spec resource 0x7f110142 com.rise.automatic.autoclicker.clicker:string/onboarding_slide1_title: flags=0x00000000
+      spec resource 0x7f110143 com.rise.automatic.autoclicker.clicker:string/onboarding_slide2_subtitle: flags=0x00000000
+      spec resource 0x7f110144 com.rise.automatic.autoclicker.clicker:string/onboarding_slide2_title: flags=0x00000000
+      spec resource 0x7f110145 com.rise.automatic.autoclicker.clicker:string/onboarding_slide3_subtitle: flags=0x00000000
+      spec resource 0x7f110146 com.rise.automatic.autoclicker.clicker:string/onboarding_slide3_title: flags=0x00000000
+      spec resource 0x7f110147 com.rise.automatic.autoclicker.clicker:string/onboarding_start: flags=0x00000000
+      spec resource 0x7f110148 com.rise.automatic.autoclicker.clicker:string/password_toggle_content_description: flags=0x00000000
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f110149
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f11014a
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f11014b
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f11014c
+      spec resource 0x7f11014d com.rise.automatic.autoclicker.clicker:string/permission_dialog_agree: flags=0x00000000
+      spec resource 0x7f11014e com.rise.automatic.autoclicker.clicker:string/permission_dialog_decline: flags=0x00000000
+      spec resource 0x7f11014f com.rise.automatic.autoclicker.clicker:string/permission_dialog_desc: flags=0x00000000
+      spec resource 0x7f110150 com.rise.automatic.autoclicker.clicker:string/permission_dialog_permission_granted: flags=0x00000000
+      spec resource 0x7f110151 com.rise.automatic.autoclicker.clicker:string/permission_dialog_purpose_desc1: flags=0x00000000
+      spec resource 0x7f110152 com.rise.automatic.autoclicker.clicker:string/permission_dialog_purpose_desc2: flags=0x00000000
+      spec resource 0x7f110153 com.rise.automatic.autoclicker.clicker:string/permission_dialog_purpose_desc3: flags=0x00000000
+      spec resource 0x7f110154 com.rise.automatic.autoclicker.clicker:string/permission_dialog_purpose_desc_title: flags=0x00000000
+      spec resource 0x7f110155 com.rise.automatic.autoclicker.clicker:string/permission_dialog_settings1: flags=0x00000000
+      spec resource 0x7f110156 com.rise.automatic.autoclicker.clicker:string/permission_dialog_settings2: flags=0x00000000
+      spec resource 0x7f110157 com.rise.automatic.autoclicker.clicker:string/permission_dialog_settings3: flags=0x00000000
+      spec resource 0x7f110158 com.rise.automatic.autoclicker.clicker:string/permission_dialog_title: flags=0x00000000
+      spec resource 0x7f110159 com.rise.automatic.autoclicker.clicker:string/permission_tutorial_accessibility: flags=0x00000000
+      spec resource 0x7f11015a com.rise.automatic.autoclicker.clicker:string/permission_tutorial_downloaded_apps: flags=0x00000000
+      spec resource 0x7f11015b com.rise.automatic.autoclicker.clicker:string/permission_tutorial_info: flags=0x00000000
+      spec resource 0x7f11015c com.rise.automatic.autoclicker.clicker:string/permission_tutorial_installed_services: flags=0x00000000
+      spec resource 0x7f11015d com.rise.automatic.autoclicker.clicker:string/permission_tutorial_off: flags=0x00000000
+      spec resource 0x7f11015e com.rise.automatic.autoclicker.clicker:string/permission_tutorial_on: flags=0x00000000
+      spec resource 0x7f11015f com.rise.automatic.autoclicker.clicker:string/permission_tutorial_request_title: flags=0x00000000
+      spec resource 0x7f110160 com.rise.automatic.autoclicker.clicker:string/popup_window_repeat_max_warning: flags=0x00000000
+      spec resource 0x7f110161 com.rise.automatic.autoclicker.clicker:string/popup_window_repeat_min_warning: flags=0x00000000
+      spec resource 0x7f110162 com.rise.automatic.autoclicker.clicker:string/preference_anti_random_distance: flags=0x00000000
+      spec resource 0x7f110163 com.rise.automatic.autoclicker.clicker:string/preference_anti_random_duration: flags=0x00000000
+      spec resource 0x7f110164 com.rise.automatic.autoclicker.clicker:string/preference_anti_random_interval: flags=0x00000000
+      spec resource 0x7f110165 com.rise.automatic.autoclicker.clicker:string/preference_category_title_anti_detection: flags=0x00000000
+      spec resource 0x7f110166 com.rise.automatic.autoclicker.clicker:string/preference_category_title_default_settings: flags=0x00000000
+      spec resource 0x7f110167 com.rise.automatic.autoclicker.clicker:string/preference_category_title_loop_settings: flags=0x00000000
+      spec resource 0x7f110168 com.rise.automatic.autoclicker.clicker:string/preference_category_title_other: flags=0x00000000
+      spec resource 0x7f110169 com.rise.automatic.autoclicker.clicker:string/preference_category_title_start_script: flags=0x00000000
+      spec resource 0x7f11016a com.rise.automatic.autoclicker.clicker:string/preference_change_language: flags=0x00000000
+      spec resource 0x7f11016b com.rise.automatic.autoclicker.clicker:string/preference_copied: flags=0x00000000
+      spec resource 0x7f11016c com.rise.automatic.autoclicker.clicker:string/preference_default_action_cycle_times: flags=0x00000000
+      spec resource 0x7f11016d com.rise.automatic.autoclicker.clicker:string/preference_default_action_delay: flags=0x00000000
+      spec resource 0x7f11016e com.rise.automatic.autoclicker.clicker:string/preference_default_pinch_duration: flags=0x00000000
+      spec resource 0x7f11016f com.rise.automatic.autoclicker.clicker:string/preference_default_swipe_duration: flags=0x00000000
+      spec resource 0x7f110170 com.rise.automatic.autoclicker.clicker:string/preference_default_tap_duration: flags=0x00000000
+      spec resource 0x7f110171 com.rise.automatic.autoclicker.clicker:string/preference_loop_after: flags=0x00000000
+      spec resource 0x7f110172 com.rise.automatic.autoclicker.clicker:string/preference_loop_delay: flags=0x00000000
+      spec resource 0x7f110173 com.rise.automatic.autoclicker.clicker:string/preference_loop_timer: flags=0x00000000
+      spec resource 0x7f110174 com.rise.automatic.autoclicker.clicker:string/preference_open_source_licenses: flags=0x00000000
+      spec resource 0x7f110175 com.rise.automatic.autoclicker.clicker:string/preference_other_about_app: flags=0x00000000
+      spec resource 0x7f110176 com.rise.automatic.autoclicker.clicker:string/preference_other_restore_defaults: flags=0x00000000
+      spec resource 0x7f110177 com.rise.automatic.autoclicker.clicker:string/preference_other_translate_app: flags=0x00000000
+      spec resource 0x7f110178 com.rise.automatic.autoclicker.clicker:string/preference_other_upgrade_vip: flags=0x00000000
+      spec resource 0x7f110179 com.rise.automatic.autoclicker.clicker:string/preference_privacy_policy: flags=0x00000000
+      spec resource 0x7f11017a com.rise.automatic.autoclicker.clicker:string/preference_send_feedback: flags=0x00000000
+      spec resource 0x7f11017b com.rise.automatic.autoclicker.clicker:string/preference_share: flags=0x00000000
+      spec resource 0x7f11017c com.rise.automatic.autoclicker.clicker:string/preference_summary_delay_start_timer: flags=0x00000000
+      spec resource 0x7f11017d com.rise.automatic.autoclicker.clicker:string/preference_summary_help: flags=0x00000000
+      spec resource 0x7f11017e com.rise.automatic.autoclicker.clicker:string/preference_summary_loop_info: flags=0x00000000
+      spec resource 0x7f11017f com.rise.automatic.autoclicker.clicker:string/preference_summary_random_distance_info: flags=0x00000000
+      spec resource 0x7f110180 com.rise.automatic.autoclicker.clicker:string/preference_summary_restore_info: flags=0x00000000
+      spec resource 0x7f110181 com.rise.automatic.autoclicker.clicker:string/preference_summary_send_feedback: flags=0x00000000
+      spec resource 0x7f110182 com.rise.automatic.autoclicker.clicker:string/preference_summary_share: flags=0x00000000
+      spec resource 0x7f110183 com.rise.automatic.autoclicker.clicker:string/preference_summary_timer_hour_format: flags=0x00000000
+      spec resource 0x7f110184 com.rise.automatic.autoclicker.clicker:string/preference_summary_timer_minute_format: flags=0x00000000
+      spec resource 0x7f110185 com.rise.automatic.autoclicker.clicker:string/preference_summary_timer_second_format: flags=0x00000000
+      spec resource 0x7f110186 com.rise.automatic.autoclicker.clicker:string/preference_summary_troubleshooting: flags=0x00000000
+      spec resource 0x7f110187 com.rise.automatic.autoclicker.clicker:string/preference_troubleshooting: flags=0x00000000
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f110188
+      spec resource 0x7f110189 com.rise.automatic.autoclicker.clicker:string/purchase_account: flags=0x00000000
+      spec resource 0x7f11018a com.rise.automatic.autoclicker.clicker:string/purchase_action_unlimited: flags=0x00000000
+      spec resource 0x7f11018b com.rise.automatic.autoclicker.clicker:string/purchase_banner_hint: flags=0x00000000
+      spec resource 0x7f11018c com.rise.automatic.autoclicker.clicker:string/purchase_buy: flags=0x00000000
+      spec resource 0x7f11018d com.rise.automatic.autoclicker.clicker:string/purchase_config_unlimited: flags=0x00000000
+      spec resource 0x7f11018e com.rise.automatic.autoclicker.clicker:string/purchase_continue: flags=0x00000000
+      spec resource 0x7f11018f com.rise.automatic.autoclicker.clicker:string/purchase_get: flags=0x00000000
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f110190
+      spec resource 0x7f110191 com.rise.automatic.autoclicker.clicker:string/purchase_google_play_subscription_title: flags=0x00000000
+      spec resource 0x7f110192 com.rise.automatic.autoclicker.clicker:string/purchase_no_ads: flags=0x00000000
+      spec resource 0x7f110193 com.rise.automatic.autoclicker.clicker:string/purchase_no_expiration_date: flags=0x00000000
+      spec resource 0x7f110194 com.rise.automatic.autoclicker.clicker:string/purchase_no_internet_connection: flags=0x00000000
+      spec resource 0x7f110195 com.rise.automatic.autoclicker.clicker:string/purchase_notice_content: flags=0x00000000
+      spec resource 0x7f110196 com.rise.automatic.autoclicker.clicker:string/purchase_notice_title: flags=0x00000000
+      spec resource 0x7f110197 com.rise.automatic.autoclicker.clicker:string/purchase_one_mothly_with_free_desc: flags=0x00000000
+      spec resource 0x7f110198 com.rise.automatic.autoclicker.clicker:string/purchase_one_time_pay: flags=0x00000000
+      spec resource 0x7f110199 com.rise.automatic.autoclicker.clicker:string/purchase_one_time_pay_desc: flags=0x00000000
+      spec resource 0x7f11019a com.rise.automatic.autoclicker.clicker:string/purchase_one_year: flags=0x00000000
+      spec resource 0x7f11019b com.rise.automatic.autoclicker.clicker:string/purchase_pay_option_month: flags=0x00000000
+      spec resource 0x7f11019c com.rise.automatic.autoclicker.clicker:string/purchase_price_code_month: flags=0x00000000
+      spec resource 0x7f11019d com.rise.automatic.autoclicker.clicker:string/purchase_price_code_year: flags=0x00000000
+      spec resource 0x7f11019e com.rise.automatic.autoclicker.clicker:string/purchase_restore: flags=0x00000000
+      spec resource 0x7f11019f com.rise.automatic.autoclicker.clicker:string/purchase_restore_info: flags=0x00000000
+      spec resource 0x7f1101a0 com.rise.automatic.autoclicker.clicker:string/purchase_sign_in_with_google_account: flags=0x00000000
+      spec resource 0x7f1101a1 com.rise.automatic.autoclicker.clicker:string/purchase_subscribed_vip: flags=0x00000000
+      spec resource 0x7f1101a2 com.rise.automatic.autoclicker.clicker:string/purchase_subscription_info: flags=0x00000000
+      spec resource 0x7f1101a3 com.rise.automatic.autoclicker.clicker:string/purchase_three_days_try_free: flags=0x00000000
+      spec resource 0x7f1101a4 com.rise.automatic.autoclicker.clicker:string/purchase_try_free: flags=0x00000000
+      spec resource 0x7f1101a5 com.rise.automatic.autoclicker.clicker:string/purchase_yearly: flags=0x00000000
+      spec resource 0x7f1101a6 com.rise.automatic.autoclicker.clicker:string/rating_button_late: flags=0x00000000
+      spec resource 0x7f1101a7 com.rise.automatic.autoclicker.clicker:string/rating_button_rate: flags=0x00000000
+      spec resource 0x7f1101a8 com.rise.automatic.autoclicker.clicker:string/rating_button_thanks: flags=0x00000000
+      spec resource 0x7f1101a9 com.rise.automatic.autoclicker.clicker:string/rating_dialog_message: flags=0x00000000
+      spec resource 0x7f1101aa com.rise.automatic.autoclicker.clicker:string/rating_dialog_title: flags=0x00000000
+      spec resource 0x7f1101ab com.rise.automatic.autoclicker.clicker:string/rating_feedback: flags=0x00000000
+      spec resource 0x7f1101ac com.rise.automatic.autoclicker.clicker:string/rating_feedback_thanks: flags=0x00000000
+      spec resource 0x7f1101ad com.rise.automatic.autoclicker.clicker:string/rating_subtitle_default: flags=0x00000000
+      spec resource 0x7f1101ae com.rise.automatic.autoclicker.clicker:string/rating_subtitle_high: flags=0x00000000
+      spec resource 0x7f1101af com.rise.automatic.autoclicker.clicker:string/rating_subtitle_low: flags=0x00000000
+      spec resource 0x7f1101b0 com.rise.automatic.autoclicker.clicker:string/rating_subtitle_medium: flags=0x00000000
+      spec resource 0x7f1101b1 com.rise.automatic.autoclicker.clicker:string/rating_thanks: flags=0x00000000
+      spec resource 0x7f1101b2 com.rise.automatic.autoclicker.clicker:string/rating_title_default: flags=0x00000000
+      spec resource 0x7f1101b3 com.rise.automatic.autoclicker.clicker:string/rating_title_high: flags=0x00000000
+      spec resource 0x7f1101b4 com.rise.automatic.autoclicker.clicker:string/rating_title_low: flags=0x00000000
+      spec resource 0x7f1101b5 com.rise.automatic.autoclicker.clicker:string/rating_title_medium: flags=0x00000000
+      spec resource 0x7f1101b6 com.rise.automatic.autoclicker.clicker:string/running_control_bar_action_step: flags=0x00000000
+      spec resource 0x7f1101b7 com.rise.automatic.autoclicker.clicker:string/running_control_bar_loop: flags=0x00000000
+      spec resource 0x7f1101b8 com.rise.automatic.autoclicker.clicker:string/running_control_bar_pause: flags=0x00000000
+      spec resource 0x7f1101b9 com.rise.automatic.autoclicker.clicker:string/running_control_bar_resume: flags=0x00000000
+      spec resource 0x7f1101ba com.rise.automatic.autoclicker.clicker:string/running_control_bar_stop: flags=0x00000000
+      spec resource 0x7f1101bb com.rise.automatic.autoclicker.clicker:string/running_control_bar_title: flags=0x00000000
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1101bc
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1101bd
+      spec resource 0x7f1101be com.rise.automatic.autoclicker.clicker:string/running_control_time: flags=0x00000000
+      spec resource 0x7f1101bf com.rise.automatic.autoclicker.clicker:string/s1: flags=0x00000000
+      spec resource 0x7f1101c0 com.rise.automatic.autoclicker.clicker:string/s2: flags=0x00000000
+      spec resource 0x7f1101c1 com.rise.automatic.autoclicker.clicker:string/s3: flags=0x00000000
+      spec resource 0x7f1101c2 com.rise.automatic.autoclicker.clicker:string/s4: flags=0x00000000
+      spec resource 0x7f1101c3 com.rise.automatic.autoclicker.clicker:string/s5: flags=0x00000000
+      spec resource 0x7f1101c4 com.rise.automatic.autoclicker.clicker:string/s6: flags=0x00000000
+      spec resource 0x7f1101c5 com.rise.automatic.autoclicker.clicker:string/s7: flags=0x00000000
+      spec resource 0x7f1101c6 com.rise.automatic.autoclicker.clicker:string/save_config_add_config_btn: flags=0x00000000
+      spec resource 0x7f1101c7 com.rise.automatic.autoclicker.clicker:string/save_config_add_config_title: flags=0x00000000
+      spec resource 0x7f1101c8 com.rise.automatic.autoclicker.clicker:string/save_config_menu_action_delete: flags=0x00000000
+      spec resource 0x7f1101c9 com.rise.automatic.autoclicker.clicker:string/save_config_menu_action_export: flags=0x00000000
+      spec resource 0x7f1101ca com.rise.automatic.autoclicker.clicker:string/save_config_menu_action_import: flags=0x00000000
+      spec resource 0x7f1101cb com.rise.automatic.autoclicker.clicker:string/save_config_menu_action_load: flags=0x00000000
+      spec resource 0x7f1101cc com.rise.automatic.autoclicker.clicker:string/save_config_menu_action_personalization: flags=0x00000000
+      spec resource 0x7f1101cd com.rise.automatic.autoclicker.clicker:string/save_config_menu_action_reorder_title: flags=0x00000000
+      spec resource 0x7f1101ce com.rise.automatic.autoclicker.clicker:string/save_config_menu_action_select_title: flags=0x00000000
+      spec resource 0x7f1101cf com.rise.automatic.autoclicker.clicker:string/save_config_no_config_found: flags=0x00000000
+      spec resource 0x7f1101d0 com.rise.automatic.autoclicker.clicker:string/save_config_override_title: flags=0x00000000
+      spec resource 0x7f1101d1 com.rise.automatic.autoclicker.clicker:string/save_config_permission_external_storage: flags=0x00000000
+      spec resource 0x7f1101d2 com.rise.automatic.autoclicker.clicker:string/save_config_save_my_config_title: flags=0x00000000
+      spec resource 0x7f1101d3 com.rise.automatic.autoclicker.clicker:string/save_config_search_title: flags=0x00000000
+      spec resource 0x7f1101d4 com.rise.automatic.autoclicker.clicker:string/save_config_service_not_started: flags=0x00000000
+      spec resource 0x7f1101d5 com.rise.automatic.autoclicker.clicker:string/search_menu_title: flags=0x00000000
+      spec resource 0x7f1101d6 com.rise.automatic.autoclicker.clicker:string/seconds: flags=0x00000000
+      spec resource 0x7f1101d7 com.rise.automatic.autoclicker.clicker:string/share_mail_chooser_share_with: flags=0x00000000
+      spec resource 0x7f1101d8 com.rise.automatic.autoclicker.clicker:string/share_mail_description: flags=0x00000000
+      spec resource 0x7f1101d9 com.rise.automatic.autoclicker.clicker:string/share_mail_title: flags=0x00000000
+      spec resource 0x7f1101da com.rise.automatic.autoclicker.clicker:string/snackbar_auth_unknown_error: flags=0x00000000
+      spec resource 0x7f1101db com.rise.automatic.autoclicker.clicker:string/snackbar_cannot_view_document: flags=0x00000000
+      spec resource 0x7f1101dc com.rise.automatic.autoclicker.clicker:string/snackbar_config_count_limited: flags=0x00000000
+      INVALID TYPE CONFIG FOR RESOURCE 0x7f1101dd
+      spec resource 0x7f1101de com.rise.automatic.autoclicker.clicker:string/snackbar_file_saved: flags=0x00000000
+      spec resource 0x7f1101df com.rise.automatic.autoclicker.clicker:string/snackbar_go_to_setting: flags=0x00000000
+      spec resource 0x7f1101e0 com.rise.automatic.autoclicker.clicker:string/snackbar_import_fail: flags=0x00000000
+      spec resource 0x7f1101e1 com.rise.automatic.autoclicker.clicker:string/snackbar_keep_hide: flags=0x00000000
+      spec resource 0x7f1101e2 com.rise.automatic.autoclicker.clicker:string/snackbar_load_fail: flags=0x00000000
+      spec resource 0x7f1101e3 com.rise.automatic.autoclicker.clicker:string/snackbar_no_actions: flags=0x00000000
+      spec resource 0x7f1101e4 com.rise.automatic.autoclicker.clicker:string/snackbar_permission_denied: flags=0x00000000
+      spec resource 0x7f1101e5 com.rise.automatic.autoclicker.clicker:string/snackbar_some_error_occurred: flags=0x00000000
+      spec resource 0x7f1101e6 com.rise.automatic.autoclicker.clicker:string/snackbar_stop_service_confirm: flags=0x00000000
+      spec resource 0x7f1101e7 com.rise.automatic.autoclicker.clicker:string/snackbar_thank_your_for_watching: flags=0x00000000
+      spec resource 0x7f1101e8 com.rise.automatic.autoclicker.clicker:string/status_bar_notification_info_overflow: flags=0x00000000
+      spec resource 0x7f1101e9 com.rise.automatic.autoclicker.clicker:string/summary_collapsed_preference_list: flags=0x00000000
+      spec resource 0x7f1101ea com.rise.automatic.autoclicker.clicker:string/teach_control_bar_info: flags=0x00000000
+      spec resource 0x7f1101eb com.rise.automatic.autoclicker.clicker:string/teach_control_bar_info2: flags=0x00000000
+      spec resource 0x7f1101ec com.rise.automatic.autoclicker.clicker:string/teach_custom: flags=0x00000000
+      spec resource 0x7f1101ed com.rise.automatic.autoclicker.clicker:string/teach_edge_click: flags=0x00000000
+      spec resource 0x7f1101ee com.rise.automatic.autoclicker.clicker:string/teach_edge_click_info: flags=0x00000000
+      spec resource 0x7f1101ef com.rise.automatic.autoclicker.clicker:string/teach_edge_click_title: flags=0x00000000
+      spec resource 0x7f1101f0 com.rise.automatic.autoclicker.clicker:string/teach_end_icon_info: flags=0x00000000
+      spec resource 0x7f1101f1 com.rise.automatic.autoclicker.clicker:string/teach_end_icon_info2: flags=0x00000000
+      spec resource 0x7f1101f2 com.rise.automatic.autoclicker.clicker:string/teach_multi_dark_mode_info: flags=0x00000000
+      spec resource 0x7f1101f3 com.rise.automatic.autoclicker.clicker:string/teach_multi_touch: flags=0x00000000
+      spec resource 0x7f1101f4 com.rise.automatic.autoclicker.clicker:string/teach_multi_touch_info: flags=0x00000000
+      spec resource 0x7f1101f5 com.rise.automatic.autoclicker.clicker:string/teach_new_feature: flags=0x00000000
+      spec resource 0x7f1101f6 com.rise.automatic.autoclicker.clicker:string/teach_save_config_hint: flags=0x00000000
+      spec resource 0x7f1101f7 com.rise.automatic.autoclicker.clicker:string/teach_save_config_hint_title: flags=0x00000000
+      spec resource 0x7f1101f8 com.rise.automatic.autoclicker.clicker:string/teach_summary: flags=0x00000000
+      spec resource 0x7f1101f9 com.rise.automatic.autoclicker.clicker:string/teach_summary_first: flags=0x00000000
+      spec resource 0x7f1101fa com.rise.automatic.autoclicker.clicker:string/teach_title: flags=0x00000000
+      spec resource 0x7f1101fb com.rise.automatic.autoclicker.clicker:string/terms_of_service_dialog_action_accept: flags=0x00000000
+      spec resource 0x7f1101fc com.rise.automatic.autoclicker.clicker:string/terms_of_service_dialog_info: flags=0x00000000
+      spec resource 0x7f1101fd com.rise.automatic.autoclicker.clicker:string/terms_of_service_dialog_subtitle: flags=0x00000000
+      spec resource 0x7f1101fe com.rise.automatic.autoclicker.clicker:string/terms_of_service_dialog_title: flags=0x00000000
+      spec resource 0x7f1101ff com.rise.automatic.autoclicker.clicker:string/times: flags=0x00000000
+      spec resource 0x7f110200 com.rise.automatic.autoclicker.clicker:string/toast_customization_item_order_count_limited: flags=0x00000000
+      spec resource 0x7f110201 com.rise.automatic.autoclicker.clicker:string/toast_customization_item_order_count_needed: flags=0x00000000
+      spec resource 0x7f110202 com.rise.automatic.autoclicker.clicker:string/toast_customization_reopen_notice: flags=0x00000000
+      spec resource 0x7f110203 com.rise.automatic.autoclicker.clicker:string/toast_service_action_count_limited: flags=0x00000000
+      spec resource 0x7f110204 com.rise.automatic.autoclicker.clicker:string/toast_service_no_action: flags=0x00000000
+      spec resource 0x7f110205 com.rise.automatic.autoclicker.clicker:string/toast_service_swipe_cancel: flags=0x00000000
+      spec resource 0x7f110206 com.rise.automatic.autoclicker.clicker:string/toast_settings_saved: flags=0x00000000
+      spec resource 0x7f110207 com.rise.automatic.autoclicker.clicker:string/translate_button: flags=0x00000000
+      spec resource 0x7f110208 com.rise.automatic.autoclicker.clicker:string/translate_info_text: flags=0x00000000
+      spec resource 0x7f110209 com.rise.automatic.autoclicker.clicker:string/translate_no_language: flags=0x00000000
+      spec resource 0x7f11020a com.rise.automatic.autoclicker.clicker:string/translate_summary: flags=0x00000000
+      spec resource 0x7f11020b com.rise.automatic.autoclicker.clicker:string/translator_language_picker_title: flags=0x00000000
+      spec resource 0x7f11020c com.rise.automatic.autoclicker.clicker:string/translator_more_language_title: flags=0x00000000
+      spec resource 0x7f11020d com.rise.automatic.autoclicker.clicker:string/translator_system_language_title: flags=0x00000000
+      spec resource 0x7f11020e com.rise.automatic.autoclicker.clicker:string/troubleshooting_info: flags=0x00000000
+      spec resource 0x7f11020f com.rise.automatic.autoclicker.clicker:string/troubleshooting_info2: flags=0x00000000
+      spec resource 0x7f110210 com.rise.automatic.autoclicker.clicker:string/troubleshooting_info3: flags=0x00000000
+      spec resource 0x7f110211 com.rise.automatic.autoclicker.clicker:string/v7_preference_off: flags=0x00000000
+      spec resource 0x7f110212 com.rise.automatic.autoclicker.clicker:string/v7_preference_on: flags=0x00000000
+      spec resource 0x7f110213 com.rise.automatic.autoclicker.clicker:string/watermark_label_prefix: flags=0x00000000
+      spec resource 0x7f110214 com.rise.automatic.autoclicker.clicker:string/wheel_view_short_day_format: flags=0x00000000
+      spec resource 0x7f110215 com.rise.automatic.autoclicker.clicker:string/wheel_view_today: flags=0x00000000
+      config ko:
+        resource 0x7f110000 com.rise.automatic.autoclicker.clicker:string/abc_action_bar_home_description: t=0x03 d=0x000001af (s=0x0008 r=0x00)
+          (string8) "홈으로 이동"
+        resource 0x7f110001 com.rise.automatic.autoclicker.clicker:string/abc_action_bar_up_description: t=0x03 d=0x0000012e (s=0x0008 r=0x00)
+          (string8) "위로 이동"
+        resource 0x7f110002 com.rise.automatic.autoclicker.clicker:string/abc_action_menu_overflow_description: t=0x03 d=0x0000017d (s=0x0008 r=0x00)
+          (string8) "추가 옵션"
+        resource 0x7f110003 com.rise.automatic.autoclicker.clicker:string/abc_action_mode_done: t=0x03 d=0x00000127 (s=0x0008 r=0x00)
+          (string8) "완료"
+        resource 0x7f110004 com.rise.automatic.autoclicker.clicker:string/abc_activity_chooser_view_see_all: t=0x03 d=0x00000152 (s=0x0008 r=0x00)
+          (string8) "전체 보기"
+        resource 0x7f110005 com.rise.automatic.autoclicker.clicker:string/abc_activitychooserview_choose_application: t=0x03 d=0x00000101 (s=0x0008 r=0x00)
+          (string8) "앱 선택"
+        resource 0x7f110006 com.rise.automatic.autoclicker.clicker:string/abc_capital_off: t=0x03 d=0x000000b9 (s=0x0008 r=0x00)
+          (string8) "사용 중지"
+        resource 0x7f110007 com.rise.automatic.autoclicker.clicker:string/abc_capital_on: t=0x03 d=0x000000b6 (s=0x0008 r=0x00)
+          (string8) "사용"
+        resource 0x7f110008 com.rise.automatic.autoclicker.clicker:string/abc_menu_alt_shortcut_label: t=0x03 d=0x00000022 (s=0x0008 r=0x00)
+          (string8) "Alt+"
+        resource 0x7f110009 com.rise.automatic.autoclicker.clicker:string/abc_menu_ctrl_shortcut_label: t=0x03 d=0x00000028 (s=0x0008 r=0x00)
+          (string8) "Ctrl+"
+        resource 0x7f11000a com.rise.automatic.autoclicker.clicker:string/abc_menu_delete_shortcut_label: t=0x03 d=0x00000029 (s=0x0008 r=0x00)
+          (string8) "Delete"
+        resource 0x7f11000b com.rise.automatic.autoclicker.clicker:string/abc_menu_enter_shortcut_label: t=0x03 d=0x0000002a (s=0x0008 r=0x00)
+          (string8) "Enter"
+        resource 0x7f11000c com.rise.automatic.autoclicker.clicker:string/abc_menu_function_shortcut_label: t=0x03 d=0x0000002b (s=0x0008 r=0x00)
+          (string8) "Function+"
+        resource 0x7f11000d com.rise.automatic.autoclicker.clicker:string/abc_menu_meta_shortcut_label: t=0x03 d=0x00000037 (s=0x0008 r=0x00)
+          (string8) "Meta+"
+        resource 0x7f11000e com.rise.automatic.autoclicker.clicker:string/abc_menu_shift_shortcut_label: t=0x03 d=0x00000039 (s=0x0008 r=0x00)
+          (string8) "Shift+"
+        resource 0x7f11000f com.rise.automatic.autoclicker.clicker:string/abc_menu_space_shortcut_label: t=0x03 d=0x000000e7 (s=0x0008 r=0x00)
+          (string8) "스페이스바"
+        resource 0x7f110010 com.rise.automatic.autoclicker.clicker:string/abc_menu_sym_shortcut_label: t=0x03 d=0x0000003a (s=0x0008 r=0x00)
+          (string8) "Sym+"
+        resource 0x7f110011 com.rise.automatic.autoclicker.clicker:string/abc_prepend_shortcut_label: t=0x03 d=0x00000036 (s=0x0008 r=0x00)
+          (string8) "Menu+"
+        resource 0x7f110012 com.rise.automatic.autoclicker.clicker:string/abc_search_hint: t=0x03 d=0x00000046 (s=0x0008 r=0x00)
+          (string8) "검색..."
+        resource 0x7f110013 com.rise.automatic.autoclicker.clicker:string/abc_searchview_description_clear: t=0x03 d=0x00000049 (s=0x0008 r=0x00)
+          (string8) "검색어 삭제"
+        resource 0x7f110014 com.rise.automatic.autoclicker.clicker:string/abc_searchview_description_query: t=0x03 d=0x00000047 (s=0x0008 r=0x00)
+          (string8) "검색어"
+        resource 0x7f110015 com.rise.automatic.autoclicker.clicker:string/abc_searchview_description_search: t=0x03 d=0x00000045 (s=0x0008 r=0x00)
+          (string8) "검색"
+        resource 0x7f110016 com.rise.automatic.autoclicker.clicker:string/abc_searchview_description_submit: t=0x03 d=0x00000048 (s=0x0008 r=0x00)
+          (string8) "검색어 보내기"
+        resource 0x7f110017 com.rise.automatic.autoclicker.clicker:string/abc_searchview_description_voice: t=0x03 d=0x00000131 (s=0x0008 r=0x00)
+          (string8) "음성 검색"
+        resource 0x7f110018 com.rise.automatic.autoclicker.clicker:string/abc_shareactionprovider_share_with: t=0x03 d=0x0000004e (s=0x0008 r=0x00)
+          (string8) "공유 대상:"
+        resource 0x7f110019 com.rise.automatic.autoclicker.clicker:string/abc_shareactionprovider_share_with_application: t=0x03 d=0x00000017 (s=0x0008 r=0x00)
+          (string8) "%s과(와) 공유"
+        resource 0x7f11001a com.rise.automatic.autoclicker.clicker:string/abc_toolbar_collapse_description: t=0x03 d=0x00000159 (s=0x0008 r=0x00)
+          (string8) "접기"
+        resource 0x7f11001b com.rise.automatic.autoclicker.clicker:string/accessibility_service_description: t=0x03 d=0x0000010a (s=0x0008 r=0x00)
+          (string8) "앱이 제스처를 실행할 수 있도록 접근성 권한을 활성화해 주세요. 이 앱은 개인 정보를 수집하지 않습니다.\n\n\nY.C. Studio"
+        resource 0x7f11001c com.rise.automatic.autoclicker.clicker:string/accessibility_service_id: t=0x03 d=0x0000003d (s=0x0008 r=0x00)
+          (string8) "com.rise.automatic.autoclicker.clicker/.service.accessibility.MouseAccessibilityService"
+        resource 0x7f11001d com.rise.automatic.autoclicker.clicker:string/accessibility_service_name: t=0x03 d=0x00000002 (s=0x0008 r=0x00)
+          (string8) "# 클릭 어시스턴트"
+        resource 0x7f11001e com.rise.automatic.autoclicker.clicker:string/activity_config: t=0x03 d=0x000000ca (s=0x0008 r=0x00)
+          (string8) "설정 저장하기"
+        resource 0x7f11001f com.rise.automatic.autoclicker.clicker:string/activity_customize: t=0x03 d=0x0000008f (s=0x0008 r=0x00)
+          (string8) "맞춤화"
+        resource 0x7f110020 com.rise.automatic.autoclicker.clicker:string/activity_iap: t=0x03 d=0x0000003b (s=0x0008 r=0x00)
+          (string8) "VIP로 업그레이드"
+        resource 0x7f110021 com.rise.automatic.autoclicker.clicker:string/activity_translate: t=0x03 d=0x000000a9 (s=0x0008 r=0x00)
+          (string8) "번역 도와주기"
+        resource 0x7f110023 com.rise.automatic.autoclicker.clicker:string/app_name: t=0x03 d=0x0000018d (s=0x0008 r=0x00)
+          (string8) "클릭 어시스턴트"
+        resource 0x7f110026 com.rise.automatic.autoclicker.clicker:string/bottomsheet_action_expand_halfway: t=0x03 d=0x0000009d (s=0x0008 r=0x00)
+          (string8) "반만 펼치기"
+        resource 0x7f110027 com.rise.automatic.autoclicker.clicker:string/character_counter_content_description: t=0x03 d=0x00000145 (s=0x0008 r=0x00)
+          (string8) "입력된 글자 %1$d/%2$d"
+        resource 0x7f110028 com.rise.automatic.autoclicker.clicker:string/character_counter_overflowed_content_description: t=0x03 d=0x0000005b (s=0x0008 r=0x00)
+          (string8) "글자 수 제한이 초과되었습니다(%1$d/%2$d)."
+        resource 0x7f11002b com.rise.automatic.autoclicker.clicker:string/chrome_tab_show_as_list_accessibility: t=0x03 d=0x00000158 (s=0x0008 r=0x00)
+          (string8) "접근성'을 선택합니다"
+        resource 0x7f11002c com.rise.automatic.autoclicker.clicker:string/chrome_tab_show_as_list_disable: t=0x03 d=0x00000118 (s=0x0008 r=0x00)
+          (string8) "열린 탭 간단히 보기'를 선택 해제합니다"
+        resource 0x7f11002d com.rise.automatic.autoclicker.clicker:string/chrome_tab_show_as_list_open: t=0x03 d=0x00000027 (s=0x0008 r=0x00)
+          (string8) "Chrome을 엽니다"
+        resource 0x7f11002e com.rise.automatic.autoclicker.clicker:string/chrome_tab_show_as_list_settings: t=0x03 d=0x00000121 (s=0x0008 r=0x00)
+          (string8) "오른쪽 상단에서 '더보기' > '설정'을 탭합니다"
+        resource 0x7f11002f com.rise.automatic.autoclicker.clicker:string/clear_text_end_icon_content_description: t=0x03 d=0x0000019b (s=0x0008 r=0x00)
+          (string8) "텍스트 삭제"
+        resource 0x7f110031 com.rise.automatic.autoclicker.clicker:string/common_google_play_services_enable_button: t=0x03 d=0x000000b7 (s=0x0008 r=0x00)
+          (string8) "사용 설정"
+        resource 0x7f110032 com.rise.automatic.autoclicker.clicker:string/common_google_play_services_enable_text: t=0x03 d=0x00000031 (s=0x0008 r=0x00)
+          (string8) "Google Play 서비스를 사용하도록 설정해야 %1$s이(가) 작동합니다."
+        resource 0x7f110033 com.rise.automatic.autoclicker.clicker:string/common_google_play_services_enable_title: t=0x03 d=0x0000002c (s=0x0008 r=0x00)
+          (string8) "Google Play 서비스 사용"
+        resource 0x7f110034 com.rise.automatic.autoclicker.clicker:string/common_google_play_services_install_button: t=0x03 d=0x000000d0 (s=0x0008 r=0x00)
+          (string8) "설치"
+        resource 0x7f110035 com.rise.automatic.autoclicker.clicker:string/common_google_play_services_install_text: t=0x03 d=0x0000005d (s=0x0008 r=0x00)
+          (string8) "기기에 Google Play 서비스가 설치되어 있어야 %1$s이(가) 실행됩니다."
+        resource 0x7f110036 com.rise.automatic.autoclicker.clicker:string/common_google_play_services_install_title: t=0x03 d=0x0000002e (s=0x0008 r=0x00)
+          (string8) "Google Play 서비스 설치"
+        resource 0x7f110037 com.rise.automatic.autoclicker.clicker:string/common_google_play_services_notification_channel_name: t=0x03 d=0x0000002d (s=0x0008 r=0x00)
+          (string8) "Google Play 서비스 사용 가능 여부"
+        resource 0x7f110038 com.rise.automatic.autoclicker.clicker:string/common_google_play_services_notification_ticker: t=0x03 d=0x00000030 (s=0x0008 r=0x00)
+          (string8) "Google Play 서비스 오류"
+        resource 0x7f110039 com.rise.automatic.autoclicker.clicker:string/common_google_play_services_unknown_issue: t=0x03 d=0x00000011 (s=0x0008 r=0x00)
+          (string8) "%1$s에서 Google Play 서비스를 사용하는 데 문제가 있습니다. 다시 시도하세요."
+        resource 0x7f11003a com.rise.automatic.autoclicker.clicker:string/common_google_play_services_unsupported_text: t=0x03 d=0x00000012 (s=0x0008 r=0x00)
+          (string8) "%1$s은(는) Google Play 서비스 없이는 실행되지 않으나, 기기에서 Google Play 서비스를 지원하지 않습니다."
+        resource 0x7f11003b com.rise.automatic.autoclicker.clicker:string/common_google_play_services_update_button: t=0x03 d=0x00000110 (s=0x0008 r=0x00)
+          (string8) "업데이트"
+        resource 0x7f11003c com.rise.automatic.autoclicker.clicker:string/common_google_play_services_update_text: t=0x03 d=0x00000032 (s=0x0008 r=0x00)
+          (string8) "Google Play 서비스를 업데이트해야 %1$s이(가) 실행됩니다."
+        resource 0x7f11003d com.rise.automatic.autoclicker.clicker:string/common_google_play_services_update_title: t=0x03 d=0x0000002f (s=0x0008 r=0x00)
+          (string8) "Google Play 서비스 업데이트"
+        resource 0x7f11003e com.rise.automatic.autoclicker.clicker:string/common_google_play_services_updating_text: t=0x03 d=0x000001a7 (s=0x0008 r=0x00)
+          (string8) "현재 업데이트 중인 Google Play 서비스가 있어야 %1$s이(가) 실행됩니다."
+        resource 0x7f11003f com.rise.automatic.autoclicker.clicker:string/common_google_play_services_wear_update_text: t=0x03 d=0x000000bb (s=0x0008 r=0x00)
+          (string8) "새 버전의 Google Play 서비스가 필요합니다. 곧 자동으로 업데이트됩니다."
+        resource 0x7f110040 com.rise.automatic.autoclicker.clicker:string/common_open_on_phone: t=0x03 d=0x000000d8 (s=0x0008 r=0x00)
+          (string8) "스마트폰에서 열기"
+        resource 0x7f110041 com.rise.automatic.autoclicker.clicker:string/common_signin_button_text: t=0x03 d=0x00000089 (s=0x0008 r=0x00)
+          (string8) "로그인"
+        resource 0x7f110042 com.rise.automatic.autoclicker.clicker:string/common_signin_button_text_long: t=0x03 d=0x00000035 (s=0x0008 r=0x00)
+          (string8) "Google 계정으로 로그인"
+        resource 0x7f110044 com.rise.automatic.autoclicker.clicker:string/control_panel_item_add: t=0x03 d=0x00000193 (s=0x0008 r=0x00)
+          (string8) "클릭 제스처 추가"
+        resource 0x7f110045 com.rise.automatic.autoclicker.clicker:string/control_panel_item_back: t=0x03 d=0x00000082 (s=0x0008 r=0x00)
+          (string8) "돌아가기"
+        resource 0x7f110046 com.rise.automatic.autoclicker.clicker:string/control_panel_item_close: t=0x03 d=0x00000079 (s=0x0008 r=0x00)
+          (string8) "닫기"
+        resource 0x7f110047 com.rise.automatic.autoclicker.clicker:string/control_panel_item_collapse: t=0x03 d=0x0000015a (s=0x0008 r=0x00)
+          (string8) "접기/펼치기"
+        resource 0x7f110048 com.rise.automatic.autoclicker.clicker:string/control_panel_item_curve: t=0x03 d=0x00000184 (s=0x0008 r=0x00)
+          (string8) "커브 제스처"
+        resource 0x7f110049 com.rise.automatic.autoclicker.clicker:string/control_panel_item_delete: t=0x03 d=0x00000161 (s=0x0008 r=0x00)
+          (string8) "제스처 삭제하기"
+        resource 0x7f11004a com.rise.automatic.autoclicker.clicker:string/control_panel_item_home: t=0x03 d=0x000001ae (s=0x0008 r=0x00)
+          (string8) "홈 화면으로 이동"
+        resource 0x7f11004b com.rise.automatic.autoclicker.clicker:string/control_panel_item_launcher: t=0x03 d=0x00000102 (s=0x0008 r=0x00)
+          (string8) "앱 실행"
+        resource 0x7f11004c com.rise.automatic.autoclicker.clicker:string/control_panel_item_line: t=0x03 d=0x000000db (s=0x0008 r=0x00)
+          (string8) "스와이프 제스처"
+        resource 0x7f11004d com.rise.automatic.autoclicker.clicker:string/control_panel_item_notify: t=0x03 d=0x000000fa (s=0x0008 r=0x00)
+          (string8) "알림 패널 열기"
+        resource 0x7f11004e com.rise.automatic.autoclicker.clicker:string/control_panel_item_pinch: t=0x03 d=0x0000019e (s=0x0008 r=0x00)
+          (string8) "핀치 축소 제스처"
+        resource 0x7f11004f com.rise.automatic.autoclicker.clicker:string/control_panel_item_pinch_out: t=0x03 d=0x0000019f (s=0x0008 r=0x00)
+          (string8) "핀치 확대 제스처"
+        resource 0x7f110050 com.rise.automatic.autoclicker.clicker:string/control_panel_item_play: t=0x03 d=0x000000dd (s=0x0008 r=0x00)
+          (string8) "스크립트 실행 시작하기"
+        resource 0x7f110051 com.rise.automatic.autoclicker.clicker:string/control_panel_item_recording: t=0x03 d=0x0000015f (s=0x0008 r=0x00)
+          (string8) "제스처 녹화하기"
+        resource 0x7f110052 com.rise.automatic.autoclicker.clicker:string/control_panel_item_save: t=0x03 d=0x000000e1 (s=0x0008 r=0x00)
+          (string8) "스크립트 저장"
+        resource 0x7f110053 com.rise.automatic.autoclicker.clicker:string/control_panel_item_settings: t=0x03 d=0x00000163 (s=0x0008 r=0x00)
+          (string8) "제스처 편집기"
+        resource 0x7f110054 com.rise.automatic.autoclicker.clicker:string/control_panel_item_visible: t=0x03 d=0x00000165 (s=0x0008 r=0x00)
+          (string8) "제스처 표시 여부"
+        resource 0x7f110055 com.rise.automatic.autoclicker.clicker:string/copy: t=0x03 d=0x000000ac (s=0x0008 r=0x00)
+          (string8) "복사"
+        resource 0x7f110056 com.rise.automatic.autoclicker.clicker:string/copy_toast_msg: t=0x03 d=0x00000194 (s=0x0008 r=0x00)
+          (string8) "클립보드에 링크 복사됨"
+        resource 0x7f110057 com.rise.automatic.autoclicker.clicker:string/corner_orientation_labels_bottom_left: t=0x03 d=0x00000129 (s=0x0008 r=0x00)
+          (string8) "왼쪽 하단"
+        resource 0x7f110058 com.rise.automatic.autoclicker.clicker:string/corner_orientation_labels_bottom_right: t=0x03 d=0x00000122 (s=0x0008 r=0x00)
+          (string8) "오른쪽 하단"
+        resource 0x7f110059 com.rise.automatic.autoclicker.clicker:string/corner_orientation_labels_center: t=0x03 d=0x0000016f (s=0x0008 r=0x00)
+          (string8) "중앙"
+        resource 0x7f11005a com.rise.automatic.autoclicker.clicker:string/corner_orientation_labels_top_left: t=0x03 d=0x00000128 (s=0x0008 r=0x00)
+          (string8) "왼쪽 상단"
+        resource 0x7f11005b com.rise.automatic.autoclicker.clicker:string/corner_orientation_labels_top_right: t=0x03 d=0x0000011f (s=0x0008 r=0x00)
+          (string8) "오른쪽 상단"
+        resource 0x7f11005c com.rise.automatic.autoclicker.clicker:string/customization_card_click_point_size: t=0x03 d=0x00000189 (s=0x0008 r=0x00)
+          (string8) "크기"
+        resource 0x7f11005d com.rise.automatic.autoclicker.clicker:string/customization_card_click_point_transparency: t=0x03 d=0x000000b2 (s=0x0008 r=0x00)
+          (string8) "불투명도"
+        resource 0x7f11005e com.rise.automatic.autoclicker.clicker:string/customization_card_control_panel_add_start_btn: t=0x03 d=0x00000086 (s=0x0008 r=0x00)
+          (string8) "두 번째 창에 시작 버튼 추가"
+        resource 0x7f11005f com.rise.automatic.autoclicker.clicker:string/customization_card_control_panel_dark_mode: t=0x03 d=0x0000010b (s=0x0008 r=0x00)
+          (string8) "어두운 모드"
+        resource 0x7f110060 com.rise.automatic.autoclicker.clicker:string/customization_card_control_panel_keep_screen_on: t=0x03 d=0x000001b2 (s=0x0008 r=0x00)
+          (string8) "화면 켜짐 유지"
+        resource 0x7f110061 com.rise.automatic.autoclicker.clicker:string/customization_card_control_panel_orientation: t=0x03 d=0x0000003e (s=0x0008 r=0x00)
+          (string8) "가로 모드"
+        resource 0x7f110062 com.rise.automatic.autoclicker.clicker:string/customization_card_control_panel_pin_screen_edge: t=0x03 d=0x000001b0 (s=0x0008 r=0x00)
+          (string8) "화면 가장자리 자동 정렬"
+        resource 0x7f110063 com.rise.automatic.autoclicker.clicker:string/customization_card_control_panel_size: t=0x03 d=0x00000189 (s=0x0008 r=0x00)
+          (string8) "크기"
+        resource 0x7f110064 com.rise.automatic.autoclicker.clicker:string/customization_card_control_panel_timer_visible: t=0x03 d=0x00000195 (s=0x0008 r=0x00)
+          (string8) "타이머 표시"
+        resource 0x7f110065 com.rise.automatic.autoclicker.clicker:string/customization_card_control_panel_transparency: t=0x03 d=0x000000b2 (s=0x0008 r=0x00)
+          (string8) "불투명도"
+        resource 0x7f110066 com.rise.automatic.autoclicker.clicker:string/customization_item_order_more: t=0x03 d=0x0000007f (s=0x0008 r=0x00)
+          (string8) "더욱 다양한 컨트롤"
+        resource 0x7f110067 com.rise.automatic.autoclicker.clicker:string/customization_item_order_sort: t=0x03 d=0x00000186 (s=0x0008 r=0x00)
+          (string8) "컨트롤 순서 재배열"
+        resource 0x7f11006b com.rise.automatic.autoclicker.clicker:string/dialog_action_cancel: t=0x03 d=0x0000017e (s=0x0008 r=0x00)
+          (string8) "취소"
+        resource 0x7f11006c com.rise.automatic.autoclicker.clicker:string/dialog_action_close: t=0x03 d=0x00000079 (s=0x0008 r=0x00)
+          (string8) "닫기"
+        resource 0x7f11006d com.rise.automatic.autoclicker.clicker:string/dialog_action_confirm: t=0x03 d=0x000001b5 (s=0x0008 r=0x00)
+          (string8) "확인"
+        resource 0x7f11006e com.rise.automatic.autoclicker.clicker:string/dialog_action_create: t=0x03 d=0x0000008d (s=0x0008 r=0x00)
+          (string8) "만들기"
+        resource 0x7f11006f com.rise.automatic.autoclicker.clicker:string/dialog_action_delete: t=0x03 d=0x000000ba (s=0x0008 r=0x00)
+          (string8) "삭제"
+        resource 0x7f110070 com.rise.automatic.autoclicker.clicker:string/dialog_action_done: t=0x03 d=0x00000127 (s=0x0008 r=0x00)
+          (string8) "완료"
+        resource 0x7f110071 com.rise.automatic.autoclicker.clicker:string/dialog_action_got_it: t=0x03 d=0x000001b5 (s=0x0008 r=0x00)
+          (string8) "확인"
+        resource 0x7f110072 com.rise.automatic.autoclicker.clicker:string/dialog_action_hide_demo: t=0x03 d=0x00000040 (s=0x0008 r=0x00)
+          (string8) "간단히 표시"
+        resource 0x7f110073 com.rise.automatic.autoclicker.clicker:string/dialog_action_reactivate: t=0x03 d=0x0000006f (s=0x0008 r=0x00)
+          (string8) "다시 활성화"
+        resource 0x7f110074 com.rise.automatic.autoclicker.clicker:string/dialog_action_remove_cache_cancel: t=0x03 d=0x0000017e (s=0x0008 r=0x00)
+          (string8) "취소"
+        resource 0x7f110075 com.rise.automatic.autoclicker.clicker:string/dialog_action_remove_cache_ok: t=0x03 d=0x000001b5 (s=0x0008 r=0x00)
+          (string8) "확인"
+        resource 0x7f110076 com.rise.automatic.autoclicker.clicker:string/dialog_action_rename: t=0x03 d=0x0000013b (s=0x0008 r=0x00)
+          (string8) "이름 바꾸기"
+        resource 0x7f110077 com.rise.automatic.autoclicker.clicker:string/dialog_action_reset: t=0x03 d=0x000000cb (s=0x0008 r=0x00)
+          (string8) "설정 초기화"
+        resource 0x7f110078 com.rise.automatic.autoclicker.clicker:string/dialog_action_rewarded_watch_video: t=0x03 d=0x000000b4 (s=0x0008 r=0x00)
+          (string8) "비디오 시청"
+        resource 0x7f110079 com.rise.automatic.autoclicker.clicker:string/dialog_action_save: t=0x03 d=0x0000014b (s=0x0008 r=0x00)
+          (string8) "저장"
+        resource 0x7f11007a com.rise.automatic.autoclicker.clicker:string/dialog_launcher_app_title: t=0x03 d=0x0000013a (s=0x0008 r=0x00)
+          (string8) "이름"
+        resource 0x7f11007b com.rise.automatic.autoclicker.clicker:string/dialog_launcher_check_box: t=0x03 d=0x000001a0 (s=0x0008 r=0x00)
+          (string8) "한 번만 실행"
+        resource 0x7f11007c com.rise.automatic.autoclicker.clicker:string/dialog_launcher_choose_application: t=0x03 d=0x00000105 (s=0x0008 r=0x00)
+          (string8) "앱을 선택하려면 탭하십시오"
+        resource 0x7f11007d com.rise.automatic.autoclicker.clicker:string/dialog_launcher_no_app_selected: t=0x03 d=0x000000c6 (s=0x0008 r=0x00)
+          (string8) "선택된 앱 없음"
+        resource 0x7f11007e com.rise.automatic.autoclicker.clicker:string/dialog_launcher_title: t=0x03 d=0x00000102 (s=0x0008 r=0x00)
+          (string8) "앱 실행"
+        resource 0x7f11007f com.rise.automatic.autoclicker.clicker:string/dialog_msg_close_confirm: t=0x03 d=0x00000149 (s=0x0008 r=0x00)
+          (string8) "작업을 삭제하고 종료"
+        resource 0x7f110080 com.rise.automatic.autoclicker.clicker:string/dialog_msg_delay_start_time_info: t=0x03 d=0x00000181 (s=0x0008 r=0x00)
+          (string8) "카운트다운 후 스크립트가 실행됩니다"
+        resource 0x7f110081 com.rise.automatic.autoclicker.clicker:string/dialog_msg_delete_config_confirm: t=0x03 d=0x0000011a (s=0x0008 r=0x00)
+          (string8) "영구적으로 삭제하시겠습니까?"
+        resource 0x7f110082 com.rise.automatic.autoclicker.clicker:string/dialog_msg_dont_show: t=0x03 d=0x0000006e (s=0x0008 r=0x00)
+          (string8) "다시 표시하지 않음"
+        resource 0x7f110083 com.rise.automatic.autoclicker.clicker:string/dialog_msg_enter_backup_file_name: t=0x03 d=0x000000a8 (s=0x0008 r=0x00)
+          (string8) "백업 파일의 이름을 입력하세요"
+        resource 0x7f110084 com.rise.automatic.autoclicker.clicker:string/dialog_msg_file_exists_overwrite: t=0x03 d=0x0000013d (s=0x0008 r=0x00)
+          (string8) "이름이 같은 파일이 이미 존재합니다. %1$s을(를) 덮어쓰시겠습니까?"
+        resource 0x7f110085 com.rise.automatic.autoclicker.clicker:string/dialog_msg_loading: t=0x03 d=0x0000008a (s=0x0008 r=0x00)
+          (string8) "로드 중..."
+        resource 0x7f110086 com.rise.automatic.autoclicker.clicker:string/dialog_msg_rename_this_config: t=0x03 d=0x0000013c (s=0x0008 r=0x00)
+          (string8) "이름 수정하기"
+        resource 0x7f110087 com.rise.automatic.autoclicker.clicker:string/dialog_msg_save_add_config_info: t=0x03 d=0x00000137 (s=0x0008 r=0x00)
+          (string8) "이 설정의 이름을 입력하세요"
+        resource 0x7f110088 com.rise.automatic.autoclicker.clicker:string/dialog_msg_settings_restore_confirm: t=0x03 d=0x00000060 (s=0x0008 r=0x00)
+          (string8) "기본 설정으로 복원하시겠습니까?"
+        resource 0x7f110089 com.rise.automatic.autoclicker.clicker:string/dialog_msg_start_point_at_info: t=0x03 d=0x00000173 (s=0x0008 r=0x00)
+          (string8) "지정된 제스처 번호에서 스크립트 실행"
+        resource 0x7f11008a com.rise.automatic.autoclicker.clicker:string/dialog_msg_start_point_at_title: t=0x03 d=0x000000ef (s=0x0008 r=0x00)
+          (string8) "시작 번호 지정"
+        resource 0x7f11008b com.rise.automatic.autoclicker.clicker:string/dialog_msg_watch_ad: t=0x03 d=0x0000011b (s=0x0008 r=0x00)
+          (string8) "영상을 보면 추가 제스처 10개가 12시간 동안 잠금 해제돼요!"
+        resource 0x7f11008c com.rise.automatic.autoclicker.clicker:string/dialog_point_anti_detection: t=0x03 d=0x00000091 (s=0x0008 r=0x00)
+          (string8) "매크로 탐지 피하기"
+        resource 0x7f11008d com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_back_title: t=0x03 d=0x00000083 (s=0x0008 r=0x00)
+          (string8) "돌아가기 설정"
+        resource 0x7f11008e com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_cycle_times: t=0x03 d=0x0000009f (s=0x0008 r=0x00)
+          (string8) "반복 횟수"
+        resource 0x7f11008f com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_cycle_times_info: t=0x03 d=0x00000135 (s=0x0008 r=0x00)
+          (string8) "이 동작을 반복할 횟수입니다"
+        resource 0x7f110090 com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_delay: t=0x03 d=0x00000172 (s=0x0008 r=0x00)
+          (string8) "지연 시간"
+        resource 0x7f110091 com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_delay_info: t=0x03 d=0x00000078 (s=0x0008 r=0x00)
+          (string8) "다음 제스처를 실행하기까지의 지연 시간"
+        resource 0x7f110092 com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_duration: t=0x03 d=0x00000171 (s=0x0008 r=0x00)
+          (string8) "지속 시간"
+        resource 0x7f110093 com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_duration_info: t=0x03 d=0x00000166 (s=0x0008 r=0x00)
+          (string8) "제스처가 완료되기까지 지속될 시간"
+        resource 0x7f110094 com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_home_title: t=0x03 d=0x000001ae (s=0x0008 r=0x00)
+          (string8) "홈 화면으로 이동"
+        resource 0x7f110095 com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_launch_app_title: t=0x03 d=0x00000102 (s=0x0008 r=0x00)
+          (string8) "앱 실행"
+        resource 0x7f110096 com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_loop_delay_info: t=0x03 d=0x00000076 (s=0x0008 r=0x00)
+          (string8) "다음 반복을 실행하기까지의 지연 시간"
+        resource 0x7f110097 com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_multi_touch_title: t=0x03 d=0x00000112 (s=0x0008 r=0x00)
+          (string8) "여러 손가락을 사용한 동작"
+        resource 0x7f110098 com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_notify_title: t=0x03 d=0x000000f9 (s=0x0008 r=0x00)
+          (string8) "알림"
+        resource 0x7f110099 com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_pinch_title: t=0x03 d=0x000001b4 (s=0x0008 r=0x00)
+          (string8) "확대/축소 설정"
+        resource 0x7f11009a com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_random_duration_info: t=0x03 d=0x00000168 (s=0x0008 r=0x00)
+          (string8) "제스처의 랜덤 지속 시간 설정"
+        resource 0x7f11009b com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_random_interval_info: t=0x03 d=0x0000015d (s=0x0008 r=0x00)
+          (string8) "제스처 간 랜덤 지연 시간 설정"
+        resource 0x7f11009c com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_swipe_title: t=0x03 d=0x000000da (s=0x0008 r=0x00)
+          (string8) "스와이프 설정"
+        resource 0x7f11009d com.rise.automatic.autoclicker.clicker:string/dialog_point_settings_tap_title: t=0x03 d=0x0000018b (s=0x0008 r=0x00)
+          (string8) "클릭 설정"
+        resource 0x7f11009f com.rise.automatic.autoclicker.clicker:string/draw_curve_over_size: t=0x03 d=0x000001a1 (s=0x0008 r=0x00)
+          (string8) "한 제스처에서는 동시에 %d개 이상의 제스처를 수행할 수 없습니다"
+        resource 0x7f1100a0 com.rise.automatic.autoclicker.clicker:string/draw_curve_over_time: t=0x03 d=0x00000167 (s=0x0008 r=0x00)
+          (string8) "제스처는 1분 이상 녹화할 수 없습니다"
+        resource 0x7f1100a1 com.rise.automatic.autoclicker.clicker:string/edge_click_subtitle: t=0x03 d=0x0000012f (s=0x0008 r=0x00)
+          (string8) "윈도우 내 실제 클릭 위치 설정"
+        resource 0x7f1100a2 com.rise.automatic.autoclicker.clicker:string/edge_click_title: t=0x03 d=0x0000018c (s=0x0008 r=0x00)
+          (string8) "클릭 앵커"
+        resource 0x7f1100a3 com.rise.automatic.autoclicker.clicker:string/error_icon_content_description: t=0x03 d=0x0000011e (s=0x0008 r=0x00)
+          (string8) "오류"
+        resource 0x7f1100a4 com.rise.automatic.autoclicker.clicker:string/expand_button_title: t=0x03 d=0x0000004b (s=0x0008 r=0x00)
+          (string8) "고급"
+        resource 0x7f1100a5 com.rise.automatic.autoclicker.clicker:string/exposed_dropdown_menu_content_description: t=0x03 d=0x00000088 (s=0x0008 r=0x00)
+          (string8) "드롭다운 메뉴 표시"
+        resource 0x7f1100a8 com.rise.automatic.autoclicker.clicker:string/fallback_menu_item_copy_link: t=0x03 d=0x0000008c (s=0x0008 r=0x00)
+          (string8) "링크 복사"
+        resource 0x7f1100a9 com.rise.automatic.autoclicker.clicker:string/fallback_menu_item_open_in_browser: t=0x03 d=0x000000b3 (s=0x0008 r=0x00)
+          (string8) "브라우저에서 열기"
+        resource 0x7f1100aa com.rise.automatic.autoclicker.clicker:string/fallback_menu_item_share_link: t=0x03 d=0x0000008b (s=0x0008 r=0x00)
+          (string8) "링크 공유"
+        resource 0x7f1100ab com.rise.automatic.autoclicker.clicker:string/feedback_chrome_tabs_title: t=0x03 d=0x00000026 (s=0x0008 r=0x00)
+          (string8) "Chrome 탭이 목록 보기로 표시됩니다"
+        resource 0x7f1100ac com.rise.automatic.autoclicker.clicker:string/feedback_email_phone_factory: t=0x03 d=0x000001b7 (s=0x0008 r=0x00)
+          (string8) "휴대전화 정보: %1$s"
+        resource 0x7f1100ad com.rise.automatic.autoclicker.clicker:string/feedback_email_software_version: t=0x03 d=0x000000ff (s=0x0008 r=0x00)
+          (string8) "앱 변경 사항: %1$s"
+        resource 0x7f1100ae com.rise.automatic.autoclicker.clicker:string/feedback_email_submit: t=0x03 d=0x0000016a (s=0x0008 r=0x00)
+          (string8) "제출"
+        resource 0x7f1100af com.rise.automatic.autoclicker.clicker:string/feedback_email_system_version: t=0x03 d=0x00000025 (s=0x0008 r=0x00)
+          (string8) "Android 버전: %1$s"
+        resource 0x7f1100b0 com.rise.automatic.autoclicker.clicker:string/feedback_email_title: t=0x03 d=0x00000132 (s=0x0008 r=0x00)
+          (string8) "의견 보내기"
+        resource 0x7f1100b1 com.rise.automatic.autoclicker.clicker:string/feedback_force_close_title: t=0x03 d=0x00000107 (s=0x0008 r=0x00)
+          (string8) "앱이 강제 종료되었습니다"
+        resource 0x7f1100b2 com.rise.automatic.autoclicker.clicker:string/feedback_info: t=0x03 d=0x0000014f (s=0x0008 r=0x00)
+          (string8) "저희는 보다 나은 앱을 만들기 위해 노력하고 있습니다. 사용자 여러분의 의견은 저희에게 매우 중요합니다. 어떤 아이디어든 공유해 주시면, 그것을 실현할 수 있도록 최선을 다하겠습니다!"
+        resource 0x7f1100b3 com.rise.automatic.autoclicker.clicker:string/feedback_not_working_title: t=0x03 d=0x000000e4 (s=0x0008 r=0x00)
+          (string8) "스크립트가 실행되지 않았습니다"
+        resource 0x7f1100b5 com.rise.automatic.autoclicker.clicker:string/force_close_teach_add_app_to_wl: t=0x03 d=0x000001a4 (s=0x0008 r=0x00)
+          (string8) "허용 목록에 애플리케이션 추가"
+        resource 0x7f1100b6 com.rise.automatic.autoclicker.clicker:string/force_close_teach_allow_background_activity: t=0x03 d=0x000000a5 (s=0x0008 r=0x00)
+          (string8) "백그라운드 활동 허용"
+        resource 0x7f1100b7 com.rise.automatic.autoclicker.clicker:string/force_close_teach_app_battery_manager: t=0x03 d=0x000000fc (s=0x0008 r=0x00)
+          (string8) "앱 배터리 관리"
+        resource 0x7f1100b8 com.rise.automatic.autoclicker.clicker:string/force_close_teach_app_launch: t=0x03 d=0x00000102 (s=0x0008 r=0x00)
+          (string8) "앱 실행"
+        resource 0x7f1100b9 com.rise.automatic.autoclicker.clicker:string/force_close_teach_background_power_manager: t=0x03 d=0x000000a3 (s=0x0008 r=0x00)
+          (string8) "백그라운드 전력 소비 관리"
+        resource 0x7f1100ba com.rise.automatic.autoclicker.clicker:string/force_close_teach_battery: t=0x03 d=0x000000a0 (s=0x0008 r=0x00)
+          (string8) "배터리"
+        resource 0x7f1100bb com.rise.automatic.autoclicker.clicker:string/force_close_teach_battery_saver: t=0x03 d=0x000000a1 (s=0x0008 r=0x00)
+          (string8) "배터리 절약"
+        resource 0x7f1100bc com.rise.automatic.autoclicker.clicker:string/force_close_teach_find_and_tap: t=0x03 d=0x00000018 (s=0x0008 r=0x00)
+          (string8) "%s을 찾아서 누르세요"
+        resource 0x7f1100bd com.rise.automatic.autoclicker.clicker:string/force_close_teach_manage_manually: t=0x03 d=0x000000d6 (s=0x0008 r=0x00)
+          (string8) "수동 관리"
+        resource 0x7f1100be com.rise.automatic.autoclicker.clicker:string/force_close_teach_no_restrictions: t=0x03 d=0x0000016b (s=0x0008 r=0x00)
+          (string8) "제한 없음"
+        resource 0x7f1100bf com.rise.automatic.autoclicker.clicker:string/force_close_teach_not_restrict: t=0x03 d=0x000000a2 (s=0x0008 r=0x00)
+          (string8) "백그라운드 전력 사용 제한 안 함"
+        resource 0x7f1100c0 com.rise.automatic.autoclicker.clicker:string/force_close_teach_open_settings: t=0x03 d=0x000001b8 (s=0x0008 r=0x00)
+          (string8) "휴대전화의 설정 앱을 엽니다"
+        resource 0x7f1100c1 com.rise.automatic.autoclicker.clicker:string/force_close_teach_power_manager_before: t=0x03 d=0x0000016e (s=0x0008 r=0x00)
+          (string8) "죄송합니다. 클릭 어시스턴트가 예기치 않게 종료되었습니다."
+        resource 0x7f1100c2 com.rise.automatic.autoclicker.clicker:string/force_close_teach_power_manager_cancel: t=0x03 d=0x00000079 (s=0x0008 r=0x00)
+          (string8) "닫기"
+        resource 0x7f1100c3 com.rise.automatic.autoclicker.clicker:string/force_close_teach_power_manager_goto_settings: t=0x03 d=0x000000ce (s=0x0008 r=0x00)
+          (string8) "설정으로 이동"
+        resource 0x7f1100c4 com.rise.automatic.autoclicker.clicker:string/force_close_teach_power_manager_info: t=0x03 d=0x000000ee (s=0x0008 r=0x00)
+          (string8) "시스템이 백그라운드 서비스를 강제 종료하지 않도록 이 앱이 백그라운드에서 더 많은 전력을 사용할 수 있게 허용해 주세요."
+        resource 0x7f1100c5 com.rise.automatic.autoclicker.clicker:string/force_close_teach_power_manager_info_step: t=0x03 d=0x00000074 (s=0x0008 r=0x00)
+          (string8) "다음 단계를 실행해 주세요:"
+        resource 0x7f1100c6 com.rise.automatic.autoclicker.clicker:string/force_close_teach_tap: t=0x03 d=0x0000001a (s=0x0008 r=0x00)
+          (string8) "%s을 탭하세요"
+        resource 0x7f1100c7 com.rise.automatic.autoclicker.clicker:string/force_close_teach_title: t=0x03 d=0x000000a4 (s=0x0008 r=0x00)
+          (string8) "백그라운드 활동 권한"
+        resource 0x7f1100c8 com.rise.automatic.autoclicker.clicker:string/force_close_teach_turn_on: t=0x03 d=0x00000019 (s=0x0008 r=0x00)
+          (string8) "%s을 켭니다"
+        resource 0x7f1100c9 com.rise.automatic.autoclicker.clicker:string/force_close_teach_unmonitored_app: t=0x03 d=0x00000153 (s=0x0008 r=0x00)
+          (string8) "절전 대상이 아닌 앱"
+        resource 0x7f1100ca com.rise.automatic.autoclicker.clicker:string/force_close_teach_unrestricted: t=0x03 d=0x0000016b (s=0x0008 r=0x00)
+          (string8) "제한 없음"
+        resource 0x7f1100cc com.rise.automatic.autoclicker.clicker:string/gesture_editor_delete_info: t=0x03 d=0x000001ab (s=0x0008 r=0x00)
+          (string8) "현재 제스처를 삭제합니다"
+        resource 0x7f1100cd com.rise.automatic.autoclicker.clicker:string/gesture_editor_done_info: t=0x03 d=0x00000127 (s=0x0008 r=0x00)
+          (string8) "완료"
+        resource 0x7f1100ce com.rise.automatic.autoclicker.clicker:string/gesture_editor_drag_info: t=0x03 d=0x00000162 (s=0x0008 r=0x00)
+          (string8) "제스처 순서를 변경하려면 길게 누르세요"
+        resource 0x7f1100cf com.rise.automatic.autoclicker.clicker:string/gesture_editor_help_info: t=0x03 d=0x00000164 (s=0x0008 r=0x00)
+          (string8) "제스처 편집기를 사용하면 제스처를 쉽게 추가, 삭제, 위치 조정할 수 있습니다."
+        resource 0x7f1100d0 com.rise.automatic.autoclicker.clicker:string/gesture_editor_insert_info: t=0x03 d=0x000001a9 (s=0x0008 r=0x00)
+          (string8) "현재 제스처 오른쪽에 제스처 추가"
+        resource 0x7f1100d1 com.rise.automatic.autoclicker.clicker:string/gesture_editor_modify_info: t=0x03 d=0x000001ac (s=0x0008 r=0x00)
+          (string8) "현재 제스처의 위치를 조정합니다"
+        resource 0x7f1100d2 com.rise.automatic.autoclicker.clicker:string/gesture_editor_replace_info: t=0x03 d=0x000001aa (s=0x0008 r=0x00)
+          (string8) "현재 제스처를 대체할 새 제스처를 녹화하세요"
+        resource 0x7f1100d8 com.rise.automatic.autoclicker.clicker:string/hours: t=0x03 d=0x000000e8 (s=0x0008 r=0x00)
+          (string8) "시간"
+        resource 0x7f1100d9 com.rise.automatic.autoclicker.clicker:string/icon_content_description: t=0x03 d=0x0000007b (s=0x0008 r=0x00)
+          (string8) "대화상자 아이콘"
+        resource 0x7f1100da com.rise.automatic.autoclicker.clicker:string/item_view_role_description: t=0x03 d=0x00000196 (s=0x0008 r=0x00)
+          (string8) "탭"
+        resource 0x7f1100eb com.rise.automatic.autoclicker.clicker:string/main_activity_button_start: t=0x03 d=0x000000c2 (s=0x0008 r=0x00)
+          (string8) "서비스 시작"
+        resource 0x7f1100ec com.rise.automatic.autoclicker.clicker:string/main_activity_button_stop: t=0x03 d=0x000000c4 (s=0x0008 r=0x00)
+          (string8) "서비스 중지"
+        resource 0x7f1100ee com.rise.automatic.autoclicker.clicker:string/material_clock_toggle_content_description: t=0x03 d=0x00000124 (s=0x0008 r=0x00)
+          (string8) "오전 또는 오후를 선택하세요."
+        resource 0x7f1100ef com.rise.automatic.autoclicker.clicker:string/material_hour_selection: t=0x03 d=0x000000e9 (s=0x0008 r=0x00)
+          (string8) "시간 선택"
+        resource 0x7f1100f0 com.rise.automatic.autoclicker.clicker:string/material_hour_suffix: t=0x03 d=0x0000000f (s=0x0008 r=0x00)
+          (string8) "%1$s시 정각"
+        resource 0x7f1100f1 com.rise.automatic.autoclicker.clicker:string/material_minute_selection: t=0x03 d=0x000000b0 (s=0x0008 r=0x00)
+          (string8) "분 선택"
+        resource 0x7f1100f2 com.rise.automatic.autoclicker.clicker:string/material_minute_suffix: t=0x03 d=0x0000000d (s=0x0008 r=0x00)
+          (string8) "%1$s분"
+        resource 0x7f1100fa com.rise.automatic.autoclicker.clicker:string/material_timepicker_am: t=0x03 d=0x00000123 (s=0x0008 r=0x00)
+          (string8) "오전"
+        resource 0x7f1100fb com.rise.automatic.autoclicker.clicker:string/material_timepicker_clock_mode_description: t=0x03 d=0x000000ea (s=0x0008 r=0x00)
+          (string8) "시간 입력을 위해 시계 모드로 전환합니다."
+        resource 0x7f1100fc com.rise.automatic.autoclicker.clicker:string/material_timepicker_hour: t=0x03 d=0x000000e8 (s=0x0008 r=0x00)
+          (string8) "시간"
+        resource 0x7f1100fd com.rise.automatic.autoclicker.clicker:string/material_timepicker_minute: t=0x03 d=0x000000af (s=0x0008 r=0x00)
+          (string8) "분"
+        resource 0x7f1100fe com.rise.automatic.autoclicker.clicker:string/material_timepicker_pm: t=0x03 d=0x00000126 (s=0x0008 r=0x00)
+          (string8) "오후"
+        resource 0x7f1100ff com.rise.automatic.autoclicker.clicker:string/material_timepicker_select_time: t=0x03 d=0x000000e9 (s=0x0008 r=0x00)
+          (string8) "시간 선택"
+        resource 0x7f110100 com.rise.automatic.autoclicker.clicker:string/material_timepicker_text_input_mode_description: t=0x03 d=0x000000eb (s=0x0008 r=0x00)
+          (string8) "시간 입력을 위해 텍스트 입력 모드로 전환합니다."
+        resource 0x7f110101 com.rise.automatic.autoclicker.clicker:string/max_duration_n_minutes: t=0x03 d=0x00000177 (s=0x0008 r=0x00)
+          (string8) "최대 %d 분"
+        resource 0x7f110102 com.rise.automatic.autoclicker.clicker:string/max_duration_one_minute: t=0x03 d=0x00000178 (s=0x0008 r=0x00)
+          (string8) "최대 1 분"
+        resource 0x7f110103 com.rise.automatic.autoclicker.clicker:string/max_value: t=0x03 d=0x00000179 (s=0x0008 r=0x00)
+          (string8) "최대값: %1$s"
+        resource 0x7f110104 com.rise.automatic.autoclicker.clicker:string/min_duration_n_milliseconds: t=0x03 d=0x0000017a (s=0x0008 r=0x00)
+          (string8) "최소 %d 밀리초"
+        resource 0x7f110105 com.rise.automatic.autoclicker.clicker:string/min_duration_one_minute: t=0x03 d=0x0000017b (s=0x0008 r=0x00)
+          (string8) "최소 1 밀리초"
+        resource 0x7f110106 com.rise.automatic.autoclicker.clicker:string/min_value: t=0x03 d=0x0000017c (s=0x0008 r=0x00)
+          (string8) "최소값: %1$s"
+        resource 0x7f110107 com.rise.automatic.autoclicker.clicker:string/minutes: t=0x03 d=0x000000af (s=0x0008 r=0x00)
+          (string8) "분"
+        resource 0x7f110108 com.rise.automatic.autoclicker.clicker:string/ms: t=0x03 d=0x0000009c (s=0x0008 r=0x00)
+          (string8) "밀리초"
+        resource 0x7f110109 com.rise.automatic.autoclicker.clicker:string/mtrl_badge_numberless_content_description: t=0x03 d=0x000000bc (s=0x0008 r=0x00)
+          (string8) "새 알림"
+        resource 0x7f11010a com.rise.automatic.autoclicker.clicker:string/mtrl_chip_close_icon_content_description: t=0x03 d=0x00000008 (s=0x0008 r=0x00)
+          (string8) "%1$s 삭제"
+        resource 0x7f11010b com.rise.automatic.autoclicker.clicker:string/mtrl_exceed_max_badge_number_content_description: t=0x03 d=0x000000bd (s=0x0008 r=0x00)
+          (string8) "새 알림 %1$d개 초과"
+        resource 0x7f11010d com.rise.automatic.autoclicker.clicker:string/mtrl_picker_a11y_next_month: t=0x03 d=0x00000075 (s=0x0008 r=0x00)
+          (string8) "다음 달로 변경"
+        resource 0x7f11010e com.rise.automatic.autoclicker.clicker:string/mtrl_picker_a11y_prev_month: t=0x03 d=0x00000140 (s=0x0008 r=0x00)
+          (string8) "이전 달로 변경"
+        resource 0x7f11010f com.rise.automatic.autoclicker.clicker:string/mtrl_picker_announce_current_selection: t=0x03 d=0x000001a6 (s=0x0008 r=0x00)
+          (string8) "현재 %1$s 선택됨"
+        resource 0x7f110111 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_confirm: t=0x01 d=0x0104000a (s=0x0008 r=0x00)
+          (reference) 0x0104000a
+        resource 0x7f110112 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_date_header_selected: t=0x03 d=0x00000005 (s=0x0008 r=0x00)
+          (string8) "%1$s"
+        resource 0x7f110113 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_date_header_title: t=0x03 d=0x00000068 (s=0x0008 r=0x00)
+          (string8) "날짜 선택"
+        resource 0x7f110114 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_date_header_unselected: t=0x03 d=0x000000c8 (s=0x0008 r=0x00)
+          (string8) "선택한 날짜"
+        resource 0x7f110115 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_day_of_week_column_header: t=0x03 d=0x0000012a (s=0x0008 r=0x00)
+          (string8) "요일 열: %1$s"
+        resource 0x7f110116 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_invalid_format: t=0x03 d=0x000001ad (s=0x0008 r=0x00)
+          (string8) "형식이 잘못되었습니다."
+        resource 0x7f110117 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_invalid_format_example: t=0x03 d=0x0000011c (s=0x0008 r=0x00)
+          (string8) "예: %1$s"
+        resource 0x7f110118 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_invalid_format_use: t=0x03 d=0x00000007 (s=0x0008 r=0x00)
+          (string8) "%1$s 사용"
+        resource 0x7f110119 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_invalid_range: t=0x03 d=0x00000067 (s=0x0008 r=0x00)
+          (string8) "날짜 범위가 잘못되었습니다."
+        resource 0x7f11011a com.rise.automatic.autoclicker.clicker:string/mtrl_picker_navigate_to_year_description: t=0x03 d=0x0000000c (s=0x0008 r=0x00)
+          (string8) "%1$s년으로 이동"
+        resource 0x7f11011b com.rise.automatic.autoclicker.clicker:string/mtrl_picker_out_of_range: t=0x03 d=0x00000013 (s=0x0008 r=0x00)
+          (string8) "%1$s은(는) 범위를 벗어난 날짜입니다."
+        resource 0x7f11011c com.rise.automatic.autoclicker.clicker:string/mtrl_picker_range_header_only_end_selected: t=0x03 d=0x000000f2 (s=0x0008 r=0x00)
+          (string8) "시작일~%1$s"
+        resource 0x7f11011d com.rise.automatic.autoclicker.clicker:string/mtrl_picker_range_header_only_start_selected: t=0x03 d=0x0000000b (s=0x0008 r=0x00)
+          (string8) "%1$s~종료일"
+        resource 0x7f11011e com.rise.automatic.autoclicker.clicker:string/mtrl_picker_range_header_selected: t=0x03 d=0x0000000a (s=0x0008 r=0x00)
+          (string8) "%1$s~%2$s"
+        resource 0x7f11011f com.rise.automatic.autoclicker.clicker:string/mtrl_picker_range_header_title: t=0x03 d=0x0000005c (s=0x0008 r=0x00)
+          (string8) "기간 선택"
+        resource 0x7f110120 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_range_header_unselected: t=0x03 d=0x000000f3 (s=0x0008 r=0x00)
+          (string8) "시작일~종료일"
+        resource 0x7f110121 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_save: t=0x03 d=0x0000014b (s=0x0008 r=0x00)
+          (string8) "저장"
+        resource 0x7f110122 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_text_input_date_hint: t=0x03 d=0x00000066 (s=0x0008 r=0x00)
+          (string8) "날짜"
+        resource 0x7f110123 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_text_input_date_range_end_hint: t=0x03 d=0x0000016d (s=0x0008 r=0x00)
+          (string8) "종료일"
+        resource 0x7f110124 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_text_input_date_range_start_hint: t=0x03 d=0x000000f1 (s=0x0008 r=0x00)
+          (string8) "시작일"
+        resource 0x7f110125 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_text_input_day_abbr: t=0x03 d=0x00000144 (s=0x0008 r=0x00)
+          (string8) "일"
+        resource 0x7f110126 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_text_input_month_abbr: t=0x03 d=0x0000012c (s=0x0008 r=0x00)
+          (string8) "월"
+        resource 0x7f110127 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_text_input_year_abbr: t=0x03 d=0x0000006a (s=0x0008 r=0x00)
+          (string8) "년"
+        resource 0x7f110128 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_toggle_to_calendar_input_mode: t=0x03 d=0x00000183 (s=0x0008 r=0x00)
+          (string8) "캘린더 입력 모드로 전환"
+        resource 0x7f110129 com.rise.automatic.autoclicker.clicker:string/mtrl_picker_toggle_to_day_selection: t=0x03 d=0x00000199 (s=0x0008 r=0x00)
+          (string8) "탭하여 요일 선택으로 전환"
+        resource 0x7f11012a com.rise.automatic.autoclicker.clicker:string/mtrl_picker_toggle_to_text_input_mode: t=0x03 d=0x0000019c (s=0x0008 r=0x00)
+          (string8) "텍스트 입력 모드로 전환"
+        resource 0x7f11012b com.rise.automatic.autoclicker.clicker:string/mtrl_picker_toggle_to_year_selection: t=0x03 d=0x00000198 (s=0x0008 r=0x00)
+          (string8) "탭하여 연도 선택으로 전환"
+        resource 0x7f11012d com.rise.automatic.autoclicker.clicker:string/native_body: t=0x03 d=0x000000ae (s=0x0008 r=0x00)
+          (string8) "본문"
+        resource 0x7f11012e com.rise.automatic.autoclicker.clicker:string/native_headline: t=0x03 d=0x00000051 (s=0x0008 r=0x00)
+          (string8) "광고 제목"
+        resource 0x7f11012f com.rise.automatic.autoclicker.clicker:string/native_media_view: t=0x03 d=0x0000009b (s=0x0008 r=0x00)
+          (string8) "미디어 보기"
+        resource 0x7f110130 com.rise.automatic.autoclicker.clicker:string/not_set: t=0x03 d=0x000000cc (s=0x0008 r=0x00)
+          (string8) "설정되지 않음"
+        resource 0x7f110131 com.rise.automatic.autoclicker.clicker:string/notification_running_service: t=0x03 d=0x0000018f (s=0x0008 r=0x00)
+          (string8) "클릭 어시스턴트 서비스가 실행 중입니다. 여기를 클릭하면 메인 설정으로 이동합니다."
+        resource 0x7f110132 com.rise.automatic.autoclicker.clicker:string/notification_running_service_text: t=0x03 d=0x000000c5 (s=0x0008 r=0x00)
+          (string8) "서비스가 백그라운드에서 실행 중입니다"
+        resource 0x7f110133 com.rise.automatic.autoclicker.clicker:string/notification_running_service_title: t=0x03 d=0x00000190 (s=0x0008 r=0x00)
+          (string8) "클릭 어시스턴트 실행 중"
+        resource 0x7f110134 com.rise.automatic.autoclicker.clicker:string/notifications_permission_confirm: t=0x03 d=0x000001a3 (s=0x0008 r=0x00)
+          (string8) "허용"
+        resource 0x7f110135 com.rise.automatic.autoclicker.clicker:string/notifications_permission_decline: t=0x03 d=0x000001a5 (s=0x0008 r=0x00)
+          (string8) "허용 안함"
+        resource 0x7f110136 com.rise.automatic.autoclicker.clicker:string/notifications_permission_title: t=0x03 d=0x00000103 (s=0x0008 r=0x00)
+          (string8) "앱에서 알림을 보내도록 허용하시겠습니까?"
+        resource 0x7f110137 com.rise.automatic.autoclicker.clicker:string/offline_dialog_image_description: t=0x03 d=0x000000f7 (s=0x0008 r=0x00)
+          (string8) "아이콘"
+        resource 0x7f110138 com.rise.automatic.autoclicker.clicker:string/offline_dialog_text: t=0x03 d=0x0000004f (s=0x0008 r=0x00)
+          (string8) "관심을 가져 주셔서 감사합니다.\n인터넷에 다시 연결되면 더 많은 내용을 공유해 드리겠습니다."
+        resource 0x7f110139 com.rise.automatic.autoclicker.clicker:string/offline_notification_title: t=0x03 d=0x00000143 (s=0x0008 r=0x00)
+          (string8) "인터넷에 다시 연결되었습니다. 최근 감상한 부분부터 이어서 감상해 보세요"
+        resource 0x7f11013a com.rise.automatic.autoclicker.clicker:string/offline_notification_title_with_advertiser: t=0x03 d=0x00000142 (s=0x0008 r=0x00)
+          (string8) "인터넷에 다시 연결되었습니다. %s에 관해 계속 알아보세요"
+        resource 0x7f11013b com.rise.automatic.autoclicker.clicker:string/offline_opt_in_confirm: t=0x03 d=0x000001b5 (s=0x0008 r=0x00)
+          (string8) "확인"
+        resource 0x7f11013c com.rise.automatic.autoclicker.clicker:string/offline_opt_in_decline: t=0x03 d=0x00000065 (s=0x0008 r=0x00)
+          (string8) "나중에"
+        resource 0x7f11013d com.rise.automatic.autoclicker.clicker:string/offline_opt_in_message: t=0x03 d=0x00000054 (s=0x0008 r=0x00)
+          (string8) "광고주 사이트로 연결되는 링크와 함께 알림을 보내 드리겠습니다."
+        resource 0x7f11013e com.rise.automatic.autoclicker.clicker:string/offline_opt_in_title: t=0x03 d=0x0000006d (s=0x0008 r=0x00)
+          (string8) "다시 온라인 상태가 될 때 광고 열기"
+        resource 0x7f11013f com.rise.automatic.autoclicker.clicker:string/onboarding_next: t=0x03 d=0x00000073 (s=0x0008 r=0x00)
+          (string8) "다음"
+        resource 0x7f110140 com.rise.automatic.autoclicker.clicker:string/onboarding_skip: t=0x03 d=0x00000044 (s=0x0008 r=0x00)
+          (string8) "건너뛰기"
+        resource 0x7f110141 com.rise.automatic.autoclicker.clicker:string/onboarding_slide1_subtitle: t=0x03 d=0x00000146 (s=0x0008 r=0x00)
+          (string8) "자동 탭과 스와이프를 직관적으로 설정할 수 있어요."
+        resource 0x7f110142 com.rise.automatic.autoclicker.clicker:string/onboarding_slide1_title: t=0x03 d=0x000000d4 (s=0x0008 r=0x00)
+          (string8) "손쉬운 제스처 녹화"
+        resource 0x7f110143 com.rise.automatic.autoclicker.clicker:string/onboarding_slide2_subtitle: t=0x03 d=0x00000070 (s=0x0008 r=0x00)
+          (string8) "다양한 멀티터치 제스처로 쉽고 빠르게 작업을 완성하세요! 스와이프, 핀치 줌 등 간단한 동작으로 더 많은 것을 경험해보세요!"
+        resource 0x7f110144 com.rise.automatic.autoclicker.clicker:string/onboarding_slide2_title: t=0x03 d=0x00000092 (s=0x0008 r=0x00)
+          (string8) "멀티 터치 제스처 지원"
+        resource 0x7f110145 com.rise.automatic.autoclicker.clicker:string/onboarding_slide3_subtitle: t=0x03 d=0x00000147 (s=0x0008 r=0x00)
+          (string8) "자동화를 시작할 준비가 되셨나요?\n지금 시작해 보세요!"
+        resource 0x7f110146 com.rise.automatic.autoclicker.clicker:string/onboarding_slide3_title: t=0x03 d=0x000000d9 (s=0x0008 r=0x00)
+          (string8) "스마트폰이 대신 작업합니다"
+        resource 0x7f110147 com.rise.automatic.autoclicker.clicker:string/onboarding_start: t=0x03 d=0x000000f4 (s=0x0008 r=0x00)
+          (string8) "시작하기"
+        resource 0x7f110148 com.rise.automatic.autoclicker.clicker:string/password_toggle_content_description: t=0x03 d=0x000000b5 (s=0x0008 r=0x00)
+          (string8) "비밀번호 표시"
+        resource 0x7f11014d com.rise.automatic.autoclicker.clicker:string/permission_dialog_agree: t=0x03 d=0x000001a3 (s=0x0008 r=0x00)
+          (string8) "허용"
+        resource 0x7f11014e com.rise.automatic.autoclicker.clicker:string/permission_dialog_decline: t=0x03 d=0x0000017e (s=0x0008 r=0x00)
+          (string8) "취소"
+        resource 0x7f11014f com.rise.automatic.autoclicker.clicker:string/permission_dialog_desc: t=0x03 d=0x00000014 (s=0x0008 r=0x00)
+          (string8) "%1$s이(가) 제대로 작동하려면 권한이 필요합니다. 설정으로 이동하여 %2$s에 권한을 부여하세요."
+        resource 0x7f110150 com.rise.automatic.autoclicker.clicker:string/permission_dialog_permission_granted: t=0x03 d=0x000001a2 (s=0x0008 r=0x00)
+          (string8) "허가를 받았습니다"
+        resource 0x7f110151 com.rise.automatic.autoclicker.clicker:string/permission_dialog_purpose_desc1: t=0x03 d=0x00000138 (s=0x0008 r=0x00)
+          (string8) "이 애플리케이션은 클릭, 스와이프, 기타 핵심 기능 수행 등 애플리케이션의 핵심 기능을 구현하기 위해 Accessibility Services API를 사용합니다."
+        resource 0x7f110152 com.rise.automatic.autoclicker.clicker:string/permission_dialog_purpose_desc2: t=0x03 d=0x00000023 (s=0x0008 r=0x00)
+          (string8) "Android 12 이상 버전에서는 접근성 권한을 명시적으로 부여해야 합니다."
+        resource 0x7f110153 com.rise.automatic.autoclicker.clicker:string/permission_dialog_purpose_desc3: t=0x03 d=0x0000007a (s=0x0008 r=0x00)
+          (string8) "당사는 Accessibility Services API를 통해 개인 정보를 수집하거나 공유하지 않습니다."
+        resource 0x7f110154 com.rise.automatic.autoclicker.clicker:string/permission_dialog_purpose_desc_title: t=0x03 d=0x00000156 (s=0x0008 r=0x00)
+          (string8) "접근성 서비스 선언:"
+        resource 0x7f110155 com.rise.automatic.autoclicker.clicker:string/permission_dialog_settings1: t=0x03 d=0x00000015 (s=0x0008 r=0x00)
+          (string8) "%s 선택"
+        resource 0x7f110156 com.rise.automatic.autoclicker.clicker:string/permission_dialog_settings2: t=0x03 d=0x000000fb (s=0x0008 r=0x00)
+          (string8) "앱 목록에서 %s을(를) 선택하세요"
+        resource 0x7f110157 com.rise.automatic.autoclicker.clicker:string/permission_dialog_settings3: t=0x03 d=0x00000059 (s=0x0008 r=0x00)
+          (string8) "권한 부여"
+        resource 0x7f110158 com.rise.automatic.autoclicker.clicker:string/permission_dialog_title: t=0x03 d=0x000000d3 (s=0x0008 r=0x00)
+          (string8) "손쉬운 사용 서비스 사용"
+        resource 0x7f110159 com.rise.automatic.autoclicker.clicker:string/permission_tutorial_accessibility: t=0x03 d=0x00000154 (s=0x0008 r=0x00)
+          (string8) "접근성"
+        resource 0x7f11015a com.rise.automatic.autoclicker.clicker:string/permission_tutorial_downloaded_apps: t=0x03 d=0x00000072 (s=0x0008 r=0x00)
+          (string8) "다운로드한 앱"
+        resource 0x7f11015b com.rise.automatic.autoclicker.clicker:string/permission_tutorial_info: t=0x03 d=0x00000191 (s=0x0008 r=0x00)
+          (string8) "클릭 어시스턴트을 찾아서 켜 주세요"
+        resource 0x7f11015c com.rise.automatic.autoclicker.clicker:string/permission_tutorial_installed_services: t=0x03 d=0x000000d1 (s=0x0008 r=0x00)
+          (string8) "설치된 앱"
+        resource 0x7f11015d com.rise.automatic.autoclicker.clicker:string/permission_tutorial_off: t=0x03 d=0x00000064 (s=0x0008 r=0x00)
+          (string8) "끄기"
+        resource 0x7f11015e com.rise.automatic.autoclicker.clicker:string/permission_tutorial_on: t=0x03 d=0x00000188 (s=0x0008 r=0x00)
+          (string8) "켜기"
+        resource 0x7f11015f com.rise.automatic.autoclicker.clicker:string/permission_tutorial_request_title: t=0x03 d=0x00000155 (s=0x0008 r=0x00)
+          (string8) "접근성 권한을 허용해 주세요"
+        resource 0x7f110160 com.rise.automatic.autoclicker.clicker:string/popup_window_repeat_max_warning: t=0x03 d=0x00000077 (s=0x0008 r=0x00)
+          (string8) "다음 제스처를 실행하기 전에 이 제스처를 %d번 반복해야 합니다"
+        resource 0x7f110161 com.rise.automatic.autoclicker.clicker:string/popup_window_repeat_min_warning: t=0x03 d=0x00000150 (s=0x0008 r=0x00)
+          (string8) "적어도 한 번은 실행해야 합니다"
+        resource 0x7f110162 com.rise.automatic.autoclicker.clicker:string/preference_anti_random_distance: t=0x03 d=0x00000097 (s=0x0008 r=0x00)
+          (string8) "무작위 위치 클릭"
+        resource 0x7f110163 com.rise.automatic.autoclicker.clicker:string/preference_anti_random_duration: t=0x03 d=0x00000098 (s=0x0008 r=0x00)
+          (string8) "무작위 지속시간"
+        resource 0x7f110164 com.rise.automatic.autoclicker.clicker:string/preference_anti_random_interval: t=0x03 d=0x00000096 (s=0x0008 r=0x00)
+          (string8) "무작위 간격"
+        resource 0x7f110165 com.rise.automatic.autoclicker.clicker:string/preference_category_title_anti_detection: t=0x03 d=0x00000091 (s=0x0008 r=0x00)
+          (string8) "매크로 탐지 피하기"
+        resource 0x7f110166 com.rise.automatic.autoclicker.clicker:string/preference_category_title_default_settings: t=0x03 d=0x0000005f (s=0x0008 r=0x00)
+          (string8) "기본 동작 설정"
+        resource 0x7f110167 com.rise.automatic.autoclicker.clicker:string/preference_category_title_loop_settings: t=0x03 d=0x0000009e (s=0x0008 r=0x00)
+          (string8) "반복 실행 횟수"
+        resource 0x7f110168 com.rise.automatic.autoclicker.clicker:string/preference_category_title_other: t=0x03 d=0x00000062 (s=0x0008 r=0x00)
+          (string8) "기타 설정"
+        resource 0x7f110169 com.rise.automatic.autoclicker.clicker:string/preference_category_title_start_script: t=0x03 d=0x000000dd (s=0x0008 r=0x00)
+          (string8) "스크립트 실행 시작하기"
+        resource 0x7f11016a com.rise.automatic.autoclicker.clicker:string/preference_change_language: t=0x03 d=0x0000010d (s=0x0008 r=0x00)
+          (string8) "언어 설정"
+        resource 0x7f11016b com.rise.automatic.autoclicker.clicker:string/preference_copied: t=0x03 d=0x0000001c (s=0x0008 r=0x00)
+          (string8) "'%1$s'이(가) 클립보드에 복사되었습니다."
+        resource 0x7f11016c com.rise.automatic.autoclicker.clicker:string/preference_default_action_cycle_times: t=0x03 d=0x00000169 (s=0x0008 r=0x00)
+          (string8) "제스처의 실행 횟수"
+        resource 0x7f11016d com.rise.automatic.autoclicker.clicker:string/preference_default_action_delay: t=0x03 d=0x00000160 (s=0x0008 r=0x00)
+          (string8) "제스처 사이 간격 시간"
+        resource 0x7f11016e com.rise.automatic.autoclicker.clicker:string/preference_default_pinch_duration: t=0x03 d=0x000001b3 (s=0x0008 r=0x00)
+          (string8) "화면 확대 지속 시간"
+        resource 0x7f11016f com.rise.automatic.autoclicker.clicker:string/preference_default_swipe_duration: t=0x03 d=0x00000087 (s=0x0008 r=0x00)
+          (string8) "드래그 지속 시간"
+        resource 0x7f110170 com.rise.automatic.autoclicker.clicker:string/preference_default_tap_duration: t=0x03 d=0x00000063 (s=0x0008 r=0x00)
+          (string8) "길게 눌러 입력하기"
+        resource 0x7f110171 com.rise.automatic.autoclicker.clicker:string/preference_loop_after: t=0x03 d=0x000000df (s=0x0008 r=0x00)
+          (string8) "스크립트 실행 중지 설정"
+        resource 0x7f110172 com.rise.automatic.autoclicker.clicker:string/preference_loop_delay: t=0x03 d=0x000000e3 (s=0x0008 r=0x00)
+          (string8) "스크립트 지연 시간"
+        resource 0x7f110173 com.rise.automatic.autoclicker.clicker:string/preference_loop_timer: t=0x03 d=0x00000180 (s=0x0008 r=0x00)
+          (string8) "카운트다운 타이머"
+        resource 0x7f110174 com.rise.automatic.autoclicker.clicker:string/preference_open_source_licenses: t=0x03 d=0x00000125 (s=0x0008 r=0x00)
+          (string8) "오픈소스 라이센스"
+        resource 0x7f110175 com.rise.automatic.autoclicker.clicker:string/preference_other_about_app: t=0x03 d=0x0000015b (s=0x0008 r=0x00)
+          (string8) "정보"
+        resource 0x7f110176 com.rise.automatic.autoclicker.clicker:string/preference_other_restore_defaults: t=0x03 d=0x00000061 (s=0x0008 r=0x00)
+          (string8) "기본값 복원"
+        resource 0x7f110177 com.rise.automatic.autoclicker.clicker:string/preference_other_translate_app: t=0x03 d=0x000000fe (s=0x0008 r=0x00)
+          (string8) "앱 번역하기"
+        resource 0x7f110178 com.rise.automatic.autoclicker.clicker:string/preference_other_upgrade_vip: t=0x03 d=0x0000003b (s=0x0008 r=0x00)
+          (string8) "VIP로 업그레이드"
+        resource 0x7f110179 com.rise.automatic.autoclicker.clicker:string/preference_privacy_policy: t=0x03 d=0x00000042 (s=0x0008 r=0x00)
+          (string8) "개인정보 보호정책"
+        resource 0x7f11017a com.rise.automatic.autoclicker.clicker:string/preference_send_feedback: t=0x03 d=0x00000132 (s=0x0008 r=0x00)
+          (string8) "의견 보내기"
+        resource 0x7f11017b com.rise.automatic.autoclicker.clicker:string/preference_share: t=0x03 d=0x0000004c (s=0x0008 r=0x00)
+          (string8) "공유"
+        resource 0x7f11017c com.rise.automatic.autoclicker.clicker:string/preference_summary_delay_start_timer: t=0x03 d=0x000000f0 (s=0x0008 r=0x00)
+          (string8) "시작 지연 시간"
+        resource 0x7f11017d com.rise.automatic.autoclicker.clicker:string/preference_summary_help: t=0x03 d=0x000000c0 (s=0x0008 r=0x00)
+          (string8) "새로운 기능 살펴보기"
+        resource 0x7f11017e com.rise.automatic.autoclicker.clicker:string/preference_summary_loop_info: t=0x03 d=0x0000015c (s=0x0008 r=0x00)
+          (string8) "정지 버튼을 누를 때까지"
+        resource 0x7f11017f com.rise.automatic.autoclicker.clicker:string/preference_summary_random_distance_info: t=0x03 d=0x00000090 (s=0x0008 r=0x00)
+          (string8) "매크로 탐지 방지를 위한 무작위 클릭 범위 설정"
+        resource 0x7f110180 com.rise.automatic.autoclicker.clicker:string/preference_summary_restore_info: t=0x03 d=0x0000012b (s=0x0008 r=0x00)
+          (string8) "원본을 복원하려면 터치하세요"
+        resource 0x7f110181 com.rise.automatic.autoclicker.clicker:string/preference_summary_send_feedback: t=0x03 d=0x000000d2 (s=0x0008 r=0x00)
+          (string8) "소중한 의견을 보내주세요"
+        resource 0x7f110182 com.rise.automatic.autoclicker.clicker:string/preference_summary_share: t=0x03 d=0x00000139 (s=0x0008 r=0x00)
+          (string8) "이 앱을 친구들과 공유하세요"
+        resource 0x7f110183 com.rise.automatic.autoclicker.clicker:string/preference_summary_timer_hour_format: t=0x03 d=0x00000010 (s=0x0008 r=0x00)
+          (string8) "%1$s시간 %2$s분 %3$s초"
+        resource 0x7f110184 com.rise.automatic.autoclicker.clicker:string/preference_summary_timer_minute_format: t=0x03 d=0x0000000e (s=0x0008 r=0x00)
+          (string8) "%1$s분 %2$s초"
+        resource 0x7f110185 com.rise.automatic.autoclicker.clicker:string/preference_summary_timer_second_format: t=0x03 d=0x0000001b (s=0x0008 r=0x00)
+          (string8) "%s초"
+        resource 0x7f110186 com.rise.automatic.autoclicker.clicker:string/preference_summary_troubleshooting: t=0x03 d=0x00000109 (s=0x0008 r=0x00)
+          (string8) "앱이 정상적으로 작동하지 않습니다"
+        resource 0x7f110187 com.rise.automatic.autoclicker.clicker:string/preference_troubleshooting: t=0x03 d=0x0000009a (s=0x0008 r=0x00)
+          (string8) "문제 해결"
+        resource 0x7f110189 com.rise.automatic.autoclicker.clicker:string/purchase_account: t=0x03 d=0x00000034 (s=0x0008 r=0x00)
+          (string8) "Google 계정"
+        resource 0x7f11018a com.rise.automatic.autoclicker.clicker:string/purchase_action_unlimited: t=0x03 d=0x0000007e (s=0x0008 r=0x00)
+          (string8) "더 많은 제스처를 추가할 수 있습니다"
+        resource 0x7f11018b com.rise.automatic.autoclicker.clicker:string/purchase_banner_hint: t=0x03 d=0x00000176 (s=0x0008 r=0x00)
+          (string8) "최고 인기"
+        resource 0x7f11018c com.rise.automatic.autoclicker.clicker:string/purchase_buy: t=0x03 d=0x00000058 (s=0x0008 r=0x00)
+          (string8) "구입"
+        resource 0x7f11018d com.rise.automatic.autoclicker.clicker:string/purchase_config_unlimited: t=0x03 d=0x0000007d (s=0x0008 r=0x00)
+          (string8) "더 많은 설정을 저장할 수 있습니다"
+        resource 0x7f11018e com.rise.automatic.autoclicker.clicker:string/purchase_continue: t=0x03 d=0x0000004a (s=0x0008 r=0x00)
+          (string8) "계속"
+        resource 0x7f11018f com.rise.automatic.autoclicker.clicker:string/purchase_get: t=0x03 d=0x0000010f (s=0x0008 r=0x00)
+          (string8) "얻기"
+        resource 0x7f110191 com.rise.automatic.autoclicker.clicker:string/purchase_google_play_subscription_title: t=0x03 d=0x00000033 (s=0x0008 r=0x00)
+          (string8) "Google Play로 이동"
+        resource 0x7f110192 com.rise.automatic.autoclicker.clicker:string/purchase_no_ads: t=0x03 d=0x00000050 (s=0x0008 r=0x00)
+          (string8) "광고 제거"
+        resource 0x7f110193 com.rise.automatic.autoclicker.clicker:string/purchase_no_expiration_date: t=0x03 d=0x0000008e (s=0x0008 r=0x00)
+          (string8) "만료일 없음"
+        resource 0x7f110194 com.rise.automatic.autoclicker.clicker:string/purchase_no_internet_connection: t=0x03 d=0x00000117 (s=0x0008 r=0x00)
+          (string8) "연결되지 않습니다. 네트워크 연결상태를 확인한 다음에 다시 시도해 주세요."
+        resource 0x7f110195 com.rise.automatic.autoclicker.clicker:string/purchase_notice_content: t=0x03 d=0x0000001d (s=0x0008 r=0x00)
+          (string8) "1. 구독 기간 동안 가입자는 광고 및 클릭 제한 없음, 무제한 저장 공간 등을 포함한 VIP 서비스를 이용하실 수 있습니다.\n\n 2. VIP 서비스는 Google Play 계정과 연결되어 있으므로 휴대전화를 교체하거나 앱을 삭제한 후 다시 설치할 때마다 다시 구독하실 필요가 없습니다.\n\n 3. 평가판 기간 동안 구독을 취소하셔도 요금이 청구되지 않습니다.\n\n 4. Google Play 상세 설명에 따라 구독 기간 내에 구독을 취소하지 않으면 Google Play에서 구독이 자동으로 갱신됩니다.\n\n 5. VIP 서비스를 원치 않으시면, Google Play를 통해 VIP 서비스 구독을 취소하실 수 있습니다."
+        resource 0x7f110196 com.rise.automatic.autoclicker.clicker:string/purchase_notice_title: t=0x03 d=0x00000055 (s=0x0008 r=0x00)
+          (string8) "구독 지침"
+        resource 0x7f110197 com.rise.automatic.autoclicker.clicker:string/purchase_one_mothly_with_free_desc: t=0x03 d=0x00000141 (s=0x0008 r=0x00)
+          (string8) "이후 월간 %1$s 청구됨"
+        resource 0x7f110198 com.rise.automatic.autoclicker.clicker:string/purchase_one_time_pay: t=0x03 d=0x00000119 (s=0x0008 r=0x00)
+          (string8) "영구적 VIP"
+        resource 0x7f110199 com.rise.automatic.autoclicker.clicker:string/purchase_one_time_pay_desc: t=0x03 d=0x00000057 (s=0x0008 r=0x00)
+          (string8) "구매 후 영구적으로 유효"
+        resource 0x7f11019a com.rise.automatic.autoclicker.clicker:string/purchase_one_year: t=0x03 d=0x0000001f (s=0x0008 r=0x00)
+          (string8) "12개월"
+        resource 0x7f11019b com.rise.automatic.autoclicker.clicker:string/purchase_pay_option_month: t=0x03 d=0x0000012d (s=0x0008 r=0x00)
+          (string8) "월간 구독"
+        resource 0x7f11019c com.rise.automatic.autoclicker.clicker:string/purchase_price_code_month: t=0x03 d=0x00000016 (s=0x0008 r=0x00)
+          (string8) "%s/월"
+        resource 0x7f11019d com.rise.automatic.autoclicker.clicker:string/purchase_price_code_year: t=0x03 d=0x00000006 (s=0x0008 r=0x00)
+          (string8) "%1$s / 년"
+        resource 0x7f11019e com.rise.automatic.autoclicker.clicker:string/purchase_restore: t=0x03 d=0x000000ad (s=0x0008 r=0x00)
+          (string8) "복원"
+        resource 0x7f11019f com.rise.automatic.autoclicker.clicker:string/purchase_restore_info: t=0x03 d=0x00000111 (s=0x0008 r=0x00)
+          (string8) "여러 개가 아닌, 정확한 단 하나의 Google Play 계정으로 로그인됐는지 확인하세요. 응용 프로그램이 여러 계정을 인식하지 못합니다."
+        resource 0x7f1101a0 com.rise.automatic.autoclicker.clicker:string/purchase_sign_in_with_google_account: t=0x03 d=0x00000024 (s=0x0008 r=0x00)
+          (string8) "Android 기기에 연결할 Google 계정으로 로그인하세요."
+        resource 0x7f1101a1 com.rise.automatic.autoclicker.clicker:string/purchase_subscribed_vip: t=0x03 d=0x00000192 (s=0x0008 r=0x00)
+          (string8) "클릭 어시스턴트의 VIP 회원이 되신 것을 축하드립니다"
+        resource 0x7f1101a2 com.rise.automatic.autoclicker.clicker:string/purchase_subscription_info: t=0x03 d=0x00000056 (s=0x0008 r=0x00)
+          (string8) "구독이 활성화되었습니다"
+        resource 0x7f1101a3 com.rise.automatic.autoclicker.clicker:string/purchase_three_days_try_free: t=0x03 d=0x00000094 (s=0x0008 r=0x00)
+          (string8) "무료 3일체험"
+        resource 0x7f1101a4 com.rise.automatic.autoclicker.clicker:string/purchase_try_free: t=0x03 d=0x00000095 (s=0x0008 r=0x00)
+          (string8) "무료 체험"
+        resource 0x7f1101a5 com.rise.automatic.autoclicker.clicker:string/purchase_yearly: t=0x03 d=0x00000116 (s=0x0008 r=0x00)
+          (string8) "연간 VIP"
+        resource 0x7f1101a6 com.rise.automatic.autoclicker.clicker:string/rating_button_late: t=0x03 d=0x00000065 (s=0x0008 r=0x00)
+          (string8) "나중에"
+        resource 0x7f1101a7 com.rise.automatic.autoclicker.clicker:string/rating_button_rate: t=0x03 d=0x00000170 (s=0x0008 r=0x00)
+          (string8) "지금 평가하기"
+        resource 0x7f1101a8 com.rise.automatic.autoclicker.clicker:string/rating_button_thanks: t=0x03 d=0x0000017e (s=0x0008 r=0x00)
+          (string8) "취소"
+        resource 0x7f1101a9 com.rise.automatic.autoclicker.clicker:string/rating_dialog_message: t=0x03 d=0x0000014e (s=0x0008 r=0x00)
+          (string8) "저희 앱이 마음에 드신다면, 별점 5개를 남겨주세요! 여러분의 응원이 더 나은 버전을 출시하는 원동력이 됩니다. 감사합니다!"
+        resource 0x7f1101aa com.rise.automatic.autoclicker.clicker:string/rating_dialog_title: t=0x03 d=0x000000ab (s=0x0008 r=0x00)
+          (string8) "별점 5개"
+        resource 0x7f1101ab com.rise.automatic.autoclicker.clicker:string/rating_feedback: t=0x03 d=0x00000134 (s=0x0008 r=0x00)
+          (string8) "의견을 들려주세요"
+        resource 0x7f1101ac com.rise.automatic.autoclicker.clicker:string/rating_feedback_thanks: t=0x03 d=0x000000ec (s=0x0008 r=0x00)
+          (string8) "시간을 내어 의견을 보내주셔서 감사합니다."
+        resource 0x7f1101ad com.rise.automatic.autoclicker.clicker:string/rating_subtitle_default: t=0x03 d=0x00000113 (s=0x0008 r=0x00)
+          (string8) "여러분의 소중한 의견을 중요하게 생각합니다. 사용 후기를 들려주세요!"
+        resource 0x7f1101ae com.rise.automatic.autoclicker.clicker:string/rating_subtitle_high: t=0x03 d=0x00000114 (s=0x0008 r=0x00)
+          (string8) "여러분의 응원이 큰 힘이 됩니다!"
+        resource 0x7f1101af com.rise.automatic.autoclicker.clicker:string/rating_subtitle_low: t=0x03 d=0x0000007c (s=0x0008 r=0x00)
+          (string8) "더 나은 서비스를 위해 어떤 점이 불편하셨는지 알려주실 수 있을까요?"
+        resource 0x7f1101b0 com.rise.automatic.autoclicker.clicker:string/rating_subtitle_medium: t=0x03 d=0x00000115 (s=0x0008 r=0x00)
+          (string8) "여러분의 제안은 저희에게 큰 도움이 됩니다"
+        resource 0x7f1101b1 com.rise.automatic.autoclicker.clicker:string/rating_thanks: t=0x03 d=0x0000019d (s=0x0008 r=0x00)
+          (string8) "평가해 주셔서 감사합니다"
+        resource 0x7f1101b2 com.rise.automatic.autoclicker.clicker:string/rating_title_default: t=0x03 d=0x00000041 (s=0x0008 r=0x00)
+          (string8) "감사합니다"
+        resource 0x7f1101b3 com.rise.automatic.autoclicker.clicker:string/rating_title_high: t=0x03 d=0x00000174 (s=0x0008 r=0x00)
+          (string8) "진심으로 감사합니다!"
+        resource 0x7f1101b4 com.rise.automatic.autoclicker.clicker:string/rating_title_low: t=0x03 d=0x0000005e (s=0x0008 r=0x00)
+          (string8) "기대에 미치지 못해 죄송합니다"
+        resource 0x7f1101b5 com.rise.automatic.autoclicker.clicker:string/rating_title_medium: t=0x03 d=0x00000133 (s=0x0008 r=0x00)
+          (string8) "의견 주셔서 감사합니다"
+        resource 0x7f1101b6 com.rise.automatic.autoclicker.clicker:string/running_control_bar_action_step: t=0x03 d=0x000000f6 (s=0x0008 r=0x00)
+          (string8) "실행 중인 제스처 수 및 총 제스처 수"
+        resource 0x7f1101b7 com.rise.automatic.autoclicker.clicker:string/running_control_bar_loop: t=0x03 d=0x000000e5 (s=0x0008 r=0x00)
+          (string8) "스크립트의 루프 수"
+        resource 0x7f1101b8 com.rise.automatic.autoclicker.clicker:string/running_control_bar_pause: t=0x03 d=0x000000e0 (s=0x0008 r=0x00)
+          (string8) "스크립트 일시 정지"
+        resource 0x7f1101b9 com.rise.automatic.autoclicker.clicker:string/running_control_bar_resume: t=0x03 d=0x0000014a (s=0x0008 r=0x00)
+          (string8) "재개"
+        resource 0x7f1101ba com.rise.automatic.autoclicker.clicker:string/running_control_bar_stop: t=0x03 d=0x000000e2 (s=0x0008 r=0x00)
+          (string8) "스크립트 중지"
+        resource 0x7f1101bb com.rise.automatic.autoclicker.clicker:string/running_control_bar_title: t=0x03 d=0x00000081 (s=0x0008 r=0x00)
+          (string8) "도움말"
+        resource 0x7f1101be com.rise.automatic.autoclicker.clicker:string/running_control_time: t=0x03 d=0x00000003 (s=0x0008 r=0x00)
+          (string8) "%1$02d : %2$02d : %3$02d"
+        resource 0x7f1101bf com.rise.automatic.autoclicker.clicker:string/s1: t=0x03 d=0x0000013e (s=0x0008 r=0x00)
+          (string8) "이미지 저장"
+        resource 0x7f1101c0 com.rise.automatic.autoclicker.clicker:string/s2: t=0x03 d=0x00000052 (s=0x0008 r=0x00)
+          (string8) "광고에서 사진 갤러리에 이미지를 저장하도록 허용하시겠습니까?"
+        resource 0x7f1101c1 com.rise.automatic.autoclicker.clicker:string/s3: t=0x03 d=0x00000084 (s=0x0008 r=0x00)
+          (string8) "동의"
+        resource 0x7f1101c2 com.rise.automatic.autoclicker.clicker:string/s4: t=0x03 d=0x00000043 (s=0x0008 r=0x00)
+          (string8) "거부"
+        resource 0x7f1101c3 com.rise.automatic.autoclicker.clicker:string/s5: t=0x03 d=0x00000182 (s=0x0008 r=0x00)
+          (string8) "캘린더 일정 만들기"
+        resource 0x7f1101c4 com.rise.automatic.autoclicker.clicker:string/s6: t=0x03 d=0x00000053 (s=0x0008 r=0x00)
+          (string8) "광고에서 캘린더 일정을 만들도록 허용하시겠습니까?"
+        resource 0x7f1101c5 com.rise.automatic.autoclicker.clicker:string/s7: t=0x03 d=0x0000019a (s=0x0008 r=0x00)
+          (string8) "테스트 광고"
+        resource 0x7f1101c6 com.rise.automatic.autoclicker.clicker:string/save_config_add_config_btn: t=0x03 d=0x000001a8 (s=0x0008 r=0x00)
+          (string8) "현재 작업 저장"
+        resource 0x7f1101c7 com.rise.automatic.autoclicker.clicker:string/save_config_add_config_title: t=0x03 d=0x00000148 (s=0x0008 r=0x00)
+          (string8) "작업 추가"
+        resource 0x7f1101c8 com.rise.automatic.autoclicker.clicker:string/save_config_menu_action_delete: t=0x03 d=0x000000ba (s=0x0008 r=0x00)
+          (string8) "삭제"
+        resource 0x7f1101c9 com.rise.automatic.autoclicker.clicker:string/save_config_menu_action_export: t=0x03 d=0x000000a6 (s=0x0008 r=0x00)
+          (string8) "백업"
+        resource 0x7f1101ca com.rise.automatic.autoclicker.clicker:string/save_config_menu_action_import: t=0x03 d=0x000000a7 (s=0x0008 r=0x00)
+          (string8) "백업 복원"
+        resource 0x7f1101cb com.rise.automatic.autoclicker.clicker:string/save_config_menu_action_load: t=0x03 d=0x000000b1 (s=0x0008 r=0x00)
+          (string8) "불러오기"
+        resource 0x7f1101cc com.rise.automatic.autoclicker.clicker:string/save_config_menu_action_personalization: t=0x03 d=0x0000008f (s=0x0008 r=0x00)
+          (string8) "맞춤화"
+        resource 0x7f1101cd com.rise.automatic.autoclicker.clicker:string/save_config_menu_action_reorder_title: t=0x03 d=0x000000d7 (s=0x0008 r=0x00)
+          (string8) "순서 변경"
+        resource 0x7f1101ce com.rise.automatic.autoclicker.clicker:string/save_config_menu_action_select_title: t=0x03 d=0x000000c7 (s=0x0008 r=0x00)
+          (string8) "선택하기"
+        resource 0x7f1101cf com.rise.automatic.autoclicker.clicker:string/save_config_no_config_found: t=0x03 d=0x0000014d (s=0x0008 r=0x00)
+          (string8) "저장된 작업이 없습니다"
+        resource 0x7f1101d0 com.rise.automatic.autoclicker.clicker:string/save_config_override_title: t=0x03 d=0x00000080 (s=0x0008 r=0x00)
+          (string8) "덮어쓰기..."
+        resource 0x7f1101d1 com.rise.automatic.autoclicker.clicker:string/save_config_permission_external_storage: t=0x03 d=0x000000e6 (s=0x0008 r=0x00)
+          (string8) "스토리지 쓰기 권한이 필요합니다"
+        resource 0x7f1101d2 com.rise.automatic.autoclicker.clicker:string/save_config_save_my_config_title: t=0x03 d=0x00000069 (s=0x0008 r=0x00)
+          (string8) "내 작업"
+        resource 0x7f1101d3 com.rise.automatic.autoclicker.clicker:string/save_config_search_title: t=0x03 d=0x00000046 (s=0x0008 r=0x00)
+          (string8) "검색..."
+        resource 0x7f1101d4 com.rise.automatic.autoclicker.clicker:string/save_config_service_not_started: t=0x03 d=0x00000100 (s=0x0008 r=0x00)
+          (string8) "앱 서비스를 먼저 시작해야 합니다"
+        resource 0x7f1101d5 com.rise.automatic.autoclicker.clicker:string/search_menu_title: t=0x03 d=0x00000045 (s=0x0008 r=0x00)
+          (string8) "검색"
+        resource 0x7f1101d6 com.rise.automatic.autoclicker.clicker:string/seconds: t=0x03 d=0x00000175 (s=0x0008 r=0x00)
+          (string8) "초"
+        resource 0x7f1101d7 com.rise.automatic.autoclicker.clicker:string/share_mail_chooser_share_with: t=0x03 d=0x0000004d (s=0x0008 r=0x00)
+          (string8) "공유 대상"
+        resource 0x7f1101d8 com.rise.automatic.autoclicker.clicker:string/share_mail_description: t=0x03 d=0x00000071 (s=0x0008 r=0x00)
+          (string8) "다운로드 링크"
+        resource 0x7f1101d9 com.rise.automatic.autoclicker.clicker:string/share_mail_title: t=0x03 d=0x0000018e (s=0x0008 r=0x00)
+          (string8) "클릭 어시스턴트 공유"
+        resource 0x7f1101da com.rise.automatic.autoclicker.clicker:string/snackbar_auth_unknown_error: t=0x03 d=0x000000f8 (s=0x0008 r=0x00)
+          (string8) "알 수 없는 에러가 발생함"
+        resource 0x7f1101db com.rise.automatic.autoclicker.clicker:string/snackbar_cannot_view_document: t=0x03 d=0x00000099 (s=0x0008 r=0x00)
+          (string8) "문서를 볼 수 없음: 적합한 앱이 설치되어 있지 않음"
+        resource 0x7f1101dc com.rise.automatic.autoclicker.clicker:string/snackbar_config_count_limited: t=0x03 d=0x0000003c (s=0x0008 r=0x00)
+          (string8) "VIP로 업그레이드하면 더 많은 제스처를 추가할 수 있습니다"
+        resource 0x7f1101de com.rise.automatic.autoclicker.clicker:string/snackbar_file_saved: t=0x03 d=0x000000cf (s=0x0008 r=0x00)
+          (string8) "설정이 저장되었습니다"
+        resource 0x7f1101df com.rise.automatic.autoclicker.clicker:string/snackbar_go_to_setting: t=0x03 d=0x000000ce (s=0x0008 r=0x00)
+          (string8) "설정으로 이동"
+        resource 0x7f1101e0 com.rise.automatic.autoclicker.clicker:string/snackbar_import_fail: t=0x03 d=0x00000136 (s=0x0008 r=0x00)
+          (string8) "이 백업 파일은 손상되었거나 지원하지 않는 파일입니다"
+        resource 0x7f1101e1 com.rise.automatic.autoclicker.clicker:string/snackbar_keep_hide: t=0x03 d=0x000000dc (s=0x0008 r=0x00)
+          (string8) "스크립트 로드 후 제스처 숨기기"
+        resource 0x7f1101e2 com.rise.automatic.autoclicker.clicker:string/snackbar_load_fail: t=0x03 d=0x00000151 (s=0x0008 r=0x00)
+          (string8) "적재 실패, 다시 시도하십시오"
+        resource 0x7f1101e3 com.rise.automatic.autoclicker.clicker:string/snackbar_no_actions: t=0x03 d=0x00000085 (s=0x0008 r=0x00)
+          (string8) "동작 없음"
+        resource 0x7f1101e4 com.rise.automatic.autoclicker.clicker:string/snackbar_permission_denied: t=0x03 d=0x0000014c (s=0x0008 r=0x00)
+          (string8) "저장 권한이 필요합니다"
+        resource 0x7f1101e5 com.rise.automatic.autoclicker.clicker:string/snackbar_some_error_occurred: t=0x03 d=0x000000f8 (s=0x0008 r=0x00)
+          (string8) "알 수 없는 에러가 발생함"
+        resource 0x7f1101e6 com.rise.automatic.autoclicker.clicker:string/snackbar_stop_service_confirm: t=0x03 d=0x00000104 (s=0x0008 r=0x00)
+          (string8) "앱을 먼저 중지하세요"
+        resource 0x7f1101e7 com.rise.automatic.autoclicker.clicker:string/snackbar_thank_your_for_watching: t=0x03 d=0x000000f5 (s=0x0008 r=0x00)
+          (string8) "시청해주셔서 감사합니다"
+        resource 0x7f1101e8 com.rise.automatic.autoclicker.clicker:string/status_bar_notification_info_overflow: t=0x03 d=0x00000020 (s=0x0008 r=0x00)
+          (string8) "999+"
+        resource 0x7f1101e9 com.rise.automatic.autoclicker.clicker:string/summary_collapsed_preference_list: t=0x03 d=0x00000009 (s=0x0008 r=0x00)
+          (string8) "%1$s, %2$s"
+        resource 0x7f1101ea com.rise.automatic.autoclicker.clicker:string/teach_control_bar_info: t=0x03 d=0x00000000 (s=0x0008 r=0x00)
+          (string8) "\"녹화\" 버튼을 눌러 녹화를 시작하세요."
+        resource 0x7f1101eb com.rise.automatic.autoclicker.clicker:string/teach_control_bar_info2: t=0x03 d=0x000000de (s=0x0008 r=0x00)
+          (string8) "스크립트 실행 중에는 플로팅 창을 숨길 수 있습니다."
+        resource 0x7f1101ec com.rise.automatic.autoclicker.clicker:string/teach_custom: t=0x03 d=0x0000016c (s=0x0008 r=0x00)
+          (string8) "조작 인터페이스의 크기와 투명도 등을 조정할 수 있습니다."
+        resource 0x7f1101ed com.rise.automatic.autoclicker.clicker:string/teach_edge_click: t=0x03 d=0x0000003f (s=0x0008 r=0x00)
+          (string8) "가장자리 클릭 지원"
+        resource 0x7f1101ee com.rise.automatic.autoclicker.clicker:string/teach_edge_click_info: t=0x03 d=0x0000018a (s=0x0008 r=0x00)
+          (string8) "클릭 기준점을 모서리로 변경하면 윈도우 크기에 방해받지 않고 화면 가장자리의 버튼을 쉽게 클릭할 수 있습니다."
+        resource 0x7f1101ef com.rise.automatic.autoclicker.clicker:string/teach_edge_click_title: t=0x03 d=0x000001b1 (s=0x0008 r=0x00)
+          (string8) "화면 끝까지 정확하게 클릭하세요!"
+        resource 0x7f1101f0 com.rise.automatic.autoclicker.clicker:string/teach_end_icon_info: t=0x03 d=0x0000006b (s=0x0008 r=0x00)
+          (string8) "녹화가 완료되면 우측 상단의 \"완료\" 버튼을 누르세요."
+        resource 0x7f1101f1 com.rise.automatic.autoclicker.clicker:string/teach_end_icon_info2: t=0x03 d=0x00000001 (s=0x0008 r=0x00)
+          (string8) "\"완료\" 버튼을 드래그하여 원하는 위치로 이동할 수 있습니다."
+        resource 0x7f1101f2 com.rise.automatic.autoclicker.clicker:string/teach_multi_dark_mode_info: t=0x03 d=0x00000120 (s=0x0008 r=0x00)
+          (string8) "오른쪽 상단에서 %s 아이콘을 탭하세요"
+        resource 0x7f1101f3 com.rise.automatic.autoclicker.clicker:string/teach_multi_touch: t=0x03 d=0x00000093 (s=0x0008 r=0x00)
+          (string8) "멀티터치 제스처"
+        resource 0x7f1101f4 com.rise.automatic.autoclicker.clicker:string/teach_multi_touch_info: t=0x03 d=0x00000197 (s=0x0008 r=0x00)
+          (string8) "탭, 스와이프, 핀치 인/아웃 등 다양한 멀티터치 제스처를 녹화하여 편리한 작업을 수행할 수 있습니다."
+        resource 0x7f1101f5 com.rise.automatic.autoclicker.clicker:string/teach_new_feature: t=0x03 d=0x000000bf (s=0x0008 r=0x00)
+          (string8) "새로운 기능"
+        resource 0x7f1101f6 com.rise.automatic.autoclicker.clicker:string/teach_save_config_hint: t=0x03 d=0x00000106 (s=0x0008 r=0x00)
+          (string8) "앱을 제거하거나 앱 데이터를 삭제하면 앱에 저장된 모든 스크립트가 삭제됩니다.\n\n앱을 제거하기 전에 스크립트를 백업할 것을 권장합니다."
+        resource 0x7f1101f7 com.rise.automatic.autoclicker.clicker:string/teach_save_config_hint_title: t=0x03 d=0x00000130 (s=0x0008 r=0x00)
+          (string8) "유의 사항"
+        resource 0x7f1101f8 com.rise.automatic.autoclicker.clicker:string/teach_summary: t=0x03 d=0x000000d5 (s=0x0008 r=0x00)
+          (string8) "손쉽게 직접 제스처를 녹화할 수 있습니다."
+        resource 0x7f1101f9 com.rise.automatic.autoclicker.clicker:string/teach_summary_first: t=0x03 d=0x000000c1 (s=0x0008 r=0x00)
+          (string8) "새로운 인터페이스로 언제든지 스크립트 실행을 중지, 일시 중지, 또는 재개할 수 있습니다."
+        resource 0x7f1101fa com.rise.automatic.autoclicker.clicker:string/teach_title: t=0x03 d=0x0000015e (s=0x0008 r=0x00)
+          (string8) "제스처 녹화"
+        resource 0x7f1101fb com.rise.automatic.autoclicker.clicker:string/terms_of_service_dialog_action_accept: t=0x03 d=0x0000013f (s=0x0008 r=0x00)
+          (string8) "이에 동의합니다"
+        resource 0x7f1101fc com.rise.automatic.autoclicker.clicker:string/terms_of_service_dialog_info: t=0x03 d=0x0000001e (s=0x0008 r=0x00)
+          (string8) "1. 이 기기와 다른 해상도의 스크립트를 로드하면 클릭 위치가 잘못될 수 있으므로 다시 조정해야 합니다.\n\n2. 출처를 알 수 없는 스크립트는 사용하지 마세요! 출처를 알 수 없는 스크립트를 사용하면 데이터 손실, 오류, 타인에 의한 변조 또는 기타 경제적 손실이 발생할 수 있습니다. 스크립트를 실행하기 전에 각 제스처의 적법성, 적절성, 유효성, 정확성을 확인하고, 타인의 권리를 침해하지 않는지 확인하여 손실을 방지하세요."
+        resource 0x7f1101fd com.rise.automatic.autoclicker.clicker:string/terms_of_service_dialog_subtitle: t=0x03 d=0x000000c3 (s=0x0008 r=0x00)
+          (string8) "서비스 약관"
+        resource 0x7f1101fe com.rise.automatic.autoclicker.clicker:string/terms_of_service_dialog_title: t=0x03 d=0x000000a7 (s=0x0008 r=0x00)
+          (string8) "백업 복원"
+        resource 0x7f1101ff com.rise.automatic.autoclicker.clicker:string/times: t=0x03 d=0x000001b6 (s=0x0008 r=0x00)
+          (string8) "회"
+        resource 0x7f110200 com.rise.automatic.autoclicker.clicker:string/toast_customization_item_order_count_limited: t=0x03 d=0x00000185 (s=0x0008 r=0x00)
+          (string8) "컨트롤 수가 한도에 도달했습니다. 컨트롤 항목을 하나 삭제하세요."
+        resource 0x7f110201 com.rise.automatic.autoclicker.clicker:string/toast_customization_item_order_count_needed: t=0x03 d=0x00000187 (s=0x0008 r=0x00)
+          (string8) "컨트롤 항목을 하나 보관하세요."
+        resource 0x7f110202 com.rise.automatic.autoclicker.clicker:string/toast_customization_reopen_notice: t=0x03 d=0x000000cd (s=0x0008 r=0x00)
+          (string8) "설정에서 이 창을 다시 열 수 있습니다"
+        resource 0x7f110203 com.rise.automatic.autoclicker.clicker:string/toast_service_action_count_limited: t=0x03 d=0x0000003c (s=0x0008 r=0x00)
+          (string8) "VIP로 업그레이드하면 더 많은 제스처를 추가할 수 있습니다"
+        resource 0x7f110204 com.rise.automatic.autoclicker.clicker:string/toast_service_no_action: t=0x03 d=0x00000085 (s=0x0008 r=0x00)
+          (string8) "동작 없음"
+        resource 0x7f110205 com.rise.automatic.autoclicker.clicker:string/toast_service_swipe_cancel: t=0x03 d=0x0000017f (s=0x0008 r=0x00)
+          (string8) "취소됨"
+        resource 0x7f110206 com.rise.automatic.autoclicker.clicker:string/toast_settings_saved: t=0x03 d=0x000000cf (s=0x0008 r=0x00)
+          (string8) "설정이 저장되었습니다"
+        resource 0x7f110207 com.rise.automatic.autoclicker.clicker:string/translate_button: t=0x03 d=0x000000a9 (s=0x0008 r=0x00)
+          (string8) "번역 도와주기"
+        resource 0x7f110208 com.rise.automatic.autoclicker.clicker:string/translate_info_text: t=0x03 d=0x000000aa (s=0x0008 r=0x00)
+          (string8) "번역에 참여해 주신 모든 분들께 감사드립니다"
+        resource 0x7f110209 com.rise.automatic.autoclicker.clicker:string/translate_no_language: t=0x03 d=0x0000010e (s=0x0008 r=0x00)
+          (string8) "언어를 선택해 주세요"
+        resource 0x7f11020a com.rise.automatic.autoclicker.clicker:string/translate_summary: t=0x03 d=0x000000fd (s=0x0008 r=0x00)
+          (string8) "앱 번역을 도와주세요"
+        resource 0x7f11020b com.rise.automatic.autoclicker.clicker:string/translator_language_picker_title: t=0x03 d=0x0000010c (s=0x0008 r=0x00)
+          (string8) "언어 선택"
+        resource 0x7f11020c com.rise.automatic.autoclicker.clicker:string/translator_more_language_title: t=0x03 d=0x0000006c (s=0x0008 r=0x00)
+          (string8) "다른 언어"
+        resource 0x7f11020d com.rise.automatic.autoclicker.clicker:string/translator_system_language_title: t=0x03 d=0x000000ed (s=0x0008 r=0x00)
+          (string8) "시스템 언어 사용"
+        resource 0x7f11020e com.rise.automatic.autoclicker.clicker:string/troubleshooting_info: t=0x03 d=0x00000108 (s=0x0008 r=0x00)
+          (string8) "앱이 정상적으로 작동하지 않는 경우, '접근성' 권한을 재설정하여 문제를 해결할 수 있습니다."
+        resource 0x7f11020f com.rise.automatic.autoclicker.clicker:string/troubleshooting_info2: t=0x03 d=0x0000005a (s=0x0008 r=0x00)
+          (string8) "그래도 작동하지 않으면, 휴대전화를 재부팅하세요."
+        resource 0x7f110210 com.rise.automatic.autoclicker.clicker:string/troubleshooting_info3: t=0x03 d=0x00000157 (s=0x0008 r=0x00)
+          (string8) "접근성 서비스가 종료되어 앱이 작동하지 않습니다. 이 문제를 해결하려면 권한을 다시 부여해야 합니다 (끄고 다시 켜기)."
+        resource 0x7f110211 com.rise.automatic.autoclicker.clicker:string/v7_preference_off: t=0x03 d=0x000000b8 (s=0x0008 r=0x00)
+          (string8) "사용 안함"
+        resource 0x7f110212 com.rise.automatic.autoclicker.clicker:string/v7_preference_on: t=0x03 d=0x000000b6 (s=0x0008 r=0x00)
+          (string8) "사용"
+        resource 0x7f110213 com.rise.automatic.autoclicker.clicker:string/watermark_label_prefix: t=0x03 d=0x00000021 (s=0x0008 r=0x00)
+          (string8) "AdMob -"
+        resource 0x7f110214 com.rise.automatic.autoclicker.clicker:string/wheel_view_short_day_format: t=0x03 d=0x00000038 (s=0x0008 r=0x00)
+          (string8) "M월d일 EEE"
+        resource 0x7f110215 com.rise.automatic.autoclicker.clicker:string/wheel_view_today: t=0x03 d=0x0000011d (s=0x0008 r=0x00)
+          (string8) "오늘"

@@ -1,0 +1,15 @@
+{
+  "한국시각": "2026-10-26T01:00:11.3090742+09:00",
+  "작업": "pxe14-design-reference-20261026",
+  "호출": "list_threads",
+  "인자": {
+    "limit": 100
+  },
+  "오류원문": "list_threads received invalid arguments: limit: Too big: expected number to be <=50.",
+  "코드변경": false,
+  "정정근거": "도구가 반환한 실제 limit 상한 50",
+  "다음인자": {
+    "limit": 50
+  },
+  "누적": "새 작업 상태 등록 전 입력 오류 1건. 이전 완료 작업의 카운터와 분리"
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="kr.yunseok.touchmacro.WatchGateTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-10-19T17:10:43.920Z" hostname="DESKTOP-Q56I31F" time="0.003">
+  <properties/>
+  <testcase name="requiresTwoAbsentScansAcrossTimeAndThenNewAppearance" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.001"/>
+  <testcase name="rejectsSeventhPriority" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.001"/>
+  <testcase name="rejectsTooShortAbsence" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.0"/>
+  <testcase name="profileTimingsAndLockSurviveSave" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.0"/>
+  <testcase name="reservesBeforeEntryAndBlocksEveryPresentResult" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.0"/>
+  <testcase name="presenceAndInterruptedContextResetAbsence" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.001"/>
+  <testcase name="sixExplicitPrioritiesPreserveTheirOrderAndIndependentLocks" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.0"/>
+  <testcase name="rejectsOverlappingPriorityBoxes" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.0"/>
+  <testcase name="oneMissingScanNeverRearms" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.0"/>
+  <testcase name="restoredReservationStartsBlocked" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

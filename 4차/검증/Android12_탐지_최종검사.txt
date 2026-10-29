@@ -1,0 +1,6 @@
+--------- beginning of main
+10-19 02:52:06.111  2990  3005 I TestRunner: run started: 1 tests
+10-19 02:52:06.112  2990  3005 I TestRunner: started: regionRefreshMacroBackRepeatAndCancellation(kr.yunseok.touchmacro.WatchFlowTest)
+10-19 02:52:56.621  2990  3005 I NEX_WATCH_QA: PASS: region exclusion, OCR trigger, saved macro execution, automatic BACK, refresh/repeat, optional duplicate delay, immediate return/re-detect, pause/stop cancellation, failure stops without BACK, compact collapsed control
+10-19 02:52:56.627  2990  3005 I TestRunner: finished: regionRefreshMacroBackRepeatAndCancellation(kr.yunseok.touchmacro.WatchFlowTest)
+10-19 02:52:57.094  2990  3005 I TestRunner: run finished: 1 tests, 0 failed, 0 ignored

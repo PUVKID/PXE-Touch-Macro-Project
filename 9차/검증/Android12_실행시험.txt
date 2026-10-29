@@ -1,0 +1,14 @@
+
+kr.yunseok.touchmacro.CaptureRecoveryTest:...
+kr.yunseok.touchmacro.ReaderResponsivenessTest:..
+kr.yunseok.touchmacro.PriorityFlowTest:.
+kr.yunseok.touchmacro.RepeatFlowTest:.
+kr.yunseok.touchmacro.WatchPresetTest:.
+kr.yunseok.touchmacro.WatchFlowTest:.
+kr.yunseok.touchmacro.GuidedFlowTest:..
+
+Time: 180.704
+
+OK (11 tests)
+
+

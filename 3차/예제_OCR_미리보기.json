@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "name": "NEX · 글자 인식 미리보기",
+  "startAt": 1,
+  "rounds": 1,
+  "gap": 1000,
+  "startDelay": 3000,
+  "maxMinutes": 10,
+  "steps": [
+    {
+      "type": "TEXT_CHECK",
+      "text": "확인",
+      "match": "CONTAINS",
+      "source": "OCR",
+      "failure": "STOP",
+      "timeout": 2000,
+      "retries": 3,
+      "retryDelay": 1000,
+      "after": 500,
+      "repeat": 1,
+      "occurrence": 1,
+      "ignoreSpaces": true,
+      "ignoreCase": true,
+      "left": 0,
+      "top": 0,
+      "right": 100,
+      "bottom": 100
+    }
+  ]
+}

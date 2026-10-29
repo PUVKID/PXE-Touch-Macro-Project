@@ -1,0 +1,12 @@
+NEX 5차 소스 빌드
+
+source 폴더에 전체 Android 프로젝트가 있습니다.
+이 PC에서는 source\빌드.ps1을 PowerShell로 실행합니다.
+프로젝트의 work\build5 연결 폴더와 코드\NEXTools, work\tools, 코드\NEXSigning 도구를 사용합니다.
+임시 폴더에 ASCII 빌드 경로를 만들어 Android SDK의 한글 경로 문제를 피합니다.
+빌드 후 APK는 source\app\build\outputs\apk\release\app-release.apk입니다.
+서명 키는 기존 앱 업데이트에 필요하며 이 소스 폴더에 포함하지 않습니다.
+
+필요 환경: JDK 17, Gradle 8.13, Android SDK 35.
+검사: testDebugUnitTest, lintDebug.
+기기 검사: Android 12에서 androidTest의 WatchPresetTest 및 WatchFlowTest 실행.

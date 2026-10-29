@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="kr.yunseok.touchmacro.WatchConfigTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-10-19T04:22:42.221Z" hostname="DESKTOP-Q56I31F" time="0.002">
+  <properties/>
+  <testcase name="rejectsAllDisabled" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.001"/>
+  <testcase name="fifthRoundCustomValuesAreNotReset" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.0"/>
+  <testcase name="regionAndMacroSurviveSave" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.0"/>
+  <testcase name="rejectsZeroRepetitions" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.0"/>
+  <testcase name="rejectsBackwardsRegion" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.0"/>
+  <testcase name="rejectsEmptyText" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.0"/>
+  <testcase name="ownCountOverridesMacroCountWithoutMultiplyingOrMutating" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.001"/>
+  <testcase name="migratesFourthRoundButKeepsWordRegionAndMacro" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.0"/>
+  <testcase name="endlessSourceStillBecomesFinite" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.0"/>
+  <testcase name="defaultIsEnterFifteenRoundsAndTenSecondRefresh" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.0"/>
+  <testcase name="rejectsZeroInterval" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

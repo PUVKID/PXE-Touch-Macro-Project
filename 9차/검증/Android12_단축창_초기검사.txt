@@ -1,0 +1,42 @@
+
+kr.yunseok.touchmacro.FloatingPlayTest:
+Error in playStartsDetectionUsesNamedMacroFifteenTimesAndPauseResumeStillWork(kr.yunseok.touchmacro.FloatingPlayTest):
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at kr.yunseok.touchmacro.FloatingPlayTest.expand(FloatingPlayTest.java:15)
+	at kr.yunseok.touchmacro.FloatingPlayTest.playStartsDetectionUsesNamedMacroFifteenTimesAndPauseResumeStillWork(FloatingPlayTest.java:23)
+
+Error in unconfiguredPlayNeverFallsBackToCurrentMacro(kr.yunseok.touchmacro.FloatingPlayTest):
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at kr.yunseok.touchmacro.FloatingPlayTest.expand(FloatingPlayTest.java:15)
+	at kr.yunseok.touchmacro.FloatingPlayTest.unconfiguredPlayNeverFallsBackToCurrentMacro(FloatingPlayTest.java:29)
+
+kr.yunseok.touchmacro.CaptureRecoveryTest:...
+kr.yunseok.touchmacro.PriorityFlowTest:.
+
+Time: 75.479
+There were 2 failures:
+1) playStartsDetectionUsesNamedMacroFifteenTimesAndPauseResumeStillWork(kr.yunseok.touchmacro.FloatingPlayTest)
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at kr.yunseok.touchmacro.FloatingPlayTest.expand(FloatingPlayTest.java:15)
+	at kr.yunseok.touchmacro.FloatingPlayTest.playStartsDetectionUsesNamedMacroFifteenTimesAndPauseResumeStillWork(FloatingPlayTest.java:23)
+2) unconfiguredPlayNeverFallsBackToCurrentMacro(kr.yunseok.touchmacro.FloatingPlayTest)
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at kr.yunseok.touchmacro.FloatingPlayTest.expand(FloatingPlayTest.java:15)
+	at kr.yunseok.touchmacro.FloatingPlayTest.unconfiguredPlayNeverFallsBackToCurrentMacro(FloatingPlayTest.java:29)
+
+FAILURES!!!
+Tests run: 6,  Failures: 2
+
+

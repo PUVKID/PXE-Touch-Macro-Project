@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="kr.yunseok.touchmacro.QueryLaneTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-19T07:35:11.044Z" hostname="DESKTOP-Q56I31F" time="0.021">
+  <properties/>
+  <testcase name="cancelledSlowReadDoesNotQueueOrRunNewReads" classname="kr.yunseok.touchmacro.QueryLaneTest" time="0.004"/>
+  <testcase name="sequentialReadsDoNotRaceExecutorCompletion" classname="kr.yunseok.touchmacro.QueryLaneTest" time="0.017"/>
+  <testcase name="closedReaderRejectsWithoutExecuting" classname="kr.yunseok.touchmacro.QueryLaneTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

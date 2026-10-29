@@ -1,0 +1,8 @@
+
+kr.yunseok.touchmacro.PxeUpgradeTest:.
+
+Time: 0.056
+
+OK (1 test)
+
+

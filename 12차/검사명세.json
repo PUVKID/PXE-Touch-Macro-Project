@@ -1,0 +1,1 @@
+{"schema_version":1,"total_timeout_seconds":45,"checks":[{"id":"단위 회귀 검사","argv":["{python}","-X","utf8","tools/check_regression.py"],"cwd":".","timeout_seconds":30},{"id":"UTF-8 검사","argv":["{python}","-X","utf8","tools/check_utf8.py"],"cwd":".","timeout_seconds":15}]}

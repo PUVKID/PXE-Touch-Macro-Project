@@ -1,0 +1,104 @@
+
+kr.yunseok.touchmacro.PxeDesignReviewTest:
+Error in reviewBothThemesNavigationWizardAndBrand(kr.yunseok.touchmacro.PxeDesignReviewTest):
+java.lang.AssertionError: No accessibility service
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at kr.yunseok.touchmacro.GuidedFlowTest.waitFor(GuidedFlowTest.java:11)
+	at kr.yunseok.touchmacro.GuidedFlowTest.boot(GuidedFlowTest.java:15)
+	at kr.yunseok.touchmacro.PxeDesignReviewTest.boot(PxeDesignReviewTest.java:8)
+
+kr.yunseok.touchmacro.FloatingPlayTest:
+Error in playStartsDetectionUsesNamedMacroFifteenTimesAndPauseResumeStillWork(kr.yunseok.touchmacro.FloatingPlayTest):
+java.lang.AssertionError: No accessibility service
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at kr.yunseok.touchmacro.GuidedFlowTest.waitFor(GuidedFlowTest.java:11)
+	at kr.yunseok.touchmacro.GuidedFlowTest.boot(GuidedFlowTest.java:15)
+	at kr.yunseok.touchmacro.FloatingPlayTest.boot(FloatingPlayTest.java:8)
+
+Error in unconfiguredPlayNeverFallsBackToCurrentMacro(kr.yunseok.touchmacro.FloatingPlayTest):
+java.lang.AssertionError: No accessibility service
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at kr.yunseok.touchmacro.GuidedFlowTest.waitFor(GuidedFlowTest.java:11)
+	at kr.yunseok.touchmacro.GuidedFlowTest.boot(GuidedFlowTest.java:15)
+	at kr.yunseok.touchmacro.FloatingPlayTest.boot(FloatingPlayTest.java:8)
+
+kr.yunseok.touchmacro.PriorityFlowTest:
+Error in secondPriorityRepeatsAfterRefreshAndFirstPriorityWinsWhenPresent(kr.yunseok.touchmacro.PriorityFlowTest):
+java.lang.AssertionError: No accessibility service
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at kr.yunseok.touchmacro.GuidedFlowTest.waitFor(GuidedFlowTest.java:11)
+	at kr.yunseok.touchmacro.GuidedFlowTest.boot(GuidedFlowTest.java:15)
+	at kr.yunseok.touchmacro.PriorityFlowTest.boot(PriorityFlowTest.java:8)
+
+kr.yunseok.touchmacro.RepeatFlowTest:
+Error in editStepRepeatMeansThisStepThenNextAndWholeMacroRepeatsSeparately(kr.yunseok.touchmacro.RepeatFlowTest):
+java.lang.AssertionError: No accessibility service
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at kr.yunseok.touchmacro.GuidedFlowTest.waitFor(GuidedFlowTest.java:11)
+	at kr.yunseok.touchmacro.GuidedFlowTest.boot(GuidedFlowTest.java:15)
+	at kr.yunseok.touchmacro.RepeatFlowTest.boot(RepeatFlowTest.java:7)
+
+kr.yunseok.touchmacro.WatchFlowTest:
+Error in regionRefreshMacroBackRepeatAndCancellation(kr.yunseok.touchmacro.WatchFlowTest):
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertNotNull(Assert.java:713)
+	at org.junit.Assert.assertNotNull(Assert.java:723)
+	at kr.yunseok.touchmacro.WatchFlowTest.regionRefreshMacroBackRepeatAndCancellation(WatchFlowTest.java:17)
+
+
+Time: 77.544
+There were 6 failures:
+1) reviewBothThemesNavigationWizardAndBrand(kr.yunseok.touchmacro.PxeDesignReviewTest)
+java.lang.AssertionError: No accessibility service
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at kr.yunseok.touchmacro.GuidedFlowTest.waitFor(GuidedFlowTest.java:11)
+	at kr.yunseok.touchmacro.GuidedFlowTest.boot(GuidedFlowTest.java:15)
+	at kr.yunseok.touchmacro.PxeDesignReviewTest.boot(PxeDesignReviewTest.java:8)
+2) playStartsDetectionUsesNamedMacroFifteenTimesAndPauseResumeStillWork(kr.yunseok.touchmacro.FloatingPlayTest)
+java.lang.AssertionError: No accessibility service
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at kr.yunseok.touchmacro.GuidedFlowTest.waitFor(GuidedFlowTest.java:11)
+	at kr.yunseok.touchmacro.GuidedFlowTest.boot(GuidedFlowTest.java:15)
+	at kr.yunseok.touchmacro.FloatingPlayTest.boot(FloatingPlayTest.java:8)
+3) unconfiguredPlayNeverFallsBackToCurrentMacro(kr.yunseok.touchmacro.FloatingPlayTest)
+java.lang.AssertionError: No accessibility service
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at kr.yunseok.touchmacro.GuidedFlowTest.waitFor(GuidedFlowTest.java:11)
+	at kr.yunseok.touchmacro.GuidedFlowTest.boot(GuidedFlowTest.java:15)
+	at kr.yunseok.touchmacro.FloatingPlayTest.boot(FloatingPlayTest.java:8)
+4) secondPriorityRepeatsAfterRefreshAndFirstPriorityWinsWhenPresent(kr.yunseok.touchmacro.PriorityFlowTest)
+java.lang.AssertionError: No accessibility service
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at kr.yunseok.touchmacro.GuidedFlowTest.waitFor(GuidedFlowTest.java:11)
+	at kr.yunseok.touchmacro.GuidedFlowTest.boot(GuidedFlowTest.java:15)
+	at kr.yunseok.touchmacro.PriorityFlowTest.boot(PriorityFlowTest.java:8)
+5) editStepRepeatMeansThisStepThenNextAndWholeMacroRepeatsSeparately(kr.yunseok.touchmacro.RepeatFlowTest)
+java.lang.AssertionError: No accessibility service
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at kr.yunseok.touchmacro.GuidedFlowTest.waitFor(GuidedFlowTest.java:11)
+	at kr.yunseok.touchmacro.GuidedFlowTest.boot(GuidedFlowTest.java:15)
+	at kr.yunseok.touchmacro.RepeatFlowTest.boot(RepeatFlowTest.java:7)
+6) regionRefreshMacroBackRepeatAndCancellation(kr.yunseok.touchmacro.WatchFlowTest)
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertNotNull(Assert.java:713)
+	at org.junit.Assert.assertNotNull(Assert.java:723)
+	at kr.yunseok.touchmacro.WatchFlowTest.regionRefreshMacroBackRepeatAndCancellation(WatchFlowTest.java:17)
+
+FAILURES!!!
+Tests run: 6,  Failures: 6
+
+

@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "total_timeout_seconds": 720,
+  "checks": [
+    {
+      "id": "단위 회귀 검사",
+      "argv": [
+        "{python}",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_regression.py"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 30
+    },
+    {
+      "id": "UTF-8 검사",
+      "argv": [
+        "{python}",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_utf8.py"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 15
+    },
+    {
+      "id": "APK 및 이전 차수 보존 검사",
+      "argv": [
+        "{python}",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_artifacts.py"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 90
+    },
+    {
+      "id": "소유 Android OCR 지연 및 제어 회귀",
+      "argv": [
+        "{python}",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_device.py",
+        "OcrStallRecoveryTest",
+        "ContinuousOcrTest",
+        "ControlVisibilityTest",
+        "ServiceLifecycleTest"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 260
+    },
+    {
+      "id": "기존 화면 지연 및 대상 앱 경계 회귀",
+      "argv": [
+        "{python}",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_device.py",
+        "ScreenDelayRecoveryTest",
+        "ReaderResponsivenessTest",
+        "CaptureRecoveryTest",
+        "RegionPackageSafetyTest"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 180
+    },
+    {
+      "id": "라이트 다크 화면 및 탐지 안내 회귀",
+      "argv": [
+        "{python}",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_device.py",
+        "PxeDesignReviewTest",
+        "PxeGuideFlowTest"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 120
+    }
+  ]
+}

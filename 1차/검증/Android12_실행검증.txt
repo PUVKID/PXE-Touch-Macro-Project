@@ -1,0 +1,8 @@
+
+kr.yunseok.touchmacro.DeviceFlowTest:.
+
+Time: 32.071
+
+OK (1 test)
+
+

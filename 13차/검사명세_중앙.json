@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "total_timeout_seconds": 75,
+  "checks": [
+    {
+      "id": "단위 회귀 검사",
+      "argv": [
+        "{python}",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_regression.py"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 30
+    },
+    {
+      "id": "UTF-8 검사",
+      "argv": [
+        "{python}",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_utf8.py"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 15
+    },
+    {
+      "id": "APK 및 이전 차수 보존 검사",
+      "argv": [
+        "{python}",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_artifacts.py"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 30
+    }
+  ]
+}

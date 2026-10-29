@@ -1,0 +1,14 @@
+plugins { id 'com.android.application' }
+def signingProps = new Properties()
+def signingDir = System.getenv('NEX_SIGNING_DIR') ?: '../../work/signing'
+def signingFile = rootProject.file(signingDir + '/key.properties')
+if (signingFile.exists()) { signingFile.withInputStream { signingProps.load(it) } }
+android { signingConfigs { personal { storeFile rootProject.file(signingDir + '/macro.jks'); storePassword signingProps.getProperty('storePassword', ''); keyAlias 'yunseokmacro'; keyPassword signingProps.getProperty('storePassword', '') } }
+ namespace 'kr.yunseok.touchmacro'; compileSdk 35
+ defaultConfig { applicationId 'kr.yunseok.touchmacro'; minSdk 30; targetSdk 35; versionCode 10; versionName '1.0.0'; testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner' }
+ // Release is a Note 10+ ARM64 build; debug keeps all emulator ABIs.
+ lint { disable 'ChromeOsAbiSupport' }
+ compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+ buildTypes { release { minifyEnabled false; signingConfig (signingFile.exists() ? signingConfigs.personal : signingConfigs.debug); ndk { if(project.hasProperty('NEX_PC')) { abiFilters 'arm64-v8a','x86_64' } else { abiFilters 'arm64-v8a' } } } }
+}
+dependencies { implementation 'com.google.mlkit:text-recognition-korean:16.0.1'; testImplementation 'junit:junit:4.13.2'; testImplementation 'org.json:json:20240303'; androidTestImplementation 'androidx.test:runner:1.7.0'; androidTestImplementation 'androidx.test.ext:junit:1.3.0' }

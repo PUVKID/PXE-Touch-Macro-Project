@@ -1,0 +1,128 @@
+--------- beginning of main
+10-13 06:30:23.183  2606  2621 I TestRunner: run started: 1 tests
+10-13 06:30:23.183  2606  2621 I TestRunner: started: newTextModesGesturesAndRecorder(kr.yunseok.touchmacro.NexFeatureTest)
+10-13 06:30:42.760  2606  2621 I NEX_QA  : PASS: text region, OCR preview, text offset, retry, curve, pinch, multitap, point capture, curve recording/replay, multi-touch recording/replay, foreground outside activity, dark palette
+10-13 06:30:42.760  2606  2621 I TestRunner: finished: newTextModesGesturesAndRecorder(kr.yunseok.touchmacro.NexFeatureTest)
+10-13 06:30:42.761  2606  2621 I TestRunner: run finished: 1 tests, 0 failed, 0 ignored
+10-13 06:33:20.463  2798  2813 I TestRunner: run started: 2 tests
+10-13 06:33:20.465  2798  2813 I TestRunner: started: realGesturesTextOcrBackRetryPauseAndStop(kr.yunseok.touchmacro.DeviceFlowTest)
+10-13 06:33:55.475  2798  2813 I YUNSEOK_QA: PASS: accessibility, Korean OCR offline, back/recheck, branches, tap-repeat, long, double, macro-loop, pause/resume, stop, input, save/load, retry limit
+10-13 06:33:55.475  2798  2813 I TestRunner: finished: realGesturesTextOcrBackRetryPauseAndStop(kr.yunseok.touchmacro.DeviceFlowTest)
+10-13 06:33:55.483  2798  2813 I TestRunner: started: newTextModesGesturesAndRecorder(kr.yunseok.touchmacro.NexFeatureTest)
+10-13 06:34:15.240  2798  2813 I NEX_QA  : PASS: text region, OCR preview, text offset, retry, curve, pinch, multitap, point capture, curve recording/replay, multi-touch recording/replay, foreground outside activity, dark palette
+10-13 06:34:15.240  2798  2813 I TestRunner: finished: newTextModesGesturesAndRecorder(kr.yunseok.touchmacro.NexFeatureTest)
+10-13 06:34:15.251  2798  2813 I TestRunner: run finished: 2 tests, 0 failed, 0 ignored
+10-13 06:47:06.816  3282  3297 I TestRunner: run started: 2 tests
+10-13 06:47:06.818  3282  3297 I TestRunner: started: realGesturesTextOcrBackRetryPauseAndStop(kr.yunseok.touchmacro.DeviceFlowTest)
+10-13 06:47:40.560  3282  3297 E TestRunner: failed: realGesturesTextOcrBackRetryPauseAndStop(kr.yunseok.touchmacro.DeviceFlowTest)
+10-13 06:47:40.561  3282  3297 E TestRunner: ----- begin exception -----
+10-13 06:47:40.561  3282  3297 E TestRunner: java.lang.AssertionError: Macro never finished: 06:47:07  접근성 서비스 연결됨
+10-13 06:47:40.561  3282  3297 E TestRunner: 06:47:08  시작까지 100ms
+10-13 06:47:40.561  3282  3297 E TestRunner: 06:47:08  1회 · 1/1 글자 찾아 터치
+10-13 06:47:40.561  3282  3297 E TestRunner: 06:47:09  인식 성공 · “화면 확인”
+10-13 06:47:40.561  3282  3297 E TestRunner: 06:47:09  완료
+10-13 06:47:40.561  3282  3297 E TestRunner: 06:47:10  시작까지 100ms
+10-13 06:47:40.561  3282  3297 E TestRunner: 06:47:10  1회 · 1/1 글자 찾아 터치
+10-13 06:47:40.561  3282  3297 E TestRunner: 06:47:15  편집 화면 · 일시정지
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at org.junit.Assert.fail(Assert.java:89)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at org.junit.Assert.assertTrue(Assert.java:42)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at org.junit.Assert.assertFalse(Assert.java:65)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at kr.yunseok.touchmacro.DeviceFlowTest.done(DeviceFlowTest.java:26)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at kr.yunseok.touchmacro.DeviceFlowTest.completed(DeviceFlowTest.java:27)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at kr.yunseok.touchmacro.DeviceFlowTest.realGesturesTextOcrBackRetryPauseAndStop(DeviceFlowTest.java:37)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at java.lang.reflect.Method.invoke(Native Method)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at androidx.test.ext.junit.runners.AndroidJUnit4.run(AndroidJUnit4.java:162)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at org.junit.runners.Suite.runChild(Suite.java:128)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at org.junit.runners.Suite.runChild(Suite.java:27)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:68)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:59)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at androidx.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:467)
+10-13 06:47:40.561  3282  3297 E TestRunner: 	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2248)
+10-13 06:47:40.565  3282  3297 E TestRunner: ----- end exception -----
+10-13 06:47:40.566  3282  3297 I TestRunner: finished: realGesturesTextOcrBackRetryPauseAndStop(kr.yunseok.touchmacro.DeviceFlowTest)
+10-13 06:47:41.408  3282  3297 I TestRunner: started: newTextModesGesturesAndRecorder(kr.yunseok.touchmacro.NexFeatureTest)
+10-13 06:48:08.323  3282  3297 I NEX_QA  : PASS: text region, OCR preview, text offset, retry, curve, pinch, multitap, point capture, curve recording/replay, multi-touch recording/replay, foreground outside activity, dark palette
+10-13 06:48:08.323  3282  3297 I TestRunner: finished: newTextModesGesturesAndRecorder(kr.yunseok.touchmacro.NexFeatureTest)
+10-13 06:48:08.327  3282  3297 I TestRunner: run finished: 2 tests, 1 failed, 0 ignored
+10-13 06:52:23.531  3610  3626 I TestRunner: run started: 2 tests
+10-13 06:52:23.531  3610  3626 I TestRunner: started: realGesturesTextOcrBackRetryPauseAndStop(kr.yunseok.touchmacro.DeviceFlowTest)
+10-13 06:53:04.446  3610  3626 I YUNSEOK_QA: PASS: accessibility, Korean OCR offline, back/recheck, branches, tap-repeat, long, double, macro-loop, pause/resume, stop, input, save/load, retry limit
+10-13 06:53:04.448  3610  3626 I TestRunner: finished: realGesturesTextOcrBackRetryPauseAndStop(kr.yunseok.touchmacro.DeviceFlowTest)
+10-13 06:53:04.461  3610  3626 I TestRunner: started: newTextModesGesturesAndRecorder(kr.yunseok.touchmacro.NexFeatureTest)
+10-13 06:53:19.971  3610  3626 E TestRunner: failed: newTextModesGesturesAndRecorder(kr.yunseok.touchmacro.NexFeatureTest)
+10-13 06:53:19.972  3610  3626 E TestRunner: ----- begin exception -----
+10-13 06:53:19.972  3610  3626 E TestRunner: java.lang.AssertionError
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at org.junit.Assert.fail(Assert.java:87)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at org.junit.Assert.assertTrue(Assert.java:42)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at org.junit.Assert.assertFalse(Assert.java:65)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at org.junit.Assert.assertFalse(Assert.java:75)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at kr.yunseok.touchmacro.NexFeatureTest.newTextModesGesturesAndRecorder(NexFeatureTest.java:39)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at java.lang.reflect.Method.invoke(Native Method)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at androidx.test.ext.junit.runners.AndroidJUnit4.run(AndroidJUnit4.java:162)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at org.junit.runners.Suite.runChild(Suite.java:128)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at org.junit.runners.Suite.runChild(Suite.java:27)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:68)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:59)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at androidx.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:467)
+10-13 06:53:19.972  3610  3626 E TestRunner: 	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2248)
+10-13 06:53:19.972  3610  3626 E TestRunner: ----- end exception -----
+10-13 06:53:19.973  3610  3626 I TestRunner: finished: newTextModesGesturesAndRecorder(kr.yunseok.touchmacro.NexFeatureTest)
+10-13 06:53:20.609  3610  3626 I TestRunner: run finished: 2 tests, 1 failed, 0 ignored
+10-13 07:01:56.932  3952  3969 I TestRunner: run started: 2 tests
+10-13 07:01:56.933  3952  3969 I TestRunner: started: realGesturesTextOcrBackRetryPauseAndStop(kr.yunseok.touchmacro.DeviceFlowTest)
+10-13 07:02:29.540  3952  3969 I YUNSEOK_QA: PASS: accessibility, Korean OCR offline, back/recheck, branches, tap-repeat, long, double, macro-loop, pause/resume, stop, input, save/load, retry limit
+10-13 07:02:29.542  3952  3969 I TestRunner: finished: realGesturesTextOcrBackRetryPauseAndStop(kr.yunseok.touchmacro.DeviceFlowTest)
+10-13 07:02:29.544  3952  3969 I TestRunner: started: newTextModesGesturesAndRecorder(kr.yunseok.touchmacro.NexFeatureTest)
+10-13 07:02:52.809  3952  3969 I NEX_QA  : PASS: text region, OCR preview, text offset, retry, curve, pinch, multitap, point capture, curve recording/replay, multi-touch recording/replay, foreground outside activity, dark palette
+10-13 07:02:52.809  3952  3969 I TestRunner: finished: newTextModesGesturesAndRecorder(kr.yunseok.touchmacro.NexFeatureTest)
+10-13 07:02:52.826  3952  3969 I TestRunner: run finished: 2 tests, 0 failed, 0 ignored

@@ -1,0 +1,21 @@
+--------- beginning of main
+10-19 05:00:19.247  2415  2430 I TestRunner: run started: 6 tests
+10-19 05:00:19.248  2415  2430 I TestRunner: started: duplicateLockSurvivesRefreshAndRestartUntilStableAbsence(kr.yunseok.touchmacro.GuidedFlowTest)
+10-19 05:00:42.573  2415  2430 I NEX_DUPLICATE_QA: PASS: exact 15 actions, refresh wait, same text blocked across multiple refreshes and restart, stable absence required, reappearance triggers next 15, live HUD and cycle/total timers, stop freezes totals
+10-19 05:00:42.573  2415  2430 I TestRunner: finished: duplicateLockSurvivesRefreshAndRestartUntilStableAbsence(kr.yunseok.touchmacro.GuidedFlowTest)
+10-19 05:00:43.036  2415  2430 I TestRunner: started: regionRecordingAutomaticallyReturnAndSaveDelays(kr.yunseok.touchmacro.GuidedFlowTest)
+10-19 05:00:48.352  2415  2430 I NEX_GUIDE_QA: PASS: word entry, real drawn region, automatic return, real recorded/replayed gesture, automatic named save, original macro restored, second-based delays saved, guide ready
+10-19 05:00:48.353  2415  2430 I TestRunner: finished: regionRecordingAutomaticallyReturnAndSaveDelays(kr.yunseok.touchmacro.GuidedFlowTest)
+10-19 05:00:48.761  2415  2430 I TestRunner: started: secondPriorityRepeatsAfterRefreshAndFirstPriorityWinsWhenPresent(kr.yunseok.touchmacro.PriorityFlowTest)
+10-19 05:00:57.471  2415  2430 I NEX_PRIORITY_QA: PASS: user-drawn bottom priority 1 and top priority 2, priority 2 selected when 1 absent, no rerun during cooldown, same priority 2 repeats after refresh, every refresh starts at priority 1, priority 1 wins once present
+10-19 05:00:57.472  2415  2430 I TestRunner: finished: secondPriorityRepeatsAfterRefreshAndFirstPriorityWinsWhenPresent(kr.yunseok.touchmacro.PriorityFlowTest)
+10-19 05:00:57.977  2415  2430 I TestRunner: started: editStepRepeatMeansThisStepThenNextAndWholeMacroRepeatsSeparately(kr.yunseok.touchmacro.RepeatFlowTest)
+10-19 05:00:59.730  2415  2430 I NEX_REPEAT_QA: PASS: edited step A repeat=3, B repeat=1, whole macro repeat=2 yields AAABAAAB (A6/B2), completion and next-action text retained
+10-19 05:00:59.750  2415  2430 I TestRunner: finished: editStepRepeatMeansThisStepThenNextAndWholeMacroRepeatsSeparately(kr.yunseok.touchmacro.RepeatFlowTest)
+10-19 05:01:00.388  2415  2430 I TestRunner: started: entersRunsExactlyFifteenBacksAndRefreshesAfterTenSeconds(kr.yunseok.touchmacro.WatchPresetTest)
+10-19 05:01:21.149  2415  2430 I NEX_PRESET_QA: PASS: chosen text tapped to enter, named macro exactly 15 rounds (not 225), BACK, full 10-second refresh wait, second entry with exactly 15 more actions, saved macro preserved
+10-19 05:01:21.150  2415  2430 I TestRunner: finished: entersRunsExactlyFifteenBacksAndRefreshesAfterTenSeconds(kr.yunseok.touchmacro.WatchPresetTest)
+10-19 05:01:21.563  2415  2430 I TestRunner: started: regionRefreshMacroBackRepeatAndCancellation(kr.yunseok.touchmacro.WatchFlowTest)
+10-19 05:02:10.385  2415  2430 I NEX_WATCH_QA: PASS: region exclusion, OCR trigger, saved macro execution, automatic BACK, refresh/repeat, optional duplicate delay, immediate return/re-detect, pause/stop cancellation, failure stops without BACK, compact collapsed control
+10-19 05:02:10.390  2415  2430 I TestRunner: finished: regionRefreshMacroBackRepeatAndCancellation(kr.yunseok.touchmacro.WatchFlowTest)
+10-19 05:02:10.857  2415  2430 I TestRunner: run finished: 6 tests, 0 failed, 0 ignored

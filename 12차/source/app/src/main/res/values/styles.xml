@@ -1,0 +1,32 @@
+<resources>
+    <style name="AppTheme" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:fontFamily">@font/nanum_gothic_bold</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:statusBarColor">#F2F2F7</item>
+        <item name="android:navigationBarColor">#F2F2F7</item>
+        <item name="android:colorAccent">#006BE6</item>
+        <item name="android:alertDialogTheme">@style/NexLightDialog</item>
+    </style>
+    <style name="NexDark" parent="android:style/Theme.Material.NoActionBar">
+        <item name="android:fontFamily">@font/nanum_gothic_bold</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:statusBarColor">#000000</item>
+        <item name="android:navigationBarColor">#000000</item>
+        <item name="android:colorAccent">#5EAAFF</item>
+        <item name="android:alertDialogTheme">@style/NexDarkDialog</item>
+    </style>
+    <style name="NexLightDialog" parent="android:style/Theme.Material.Light.Dialog.Alert">
+        <item name="android:fontFamily">@font/nanum_gothic_bold</item>
+        <item name="android:colorAccent">#006BE6</item>
+        <item name="android:colorBackgroundFloating">#FFFFFF</item>
+        <item name="android:windowBackground">@drawable/nex_dialog_light</item>
+    </style>
+    <style name="NexDarkDialog" parent="android:style/Theme.Material.Dialog.Alert">
+        <item name="android:fontFamily">@font/nanum_gothic_bold</item>
+        <item name="android:colorAccent">#5EAAFF</item>
+        <item name="android:colorBackgroundFloating">#1C1C1E</item>
+        <item name="android:windowBackground">@drawable/nex_dialog_dark</item>
+    </style>
+</resources>
