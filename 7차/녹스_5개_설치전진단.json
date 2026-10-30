@@ -1,0 +1,36 @@
+{
+  "status": "설치 전: 저장 공간 및 검사 대상 확인 필요",
+  "checkedAt": "2026-10-19T14:44:58+09:00",
+  "cpu": "Intel Core i9-13900K",
+  "memoryGB": 63.7,
+  "availableDrives": [
+    {
+      "drive": "C:",
+      "freeGB": 1.4
+    }
+  ],
+  "noxDetected": false,
+  "hypervisorPresent": true,
+  "apk": "C:\\Users\\PUVKID\\Desktop\\매크로\\6차\\NEX_6차_v6.0_PC에뮬레이터_Android11이상.apk",
+  "apkSHA256": "0F1990AE018DD52DEA77B8A6CF6542F78A7E864DEFC9D4225F2AF38A11BA3601",
+  "proposedSettings": {
+    "instanceNames": [
+      "NEX-01",
+      "NEX-02",
+      "NEX-03",
+      "NEX-04",
+      "NEX-05"
+    ],
+    "android": "12, 64비트",
+    "cpuPerInstance": 2,
+    "memoryMBPerInstance": 2048,
+    "width": 720,
+    "height": 1520,
+    "dpi": 280,
+    "fps": 20,
+    "inputSynchronization": false
+  },
+  "source": "https://support.bignox.com/ja/often/android12",
+  "officialInstaller": "https://res06.bignox.com/full/20230630/ea85e606dde54119b7fa0b61840c82a7.exe",
+  "fiveInstanceExecutionVerified": false
+}

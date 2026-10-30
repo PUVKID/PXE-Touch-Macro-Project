@@ -1,0 +1,1020 @@
+--- 8차/8차_변경사항.txt
++++ 9차/8차_변경사항.txt
+@@ -1,23 +0,0 @@
+-NEX 8차 v8.0 — 화면 정보 읽기 지연 대응
+-
+-1. 탐지 중 화면 정보와 대상 앱을 읽는 작업을 화면 조작 스레드에서 분리했습니다.
+-   읽기가 막혀도 상태 표시와 정지 버튼이 계속 반응하도록 변경했습니다.
+-2. 화면 읽기 중 경과 초를 하단에 표시합니다.
+-   약 3.5초 동안 응답하지 않으면 지연 메시지를 표시하고 실행을 중단합니다.
+-   느린 읽기를 글자 없음으로 취급하거나 다음 순위를 대신 실행하지 않습니다.
+-3. 한 탐지 회차에서 최대 여섯 영역이 화면 정보 한 번을 함께 사용합니다.
+-   실제 누르기 전에는 새 화면 정보로 선택한 글자를 다시 확인합니다.
+-4. 화면 정보 탐색에 시간·깊이·항목 수 제한을 추가했습니다.
+-   이전 읽기가 아직 끝나지 않았으면 새 읽기를 계속 쌓지 않습니다.
+-   정지 후 늦게 도착한 결과는 터치에 사용하지 않습니다.
+-5. OCR 캡처 실패를 모두 보안 화면이라고 안내하던 문구를 수정했습니다.
+-   실패 번호를 유지하고 권한·캡처 간격·화면 오류 등을 나눠 안내합니다.
+-
+-기본 처리 방식과 설정은 유지합니다.
+-1순위부터 확인 → 발견한 영역 하나 터치 → 전체 매크로 설정 횟수 반복
+-→ 뒤로가기 → 설정한 완료 후 대기 → 새로고침 → 다시 1순위부터 탐지.
+-
+-NEX는 인스턴스 간 입력이나 실행 상태를 동기화하지 않습니다.
+-블루스택 작업 동기화가 켜져 있으면 그 기능이 입력을 다른 창으로 전달할 수 있습니다.
+-이번 수정은 코드에서 확인한 멈춤 가능성을 줄이는 수정입니다.
+-사용자 블루스택 다섯 창의 실제 멈춤 원인이나 정상 동시 실행은 아직 확인하지 못했습니다.
+--- 8차/9차_변경사항.txt
++++ 9차/9차_변경사항.txt
+@@ -0,0 +1,34 @@
++NEX 9차 v9.0
++
++단축창 ▶ 실행 흐름 수정
++- 이전 ▶는 현재 편집 중인 일반 매크로를 실행했습니다.
++- 이제 ▶는 저장한 글자 탐지 설정으로 시작합니다.
++  글자 인식 → 발견한 항목 진입 → 탐지에 등록한 매크로를 설정 횟수만큼 반복
++  → 뒤로가기 → 설정한 완료 후 대기 → 새로고침 → 다시 탐지합니다.
++- 설정이 없으면 설정 화면으로 안내하며 일반 매크로로 대신 실행하지 않습니다.
++- 실행 중 ▶/Ⅱ는 계속 실행/일시정지로 동작합니다. 녹화 중에는 완료 버튼입니다.
++- 일반 매크로만 실행하려면 ⋮ → 동작 / 녹화 → 글자 탐지 없이 매크로만 실행.
++
++OCR 캡처 간격 오류 대응
++- 캡처 응답 후 최소 2초를 기다린 뒤 다음 캡처를 요청합니다.
++- 간격이 짧다는 오류(3)만 4초 → 8초 → 12초로 늘려 최대 3회 재시도합니다.
++- 간격을 늘린 후에는 같은 실행 환경에서 늘어난 간격을 유지합니다.
++- 하단에 캡처 대기와 재시도 횟수·남은 시간을 표시합니다.
++- 재시도 대기 중에는 표시창이 보이고 캡처하는 순간에만 숨깁니다.
++- 재시도 중 정지하면 다음 캡처나 터치를 진행하지 않습니다.
++- 성공한 새 캡처에서 글자를 확인하기 전에는 매크로를 실행하지 않습니다.
++- 실제 누르기 전에도 새 화면에서 글자와 대상 앱을 다시 확인합니다.
++- 계속 간격 오류가 나면 3회 재시도 후 명확한 안내를 남기고 중단합니다.
++- 캡처 응답 시간 초과와 한글 OCR 인식 시간 초과 문구를 구분했습니다.
++
++캡처 간격이 늘어나면 탐지와 새로고침의 실제 시점은 설정한 시간보다 늦어질 수 있습니다.
++보안 화면이나 권한 오류를 우회하는 기능은 아닙니다.
++
++설치
++블루스택: NEX_9차_v9.0_PC에뮬레이터_Android11이상.apk
++노트10+: NEX_9차_v9.0_노트10플러스.apk
++기존 앱을 삭제하지 말고 업데이트 설치합니다. 설정 하단에서 'NEX 9.0 · 9차' 확인.
++각 인스턴스에 각각 설치하고 대상 앱의 목록 화면에서 단축창 ▶로 시작합니다.
++
++Android 캡처 오류 코드 공식 문서
++https://developer.android.com/reference/android/accessibilityservice/AccessibilityService#ERROR_TAKE_SCREENSHOT_INTERVAL_TIME_SHORT
+--- 8차/APK_SHA256.json
++++ 9차/APK_SHA256.json
+@@ -1,16 +1,16 @@
+ [
+   {
+-    "File": "NEX_8차_v8.0_노트10플러스.apk",
++    "File": "NEX_9차_v9.0_노트10플러스.apk",
+     "Bytes": 23652914,
+-    "SHA256": "ACDD112BC865E2117DEF2D34C3AA964900E2579BC5385A314BE6AE70E44053B7",
++    "SHA256": "09D4CB839B48054F8A5E6E855D3495A8359CC16C79B9207ADEA1FB55EA3A297A",
+     "ABIs": [
+       "arm64-v8a"
+     ]
+   },
+   {
+-    "File": "NEX_8차_v8.0_PC에뮬레이터_Android11이상.apk",
++    "File": "NEX_9차_v9.0_PC에뮬레이터_Android11이상.apk",
+     "Bytes": 35290170,
+-    "SHA256": "6E7B955BA130CCB0BC620D1C587B1A8CC5908EF7D66B186B4C49F3D397717BEA",
++    "SHA256": "8CC741E2C4547997AE12E9440EF8D443EC23EB39A25696DFCB3145B97D392919",
+     "ABIs": [
+       "arm64-v8a",
+       "x86_64"
+--- 8차/LD플레이어14_사용안내.txt
++++ 9차/LD플레이어14_사용안내.txt
+@@ -0,0 +1,24 @@
++현재 PC에서 LDPlayer 14.0.29.2 설치 및 인스턴스 1개 실행을 확인했습니다.
++LDPlayer 14는 공식 안내상 Android 14 기반이며, 9차 APK의 최소 Android 11 조건을 충족합니다.
++단, Android 버전 조건 충족과 실제 OCR·접근성 동작 검증은 별개입니다.
++
++1. NEX_9차_v9.0_PC에뮬레이터_Android11이상.apk를 LD플레이어 창으로 끌어 넣어 설치합니다.
++   설치 명령도 전송했지만, 현재 연결에서는 설치 완료 여부를 조회하지 못했습니다.
++2. NEX 설정 하단에서 NEX 9.0 · 9차를 확인합니다.
++3. Android 설정에서 NEX 접근성을 연결하고 글자·영역·매크로를 설정합니다.
++4. 대상 앱의 목록 화면에서 NEX 단축창을 펼쳐 ▶를 누릅니다.
++5. ▶는 글자 탐지부터 시작하고, 등록한 매크로를 설정 횟수만큼 실행합니다.
++6. 먼저 한 인스턴스에서 한 바퀴가 정상 완료되는지 확인한 후 나머지 인스턴스를 준비합니다.
++
++성능 설정의 시작 기준: 인스턴스당 CPU 2코어 / RAM 4GB / 30FPS.
++현재 LD플레이어 설정 정보에는 2560x1440, DPI 320이 표시됐습니다.
++처음 영역과 매크로를 등록하기 전에 더 낮은 해상도로 맞추면 처리 부담을 줄일 수 있습니다.
++영역·녹화를 마친 뒤 해상도를 바꾸면 좌표를 다시 확인해야 합니다.
++
++검증 상태
++9차 앱의 캡처 재시도와 단축창 시작 흐름은 자체 Android 12 시험 환경에서 확인했습니다.
++현재 LD플레이어 연결에서는 Android 설치 조회가 'device emulator-5554 not found'로 실패했습니다.
++LD플레이어 14에서 실제 OCR·접근성 실행 및 5개 동시 실행은 아직 검증하지 못했습니다.
++
++공식 LDPlayer 14 안내
++https://www.ldplayer.net/blog/11884.html
+--- 8차/source/app/build.gradle
++++ 9차/source/app/build.gradle
+@@ -5,7 +5,7 @@
+ if (signingFile.exists()) { signingFile.withInputStream { signingProps.load(it) } }
+ android { signingConfigs { personal { storeFile rootProject.file(signingDir + '/macro.jks'); storePassword signingProps.getProperty('storePassword', ''); keyAlias 'yunseokmacro'; keyPassword signingProps.getProperty('storePassword', '') } }
+  namespace 'kr.yunseok.touchmacro'; compileSdk 35
+- defaultConfig { applicationId 'kr.yunseok.touchmacro'; minSdk 30; targetSdk 35; versionCode 8; versionName '8.0.0'; testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner' }
++ defaultConfig { applicationId 'kr.yunseok.touchmacro'; minSdk 30; targetSdk 35; versionCode 9; versionName '9.0.0'; testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner' }
+  // Release is a Note 10+ ARM64 build; debug keeps all emulator ABIs.
+  lint { disable 'ChromeOsAbiSupport' }
+  compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+--- 8차/source/app/src/androidTest/java/kr/yunseok/touchmacro/CaptureRecoveryTest.java
++++ 9차/source/app/src/androidTest/java/kr/yunseok/touchmacro/CaptureRecoveryTest.java
+@@ -0,0 +1,50 @@
++package kr.yunseok.touchmacro;
++import android.app.AlertDialog;
++import android.os.SystemClock;
++import androidx.test.ext.junit.runners.AndroidJUnit4;
++import org.junit.*;import org.junit.runner.RunWith;
++import java.lang.reflect.Field;import java.util.*;import java.util.concurrent.atomic.AtomicInteger;
++import static org.junit.Assert.*;
++
++@RunWith(AndroidJUnit4.class) public class CaptureRecoveryTest {
++    GuidedFlowTest h=new GuidedFlowTest();AtomicInteger attempts=new AtomicInteger();volatile int entries;
++    final List<Long> requests=Collections.synchronizedList(new ArrayList<>());
++    Object original;Field source;
++    @Before public void boot()throws Exception{
++        h.boot();h.fixture();source=MacroService.class.getDeclaredField("screenshotSource");source.setAccessible(true);original=source.get(h.svc);
++        h.main(()->{h.detail=new AlertDialog.Builder(h.a).setTitle("작업 화면").setMessage("캡처 성공 후에만 들어옵니다").create();h.entry.setOnClickListener(v->{entries++;h.detail.show();});});
++    }
++    @After public void end()throws Exception{h.end();if(source!=null&&original!=null)source.set(h.svc,original);}
++    void inject(int failures)throws Exception{
++        source.set(h.svc,(MacroService.ScreenshotSource)(executor,callback)->{
++            requests.add(SystemClock.elapsedRealtime());
++            if(attempts.incrementAndGet()<=failures)callback.onFailure(3);
++            else ((MacroService.ScreenshotSource)original).take(executor,callback);
++        });
++    }
++    void start(){
++        WatchConfig p=new WatchConfig();p.rule.source="OCR";p.rule.text="안내 대상";p.rule.match="EXACT";
++        p.startMs=0;p.entryMs=300;p.returnMs=300;p.repeatGapMs=0;p.repetitions=1;p.cooldownMs=600000;
++        Macro m=new Macro();m.name="캡처 재시도 검증";Step wait=new Step("WAIT");wait.duration=10;wait.after=0;m.steps.add(wait);p.macroName=m.name;
++        h.main(()->{Store.put(h.a,m);h.svc.startWatch(p);});
++    }
++    @Test public void twoIntervalFailuresRecoverAndFreshOcrConfirmationPrecedesOneEntry()throws Exception{
++        inject(2);start();h.waitFor(()->attempts.get()>=2,12000,"Second capture attempt missing");assertEquals(0,entries);
++        h.waitFor(()->h.svc.progressText().contains("캡처 간격"),3000,"Retry countdown not shown");
++        long before=SystemClock.elapsedRealtime();h.main(()->{});assertTrue("Retry blocked UI",SystemClock.elapsedRealtime()-before<1000);
++        h.waitFor(()->h.svc.watchCompleted==1,45000,"OCR did not recover after interval failures");
++        assertEquals(1,entries);assertEquals("Expected 2 failures + OCR + fresh pre-tap confirmation",4,attempts.get());
++        assertTrue(requests.get(1)-requests.get(0)>=4000);assertTrue(requests.get(2)-requests.get(1)>=8000);assertTrue(requests.get(3)-requests.get(2)>=8000);
++        SystemClock.sleep(1000);assertEquals("Executed again during cooldown",1,entries);
++    }
++    @Test public void stopDuringRetryDoesNotCaptureOrEnterLater()throws Exception{
++        inject(Integer.MAX_VALUE);start();h.waitFor(()->attempts.get()==1,8000,"No first capture");
++        h.waitFor(()->h.svc.progressText().contains("캡처 간격"),3000,"No retry state");
++        long before=SystemClock.elapsedRealtime();h.main(()->h.svc.stop());assertTrue(SystemClock.elapsedRealtime()-before<1000);
++        SystemClock.sleep(5000);assertEquals(1,attempts.get());assertEquals(0,entries);assertFalse(h.svc.running);
++    }
++    @Test public void persistentIntervalErrorStopsAfterThreeRetriesWithoutTouching()throws Exception{
++        inject(Integer.MAX_VALUE);start();h.waitFor(()->!h.svc.running,40000,"Retry loop did not end");
++        assertEquals(4,attempts.get());assertEquals(0,entries);assertEquals(0,h.svc.watchCompleted);assertTrue(h.svc.status,h.svc.status.contains("3회 재시도"));
++    }
++}
+--- 8차/source/app/src/androidTest/java/kr/yunseok/touchmacro/FloatingPlayTest.java
++++ 9차/source/app/src/androidTest/java/kr/yunseok/touchmacro/FloatingPlayTest.java
+@@ -0,0 +1,36 @@
++package kr.yunseok.touchmacro;
++import android.app.*;import android.graphics.Rect;import android.os.SystemClock;import android.view.accessibility.*;import android.widget.*;
++import androidx.test.ext.junit.runners.AndroidJUnit4;
++import org.junit.*;import org.junit.runner.RunWith;import static org.junit.Assert.*;
++
++@RunWith(AndroidJUnit4.class) public class FloatingPlayTest {
++    GuidedFlowTest h=new GuidedFlowTest();volatile int entries,actions;String lastUi="";
++    @Before public void boot()throws Exception{h.boot();h.fixture();h.main(()->{h.svc.controller().show();h.svc.controller().setVisible(true);});}
++    @After public void end(){h.end();}
++    AccessibilityNodeInfo find(AccessibilityNodeInfo n,String description){
++        if(n==null)return null;if(description.contentEquals(n.getContentDescription()==null?"":n.getContentDescription()))return AccessibilityNodeInfo.obtain(n);
++        for(int i=0;i<n.getChildCount();i++){AccessibilityNodeInfo c=n.getChild(i);AccessibilityNodeInfo hit=find(c,description);if(c!=null)c.recycle();if(hit!=null)return hit;}return null;
++    }
++    android.view.View view(android.view.View v,String description){if(v==null)return null;if(description.contentEquals(v.getContentDescription()==null?"":v.getContentDescription()))return v;if(v instanceof android.view.ViewGroup){android.view.ViewGroup g=(android.view.ViewGroup)v;for(int i=0;i<g.getChildCount();i++){android.view.View found=view(g.getChildAt(i),description);if(found!=null)return found;}}return null;}
++    boolean press(String description){
++        Rect[] rect={null};h.main(()->{try{java.lang.reflect.Field f=FloatingController.class.getDeclaredField("panel");f.setAccessible(true);android.view.View root=(android.view.View)f.get(h.svc.controller());android.view.View button=view(root,description);lastUi="panel="+root+", button="+button+", current="+(MacroService.get()==h.svc);if(button!=null&&button.isShown()&&button.getWidth()>0)rect[0]=h.bounds(button);}catch(Exception e){throw new RuntimeException(e);}});
++        if(rect[0]==null)return false;h.tap(rect[0].exactCenterX(),rect[0].exactCenterY());return true;
++    }
++    void click(String description){long end=SystemClock.elapsedRealtime()+5000;while(SystemClock.elapsedRealtime()<end){if(press(description))return;SystemClock.sleep(80);}fail(description+" · "+lastUi);}
++    void expand(){if(h.svc.controller().isCollapsed()){click("NEX 컨트롤 펼치기 · 길게 눌러 정지");h.waitFor(()->!h.svc.controller().isCollapsed(),3000,"Panel did not expand");}}
++    @Test public void playStartsDetectionUsesNamedMacroFifteenTimesAndPauseResumeStillWork()throws Exception{
++        Button[] action={null};Rect[] at={null};
++        h.main(()->{LinearLayout body=new LinearLayout(h.a);body.setPadding(40,100,40,100);action[0]=new Button(h.a);action[0].setText("등록한 매크로 동작");action[0].setOnClickListener(v->actions++);body.addView(action[0],new LinearLayout.LayoutParams(-1,Ui.dp(h.a,80)));h.detail=new AlertDialog.Builder(h.a).setTitle("작업 화면").setView(body).create();h.detail.show();});h.in.waitForIdleSync();h.main(()->{at[0]=h.bounds(action[0]);h.detail.dismiss();h.entry.setOnClickListener(v->{entries++;h.detail.show();});});
++        Macro current=new Macro();current.name="현재 편집 중인 다른 동작";Step wait=new Step("WAIT");wait.duration=10;wait.after=0;current.steps.add(wait);
++        Macro selected=new Macro();selected.name="탐지에 등록한 매크로";Step tap=new Step("TAP");tap.duration=60;tap.after=0;int[] size=h.svc.size();tap.x=at[0].exactCenterX()*100.0/size[0];tap.y=at[0].exactCenterY()*100.0/size[1];selected.steps.add(tap);
++        WatchConfig p=new WatchConfig();p.rule.text="안내 대상";p.rule.source="ACCESS";p.rule.match="EXACT";p.macroName=selected.name;p.repetitions=15;p.startMs=100;p.entryMs=300;p.returnMs=300;p.repeatGapMs=0;p.cooldownMs=600000;p.targetPackage=h.a.getPackageName();
++        h.main(()->{Store.put(h.a,selected);Store.save(h.a,current);WatchStore.save(h.a,p);});String original=Store.load(h.a).json().toString();
++        expand();click("글자 탐지 시작");h.waitFor(()->h.svc.watching,3000,"Play ran the current macro instead of detection");
++        h.waitFor(()->h.svc.watchCompleted==1,15000,"Floating play did not finish detection cycle");assertEquals(1,entries);assertEquals(15,actions);assertEquals(original,Store.load(h.a).json().toString());assertEquals("완료 후 쉬는 중",h.svc.watchPhase);
++        expand();click("일시정지");h.waitFor(()->h.svc.paused,3000,"Pause failed");click("계속 실행");h.waitFor(()->!h.svc.paused,3000,"Resume failed");click("정지");h.waitFor(()->!h.svc.running,3000,"Stop failed");
++    }
++    @Test public void unconfiguredPlayNeverFallsBackToCurrentMacro()throws Exception{
++        h.main(()->{Ui.prefs(h.a).edit().remove("watch_config").commit();h.entry.setOnClickListener(v->entries++);Macro m=new Macro();Step tap=new Step("TAP");Rect r=h.bounds(h.entry);int[] size=h.svc.size();tap.x=r.exactCenterX()*100.0/size[0];tap.y=r.exactCenterY()*100.0/size[1];m.startDelay=0;m.steps.add(tap);Store.save(h.a,m);});
++        expand();click("글자 탐지 시작");SystemClock.sleep(1200);assertFalse(h.svc.running);assertEquals(0,entries);
++    }
++}
+--- 8차/source/app/src/main/java/kr/yunseok/touchmacro/CapturePacer.java
++++ 9차/source/app/src/main/java/kr/yunseok/touchmacro/CapturePacer.java
+@@ -0,0 +1,10 @@
++package kr.yunseok.touchmacro;
++
++/** Pace from the actual response, including failures and late callbacks. */
++final class CapturePacer {
++    private long lastResponse,interval=2000;
++    CapturePacer(long now){lastResponse=now;}
++    synchronized long remaining(long now){return Math.max(0,lastResponse+interval-now);}
++    synchronized void responded(long now){lastResponse=Math.max(lastResponse,now);}
++    synchronized void rejected(long now){responded(now);interval=Math.min(12000,interval*2);}
++}
+--- 8차/source/app/src/main/java/kr/yunseok/touchmacro/FloatingController.java
++++ 9차/source/app/src/main/java/kr/yunseok/touchmacro/FloatingController.java
+@@ -19,7 +19,12 @@
+  }
+  public void show(){if(panel!=null)return;KeepAliveService.show(owner);build();h.post(ticker);}
+  public void refresh(){if(panel==null)return;removePanel();build();}
+- private final Runnable ticker=new Runnable(){@Override public void run(){if(panel==null)return;if(status!=null)status.setText(caption());if(play!=null)play.setText(recording?"완료":!owner.running?"▶":owner.paused?"▶":"Ⅱ");updateHud();h.postDelayed(this,250);}};
++ private final Runnable ticker=new Runnable(){@Override public void run(){if(panel==null)return;if(status!=null)status.setText(caption());updatePlay();updateHud();h.postDelayed(this,250);}};
++ private void updatePlay(){if(play!=null){play.setText(recording?"완료":!owner.running?"▶":owner.paused?"▶":"Ⅱ");play.setContentDescription(recording?"녹화 완료":!owner.running?"글자 탐지 시작":owner.paused?"계속 실행":"일시정지");}}
++ private void startDetection(){
++  if(!Ui.prefs(owner).contains("watch_config")){toast("찾을 글자·영역·매크로를 먼저 설정하세요");openSettings(true);return;}
++  owner.startWatch(WatchStore.load(owner));
++ }
+  private void updateHud(){if(panel==null)return;if(hud==null&&(owner.running||owner.hasRunStats()))hud=new RunHud(owner);if(hud!=null)hud.update(owner.progressText(),owner.timingText(),visible);}
+  public void showSetupCoach(String kind){
+   if(owner.running||recording)throw new IllegalStateException("먼저 실행과 녹화를 정지하세요");
+@@ -46,8 +51,8 @@
+   logo.setContentDescription(collapsed?"NEX 컨트롤 펼치기 · 길게 눌러 정지":"NEX 컨트롤 바로 접기");r.addView(logo,new LinearLayout.LayoutParams(scaled(38),scaled(38)));
+   logo.setOnClickListener(v->{if(recording){toast("녹화를 먼저 끝내세요");return;}collapsed=!collapsed;refresh();});logo.setOnLongClickListener(v->{owner.stop();return true;});drag(logo);
+   if(!collapsed||recording){
+-   play=button(r,recording?"완료":!owner.running?"▶":owner.paused?"▶":"Ⅱ",()->{if(recording){endRecording();return;}if(owner.running)owner.togglePause();else try{owner.start(Store.load(owner));minimize();}catch(Exception e){toast(e.getMessage());}});
+-   play.setContentDescription(recording?"녹화 완료":"시작 / 일시정지 / 계속");play.setTextSize(recording?10:17);play.setTextColor(Ui.accent(c));
++   play=button(r,recording?"완료":!owner.running?"▶":owner.paused?"▶":"Ⅱ",()->{if(recording){endRecording();return;}if(owner.running)owner.togglePause();else try{startDetection();}catch(Exception e){toast(e.getMessage());}});
++   updatePlay();play.setTextSize(recording?10:17);play.setTextColor(Ui.accent(c));
+    Button stop=button(r,"■",()->{owner.stop();if(recording)endRecording();});stop.setContentDescription("정지");stop.setTextSize(17);
+    Button more=button(r,"⋮",()->{if(recording){endRecording();return;}moreMenu();});more.setTextSize(22);more.setContentDescription(recording?"녹화 끝내기":"컨트롤 더보기");
+   }
+@@ -56,14 +61,15 @@
+  }
+  private void openSettings(boolean watch){Intent i=new Intent(owner,MainActivity.class).putExtra(watch?"watch":"settings",true).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_SINGLE_TOP);owner.startActivity(i);}
+  private void moreMenu(){choices("NEX",new String[]{"글자 탐지 시작","화면에서 탐지 영역 지정","탐지 설정","글자 찾아 터치","동작 / 녹화","실행 상태","앱 설정","컨트롤 닫기"},i->{switch(i){
+-  case 0:try{owner.startWatch(WatchStore.load(owner));}catch(Exception e){toast(e.getMessage());}break;
++  case 0:try{startDetection();}catch(Exception e){toast(e.getMessage());}break;
+   case 1:pickWatchRegion();break;case 2:openSettings(true);break;case 3:wordDialog();break;
+   case 4:toolsMenu();break;case 5:choices(owner.status+" · "+owner.clockText(),new String[]{"닫기"},n->{});break;
+   case 6:openSettings(false);break;case 7:owner.stop();close();break;}});
+  }
+- private void toolsMenu(){choices("동작 / 녹화",new String[]{"동작 추가","녹화","동작 목록","저장","편집 화면","점 표시 켜기 / 끄기"},i->{switch(i){
++ private void toolsMenu(){choices("동작 / 녹화",new String[]{"동작 추가","녹화","동작 목록","저장","편집 화면","점 표시 켜기 / 끄기","글자 탐지 없이 매크로만 실행"},i->{switch(i){
+   case 0:actionMenu();break;case 1:beginRecording(false,-1);break;case 2:sequenceDialog();break;case 3:saveDialog();break;
+-  case 4:owner.stop();openApp();break;case 5:Ui.prefs(owner).edit().putBoolean("markers",!Ui.prefs(owner).getBoolean("markers",true)).apply();rebuildMarkers();break;}});
++  case 4:owner.stop();openApp();break;case 5:Ui.prefs(owner).edit().putBoolean("markers",!Ui.prefs(owner).getBoolean("markers",true)).apply();rebuildMarkers();break;
++  case 6:try{owner.start(Store.load(owner));minimize();}catch(Exception e){toast(e.getMessage());}break;}});
+  }
+  private LinearLayout row(LinearLayout b){LinearLayout r=new LinearLayout(ctx());b.addView(r);return r;}
+  private Button button(LinearLayout r,String text,Runnable action){Button b=Ui.button(ctx(),text);b.setTextSize(10);b.setPadding(0,0,0,0);b.setBackgroundColor(Color.TRANSPARENT);LinearLayout.LayoutParams p=new LinearLayout.LayoutParams(0,scaled(38),1);p.setMargins(0,0,0,0);r.addView(b,p);b.setOnClickListener(v->action.run());return b;}
+@@ -77,7 +83,7 @@
+  private void removePanel(){if(panel!=null){try{wm.removeView(panel);}catch(Exception ignored){}panel=null;status=null;play=null;}clearMarkers();}
+  public void close(){if(coach!=null){coach.close();coach=null;}if(hud!=null){hud.close();hud=null;}if(regionPicker!=null){regionPicker.close();regionPicker=null;}endRecordingInternal();removePanel();if(highlight!=null){try{wm.removeView(highlight);}catch(Exception ignored){}highlight=null;}h.removeCallbacksAndMessages(null);KeepAliveService.close(owner);}
+  private String caption(){return owner.getString(R.string.nex_control_status,recording?"● 녹화":"NEX",owner.status,owner.clockText());}
+- public void update(){if(panel!=null){if(status!=null)status.setText(caption());if(play!=null)play.setText(recording?"완료":!owner.running?"▶":owner.paused?"▶":"Ⅱ");KeepAliveService.update(owner,owner.status);}updateHud();rebuildMarkers();}
++ public void update(){if(panel!=null){if(status!=null)status.setText(caption());updatePlay();KeepAliveService.update(owner,owner.status);}updateHud();rebuildMarkers();}
+  private void openApp(){owner.startActivity(new Intent(owner,MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_SINGLE_TOP));}
+  private void toast(String message){Toast.makeText(owner,message==null?"설정을 확인하세요":message,Toast.LENGTH_LONG).show();}
+  private AlertDialog dialog(String title,View body,String positive,Runnable action){
+--- 8차/source/app/src/main/java/kr/yunseok/touchmacro/MacroService.java
++++ 9차/source/app/src/main/java/kr/yunseok/touchmacro/MacroService.java
+@@ -21,6 +21,11 @@
+     private final ExecutorService worker=Executors.newSingleThreadExecutor();
+     private final QueryLane screenReader=new QueryLane();
+     private volatile long queryStartedAt=0;
++    private final CapturePacer capturePacer=new CapturePacer(SystemClock.elapsedRealtime());
++    private final AtomicBoolean capturePending=new AtomicBoolean();
++    private volatile String capturePhase="";
++    interface ScreenshotSource {void take(java.util.concurrent.Executor executor,TakeScreenshotCallback callback);}
++    private ScreenshotSource screenshotSource=(executor,callback)->takeScreenshot(Display.DEFAULT_DISPLAY,executor,callback);
+     private final AtomicLong generation=new AtomicLong();private final AtomicLong pauseRevision=new AtomicLong();
+     public volatile boolean running=false, paused=false, watching=false; public volatile int watchCompleted=0; public volatile String watchPhase=""; private volatile long watchNextRefresh=0;
+     public volatile String status="준비";
+@@ -32,7 +37,7 @@
+     private long pauseStartedAt=0;
+     private final ArrayDeque<String> logs=new ArrayDeque<>();
+     private TextRecognizer recognizer;
+-    private int initialW,initialH;private long deadline,lastScreenshot=0;
++    private int initialW,initialH;private long deadline;
+     private volatile boolean destroyed=false;private boolean logUpdateQueued=false;
+     private void notification(){if(controller!=null)controller.show();}
+     private void clearNotification(){}
+@@ -61,6 +66,7 @@
+         String phase=watching&&!watchPhase.equals("매크로 실행")?watchPhase:liveAction;
+         if(watching&&currentPriority>0)phase=currentPriority+"순위 · "+phase;
+         if(running&&queryStartedAt>0)phase+=" · 화면 정보 읽는 중 "+String.format(Locale.KOREA,"%.1f초",(SystemClock.elapsedRealtime()-queryStartedAt)/1000.0);
++        if(running&&!capturePhase.isEmpty())phase+=" · "+capturePhase+(delayUntil>SystemClock.elapsedRealtime()?" · "+remainingText(delayUntil-SystemClock.elapsedRealtime()):"");
+         if(!running)phase=status;if(paused)return "일시정지 · "+phase;
+         boolean refreshWait=watching&&(watchPhase.equals("완료 후 쉬는 중")||watchPhase.equals("새로고침 대기")||watchPhase.equals("중복 차단 · 사라짐 대기"));
+         if(refreshWait)phase+=" · 새로고침까지 "+remainingText(watchNextRefresh-SystemClock.elapsedRealtime());
+@@ -95,8 +101,11 @@
+         long remaining=ms;delayUntil=SystemClock.elapsedRealtime()+remaining;try{while(remaining>0){ready(token);delayUntil=SystemClock.elapsedRealtime()+remaining;long chunk=Math.min(70,remaining),before=SystemClock.elapsedRealtime();Thread.sleep(chunk);if(!paused)remaining-=Math.max(1,SystemClock.elapsedRealtime()-before);}ready(token);}finally{delayUntil=0;}
+     }
+     private <T> T await(CompletableFuture<T> f,long token,long max)throws Exception{
++        return await(f,token,max,"화면 응답 시간이 초과되었습니다");
++    }
++    private <T> T await(CompletableFuture<T> f,long token,long max,String timeoutMessage)throws Exception{
+         long activeElapsed=0,last=SystemClock.elapsedRealtime();
+-        while(true){check(token);long now=SystemClock.elapsedRealtime();if(!paused)activeElapsed+=now-last;last=now;try{return f.get(70,TimeUnit.MILLISECONDS);}catch(TimeoutException e){if(activeElapsed>max){IllegalStateException timeout=new IllegalStateException("화면 응답 시간이 초과되었습니다");f.completeExceptionally(timeout);throw timeout;}}catch(ExecutionException e){Throwable cause=e.getCause();throw new IllegalStateException(cause.getMessage(),cause);}}
++        while(true){check(token);long now=SystemClock.elapsedRealtime();if(!paused)activeElapsed+=now-last;last=now;try{return f.get(70,TimeUnit.MILLISECONDS);}catch(TimeoutException e){if(activeElapsed>max){IllegalStateException timeout=new IllegalStateException(timeoutMessage);f.completeExceptionally(timeout);throw timeout;}}catch(ExecutionException e){Throwable cause=e.getCause();throw new IllegalStateException(cause.getMessage(),cause);}}
+     }
+     private <T> T onUi(Callable<T> action,long token)throws Exception{
+         ready(token);CompletableFuture<T> f=new CompletableFuture<>();Runnable task=new Runnable(){public void run(){try{if(f.isDone())return;check(token);if(paused){ui.postDelayed(this,70);return;}f.complete(action.call());}catch(Exception e){f.completeExceptionally(e);}}};ui.post(task);return await(f,token,5000);
+@@ -186,6 +195,7 @@
+                     watchPhase=anyBlocked?"중복 차단 · 사라짐 대기":"글자 찾는 중";
+                     if(hit!=null){
+                         ready(token);if(p.tapFound)hit=find(areaConfigs[selected].rule,token);ready(token);if(scanRevision!=pauseRevision.get())continue;
++                        if(!p.targetPackage.isEmpty()&&!p.targetPackage.equals(readScreen(this::activePackage,token))){for(WatchGate gate:gates)gate.interruptAbsence();continue;}
+                         if(hit!=null){
+                             if(p.preventDuplicate){WatchStore.blocked(this,areaConfigs[selected],true);gates[selected].reserve();}
+                             currentPriority=selected+1;cycleStartedAt=SystemClock.elapsedRealtime();watchPhase="매크로 실행";liveAction="글자 터치 · 들어가기";log((selected+1)+"순위에서 발견 · "+p.rule.text+" → "+m.name+" "+p.repetitions+"회");
+@@ -281,7 +291,7 @@
+             CompletableFuture<com.google.mlkit.vision.text.Text> result=new CompletableFuture<>();
+             com.google.android.gms.tasks.Task<com.google.mlkit.vision.text.Text> task=recognizer.process(InputImage.fromBitmap(bitmap,0));
+             processing=true;task.addOnSuccessListener(result::complete).addOnFailureListener(result::completeExceptionally).addOnCompleteListener(done->{if(!bitmap.isRecycled())bitmap.recycle();});
+-            com.google.mlkit.vision.text.Text t=await(result,token,12000);
++            com.google.mlkit.vision.text.Text t=await(result,token,12000,"한글 OCR 인식 응답 시간이 초과되었습니다");
+             frame.text=t;return ocrHit(s,t);
+         }finally{if(!processing&&!bitmap.isRecycled())bitmap.recycle();}
+     }
+@@ -331,16 +341,44 @@
+         }
+     }
+     private Bitmap screenshot(long token)throws Exception{
++        try{
++            for(int retry=0;;retry++){
++                ready(token);capturePhase=retry==0?"OCR 캡처 간격 대기":"캡처 간격 조정 · 재시도 "+retry+"/3 대기";
++                long pendingSince=SystemClock.elapsedRealtime();
++                while(capturePending.get()){
++                    if(SystemClock.elapsedRealtime()-pendingSince>8000)throw new IllegalStateException("이전 OCR 캡처 응답이 없습니다. NEX 접근성을 껐다 켜고 다시 실행하세요");
++                    sleep(100,token);
++                }
++                long wait;while((wait=capturePacer.remaining(SystemClock.elapsedRealtime()))>0)sleep(wait,token);
++                try{capturePhase="OCR 화면 캡처 중";return captureOnce(token);}
++                catch(Exception e){
++                    CaptureFailure failure=null;for(Throwable cause=e;cause!=null;cause=cause.getCause())if(cause instanceof CaptureFailure){failure=(CaptureFailure)cause;break;}
++                    if(failure==null||failure.error!=ERROR_TAKE_SCREENSHOT_INTERVAL_TIME_SHORT)throw e;
++                    if(retry>=3)throw new IllegalStateException("OCR 화면 캡처 실패(3) · 간격을 늘려 3회 재시도했지만 계속 거절됐습니다. NEX 접근성을 껐다 켠 뒤 다시 실행하세요",e);
++                    capturePacer.rejected(SystemClock.elapsedRealtime());
++                    log("캡처 간격 조정 · "+(retry+1)+"/3 재시도 · 터치 없이 대기");
++                }
++            }
++        }finally{capturePhase="";}
++    }
++    private static final class CaptureFailure extends IllegalStateException {
++        final int error;CaptureFailure(int error){super(captureError(error));this.error=error;}
++    }
++    private Bitmap captureOnce(long token)throws Exception{
+         onUi(()->{controller.setVisible(false);return true;},token);
+         try{
+-            sleep(Math.max(150,700-(SystemClock.elapsedRealtime()-lastScreenshot)),token);lastScreenshot=SystemClock.elapsedRealtime();CompletableFuture<Bitmap> f=new CompletableFuture<>();
+-            ui.post(()->{try{check(token);takeScreenshot(Display.DEFAULT_DISPLAY,getMainExecutor(),new TakeScreenshotCallback(){
++            sleep(150,token);CompletableFuture<Bitmap> f=new CompletableFuture<>();
++            ui.post(new Runnable(){public void run(){try{if(f.isDone())return;check(token);if(paused){ui.postDelayed(this,70);return;}
++                if(!capturePending.compareAndSet(false,true))throw new IllegalStateException("이전 OCR 캡처가 아직 진행 중입니다");
++                try{screenshotSource.take(getMainExecutor(),new TakeScreenshotCallback(){
+                 @Override public void onSuccess(ScreenshotResult r){
++                    capturePacer.responded(SystemClock.elapsedRealtime());capturePending.set(false);
+                     Bitmap copy=null;try{Bitmap hardware=Bitmap.wrapHardwareBuffer(r.getHardwareBuffer(),r.getColorSpace());if(hardware==null)throw new IllegalStateException("화면 이미지가 비었습니다");copy=hardware.copy(Bitmap.Config.ARGB_8888,false);hardware.recycle();if(!f.complete(copy))copy.recycle();}catch(Exception e){if(copy!=null)copy.recycle();f.completeExceptionally(e);}finally{r.getHardwareBuffer().close();}
+                 }
+-                @Override public void onFailure(int error){f.completeExceptionally(new IllegalStateException(captureError(error)));}
+-            });}catch(Exception e){f.completeExceptionally(e);}});
+-            try{return await(f,token,8000);}catch(Exception e){f.thenAccept(b->{if(b!=null&&!b.isRecycled())b.recycle();});throw e;}
++                @Override public void onFailure(int error){capturePacer.responded(SystemClock.elapsedRealtime());capturePending.set(false);f.completeExceptionally(new CaptureFailure(error));}
++            });}catch(Exception e){capturePacer.responded(SystemClock.elapsedRealtime());capturePending.set(false);throw e;}
++            }catch(Exception e){f.completeExceptionally(e);}}});
++            try{return await(f,token,8000,"OCR 화면 캡처 응답 시간이 초과되었습니다");}catch(Exception e){f.thenAccept(b->{if(b!=null&&!b.isRecycled())b.recycle();});throw e;}
+         }finally{ui.post(()->{controller.setVisible(true);});}
+     }
+     static String captureError(int error){
+--- 8차/source/app/src/main/java/kr/yunseok/touchmacro/MainActivity.java
++++ 9차/source/app/src/main/java/kr/yunseok/touchmacro/MainActivity.java
+@@ -82,7 +82,7 @@
+             settingRow(page,"화면 위 컨트롤","크기 · 투명도 · 번호 표시",this::controlSettings);
+             settingRow(page,"접근성",connected?"연결됨":"연결 필요",this::accessibility);
+             space(page,24);quiet(page,"실행 기록",this::logs);quiet(page,"사용법",this::help);quiet(page,"인식 테스트",this::testScreen);
+-            space(page,24);text(page,"NEX 8.0 · 8차\n한글 OCR · 나눔고딕 Bold 내장",11,muted);
++            space(page,24);text(page,"NEX 9.0 · 9차\n한글 OCR · 나눔고딕 Bold 내장",11,muted);
+         }
+         LinearLayout dock=form();dock.setPadding(dp(24),dp(8),dp(24),dp(12));
+         Button floating=button(dock,"다른 앱에서 사용  ↗",()->{if(service()){save();MacroService.get().showControls();moveTaskToBack(true);}});floating.setTextColor(ink);floating.setBackground(Ui.rounded(Ui.card(this),dp(14)));
+--- 8차/source/local.properties
++++ 9차/source/local.properties
+@@ -1 +1 @@
+-sdk.dir=C:/Users/PUVKID/AppData/Local/Temp/NEX_Build_8/android/android-sdk
++sdk.dir=C:/Users/PUVKID/AppData/Local/Temp/NEX_Build_9/android/android-sdk
+--- 8차/source/빌드.ps1
++++ 9차/source/빌드.ps1
+@@ -1,8 +1,8 @@
+ $ErrorActionPreference = 'Stop'
+ $projectRoot4 = Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
+-$bridgeTarget4 = Join-Path $projectRoot4 'work\build8'
+-$bridge4 = Join-Path $env:TEMP 'NEX_Build_8'
+-if (!(Test-Path -LiteralPath $bridgeTarget4)) { throw '프로젝트 work\build8 연결 폴더가 없습니다.' }
++$bridgeTarget4 = Join-Path $projectRoot4 'work\build9'
++$bridge4 = Join-Path $env:TEMP 'NEX_Build_9'
++if (!(Test-Path -LiteralPath $bridgeTarget4)) { throw '프로젝트 work\build9 연결 폴더가 없습니다.' }
+ if (Test-Path -LiteralPath $bridge4) {
+     $existing4 = Get-Item -LiteralPath $bridge4
+     if ($existing4.LinkType -ne 'Junction' -or $existing4.Target -ne $bridgeTarget4) { throw '임시 빌드 경로가 다른 항목에서 사용 중입니다.' }
+--- 8차/source/빌드방법.txt
++++ 9차/source/빌드방법.txt
+@@ -1,7 +1,7 @@
+-NEX 8차 소스 빌드
++NEX 9차 소스 빌드
+ 
+ source 폴더의 빌드.ps1은 JDK 17 / Gradle 8.13 / Android SDK 35로 휴대전화 APK를 빌드합니다.
+-같은 Desktop 프로젝트 안의 work\build8 연결 경로와 코드\NEXTools, 코드\NEXSigning, work\tools를 사용합니다.
++같은 Desktop 프로젝트 안의 work\build9 연결 경로와 코드\NEXTools, 코드\NEXSigning, work\tools를 사용합니다.
+ 서명 키는 소스에 포함하지 않습니다. 기존 설치 위에 업데이트하려면 같은 서명 키가 필요합니다.
+ PC용은 같은 빌드 환경에서 Gradle :app:assembleRelease -PNEX_PC=true 로 빌드합니다.
+ PC용 ABI는 arm64-v8a와 x86_64이며, 휴대전화 기본 릴리스는 arm64-v8a입니다.
+@@ -9,5 +9,5 @@
+ 휴대전화 빌드 결과를 먼저 별도 저장하고 PC용을 빌드해야 합니다.
+ 
+ 검사: :app:testDebugUnitTest :app:lintDebug
+-Android 12 기기 검사: ReaderResponsivenessTest, GuidedFlowTest, PriorityFlowTest, RepeatFlowTest, WatchPresetTest, WatchFlowTest.
++Android 12 기기 검사: CaptureRecoveryTest, ReaderResponsivenessTest, GuidedFlowTest, PriorityFlowTest, RepeatFlowTest, WatchPresetTest, WatchFlowTest.
+ 기존 JSON의 내부 시간 단위는 호환을 위해 그대로 유지하고, 화면에서는 분/초로 변환합니다.
+--- 8차/검증/Android12_단축창_실제터치검사.txt
++++ 9차/검증/Android12_단축창_실제터치검사.txt
+@@ -0,0 +1,44 @@
++
++kr.yunseok.touchmacro.FloatingPlayTest:
++Error in playStartsDetectionUsesNamedMacroFifteenTimesAndPauseResumeStillWork(kr.yunseok.touchmacro.FloatingPlayTest):
++java.lang.AssertionError: Collapsed control not available
++07:38:02  접근성 서비스 연결됨
++	at org.junit.Assert.fail(Assert.java:89)
++	at org.junit.Assert.assertTrue(Assert.java:42)
++	at kr.yunseok.touchmacro.GuidedFlowTest.waitFor(GuidedFlowTest.java:11)
++	at kr.yunseok.touchmacro.FloatingPlayTest.expand(FloatingPlayTest.java:19)
++	at kr.yunseok.touchmacro.FloatingPlayTest.playStartsDetectionUsesNamedMacroFifteenTimesAndPauseResumeStillWork(FloatingPlayTest.java:27)
++
++Error in unconfiguredPlayNeverFallsBackToCurrentMacro(kr.yunseok.touchmacro.FloatingPlayTest):
++java.lang.AssertionError: Collapsed control not available
++07:38:08  접근성 서비스 연결됨
++	at org.junit.Assert.fail(Assert.java:89)
++	at org.junit.Assert.assertTrue(Assert.java:42)
++	at kr.yunseok.touchmacro.GuidedFlowTest.waitFor(GuidedFlowTest.java:11)
++	at kr.yunseok.touchmacro.FloatingPlayTest.expand(FloatingPlayTest.java:19)
++	at kr.yunseok.touchmacro.FloatingPlayTest.unconfiguredPlayNeverFallsBackToCurrentMacro(FloatingPlayTest.java:33)
++
++
++Time: 12.411
++There were 2 failures:
++1) playStartsDetectionUsesNamedMacroFifteenTimesAndPauseResumeStillWork(kr.yunseok.touchmacro.FloatingPlayTest)
++java.lang.AssertionError: Collapsed control not available
++07:38:02  접근성 서비스 연결됨
++	at org.junit.Assert.fail(Assert.java:89)
++	at org.junit.Assert.assertTrue(Assert.java:42)
++	at kr.yunseok.touchmacro.GuidedFlowTest.waitFor(GuidedFlowTest.java:11)
++	at kr.yunseok.touchmacro.FloatingPlayTest.expand(FloatingPlayTest.java:19)
++	at kr.yunseok.touchmacro.FloatingPlayTest.playStartsDetectionUsesNamedMacroFifteenTimesAndPauseResumeStillWork(FloatingPlayTest.java:27)
++2) unconfiguredPlayNeverFallsBackToCurrentMacro(kr.yunseok.touchmacro.FloatingPlayTest)
++java.lang.AssertionError: Collapsed control not available
++07:38:08  접근성 서비스 연결됨
++	at org.junit.Assert.fail(Assert.java:89)
++	at org.junit.Assert.assertTrue(Assert.java:42)
++	at kr.yunseok.touchmacro.GuidedFlowTest.waitFor(GuidedFlowTest.java:11)
++	at kr.yunseok.touchmacro.FloatingPlayTest.expand(FloatingPlayTest.java:19)
++	at kr.yunseok.touchmacro.FloatingPlayTest.unconfiguredPlayNeverFallsBackToCurrentMacro(FloatingPlayTest.java:33)
++
++FAILURES!!!
++Tests run: 2,  Failures: 2
++
++
+--- 8차/검증/Android12_단축창_재검사.txt
++++ 9차/검증/Android12_단축창_재검사.txt
+@@ -0,0 +1,44 @@
++
++kr.yunseok.touchmacro.FloatingPlayTest:
++Error in playStartsDetectionUsesNamedMacroFifteenTimesAndPauseResumeStillWork(kr.yunseok.touchmacro.FloatingPlayTest):
++java.lang.AssertionError: Collapsed control not available
++07:37:03  접근성 서비스 연결됨
++	at org.junit.Assert.fail(Assert.java:89)
++	at org.junit.Assert.assertTrue(Assert.java:42)
++	at kr.yunseok.touchmacro.GuidedFlowTest.waitFor(GuidedFlowTest.java:11)
++	at kr.yunseok.touchmacro.FloatingPlayTest.expand(FloatingPlayTest.java:15)
++	at kr.yunseok.touchmacro.FloatingPlayTest.playStartsDetectionUsesNamedMacroFifteenTimesAndPauseResumeStillWork(FloatingPlayTest.java:23)
++
++Error in unconfiguredPlayNeverFallsBackToCurrentMacro(kr.yunseok.touchmacro.FloatingPlayTest):
++java.lang.AssertionError: Collapsed control not available
++07:37:09  접근성 서비스 연결됨
++	at org.junit.Assert.fail(Assert.java:89)
++	at org.junit.Assert.assertTrue(Assert.java:42)
++	at kr.yunseok.touchmacro.GuidedFlowTest.waitFor(GuidedFlowTest.java:11)
++	at kr.yunseok.touchmacro.FloatingPlayTest.expand(FloatingPlayTest.java:15)
++	at kr.yunseok.touchmacro.FloatingPlayTest.unconfiguredPlayNeverFallsBackToCurrentMacro(FloatingPlayTest.java:29)
++
++
++Time: 12.347
++There were 2 failures:
++1) playStartsDetectionUsesNamedMacroFifteenTimesAndPauseResumeStillWork(kr.yunseok.touchmacro.FloatingPlayTest)
++java.lang.AssertionError: Collapsed control not available
++07:37:03  접근성 서비스 연결됨
++	at org.junit.Assert.fail(Assert.java:89)
++	at org.junit.Assert.assertTrue(Assert.java:42)
++	at kr.yunseok.touchmacro.GuidedFlowTest.waitFor(GuidedFlowTest.java:11)
++	at kr.yunseok.touchmacro.FloatingPlayTest.expand(FloatingPlayTest.java:15)
++	at kr.yunseok.touchmacro.FloatingPlayTest.playStartsDetectionUsesNamedMacroFifteenTimesAndPauseResumeStillWork(FloatingPlayTest.java:23)
++2) unconfiguredPlayNeverFallsBackToCurrentMacro(kr.yunseok.touchmacro.FloatingPlayTest)
++java.lang.AssertionError: Collapsed control not available
++07:37:09  접근성 서비스 연결됨
++	at org.junit.Assert.fail(Assert.java:89)
++	at org.junit.Assert.assertTrue(Assert.java:42)
++	at kr.yunseok.touchmacro.GuidedFlowTest.waitFor(GuidedFlowTest.java:11)
++	at kr.yunseok.touchmacro.FloatingPlayTest.expand(FloatingPlayTest.java:15)
++	at kr.yunseok.touchmacro.FloatingPlayTest.unconfiguredPlayNeverFallsBackToCurrentMacro(FloatingPlayTest.java:29)
++
++FAILURES!!!
++Tests run: 2,  Failures: 2
++
++
+--- 8차/검증/Android12_단축창_초기검사.txt
++++ 9차/검증/Android12_단축창_초기검사.txt
+@@ -0,0 +1,42 @@
++
++kr.yunseok.touchmacro.FloatingPlayTest:
++Error in playStartsDetectionUsesNamedMacroFifteenTimesAndPauseResumeStillWork(kr.yunseok.touchmacro.FloatingPlayTest):
++java.lang.AssertionError
++	at org.junit.Assert.fail(Assert.java:87)
++	at org.junit.Assert.assertTrue(Assert.java:42)
++	at org.junit.Assert.assertTrue(Assert.java:53)
++	at kr.yunseok.touchmacro.FloatingPlayTest.expand(FloatingPlayTest.java:15)
++	at kr.yunseok.touchmacro.FloatingPlayTest.playStartsDetectionUsesNamedMacroFifteenTimesAndPauseResumeStillWork(FloatingPlayTest.java:23)
++
++Error in unconfiguredPlayNeverFallsBackToCurrentMacro(kr.yunseok.touchmacro.FloatingPlayTest):
++java.lang.AssertionError
++	at org.junit.Assert.fail(Assert.java:87)
++	at org.junit.Assert.assertTrue(Assert.java:42)
++	at org.junit.Assert.assertTrue(Assert.java:53)
++	at kr.yunseok.touchmacro.FloatingPlayTest.expand(FloatingPlayTest.java:15)
++	at kr.yunseok.touchmacro.FloatingPlayTest.unconfiguredPlayNeverFallsBackToCurrentMacro(FloatingPlayTest.java:29)
++
++kr.yunseok.touchmacro.CaptureRecoveryTest:...
++kr.yunseok.touchmacro.PriorityFlowTest:.
++
++Time: 75.479
++There were 2 failures:
++1) playStartsDetectionUsesNamedMacroFifteenTimesAndPauseResumeStillWork(kr.yunseok.touchmacro.FloatingPlayTest)
++java.lang.AssertionError
++	at org.junit.Assert.fail(Assert.java:87)
++	at org.junit.Assert.assertTrue(Assert.java:42)
++	at org.junit.Assert.assertTrue(Assert.java:53)
++	at kr.yunseok.touchmacro.FloatingPlayTest.expand(FloatingPlayTest.java:15)
++	at kr.yunseok.touchmacro.FloatingPlayTest.playStartsDetectionUsesNamedMacroFifteenTimesAndPauseResumeStillWork(FloatingPlayTest.java:23)
++2) unconfiguredPlayNeverFallsBackToCurrentMacro(kr.yunseok.touchmacro.FloatingPlayTest)
++java.lang.AssertionError
++	at org.junit.Assert.fail(Assert.java:87)
++	at org.junit.Assert.assertTrue(Assert.java:42)
++	at org.junit.Assert.assertTrue(Assert.java:53)
++	at kr.yunseok.touchmacro.FloatingPlayTest.expand(FloatingPlayTest.java:15)
++	at kr.yunseok.touchmacro.FloatingPlayTest.unconfiguredPlayNeverFallsBackToCurrentMacro(FloatingPlayTest.java:29)
++
++FAILURES!!!
++Tests run: 6,  Failures: 2
++
++
+--- 8차/검증/Android12_단축창_최종검사.txt
++++ 9차/검증/Android12_단축창_최종검사.txt
+@@ -0,0 +1,8 @@
++
++kr.yunseok.touchmacro.FloatingPlayTest:..
++
++Time: 8.303
++
++OK (2 tests)
++
++
+--- 8차/검증/Android12_실행시험.txt
++++ 9차/검증/Android12_실행시험.txt
+@@ -1,14 +1,14 @@
+-시험 대상: 8차 Debug APK, API31 x86_64 NEX12 자체 시험 기기
+-
+-kr.yunseok.touchmacro.ReaderResponsivenessTest: ..
+-kr.yunseok.touchmacro.PriorityFlowTest: .
+-kr.yunseok.touchmacro.RepeatFlowTest: .
+-kr.yunseok.touchmacro.WatchPresetTest: .
+-kr.yunseok.touchmacro.WatchFlowTest: .
+-kr.yunseok.touchmacro.GuidedFlowTest: ..
+-
+-Time: 117.26
+-OK (8 tests)
+-
+-위 내용은 시험 도구의 최종 결과를 기록한 것입니다.
+-사용자 블루스택 대상 앱의 실기 시험 결과가 아닙니다.
++
++kr.yunseok.touchmacro.CaptureRecoveryTest:...
++kr.yunseok.touchmacro.ReaderResponsivenessTest:..
++kr.yunseok.touchmacro.PriorityFlowTest:.
++kr.yunseok.touchmacro.RepeatFlowTest:.
++kr.yunseok.touchmacro.WatchPresetTest:.
++kr.yunseok.touchmacro.WatchFlowTest:.
++kr.yunseok.touchmacro.GuidedFlowTest:..
++
++Time: 180.704
++
++OK (11 tests)
++
++
+--- 8차/검증/단위검사/TEST-kr.yunseok.touchmacro.GestureModelTest.xml
++++ 9차/검증/단위검사/TEST-kr.yunseok.touchmacro.GestureModelTest.xml
+@@ -1,14 +1,14 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<testsuite name="kr.yunseok.touchmacro.GestureModelTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-10-19T07:10:35.243Z" hostname="DESKTOP-Q56I31F" time="0.013">
++<testsuite name="kr.yunseok.touchmacro.GestureModelTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-10-19T07:35:11.026Z" hostname="DESKTOP-Q56I31F" time="0.011">
+   <properties/>
+-  <testcase name="badStartNumberRejected" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.006"/>
++  <testcase name="badStartNumberRejected" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.005"/>
+   <testcase name="reversedRegionRejected" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
+   <testcase name="pinchUsesSimultaneousTwoPaths" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.002"/>
+   <testcase name="multiTapCoordinatesStaySimultaneous" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
+-  <testcase name="firstRoundStartNumberPreserved" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.001"/>
++  <testcase name="firstRoundStartNumberPreserved" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
+   <testcase name="pinchOutsideScreenRejected" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
+   <testcase name="emptyRecordingRejected" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
+-  <testcase name="duplicatedRecordingDoesNotShareMutablePoints" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.002"/>
++  <testcase name="duplicatedRecordingDoesNotShareMutablePoints" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
+   <testcase name="tooManyFingersRejected" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.001"/>
+   <testcase name="curveContainsControlShape" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
+   <testcase name="recordedStrokeAndRegionRoundTrip" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
+--- 8차/검증/단위검사/TEST-kr.yunseok.touchmacro.ModelTest.xml
++++ 9차/검증/단위검사/TEST-kr.yunseok.touchmacro.ModelTest.xml
+@@ -1,16 +1,16 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<testsuite name="kr.yunseok.touchmacro.ModelTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-10-19T07:10:35.260Z" hostname="DESKTOP-Q56I31F" time="0.003">
++<testsuite name="kr.yunseok.touchmacro.ModelTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-10-19T07:35:11.039Z" hostname="DESKTOP-Q56I31F" time="0.003">
+   <properties/>
+   <testcase name="futureSchemaRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
+   <testcase name="nanCoordinateRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
+-  <testcase name="invalidGotoRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
++  <testcase name="invalidGotoRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.001"/>
+   <testcase name="invalidSourceRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
+   <testcase name="blankTargetRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
+-  <testcase name="sampleHasFiniteBackRetries" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
+-  <testcase name="negativeRetriesRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.001"/>
++  <testcase name="sampleHasFiniteBackRetries" classname="kr.yunseok.touchmacro.ModelTest" time="0.001"/>
++  <testcase name="negativeRetriesRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
+   <testcase name="emptyMacroRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
+   <testcase name="serializePreservesTextAndBranchSettings" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
+-  <testcase name="missingBranchTargetRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
++  <testcase name="missingBranchTargetRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.001"/>
+   <system-out><![CDATA[]]></system-out>
+   <system-err><![CDATA[]]></system-err>
+ </testsuite>
+--- 8차/검증/단위검사/TEST-kr.yunseok.touchmacro.QueryLaneTest.xml
++++ 9차/검증/단위검사/TEST-kr.yunseok.touchmacro.QueryLaneTest.xml
+@@ -1,8 +1,8 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<testsuite name="kr.yunseok.touchmacro.QueryLaneTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-19T07:10:35.266Z" hostname="DESKTOP-Q56I31F" time="0.025">
++<testsuite name="kr.yunseok.touchmacro.QueryLaneTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-19T07:35:11.044Z" hostname="DESKTOP-Q56I31F" time="0.021">
+   <properties/>
+   <testcase name="cancelledSlowReadDoesNotQueueOrRunNewReads" classname="kr.yunseok.touchmacro.QueryLaneTest" time="0.004"/>
+-  <testcase name="sequentialReadsDoNotRaceExecutorCompletion" classname="kr.yunseok.touchmacro.QueryLaneTest" time="0.02"/>
++  <testcase name="sequentialReadsDoNotRaceExecutorCompletion" classname="kr.yunseok.touchmacro.QueryLaneTest" time="0.017"/>
+   <testcase name="closedReaderRejectsWithoutExecuting" classname="kr.yunseok.touchmacro.QueryLaneTest" time="0.0"/>
+   <system-out><![CDATA[]]></system-out>
+   <system-err><![CDATA[]]></system-err>
+--- 8차/검증/단위검사/TEST-kr.yunseok.touchmacro.RepeatMeaningTest.xml
++++ 9차/검증/단위검사/TEST-kr.yunseok.touchmacro.RepeatMeaningTest.xml
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<testsuite name="kr.yunseok.touchmacro.RepeatMeaningTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-19T07:10:35.293Z" hostname="DESKTOP-Q56I31F" time="0.0">
++<testsuite name="kr.yunseok.touchmacro.RepeatMeaningTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-19T07:35:11.067Z" hostname="DESKTOP-Q56I31F" time="0.0">
+   <properties/>
+   <testcase name="individualRepeatAcceptsOneThroughOneThousand" classname="kr.yunseok.touchmacro.RepeatMeaningTest" time="0.0"/>
+   <testcase name="individualRepeatRejectsOneThousandAndOne" classname="kr.yunseok.touchmacro.RepeatMeaningTest" time="0.0"/>
+--- 8차/검증/단위검사/TEST-kr.yunseok.touchmacro.TextRulesTest.xml
++++ 9차/검증/단위검사/TEST-kr.yunseok.touchmacro.TextRulesTest.xml
+@@ -1,9 +1,9 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<testsuite name="kr.yunseok.touchmacro.TextRulesTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-10-19T07:10:35.295Z" hostname="DESKTOP-Q56I31F" time="0.004">
++<testsuite name="kr.yunseok.touchmacro.TextRulesTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-10-19T07:35:11.068Z" hostname="DESKTOP-Q56I31F" time="0.003">
+   <properties/>
+   <testcase name="containsAndCase" classname="kr.yunseok.touchmacro.TextRulesTest" time="0.003"/>
+   <testcase name="regexDoesNotDestroyExpression" classname="kr.yunseok.touchmacro.TextRulesTest" time="0.0"/>
+-  <testcase name="unicodeNormalization" classname="kr.yunseok.touchmacro.TextRulesTest" time="0.001"/>
++  <testcase name="unicodeNormalization" classname="kr.yunseok.touchmacro.TextRulesTest" time="0.0"/>
+   <testcase name="koreanSpaceAndExact" classname="kr.yunseok.touchmacro.TextRulesTest" time="0.0"/>
+   <testcase name="invalidRegexFails" classname="kr.yunseok.touchmacro.TextRulesTest" time="0.0"/>
+   <testcase name="neverMatchEmptyTarget" classname="kr.yunseok.touchmacro.TextRulesTest" time="0.0"/>
+--- 8차/검증/단위검사/TEST-kr.yunseok.touchmacro.TimesTest.xml
++++ 9차/검증/단위검사/TEST-kr.yunseok.touchmacro.TimesTest.xml
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<testsuite name="kr.yunseok.touchmacro.TimesTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-10-19T07:10:35.301Z" hostname="DESKTOP-Q56I31F" time="0.002">
++<testsuite name="kr.yunseok.touchmacro.TimesTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-10-19T07:35:11.073Z" hostname="DESKTOP-Q56I31F" time="0.002">
+   <properties/>
+   <testcase name="rejectsBeyondPrecision" classname="kr.yunseok.touchmacro.TimesTest" time="0.001"/>
+   <testcase name="rejectsOverflow" classname="kr.yunseok.touchmacro.TimesTest" time="0.0"/>
+@@ -7,7 +7,7 @@
+   <testcase name="secondsAreReadableAndLosslessForSavedTimings" classname="kr.yunseok.touchmacro.TimesTest" time="0.0"/>
+   <testcase name="rejectsNonNumber" classname="kr.yunseok.touchmacro.TimesTest" time="0.0"/>
+   <testcase name="minutesAndSecondsAreHumanReadable" classname="kr.yunseok.touchmacro.TimesTest" time="0.0"/>
+-  <testcase name="decimalInputUsesSeconds" classname="kr.yunseok.touchmacro.TimesTest" time="0.0"/>
++  <testcase name="decimalInputUsesSeconds" classname="kr.yunseok.touchmacro.TimesTest" time="0.001"/>
+   <system-out><![CDATA[]]></system-out>
+   <system-err><![CDATA[]]></system-err>
+ </testsuite>
+--- 8차/검증/단위검사/TEST-kr.yunseok.touchmacro.WatchConfigTest.xml
++++ 9차/검증/단위검사/TEST-kr.yunseok.touchmacro.WatchConfigTest.xml
+@@ -1,9 +1,9 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<testsuite name="kr.yunseok.touchmacro.WatchConfigTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-10-19T07:10:35.305Z" hostname="DESKTOP-Q56I31F" time="0.002">
++<testsuite name="kr.yunseok.touchmacro.WatchConfigTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-10-19T07:35:11.077Z" hostname="DESKTOP-Q56I31F" time="0.001">
+   <properties/>
+-  <testcase name="rejectsAllDisabled" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.001"/>
++  <testcase name="rejectsAllDisabled" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.0"/>
+   <testcase name="fifthRoundCustomValuesAreNotReset" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.0"/>
+-  <testcase name="regionAndMacroSurviveSave" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.0"/>
++  <testcase name="regionAndMacroSurviveSave" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.001"/>
+   <testcase name="rejectsZeroRepetitions" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.0"/>
+   <testcase name="rejectsBackwardsRegion" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.0"/>
+   <testcase name="rejectsEmptyText" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.0"/>
+--- 8차/검증/단위검사/TEST-kr.yunseok.touchmacro.WatchGateTest.xml
++++ 9차/검증/단위검사/TEST-kr.yunseok.touchmacro.WatchGateTest.xml
+@@ -1,14 +1,14 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<testsuite name="kr.yunseok.touchmacro.WatchGateTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-10-19T07:10:35.311Z" hostname="DESKTOP-Q56I31F" time="0.004">
++<testsuite name="kr.yunseok.touchmacro.WatchGateTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-10-19T07:35:11.080Z" hostname="DESKTOP-Q56I31F" time="0.002">
+   <properties/>
+-  <testcase name="requiresTwoAbsentScansAcrossTimeAndThenNewAppearance" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.001"/>
++  <testcase name="requiresTwoAbsentScansAcrossTimeAndThenNewAppearance" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.0"/>
+   <testcase name="rejectsSeventhPriority" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.001"/>
+   <testcase name="rejectsTooShortAbsence" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.0"/>
+   <testcase name="profileTimingsAndLockSurviveSave" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.001"/>
+   <testcase name="reservesBeforeEntryAndBlocksEveryPresentResult" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.0"/>
+   <testcase name="presenceAndInterruptedContextResetAbsence" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.0"/>
+   <testcase name="sixExplicitPrioritiesPreserveTheirOrderAndIndependentLocks" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.0"/>
+-  <testcase name="rejectsOverlappingPriorityBoxes" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.001"/>
++  <testcase name="rejectsOverlappingPriorityBoxes" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.0"/>
+   <testcase name="oneMissingScanNeverRearms" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.0"/>
+   <testcase name="restoredReservationStartsBlocked" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.0"/>
+   <system-out><![CDATA[]]></system-out>
+--- 8차/검증/단위검사/testDebugUnitTest/TEST-kr.yunseok.touchmacro.GestureModelTest.xml
++++ 9차/검증/단위검사/testDebugUnitTest/TEST-kr.yunseok.touchmacro.GestureModelTest.xml
+@@ -0,0 +1,17 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<testsuite name="kr.yunseok.touchmacro.GestureModelTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-10-19T07:35:11.026Z" hostname="DESKTOP-Q56I31F" time="0.011">
++  <properties/>
++  <testcase name="badStartNumberRejected" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.005"/>
++  <testcase name="reversedRegionRejected" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
++  <testcase name="pinchUsesSimultaneousTwoPaths" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.002"/>
++  <testcase name="multiTapCoordinatesStaySimultaneous" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
++  <testcase name="firstRoundStartNumberPreserved" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
++  <testcase name="pinchOutsideScreenRejected" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
++  <testcase name="emptyRecordingRejected" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
++  <testcase name="duplicatedRecordingDoesNotShareMutablePoints" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
++  <testcase name="tooManyFingersRejected" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.001"/>
++  <testcase name="curveContainsControlShape" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
++  <testcase name="recordedStrokeAndRegionRoundTrip" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
++  <system-out><![CDATA[]]></system-out>
++  <system-err><![CDATA[]]></system-err>
++</testsuite>
+--- 8차/검증/단위검사/testDebugUnitTest/TEST-kr.yunseok.touchmacro.ModelTest.xml
++++ 9차/검증/단위검사/testDebugUnitTest/TEST-kr.yunseok.touchmacro.ModelTest.xml
+@@ -0,0 +1,16 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<testsuite name="kr.yunseok.touchmacro.ModelTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-10-19T07:35:11.039Z" hostname="DESKTOP-Q56I31F" time="0.003">
++  <properties/>
++  <testcase name="futureSchemaRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
++  <testcase name="nanCoordinateRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
++  <testcase name="invalidGotoRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.001"/>
++  <testcase name="invalidSourceRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
++  <testcase name="blankTargetRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
++  <testcase name="sampleHasFiniteBackRetries" classname="kr.yunseok.touchmacro.ModelTest" time="0.001"/>
++  <testcase name="negativeRetriesRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
++  <testcase name="emptyMacroRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
++  <testcase name="serializePreservesTextAndBranchSettings" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
++  <testcase name="missingBranchTargetRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.001"/>
++  <system-out><![CDATA[]]></system-out>
++  <system-err><![CDATA[]]></system-err>
++</testsuite>
+--- 8차/검증/단위검사/testDebugUnitTest/TEST-kr.yunseok.touchmacro.QueryLaneTest.xml
++++ 9차/검증/단위검사/testDebugUnitTest/TEST-kr.yunseok.touchmacro.QueryLaneTest.xml
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<testsuite name="kr.yunseok.touchmacro.QueryLaneTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-19T07:35:11.044Z" hostname="DESKTOP-Q56I31F" time="0.021">
++  <properties/>
++  <testcase name="cancelledSlowReadDoesNotQueueOrRunNewReads" classname="kr.yunseok.touchmacro.QueryLaneTest" time="0.004"/>
++  <testcase name="sequentialReadsDoNotRaceExecutorCompletion" classname="kr.yunseok.touchmacro.QueryLaneTest" time="0.017"/>
++  <testcase name="closedReaderRejectsWithoutExecuting" classname="kr.yunseok.touchmacro.QueryLaneTest" time="0.0"/>
++  <system-out><![CDATA[]]></system-out>
++  <system-err><![CDATA[]]></system-err>
++</testsuite>
+--- 8차/검증/단위검사/testDebugUnitTest/TEST-kr.yunseok.touchmacro.RepeatMeaningTest.xml
++++ 9차/검증/단위검사/testDebugUnitTest/TEST-kr.yunseok.touchmacro.RepeatMeaningTest.xml
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<testsuite name="kr.yunseok.touchmacro.RepeatMeaningTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-19T07:35:11.067Z" hostname="DESKTOP-Q56I31F" time="0.0">
++  <properties/>
++  <testcase name="individualRepeatAcceptsOneThroughOneThousand" classname="kr.yunseok.touchmacro.RepeatMeaningTest" time="0.0"/>
++  <testcase name="individualRepeatRejectsOneThousandAndOne" classname="kr.yunseok.touchmacro.RepeatMeaningTest" time="0.0"/>
++  <testcase name="individualRepeatRejectsZero" classname="kr.yunseok.touchmacro.RepeatMeaningTest" time="0.0"/>
++  <system-out><![CDATA[]]></system-out>
++  <system-err><![CDATA[]]></system-err>
++</testsuite>
+--- 8차/검증/단위검사/testDebugUnitTest/TEST-kr.yunseok.touchmacro.TextRulesTest.xml
++++ 9차/검증/단위검사/testDebugUnitTest/TEST-kr.yunseok.touchmacro.TextRulesTest.xml
+@@ -0,0 +1,12 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<testsuite name="kr.yunseok.touchmacro.TextRulesTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-10-19T07:35:11.068Z" hostname="DESKTOP-Q56I31F" time="0.003">
++  <properties/>
++  <testcase name="containsAndCase" classname="kr.yunseok.touchmacro.TextRulesTest" time="0.003"/>
++  <testcase name="regexDoesNotDestroyExpression" classname="kr.yunseok.touchmacro.TextRulesTest" time="0.0"/>
++  <testcase name="unicodeNormalization" classname="kr.yunseok.touchmacro.TextRulesTest" time="0.0"/>
++  <testcase name="koreanSpaceAndExact" classname="kr.yunseok.touchmacro.TextRulesTest" time="0.0"/>
++  <testcase name="invalidRegexFails" classname="kr.yunseok.touchmacro.TextRulesTest" time="0.0"/>
++  <testcase name="neverMatchEmptyTarget" classname="kr.yunseok.touchmacro.TextRulesTest" time="0.0"/>
++  <system-out><![CDATA[]]></system-out>
++  <system-err><![CDATA[]]></system-err>
++</testsuite>
+--- 8차/검증/단위검사/testDebugUnitTest/TEST-kr.yunseok.touchmacro.TimesTest.xml
++++ 9차/검증/단위검사/testDebugUnitTest/TEST-kr.yunseok.touchmacro.TimesTest.xml
+@@ -0,0 +1,13 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<testsuite name="kr.yunseok.touchmacro.TimesTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-10-19T07:35:11.073Z" hostname="DESKTOP-Q56I31F" time="0.002">
++  <properties/>
++  <testcase name="rejectsBeyondPrecision" classname="kr.yunseok.touchmacro.TimesTest" time="0.001"/>
++  <testcase name="rejectsOverflow" classname="kr.yunseok.touchmacro.TimesTest" time="0.0"/>
++  <testcase name="rejectsNegative" classname="kr.yunseok.touchmacro.TimesTest" time="0.0"/>
++  <testcase name="secondsAreReadableAndLosslessForSavedTimings" classname="kr.yunseok.touchmacro.TimesTest" time="0.0"/>
++  <testcase name="rejectsNonNumber" classname="kr.yunseok.touchmacro.TimesTest" time="0.0"/>
++  <testcase name="minutesAndSecondsAreHumanReadable" classname="kr.yunseok.touchmacro.TimesTest" time="0.0"/>
++  <testcase name="decimalInputUsesSeconds" classname="kr.yunseok.touchmacro.TimesTest" time="0.001"/>
++  <system-out><![CDATA[]]></system-out>
++  <system-err><![CDATA[]]></system-err>
++</testsuite>
+--- 8차/검증/단위검사/testDebugUnitTest/TEST-kr.yunseok.touchmacro.WatchConfigTest.xml
++++ 9차/검증/단위검사/testDebugUnitTest/TEST-kr.yunseok.touchmacro.WatchConfigTest.xml
+@@ -0,0 +1,17 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<testsuite name="kr.yunseok.touchmacro.WatchConfigTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-10-19T07:35:11.077Z" hostname="DESKTOP-Q56I31F" time="0.001">
++  <properties/>
++  <testcase name="rejectsAllDisabled" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.0"/>
++  <testcase name="fifthRoundCustomValuesAreNotReset" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.0"/>
++  <testcase name="regionAndMacroSurviveSave" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.001"/>
++  <testcase name="rejectsZeroRepetitions" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.0"/>
++  <testcase name="rejectsBackwardsRegion" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.0"/>
++  <testcase name="rejectsEmptyText" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.0"/>
++  <testcase name="ownCountOverridesMacroCountWithoutMultiplyingOrMutating" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.0"/>
++  <testcase name="migratesFourthRoundButKeepsWordRegionAndMacro" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.0"/>
++  <testcase name="endlessSourceStillBecomesFinite" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.0"/>
++  <testcase name="defaultIsEnterFifteenRoundsAndTenSecondRefresh" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.0"/>
++  <testcase name="rejectsZeroInterval" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.0"/>
++  <system-out><![CDATA[]]></system-out>
++  <system-err><![CDATA[]]></system-err>
++</testsuite>
+--- 8차/검증/단위검사/testDebugUnitTest/TEST-kr.yunseok.touchmacro.WatchGateTest.xml
++++ 9차/검증/단위검사/testDebugUnitTest/TEST-kr.yunseok.touchmacro.WatchGateTest.xml
+@@ -0,0 +1,16 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<testsuite name="kr.yunseok.touchmacro.WatchGateTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-10-19T07:35:11.080Z" hostname="DESKTOP-Q56I31F" time="0.002">
++  <properties/>
++  <testcase name="requiresTwoAbsentScansAcrossTimeAndThenNewAppearance" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.0"/>
++  <testcase name="rejectsSeventhPriority" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.001"/>
++  <testcase name="rejectsTooShortAbsence" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.0"/>
++  <testcase name="profileTimingsAndLockSurviveSave" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.001"/>
++  <testcase name="reservesBeforeEntryAndBlocksEveryPresentResult" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.0"/>
++  <testcase name="presenceAndInterruptedContextResetAbsence" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.0"/>
++  <testcase name="sixExplicitPrioritiesPreserveTheirOrderAndIndependentLocks" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.0"/>
++  <testcase name="rejectsOverlappingPriorityBoxes" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.0"/>
++  <testcase name="oneMissingScanNeverRearms" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.0"/>
++  <testcase name="restoredReservationStartsBlocked" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.0"/>
++  <system-out><![CDATA[]]></system-out>
++  <system-err><![CDATA[]]></system-err>
++</testsuite>
+--- 8차/검증결과.txt
++++ 9차/검증결과.txt
+@@ -1,35 +1,50 @@
+-NEX 8차 v8.0 검증 — 2026-10-19
++NEX 9차 v9.0 — 2026-10-19
+ 
+-빌드 및 검사
+-- Android 앱 Debug / AndroidTest / 휴대전화 Release / PC Release 빌드 성공.
+-- 단위 검사 61개 통과, 실패 0개. XML 결과는 검증/단위검사 폴더.
+-- Android Lint: No issues found. 결과는 검증/lint.txt.
++수정 사항
++단축창 ▶를 현재 일반 매크로 실행에서 저장한 글자 탐지 시작으로 변경했습니다.
++캡처 간격 오류(3)에 대해 응답 후 대기 및 4/8/12초 재시도를 추가했습니다.
+ 
+-Android 12 (API 31, x86_64) 자체 시험 환경
+-실행 시험 8개 통과. 전체 실행 시간 117.26초.
+-- ReaderResponsivenessTest 2개: 화면 읽기가 막혀도 UI 정지가 1초 이내 반응,
+-  취소 후 늦은 결과 미반환, 읽기 제한 시간 적용, 캡처 오류 문구 구분.
+-- PriorityFlowTest 1개: 1순위 없을 때 2순위 실행, 대기 중 재실행 안 함,
+-  새로고침 후 같은 2순위 다시 실행, 1순위 등장 시 1순위 선택.
+-- RepeatFlowTest 1개: 개별 반복과 전체 반복을 실제 터치 순서로 검증.
+-- WatchPresetTest 1개: 전체 15회 및 완료 후 새로고침 대기 검증.
+-- WatchFlowTest 1개: 영역/한글 인식/복귀/일시정지/정지/실패 동작 검증.
+-- GuidedFlowTest 2개: 실제 영역 그리기·녹화·자동 저장·시간 설정,
+-  선택적 엄격 중복 방지와 하단 시간 표시 검증.
++빌드
++- 휴대전화 ARM64 / PC ARM64+x86_64 APK 생성.
++- 기존 앱과 동일한 개인 인증서로 서명 검사 통과.
++- 단위 검사 61개 통과.
++- Lint: No issues found.
++- 자체 시험 환경에서 8차 PC Release → 9차 PC Release 업데이트 설치 및 앱 실행 성공.
++  versionCode=9, versionName=9.0.0, primaryCpuAbi=x86_64 확인.
+ 
+-Release 설치 검사
+-- 자체 시험 기기에 기존 6차 PC Release APK 설치 후 8차 PC Release로 업데이트 성공.
+-- 업데이트된 앱 실행 성공, versionCode=8, versionName=8.0.0, primaryCpuAbi=x86_64.
+-- 휴대전화/PC APK 서명 검사 통과, 이전 버전과 동일한 개인 인증서.
+-- 휴대전화 APK ARM64, PC APK ARM64 + x86_64.
++Android 12 API31 x86_64 자체 시험 환경
++1. 캡처 수정 후 기존 흐름과 신규 캡처 복구 포함 11개 시험 통과 (180.704초).
++   검증/Android12_실행시험.txt
++2. 마지막 앱 수정 후 캡처 복구 3개와 우선순위 흐름 1개 재검사 통과.
++   검증/Android12_단축창_초기검사.txt에는 이 4개 통과와 아래 초기 단축창 시험 실패를 함께 기록.
++3. 단축창 시험 환경을 보정한 후 실제 좌표 터치로 단축창 시험 2개 통과 (8.303초).
++   검증/Android12_단축창_최종검사.txt
+ 
+-실제 사용자 블루스택 검증의 한계
+-- 사용자 PC에서 블루스택 여러 인스턴스가 실행 중인 것을 확인했습니다.
+-- 대부분 CPU 1개 및 1920x1080 설정을 확인했습니다.
+-- 블루스택 Android 디버깅 설정은 꺼져 있어 인스턴스별 인식 로그를 읽지 못했습니다.
+-- 설정 파일만으로 작업 동기화의 현재 활성 여부를 판정하지 못했습니다.
+-- 사용자 대상 앱에서 다섯 창이 정상 동시 실행되는지는 아직 검증하지 못했습니다.
+-- 이번 수정은 코드에서 확인한 UI 스레드 읽기 지연 취약점에 대응합니다.
+-  실제 블루스택 멈춤의 단일 원인이 확정되었다는 의미는 아닙니다.
++단축창 실제 터치 확인
++- 현재 편집 매크로와 탐지에 등록한 매크로를 다르게 저장.
++- ▶를 누르면 일반 매크로 대신 글자 탐지가 시작됨.
++- 글자를 눌러 들어가 등록 매크로를 정확히 15회 실행.
++- 뒤로간 후 완료 대기로 진입, 편집 중인 원래 매크로는 유지.
++- 같은 단축창에서 일시정지/계속 실행/정지 동작 확인.
++- 탐지 설정이 없으면 현재 일반 매크로를 대신 실행하지 않음.
+ 
+-이전 차수 파일과 사용자 블루스택 인스턴스 설정은 덮어쓰지 않았습니다.
++캡처 오류 주입 시험
++- 오류(3) 두 번 후 실제 화면 캡처와 한글 OCR로 복구.
++- 새 캡처로 글자를 재확인한 후 한 번만 진입, 완료 후 대기 중 재진입 안 함.
++- 요청 사이 4초/8초의 늘어난 간격과 성공 후 유지된 간격 확인.
++- 재시도 대기 중 정지 시 추가 캡처/항목 진입 없음.
++- 계속 오류(3)를 반환하면 최초 요청+3회 재시도 후 중단, 터치 없음.
++
++초기 단축창 검사 실패의 원인
++시험용 MainActivity 안내 화면에서 컨트롤을 숨기는 상태를 실제 외부 사용 상태로 전환하지 않았고,
++조건 확인 도구가 클릭을 두 번 실행했습니다. 시험 환경과 클릭 도구를 보정했습니다.
++제품 코드의 새 ▶ 흐름은 보정한 실제 터치 시험에서 통과했습니다.
++
++한계
++사용자 블루스택 다섯 창에서 새 APK 설치 및 동시 실행을 검증한 결과는 아닙니다.
++기존 자동 설치 연결 오류로 사용자 창은 직접 APK 업데이트가 필요합니다.
++이후 사용자 요청으로 LD플레이어로 전환했습니다. 설치된 제품은 LDPlayer 14.0.29.2입니다.
++LD플레이어 설치 명령을 전송했지만 Android 설치 조회 연결이 실패해 완료 여부를 확인하지 못했습니다.
++LD플레이어의 실제 OCR·접근성 및 5개 동시 실행은 아직 검증하지 못했습니다.
++대상 앱의 보안 화면/접근성 미지원/블루스택 캡처 구현 오류까지 해결된다는 보장은 없습니다.
++오류가 반복되면 무한 재시도하거나 다른 위치를 대신 누르지 않고 중단합니다.
+--- 8차/블루스택_업데이트와_동기화.txt
++++ 9차/블루스택_업데이트와_동기화.txt
+@@ -1,34 +0,0 @@
+-블루스택에서 각 창을 따로 실행하기
+-
+-1. 각 NEX의 실행을 먼저 정지합니다.
+-2. 블루스택 창 위 동기화 표시나 작업 동기화 메뉴에서 활성 여부를 확인합니다.
+-   활성 상태면 '중지'를 누릅니다. 단축키로 무작정 켜지 않습니다.
+-   NEX에는 여러 창을 동기화하는 기능이 없습니다.
+-3. 다섯 창 각각의 APK 설치 버튼에서 다음 파일을 선택해 업데이트합니다.
+-   NEX_8차_v8.0_PC에뮬레이터_Android11이상.apk
+-   기존 NEX는 삭제하지 않습니다. 삭제하면 저장 설정이 사라질 수 있습니다.
+-4. NEX 설정 하단에 'NEX 8.0 · 8차'가 표시되는지 확인합니다.
+-   접근성 연결이 풀렸다면 해당 인스턴스의 Android 설정에서 NEX 접근성을 다시 켭니다.
+-5. 각 창에서 대상 앱과 글자·영역·등록된 매크로를 확인하고 개별 시작합니다.
+-   복제한 인스턴스는 설정이 같을 수 있지만 실행은 각각 진행합니다.
+-
+-느릴 때 우선 적용해 볼 설정
+-실행을 정지한 뒤 각 인스턴스 CPU 2개 / RAM 4GB / FPS 30 정도부터 확인합니다.
+-PC 자원과 대상 앱에 따라 적절한 값은 달라집니다.
+-창을 재시작해야 적용되는 설정이 있습니다.
+-영역과 녹화 좌표가 달라질 수 있으므로 화면 해상도는 유지합니다.
+-에코 모드의 낮은 FPS는 진단 중에는 피합니다.
+-
+-멈춘 것처럼 보일 때
+-8차는 '화면 정보 읽는 중 · 몇 초'를 표시하고 응답이 없으면 명시적으로 중단합니다.
+-'화면 정보 응답 지연'이면 해당 대상 앱을 다시 연 뒤 실행합니다.
+-이전 읽기가 계속 끝나지 않는다는 안내가 반복되면 그 창의 NEX 접근성을 껐다 켜고 다시 실행합니다.
+-OCR 오류는 캡처 실패 번호와 새 안내 문구를 확인합니다.
+-보안 화면이라고 표시되는 경우에도 화면 정보 모드는 대상 앱이 글자 정보를 제공해야 작동합니다.
+-
+-다섯 창 실기 검증 상태
+-현재 PC에서 블루스택의 Android 디버깅 연결이 꺼져 있어 해당 창의 인식 로그를 읽지 못했습니다.
+-Android 12 시험 환경 검증과 사용자 블루스택 다섯 창 검증은 구별합니다.
+-
+-블루스택 공식 작업 동기화 안내
+-https://support.bluestacks.com/hc/en-us/articles/4403071374861-Sync-operations-on-BlueStacks-5
+--- 8차/사용법.txt
++++ 9차/사용법.txt
+@@ -1,4 +1,4 @@
+-NEX 8차 v8.0 — 순서대로 설정
++NEX 9차 v9.0 — 순서대로 설정
+ 
+ 처음 앱을 열면 5단계 안내가 나옵니다.
+ 1. 찾을 글자 입력.

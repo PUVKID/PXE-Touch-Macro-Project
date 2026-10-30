@@ -1,0 +1,10 @@
+from pathlib import Path
+p=Path('app/src/androidTest/java/kr/yunseok/touchmacro/PxeRedesignTest.java');s=p.read_text(encoding='utf-8')
+a=s.index('    @Test public void keyboardInput')
+s=s[:a]+'''    int nativeControlTargets(android.view.accessibility.AccessibilityNodeInfo node){if(node==null)return 0;int count=0;String name=String.valueOf(node.getClassName());if((name.equals("android.widget.SeekBar")||name.equals("android.widget.CheckBox"))&&node.isVisibleToUser()){Rect bounds=new Rect();node.getBoundsInScreen(bounds);assertTrue(name+" 실제 터치 높이 "+bounds.height(),bounds.height()>=Ui.dp(h.a,48));count++;}for(int i=0;i<node.getChildCount();i++){android.view.accessibility.AccessibilityNodeInfo child=node.getChild(i);try{count+=nativeControlTargets(child);}finally{if(child!=null)child.recycle();}}return count;}
+'''+s[a:]
+s=s.replace('    @Test public void keyboardInputUsesRealSavePathAndLeavesNavigationAccessible()throws Exception{','''    @Test public void keyboardInputUsesRealSavePathAndLeavesNavigationAccessible()throws Exception{
+        int scale=Ui.prefs(h.a).getInt("scale",100),opacity=Ui.prefs(h.a).getInt("opacity",95);boolean markers=Ui.prefs(h.a).getBoolean("markers",true),awake=Ui.prefs(h.a).getBoolean("keep_screen",true);
+        review.tab("설정",3);h.main(()->described("화면 위 컨트롤 · 크기 · 투명도 · 번호 표시").performClick());h.in.waitForIdleSync();int count=0;for(android.view.accessibility.AccessibilityWindowInfo window:h.auto.getWindows()){android.view.accessibility.AccessibilityNodeInfo root=window.getRoot();try{count+=nativeControlTargets(root);}finally{if(root!=null)root.recycle();}}assertEquals(4,count);
+        assertEquals(scale,Ui.prefs(h.a).getInt("scale",100));assertEquals(opacity,Ui.prefs(h.a).getInt("opacity",95));assertEquals(markers,Ui.prefs(h.a).getBoolean("markers",true));assertEquals(awake,Ui.prefs(h.a).getBoolean("keep_screen",true));h.click("터치 위치 번호 표시");assertEquals(!markers,Ui.prefs(h.a).getBoolean("markers",true));h.click("터치 위치 번호 표시");assertEquals(markers,Ui.prefs(h.a).getBoolean("markers",true));h.screenshot("PXE14_네이티브_설정_48dp.png");h.click("완료");review.tab("탐지",4);''')
+p.write_text(s,encoding='utf-8')

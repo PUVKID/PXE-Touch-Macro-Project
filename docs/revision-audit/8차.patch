@@ -1,0 +1,301 @@
+--- 6차/app/build.gradle
++++ 8차/app/build.gradle
+@@ -5,7 +5,7 @@
+ if (signingFile.exists()) { signingFile.withInputStream { signingProps.load(it) } }
+ android { signingConfigs { personal { storeFile rootProject.file(signingDir + '/macro.jks'); storePassword signingProps.getProperty('storePassword', ''); keyAlias 'yunseokmacro'; keyPassword signingProps.getProperty('storePassword', '') } }
+  namespace 'kr.yunseok.touchmacro'; compileSdk 35
+- defaultConfig { applicationId 'kr.yunseok.touchmacro'; minSdk 30; targetSdk 35; versionCode 6; versionName '6.0.0'; testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner' }
++ defaultConfig { applicationId 'kr.yunseok.touchmacro'; minSdk 30; targetSdk 35; versionCode 8; versionName '8.0.0'; testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner' }
+  // Release is a Note 10+ ARM64 build; debug keeps all emulator ABIs.
+  lint { disable 'ChromeOsAbiSupport' }
+  compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+--- 6차/app/src/androidTest/java/kr/yunseok/touchmacro/ReaderResponsivenessTest.java
++++ 8차/app/src/androidTest/java/kr/yunseok/touchmacro/ReaderResponsivenessTest.java
+@@ -0,0 +1,34 @@
++package kr.yunseok.touchmacro;
++import android.os.SystemClock;
++import androidx.test.ext.junit.runners.AndroidJUnit4;
++import org.junit.*;import org.junit.runner.RunWith;
++import java.lang.reflect.*;import java.util.concurrent.*;import java.util.concurrent.atomic.*;
++import static org.junit.Assert.*;
++
++@RunWith(AndroidJUnit4.class) public class ReaderResponsivenessTest {
++    GuidedFlowTest h=new GuidedFlowTest();
++    @Before public void boot()throws Exception{h.boot();}
++    @After public void end(){h.end();}
++    long token()throws Exception{Field f=MacroService.class.getDeclaredField("generation");f.setAccessible(true);return ((AtomicLong)f.get(h.svc)).get();}
++    Method reader()throws Exception{Method m=MacroService.class.getDeclaredMethod("readScreen",Callable.class,long.class);m.setAccessible(true);return m;}
++    @Test public void blockedReaderLeavesUiAndStopResponsiveAndDiscardsLateResult()throws Exception{
++        CountDownLatch entered=new CountDownLatch(1),release=new CountDownLatch(1);AtomicReference<Throwable> failure=new AtomicReference<>();AtomicBoolean returned=new AtomicBoolean();
++        long token=token();Method reader=reader();
++        Thread t=new Thread(()->{try{reader.invoke(h.svc,(Callable<String>)()->{entered.countDown();release.await();return "stale match";},token);returned.set(true);}catch(Throwable e){failure.set(e);} });
++        try{
++            t.start();assertTrue(entered.await(2,TimeUnit.SECONDS));long before=SystemClock.elapsedRealtime();
++            h.main(()->h.svc.stop());assertTrue("UI/stop blocked by reader",SystemClock.elapsedRealtime()-before<1000);
++            t.join(1500);assertFalse("Cancelled scan kept waiting",t.isAlive());assertFalse(returned.get());assertNotNull(failure.get());
++            release.countDown();assertFalse(returned.get());
++        }finally{release.countDown();t.join(2000);}
++    }
++    @Test public void slowReadTimesOutClearlyWithoutTreatingItAsMissingText()throws Exception{
++        CountDownLatch release=new CountDownLatch(1);long before=SystemClock.elapsedRealtime();
++        try{
++            reader().invoke(h.svc,(Callable<String>)()->{release.await();return "late";},token());fail("Timed-out scan returned a match");
++        }catch(InvocationTargetException e){assertTrue(e.getCause().getMessage(),e.getCause().getMessage().contains("화면 정보 응답 지연"));}
++        finally{release.countDown();}
++        assertTrue(SystemClock.elapsedRealtime()-before<5000);h.main(()->h.svc.log("응답 지연 검증 완료"));
++        assertFalse(MacroService.captureError(1).contains("보안 화면"));assertTrue(MacroService.captureError(6).contains("보안 화면"));
++    }
++}
+--- 6차/app/src/main/java/kr/yunseok/touchmacro/MacroService.java
++++ 8차/app/src/main/java/kr/yunseok/touchmacro/MacroService.java
+@@ -19,6 +19,8 @@
+     public static MacroService get(){return current.get();}
+     private final Handler ui=new Handler(Looper.getMainLooper());
+     private final ExecutorService worker=Executors.newSingleThreadExecutor();
++    private final QueryLane screenReader=new QueryLane();
++    private volatile long queryStartedAt=0;
+     private final AtomicLong generation=new AtomicLong();private final AtomicLong pauseRevision=new AtomicLong();
+     public volatile boolean running=false, paused=false, watching=false; public volatile int watchCompleted=0; public volatile String watchPhase=""; private volatile long watchNextRefresh=0;
+     public volatile String status="준비";
+@@ -31,7 +33,7 @@
+     private final ArrayDeque<String> logs=new ArrayDeque<>();
+     private TextRecognizer recognizer;
+     private int initialW,initialH;private long deadline,lastScreenshot=0;
+-    private boolean destroyed=false,logUpdateQueued=false;
++    private volatile boolean destroyed=false;private boolean logUpdateQueued=false;
+     private void notification(){if(controller!=null)controller.show();}
+     private void clearNotification(){}
+     @Override protected void onServiceConnected(){current=new java.lang.ref.WeakReference<>(this);wm=(WindowManager)getSystemService(WINDOW_SERVICE);controller=new FloatingController(this);recognizer=TextRecognition.getClient(new KoreanTextRecognizerOptions.Builder().build());log("접근성 서비스 연결됨");}
+@@ -39,7 +41,7 @@
+     @Override public void onInterrupt(){stop();}
+     @Override public void onConfigurationChanged(android.content.res.Configuration cfg){super.onConfigurationChanged(cfg);if(running){stop();log("화면 방향 변경 · 정지");}if(controller!=null){controller.cancelRegion();if(controller.recording)controller.endRecording();controller.refresh();}}
+     @Override public void onDestroy(){
+-        destroyed=true;stop();if(controller!=null)controller.close();if(recognizer!=null)recognizer.close();worker.shutdownNow();if(get()==this)current=new java.lang.ref.WeakReference<>(null);super.onDestroy();
++        destroyed=true;stop();if(controller!=null)controller.close();if(recognizer!=null)recognizer.close();worker.shutdownNow();screenReader.close();if(get()==this)current=new java.lang.ref.WeakReference<>(null);super.onDestroy();
+     }
+     private int dp(int n){return (int)(n*getResources().getDisplayMetrics().density+.5f);}
+     private void font(View v){if(v instanceof TextView)((TextView)v).setTypeface(getResources().getFont(R.font.nanum_gothic_bold));if(v instanceof ViewGroup)for(int i=0;i<((ViewGroup)v).getChildCount();i++)font(((ViewGroup)v).getChildAt(i));}
+@@ -58,6 +60,7 @@
+     public String progressText(){
+         String phase=watching&&!watchPhase.equals("매크로 실행")?watchPhase:liveAction;
+         if(watching&&currentPriority>0)phase=currentPriority+"순위 · "+phase;
++        if(running&&queryStartedAt>0)phase+=" · 화면 정보 읽는 중 "+String.format(Locale.KOREA,"%.1f초",(SystemClock.elapsedRealtime()-queryStartedAt)/1000.0);
+         if(!running)phase=status;if(paused)return "일시정지 · "+phase;
+         boolean refreshWait=watching&&(watchPhase.equals("완료 후 쉬는 중")||watchPhase.equals("새로고침 대기")||watchPhase.equals("중복 차단 · 사라짐 대기"));
+         if(refreshWait)phase+=" · 새로고침까지 "+remainingText(watchNextRefresh-SystemClock.elapsedRealtime());
+@@ -97,6 +100,14 @@
+     }
+     private <T> T onUi(Callable<T> action,long token)throws Exception{
+         ready(token);CompletableFuture<T> f=new CompletableFuture<>();Runnable task=new Runnable(){public void run(){try{if(f.isDone())return;check(token);if(paused){ui.postDelayed(this,70);return;}f.complete(action.call());}catch(Exception e){f.completeExceptionally(e);}}};ui.post(task);return await(f,token,5000);
++    }
++    private <T> T readScreen(Callable<T> action,long token)throws Exception{
++        ready(token);queryStartedAt=SystemClock.elapsedRealtime();
++        CompletableFuture<T> result=screenReader.submit(()->{check(token);return action.call();});
++        try{return await(result,token,3500);}
++        catch(CancellationException e){throw e;}
++        catch(Exception e){throw new IllegalStateException("화면 정보 응답 지연 · 터치하지 않고 정지했습니다. 대상 앱을 다시 연 뒤 재시작하세요 ("+e.getMessage()+")",e);}
++        finally{result.cancel(false);queryStartedAt=0;}
+     }
+     @SuppressWarnings("deprecation") private void run(Macro m,long token){
+         PowerManager.WakeLock lock=((PowerManager)getSystemService(POWER_SERVICE)).newWakeLock(Ui.prefs(this).getBoolean("keep_screen",true)?PowerManager.SCREEN_DIM_WAKE_LOCK:PowerManager.PARTIAL_WAKE_LOCK,"NEX:run");
+@@ -152,7 +163,7 @@
+             while(true){
+                 ready(token);
+                 if(observedRevision!=pauseRevision.get()){for(WatchGate gate:gates)gate.interruptAbsence();observedRevision=pauseRevision.get();}
+-                if(!p.targetPackage.isEmpty()&&!p.targetPackage.equals(onUi(this::activePackage,token))){for(WatchGate gate:gates)gate.interruptAbsence();watchPhase="대상 앱 대기";sleep(500,token);continue;}
++                if(!p.targetPackage.isEmpty()&&!p.targetPackage.equals(readScreen(this::activePackage,token))){for(WatchGate gate:gates)gate.interruptAbsence();watchPhase="대상 앱 대기";sleep(500,token);continue;}
+                 if(SystemClock.elapsedRealtime()>=watchNextRefresh){
+                     long refreshAt=SystemClock.elapsedRealtime();watchPhase="새로고침";log("탐지 · "+(p.direction.equals("PULL_DOWN")?"아래로 당겨 새로고침":"목록 아래로 스크롤"));
+                     gesture(50,p.swipeStartY(),50,p.swipeEndY(),500,token);lastAction="목록 새로고침 완료";watchPhase="새로고침 완료 · 화면 대기";sleep(p.settleMs,token);
+@@ -171,7 +182,7 @@
+                         anyBlocked|=gate.blocked();if(allowed&&candidate!=null){hit=candidate;selected=area;break;}
+                     }
+                     ready(token);if(scanRevision!=pauseRevision.get()){for(WatchGate gate:gates)gate.interruptAbsence();continue;}
+-                    if(!p.targetPackage.isEmpty()&&!p.targetPackage.equals(onUi(this::activePackage,token))){for(WatchGate gate:gates)gate.interruptAbsence();continue;}
++                    if(!p.targetPackage.isEmpty()&&!p.targetPackage.equals(readScreen(this::activePackage,token))){for(WatchGate gate:gates)gate.interruptAbsence();continue;}
+                     watchPhase=anyBlocked?"중복 차단 · 사라짐 대기":"글자 찾는 중";
+                     if(hit!=null){
+                         ready(token);if(p.tapFound)hit=find(areaConfigs[selected].rule,token);ready(token);if(scanRevision!=pauseRevision.get())continue;
+@@ -254,11 +265,14 @@
+     private Hit waitText(Step s,long token)throws Exception{
+         long elapsed=0;do{ready(token);long before=SystemClock.elapsedRealtime();Hit h=find(s,token);if(h!=null)return h;elapsed+=SystemClock.elapsedRealtime()-before;if(elapsed>=s.timeout)return null;long delay=Math.min(600,s.timeout-elapsed);sleep(delay,token);elapsed+=delay;}while(true);
+     }
+-    private static final class ScanFrame {com.google.mlkit.vision.text.Text text;}
++    private static final class ScanFrame {com.google.mlkit.vision.text.Text text;ArrayList<Hit> accessible;}
+     private Hit find(Step s,long token)throws Exception{return find(s,token,new ScanFrame());}
+     private Hit find(Step s,long token,ScanFrame frame)throws Exception{
+         ready(token);Hit hit=null;
+-        if(!s.source.equals("OCR"))hit=onUi(()->accessibleHit(s),token);
++        if(!s.source.equals("OCR")){
++            if(frame.accessible==null)frame.accessible=readScreen(()->accessibleSnapshot(token),token);
++            hit=accessibleHit(s,frame.accessible);
++        }
+         if(hit!=null||s.source.equals("ACCESS"))return hit;
+         if(frame.text!=null)return ocrHit(s,frame.text);
+         Bitmap bitmap=screenshot(token);
+@@ -289,22 +303,32 @@
+             return candidates.size()>=s.occurrence?candidates.get(s.occurrence-1):null;
+     }
+     private boolean inside(Step s,Rect r){double x=r.exactCenterX()*100.0/initialW,y=r.exactCenterY()*100.0/initialH;return x>=s.left&&x<=s.right&&y>=s.top&&y<=s.bottom;}
+-    private Hit accessibleHit(Step s){
+-        AccessibilityNodeInfo root=getRootInActiveWindow();if(root==null)return null;
+-        ArrayList<Hit> list=new ArrayList<>();collect(root,s,list,0);root.recycle();
++    private Hit accessibleHit(Step s,ArrayList<Hit> snapshot){
++        ArrayList<Hit> list=new ArrayList<>();
++        for(Hit h:snapshot)if(inside(s,h.rect)&&TextRules.matches(h.text,s.text,s.match,s.ignoreSpaces,s.ignoreCase)){
++            boolean duplicate=false;for(Hit other:list)if(other.rect.equals(h.rect)){duplicate=true;break;}if(!duplicate)list.add(h);
++        }
+         list.sort(Comparator.comparingInt((Hit a)->a.rect.top).thenComparingInt(a->a.rect.left));
+         return list.size()>=s.occurrence?list.get(s.occurrence-1):null;
+     }
+-    private void collect(AccessibilityNodeInfo n,Step s,ArrayList<Hit> out,int depth){
+-        if(depth>70||out.size()>500)return;
++    private ArrayList<Hit> accessibleSnapshot(long token)throws Exception{
++        long until=SystemClock.elapsedRealtime()+2500;int[] visited={0};
++        AccessibilityNodeInfo root=getRootInActiveWindow();ArrayList<Hit> list=new ArrayList<>();
++        if(root==null)return list;
++        try{collect(root,list,0,visited,until,token);return list;}finally{root.recycle();}
++    }
++    private void collect(AccessibilityNodeInfo n,ArrayList<Hit> out,int depth,int[] visited,long until,long token)throws Exception{
++        if(token!=generation.get()||destroyed)throw new CancellationException();
++        if(depth>70||++visited[0]>2000||SystemClock.elapsedRealtime()>until)throw new IllegalStateException("화면 항목이 너무 많거나 응답이 느립니다");
+         if(n.isVisibleToUser()){
+             CharSequence txt=n.getText(),desc=n.getContentDescription();String value=txt!=null?txt.toString():desc==null?"":desc.toString();
+             Rect r=new Rect();n.getBoundsInScreen(r);
+-            if(!r.isEmpty()&&r.intersect(0,0,initialW,initialH)&&inside(s,r)&&TextRules.matches(value,s.text,s.match,s.ignoreSpaces,s.ignoreCase)){
+-                boolean duplicate=false;for(Hit h:out)if(h.rect.equals(r))duplicate=true;if(!duplicate)out.add(new Hit(r,value));
+-            }
++            if(!value.isEmpty()&&!r.isEmpty()&&r.intersect(0,0,initialW,initialH))out.add(new Hit(r,value));
+         }
+-        for(int i=0;i<n.getChildCount();i++){AccessibilityNodeInfo child=n.getChild(i);if(child!=null){collect(child,s,out,depth+1);child.recycle();}}
++        int children=n.getChildCount();for(int i=0;i<children;i++){
++            if(SystemClock.elapsedRealtime()>until||token!=generation.get())throw new IllegalStateException("화면 정보 읽기를 마치지 못했습니다");
++            AccessibilityNodeInfo child=n.getChild(i);if(child!=null){try{collect(child,out,depth+1,visited,until,token);}finally{child.recycle();}}
++        }
+     }
+     private Bitmap screenshot(long token)throws Exception{
+         onUi(()->{controller.setVisible(false);return true;},token);
+@@ -314,11 +338,15 @@
+                 @Override public void onSuccess(ScreenshotResult r){
+                     Bitmap copy=null;try{Bitmap hardware=Bitmap.wrapHardwareBuffer(r.getHardwareBuffer(),r.getColorSpace());if(hardware==null)throw new IllegalStateException("화면 이미지가 비었습니다");copy=hardware.copy(Bitmap.Config.ARGB_8888,false);hardware.recycle();if(!f.complete(copy))copy.recycle();}catch(Exception e){if(copy!=null)copy.recycle();f.completeExceptionally(e);}finally{r.getHardwareBuffer().close();}
+                 }
+-                @Override public void onFailure(int error){f.completeExceptionally(new IllegalStateException("OCR 화면 캡처 실패("+error+"). 보안 화면이면 화면 정보 모드를 사용하세요"));}
++                @Override public void onFailure(int error){f.completeExceptionally(new IllegalStateException(captureError(error)));}
+             });}catch(Exception e){f.completeExceptionally(e);}});
+             try{return await(f,token,8000);}catch(Exception e){f.thenAccept(b->{if(b!=null&&!b.isRecycled())b.recycle();});throw e;}
+         }finally{ui.post(()->{controller.setVisible(true);});}
+     }
++    static String captureError(int error){
++        String reason;switch(error){case 2:reason="접근성 캡처 권한 없음 · NEX 접근성을 다시 켜세요";break;case 3:reason="캡처 간격이 너무 짧습니다";break;case 4:reason="캡처할 화면을 찾지 못했습니다";break;case 6:reason="보안 화면입니다 · 화면 정보 모드를 사용하세요";break;default:reason="화면 캡처 응답 오류 · 해당 블루스택 창과 NEX 접근성을 다시 시작하세요";}
++        return "OCR 화면 캡처 실패("+error+") · "+reason;
++    }
+     private void input(String text,long token)throws Exception{
+         boolean ok=onUi(()->{AccessibilityNodeInfo root=getRootInActiveWindow();if(root==null)return false;AccessibilityNodeInfo focus=root.findFocus(AccessibilityNodeInfo.FOCUS_INPUT);if(focus==null)focus=editable(root,0);boolean result=false;if(focus!=null){Bundle args=new Bundle();args.putCharSequence(AccessibilityNodeInfo.ACTION_ARGUMENT_SET_TEXT_CHARSEQUENCE,text);result=focus.performAction(AccessibilityNodeInfo.ACTION_SET_TEXT,args);focus.recycle();}root.recycle();return result;},token);
+         if(!ok)throw new IllegalStateException("입력 칸을 먼저 터치하세요. 이 앱의 입력 칸이 접근성 입력을 지원하지 않을 수도 있습니다");
+--- 6차/app/src/main/java/kr/yunseok/touchmacro/MainActivity.java
++++ 8차/app/src/main/java/kr/yunseok/touchmacro/MainActivity.java
+@@ -82,7 +82,7 @@
+             settingRow(page,"화면 위 컨트롤","크기 · 투명도 · 번호 표시",this::controlSettings);
+             settingRow(page,"접근성",connected?"연결됨":"연결 필요",this::accessibility);
+             space(page,24);quiet(page,"실행 기록",this::logs);quiet(page,"사용법",this::help);quiet(page,"인식 테스트",this::testScreen);
+-            space(page,24);text(page,"NEX 6.0 · 6차\n한글 OCR · 나눔고딕 Bold 내장",11,muted);
++            space(page,24);text(page,"NEX 8.0 · 8차\n한글 OCR · 나눔고딕 Bold 내장",11,muted);
+         }
+         LinearLayout dock=form();dock.setPadding(dp(24),dp(8),dp(24),dp(12));
+         Button floating=button(dock,"다른 앱에서 사용  ↗",()->{if(service()){save();MacroService.get().showControls();moveTaskToBack(true);}});floating.setTextColor(ink);floating.setBackground(Ui.rounded(Ui.card(this),dp(14)));
+--- 6차/app/src/main/java/kr/yunseok/touchmacro/QueryLane.java
++++ 8차/app/src/main/java/kr/yunseok/touchmacro/QueryLane.java
+@@ -0,0 +1,24 @@
++package kr.yunseok.touchmacro;
++
++import java.util.concurrent.*;
++import java.util.concurrent.atomic.AtomicBoolean;
++
++/** A stalled platform query must never block the UI or accumulate more queries. */
++final class QueryLane implements AutoCloseable {
++    private final AtomicBoolean busy=new AtomicBoolean();
++    private final ThreadPoolExecutor executor=new ThreadPoolExecutor(1,1,0,TimeUnit.MILLISECONDS,
++        new ArrayBlockingQueue<>(1),r->{Thread t=new Thread(r,"NEX-screen-reader");t.setDaemon(true);return t;});
++    <T> CompletableFuture<T> submit(Callable<T> action){
++        CompletableFuture<T> result=new CompletableFuture<>();
++        if(!busy.compareAndSet(false,true)){result.completeExceptionally(unavailable());return result;}
++        try{executor.execute(()->{
++            T value=null;Exception failure=null;
++            try{if(!result.isDone())value=action.call();}catch(Exception e){failure=e;}finally{busy.set(false);}
++            if(failure==null)result.complete(value);else result.completeExceptionally(failure);
++        });}
++        catch(RejectedExecutionException e){busy.set(false);result.completeExceptionally(unavailable());}
++        return result;
++    }
++    private IllegalStateException unavailable(){return new IllegalStateException("화면 정보 응답이 아직 끝나지 않았습니다. 대상 앱을 다시 열고 재시작하세요");}
++    @Override public void close(){executor.shutdownNow();}
++}
+--- 6차/app/src/test/java/kr/yunseok/touchmacro/QueryLaneTest.java
++++ 8차/app/src/test/java/kr/yunseok/touchmacro/QueryLaneTest.java
+@@ -0,0 +1,29 @@
++package kr.yunseok.touchmacro;
++import java.util.concurrent.*;
++import java.util.concurrent.atomic.AtomicInteger;
++import org.junit.Test;
++import static org.junit.Assert.*;
++
++public class QueryLaneTest {
++    @Test public void cancelledSlowReadDoesNotQueueOrRunNewReads()throws Exception{
++        CountDownLatch entered=new CountDownLatch(1),release=new CountDownLatch(1);AtomicInteger calls=new AtomicInteger();
++        try(QueryLane lane=new QueryLane()){
++            CompletableFuture<Integer> slow=lane.submit(()->{entered.countDown();release.await();return 7;});
++            assertTrue(entered.await(1,TimeUnit.SECONDS));slow.cancel(false);
++            for(int i=0;i<100;i++){
++                try{lane.submit(()->calls.incrementAndGet()).get(1,TimeUnit.SECONDS);fail("Busy reader accepted more work");}catch(ExecutionException expected){}
++            }
++            assertEquals(0,calls.get());release.countDown();
++            long until=System.nanoTime()+TimeUnit.SECONDS.toNanos(2);boolean recovered=false;
++            while(System.nanoTime()<until){try{assertEquals(Integer.valueOf(9),lane.submit(()->9).get(1,TimeUnit.SECONDS));recovered=true;break;}catch(ExecutionException e){Thread.yield();}}
++            assertTrue(recovered);assertTrue(slow.isCancelled());
++        }finally{release.countDown();}
++    }
++    @Test public void sequentialReadsDoNotRaceExecutorCompletion()throws Exception{
++        try(QueryLane lane=new QueryLane()){for(int i=0;i<1000;i++){final int n=i;assertEquals(Integer.valueOf(n),lane.submit(()->n).get(2,TimeUnit.SECONDS));}}
++    }
++    @Test public void closedReaderRejectsWithoutExecuting()throws Exception{
++        QueryLane lane=new QueryLane();lane.close();
++        try{lane.submit(()->{fail("Executed after close");return 1;}).get(1,TimeUnit.SECONDS);fail("Accepted after close");}catch(ExecutionException expected){}
++    }
++}
+--- 6차/local.properties
++++ 8차/local.properties
+@@ -1 +1 @@
+-sdk.dir=C:/Users/PUVKID/AppData/Local/Temp/NEX_Build_6/android/android-sdk+sdk.dir=C:/Users/PUVKID/AppData/Local/Temp/NEX_Build_8/android/android-sdk
+--- 6차/빌드.ps1
++++ 8차/빌드.ps1
+@@ -1,8 +1,8 @@
+ $ErrorActionPreference = 'Stop'
+ $projectRoot4 = Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
+-$bridgeTarget4 = Join-Path $projectRoot4 'work\build6'
+-$bridge4 = Join-Path $env:TEMP 'NEX_Build_6'
+-if (!(Test-Path -LiteralPath $bridgeTarget4)) { throw '프로젝트 work\build6 연결 폴더가 없습니다.' }
++$bridgeTarget4 = Join-Path $projectRoot4 'work\build8'
++$bridge4 = Join-Path $env:TEMP 'NEX_Build_8'
++if (!(Test-Path -LiteralPath $bridgeTarget4)) { throw '프로젝트 work\build8 연결 폴더가 없습니다.' }
+ if (Test-Path -LiteralPath $bridge4) {
+     $existing4 = Get-Item -LiteralPath $bridge4
+     if ($existing4.LinkType -ne 'Junction' -or $existing4.Target -ne $bridgeTarget4) { throw '임시 빌드 경로가 다른 항목에서 사용 중입니다.' }
+--- 6차/빌드방법.txt
++++ 8차/빌드방법.txt
+@@ -1,7 +1,7 @@
+-NEX 6차 소스 빌드
++NEX 8차 소스 빌드
+ 
+ source 폴더의 빌드.ps1은 JDK 17 / Gradle 8.13 / Android SDK 35로 휴대전화 APK를 빌드합니다.
+-같은 Desktop 프로젝트 안의 work\build6 연결 경로와 코드\NEXTools, 코드\NEXSigning, work\tools를 사용합니다.
++같은 Desktop 프로젝트 안의 work\build8 연결 경로와 코드\NEXTools, 코드\NEXSigning, work\tools를 사용합니다.
+ 서명 키는 소스에 포함하지 않습니다. 기존 설치 위에 업데이트하려면 같은 서명 키가 필요합니다.
+ PC용은 같은 빌드 환경에서 Gradle :app:assembleRelease -PNEX_PC=true 로 빌드합니다.
+ PC용 ABI는 arm64-v8a와 x86_64이며, 휴대전화 기본 릴리스는 arm64-v8a입니다.
+@@ -9,5 +9,5 @@
+ 휴대전화 빌드 결과를 먼저 별도 저장하고 PC용을 빌드해야 합니다.
+ 
+ 검사: :app:testDebugUnitTest :app:lintDebug
+-Android 12 기기 검사: GuidedFlowTest, PriorityFlowTest, RepeatFlowTest, WatchPresetTest, WatchFlowTest.
++Android 12 기기 검사: ReaderResponsivenessTest, GuidedFlowTest, PriorityFlowTest, RepeatFlowTest, WatchPresetTest, WatchFlowTest.
+ 기존 JSON의 내부 시간 단위는 호환을 위해 그대로 유지하고, 화면에서는 분/초로 변환합니다.

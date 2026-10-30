@@ -1,0 +1,47 @@
+PXE 13차 엔진 수리 · 구현자 직접 검사 보고
+
+이 보고서는 독립 verifier 영수증이 아닙니다. 부모 main의 새 등록과 별도 검증 결과로 최종 완료를 판단합니다.
+
+담당과 누적
+구현 child /root/pxe13_diagnose, 네이티브 deep 요청 gpt-6.1-sol/xhigh를 유지했습니다. 모델 파일·도구 요청과 서버 신원은 구분하며 서버 런타임 신원 및 API 환산 비용은 확인 불가입니다.
+session 01a131ad-d167-7873-9aa6-4d81ff131c60
+task pxe13-ocr-stall-20261025
+최종 실제 중앙 누적 repair_used7 / input_fix_used6 / verification_failures2 / stop_failures0입니다. 수리6→7은 실제 두 번째 OCR 재확인의 다른 앱 제스처 완료 RED에 따른 부모 판단이며, input5→6은 읽기 검색의 존재하지 않는 파일 인자 정정입니다. 과거 실패를 초기화하거나 PASS로 덮지 않았습니다.
+
+확인한 수정
+OCR 12초 지연은 실행을 바로 종료하지 않고 완료를 기다린 뒤 새 화면으로 재시도합니다. 미완료 OCR 한 개와 실제 완료 후 이미지 1회 해제를 유지합니다.
+화면 캡처는 ID별 실제 미완료 요청을 최대 두 개로 제한합니다. 첫 무응답 뒤 예비 한 개를 허용하고 중단·재시작으로 미완료 개수를 초기화하지 않습니다.
+미완료 설정 안내가 숨긴 컨트롤은 실제 실행 시 복원하고 실행 중 Activity 재개에서도 정지 버튼을 유지합니다.
+접근성 연결 해제 시 이전 실행·컨트롤·예약 갱신을 종료합니다. 시스템의 창 토큰 거절은 한정된 오류 종류와 원문을 기록한 뒤 정지·해제하며 재시도하지 않습니다. 일반 사용자 닫기 뒤 다시 표시하는 기능은 유지합니다.
+TEXT_TAP은 최초 탐지→두 번째 OCR 재확인→터치 직전 같은 대상 앱을 유지합니다. 대상 전환은 글자 없음이나 뒤로가기 재시도로 처리하지 않습니다. 무한 대기 설정은 원래 대상 앱을 기다리고, 유한 대기는 대상 확인 timeout으로 명확히 정지합니다. 최초 대상 미확정이면 새 OCR·터치를 시작하지 않습니다.
+MainActivity의 수리4 기능 조건과 부모 디자인 작업자의 Ui/MainActivity 시각 변경은 보존했습니다. 수리7에서는 MacroService와 해당 OCR 검사 외 제품을 추가 수정하지 않았습니다.
+
+실제 검사
+cwd D:\2026\PXE Project\13차\source
+빌드: 빌드.ps1, 종료0. 휴대전화·PC release 및 실제 Android 검사 APK를 생성했습니다.
+Gradle 단위: XML12클래스80개, 실패0·오류0. 별도 순수 회귀80개 통과. lint 오류0·경고0.
+APK: 앱ID/PXE/13·1.3.0/기존서명/ABI/CRC 통과. 원본12차80개 해시 보존 통과.
+기기: 소유 PXE13 / emulator-5598 / ADB5043. 사용자 BlueStacks를 조작하지 않았습니다.
+실행 argv 공통: 확인된 Python 절대경로 -B -X utf8 tools/check_device.py <클래스 목록>.
+UI2 13.709초 → 데이터·prefs 초기화 없이 core20 218.681초 → 기존 경계14 125.792초, 총36개 모두 종료0으로 통과했습니다. 내부240초·개별260/180/120초·전체720초를 유지했습니다.
+각 기기 원문1610/14023/9828바이트는 동일 캡처·생략 없음입니다. 파일 바이트 수와 기기 원문 바이트 수는 다를 수 있으며 최종 JSON에 구분했습니다.
+엄격 UTF-8 디코딩과 대체 문자 검사227개 통과. 의미상 완전 무오류를 보증하는 검사는 아닙니다.
+
+보존한 실패와 근거
+source/ROUTING-LESSONS.md에 기존 실패·제어 주입·자연 발생·후속 PASS를 구분했습니다.
+source/evidence/core-crash5-선기록.json: OCR14개 통과 뒤 이전 컨트롤의 BadToken 실제 크래시.
+source/evidence/lifecycle-red6-선기록.json 및 token-red6-선기록.json: onUnbind와 잘못된 창 토큰의 제어 RED.
+source/evidence/confirmation-red7-선기록.json: Settings 위에서 이전 OCR 결과로 제스처가 실제 완료된 RED. multiGesture onCompleted→execute 반환→동작 완료 로그의 코드 경로와 실행 로그를 결합했습니다.
+source/evidence/confirmation-green-repair7.txt: 재확인·미확정 대상·유한 BACK_RETRY 경계2개 통과.
+source/evidence/host-repair7.json 및 device-repair7-final.json: 실제 argv/cwd/시간/종료/검사 수/원문 파일 해시.
+source/evidence/source-freeze-repair7.json: 최종 동결과 실제 중앙 누적.
+
+최종 동결
+source digest 41899a602f7c2c33a09d75636c797d9d70a7da813e93fb591faf227af07c68e3 / 98파일
+global digest 08ee321a29c67f920341a05dbfca6e3616477d930d0ecb261d1118a581569a43
+엄격 UTF-8 검사 후 동일 sourceSnapshot을 재확인했습니다. 이후 제품·테스트·빌드·명세·ROUTING 소스 편집을 종료하고 소유 AVD를 반환했습니다.
+PC SHA256 586a812e5bd31f5f36b762b16dd2842d7ccbc78c7769e66fe77c97d291b98a13
+노트10플러스 SHA256 b1ef968ffa2dcf5072ebacfcd19e5082280ffc3a6376c14a53456d6323d8fd7e
+
+남은 한계
+실제 접근성 연결 해제나 Task/캡처의 영구 미응답은 수동 접근성 재연결이 필요하며 자동 계속 실행은 보장하지 않습니다. 사용자 BlueStacks 동시 실행·노트10+ 실기기·24시간 연속 운용은 검사하지 않았습니다. 과거 메시지 없는 화면 전환 실패와 최초 사용자 신고 당시의 정확 원인을 후속 제어 재현으로 소급 확정하지 않았습니다.

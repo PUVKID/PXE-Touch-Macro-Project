@@ -1,0 +1,56 @@
+{
+  "Kst": "2026-10-21T01:26:35.9357595+09:00",
+  "Round": 3,
+  "CPU": {
+    "LoadPercentage": 80,
+    "NumberOfLogicalProcessors": 32
+  },
+  "Memory": {
+    "TotalVisibleMemorySize": 66843392,
+    "FreePhysicalMemory": 15788900
+  },
+  "Processes": [
+    {
+      "Id": 47000,
+      "Name": "어도비",
+      "CpuSeconds": 30060.921875,
+      "WorkingSetBytes": 1313820672,
+      "Responding": true
+    },
+    {
+      "Id": 60444,
+      "Name": "가상악기 1",
+      "CpuSeconds": 29072.40625,
+      "WorkingSetBytes": 1288269824,
+      "Responding": true
+    },
+    {
+      "Id": 60956,
+      "Name": "한컴오피스",
+      "CpuSeconds": 26530.78125,
+      "WorkingSetBytes": 1515458560,
+      "Responding": true
+    },
+    {
+      "Id": 63368,
+      "Name": "가상악기 2",
+      "CpuSeconds": 26883.390625,
+      "WorkingSetBytes": 1458991104,
+      "Responding": true
+    },
+    {
+      "Id": 72072,
+      "Name": "로직 프로",
+      "CpuSeconds": 26892.1875,
+      "WorkingSetBytes": 1443606528,
+      "Responding": true
+    },
+    {
+      "Id": 78276,
+      "Name": "라이노",
+      "CpuSeconds": 26660.1875,
+      "WorkingSetBytes": 1263583232,
+      "Responding": true
+    }
+  ]
+}

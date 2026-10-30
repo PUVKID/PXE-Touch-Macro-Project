@@ -1,0 +1,93 @@
+[
+  {
+    "path": "capture_readonly.py",
+    "bytes": 6180,
+    "sha256": "b355f52da39f744874044934c236a0421426eaa0a6d9b357f1da27e8940982b1",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 137,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "부모진행기록.txt",
+    "bytes": 3969,
+    "sha256": "f3aa3f00488f53a4031533945396b5f79569aee147f8c9da3f82b2d0b9ae2308",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 3,
+      "lf_without_cr_count": 7,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": false,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "설정조사.txt",
+    "bytes": 2343,
+    "sha256": "ca4a546c55633e013ab738d6a0971c589c41c1eee31e1fd16d693363084f3abc",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 14,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": false,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "자원_1.json",
+    "bytes": 1257,
+    "sha256": "1e7727188a7e788af7c71f144b03f84f49c926b3fcb1b8c065feaf753b792bc2",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 56,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "자원_2.json",
+    "bytes": 1260,
+    "sha256": "bb1d0d8fa80bc7ab72e36474f5b8fd9db2d6364ccace7c6fcb7b96a2d1ffd5b4",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 56,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "자원_3.json",
+    "bytes": 1256,
+    "sha256": "db686c397f2bc7e1319e6f2c67c76e608c5f530592012edecdddcf7c0b9fa065",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 56,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "자원_4.json",
+    "bytes": 1256,
+    "sha256": "150ef67e5e6753cba3e77ad73735c70400d4ddaf09076ac54cd0f0ad2b7f0daa",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 56,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  }
+]

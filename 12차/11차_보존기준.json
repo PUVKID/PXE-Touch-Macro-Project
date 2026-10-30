@@ -1,0 +1,322 @@
+[
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\CaptureRecoveryTest.java",
+    "SHA256": "A91EE3C33F0A66E06A6BB602DD7D3EC50D3B680D3C62438D231337E9F28F961B"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\DeviceFlowTest.java",
+    "SHA256": "DCA73C062E05D49964CEC14DE69CAD715FE8F79FA2225572FB899E82607EDF2F"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\FloatingPlayTest.java",
+    "SHA256": "0426F66B33180DECBA4B85517290B6FEE462A0323E578E44D60742AF040EBB01"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\GuidedFlowTest.java",
+    "SHA256": "0714954EBE91E1A0B1C228F0413F1F22DC499F98442D3766C8BA568E049C7D2C"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\NexFeatureTest.java",
+    "SHA256": "F33BFC48F979D6AEFE1909FCED91A6015A0C19E3F89AC01784016D1B693C98AD"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\PriorityFlowTest.java",
+    "SHA256": "A7F7CB00462A6734BA74AA3884EBBBC832E7ACAF2EEC030465680A287567DF90"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\PxeDesignReviewTest.java",
+    "SHA256": "71D557BF4BCFAE88072FB253BCAFF8085EB95F157103B39FB93ED6FC3872C717"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\PxeGuideFlowTest.java",
+    "SHA256": "79A5087369266B395702ABC989B7B159578335F23D37B647F8513BFACC90A768"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\PxeUpgradeTest.java",
+    "SHA256": "87066C2E73B22123AE0DBA3FBBED96C9A1949FBE801D6E47F42866DEA93457B7"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\ReaderResponsivenessTest.java",
+    "SHA256": "29036D0671E51002158DAB2BF14818DB4EC198470D75B03E957812216313C7E0"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\RegionPackageSafetyTest.java",
+    "SHA256": "1408D3D707EFDE229933AC6A1FFBEC6FFA8620C767332D9017F94D1ACCC3E9B2"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\RepeatFlowTest.java",
+    "SHA256": "60D0816734B21E1392D64D97ADE57A185BFC998FAA5854DC22A9793683F22464"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\ScreenDelayRecoveryTest.java",
+    "SHA256": "750C2927F02B13AE3C0AF001FB8F17DD3D24361E7F167C37050E62EA2F6B97FF"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\WatchFlowTest.java",
+    "SHA256": "9F901881216A5652FA099DABCD9599EB0869AD4798500EED2AC8380A6E240578"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\WatchPresetTest.java",
+    "SHA256": "BF583C4635220D5DC144CB15A5B83EFF981C94A150E34CA54AE9B947DAC93278"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\AndroidManifest.xml",
+    "SHA256": "0B0B555DFE5B56F2F0ACF4854A6A5ABEC73EDBBA0D5075827F707FD22D2EFC96"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\assets\\NanumGothic-OFL.txt",
+    "SHA256": "9413F0AAFF51C59BE2FF01113A28759B491E6FD67172C3D0A666E6354AF18883"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\CapturePacer.java",
+    "SHA256": "B2FF068AAAC6929E73889DB57C3C03F1BDFF20C64CD1E18D5273315B5C1879EF"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\FloatingController.java",
+    "SHA256": "C50DFBE35656646A372485B2690B3E2A0E6816EE13ABB48BAA09425A4FDA7441"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\GesturePaths.java",
+    "SHA256": "0281BA7D7EF6291CAC98514FE7A43E980EF2C9A01F4FA616CC239F3EE841969D"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\KeepAliveService.java",
+    "SHA256": "081080ECAAB5091877990EC7D832A1519F1D8F8FFB6D24D801E44F837A5D9BFD"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\Macro.java",
+    "SHA256": "7A88DCE5C08BA7FE943801201416801C927C56CBE904B4838072859C70BD0EF9"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\MacroService.java",
+    "SHA256": "F17244C32771318D39375D97A3BBFE8CA63EA812676D3BC8F70AF2F2C9312D9A"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\MainActivity.java",
+    "SHA256": "BED1F67322743E4D36DDAD55367AA724692511A5173AD6E31A1087A848DD3590"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\QueryLane.java",
+    "SHA256": "4029CC87A2729DED7C57F77B873D46DCAF2BE9C5AC736F952EE4DEA5EFAC8A60"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\RegionPicker.java",
+    "SHA256": "757A724D8825FD634C506EDF3072BA528BA0BD62EB989CA6C61ED008C2E07FDB"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\RunHud.java",
+    "SHA256": "6F69E76F5D3E60A43416B8C2584D14EC8D7E59E2F401DC4C2616D8C049DF45BB"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\SetupCoach.java",
+    "SHA256": "46395BFEE8C99C0CEA6F395EC07329C0AA98F3BBBCD48EA0FB633D798CC58F5E"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\SetupFlow.java",
+    "SHA256": "CBD31EDEC306426094E751D61462E460A561B06FCEABAB3A8FE05D9DDE374C6A"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\SetupWizard.java",
+    "SHA256": "84A9AA6660DC7835B61E6AEECE681A117EBF752B07E8215E1584DFCA1C7A4C77"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\Step.java",
+    "SHA256": "392600CD5D0CC2AC034CC7D21CCA0069065B5F6EB1CC05010DC39886572B5769"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\StopReceiver.java",
+    "SHA256": "5F64A0F1126ABA74ED5AE1E0540F182A37D45AD7AB42B53DAEFFEEF71A28B86F"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\Store.java",
+    "SHA256": "23240A7D974FB0B566A89D6A4DC55BE051C9E9564B91EB471D30B56B2B80CFD9"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\TextRules.java",
+    "SHA256": "BB97A2E81411E8F646AB6249ED08CEA3FFED1C854289B5540BB4FEBDB2CDAFB2"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\Times.java",
+    "SHA256": "7D9E682B2F6C0E2796727A8F41802880C2B2F72226DE367CF4A922EA21A91D2F"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\TouchLabel.java",
+    "SHA256": "06A6C45EF4E982EAE78747B1739287DAE4C8F1B05DAB19000FDAA90FEC675F7D"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\TouchPane.java",
+    "SHA256": "DA024F18CEAD993522FD50982BB4BF79B979B5825E7839506D3984FC8B33D036"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\Ui.java",
+    "SHA256": "3EA7DC68F898CAE126F373127378118E27901D3FC9C7F8646081FB92D629C9EE"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\WatchArea.java",
+    "SHA256": "3976ED3C0CB14A4756F5CAF89671ADF285EF406B23E3693F5C75B3FB85075E94"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\WatchConfig.java",
+    "SHA256": "EB2BC05CE8794E078C6696113FB1046241C0C0949E326307E3CDCB8CF9475EAC"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\WatchGate.java",
+    "SHA256": "C196B9A122D0AB66CA65A8573021A718F5C37EDF0FF673C37BEEF86C37E3A5A2"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\WatchStore.java",
+    "SHA256": "0EE8881A2952F4268304BFB50FED92B23DA33EADB2921DB17EAD7CADA8B06CBC"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\WindowPackages.java",
+    "SHA256": "E61EEAD612E8FCB359353608ACB4C3AEDCDD7CF56D65E1AC8ECAA7D3773F894D"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\res\\drawable\\ic_launcher_foreground.xml",
+    "SHA256": "953D39AECDEC89758A4E00043C131E65897A1D6D24DFC6FEB3BD2A82D0B110BC"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\res\\drawable\\ic_macro.xml",
+    "SHA256": "6E89BED68EB1F23354B2F140E8DC48A188446BBA5F39B049311F20673EF5CBA8"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\res\\drawable\\ic_stat_nex.xml",
+    "SHA256": "604355E0B131DEE89D5BFCDD7BD16A23211F1A2A3DDE62978C78F0713634275B"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\res\\drawable\\nex_dialog_dark.xml",
+    "SHA256": "61F27A27A5040848E00E473A9F96BAEADB615A6CC41859B7B20D85EFF47E2E9B"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\res\\drawable\\nex_dialog_light.xml",
+    "SHA256": "7094707EA2815C219CC6E589334F3B127AD8FDC181908510C7CFFF69C5218D5D"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\res\\drawable\\pxe_scan.xml",
+    "SHA256": "D1250D20CA67D91AB018CE77ED3632800510397D33F90BF9563312BFEBC7EB82"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\res\\drawable\\pxe_settings.xml",
+    "SHA256": "3EE5C216445F39BB37D07344B3F338D84F853E9DF3E88180713338AD8F7A28B6"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\res\\drawable\\pxe_steps.xml",
+    "SHA256": "654CC7E600FBFC2E7233587F65657F8E95E673C9C9E61D6D0177EBA804770286"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\res\\drawable\\pxe_text.xml",
+    "SHA256": "459E7870451EDD8B1122A83A6EC127743F72ADEF11D7CF8CF66896615E693A68"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\res\\font\\nanum_gothic_bold.ttf",
+    "SHA256": "454EB3F503F377782A99EB84FC4BB7DDE22A0F075D41B47427737F2985053BC9"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\res\\mipmap-anydpi\\ic_launcher.xml",
+    "SHA256": "34CC7C1866744EB4F9E7EA2EDD5805FCB09ECDBE11A3FC8D2875F31B04E72A2C"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\res\\values\\nex_colors.xml",
+    "SHA256": "61EE52B4032A0ACA93710B5998DA061C0DEA72A9A04D6B574DC9FBB123F69C1A"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\res\\values\\strings.xml",
+    "SHA256": "2F20BFD229D1ED1C9C8E95E91AF500AAAAB409AD0D1A1712EC9896811F59F1D1"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\res\\values\\styles.xml",
+    "SHA256": "228C1774B30DE85FDD7345567230A49EED750F2B3EAFACCA446B2214B8B09151"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\res\\xml\\accessibility.xml",
+    "SHA256": "9C1B21EC93CDCCA866F0B24B525851535FDBA0A333916E59BAC61BF427917419"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\main\\res\\xml\\data_extraction.xml",
+    "SHA256": "66C2D7C6AC2A3C03200235A556E0F410620CAE5BDFEDD4EBDF18528FCBC42886"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\test\\java\\kr\\yunseok\\touchmacro\\GestureModelTest.java",
+    "SHA256": "49E065B526E7E3501078F3967F2CA11E785D5227B975D5CB5F6770A3149C2BBF"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\test\\java\\kr\\yunseok\\touchmacro\\ModelTest.java",
+    "SHA256": "8FFD9B2E77A5E5C80797F9DA8E3E81D1D74C7F21A20B01C2F769795CD7A091F3"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\test\\java\\kr\\yunseok\\touchmacro\\QueryLaneTest.java",
+    "SHA256": "B7F04233E7A5D4AA245252830BD51CC1579CC7D4423DF9281CC4944F3286BEDD"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\test\\java\\kr\\yunseok\\touchmacro\\RepeatMeaningTest.java",
+    "SHA256": "8ADEEF654E6B31C3BC9F12716DD1E13142735FA13640BD13028ADA03E3D98123"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\test\\java\\kr\\yunseok\\touchmacro\\TextRulesTest.java",
+    "SHA256": "F5052EE6D6D0609F8DE55E990DB67088C2659DE44450D4FF7778A83CE9ABDF2D"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\test\\java\\kr\\yunseok\\touchmacro\\TimesTest.java",
+    "SHA256": "4DE05AC7B4676EAC79279B5BA8864200E76E3A10FFFDA223CA34C5E0B06C6C73"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\test\\java\\kr\\yunseok\\touchmacro\\WatchConfigTest.java",
+    "SHA256": "C46C43E94385C120FFCC096E5961C1934B5E4A3A7761BF8088204B1626CC79D3"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\test\\java\\kr\\yunseok\\touchmacro\\WatchGateTest.java",
+    "SHA256": "73F4C588903719D444C7EA3CB089758B15B3E35737C80BF777B671CF08979F84"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\app\\src\\test\\java\\kr\\yunseok\\touchmacro\\WindowPackagesTest.java",
+    "SHA256": "9FBF2BA72DFD16A82113AFE1B4E075500A346F3C0D786189882D6C053E4D6C3B"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\gradle\\wrapper\\gradle-wrapper.jar",
+    "SHA256": "81A82AAEA5ABCC8FF68B3DFCB58B3C3C429378EFD98E7433460610FECD7AE45F"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\gradle\\wrapper\\gradle-wrapper.properties",
+    "SHA256": "CDAB1FFB439219B1DB125E3C99A86CF2424F8762B9B3FAA404ED061E3635ECDE"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\.gitignore",
+    "SHA256": "76BBF877C87000883B47BD677E72FD554EF3077BD394C2051A61850A06A937DE"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\빌드.ps1",
+    "SHA256": "B1EED03E0ED323384A370BB539B87E0CF62F9C61F4F4376E899F2326210A2BBC"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\빌드방법.txt",
+    "SHA256": "D8A579AA292C40F015A245F7E51798EEDBD5B99C35DF9613BF54D987EB19B227"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\build.gradle",
+    "SHA256": "CACE31BA942453288A3DFDA03600B9A37CBB18CD8B5EB459237A0A3A903AA62F"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\gradle.properties",
+    "SHA256": "8097D687B525291028E82BCC3E166F04C064375747CC8556294709DD29140ADA"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\gradlew",
+    "SHA256": "734B3879D3501DCE471CF0522D3BCBAFE76873D9FC5129345B67FB43BD15E933"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\gradlew.bat",
+    "SHA256": "57931B17DD228E5C24DAC90E815D0BF82477E831A4618DFAB4136F5446B42A9F"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\local.properties",
+    "SHA256": "66D271F31D88B54EF51EB3F277E3C9DDEC3C156FB710FD5810DA6CB328F9A464"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\ROUTING-LESSONS.md",
+    "SHA256": "164B297E42EA8080054AF7657816AB0F1588FD1B6F0D512583A7D23029B5FC24"
+  },
+  {
+    "Path": "C:\\Users\\PUVKID\\Desktop\\매크로\\11차\\source\\settings.gradle",
+    "SHA256": "08028E7135AB111EF0747FC68D5D97A94FD8283F39B8C27A554834D0C2F14B33"
+  }
+]

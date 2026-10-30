@@ -1,0 +1,34 @@
+PXE 13차 디자인 구현·실제 화면 점검 결과
+확인일: 2026-10-25, 한국 시각은 evidence/design-integrated-return.json 참조.
+역할: build / gpt-6.1-sol / medium 도구 요청. 서버 런타임 모델 신원은 미확인.
+세션: 01a131ad-d167-7873-9aa6-4d81ff131c60
+작업: pxe13-ocr-stall-20261025, repair_used=2, input_fix_used=5.
+
+수정 범위
+Ui.java: 기존 색상과 반경을 받는 RippleDrawable 헬퍼 추가.
+MainActivity.java: 연결·단축창 터치 높이 48dp, 페이지 하단 32dp, 탐지/글자 보조 버튼 48dp와 8dp 간격, 설정의 기록·도움말 4개를 48dp 시작정렬 카드 목록으로 구성.
+문구·클릭 Runnable·색상·나눔고딕 Bold 글꼴·기존 벡터 아이콘 보존. FloatingController/엔진/검사 소스 변경 없음.
+
+실행과 결과
+cwd: D:\2026\PXE Project\13차\source
+빌드: 빌드.ps1. 두 릴리스, 개인 서명 기기 검사 APK, 단위 검사 90개/실패0, lint 이슈0. 종료 코드0.
+기기: adb -P 5043 -s emulator-5598, ro.boot.qemu.avd_name=PXE13 및 설치 versionCode=13/versionName=1.3.0 확인. 본 앱과 검사 APK install-r 각각 Success.
+기기 명령: 확인된 Python 절대경로 -B -X utf8 tools/check_device.py PxeDesignReviewTest PxeGuideFlowTest.
+2개 통과, 12.905초, 종료0. 원본/캡처1610바이트 동일, 생략없음.
+로그: source/evidence/design-integrated-build.txt, source/evidence/design-guide-device.txt.
+
+화면 관측
+1. 라이트·다크 탐지: 실제 보조 버튼 2행과 가로·세로 간격, 기존 강조색·브랜드·아이콘 유지. before/after 다크를 같은 이미지 입력에서 비교. 관심 키워드/안내 대상, 영역 수, 연결 상태 차이는 검사 fixture 차이.
+2. 라이트·다크 설정: 기존 3개 설정 카드 유지, 실행 기록/오류 기록/사용법/인식 테스트를 동일 시작선으로 묶음. 초기 화면에서 footer 일부는 스크롤 viewport 밖이나 실제 상향 스와이프 후 버전·문구 전체 표시, 하단 탐색과 겹침 없음.
+3. 라이트 동작·글자: 기존 목록·입력·버튼 문구 유지, 넘침 없음.
+4. 라이트·다크 첫 설정: 기존 5단계 안내와 강조/기본 버튼 구분 유지.
+5. 안내 실제 흐름: 실제 영역 지정·녹화·시간 저장·완료 화면까지 기존 검사 통과.
+6. 키보드: 초기 캡처는 포커스만 표시되어 키보드 증거로 채택하지 않음. 안정화 후 mInputShown=true와 실제 IME 화면 확인. 입력칸·탐색바가 키보드 위에 표시되고 콘텐츠는 별도 ScrollView 안에 유지. show_ime_with_hard_keyboard는 기존1이고 같은값1 기록해 값 변화0. 사용자 기기 조작0.
+모든 저장 PNG를 view_image로 직접 확인. 스크린샷: source/evidence/design-final/.
+
+한계와 후속
+이 결과는 구현자 직접 검사이고 독립 verifier 승인/영수증이 아님. 다른 높이의 실기기와 사용자 BlueStacks, 24시간 연속 안정성은 미검증. 글꼴은 Ui.font의 앱 하위 TextView 재귀 적용과 실제 Bold 리소스를 유지한 코드 근거이며 시스템 키보드 글꼴은 앱 소유가 아님.
+이후 source 동결 및 부모의 artifact/pure/UTF8 검사와 별도 verifier 검증 대상. AVD는 Back/Home으로 입력기를 닫고 테스트 실행 없음 상태로 반환.
+
+실패 보존
+docs 부재·python 별칭·선택 verify_text.py 부재·TestHarness.java 오경로·uiautomator XML 뒤 성공문구 파싱 오류는 각각 evidence 원문/assessment 보존. 실제 제품 검사 실패는 이번 통합검사에서0. 읽기 정정 일부의 중앙기록 선행 누락은 해당 evidence에 사실대로 보존. 후속 PASS로 실패나 누적을 삭제하지 않음.

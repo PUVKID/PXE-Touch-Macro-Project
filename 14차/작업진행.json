@@ -1,0 +1,35 @@
+{
+  "updated_kst": "2026-10-26T03:08:21.4876038+09:00",
+  "project": "D:/2026/PXE Project",
+  "source": "D:/2026/PXE Project/14차/source",
+  "session": "01a131ad-d167-7873-9aa6-4d81ff131c60",
+  "task": "pxe14-redesign-20261026",
+  "mode": "reassess",
+  "repair": 7,
+  "input_fix": 13,
+  "verification_failures": 1,
+  "status": "완료: 수리7 독립필수46+추가작은6/단위80/lint/central3PASS. 영수증passed/source_unchanged true 부모재확인. 이전실패보존",
+  "agents": {
+    "verifier": "/root/pxe14_verifier verifier gpt-6.1-sol/high 최종수리7 독립46+6 검사",
+    "build": "/root/pxe14_build build gpt-6.1-sol/medium 수리7 GuidedFlowTest만",
+    "ocr": "/root/pxe14_ocr_wait deep gpt-6.1-sol/xhigh"
+  },
+  "reference": "🔄 모델 변경 EXE Project / 01a15d1a-cd8a-7dc1-8721-cb9dff52a458",
+  "latest_user": "같은디자인복제금지. 설치플러그인방법은활용하되PXE다른디자인",
+  "concepts": [
+    "evidence/탐지홈_라이트다크_시안.png",
+    "evidence/설정_동작_제어창_시안.png"
+  ],
+  "bridge": "D:/PXE14Build → 프로젝트work/build14. source14/tools공유/android SDK/signing junction",
+  "owned_device": "소유 PXE14의 이름을 ADBserver5043/emulator5598에서 재확인한 뒤 emu kill 종료성공. 사용자 플레이어 조작0",
+  "python": "C:/Users/PUVKID/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe -B -X utf8",
+  "tests": "master46:upgrade2/UI6/new4/core20/old14. total720 유지; central3gate75 유지",
+  "engine": "MacroService에무한재확인null재대기+TEXT_NOT_FOUND설정진단3행추가. 이전13수리7대상앱보호유지",
+  "baseline": "14차/13차_보존기준.json 98개(소스96+두APK),이전13변경금지",
+  "limitations": "사용자BlueStacks/노트10+실기기/24시간미검증. 웹브라우저가아닌nativeAPK QA. 과거실패/입력보정과작업자순서누락원문보존",
+  "global_agents_sha": "1BAF8B5668CF8F3158C7EE5AC561634BDA9680C3C67A57774F1A3FCDBF9A17D2",
+  "apk_sha256": {
+    "phone": "3f54c21298df837532b9bef50382e8a5bc8722ab8660aefe2114c6d0f0028257",
+    "pc": "3ddffb8ac2f7e8aa317f2b403e680693ad98b2449bb27d4fe02809d3a6b1f982"
+  }
+}

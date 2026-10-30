@@ -1,0 +1,329 @@
+NEX12
+로그: 원본 7바이트 / 캡처 7바이트 / 생략 False
+Activity Resolver Table:
+  Non-Data Actions:
+      android.intent.action.MAIN:
+        e980dac kr.yunseok.touchmacro/.MainActivity filter 9f06a75
+          Action: "android.intent.action.MAIN"
+          Category: "android.intent.category.LAUNCHER"
+
+Service Resolver Table:
+  Non-Data Actions:
+      android.accessibilityservice.AccessibilityService:
+        74b2a0a kr.yunseok.touchmacro/.MacroService filter f8c227b permission android.permission.BIND_ACCESSIBILITY_SERVICE
+          Action: "android.accessibilityservice.AccessibilityService"
+
+Domain verification status:
+
+Permissions:
+  Permission [kr.yunseok.touchmacro.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION] (bdf4973):
+    sourcePackage=kr.yunseok.touchmacro
+    uid=10111 gids=[] type=0 prot=signature
+    perm=PermissionInfo{4e202f8 kr.yunseok.touchmacro.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION}
+
+Registered ContentProviders:
+  kr.yunseok.touchmacro/com.google.mlkit.common.internal.MlKitInitProvider:
+    Provider{4f303d1 kr.yunseok.touchmacro/com.google.mlkit.common.internal.MlKitInitProvider}
+  kr.yunseok.touchmacro/androidx.startup.InitializationProvider:
+    Provider{b487e36 kr.yunseok.touchmacro/androidx.startup.InitializationProvider}
+
+ContentProvider Authorities:
+  [kr.yunseok.touchmacro.mlkitinitprovider]:
+    Provider{4f303d1 kr.yunseok.touchmacro/com.google.mlkit.common.internal.MlKitInitProvider}
+      applicationInfo=ApplicationInfo{8658030 kr.yunseok.touchmacro}
+  [kr.yunseok.touchmacro.androidx-startup]:
+    Provider{b487e36 kr.yunseok.touchmacro/androidx.startup.InitializationProvider}
+      applicationInfo=ApplicationInfo{56664a9 kr.yunseok.touchmacro}
+
+Key Set Manager:
+  [kr.yunseok.touchmacro]
+      Signing KeySets: 13
+
+Packages:
+  Package [kr.yunseok.touchmacro] (5055cb9):
+    userId=10111
+    pkg=Package{e530c0d kr.yunseok.touchmacro}
+    codePath=/data/app/~~Oz2gmjspPxO6JQl2YN8lJQ==/kr.yunseok.touchmacro-YXC15cskfATw4qyCQLue5A==
+    resourcePath=/data/app/~~Oz2gmjspPxO6JQl2YN8lJQ==/kr.yunseok.touchmacro-YXC15cskfATw4qyCQLue5A==
+    legacyNativeLibraryDir=/data/app/~~Oz2gmjspPxO6JQl2YN8lJQ==/kr.yunseok.touchmacro-YXC15cskfATw4qyCQLue5A==/lib
+    extractNativeLibs=false
+    primaryCpuAbi=x86_64
+    secondaryCpuAbi=null
+    cpuAbiOverride=null
+    versionCode=11 minSdk=30 targetSdk=35
+    minExtensionVersions=[]
+    versionName=1.1.0
+    usesNonSdkApi=false
+    splits=[base]
+    apkSigningVersion=2
+    applicationInfo=PackageImpl{e530c0d kr.yunseok.touchmacro}
+    flags=[ HAS_CODE ALLOW_CLEAR_USER_DATA ]
+    privateFlags=[ PRIVATE_FLAG_ACTIVITIES_RESIZE_MODE_RESIZEABLE_VIA_SDK_VERSION ALLOW_AUDIO_PLAYBACK_CAPTURE PARTIALLY_DIRECT_BOOT_AWARE PRIVATE_FLAG_ALLOW_NATIVE_HEAP_POINTER_TAGGING ]
+    forceQueryable=false
+    queriesPackages=[]
+    queriesIntents=[Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] }]
+    dataDir=/data/user/0/kr.yunseok.touchmacro
+    supportsScreens=[small, medium, large, xlarge, resizeable, anyDensity]
+    timeStamp=2026-10-19 19:40:21
+    firstInstallTime=2026-10-19 07:40:40
+    lastUpdateTime=2026-10-19 19:40:21
+    signatures=PackageSignatures{be8685f version:2, signatures:[e8ce58ed], past signatures:[]}
+    installPermissionsFixed=true
+    pkgFlags=[ HAS_CODE ALLOW_CLEAR_USER_DATA ]
+    declared permissions:
+      kr.yunseok.touchmacro.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: prot=signature, INSTALLED
+    requested permissions:
+      android.permission.WAKE_LOCK
+      android.permission.FOREGROUND_SERVICE
+      android.permission.FOREGROUND_SERVICE_SPECIAL_USE
+      android.permission.POST_NOTIFICATIONS
+      kr.yunseok.touchmacro.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+    install permissions:
+      kr.yunseok.touchmacro.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.FOREGROUND_SERVICE: granted=true
+      android.permission.WAKE_LOCK: granted=true
+    User 0: ceDataInode=98881 installed=true hidden=false suspended=false distractionFlags=0 stopped=false notLaunched=false enabled=0 instant=false virtual=false
+      overlay paths:
+        /product/overlay/EmulationPixel5/EmulationPixel5Overlay.apk
+      legacy overlay paths:
+        /product/overlay/EmulationPixel5/EmulationPixel5Overlay.apk
+      runtime permissions:
+
+Queries:
+  system apps queryable: false
+  queries via package name:
+    kr.yunseok.touchmacro.test:
+      kr.yunseok.touchmacro
+    kr.yunseok.touchmacro:
+      kr.yunseok.touchmacro.test
+  queries via intent:
+    kr.yunseok.touchmacro:
+      com.android.contacts
+      com.android.dialer
+      com.android.quicksearchbox
+      com.android.calendar
+      org.chromium.webview_shell
+      com.android.gallery3d
+      com.android.camera2
+      com.android.deskclock
+      com.android.inputmethod.latin
+      com.android.cellbroadcastreceiver.module
+  queryable via interaction:
+    User 0:
+      [com.android.inputdevices,com.android.settings,com.android.providers.settings,com.android.wallpaperbackup,android,com.android.keychain,com.android.localtransport,com.android.emulator.multidisplay,com.android.server.telecom,com.android.location.fused,com.android.dynsystem]:
+        kr.yunseok.touchmacro
+      com.android.inputmethod.latin:
+        kr.yunseok.touchmacro
+      kr.yunseok.touchmacro:
+        [com.android.inputdevices,com.android.settings,com.android.providers.settings,com.android.wallpaperbackup,android,com.android.keychain,com.android.localtransport,com.android.emulator.multidisplay,com.android.server.telecom,com.android.location.fused,com.android.dynsystem]
+  queryable via uses-library:
+
+Package Changes:
+  Sequence number=17
+  User 0:
+    seq=14, package=kr.yunseok.touchmacro
+    seq=16, package=kr.yunseok.touchmacro.test
+
+
+Dexopt state:
+  [kr.yunseok.touchmacro]
+    path: /data/app/~~Oz2gmjspPxO6JQl2YN8lJQ==/kr.yunseok.touchmacro-YXC15cskfATw4qyCQLue5A==/base.apk
+      x86_64: [status=verify] [reason=install]
+
+
+Compiler stats:
+  [kr.yunseok.touchmacro]
+     base.apk - 640
+
+APEX session state:
+
+Active APEX packages:
+
+
+Inactive APEX packages:
+
+
+Factory APEX packages:
+
+
+Snapshot statistics
+   Unrecorded-hits: 6995  Cork-level: 0
+   Summary stats               TotBlds     TotUsed     TotCork     BigBlds    ShortLvd     TotTime     MaxTime
+          0:34         now           0           0           0           0           0           0           0
+          1:34        0:34           1         686           0           0           0           0           0
+          2:34        1:34           7       19259           0           0           1           2           1
+          3:34        2:34           2       45719           0           0           0           1           1
+          4:34        3:34           0           0           0           0           0           0           0
+          5:34        4:34           0           0           0           0           0           0           0
+          6:34        5:34           0           0           0           0           0           0           0
+          7:34        6:34           0           0           0           0           0           0           0
+          8:34        7:34           0           0           0           0           0           0           0
+          9:34        8:34           0           0           0           0           0           0           0
+      12:11:35         now         111      205389           0           0           8          27           3
+
+   Build times                  <= 1ms      <= 2ms      <= 5ms     <= 10ms     <= 20ms     <= 50ms    <= 100ms     > 100ms
+          0:34         now           0           0           0           0           0           0           0           0
+          1:34        0:34           1           0           0           0           0           0           0           0
+          2:34        1:34           7           0           0           0           0           0           0           0
+          3:34        2:34           2           0           0           0           0           0           0           0
+          4:34        3:34           0           0           0           0           0           0           0           0
+          5:34        4:34           0           0           0           0           0           0           0           0
+          6:34        5:34           0           0           0           0           0           0           0           0
+          7:34        6:34           0           0           0           0           0           0           0           0
+          8:34        7:34           0           0           0           0           0           0           0           0
+          9:34        8:34           0           0           0           0           0           0           0           0
+      12:11:35         now         109           1           1           0           0           0           0           0
+
+   Use counters                   <= 1        <= 2        <= 5       <= 10       <= 20       <= 50      <= 100       > 100
+          0:34         now           0           0           0           0           0           0           0           0
+          1:34        0:34           0           0           0           0           0           0           0           1
+          2:34        1:34           1           0           0           0           0           1           0           5
+          3:34        2:34           0           0           0           0           0           0           0           2
+          4:34        3:34           0           0           0           0           0           0           0           0
+          5:34        4:34           0           0           0           0           0           0           0           0
+          6:34        5:34           0           0           0           0           0           0           0           0
+          7:34        6:34           0           0           0           0           0           0           0           0
+          8:34        7:34           0           0           0           0           0           0           0           0
+          9:34        8:34           0           0           0           0           0           0           0           0
+      12:11:35         now           5           0           2           2           3          12          13          73
+로그: 원본 10579바이트 / 캡처 10579바이트 / 생략 False
+INSTRUMENTATION_STATUS: class=kr.yunseok.touchmacro.WatchFlowTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+kr.yunseok.touchmacro.WatchFlowTest:
+INSTRUMENTATION_STATUS: test=regionRefreshMacroBackRepeatAndCancellation
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=kr.yunseok.touchmacro.WatchFlowTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=regionRefreshMacroBackRepeatAndCancellation
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=kr.yunseok.touchmacro.PriorityFlowTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+kr.yunseok.touchmacro.PriorityFlowTest:
+INSTRUMENTATION_STATUS: test=secondPriorityRepeatsAfterRefreshAndFirstPriorityWinsWhenPresent
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=kr.yunseok.touchmacro.PriorityFlowTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=secondPriorityRepeatsAfterRefreshAndFirstPriorityWinsWhenPresent
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=kr.yunseok.touchmacro.ReaderResponsivenessTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+kr.yunseok.touchmacro.ReaderResponsivenessTest:
+INSTRUMENTATION_STATUS: test=blockedReaderLeavesUiAndStopResponsiveAndDiscardsLateResult
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=kr.yunseok.touchmacro.ReaderResponsivenessTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=blockedReaderLeavesUiAndStopResponsiveAndDiscardsLateResult
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=kr.yunseok.touchmacro.ReaderResponsivenessTest
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=slowReadTimesOutClearlyWithoutTreatingItAsMissingText
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=kr.yunseok.touchmacro.ReaderResponsivenessTest
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=slowReadTimesOutClearlyWithoutTreatingItAsMissingText
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=kr.yunseok.touchmacro.CaptureRecoveryTest
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+kr.yunseok.touchmacro.CaptureRecoveryTest:
+INSTRUMENTATION_STATUS: test=twoIntervalFailuresRecoverAndFreshOcrConfirmationPrecedesOneEntry
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=kr.yunseok.touchmacro.CaptureRecoveryTest
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=twoIntervalFailuresRecoverAndFreshOcrConfirmationPrecedesOneEntry
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=kr.yunseok.touchmacro.CaptureRecoveryTest
+INSTRUMENTATION_STATUS: current=6
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=stopDuringRetryDoesNotCaptureOrEnterLater
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=kr.yunseok.touchmacro.CaptureRecoveryTest
+INSTRUMENTATION_STATUS: current=6
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=stopDuringRetryDoesNotCaptureOrEnterLater
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=kr.yunseok.touchmacro.CaptureRecoveryTest
+INSTRUMENTATION_STATUS: current=7
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=persistentIntervalErrorStopsAfterThreeRetriesWithoutTouching
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=kr.yunseok.touchmacro.CaptureRecoveryTest
+INSTRUMENTATION_STATUS: current=7
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=persistentIntervalErrorStopsAfterThreeRetriesWithoutTouching
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=kr.yunseok.touchmacro.FloatingPlayTest
+INSTRUMENTATION_STATUS: current=8
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+kr.yunseok.touchmacro.FloatingPlayTest:
+INSTRUMENTATION_STATUS: test=playStartsDetectionUsesNamedMacroFifteenTimesAndPauseResumeStillWork
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=kr.yunseok.touchmacro.FloatingPlayTest
+INSTRUMENTATION_STATUS: current=8
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=playStartsDetectionUsesNamedMacroFifteenTimesAndPauseResumeStillWork
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=kr.yunseok.touchmacro.FloatingPlayTest
+INSTRUMENTATION_STATUS: current=9
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=unconfiguredPlayNeverFallsBackToCurrentMacro
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=kr.yunseok.touchmacro.FloatingPlayTest
+INSTRUMENTATION_STATUS: current=9
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=unconfiguredPlayNeverFallsBackToCurrentMacro
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: stream=
+
+Time: 142.038
+
+OK (9 tests)
+
+
+INSTRUMENTATION_CODE: -1
+로그: 원본 6468바이트 / 캡처 6468바이트 / 생략 False

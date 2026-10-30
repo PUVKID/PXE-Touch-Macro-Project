@@ -1,0 +1,1765 @@
+--- 1차/APK_SHA256.txt
++++ 2차/APK_SHA256.txt
+@@ -1 +1 @@
+-e14423c4a2e1f420dcc6a17f422944160088ba4d85f4a1af20cb210a4b8fc56b  윤석터치매크로_v1.0_노트10플러스.apk
++c59a6555126ee547f621814e5046d59579b65e942ed9d7f23272b3e4a7af5d0e  NEX_2차_v2.0_노트10플러스.apk
+--- 1차/source/.gitignore
++++ 2차/source/.gitignore
+@@ -1,5 +0,0 @@
+-.gradle/
+-**/build/
+-local.properties
+-*.jks
+-*.keystore
+--- 1차/source/app/build.gradle
++++ 2차/source/app/build.gradle
+@@ -1,11 +0,0 @@
+-plugins { id 'com.android.application' }
+-def signingProps = new Properties()
+-def signingFile = rootProject.file('../../work/signing/key.properties')
+-if (signingFile.exists()) { signingFile.withInputStream { signingProps.load(it) } }
+-android { signingConfigs { personal { storeFile rootProject.file('../../work/signing/macro.jks'); storePassword signingProps.getProperty('storePassword', ''); keyAlias 'yunseokmacro'; keyPassword signingProps.getProperty('storePassword', '') } }
+- namespace 'kr.yunseok.touchmacro'; compileSdk 35
+- defaultConfig { applicationId 'kr.yunseok.touchmacro'; minSdk 30; targetSdk 35; versionCode 1; versionName '1.0.0'; testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner' }
+- compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+- buildTypes { release { minifyEnabled false; signingConfig (signingFile.exists() ? signingConfigs.personal : signingConfigs.debug); ndk { abiFilters 'arm64-v8a' } } }
+-}
+-dependencies { implementation 'com.google.mlkit:text-recognition-korean:16.0.1'; testImplementation 'junit:junit:4.13.2'; testImplementation 'org.json:json:20240303'; androidTestImplementation 'androidx.test:runner:1.6.2'; androidTestImplementation 'androidx.test.ext:junit:1.2.1' }
+--- 1차/source/app/src/androidTest/java/kr/yunseok/touchmacro/DeviceFlowTest.java
++++ 2차/source/app/src/androidTest/java/kr/yunseok/touchmacro/DeviceFlowTest.java
+@@ -1,58 +0,0 @@
+-package kr.yunseok.touchmacro;
+-import android.app.*;
+-import android.content.*;
+-import android.graphics.Rect;
+-import android.os.SystemClock;
+-import android.view.*;
+-import android.widget.*;
+-import androidx.test.platform.app.InstrumentationRegistry;
+-import androidx.test.ext.junit.runners.AndroidJUnit4;
+-import org.junit.*;
+-import org.junit.runner.RunWith;
+-import static org.junit.Assert.*;
+-@RunWith(AndroidJUnit4.class)
+-public class DeviceFlowTest {
+- Instrumentation in; MainActivity activity; MacroService svc;
+- private void main(Runnable r){in.runOnMainSync(r);}
+- private void screen() throws Exception {
+-  main(()->{try{java.lang.reflect.Method m=MainActivity.class.getDeclaredMethod("testScreen");m.setAccessible(true);m.invoke(activity);}catch(Exception e){throw new RuntimeException(e);}});
+-  SystemClock.sleep(400);
+- }
+- private TextView find(View v,String t){if(v instanceof TextView&&((TextView)v).getText().toString().equals(t))return (TextView)v;if(v instanceof ViewGroup){ViewGroup g=(ViewGroup)v;for(int i=0;i<g.getChildCount();i++){TextView result=find(g.getChildAt(i),t);if(result!=null)return result;}}return null;}
+- private boolean has(String text){final boolean[] result={false};main(()->result[0]=find(activity.getWindow().getDecorView(),text)!=null);return result[0];}
+- private Step textStep(String source,String target){Step s=new Step("TEXT_TAP");s.text=target;s.source=source;s.match="EXACT";s.after=100;s.timeout=4000;return s;}
+- private Macro macro(Step... steps){Macro m=new Macro();m.startDelay=100;m.maxMinutes=2;for(Step s:steps)m.steps.add(s);return m;}
+- private void start(Macro m){main(()->svc.start(m));}
+- private void done(){long until=SystemClock.elapsedRealtime()+30000;while(svc.running&&SystemClock.elapsedRealtime()<until)SystemClock.sleep(100);assertFalse("Macro never finished: "+svc.logText(),svc.running);SystemClock.sleep(200);}
+- private void completed(){done();assertEquals(svc.logText(),"완료",svc.status);}
+- @Test public void realGesturesTextOcrBackRetryPauseAndStop() throws Exception {
+-  in=InstrumentationRegistry.getInstrumentation();
+-  UiAutomation automation=in.getUiAutomation(UiAutomation.FLAG_DONT_SUPPRESS_ACCESSIBILITY_SERVICES);
+-  for(String command:new String[]{"settings put secure enabled_accessibility_services \"\"","settings put secure accessibility_enabled 0","settings put secure enabled_accessibility_services kr.yunseok.touchmacro/kr.yunseok.touchmacro.MacroService","settings put secure accessibility_enabled 1"}){try(android.os.ParcelFileDescriptor fd=automation.executeShellCommand(command);java.io.FileInputStream stream=new java.io.FileInputStream(fd.getFileDescriptor())){byte[] b=new byte[4096];while(stream.read(b)!=-1){}}}
+-
+-  activity=(MainActivity)in.startActivitySync(new Intent(in.getTargetContext(),MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+-  long until=SystemClock.elapsedRealtime()+15000;while(MacroService.get()==null&&SystemClock.elapsedRealtime()<until)SystemClock.sleep(100);
+-  svc=MacroService.get();assertNotNull("Enable accessibility with adb first",svc);
+-  screen();start(macro(textStep("ACCESS","화면 확인")));completed();assertTrue("Accessibility click did not reach button",has("성공 횟수: 1"));
+-  screen();start(macro(textStep("OCR","테스트 확인")));completed();assertTrue("Offline Korean OCR did not reach canvas",has("OCR 성공 횟수: 1"));
+-  screen();final AlertDialog[] dialog={null};main(()->{dialog[0]=new AlertDialog.Builder(activity).setTitle("다른 화면").setMessage("원하는 버튼은 뒤로간 화면에 있습니다").setPositiveButton("닫기",null).create();dialog[0].show();});SystemClock.sleep(300);
+-  Step recover=textStep("ACCESS","화면 확인");recover.failure="BACK_RETRY";recover.retries=2;recover.timeout=300;recover.retryDelay=400;start(macro(recover));completed();assertFalse(dialog[0].isShowing());assertTrue("Back retry did not find previous screen",has("성공 횟수: 1"));assertTrue(svc.logText().contains("뒤로가기 1/2"));
+-  screen();Step branch=new Step("TEXT_BRANCH");branch.text="화면 확인";branch.source="ACCESS";branch.match="EXACT";branch.timeout=0;branch.found=3;branch.missing=2;branch.after=100;
+-  start(macro(branch,new Step("STOP"),textStep("ACCESS","화면 확인")));completed();assertTrue(has("성공 횟수: 1"));
+-  screen();branch.text="절대로없는단어";branch.found=2;branch.missing=3;start(macro(branch,textStep("ACCESS","화면 확인"),new Step("STOP")));done();assertTrue(has("성공 횟수: 0"));assertEquals("정지",svc.status);
+-  screen();final Rect[] bounds={null};main(()->{TextView b=find(activity.getWindow().getDecorView(),"화면 확인");Rect r=new Rect();b.getGlobalVisibleRect(r);bounds[0]=r;});
+-  int[] size=svc.size();Step tap=new Step("TAP");tap.x=bounds[0].exactCenterX()*100/size[0];tap.y=bounds[0].exactCenterY()*100/size[1];tap.after=100;tap.repeat=3;
+-  start(macro(tap));completed();assertTrue("Repeated coordinates failed",has("성공 횟수: 3"));
+-  screen();Step longTap=new Step(tap.json());longTap.type="LONG";longTap.duration=600;longTap.repeat=1;start(macro(longTap));completed();assertTrue("Long press failed",has("성공 횟수: 1"));
+-  screen();Step twice=new Step(tap.json());twice.type="DOUBLE";twice.repeat=1;start(macro(twice));completed();assertTrue("Double tap failed",has("성공 횟수: 2"));
+-  screen();Macro repeated=macro(textStep("ACCESS","화면 확인"));repeated.rounds=2;repeated.gap=100;start(repeated);completed();assertTrue("Macro loop failed",has("성공 횟수: 2"));
+-  screen();Macro delayed=macro(textStep("ACCESS","화면 확인"));delayed.startDelay=800;start(delayed);main(()->svc.paused=true);SystemClock.sleep(1100);assertTrue(svc.running);assertTrue("Paused run touched the screen",has("성공 횟수: 0"));main(()->svc.paused=false);completed();assertTrue(has("성공 횟수: 1"));
+-  screen();Step wait=new Step("WAIT");wait.duration=2000;wait.after=0;start(macro(wait,textStep("ACCESS","화면 확인")));SystemClock.sleep(300);main(svc::stop);SystemClock.sleep(2200);assertFalse(svc.running);assertTrue("Stopped run still touched the screen",has("성공 횟수: 0"));
+-  screen();final EditText[] input={null};main(()->{LinearLayout box=(LinearLayout)((ViewGroup)activity.findViewById(android.R.id.content)).getChildAt(0);input[0]=new EditText(activity);input[0].setHint("입력 테스트");box.addView(input[0]);input[0].requestFocus();});SystemClock.sleep(300);
+-  Step type=new Step("INPUT");type.text="윤석 입력 테스트";type.after=100;start(macro(type));completed();assertEquals("윤석 입력 테스트",input[0].getText().toString());
+-  screen();Macro stored=macro(textStep("ACCESS","화면 확인"));stored.name="기기 저장 테스트";main(()->Store.put(activity,stored));assertTrue(Store.library(activity).containsKey(stored.name));assertEquals(stored.name,Store.load(activity).name);
+-  Step missing=textStep("ACCESS","절대로없는최종글자");missing.failure="BACK_RETRY";missing.retries=2;missing.timeout=0;missing.retryDelay=400;
+-  start(macro(missing));done();assertTrue(svc.status.startsWith("중단"));assertTrue(svc.logText().contains("뒤로가기 2/2"));assertTrue(svc.status.contains("글자를 찾지 못했습니다"));
+-  android.util.Log.i("YUNSEOK_QA","PASS: accessibility, Korean OCR offline, back/recheck, branches, tap-repeat, long, double, macro-loop, pause/resume, stop, input, save/load, retry limit");
+- }
+-}
+--- 1차/source/app/src/main/AndroidManifest.xml
++++ 2차/source/app/src/main/AndroidManifest.xml
+@@ -1,13 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+- <uses-permission android:name="android.permission.WAKE_LOCK"/>
+- <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+- <uses-permission android:name="android.permission.INTERNET" tools:node="remove"/>
+- <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" tools:node="remove"/>
+- <queries><intent><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent></queries>
+- <application android:theme="@style/AppTheme" android:label="@string/app_name" android:icon="@drawable/ic_macro" android:allowBackup="false" android:fullBackupContent="false" android:dataExtractionRules="@xml/data_extraction" android:supportsRtl="true">
+- <activity android:name=".MainActivity" android:exported="true"><intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter></activity>
+- <receiver android:name=".StopReceiver" android:exported="false"/>
+- <service android:name=".MacroService" android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" android:exported="true"><intent-filter><action android:name="android.accessibilityservice.AccessibilityService"/></intent-filter><meta-data android:name="android.accessibilityservice" android:resource="@xml/accessibility"/></service>
+- </application>
+-</manifest>
+--- 1차/source/app/src/main/assets/NanumGothic-OFL.txt
++++ 2차/source/app/src/main/assets/NanumGothic-OFL.txt
+@@ -1,126 +0,0 @@
+-Nanum Gothic Bold — Copyright (c) 2010, NAVER Corporation. SIL Open Font License 1.1
+-http://hangeul.naver.com/
+-
+-Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+-Upstream-Name: NanumFontSetup_TTF_ALL
+-Upstream-Contact: http://hangeul.naver.com/
+-Source: http://hangeul.naver.com/
+-
+-Files: *
+-Copyright: 2010, NAVER Corporation (http://www.nhncorp.com)
+-License: OFL-1.1
+- Copyright (c) 2010, NAVER Corporation (http://www.nhncorp.com),
+- .
+- with Reserved Font Name Nanum, Naver Nanum, NanumGothic, Naver
+- NanumGothic, NanumMyeongjo, Naver NanumMyeongjo, NanumBrush, Naver
+- NanumBrush, NanumPen, Naver NanumPen, Naver NanumGothicEco,
+- NanumGothicEco, Naver NanumMyeongjoEco, NanumMyeongjoEco, Naver
+- NanumGothicLight, NanumGothicLight, NanumBarunGothic, Naver
+- NanumBarunGothic,
+- .
+- This Font Software is licensed under the SIL Open Font License, Version 1.1.
+- .
+- This license is copied below, and is also available with a FAQ at:
+- http://scripts.sil.org/OFL 
+- .
+- SIL OPEN FONT LICENSE
+- .
+- Version 1.1 - 26 February 2007
+- .
+- PREAMBLE
+- .
+- The goals of the Open Font License (OFL) are to stimulate worldwide
+- development of collaborative font projects, to support the font creation
+- efforts of academic and linguistic communities, and to provide a free and
+- open framework in which fonts may be shared and improved in partnership
+- with others.
+- .
+- The OFL allows the licensed fonts to be used, studied, modified and
+- redistributed freely as long as they are not sold by themselves. The
+- fonts, including any derivative works, can be bundled, embedded, 
+- redistributed and/or sold with any software provided that any reserved
+- names are not used by derivative works. The fonts and derivatives,
+- however, cannot be released under any other type of license. The
+- requirement for fonts to remain under this license does not apply
+- to any document created using the fonts or their derivatives.
+- .
+- DEFINITIONS
+- .
+- "Font Software" refers to the set of files released by the Copyright
+- Holder(s) under this license and clearly marked as such. This may
+- include source files, build scripts and documentation.
+- .
+- "Reserved Font Name" refers to any names specified as such after the
+- copyright statement(s).
+- .
+- "Original Version" refers to the collection of Font Software components as
+- distributed by the Copyright Holder(s).
+- .
+- "Modified Version" refers to any derivative made by adding to, deleting,
+- or substituting -- in part or in whole -- any of the components of the
+- Original Version, by changing formats or by porting the Font Software to a
+- new environment.
+- .
+- "Author" refers to any designer, engineer, programmer, technical
+- writer or other person who contributed to the Font Software.
+- .
+- PERMISSION & CONDITIONS
+- .
+- Permission is hereby granted, free of charge, to any person obtaining
+- a copy of the Font Software, to use, study, copy, merge, embed, modify,
+- redistribute, and sell modified and unmodified copies of the Font
+- Software, subject to the following conditions:
+- .
+- 1) Neither the Font Software nor any of its individual components,
+- in Original or Modified Versions, may be sold by itself.
+- .
+- 2) Original or Modified Versions of the Font Software may be bundled,
+- redistributed and/or sold with any software, provided that each copy
+- contains the above copyright notice and this license. These can be
+- included either as stand-alone text files, human-readable headers or
+- in the appropriate machine-readable metadata fields within text or
+- binary files as long as those fields can be easily viewed by the user.
+- .
+- 3) No Modified Version of the Font Software may use the Reserved Font
+- Name(s) unless explicit written permission is granted by the corresponding
+- Copyright Holder. This restriction only applies to the primary font name as
+- presented to the users.
+- .
+- 4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
+- Software shall not be used to promote, endorse or advertise any
+- Modified Version, except to acknowledge the contribution(s) of the
+- Copyright Holder(s) and the Author(s) or with their explicit written
+- permission.
+- .
+- 5) The Font Software, modified or unmodified, in part or in whole,
+- must be distributed entirely under this license, and must not be
+- distributed under any other license. The requirement for fonts to
+- remain under this license does not apply to any document created
+- using the Font Software.
+- .
+- TERMINATION
+- .
+- This license becomes null and void if any of the above conditions are
+- not met.
+- .
+- DISCLAIMER
+- .
+- THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+- EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
+- MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
+- OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
+- COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+- INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
+- DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+- FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
+- OTHER DEALINGS IN THE FONT SOFTWARE.
+-
+-Files: debian/*
+-Copyright: 2010-2018, Changwoo Ryu <cwryu@debian.org>
+-License: GPL-3+
+- See /usr/share/common-licenses/GPL-3 for the full license.
+-
+-Files: debian/*.metainfo.xml
+-Copyright: 2018, Changwoo Ryu
+-License: CC0-1.0
+- See /usr/share/common-licenses/CC0-1.0 for the full license.
+--- 1차/source/app/src/main/java/kr/yunseok/touchmacro/Macro.java
++++ 2차/source/app/src/main/java/kr/yunseok/touchmacro/Macro.java
+@@ -1,24 +0,0 @@
+-package kr.yunseok.touchmacro;
+-import org.json.*;
+-import java.util.ArrayList;
+-public final class Macro {
+-    public String name="내 매크로";
+-    public int rounds=1, gap=1000, startDelay=3000, maxMinutes=30;
+-    public ArrayList<Step> steps=new ArrayList<>();
+-    public Macro(){}
+-    public Macro(JSONObject o) {
+-        if(o.optInt("schema",1)!=1)throw new IllegalArgumentException("지원하지 않는 파일 버전");
+-        name=o.optString("name","내 매크로");rounds=o.optInt("rounds",1);gap=o.optInt("gap",1000);startDelay=o.optInt("startDelay",3000);maxMinutes=o.optInt("maxMinutes",30);
+-        JSONArray a=o.optJSONArray("steps");if(a==null||a.length()>500)throw new IllegalArgumentException("동작 목록은 최대 500개입니다");
+-        for(int i=0;i<a.length();i++) steps.add(new Step(a.optJSONObject(i)==null?new JSONObject():a.optJSONObject(i)));
+-    }
+-    public JSONObject json() {
+-        JSONObject o=new JSONObject();JSONArray a=new JSONArray();for(Step s:steps)a.put(s.json());
+-        try {o.put("schema",1).put("name",name).put("rounds",rounds).put("gap",gap).put("startDelay",startDelay).put("maxMinutes",maxMinutes).put("steps",a);}catch(Exception e){throw new IllegalStateException(e);}return o;
+-    }
+-    public void validate(){
+-        if(steps.isEmpty()||steps.size()>500)throw new IllegalArgumentException("동작을 1~500개 추가하세요");
+-        if(rounds<0||rounds>100000||gap<0||gap>600000||startDelay<0||startDelay>600000||maxMinutes<0||maxMinutes>1440)throw new IllegalArgumentException("실행 설정의 범위를 확인하세요");
+-        for(Step s:steps)s.validate(steps.size());
+-    }
+-}
+--- 1차/source/app/src/main/java/kr/yunseok/touchmacro/MacroService.java
++++ 2차/source/app/src/main/java/kr/yunseok/touchmacro/MacroService.java
+@@ -1,231 +0,0 @@
+-package kr.yunseok.touchmacro;
+-import android.accessibilityservice.*;
+-import android.app.*;
+-import android.content.*;
+-import android.graphics.*;
+-import android.os.*;
+-import android.view.*;
+-import android.view.accessibility.*;
+-import android.widget.*;
+-import com.google.mlkit.vision.common.InputImage;
+-import com.google.mlkit.vision.text.*;
+-import com.google.mlkit.vision.text.korean.KoreanTextRecognizerOptions;
+-import java.util.*;
+-import java.util.concurrent.*;
+-import java.util.concurrent.atomic.*;
+-import java.util.function.*;
+-public class MacroService extends AccessibilityService {
+-    private static volatile java.lang.ref.WeakReference<MacroService> current=new java.lang.ref.WeakReference<>(null);
+-    public static MacroService get(){return current.get();}
+-    private final Handler ui=new Handler(Looper.getMainLooper());
+-    private final ExecutorService worker=Executors.newSingleThreadExecutor();
+-    private final AtomicLong generation=new AtomicLong();
+-    public volatile boolean running=false, paused=false;
+-    public volatile String status="준비";
+-    private WindowManager wm;private View overlay,picker;private TouchLabel badge;private Button play;
+-    private WindowManager.LayoutParams overlayParams;
+-    private final ArrayDeque<String> logs=new ArrayDeque<>();
+-    private TextRecognizer recognizer;
+-    private int initialW,initialH;private long deadline,lastScreenshot=0;
+-    private boolean destroyed=false;
+-    private void notification(){NotificationManager nm=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);nm.createNotificationChannel(new NotificationChannel("run","매크로 실행",NotificationManager.IMPORTANCE_LOW));Intent stop=new Intent(this,StopReceiver.class);PendingIntent pi=PendingIntent.getBroadcast(this,1,stop,PendingIntent.FLAG_UPDATE_CURRENT|PendingIntent.FLAG_IMMUTABLE);PendingIntent open=PendingIntent.getActivity(this,2,new Intent(this,MainActivity.class),PendingIntent.FLAG_UPDATE_CURRENT|PendingIntent.FLAG_IMMUTABLE);nm.notify(10,new Notification.Builder(this,"run").setSmallIcon(R.drawable.ic_macro).setContentTitle("윤석 터치매크로 실행 중").setContentText("누르면 편집 화면 · 정지 버튼으로 중단").setContentIntent(open).setOngoing(true).addAction(new Notification.Action.Builder(null,"정지",pi).build()).build());}
+-    private void clearNotification(){((NotificationManager)getSystemService(NOTIFICATION_SERVICE)).cancel(10);}
+-
+-    @Override protected void onServiceConnected(){current=new java.lang.ref.WeakReference<>(this);wm=(WindowManager)getSystemService(WINDOW_SERVICE);recognizer=TextRecognition.getClient(new KoreanTextRecognizerOptions.Builder().build());log("접근성 서비스 연결됨");}
+-    @Override public void onAccessibilityEvent(AccessibilityEvent event){}
+-    @Override public void onInterrupt(){stop();}
+-    @Override public void onDestroy(){
+-        destroyed=true;stop();hideControls();closePicker();if(recognizer!=null)recognizer.close();worker.shutdownNow();if(get()==this)current=new java.lang.ref.WeakReference<>(null);super.onDestroy();
+-    }
+-    private int dp(int n){return (int)(n*getResources().getDisplayMetrics().density+.5f);}
+-    private void font(View v){if(v instanceof TextView)((TextView)v).setTypeface(getResources().getFont(R.font.nanum_gothic_bold));if(v instanceof ViewGroup)for(int i=0;i<((ViewGroup)v).getChildCount();i++)font(((ViewGroup)v).getChildAt(i));}
+-    public synchronized String logText(){return String.join("\n",logs);}
+-    public synchronized void log(String s){
+-        String line=new java.text.SimpleDateFormat("HH:mm:ss",Locale.KOREA).format(new java.util.Date())+"  "+s;
+-        logs.addLast(line);while(logs.size()>150)logs.removeFirst();status=s;
+-        getSharedPreferences("macros",0).edit().putString("last_log",String.join("\n",logs)).apply();
+-        ui.post(()->{if(badge!=null)badge.setText(s);if(play!=null)play.setText(!running?"시작":paused?"계속":"일시정지");});
+-    }
+-    private Button control(LinearLayout box,String text,Runnable action){
+-        Button b=new Button(this);b.setText(text);b.setTextSize(11);b.setMinWidth(0);b.setMinimumWidth(0);b.setPadding(dp(3),0,dp(3),0);box.addView(b,new LinearLayout.LayoutParams(dp(63),dp(44)));b.setOnClickListener(v->action.run());return b;
+-    }
+-    public void showControls(){ui.post(()->{
+-        if(destroyed||overlay!=null)return;
+-        LinearLayout box=new LinearLayout(this);box.setOrientation(LinearLayout.VERTICAL);box.setPadding(dp(6),dp(4),dp(6),dp(4));box.setBackgroundColor(Color.rgb(235,240,255));
+-        badge=new TouchLabel(this);badge.setText(status);badge.setTextColor(Color.rgb(24,38,75));badge.setTextSize(11);badge.setMaxLines(2);box.addView(badge,new LinearLayout.LayoutParams(dp(260),dp(35)));
+-        LinearLayout buttons=new LinearLayout(this);box.addView(buttons);
+-        play=control(buttons,"시작",()->{if(running){paused=!paused;log(paused?"일시정지":"계속 실행");}else{try{start(Store.load(this));}catch(Exception e){log(e.getMessage());}}});
+-        control(buttons,"정지",this::stop);control(buttons,"좌표",()->{if(running){log("먼저 정지한 뒤 좌표를 선택하세요");return;}pickPoint();});
+-        control(buttons,"편집",()->{stop();Intent i=new Intent(this,MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_SINGLE_TOP);startActivity(i);});
+-        overlayParams=new WindowManager.LayoutParams(dp(272),WindowManager.LayoutParams.WRAP_CONTENT,WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY,WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE|WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN,PixelFormat.TRANSLUCENT);
+-        overlayParams.gravity=Gravity.TOP|Gravity.START;overlayParams.x=dp(12);overlayParams.y=dp(80);overlay=box;font(box);
+-        badge.setOnTouchListener(new View.OnTouchListener(){float sx,sy;int ox,oy;public boolean onTouch(View v,android.view.MotionEvent e){if(e.getAction()==0){sx=e.getRawX();sy=e.getRawY();ox=overlayParams.x;oy=overlayParams.y;return true;}if(e.getAction()==2){overlayParams.x=Math.max(0,Math.min(size()[0]-dp(272),ox+(int)(e.getRawX()-sx)));overlayParams.y=Math.max(0,Math.min(size()[1]-dp(90),oy+(int)(e.getRawY()-sy)));if(overlay!=null)wm.updateViewLayout(overlay,overlayParams);return true;}if(e.getAction()==MotionEvent.ACTION_UP)v.performClick();return true;}});
+-        wm.addView(overlay,overlayParams);
+-    });}
+-    public void hideControls(){ui.post(()->{if(overlay!=null){try{wm.removeView(overlay);}catch(Exception ignored){}overlay=null;badge=null;play=null;}});}
+-    public int[] size(){android.util.DisplayMetrics m=new android.util.DisplayMetrics();wm.getDefaultDisplay().getRealMetrics(m);return new int[]{m.widthPixels,m.heightPixels};}
+-    public void pickPoint(){ui.post(()->{
+-        if(picker!=null)return;if(overlay!=null)overlay.setVisibility(View.GONE);
+-        LinearLayout pane=new TouchPane(this);pane.setOrientation(LinearLayout.VERTICAL);pane.setBackgroundColor(0x182856D8);
+-        TextView title=new TextView(this);title.setText("좌표 선택\n원하는 곳을 한 번 누르세요. 실제 터치는 실행되지 않습니다.");title.setTextSize(15);title.setTextColor(Color.WHITE);title.setPadding(dp(16),dp(32),dp(16),dp(8));title.setBackgroundColor(0xDE18306A);pane.addView(title);
+-        Button cancel=new Button(this);cancel.setText("취소");pane.addView(cancel,new LinearLayout.LayoutParams(-1,dp(48)));cancel.setOnClickListener(v->closePicker());
+-        pane.setOnTouchListener((v,e)->{if(e.getAction()==MotionEvent.ACTION_UP){v.performClick();int[] sz=size();double x=e.getRawX()*100.0/sz[0],y=e.getRawY()*100.0/sz[1];getSharedPreferences("macros",0).edit().putString("picked",String.format(Locale.US,"%.4f,%.4f",x,y)).apply();closePicker();Intent i=new Intent(this,MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_SINGLE_TOP);startActivity(i);}return true;});
+-        WindowManager.LayoutParams p=new WindowManager.LayoutParams(-1,-1,WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY,WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE|WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN,PixelFormat.TRANSLUCENT);p.gravity=Gravity.TOP|Gravity.START;picker=pane;font(pane);wm.addView(picker,p);
+-    });}
+-    private void closePicker(){ui.post(()->{if(picker!=null){try{wm.removeView(picker);}catch(Exception ignored){}picker=null;}if(overlay!=null)overlay.setVisibility(View.VISIBLE);});}
+-    public void start(Macro original){
+-        if(running)return;original.validate();
+-        Macro m=new Macro(original.json());long token=generation.incrementAndGet();running=true;paused=false;showControls();notification();
+-        worker.execute(()->run(m,token));
+-    }
+-    public void stop(){generation.incrementAndGet();running=false;paused=false;clearNotification();log("정지");}
+-    private void check(long token)throws Exception {
+-        if(token!=generation.get()||destroyed)throw new CancellationException();
+-        if(deadline>0&&SystemClock.elapsedRealtime()>deadline)throw new IllegalStateException("최대 실행 시간에 도달했습니다");
+-        if(!((PowerManager)getSystemService(POWER_SERVICE)).isInteractive())throw new IllegalStateException("화면이 꺼져 실행을 중단했습니다");
+-        if(((KeyguardManager)getSystemService(KEYGUARD_SERVICE)).isKeyguardLocked())throw new IllegalStateException("잠금 화면에서는 실행할 수 없습니다");
+-        int[] s=size();if(initialW>0&&(initialW!=s[0]||initialH!=s[1]))throw new IllegalStateException("화면 방향이 바뀌었습니다. 같은 방향에서 다시 실행하세요");
+-    }
+-    private void ready(long token)throws Exception{check(token);while(paused){Thread.sleep(70);check(token);}}
+-    private void sleep(long ms,long token)throws Exception{
+-        long remaining=ms;while(remaining>0){ready(token);long chunk=Math.min(70,remaining),before=SystemClock.elapsedRealtime();Thread.sleep(chunk);if(!paused)remaining-=Math.max(1,SystemClock.elapsedRealtime()-before);}ready(token);
+-    }
+-    private <T> T await(CompletableFuture<T> f,long token,long max)throws Exception{
+-        long activeElapsed=0,last=SystemClock.elapsedRealtime();
+-        while(true){check(token);long now=SystemClock.elapsedRealtime();if(!paused)activeElapsed+=now-last;last=now;try{return f.get(70,TimeUnit.MILLISECONDS);}catch(TimeoutException e){if(activeElapsed>max){IllegalStateException timeout=new IllegalStateException("화면 응답 시간이 초과되었습니다");f.completeExceptionally(timeout);throw timeout;}}catch(ExecutionException e){Throwable cause=e.getCause();throw new IllegalStateException(cause.getMessage(),cause);}}
+-    }
+-    private <T> T onUi(Callable<T> action,long token)throws Exception{
+-        ready(token);CompletableFuture<T> f=new CompletableFuture<>();Runnable task=new Runnable(){public void run(){try{if(f.isDone())return;check(token);if(paused){ui.postDelayed(this,70);return;}f.complete(action.call());}catch(Exception e){f.completeExceptionally(e);}}};ui.post(task);return await(f,token,5000);
+-    }
+-    private void run(Macro m,long token){
+-        PowerManager.WakeLock lock=((PowerManager)getSystemService(POWER_SERVICE)).newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,"YunseokMacro:run");
+-        try{
+-            int[] sz=size();initialW=sz[0];initialH=sz[1];deadline=m.maxMinutes==0?0:SystemClock.elapsedRealtime()+m.maxMinutes*60000L;
+-            lock.acquire(m.maxMinutes==0?24*60*60000L:m.maxMinutes*60000L+10000);
+-            log("시작까지 "+m.startDelay+"ms");sleep(m.startDelay,token);
+-            for(int round=1;m.rounds==0||round<=m.rounds;round++){
+-                int index=0;while(index<m.steps.size()){
+-                    ready(token);Step s=m.steps.get(index);if(!s.enabled){index++;continue;}
+-                    log(round+"회 · "+(index+1)+"/"+m.steps.size()+" "+s.name());
+-                    Integer jump=null;for(int r=0;r<s.repeat;r++){ready(token);jump=execute(s,token);sleep(s.after,token);if(jump!=null)break;}
+-                    index=jump==null?index+1:jump;
+-                }
+-                if(m.rounds==0||round<m.rounds)sleep(m.gap,token);
+-            }
+-            if(token==generation.get())log("완료");
+-        }catch(CancellationException ignored){}catch(Exception e){if(token==generation.get())log("중단 · "+(e.getMessage()==null?e.toString():e.getMessage()));}
+-        finally{if(lock.isHeld())lock.release();if(token==generation.get()){running=false;paused=false;clearNotification();ui.post(()->{if(play!=null)play.setText("시작");});}}
+-    }
+-    private Integer execute(Step s,long token)throws Exception{
+-        switch(s.type){
+-            case "TAP":gesture(s.x,s.y,s.x,s.y,100,token);break;
+-            case "DOUBLE":gesture(s.x,s.y,s.x,s.y,60,token);sleep(100,token);gesture(s.x,s.y,s.x,s.y,60,token);break;
+-            case "LONG":gesture(s.x,s.y,s.x,s.y,Math.min(59000,s.duration),token);break;
+-            case "SWIPE":gesture(s.x,s.y,s.x2,s.y2,Math.min(59000,s.duration),token);break;
+-            case "WAIT":sleep(s.duration,token);break;
+-            case "BACK":global(GLOBAL_ACTION_BACK,token);break;
+-            case "HOME":global(GLOBAL_ACTION_HOME,token);break;
+-            case "RECENTS":global(GLOBAL_ACTION_RECENTS,token);break;
+-            case "INPUT":input(s.text,token);break;
+-            case "APP":onUi(()->{Intent i=getPackageManager().getLaunchIntentForPackage(s.packageName);if(i==null)throw new IllegalStateException("앱을 찾을 수 없습니다: "+s.packageName);i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);startActivity(i);return true;},token);break;
+-            case "GOTO":return s.target-1;
+-            case "STOP":stop();throw new CancellationException();
+-            case "TEXT_TAP":case "TEXT_WAIT":case "TEXT_BRANCH":
+-                for(int attempt=0;;attempt++){
+-                    Hit hit=waitText(s,token);
+-                    if(hit!=null){
+-                        ready(token);
+-                        if(s.type.equals("TEXT_TAP")){
+-                            // Re-read after a pause so we never touch stale screen coordinates.
+-                            hit=find(s,token);if(hit==null)throw new IllegalStateException("터치 직전에 글자가 사라졌습니다");
+-                            gesture(hit.rect.exactCenterX()*100.0/initialW,hit.rect.exactCenterY()*100.0/initialH,hit.rect.exactCenterX()*100.0/initialW,hit.rect.exactCenterY()*100.0/initialH,100,token);
+-                        }
+-                        if(s.type.equals("TEXT_BRANCH"))return s.found==0?null:s.found-1;
+-                        return null;
+-                    }
+-                    if(s.type.equals("TEXT_BRANCH"))return s.missing==0?null:s.missing-1;
+-                    if("BACK_RETRY".equals(s.failure)&&attempt<s.retries){log("글자 없음 · 뒤로가기 "+(attempt+1)+"/"+s.retries);global(GLOBAL_ACTION_BACK,token);sleep(s.retryDelay,token);continue;}
+-                    if("SKIP".equals(s.failure)){log("글자 없음 · 다음 동작");return null;}
+-                    throw new IllegalStateException("글자를 찾지 못했습니다: "+s.text);
+-                }
+-        }return null;
+-    }
+-    private void global(int action,long token)throws Exception{if(!onUi(()->performGlobalAction(action),token))throw new IllegalStateException("시스템 동작을 실행하지 못했습니다");}
+-    private void gesture(double x,double y,double x2,double y2,long duration,long token)throws Exception{
+-        onUi(()->{if(overlay!=null)overlay.setVisibility(View.GONE);return true;},token);
+-        try {sleep(80,token);ready(token);CompletableFuture<Boolean> f=new CompletableFuture<>();
+-        Runnable dispatch=new Runnable(){public void run(){try{check(token);if(paused){ui.postDelayed(this,70);return;}
+-            Path p=new Path();float ax=(float)Math.min(initialW-1,x*initialW/100),ay=(float)Math.min(initialH-1,y*initialH/100);p.moveTo(ax,ay);
+-            if(x!=x2||y!=y2)p.lineTo((float)Math.min(initialW-1,x2*initialW/100),(float)Math.min(initialH-1,y2*initialH/100));
+-            GestureDescription g=new GestureDescription.Builder().addStroke(new GestureDescription.StrokeDescription(p,0,Math.max(1,duration))).build();
+-            if(!dispatchGesture(g,new GestureResultCallback(){@Override public void onCompleted(GestureDescription g){f.complete(true);}@Override public void onCancelled(GestureDescription g){f.complete(false);}},ui))f.complete(false);
+-        }catch(Exception e){f.completeExceptionally(e);}}};ui.post(dispatch);
+-        if(!await(f,token,duration+5000))throw new IllegalStateException("터치가 취소되었습니다. 화면 상태를 확인하세요");
+-        }finally{ui.post(()->{if(overlay!=null)overlay.setVisibility(View.VISIBLE);});}
+-    }
+-    private static final class Hit {final Rect rect;final String text;Hit(Rect r,String t){rect=new Rect(r);text=t;}}
+-    private Hit waitText(Step s,long token)throws Exception{
+-        long elapsed=0;do{ready(token);long before=SystemClock.elapsedRealtime();Hit h=find(s,token);if(h!=null)return h;elapsed+=SystemClock.elapsedRealtime()-before;if(elapsed>=s.timeout)return null;long delay=Math.min(600,s.timeout-elapsed);sleep(delay,token);elapsed+=delay;}while(true);
+-    }
+-    private Hit find(Step s,long token)throws Exception{
+-        ready(token);Hit hit=null;
+-        if(!s.source.equals("OCR"))hit=onUi(()->accessibleHit(s),token);
+-        if(hit!=null||s.source.equals("ACCESS"))return hit;
+-        Bitmap bitmap=screenshot(token);
+-        boolean processing=false;
+-        try {
+-            CompletableFuture<com.google.mlkit.vision.text.Text> result=new CompletableFuture<>();
+-            com.google.android.gms.tasks.Task<com.google.mlkit.vision.text.Text> task=recognizer.process(InputImage.fromBitmap(bitmap,0));
+-            processing=true;task.addOnSuccessListener(result::complete).addOnFailureListener(result::completeExceptionally).addOnCompleteListener(done->{if(!bitmap.isRecycled())bitmap.recycle();});
+-            com.google.mlkit.vision.text.Text t=await(result,token,12000);
+-            ArrayList<Hit> candidates=new ArrayList<>();
+-            for(com.google.mlkit.vision.text.Text.TextBlock b:t.getTextBlocks()){
+-                for(com.google.mlkit.vision.text.Text.Line line:b.getLines()){
+-                    boolean elementMatch=false;
+-                    for(com.google.mlkit.vision.text.Text.Element e:line.getElements()){
+-                        if(e.getBoundingBox()!=null&&TextRules.matches(e.getText(),s.text,s.match,s.ignoreSpaces,s.ignoreCase)){candidates.add(new Hit(e.getBoundingBox(),e.getText()));elementMatch=true;}
+-                    }
+-                    if(!elementMatch&&line.getBoundingBox()!=null&&TextRules.matches(line.getText(),s.text,s.match,s.ignoreSpaces,s.ignoreCase))candidates.add(new Hit(line.getBoundingBox(),line.getText()));
+-                }
+-                if(candidates.isEmpty()&&b.getBoundingBox()!=null&&TextRules.matches(b.getText(),s.text,s.match,s.ignoreSpaces,s.ignoreCase))candidates.add(new Hit(b.getBoundingBox(),b.getText()));
+-            }
+-            candidates.sort(Comparator.comparingInt((Hit a)->a.rect.top).thenComparingInt(a->a.rect.left));
+-            return candidates.size()>=s.occurrence?candidates.get(s.occurrence-1):null;
+-        }finally{if(!processing&&!bitmap.isRecycled())bitmap.recycle();}
+-    }
+-    private Hit accessibleHit(Step s){
+-        AccessibilityNodeInfo root=getRootInActiveWindow();if(root==null)return null;
+-        ArrayList<Hit> list=new ArrayList<>();collect(root,s,list,0);root.recycle();
+-        list.sort(Comparator.comparingInt((Hit a)->a.rect.top).thenComparingInt(a->a.rect.left));
+-        return list.size()>=s.occurrence?list.get(s.occurrence-1):null;
+-    }
+-    private void collect(AccessibilityNodeInfo n,Step s,ArrayList<Hit> out,int depth){
+-        if(depth>70||out.size()>500)return;
+-        if(n.isVisibleToUser()){
+-            CharSequence txt=n.getText(),desc=n.getContentDescription();String value=txt!=null?txt.toString():desc==null?"":desc.toString();
+-            Rect r=new Rect();n.getBoundsInScreen(r);
+-            if(!r.isEmpty()&&r.intersect(0,0,initialW,initialH)&&TextRules.matches(value,s.text,s.match,s.ignoreSpaces,s.ignoreCase)){
+-                boolean duplicate=false;for(Hit h:out)if(h.rect.equals(r))duplicate=true;if(!duplicate)out.add(new Hit(r,value));
+-            }
+-        }
+-        for(int i=0;i<n.getChildCount();i++){AccessibilityNodeInfo child=n.getChild(i);if(child!=null){collect(child,s,out,depth+1);child.recycle();}}
+-    }
+-    private Bitmap screenshot(long token)throws Exception{
+-        onUi(()->{if(overlay!=null)overlay.setVisibility(View.GONE);return true;},token);
+-        try{
+-            sleep(Math.max(150,700-(SystemClock.elapsedRealtime()-lastScreenshot)),token);lastScreenshot=SystemClock.elapsedRealtime();CompletableFuture<Bitmap> f=new CompletableFuture<>();
+-            ui.post(()->{try{check(token);takeScreenshot(Display.DEFAULT_DISPLAY,getMainExecutor(),new TakeScreenshotCallback(){
+-                @Override public void onSuccess(ScreenshotResult r){
+-                    Bitmap copy=null;try{Bitmap hardware=Bitmap.wrapHardwareBuffer(r.getHardwareBuffer(),r.getColorSpace());if(hardware==null)throw new IllegalStateException("화면 이미지가 비었습니다");copy=hardware.copy(Bitmap.Config.ARGB_8888,false);hardware.recycle();if(!f.complete(copy))copy.recycle();}catch(Exception e){if(copy!=null)copy.recycle();f.completeExceptionally(e);}finally{r.getHardwareBuffer().close();}
+-                }
+-                @Override public void onFailure(int error){f.completeExceptionally(new IllegalStateException("OCR 화면 캡처 실패("+error+"). 보안 화면이면 화면 정보 모드를 사용하세요"));}
+-            });}catch(Exception e){f.completeExceptionally(e);}});
+-            try{return await(f,token,8000);}catch(Exception e){f.thenAccept(b->{if(b!=null&&!b.isRecycled())b.recycle();});throw e;}
+-        }finally{ui.post(()->{if(overlay!=null)overlay.setVisibility(View.VISIBLE);});}
+-    }
+-    private void input(String text,long token)throws Exception{
+-        boolean ok=onUi(()->{AccessibilityNodeInfo root=getRootInActiveWindow();if(root==null)return false;AccessibilityNodeInfo focus=root.findFocus(AccessibilityNodeInfo.FOCUS_INPUT);if(focus==null)focus=editable(root,0);boolean result=false;if(focus!=null){Bundle args=new Bundle();args.putCharSequence(AccessibilityNodeInfo.ACTION_ARGUMENT_SET_TEXT_CHARSEQUENCE,text);result=focus.performAction(AccessibilityNodeInfo.ACTION_SET_TEXT,args);focus.recycle();}root.recycle();return result;},token);
+-        if(!ok)throw new IllegalStateException("입력 칸을 먼저 터치하세요. 이 앱의 입력 칸이 접근성 입력을 지원하지 않을 수도 있습니다");
+-    }
+-    private AccessibilityNodeInfo editable(AccessibilityNodeInfo n,int depth){if(depth>60)return null;if(n.isEditable()&&n.isVisibleToUser())return AccessibilityNodeInfo.obtain(n);for(int i=0;i<n.getChildCount();i++){AccessibilityNodeInfo c=n.getChild(i);if(c!=null){AccessibilityNodeInfo found=editable(c,depth+1);c.recycle();if(found!=null)return found;}}return null;}
+-}
+--- 1차/source/app/src/main/java/kr/yunseok/touchmacro/MainActivity.java
++++ 2차/source/app/src/main/java/kr/yunseok/touchmacro/MainActivity.java
+@@ -1,172 +0,0 @@
+-package kr.yunseok.touchmacro;
+-import android.app.*;
+-import android.content.*;
+-import android.graphics.*;
+-import android.os.*;
+-import android.provider.Settings;
+-import android.text.InputType;
+-import android.view.*;
+-import android.widget.*;
+-import org.json.*;
+-import java.io.*;
+-import java.nio.charset.StandardCharsets;
+-import java.util.*;
+-public class MainActivity extends Activity {
+-    private Macro macro;
+-    private LinearLayout page, list;private TextView state;
+-    private String exportText="",exportMime="application/json";
+-    private final int blue=Color.rgb(40,86,216),ink=Color.rgb(23,39,71),muted=Color.rgb(92,108,133);
+-    private boolean testing=false;
+-    private int dp(int n){return (int)(n*getResources().getDisplayMetrics().density+.5f);}
+-    @Override public void onCreate(Bundle b){super.onCreate(b);macro=Store.load(this);render();if(Build.VERSION.SDK_INT>=33&&checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS)!=android.content.pm.PackageManager.PERMISSION_GRANTED)requestPermissions(new String[]{android.Manifest.permission.POST_NOTIFICATIONS},201);}
+-    @Override public void onResume(){super.onResume();if(macro==null)return;
+-        String picked=getSharedPreferences("macros",0).getString("picked","");
+-        if(!picked.isEmpty()){getSharedPreferences("macros",0).edit().remove("picked").apply();try{String[] xy=picked.split(",");Step s=new Step("TAP");s.x=Double.parseDouble(xy[0]);s.y=Double.parseDouble(xy[1]);macro.steps.add(s);save();testing=false;render();edit(s);}catch(Exception e){toast("좌표를 읽지 못했습니다");}}
+-        else if(!testing)render();
+-    }
+-    private void font(View v){if(v instanceof TextView)((TextView)v).setTypeface(getResources().getFont(R.font.nanum_gothic_bold));if(v instanceof ViewGroup)for(int i=0;i<((ViewGroup)v).getChildCount();i++)font(((ViewGroup)v).getChildAt(i));}
+-    private void save(){Store.save(this,macro);}
+-    private TextView text(LinearLayout parent,String value,int sp,int color){TextView t=new TextView(this);t.setText(value);t.setTextSize(sp);t.setTextColor(color);t.setPadding(0,dp(5),0,dp(5));parent.addView(t);return t;}
+-    private Button button(LinearLayout box,String label,Runnable click){
+-        Button b=new Button(this);b.setText(label);b.setTextSize(13);b.setAllCaps(false);b.setTextColor(blue);b.setMinHeight(dp(46));box.addView(b,new LinearLayout.LayoutParams(-1,-2));b.setOnClickListener(v->click.run());return b;
+-    }
+-    private LinearLayout row(LinearLayout box){LinearLayout r=new LinearLayout(this);r.setOrientation(LinearLayout.HORIZONTAL);box.addView(r,new LinearLayout.LayoutParams(-1,-2));return r;}
+-    private void halfButton(LinearLayout r,String label,Runnable click){Button b=button(r,label,click);LinearLayout.LayoutParams p=new LinearLayout.LayoutParams(0,dp(52),1);p.setMargins(dp(2),dp(2),dp(2),dp(2));b.setLayoutParams(p);}
+-    private LinearLayout card(LinearLayout parent){
+-        LinearLayout c=new LinearLayout(this);c.setOrientation(LinearLayout.VERTICAL);c.setPadding(dp(14),dp(10),dp(14),dp(10));android.graphics.drawable.GradientDrawable bg=new android.graphics.drawable.GradientDrawable();bg.setColor(Color.WHITE);bg.setCornerRadius(dp(16));c.setBackground(bg);
+-        LinearLayout.LayoutParams p=new LinearLayout.LayoutParams(-1,-2);p.setMargins(0,dp(6),0,dp(8));parent.addView(c,p);return c;
+-    }
+-    private void content(View v){v.setOnApplyWindowInsetsListener((view,insets)->{if(Build.VERSION.SDK_INT>=35){android.graphics.Insets bars=insets.getInsets(WindowInsets.Type.systemBars());view.setPadding(view.getPaddingLeft(),bars.top,view.getPaddingRight(),bars.bottom);}return insets;});setContentView(v);}
+-    private void render(){
+-        testing=false;ScrollView scroll=new ScrollView(this);scroll.setFillViewport(true);scroll.setBackgroundColor(Color.rgb(243,246,251));page=new LinearLayout(this);page.setOrientation(LinearLayout.VERTICAL);page.setPadding(dp(18),dp(18),dp(18),dp(28));scroll.addView(page);content(scroll);
+-        text(page,"YUNSEOK · TOUCH MACRO",11,blue);text(page,"윤석 터치매크로",25,ink);text(page,"동작을 추가하고, 원하는 화면에서 실행하세요.",13,muted);
+-        LinearLayout setup=card(page);boolean connected=MacroService.get()!=null;state=text(setup,connected?"● 접근성 연결됨 · 실행 준비 완료":"○ 최초 설정 · 접근성 서비스를 켜주세요",14,connected?Color.rgb(10,129,103):blue);
+-        LinearLayout r=row(setup);halfButton(r,connected?"접근성 설정":"접근성 켜기",this::accessibility);halfButton(r,"사용법",this::help);
+-        LinearLayout config=card(page);text(config,macro.name,19,ink);text(config,macro.steps.size()+"개 동작 · "+(macro.rounds==0?"무한 반복":macro.rounds+"회 반복")+" · 시작 대기 "+macro.startDelay+"ms",12,muted);
+-        r=row(config);halfButton(r,"실행 설정",this::settings);halfButton(r,"이름으로 저장",this::namedSave);
+-        r=row(config);halfButton(r,"저장 목록",this::library);halfButton(r,"새 매크로",()->new AlertDialog.Builder(this).setMessage("새 매크로를 만듭니다. 현재 작업은 먼저 이름으로 저장해 두세요.").setPositiveButton("새로 만들기",(d,w)->{macro=new Macro();save();render();}).setNegativeButton("취소",null).show());
+-        r=row(page);halfButton(r,"+ 동작 추가",this::chooseStep);halfButton(r,"화면에서 좌표 선택",this::pick);
+-        list=new LinearLayout(this);list.setOrientation(LinearLayout.VERTICAL);page.addView(list);refreshList();
+-        LinearLayout run=card(page);Button start=button(run,"▶ 실행 · 시작 대기 "+macro.startDelay+"ms",this::start);start.setTextColor(Color.WHITE);android.graphics.drawable.GradientDrawable bg=new android.graphics.drawable.GradientDrawable();bg.setColor(blue);bg.setCornerRadius(dp(10));start.setBackground(bg);
+-        text(run,"시작 대기 시간은 실행 설정에서 바꿀 수 있습니다. 컨트롤의 상태 부분을 끌어 위치를 옮기세요.",11,muted);
+-        r=row(run);halfButton(r,"컨트롤만 띄우기",()->{if(service()){save();MacroService.get().showControls();moveTaskToBack(true);}});halfButton(r,"정지 / 컨트롤 닫기",()->{if(MacroService.get()!=null){MacroService.get().stop();MacroService.get().hideControls();}toast("정지");});
+-        LinearLayout tools=card(page);r=row(tools);halfButton(r,"파일 내보내기",this::exportMacro);halfButton(r,"파일 불러오기",this::importMacro);r=row(tools);halfButton(r,"실행 기록",this::logs);halfButton(r,"인식 테스트 화면",this::testScreen);
+-        text(page,"한글 OCR 내장 · 화면과 입력 내용은 기기 안에서 처리\nAndroid 11 이상 · 화면을 켜 둔 상태에서 사용",11,muted);font(page);
+-    }
+-    private void refreshList(){
+-        list.removeAllViews();if(macro.steps.isEmpty()){text(list,"아직 동작이 없습니다. ‘+ 동작 추가’를 눌러 시작하세요.",14,muted);return;}
+-        for(int i=0;i<macro.steps.size();i++){
+-            final int index=i;Step s=macro.steps.get(i);LinearLayout c=card(list);TextView name=text(c,String.format(Locale.KOREA,"%02d  %s%s",i+1,s.name(),s.enabled?"":" · 사용 안 함"),16,s.enabled?ink:muted);text(c,s.detail(),12,muted);text(c,"반복 "+s.repeat+"회 · 완료 후 "+s.after+"ms",11,muted);name.setOnClickListener(v->edit(s));
+-            LinearLayout r=row(c);small(r,"편집",()->edit(s));small(r,"↑",()->{if(index>0){Collections.swap(macro.steps,index,index-1);save();refreshList();}});small(r,"↓",()->{if(index<macro.steps.size()-1){Collections.swap(macro.steps,index,index+1);save();refreshList();}});small(r,"더보기",()->stepMenu(index));font(c);
+-        }
+-    }
+-    private void small(LinearLayout r,String label,Runnable click){Button b=button(r,label,click);b.setTextSize(11);b.setMinWidth(0);b.setMinimumWidth(0);b.setPadding(0,0,0,0);b.setLayoutParams(new LinearLayout.LayoutParams(0,dp(43),1));}
+-    private void stepMenu(int i){Step s=macro.steps.get(i);show(new AlertDialog.Builder(this).setTitle((i+1)+"번 동작").setItems(new String[]{"복제",s.enabled?"사용 안 함으로":"사용함으로","삭제"},(d,w)->{if(w==0)macro.steps.add(i+1,new Step(s.json()));if(w==1)s.enabled=!s.enabled;if(w==2)macro.steps.remove(i);save();render();}),null);}
+-    private boolean service(){if(MacroService.get()!=null)return true;accessibility();return false;}
+-    private void accessibility(){
+-        show(new AlertDialog.Builder(this).setTitle("접근성 사용 안내").setMessage("터치와 스와이프 실행, 다른 앱의 화면 글자 읽기, 화면 캡처를 통한 OCR, 뒤로가기에 접근성 권한을 사용합니다.\n\nOCR 모델은 APK에 포함되어 있습니다. 화면이나 입력 내용은 서버로 전송하지 않습니다. 실행은 직접 만든 매크로로만 시작되며, 컨트롤 또는 알림의 정지 버튼으로 중단할 수 있습니다.\n\n설정에서 ‘설치된 서비스 → 윤석 터치매크로’를 켜주세요.")
+-            .setPositiveButton("설정 열기",(d,w)->startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))).setNegativeButton("취소",null),null);
+-    }
+-    private void start(){if(!service())return;try{macro.validate();save();MacroService.get().showControls();MacroService.get().start(macro);moveTaskToBack(true);}catch(Exception e){toast(e.getMessage());}}
+-    private void pick(){if(service()){if(MacroService.get().running){toast("먼저 매크로를 정지하세요");return;}save();moveTaskToBack(true);MacroService.get().pickPoint();}}
+-    private void chooseStep(){show(new AlertDialog.Builder(this).setTitle("추가할 동작").setItems(Step.NAMES,(d,w)->{if(macro.steps.size()>=500){toast("최대 500개입니다");return;}Step s=new Step(Step.TYPES[w]);macro.steps.add(s);save();render();edit(s);}),null);}
+-    private LinearLayout form(){LinearLayout f=new LinearLayout(this);f.setOrientation(LinearLayout.VERTICAL);f.setPadding(dp(20),dp(8),dp(20),dp(12));return f;}
+-    private ScrollView wrap(LinearLayout f){ScrollView s=new ScrollView(this);s.addView(f);return s;}
+-    private EditText field(LinearLayout f,String label,String value,boolean numeric){
+-        text(f,label,12,muted);EditText e=new EditText(this);e.setText(value);e.setTextSize(15);e.setSingleLine(!label.contains("여러 줄"));e.setSelectAllOnFocus(true);
+-        if(numeric)e.setInputType(InputType.TYPE_CLASS_NUMBER|InputType.TYPE_NUMBER_FLAG_DECIMAL);f.addView(e,new LinearLayout.LayoutParams(-1,-2));return e;
+-    }
+-    private Spinner spinner(LinearLayout f,String label,String[] labels,int selected){
+-        text(f,label,12,muted);Spinner s=new Spinner(this);ArrayAdapter<String> a=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,labels){@Override public View getView(int p,View v,ViewGroup parent){View out=super.getView(p,v,parent);font(out);return out;}@Override public View getDropDownView(int p,View v,ViewGroup parent){View out=super.getDropDownView(p,v,parent);font(out);return out;}};a.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);s.setAdapter(a);s.setSelection(Math.max(0,selected));f.addView(s,new LinearLayout.LayoutParams(-1,dp(48)));return s;
+-    }
+-    private CheckBox check(LinearLayout f,String label,boolean value){CheckBox c=new CheckBox(this);c.setText(label);c.setChecked(value);f.addView(c);return c;}
+-    private int selected(String[] values,String value){for(int i=0;i<values.length;i++)if(values[i].equals(value))return i;return 0;}
+-    private int number(EditText e){return Integer.parseInt(e.getText().toString().trim());}
+-    private double decimal(EditText e){return Double.parseDouble(e.getText().toString().trim());}
+-    private void show(AlertDialog.Builder b,Runnable ready){AlertDialog d=b.create();d.setOnShowListener(x->{font(d.getWindow().getDecorView());if(ready!=null)ready.run();});d.show();}
+-    private void edit(Step original){
+-        Step s=new Step(original.json());LinearLayout f=form();text(f,s.name(),21,ink);
+-        HashMap<String,EditText> fields=new HashMap<>();
+-        if(Arrays.asList("TAP","DOUBLE","LONG","SWIPE").contains(s.type)){
+-            text(f,"화면 전체를 100%로 계산합니다. 같은 화면 방향에서 사용하세요.",12,muted);
+-            fields.put("x",field(f,"X 위치 % · 0~100",Double.toString(s.x),true));fields.put("y",field(f,"Y 위치 % · 0~100",Double.toString(s.y),true));
+-            if(s.type.equals("SWIPE")){fields.put("x2",field(f,"끝 X 위치 %",Double.toString(s.x2),true));fields.put("y2",field(f,"끝 Y 위치 %",Double.toString(s.y2),true));}
+-        }
+-        if(Arrays.asList("LONG","SWIPE","WAIT").contains(s.type))fields.put("duration",field(f,"동작 시간 ms · 1000 = 1초",Integer.toString(s.duration),true));
+-        Spinner matching=null,source=null,failure=null;CheckBox spaces=null,casing=null;
+-        String[] matchValues={"CONTAINS","EXACT","REGEX"},sourceValues={"AUTO","ACCESS","OCR"},failureValues={"STOP","SKIP","BACK_RETRY"};
+-        if(s.textAction()){
+-            fields.put("text",field(f,"찾을 글자",s.text,false));
+-            matching=spinner(f,"글자 비교",new String[]{"포함","완전 일치","정규식"},selected(matchValues,s.match));
+-            source=spinner(f,"검색 방식",new String[]{"자동 · 화면 정보 → OCR","화면 정보만 · 빠름","OCR만 · 이미지 속 글자"},selected(sourceValues,s.source));
+-            spaces=check(f,"공백·줄바꿈 무시",s.ignoreSpaces);casing=check(f,"영문 대소문자 무시",s.ignoreCase);
+-            fields.put("occurrence",field(f,"같은 글자 중 몇 번째 · 위에서 아래, 왼쪽에서 오른쪽",Integer.toString(s.occurrence),true));
+-            fields.put("timeout",field(f,"각 화면에서 기다릴 최대 시간 ms · 0 = 한 번 확인",Integer.toString(s.timeout),true));
+-            if(s.type.equals("TEXT_BRANCH")){
+-                text(f,"0은 다음 동작입니다. 번호는 현재 목록을 기준으로 합니다. 재정렬·삭제 후 확인하세요.",12,muted);
+-                fields.put("found",field(f,"글자 있으면 이동할 동작 번호",Integer.toString(s.found),true));fields.put("missing",field(f,"글자 없으면 이동할 동작 번호",Integer.toString(s.missing),true));
+-            }else{
+-                failure=spinner(f,"글자가 없으면",new String[]{"매크로 정지","다음 동작으로","뒤로가기 후 다시 찾기 · 최종 실패 시 정지"},selected(failureValues,s.failure));
+-                fields.put("retries",field(f,"최대 뒤로가기 횟수 · 0~100",Integer.toString(s.retries),true));fields.put("retryDelay",field(f,"뒤로간 뒤 화면 안정 대기 ms · 최소 300",Integer.toString(s.retryDelay),true));
+-                text(f,"최대 횟수 뒤에도 글자가 없으면 중단합니다. 캡처 오류는 ‘글자 없음’으로 처리하지 않습니다.",11,muted);
+-            }
+-        }
+-        if(s.type.equals("INPUT"))fields.put("text",field(f,"입력할 문자 · 여러 줄 가능",s.text,false));
+-        if(s.type.equals("APP")){
+-            EditText e=field(f,"실행할 앱 패키지 이름",s.packageName,false);fields.put("packageName",e);button(f,"설치된 앱에서 선택",()->apps(e));
+-        }
+-        if(s.type.equals("GOTO")){text(f,"동작 번호는 목록을 재정렬하거나 삭제하면 달라집니다.",12,muted);fields.put("target",field(f,"이동할 동작 번호 · 1부터",Integer.toString(s.target),true));}
+-        fields.put("repeat",field(f,"이 동작 반복 횟수 · 1~1000",Integer.toString(s.repeat),true));fields.put("after",field(f,"동작 완료 후 대기 ms",Integer.toString(s.after),true));CheckBox enabled=check(f,"이 동작 사용",s.enabled);
+-        final Spinner fm=matching,fsrc=source,ff=failure;final CheckBox fsp=spaces,fca=casing;
+-        AlertDialog d=new AlertDialog.Builder(this).setView(wrap(f)).setPositiveButton("적용",null).setNegativeButton("취소",null).create();
+-        d.setOnShowListener(v->{font(d.getWindow().getDecorView());d.getButton(-1).setOnClickListener(b->{try{
+-            if(fields.containsKey("x")){s.x=decimal(fields.get("x"));s.y=decimal(fields.get("y"));}if(fields.containsKey("x2")){s.x2=decimal(fields.get("x2"));s.y2=decimal(fields.get("y2"));}
+-            if(fields.containsKey("duration"))s.duration=number(fields.get("duration"));if(fields.containsKey("text"))s.text=fields.get("text").getText().toString();
+-            if(fm!=null){s.match=matchValues[fm.getSelectedItemPosition()];s.source=sourceValues[fsrc.getSelectedItemPosition()];s.ignoreSpaces=fsp.isChecked();s.ignoreCase=fca.isChecked();s.timeout=number(fields.get("timeout"));s.occurrence=number(fields.get("occurrence"));}
+-            if(ff!=null){s.failure=failureValues[ff.getSelectedItemPosition()];s.retries=number(fields.get("retries"));s.retryDelay=number(fields.get("retryDelay"));}
+-            if(fields.containsKey("found")){s.found=number(fields.get("found"));s.missing=number(fields.get("missing"));}
+-            if(fields.containsKey("packageName"))s.packageName=fields.get("packageName").getText().toString().trim();if(fields.containsKey("target"))s.target=number(fields.get("target"));
+-            s.repeat=number(fields.get("repeat"));s.after=number(fields.get("after"));s.enabled=enabled.isChecked();s.validate(macro.steps.size());
+-            macro.steps.set(macro.steps.indexOf(original),s);save();render();d.dismiss();
+-        }catch(Exception e){toast(e instanceof NumberFormatException?"숫자를 정확히 입력하세요":e.getMessage());}});});d.show();
+-    }
+-    private void settings(){
+-        LinearLayout f=form();text(f,"실행 설정",21,ink);
+-        EditText rounds=field(f,"전체 반복 횟수 · 0 = 무한",Integer.toString(macro.rounds),true),gap=field(f,"전체 반복 사이 대기 ms",Integer.toString(macro.gap),true),start=field(f,"시작 전 대기 ms",Integer.toString(macro.startDelay),true),max=field(f,"최대 실행 시간 분 · 0 = 제한 없음",Integer.toString(macro.maxMinutes),true);
+-        text(f,"화면이 꺼지거나 방향이 바뀌면 중단됩니다. 긴 실행은 화면 자동 꺼짐 시간을 직접 조정하세요.",12,muted);
+-        AlertDialog d=new AlertDialog.Builder(this).setView(wrap(f)).setPositiveButton("적용",null).setNegativeButton("취소",null).create();d.setOnShowListener(v->{font(d.getWindow().getDecorView());d.getButton(-1).setOnClickListener(b->{try{int r=number(rounds),g=number(gap),st=number(start),mx=number(max);if(r<0||r>100000||g<0||g>600000||st<0||st>600000||mx<0||mx>1440)throw new IllegalArgumentException("범위를 확인하세요");macro.rounds=r;macro.gap=g;macro.startDelay=st;macro.maxMinutes=mx;save();render();d.dismiss();}catch(Exception e){toast("숫자 범위를 확인하세요");}});});d.show();
+-    }
+-    private void namedSave(){
+-        LinearLayout f=form();EditText name=field(f,"매크로 이름",macro.name,false);AlertDialog d=new AlertDialog.Builder(this).setTitle("이름으로 저장").setView(f).setPositiveButton("저장",null).setNegativeButton("취소",null).create();d.setOnShowListener(v->{font(d.getWindow().getDecorView());d.getButton(-1).setOnClickListener(b->{String value=name.getText().toString().trim();if(value.isEmpty()||value.length()>80){toast("이름은 1~80자입니다");return;}if(Store.library(this).containsKey(value)&&!value.equals(macro.name)){new AlertDialog.Builder(this).setMessage("같은 이름이 있습니다. 덮어쓸까요?").setPositiveButton("덮어쓰기",(a,w)->{macro.name=value;Store.put(this,macro);render();d.dismiss();}).setNegativeButton("취소",null).show();}else{macro.name=value;Store.put(this,macro);render();d.dismiss();}});});d.show();
+-    }
+-    private void library(){LinkedHashMap<String,Macro> all=Store.library(this);if(all.isEmpty()){toast("이름으로 저장한 매크로가 없습니다");return;}String[] names=all.keySet().toArray(new String[0]);show(new AlertDialog.Builder(this).setTitle("저장한 매크로").setItems(names,(d,w)->show(new AlertDialog.Builder(this).setTitle(names[w]).setItems(new String[]{"불러오기","삭제"},(a,b)->{if(b==0){macro=new Macro(all.get(names[w]).json());save();render();}else{new AlertDialog.Builder(this).setMessage("‘"+names[w]+"’ 저장본을 삭제할까요?").setPositiveButton("삭제",(x,y)->Store.remove(this,names[w])).setNegativeButton("취소",null).show();}}),null)),null);}
+-    private void apps(EditText input){
+-        Intent query=new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER);List<android.content.pm.ResolveInfo> result=getPackageManager().queryIntentActivities(query,0);result.sort(Comparator.comparing(r->r.loadLabel(getPackageManager()).toString()));
+-        String[] names=new String[result.size()];for(int i=0;i<result.size();i++)names[i]=result.get(i).loadLabel(getPackageManager())+"\n"+result.get(i).activityInfo.packageName;
+-        show(new AlertDialog.Builder(this).setTitle("실행할 앱").setItems(names,(d,w)->input.setText(result.get(w).activityInfo.packageName)),null);
+-    }
+-    private void exportMacro(){exportText=macro.json().toString();exportMime="application/json";Intent i=new Intent(Intent.ACTION_CREATE_DOCUMENT).setType(exportMime).addCategory(Intent.CATEGORY_OPENABLE).putExtra(Intent.EXTRA_TITLE,macro.name.replaceAll("[\\\\/:*?\"<>|]","_")+".json");startActivityForResult(i,101);}
+-    private void importMacro(){startActivityForResult(new Intent(Intent.ACTION_OPEN_DOCUMENT).setType("*/*").addCategory(Intent.CATEGORY_OPENABLE),102);}
+-    @Override protected void onActivityResult(int req,int result,Intent data){
+-        super.onActivityResult(req,result,data);if(result!=RESULT_OK||data==null||data.getData()==null)return;
+-        try{
+-            if(req==101||req==103){try(OutputStream out=getContentResolver().openOutputStream(data.getData())){if(out==null)throw new IOException("파일을 열지 못했습니다");out.write(exportText.getBytes(StandardCharsets.UTF_8));}toast("저장했습니다");}
+-            if(req==102){try(InputStream in=getContentResolver().openInputStream(data.getData())){if(in==null)throw new IOException("파일을 열지 못했습니다");ByteArrayOutputStream buffer=new ByteArrayOutputStream();byte[] chunk=new byte[8192];int count;while((count=in.read(chunk))!=-1){buffer.write(chunk,0,count);if(buffer.size()>2*1024*1024)throw new IOException("파일이 너무 큽니다");}byte[] b=buffer.toByteArray();if(b.length>2*1024*1024)throw new IOException("파일이 너무 큽니다");Macro loaded=new Macro(new JSONObject(new String(b,StandardCharsets.UTF_8)));loaded.validate();macro=loaded;save();render();toast("불러왔습니다");}}
+-        }catch(Exception e){toast("파일 처리 실패 · "+e.getMessage());}
+-    }
+-    private void logs(){String log=MacroService.get()==null?getSharedPreferences("macros",0).getString("last_log","기록 없음"):MacroService.get().logText();LinearLayout f=form();text(f,log.isEmpty()?"기록 없음":log,12,ink);show(new AlertDialog.Builder(this).setTitle("최근 실행 기록").setView(wrap(f)).setPositiveButton("닫기",null).setNeutralButton("파일 저장",(d,w)->{exportText=log;startActivityForResult(new Intent(Intent.ACTION_CREATE_DOCUMENT).setType("text/plain").addCategory(Intent.CATEGORY_OPENABLE).putExtra(Intent.EXTRA_TITLE,"매크로 실행기록.txt"),103);}),null);}
+-    private void help(){LinearLayout f=form();text(f,"처음 시작하기",20,ink);text(f,"1. 접근성 설정에서 윤석 터치매크로를 켭니다.\n2. 동작을 추가하고 이름으로 저장합니다.\n3. ‘컨트롤만 띄우기’를 누르고 자동화할 앱으로 갑니다.\n4. 화면 위 ‘시작’을 누릅니다.\n5. 일시정지/계속, 정지 버튼으로 제어합니다. 실행 중 알림에서도 정지할 수 있습니다.",14,ink);
+-        text(f,"글자 없으면 뒤로가기",18,blue);text(f,"‘글자 찾아 터치’ → 찾을 글자 입력 → ‘글자가 없으면: 뒤로가기 후 다시 찾기’. 각 화면에서 지정한 시간만큼 찾고, 없으면 뒤로 간 뒤 다시 확인합니다. 최대 횟수를 넘기면 정지합니다.\n\n화면 정보는 일반 버튼·라벨에 빠릅니다. 게임이나 이미지 속 글자는 OCR을 사용하세요. 자동 모드는 화면 정보에서 못 찾으면 OCR로 확인합니다. 동일한 글자의 순서는 위→아래, 왼쪽→오른쪽입니다.",14,ink);
+-        text(f,"좌표와 조건",18,blue);text(f,"좌표는 화면 전체 너비/높이의 비율(%)입니다. ‘화면에서 좌표 선택’은 실제 터치 없이 위치만 기록합니다. 캡처 후 좌표 터치 동작이 추가됩니다. 스와이프는 시작·끝 좌표를 입력하세요.\n\n글자 조건 분기는 있을 때와 없을 때 각각 동작 번호로 이동합니다. 0은 다음입니다. 동작을 정렬·삭제하면 번호를 다시 확인하세요. 전체 반복 0은 무한입니다.",14,ink);
+-        text(f,"사용 시 알아두기",18,blue);text(f,"화면을 켜 두고 사용하세요. 잠금 화면·회전·시간 제한은 실행을 중단합니다. 다른 손가락 터치가 매크로 제스처를 취소할 수 있습니다. 이미 전달된 긴 제스처는 정지 후 짧게 마무리될 수 있습니다.\n\n보안 화면은 캡처가 차단될 수 있습니다. OCR은 폰트·화질·레이아웃에 따라 오인식할 수 있으므로 테스트 후 사용하세요. 이 앱에서 화면·문자 데이터를 서버로 보내는 코드나 인터넷 권한을 추가하지 않았습니다.\n\nAndroid 13 이상에서 접근성 설정이 막히면 앱 정보 우측 메뉴의 ‘제한된 설정 허용’을 확인하세요.",13,muted);show(new AlertDialog.Builder(this).setView(wrap(f)).setPositiveButton("닫기",null),null);}
+-    private void testScreen(){
+-        testing=true;LinearLayout box=form();box.setBackgroundColor(Color.WHITE);content(box);
+-        text(box,"인식 테스트",24,ink);text(box,"아래 버튼은 화면 정보, 파란 캔버스 글자는 OCR로 테스트할 수 있습니다.",13,muted);
+-        TextView result=text(box,"성공 횟수: 0",20,ink);int[] taps={0};button(box,"화면 확인",()->result.setText(getString(R.string.test_taps,++taps[0])));
+-        View canvas=new View(this){@Override public boolean performClick(){return super.performClick();}Paint p=new Paint(3);@Override protected void onDraw(Canvas c){super.onDraw(c);c.drawColor(Color.rgb(232,240,255));p.setColor(Color.rgb(20,40,85));p.setTypeface(getResources().getFont(R.font.nanum_gothic_bold));p.setTextSize(dp(27));p.setTextAlign(Paint.Align.CENTER);c.drawText("테스트 확인",getWidth()/2f,getHeight()/2f+dp(9),p);}};
+-        box.addView(canvas,new LinearLayout.LayoutParams(-1,dp(160)));canvas.setOnTouchListener((v,e)->{if(e.getAction()==MotionEvent.ACTION_UP){v.performClick();result.setText(getString(R.string.ocr_taps,++taps[0]));}return true;});
+-        button(box,"화면 정보 테스트 실행",()->demo("ACCESS","화면 확인"));button(box,"OCR 테스트 실행",()->demo("OCR","테스트 확인"));button(box,"편집 화면으로",this::render);font(box);
+-    }
+-    private void demo(String source,String value){if(!service())return;if(MacroService.get().running){toast("먼저 정지하세요");return;}Macro m=new Macro();m.name="인식 테스트";m.startDelay=1000;Step s=new Step("TEXT_TAP");s.text=value;s.source=source;s.timeout=5000;m.steps.add(s);MacroService.get().start(m);}
+-    private void toast(String s){Toast.makeText(this,s==null?"설정을 확인하세요":s,Toast.LENGTH_LONG).show();}
+-}
+--- 1차/source/app/src/main/java/kr/yunseok/touchmacro/Step.java
++++ 2차/source/app/src/main/java/kr/yunseok/touchmacro/Step.java
+@@ -1,46 +0,0 @@
+-package kr.yunseok.touchmacro;
+-import org.json.JSONObject;
+-public final class Step {
+-    public static final String[] TYPES = {"TAP","DOUBLE","LONG","SWIPE","WAIT","TEXT_TAP","TEXT_WAIT","TEXT_BRANCH","BACK","HOME","RECENTS","INPUT","APP","GOTO","STOP"};
+-    public static final String[] NAMES = {"좌표 터치","두 번 터치","길게 누르기","스와이프","대기","글자 찾아 터치","글자 나타날 때까지 대기","글자 조건 분기","뒤로가기","홈으로","최근 앱","문자 입력","앱 실행","동작 번호로 이동","매크로 정지"};
+-    public String type="TAP", text="", match="CONTAINS", source="AUTO", failure="STOP", packageName="";
+-    public double x=50,y=50,x2=50,y2=20;
+-    public int duration=100,after=500,repeat=1,timeout=3000,retries=3,retryDelay=1000,found=0,missing=0,target=1,occurrence=1;
+-    public boolean ignoreSpaces=true,ignoreCase=true,enabled=true;
+-    public Step() {}
+-    public Step(String t){type=t;if("LONG".equals(t)) duration=800;if("SWIPE".equals(t)) duration=450;}
+-    public Step(JSONObject o) {
+-        type=o.optString("type","TAP"); text=o.optString("text",""); match=o.optString("match","CONTAINS"); source=o.optString("source","AUTO"); failure=o.optString("failure","STOP");
+-        packageName=o.optString("packageName",""); x=o.optDouble("x",50); y=o.optDouble("y",50); x2=o.optDouble("x2",50); y2=o.optDouble("y2",20);
+-        duration=o.optInt("duration",100);after=o.optInt("after",500); repeat=o.optInt("repeat",1);timeout=o.optInt("timeout",3000);retries=o.optInt("retries",3);retryDelay=o.optInt("retryDelay",1000);
+-        found=o.optInt("found",0);missing=o.optInt("missing",0);target=o.optInt("target",1);occurrence=o.optInt("occurrence",1);
+-        ignoreSpaces=o.optBoolean("ignoreSpaces",true);ignoreCase=o.optBoolean("ignoreCase",true);enabled=o.optBoolean("enabled",true);
+-    }
+-    public JSONObject json() {
+-        JSONObject o=new JSONObject();
+-        try {o.put("type",type).put("text",text).put("match",match).put("source",source).put("failure",failure).put("packageName",packageName)
+-            .put("x",x).put("y",y).put("x2",x2).put("y2",y2).put("duration",duration).put("after",after).put("repeat",repeat)
+-            .put("timeout",timeout).put("retries",retries).put("retryDelay",retryDelay).put("found",found).put("missing",missing).put("target",target).put("occurrence",occurrence)
+-            .put("ignoreSpaces",ignoreSpaces).put("ignoreCase",ignoreCase).put("enabled",enabled);}catch(Exception e){throw new IllegalStateException(e);}
+-        return o;
+-    }
+-    public String name(){ for(int i=0;i<TYPES.length;i++)if(TYPES[i].equals(type)) return NAMES[i]; return type; }
+-    public boolean textAction(){return type.startsWith("TEXT_");}
+-    public String detail() {
+-        if(textAction()) return "“"+text+"” · "+("EXACT".equals(match)?"일치":"REGEX".equals(match)?"정규식":"포함")+("BACK_RETRY".equals(failure)?" · 없으면 뒤로 "+retries+"회":"")+(type.equals("TEXT_BRANCH")?" · 있음 "+(found==0?"다음":found)+" / 없음 "+(missing==0?"다음":missing):"");
+-        switch(type){case "TAP":case "DOUBLE":case "LONG":return Math.round(x)+"%, "+Math.round(y)+"%";case "SWIPE":return Math.round(x)+","+Math.round(y)+" → "+Math.round(x2)+","+Math.round(y2)+"%";case "WAIT":return duration+"ms";case "INPUT":return text;case "APP":return packageName;case "GOTO":return target+"번으로 이동";default:return "완료 후 "+after+"ms";}
+-    }
+-    public void validate(int count) {
+-        boolean known=false;for(String t:TYPES)if(t.equals(type))known=true;
+-        if(!known)throw new IllegalArgumentException("알 수 없는 동작");
+-        if(!Double.isFinite(x)||!Double.isFinite(y)||!Double.isFinite(x2)||!Double.isFinite(y2)||x<0||x>100||y<0||y>100||x2<0||x2>100||y2<0||y2>100)throw new IllegalArgumentException("좌표는 0~100%입니다");
+-        if(duration<1||duration>600000||after<0||after>600000||repeat<1||repeat>1000||timeout<0||timeout>600000||retries<0||retries>100||retryDelay<300||retryDelay>600000||occurrence<1||occurrence>100)throw new IllegalArgumentException("시간·반복 횟수 범위를 확인하세요");
+-        if((type.equals("LONG")||type.equals("SWIPE"))&&duration>59000)throw new IllegalArgumentException("길게 누르기·스와이프는 최대 59000ms입니다");
+-        if(textAction()&&text.trim().isEmpty())throw new IllegalArgumentException("찾을 글자를 입력하세요");
+-        if(!java.util.Arrays.asList("CONTAINS","EXACT","REGEX").contains(match)||!java.util.Arrays.asList("AUTO","ACCESS","OCR").contains(source)||!java.util.Arrays.asList("STOP","SKIP","BACK_RETRY").contains(failure))throw new IllegalArgumentException("글자 비교 옵션을 확인하세요");
+-        if("REGEX".equals(match))java.util.regex.Pattern.compile(text);
+-        if("APP".equals(type)&&!packageName.matches("[a-zA-Z][a-zA-Z0-9_]*(\\.[a-zA-Z0-9_]+)+"))throw new IllegalArgumentException("앱 패키지 이름을 확인하세요");
+-        if("GOTO".equals(type)&&(target<1||target>count))throw new IllegalArgumentException("이동할 동작 번호가 없습니다");
+-        if("TEXT_BRANCH".equals(type)&&(found<0||missing<0||found>count||missing>count))throw new IllegalArgumentException("분기 번호는 0(다음)~"+count+"입니다");
+-    }
+-}
+--- 1차/source/app/src/main/java/kr/yunseok/touchmacro/StopReceiver.java
++++ 2차/source/app/src/main/java/kr/yunseok/touchmacro/StopReceiver.java
+@@ -1,3 +0,0 @@
+-package kr.yunseok.touchmacro;
+-import android.content.*;
+-public class StopReceiver extends BroadcastReceiver { @Override public void onReceive(Context c,Intent i){ if(MacroService.get()!=null)MacroService.get().stop(); } }
+--- 1차/source/app/src/main/java/kr/yunseok/touchmacro/Store.java
++++ 2차/source/app/src/main/java/kr/yunseok/touchmacro/Store.java
+@@ -1,16 +0,0 @@
+-package kr.yunseok.touchmacro;
+-import android.content.Context;
+-import org.json.*;
+-import java.util.*;
+-public final class Store {
+-    public static String current(Context c){return c.getSharedPreferences("macros",0).getString("current","");}
+-    public static void save(Context c,Macro m){c.getSharedPreferences("macros",0).edit().putString("current",m.json().toString()).apply();}
+-    public static Macro load(Context c){try{String s=current(c);return s.isEmpty()?sample():new Macro(new JSONObject(s));}catch(Exception e){return sample();}}
+-    public static LinkedHashMap<String,Macro> library(Context c){
+-        LinkedHashMap<String,Macro> out=new LinkedHashMap<>();try{JSONObject o=new JSONObject(c.getSharedPreferences("macros",0).getString("library","{}"));Iterator<String> k=o.keys();while(k.hasNext()){String key=k.next();out.put(key,new Macro(o.getJSONObject(key)));}}catch(Exception ignored){}return out;
+-    }
+-    public static void put(Context c,Macro m){LinkedHashMap<String,Macro> all=library(c);all.put(m.name,m);writeLibrary(c,all);save(c,m);}
+-    public static void remove(Context c,String name){LinkedHashMap<String,Macro> all=library(c);all.remove(name);writeLibrary(c,all);}
+-    private static void writeLibrary(Context c,Map<String,Macro> all){JSONObject o=new JSONObject();try{for(Map.Entry<String,Macro> e:all.entrySet())o.put(e.getKey(),e.getValue().json());}catch(Exception e){throw new IllegalStateException(e);}c.getSharedPreferences("macros",0).edit().putString("library",o.toString()).apply();}
+-    public static Macro sample(){Macro m=new Macro();m.name="예제 · 글자 찾고 터치";Step s=new Step("TEXT_TAP");s.text="확인";s.failure="BACK_RETRY";s.retries=3;s.retryDelay=1000;s.timeout=2000;m.steps.add(s);return m;}
+-}
+--- 1차/source/app/src/main/java/kr/yunseok/touchmacro/TextRules.java
++++ 2차/source/app/src/main/java/kr/yunseok/touchmacro/TextRules.java
+@@ -1,23 +0,0 @@
+-package kr.yunseok.touchmacro;
+-import java.text.Normalizer;
+-import java.util.Locale;
+-import java.util.regex.Pattern;
+-public final class TextRules {
+-    private TextRules() {}
+-    public static String normalize(String s, boolean spaces, boolean ignoreCase) {
+-        s = Normalizer.normalize(s == null ? "" : s, Normalizer.Form.NFKC);
+-        if (spaces) s = s.replaceAll("\\s+", "");
+-        return ignoreCase ? s.toLowerCase(Locale.ROOT) : s;
+-    }
+-    public static boolean matches(String actual, String wanted, String mode, boolean spaces, boolean ignoreCase) {
+-        if (wanted == null || wanted.trim().isEmpty()) return false;
+-        String a = normalize(actual, spaces, ignoreCase);
+-        if ("REGEX".equals(mode)) {
+-            // Preserve regex syntax and its spaces; only normalize the displayed text.
+-            int flags = ignoreCase ? Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE : 0;
+-            return Pattern.compile(wanted, flags).matcher(a).find();
+-        }
+-        String b = normalize(wanted, spaces, ignoreCase);
+-        return "EXACT".equals(mode) ? a.equals(b) : a.contains(b);
+-    }
+-}
+--- 1차/source/app/src/main/java/kr/yunseok/touchmacro/TouchLabel.java
++++ 2차/source/app/src/main/java/kr/yunseok/touchmacro/TouchLabel.java
+@@ -1,2 +0,0 @@
+-package kr.yunseok.touchmacro; import android.content.Context; import android.widget.TextView; // The app uses a platform Activity and platform Material theme, without AppCompat.
+-@android.annotation.SuppressLint("AppCompatCustomView") public class TouchLabel extends TextView { public TouchLabel(Context c){super(c);} @Override public boolean performClick(){return super.performClick();} }
+--- 1차/source/app/src/main/java/kr/yunseok/touchmacro/TouchPane.java
++++ 2차/source/app/src/main/java/kr/yunseok/touchmacro/TouchPane.java
+@@ -1 +0,0 @@
+-package kr.yunseok.touchmacro; import android.content.Context; import android.widget.LinearLayout; public class TouchPane extends LinearLayout { public TouchPane(Context c){super(c);} @Override public boolean performClick(){return super.performClick();} }
+--- 1차/source/app/src/main/res/drawable/ic_macro.xml
++++ 2차/source/app/src/main/res/drawable/ic_macro.xml
+@@ -1 +0,0 @@
+-<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="48dp" android:height="48dp" android:viewportWidth="48" android:viewportHeight="48"><path android:fillColor="#2856D8" android:pathData="M0,0H48V48H0Z"/><path android:fillColor="#FFFFFF" android:pathData="M17,11L37,24L17,37Z"/></vector>--- 1차/source/app/src/main/res/values/strings.xml
++++ 2차/source/app/src/main/res/values/strings.xml
+@@ -1 +0,0 @@
+-<resources><string name="app_name">윤석 터치매크로</string><string name="service_description">윤석님이 직접 만든 동작을 실행합니다. 화면 글자 읽기, 기기 내 한글 OCR, 좌표 터치, 스와이프와 뒤로가기에 접근성을 사용합니다. 화면이나 입력 내용은 서버로 전송하지 않습니다. 화면 위 정지 버튼으로 언제든 멈출 수 있습니다.</string><string name="test_taps">성공 횟수: %1$d</string><string name="ocr_taps">OCR 성공 횟수: %1$d</string></resources>--- 1차/source/app/src/main/res/values/styles.xml
++++ 2차/source/app/src/main/res/values/styles.xml
+@@ -1 +0,0 @@
+-<resources><style name="AppTheme" parent="android:style/Theme.Material.Light.NoActionBar"><item name="android:fontFamily">@font/nanum_gothic_bold</item><item name="android:windowLightStatusBar">true</item><item name="android:statusBarColor">#F3F6FB</item><item name="android:navigationBarColor">#F3F6FB</item><item name="android:colorAccent">#2856D8</item><item name="android:windowActionModeOverlay">true</item></style></resources>--- 1차/source/app/src/main/res/xml/accessibility.xml
++++ 2차/source/app/src/main/res/xml/accessibility.xml
+@@ -1,2 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android" android:description="@string/service_description" android:accessibilityEventTypes="typeWindowStateChanged|typeWindowContentChanged" android:accessibilityFeedbackType="feedbackGeneric" android:notificationTimeout="100" android:canRetrieveWindowContent="true" android:canPerformGestures="true" android:canTakeScreenshot="true" android:accessibilityFlags="flagRetrieveInteractiveWindows|flagReportViewIds" android:settingsActivity="kr.yunseok.touchmacro.MainActivity"/>
+--- 1차/source/app/src/main/res/xml/data_extraction.xml
++++ 2차/source/app/src/main/res/xml/data_extraction.xml
+@@ -1 +0,0 @@
+-<data-extraction-rules><cloud-backup><exclude domain="root" path="."/></cloud-backup><device-transfer><exclude domain="root" path="."/></device-transfer></data-extraction-rules>--- 1차/source/app/src/test/java/kr/yunseok/touchmacro/ModelTest.java
++++ 2차/source/app/src/test/java/kr/yunseok/touchmacro/ModelTest.java
+@@ -1,16 +0,0 @@
+-package kr.yunseok.touchmacro;
+-import org.junit.Test;
+-import org.json.JSONObject;
+-import static org.junit.Assert.*;
+-public class ModelTest {
+- @Test public void sampleHasFiniteBackRetries(){Macro m=Store.sample();m.validate();assertEquals("BACK_RETRY",m.steps.get(0).failure);assertEquals(3,m.steps.get(0).retries);}
+- @Test public void serializePreservesTextAndBranchSettings(){Macro m=new Macro();Step s=new Step("TEXT_BRANCH");s.text="구매 확인";s.found=2;s.missing=0;s.match="EXACT";s.source="OCR";s.occurrence=2;m.steps.add(s);m.steps.add(new Step("STOP"));m.rounds=0;Macro restored=new Macro(m.json());restored.validate();assertEquals(s.text,restored.steps.get(0).text);assertEquals(2,restored.steps.get(0).found);assertEquals("OCR",restored.steps.get(0).source);assertEquals(0,restored.rounds);}
+- @Test(expected=IllegalArgumentException.class) public void missingBranchTargetRejected(){Step s=new Step("TEXT_BRANCH");s.text="확인";s.missing=3;s.validate(2);}
+- @Test(expected=IllegalArgumentException.class) public void invalidGotoRejected(){Step s=new Step("GOTO");s.target=0;s.validate(1);}
+- @Test(expected=IllegalArgumentException.class) public void blankTargetRejected(){new Step("TEXT_TAP").validate(1);}
+- @Test(expected=IllegalArgumentException.class) public void nanCoordinateRejected(){Step s=new Step();s.x=Double.NaN;s.validate(1);}
+- @Test(expected=IllegalArgumentException.class) public void negativeRetriesRejected(){Step s=new Step("TEXT_TAP");s.text="확인";s.retries=-1;s.validate(1);}
+- @Test(expected=IllegalArgumentException.class) public void invalidSourceRejected(){Step s=new Step("TEXT_TAP");s.text="확인";s.source="ONLINE";s.validate(1);}
+- @Test(expected=IllegalArgumentException.class) public void futureSchemaRejected() throws Exception {new Macro(new JSONObject("{\"schema\":9,\"steps\":[]}"));}
+- @Test(expected=IllegalArgumentException.class) public void emptyMacroRejected(){new Macro().validate();}
+-}
+--- 1차/source/app/src/test/java/kr/yunseok/touchmacro/TextRulesTest.java
++++ 2차/source/app/src/test/java/kr/yunseok/touchmacro/TextRulesTest.java
+@@ -1,11 +0,0 @@
+-package kr.yunseok.touchmacro;
+-import org.junit.Test;
+-import static org.junit.Assert.*;
+-public class TextRulesTest {
+- @Test public void koreanSpaceAndExact(){assertTrue(TextRules.matches("  구매\n 확인  ","구매확인","EXACT",true,true));assertFalse(TextRules.matches("구매 확인 취소","구매 확인","EXACT",false,true));}
+- @Test public void containsAndCase(){assertTrue(TextRules.matches("BUY NOW","buy","CONTAINS",false,true));assertFalse(TextRules.matches("BUY NOW","buy","CONTAINS",false,false));}
+- @Test public void neverMatchEmptyTarget(){assertFalse(TextRules.matches("삭제","","CONTAINS",true,true));assertFalse(TextRules.matches("삭제","  ","REGEX",true,true));}
+- @Test public void unicodeNormalization(){assertTrue(TextRules.matches("ＡＢＣ","abc","EXACT",false,true));assertTrue(TextRules.matches("확인","확인","EXACT",false,false));}
+- @Test public void regexDoesNotDestroyExpression(){assertTrue(TextRules.matches("확인123","확인\\d+","REGEX",true,true));assertFalse(TextRules.matches("확인","확인\\d+","REGEX",true,true));}
+- @Test(expected=java.util.regex.PatternSyntaxException.class) public void invalidRegexFails(){TextRules.matches("확인","[","REGEX",true,true);}
+-}
+--- 1차/source/build.gradle
++++ 2차/source/build.gradle
+@@ -1 +0,0 @@
+-plugins { id 'com.android.application' version '8.9.1' apply false }
+--- 1차/source/gradle.properties
++++ 2차/source/gradle.properties
+@@ -1,4 +0,0 @@
+-org.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8
+-android.useAndroidX=true
+-android.nonTransitiveRClass=true
+-android.overridePathCheck=true
+--- 1차/source/gradle/wrapper/gradle-wrapper.properties
++++ 2차/source/gradle/wrapper/gradle-wrapper.properties
+@@ -1,7 +0,0 @@
+-distributionBase=GRADLE_USER_HOME
+-distributionPath=wrapper/dists
+-distributionUrl=https\://services.gradle.org/distributions/gradle-8.13-bin.zip
+-networkTimeout=10000
+-validateDistributionUrl=true
+-zipStoreBase=GRADLE_USER_HOME
+-zipStorePath=wrapper/dists
+--- 1차/source/gradlew
++++ 2차/source/gradlew
+@@ -1,251 +0,0 @@
+-#!/bin/sh
+-
+-#
+-# Copyright © 2015-2021 the original authors.
+-#
+-# Licensed under the Apache License, Version 2.0 (the "License");
+-# you may not use this file except in compliance with the License.
+-# You may obtain a copy of the License at
+-#
+-#      https://www.apache.org/licenses/LICENSE-2.0
+-#
+-# Unless required by applicable law or agreed to in writing, software
+-# distributed under the License is distributed on an "AS IS" BASIS,
+-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+-# See the License for the specific language governing permissions and
+-# limitations under the License.
+-#
+-# SPDX-License-Identifier: Apache-2.0
+-#
+-
+-##############################################################################
+-#
+-#   Gradle start up script for POSIX generated by Gradle.
+-#
+-#   Important for running:
+-#
+-#   (1) You need a POSIX-compliant shell to run this script. If your /bin/sh is
+-#       noncompliant, but you have some other compliant shell such as ksh or
+-#       bash, then to run this script, type that shell name before the whole
+-#       command line, like:
+-#
+-#           ksh Gradle
+-#
+-#       Busybox and similar reduced shells will NOT work, because this script
+-#       requires all of these POSIX shell features:
+-#         * functions;
+-#         * expansions «$var», «${var}», «${var:-default}», «${var+SET}»,
+-#           «${var#prefix}», «${var%suffix}», and «$( cmd )»;
+-#         * compound commands having a testable exit status, especially «case»;
+-#         * various built-in commands including «command», «set», and «ulimit».
+-#
+-#   Important for patching:
+-#
+-#   (2) This script targets any POSIX shell, so it avoids extensions provided
+-#       by Bash, Ksh, etc; in particular arrays are avoided.
+-#
+-#       The "traditional" practice of packing multiple parameters into a
+-#       space-separated string is a well documented source of bugs and security
+-#       problems, so this is (mostly) avoided, by progressively accumulating
+-#       options in "$@", and eventually passing that to Java.
+-#
+-#       Where the inherited environment variables (DEFAULT_JVM_OPTS, JAVA_OPTS,
+-#       and GRADLE_OPTS) rely on word-splitting, this is performed explicitly;
+-#       see the in-line comments for details.
+-#
+-#       There are tweaks for specific operating systems such as AIX, CygWin,
+-#       Darwin, MinGW, and NonStop.
+-#
+-#   (3) This script is generated from the Groovy template
+-#       https://github.com/gradle/gradle/blob/HEAD/platforms/jvm/plugins-application/src/main/resources/org/gradle/api/internal/plugins/unixStartScript.txt
+-#       within the Gradle project.
+-#
+-#       You can find Gradle at https://github.com/gradle/gradle/.
+-#
+-##############################################################################
+-
+-# Attempt to set APP_HOME
+-
+-# Resolve links: $0 may be a link
+-app_path=$0
+-
+-# Need this for daisy-chained symlinks.
+-while
+-    APP_HOME=${app_path%"${app_path##*/}"}  # leaves a trailing /; empty if no leading path
+-    [ -h "$app_path" ]
+-do
+-    ls=$( ls -ld "$app_path" )
+-    link=${ls#*' -> '}
+-    case $link in             #(
+-      /*)   app_path=$link ;; #(
+-      *)    app_path=$APP_HOME$link ;;
+-    esac
+-done
+-
+-# This is normally unused
+-# shellcheck disable=SC2034
+-APP_BASE_NAME=${0##*/}
+-# Discard cd standard output in case $CDPATH is set (https://github.com/gradle/gradle/issues/25036)
+-APP_HOME=$( cd -P "${APP_HOME:-./}" > /dev/null && printf '%s\n' "$PWD" ) || exit
+-
+-# Use the maximum available, or set MAX_FD != -1 to use that value.
+-MAX_FD=maximum
+-
+-warn () {
+-    echo "$*"
+-} >&2
+-
+-die () {
+-    echo
+-    echo "$*"
+-    echo
+-    exit 1
+-} >&2
+-
+-# OS specific support (must be 'true' or 'false').
+-cygwin=false
+-msys=false
+-darwin=false
+-nonstop=false
+-case "$( uname )" in                #(
+-  CYGWIN* )         cygwin=true  ;; #(
+-  Darwin* )         darwin=true  ;; #(
+-  MSYS* | MINGW* )  msys=true    ;; #(
+-  NONSTOP* )        nonstop=true ;;
+-esac
+-
+-CLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar
+-
+-
+-# Determine the Java command to use to start the JVM.
+-if [ -n "$JAVA_HOME" ] ; then
+-    if [ -x "$JAVA_HOME/jre/sh/java" ] ; then
+-        # IBM's JDK on AIX uses strange locations for the executables
+-        JAVACMD=$JAVA_HOME/jre/sh/java
+-    else
+-        JAVACMD=$JAVA_HOME/bin/java
+-    fi
+-    if [ ! -x "$JAVACMD" ] ; then
+-        die "ERROR: JAVA_HOME is set to an invalid directory: $JAVA_HOME
+-
+-Please set the JAVA_HOME variable in your environment to match the
+-location of your Java installation."
+-    fi
+-else
+-    JAVACMD=java
+-    if ! command -v java >/dev/null 2>&1
+-    then
+-        die "ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
+-
+-Please set the JAVA_HOME variable in your environment to match the
+-location of your Java installation."
+-    fi
+-fi
+-
+-# Increase the maximum file descriptors if we can.
+-if ! "$cygwin" && ! "$darwin" && ! "$nonstop" ; then
+-    case $MAX_FD in #(
+-      max*)
+-        # In POSIX sh, ulimit -H is undefined. That's why the result is checked to see if it worked.
+-        # shellcheck disable=SC2039,SC3045
+-        MAX_FD=$( ulimit -H -n ) ||
+-            warn "Could not query maximum file descriptor limit"
+-    esac
+-    case $MAX_FD in  #(
+-      '' | soft) :;; #(
+-      *)
+-        # In POSIX sh, ulimit -n is undefined. That's why the result is checked to see if it worked.
+-        # shellcheck disable=SC2039,SC3045
+-        ulimit -n "$MAX_FD" ||
+-            warn "Could not set maximum file descriptor limit to $MAX_FD"
+-    esac
+-fi
+-
+-# Collect all arguments for the java command, stacking in reverse order:
+-#   * args from the command line
+-#   * the main class name
+-#   * -classpath
+-#   * -D...appname settings
+-#   * --module-path (only if needed)
+-#   * DEFAULT_JVM_OPTS, JAVA_OPTS, and GRADLE_OPTS environment variables.
+-
+-# For Cygwin or MSYS, switch paths to Windows format before running java
+-if "$cygwin" || "$msys" ; then
+-    APP_HOME=$( cygpath --path --mixed "$APP_HOME" )
+-    CLASSPATH=$( cygpath --path --mixed "$CLASSPATH" )
+-
+-    JAVACMD=$( cygpath --unix "$JAVACMD" )
+-
+-    # Now convert the arguments - kludge to limit ourselves to /bin/sh
+-    for arg do
+-        if
+-            case $arg in                                #(
+-              -*)   false ;;                            # don't mess with options #(
+-              /?*)  t=${arg#/} t=/${t%%/*}              # looks like a POSIX filepath
+-                    [ -e "$t" ] ;;                      #(
+-              *)    false ;;
+-            esac
+-        then
+-            arg=$( cygpath --path --ignore --mixed "$arg" )
+-        fi
+-        # Roll the args list around exactly as many times as the number of
+-        # args, so each arg winds up back in the position where it started, but
+-        # possibly modified.
+-        #
+-        # NB: a `for` loop captures its iteration list before it begins, so
+-        # changing the positional parameters here affects neither the number of
+-        # iterations, nor the values presented in `arg`.
+-        shift                   # remove old arg
+-        set -- "$@" "$arg"      # push replacement arg
+-    done
+-fi
+-
+-
+-# Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
+-DEFAULT_JVM_OPTS='"-Xmx64m" "-Xms64m"'
+-
+-# Collect all arguments for the java command:
+-#   * DEFAULT_JVM_OPTS, JAVA_OPTS, and optsEnvironmentVar are not allowed to contain shell fragments,
+-#     and any embedded shellness will be escaped.
+-#   * For example: A user cannot expect ${Hostname} to be expanded, as it is an environment variable and will be
+-#     treated as '${Hostname}' itself on the command line.
+-
+-set -- \
+-        "-Dorg.gradle.appname=$APP_BASE_NAME" \
+-        -classpath "$CLASSPATH" \
+-        org.gradle.wrapper.GradleWrapperMain \
+-        "$@"
+-
+-# Stop when "xargs" is not available.
+-if ! command -v xargs >/dev/null 2>&1
+-then
+-    die "xargs is not available"
+-fi
+-
+-# Use "xargs" to parse quoted args.
+-#
+-# With -n1 it outputs one arg per line, with the quotes and backslashes removed.
+-#
+-# In Bash we could simply go:
+-#
+-#   readarray ARGS < <( xargs -n1 <<<"$var" ) &&
+-#   set -- "${ARGS[@]}" "$@"
+-#
+-# but POSIX shell has neither arrays nor command substitution, so instead we
+-# post-process each arg (as a line of input to sed) to backslash-escape any
+-# character that might be a shell metacharacter, then use eval to reverse
+-# that process (while maintaining the separation between arguments), and wrap
+-# the whole thing up as a single "set" statement.
+-#
+-# This will of course break if any of these variables contains a newline or
+-# an unmatched quote.
+-#
+-
+-eval "set -- $(
+-        printf '%s\n' "$DEFAULT_JVM_OPTS $JAVA_OPTS $GRADLE_OPTS" |
+-        xargs -n1 |
+-        sed ' s~[^-[:alnum:]+,./:=@_]~\\&~g; ' |
+-        tr '\n' ' '
+-    )" '"$@"'
+-
+-exec "$JAVACMD" "$@"
+--- 1차/source/gradlew.bat
++++ 2차/source/gradlew.bat
+@@ -1,94 +0,0 @@
+-@rem
+-@rem Copyright 2015 the original author or authors.
+-@rem
+-@rem Licensed under the Apache License, Version 2.0 (the "License");
+-@rem you may not use this file except in compliance with the License.
+-@rem You may obtain a copy of the License at
+-@rem
+-@rem      https://www.apache.org/licenses/LICENSE-2.0
+-@rem
+-@rem Unless required by applicable law or agreed to in writing, software
+-@rem distributed under the License is distributed on an "AS IS" BASIS,
+-@rem WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+-@rem See the License for the specific language governing permissions and
+-@rem limitations under the License.
+-@rem
+-@rem SPDX-License-Identifier: Apache-2.0
+-@rem
+-
+-@if "%DEBUG%"=="" @echo off
+-@rem ##########################################################################
+-@rem
+-@rem  Gradle startup script for Windows
+-@rem
+-@rem ##########################################################################
+-
+-@rem Set local scope for the variables with windows NT shell
+-if "%OS%"=="Windows_NT" setlocal
+-
+-set DIRNAME=%~dp0
+-if "%DIRNAME%"=="" set DIRNAME=.
+-@rem This is normally unused
+-set APP_BASE_NAME=%~n0
+-set APP_HOME=%DIRNAME%
+-
+-@rem Resolve any "." and ".." in APP_HOME to make it shorter.
+-for %%i in ("%APP_HOME%") do set APP_HOME=%%~fi
+-
+-@rem Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
+-set DEFAULT_JVM_OPTS="-Xmx64m" "-Xms64m"
+-
+-@rem Find java.exe
+-if defined JAVA_HOME goto findJavaFromJavaHome
+-
+-set JAVA_EXE=java.exe
+-%JAVA_EXE% -version >NUL 2>&1
+-if %ERRORLEVEL% equ 0 goto execute
+-
+-echo. 1>&2
+-echo ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH. 1>&2
+-echo. 1>&2
+-echo Please set the JAVA_HOME variable in your environment to match the 1>&2
+-echo location of your Java installation. 1>&2
+-
+-goto fail
+-
+-:findJavaFromJavaHome
+-set JAVA_HOME=%JAVA_HOME:"=%
+-set JAVA_EXE=%JAVA_HOME%/bin/java.exe
+-
+-if exist "%JAVA_EXE%" goto execute
+-
+-echo. 1>&2
+-echo ERROR: JAVA_HOME is set to an invalid directory: %JAVA_HOME% 1>&2
+-echo. 1>&2
+-echo Please set the JAVA_HOME variable in your environment to match the 1>&2
+-echo location of your Java installation. 1>&2
+-
+-goto fail
+-
+-:execute
+-@rem Setup the command line
+-
+-set CLASSPATH=%APP_HOME%\gradle\wrapper\gradle-wrapper.jar
+-
+-
+-@rem Execute Gradle
+-"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %GRADLE_OPTS% "-Dorg.gradle.appname=%APP_BASE_NAME%" -classpath "%CLASSPATH%" org.gradle.wrapper.GradleWrapperMain %*
+-
+-:end
+-@rem End local scope for the variables with windows NT shell
+-if %ERRORLEVEL% equ 0 goto mainEnd
+-
+-:fail
+-rem Set variable GRADLE_EXIT_CONSOLE if you need the _script_ return code instead of
+-rem the _cmd.exe /c_ return code!
+-set EXIT_CODE=%ERRORLEVEL%
+-if %EXIT_CODE% equ 0 set EXIT_CODE=1
+-if not ""=="%GRADLE_EXIT_CONSOLE%" exit %EXIT_CODE%
+-exit /b %EXIT_CODE%
+-
+-:mainEnd
+-if "%OS%"=="Windows_NT" endlocal
+-
+-:omega
+--- 1차/source/local.properties
++++ 2차/source/local.properties
+@@ -1 +0,0 @@
+-sdk.dir=D:/2026/PXE Project/코드/NEXTools/android-sdk
+--- 1차/source/settings.gradle
++++ 2차/source/settings.gradle
+@@ -1,4 +0,0 @@
+-pluginManagement { repositories { google(); mavenCentral(); gradlePluginPortal() } }
+-dependencyResolutionManagement { repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS); repositories { google(); mavenCentral() } }
+-rootProject.name = 'YunseokTouchMacro'
+-include ':app'
+--- 1차/source/빌드방법.txt
++++ 2차/source/빌드방법.txt
+@@ -1,24 +0,0 @@
+-윤석 터치매크로 빌드 안내
+-Java 17 / Android SDK 35 / Gradle 8.13 / Android Gradle Plugin 8.9.1
+-
+-현재 PC
+-1. PowerShell에서 이 source 폴더로 이동합니다.
+-2. JAVA_HOME을 ../../work/tools/jdk-17.0.20.1+1의 절대 경로로 지정합니다.
+-3. gradlew.bat :app:assembleRelease :app:testDebugUnitTest :app:lintDebug
+-
+-별도 PC
+-1. Java 17과 Android SDK 35를 설치합니다.
+-2. local.properties의 sdk.dir을 자신의 SDK 경로로 수정합니다.
+-3. 개인 서명으로 업데이트하려면 같은 프로젝트의 work/signing 폴더를 별도로 안전하게 보관하고 같은 상대 경로에 복원합니다.
+-4. 서명 설정이 없을 때는 개발용 기본 키로 빌드됩니다. 기존 앱 업데이트에는 같은 개인 키가 필요합니다.
+-
+-release APK: ARM64, 갤럭시 노트 10+용. 디버그 기능은 꺼져 있습니다.
+-debug APK: ARM64/ARM32/x86/x86_64, 가상 기기 검증용.
+-
+-검증 명령
+-로컬: gradlew.bat :app:testDebugUnitTest :app:lintDebug
+-기기: gradlew.bat :app:assembleDebug :app:assembleDebugAndroidTest
+-Android 12 기기에 두 debug APK를 설치한 다음:
+-adb shell am instrument -w -e disableAnalytics true -e class kr.yunseok.touchmacro.DeviceFlowTest kr.yunseok.touchmacro.test/androidx.test.runner.AndroidJUnitRunner
+-
+-기기 테스트는 접근성 서비스를 명시적으로 켜며 본 앱의 인식 테스트 화면에서 수행됩니다. 개인 휴대폰 대신 테스트용 가상 기기 사용을 권장합니다.
+--- 1차/검증/APK_내장파일검증.txt
++++ 2차/검증/APK_내장파일검증.txt
+@@ -1 +1 @@
+-PASS: APK integrity, original Nanum Gothic Bold font bytes, OFL license, Korean OCR model, ARM64 libraries
++PASS: final APK CRC/SHA256, exact Nanum Gothic Bold bytes, OFL, Korean/Latin OCR assets, ARM64, unchanged Round 1
+--- 1차/검증/Android12_실행검증.txt
++++ 2차/검증/Android12_실행검증.txt
+@@ -1,8 +0,0 @@
+-
+-kr.yunseok.touchmacro.DeviceFlowTest:.
+-
+-Time: 32.071
+-
+-OK (1 test)
+-
+-
+--- 1차/검증/Android12_통합검증.txt
++++ 2차/검증/Android12_통합검증.txt
+@@ -0,0 +1,8 @@
++10-13 07:01:56.932  3952  3969 I TestRunner: run started: 2 tests
++10-13 07:01:56.933  3952  3969 I TestRunner: started: realGesturesTextOcrBackRetryPauseAndStop(kr.yunseok.touchmacro.DeviceFlowTest)
++10-13 07:02:29.540  3952  3969 I YUNSEOK_QA: PASS: accessibility, Korean OCR offline, back/recheck, branches, tap-repeat, long, double, macro-loop, pause/resume, stop, input, save/load, retry limit
++10-13 07:02:29.542  3952  3969 I TestRunner: finished: realGesturesTextOcrBackRetryPauseAndStop(kr.yunseok.touchmacro.DeviceFlowTest)
++10-13 07:02:29.544  3952  3969 I TestRunner: started: newTextModesGesturesAndRecorder(kr.yunseok.touchmacro.NexFeatureTest)
++10-13 07:02:52.809  3952  3969 I NEX_QA  : PASS: text region, OCR preview, text offset, retry, curve, pinch, multitap, point capture, curve recording/replay, multi-touch recording/replay, foreground outside activity, dark palette
++10-13 07:02:52.809  3952  3969 I TestRunner: finished: newTextModesGesturesAndRecorder(kr.yunseok.touchmacro.NexFeatureTest)
++10-13 07:02:52.826  3952  3969 I TestRunner: run finished: 2 tests, 0 failed, 0 ignored
+--- 1차/검증/Android_Lint.txt
++++ 2차/검증/Android_Lint.txt
+@@ -0,0 +1 @@
++No issues found.
+--- 1차/검증/TEST-kr.yunseok.touchmacro.GestureModelTest.xml
++++ 2차/검증/TEST-kr.yunseok.touchmacro.GestureModelTest.xml
+@@ -0,0 +1,17 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<testsuite name="kr.yunseok.touchmacro.GestureModelTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-10-13T06:52:10.408Z" hostname="DESKTOP-Q56I31F" time="0.011">
++  <properties/>
++  <testcase name="badStartNumberRejected" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.006"/>
++  <testcase name="reversedRegionRejected" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
++  <testcase name="pinchUsesSimultaneousTwoPaths" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.002"/>
++  <testcase name="multiTapCoordinatesStaySimultaneous" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
++  <testcase name="firstRoundStartNumberPreserved" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.001"/>
++  <testcase name="pinchOutsideScreenRejected" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
++  <testcase name="emptyRecordingRejected" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
++  <testcase name="duplicatedRecordingDoesNotShareMutablePoints" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.001"/>
++  <testcase name="tooManyFingersRejected" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.001"/>
++  <testcase name="curveContainsControlShape" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
++  <testcase name="recordedStrokeAndRegionRoundTrip" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
++  <system-out><![CDATA[]]></system-out>
++  <system-err><![CDATA[]]></system-err>
++</testsuite>
+--- 1차/검증/TEST-kr.yunseok.touchmacro.ModelTest.xml
++++ 2차/검증/TEST-kr.yunseok.touchmacro.ModelTest.xml
+@@ -1,16 +1,16 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<testsuite name="kr.yunseok.touchmacro.ModelTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-10-12T20:15:04.867Z" hostname="DESKTOP-Q56I31F" time="0.009">
++<testsuite name="kr.yunseok.touchmacro.ModelTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-10-13T06:52:10.423Z" hostname="DESKTOP-Q56I31F" time="0.002">
+   <properties/>
+-  <testcase name="futureSchemaRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.006"/>
++  <testcase name="futureSchemaRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
+   <testcase name="nanCoordinateRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
+   <testcase name="invalidGotoRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
+   <testcase name="invalidSourceRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
+-  <testcase name="blankTargetRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
++  <testcase name="blankTargetRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.001"/>
+   <testcase name="sampleHasFiniteBackRetries" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
+   <testcase name="negativeRetriesRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
+-  <testcase name="emptyMacroRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
++  <testcase name="emptyMacroRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.001"/>
+   <testcase name="serializePreservesTextAndBranchSettings" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
+-  <testcase name="missingBranchTargetRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.001"/>
++  <testcase name="missingBranchTargetRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
+   <system-out><![CDATA[]]></system-out>
+   <system-err><![CDATA[]]></system-err>
+ </testsuite>
+--- 1차/검증/TEST-kr.yunseok.touchmacro.TextRulesTest.xml
++++ 2차/검증/TEST-kr.yunseok.touchmacro.TextRulesTest.xml
+@@ -1,8 +1,8 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<testsuite name="kr.yunseok.touchmacro.TextRulesTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-10-12T20:15:04.878Z" hostname="DESKTOP-Q56I31F" time="0.004">
++<testsuite name="kr.yunseok.touchmacro.TextRulesTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-10-13T06:52:10.427Z" hostname="DESKTOP-Q56I31F" time="0.003">
+   <properties/>
+-  <testcase name="containsAndCase" classname="kr.yunseok.touchmacro.TextRulesTest" time="0.003"/>
+-  <testcase name="regexDoesNotDestroyExpression" classname="kr.yunseok.touchmacro.TextRulesTest" time="0.0"/>
++  <testcase name="containsAndCase" classname="kr.yunseok.touchmacro.TextRulesTest" time="0.002"/>
++  <testcase name="regexDoesNotDestroyExpression" classname="kr.yunseok.touchmacro.TextRulesTest" time="0.001"/>
+   <testcase name="unicodeNormalization" classname="kr.yunseok.touchmacro.TextRulesTest" time="0.0"/>
+   <testcase name="koreanSpaceAndExact" classname="kr.yunseok.touchmacro.TextRulesTest" time="0.0"/>
+   <testcase name="invalidRegexFails" classname="kr.yunseok.touchmacro.TextRulesTest" time="0.0"/>
+--- 1차/검증/정적검사.txt
++++ 2차/검증/정적검사.txt
+@@ -1,29 +0,0 @@
+-C:\Users\PUVKID\Desktop\YunseokTouchMacro\v1.0\source\app\build.gradle:11: Warning: A newer version of androidx.test.ext:junit than 1.2.1 is available: 1.3.0 [GradleDependency]
+-dependencies { implementation 'com.google.mlkit:text-recognition-korean:16.0.1'; testImplementation 'junit:junit:4.13.2'; testImplementation 'org.json:json:20240303'; androidTestImplementation 'androidx.test:runner:1.6.2'; androidTestImplementation 'androidx.test.ext:junit:1.2.1' }
+-                                                                                                                                                                                                                                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-C:\Users\PUVKID\Desktop\YunseokTouchMacro\v1.0\source\app\build.gradle:11: Warning: A newer version of androidx.test:runner than 1.6.2 is available: 1.7.0 [GradleDependency]
+-dependencies { implementation 'com.google.mlkit:text-recognition-korean:16.0.1'; testImplementation 'junit:junit:4.13.2'; testImplementation 'org.json:json:20240303'; androidTestImplementation 'androidx.test:runner:1.6.2'; androidTestImplementation 'androidx.test.ext:junit:1.2.1' }
+-                                                                                                                                                                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-
+-   Explanation for issues of type "GradleDependency":
+-   This detector looks for usages of libraries where the version you are using
+-   is not the current stable release. Using older versions is fine, and there
+-   are cases where you deliberately want to stick with an older version.
+-   However, you may simply not be aware that a more recent version is
+-   available, and that is what this lint check helps find.
+-
+-C:\Users\PUVKID\Desktop\YunseokTouchMacro\v1.0\source\app\build.gradle:9: Warning: Missing x86_64 ABI support for ChromeOS [ChromeOsAbiSupport]
+- buildTypes { release { minifyEnabled false; signingConfig (signingFile.exists() ? signingConfigs.personal : signingConfigs.debug); ndk { abiFilters 'arm64-v8a' } } }
+-                                                                                                                                                     ~~~~~~~~~~~
+-
+-   Explanation for issues of type "ChromeOsAbiSupport":
+-   To properly support ChromeOS, your Android application should have an x86
+-   and/or x86_64 binary as part of the build configuration. To fix the issue,
+-   ensure your files are properly optimized for ARM; the binary translator
+-   will then ensure compatibility with x86. Alternatively, add an abiSplit for
+-   x86 within your build.gradle file and create the required x86
+-   dependencies.
+-
+-   https://developer.android.com/ndk/guides/abis
+-
+-0 errors, 3 warnings
+--- 1차/검증/화면검증.txt
++++ 2차/검증/화면검증.txt
+@@ -0,0 +1 @@
++라이트/다크의 NEX 글자 화면을 Android 12 가상 기기에서 캡처하여 글자, 버튼, 상태 표시, 대비와 화면 배치를 확인했습니다. 실제 캡처는 화면_라이트.png, 화면_다크.png입니다.
+--- 1차/검증결과.txt
++++ 2차/검증결과.txt
+@@ -1,43 +1,60 @@
+-윤석 터치매크로 v1.0 검증 결과
+-검증 날짜: 2026-10-13 (한국 시간)
++NEX 2차 / 2.0 최종 검증
++날짜: 2026-10-13 (한국 시간)
+ 
+-빌드
+-- Java 17, SDK 35, Gradle 8.13, Android Gradle Plugin 8.9.1
+-- release APK 빌드 성공
+-- 개인 RSA 키 서명, Android APK 서명 v2 검증 성공
+-- ARM64 전용, Android 최소 11(API 30), 대상 API 35
+-- 인터넷 권한 없음
+-- 나눔고딕 Bold와 OFL 라이선스 APK 내장
++보존
++기존 v1.0을 1차로 옮겼습니다.
++1차 APK SHA-256은 원본 e14423c4a2e1f420dcc6a17f422944160088ba4d85f4a1af20cb210a4b8fc56b와 같습니다.
++원본 소스와 사용법도 1차에 보존했습니다.
+ 
+-정적 검사
+-- Android Lint: No issues found.
+-- 한글·영문 비교 테스트 6개 성공
+-- 저장 형식·설정 범위 검증 테스트 10개 성공
++APK
++앱 표시 이름 NEX, 앱 ID kr.yunseok.touchmacro
++versionCode 2, versionName 2.0.0
++minSdk 30(Android 11), targetSdk 35
++release ARM64, 디버그 기능 꺼짐
++개인 RSA 3072 서명, APK Signature Scheme v2 검증 통과
++서명 인증서 SHA-256:
++57339c32b3661e18f18a7f9f7a08c539130211ab93ab0000812f99c949c5ad3e
++1차와 같은 앱 ID·서명으로 업데이트 설치 가능합니다.
++인터넷 권한 없음. 한글/라틴 OCR 모델과 나눔고딕 Bold/OFL 내장.
+ 
+-안드로이드 실행 검증
+-환경: Android 12(API 31) AOSP x86_64 가상 기기, 1080×2280
+-기기의 Google Play 서비스 없이 내장 모델로 한글 OCR 실행 성공
+-DeviceFlowTest 통합 테스트: OK (1 test), 내부 아래 시나리오 확인
+-- 접근성 화면 글자 검색 및 버튼 터치
+-- 이미지/캔버스 속 한글 OCR 및 해당 좌표 터치
+-- 글자가 없는 화면에서 뒤로가기 후 이전 화면 글자 찾고 터치
+-- 글자 있음/없음 조건 분기
+-- 좌표 터치 3회 반복
+-- 길게 누르기, 두 번 터치
+-- 전체 매크로 2회 반복
+-- 일시정지 중 터치 없음, 계속 실행 후 정상 터치
+-- 정지 후 뒤에 남은 터치가 실행되지 않음
+-- 입력 칸에 한글 문자 입력
+-- 기기 내 이름별 저장 및 불러오기
+-- 최대 뒤로가기 횟수 후 글자 없을 때 중단
++자동 검사
++로컬 단위 테스트 27개 통과
++- 한글·영문·정규식 비교 6
++- 저장/설정/범위 10
++- 곡선·핀치·다중 터치·녹화 복제·영역/시작 번호 11
++Android Lint: No issues found
++ARM64 Note 10+ 배포 목적에 따라 ChromeOS ABI 검사만 제외했습니다.
++
++Android 12 실제 실행 검증
++AOSP API 31 x86_64 가상 기기, 1080×2280
++최종 DeviceFlowTest + NexFeatureTest:
++run finished: 2 tests, 0 failed, 0 ignored
++
++검증한 주요 동작
++화면 글자 찾고 터치, Google Play 서비스 없는 한글 OCR/이미지 글자 터치,
++글자 없으면 뒤로가기 후 이전 화면에서 찾고 터치,
++조건 분기, 좌표 반복, 길게/두 번 터치, 전체 반복,
++일시정지·계속·정지, 한글 문자 입력, 이름별 저장,
++최대 뒤로가기 횟수 도달 시 중단,
++검색 영역 제외, OCR 미리보기에서 터치 없음, 터치 오프셋,
++같은 화면 재검색, 곡선, 핀치, 동시 다중 터치,
++좌표 캡처 시 실제 터치 없음,
++곡선 녹화·원래 화면 재생, 두 손가락 녹화·재생,
++홈 화면에서도 컨트롤 및 실행 유지, 다크 팔레트/설정 저장.
++
++검증 중 발견해 수정한 내용
++녹화 창이 터치를 받는 상태에서 재생되는 문제:
++먼저 FLAG_NOT_TOUCHABLE로 변경하고 창 업데이트를 기다린 뒤 재생합니다.
++새 녹화 창을 누르는 기기 테스트는 입력 창 등록/화면 전환이 완료된 뒤 실행합니다.
++터치 직전에 글자가 사라지면 정해둔 재검색 정책을 적용합니다.
++연결 상태는 화면에 자동 반영되며 로그 UI/저장 갱신을 합쳐 과도한 갱신을 줄였습니다.
+ 
+ 한계
+-- 노트 10+ 실물은 연결되어 있지 않아 테스트하지 않았습니다.
+-- 최종 ARM64 release APK의 바이너리와 서명/구성을 검증했습니다.
+-- 실행 검증은 같은 앱 소스의 x86_64 debug 빌드로 수행했습니다.
+-- 모든 외부 앱, 모든 게임 화면, 보안 화면에서 인식·입력이 동작한다고 보장하지 않습니다.
+-- 홈/최근 앱/앱 실행, 스와이프, 좌표 선택, 파일 선택기의 모든 조합은 통합 테스트에 포함하지 않았습니다.
+-- APK 설치 뒤 내장 인식 테스트로 휴대폰에서 먼저 확인하세요.
++노트 10+ 실물은 연결되어 있지 않아 직접 테스트하지 않았습니다.
++실행 검증은 동일 소스의 x86_64 debug 빌드이며 최종 ARM64 release는 패키지·서명·내장 자산을 확인했습니다.
++모든 외부 앱, 모든 보안 화면에서 인식·입력·제스처를 보장하지 않습니다.
++기기에서 먼저 인식 테스트/미리보기로 확인하세요.
++첨부 Click Assistant의 모든 내부 구현이나 고유 저장 파일 형식과의 호환을 보장하지 않습니다.
+ 
+-APK 크기: 22.4 MiB
+-SHA-256: e14423c4a2e1f420dcc6a17f422944160088ba4d85f4a1af20cb210a4b8fc56b
++최종 APK 크기: 22.5 MiB
++최종 APK SHA-256: c59a6555126ee547f621814e5046d59579b65e942ed9d7f23272b3e4a7af5d0e
+--- 1차/사용법.txt
++++ 2차/사용법.txt
+@@ -1,79 +1,101 @@
+-윤석 터치매크로 1.0
+-갤럭시 노트 10+ · Android 12용 ARM64 APK
++NEX (넥스) · 2차 / 2.0
++갤럭시 노트 10+ · Android 12 기준 · ARM64 APK
++
++보관 위치
++D:\2026\PXE Project\1차 : 처음 만든 앱과 소스 보존
++D:\2026\PXE Project\2차 : 이번 NEX APK, 소스, 예제, 검증
++다음 새 버전은 3차, 4차 순서로 새 폴더에 보관합니다. 이전 차수는 덮어쓰지 않습니다.
+ 
+ 설치
+-1. 이 폴더의 '윤석터치매크로_v1.0_노트10플러스.apk'를 휴대폰으로 옮깁니다.
+-2. 내 파일 앱에서 APK를 열고, 요청되면 해당 앱의 '출처를 알 수 없는 앱 설치'를 허용합니다.
+-3. 앱에서 '접근성 켜기'를 누릅니다.
+-4. 접근성의 설치된 앱/서비스 목록에서 '윤석 터치매크로'를 켭니다.
+-5. 앱 안의 '인식 테스트 화면'에서 화면 정보와 OCR 터치를 시험합니다.
++2차의 NEX APK를 휴대폰으로 옮겨 내 파일 앱에서 설치하세요.
++1차와 같은 앱 ID 및 개인 키를 사용하므로 1차 위에 업데이트 설치할 수 있습니다.
++앱의 이름은 NEX로 표시됩니다. 기존 매크로 저장 데이터는 유지됩니다.
++처음 설치하면 앱에서 접근성 설정을 열고 NEX 서비스를 켜 주세요.
++Android 13 이상에서 접근성이 막히면 앱 정보의 '제한된 설정 허용'을 확인합니다.
++Android 13 이상에서 알림을 허용하면 알림에서도 정지/컨트롤 닫기를 사용할 수 있습니다.
+ 
+-사용
+-1. '+ 동작 추가'에서 원하는 동작을 순서대로 넣습니다.
+-2. '이름으로 저장'을 눌러 저장 목록에 보관합니다. 편집 중 작업도 자동으로 보관됩니다.
+-3. '컨트롤만 띄우기'를 누른 뒤 자동화할 앱을 열어 원하는 화면으로 이동합니다.
+-4. 작은 컨트롤의 '시작'을 누릅니다. 기본 시작 대기는 3초입니다.
+-5. '일시정지/계속' 또는 '정지'로 제어합니다. 실행 중 알림에도 정지 버튼이 있습니다.
+-6. 컨트롤의 상태 글자를 끌면 위치를 옮깁니다. '편집'으로 앱에 돌아옵니다.
+-7. 화면을 켠 상태로 같은 화면 방향에서 사용합니다.
++가장 중요한 기능: 원하는 글자 인식 → 그 위치 터치
++1. NEX 첫 화면의 '글자' 탭에 찾을 문구를 입력합니다.
++2. 인식 방식을 자동 / 화면 정보 / OCR 중 선택합니다.
++   자동: 일반 버튼과 화면 글자를 먼저 읽고, 없으면 한글 OCR로 찾습니다.
++   OCR: 게임, 이미지, 캔버스 등의 글자를 화면 캡처로 인식합니다.
++3. 포함 / 완전 일치 / 정규식 비교를 선택합니다.
++4. 글자가 없으면 뒤로가기 후 최대 3회 다시 확인하도록 선택할 수 있습니다.
++5. '인식 미리보기'는 초록 테두리로 위치만 보여줍니다. 터치하지 않습니다.
++6. '글자 모드 실행'은 3초 뒤 검색하여 터치합니다.
++7. '이 글자 동작을 매크로에 추가'하면 다른 터치나 스와이프 사이에 넣을 수 있습니다.
+ 
+-가장 중요한 기능: 글자 찾기 → 없으면 뒤로가기 → 다시 확인
+-1. '글자 찾아 터치'를 추가합니다.
+-2. 찾을 글자에 예를 들어 '확인'을 입력합니다.
+-3. 검색 방식은 '자동'을 권장합니다.
+-4. '글자가 없으면'에서 '뒤로가기 후 다시 찾기'를 선택합니다.
+-5. 각 화면 검색 시간, 뒤로가기 최대 횟수, 뒤로간 뒤 대기 시간을 정합니다.
+-예: 화면당 2000ms 확인 → 글자가 없으면 뒤로가기 → 1000ms 대기 → 재검색.
+-최대 3번 뒤로간 후에도 없으면 정지합니다.
+-캡처 실패·인식 엔진 오류는 '글자 없음'으로 간주하지 않고 중단합니다.
++다른 앱 위에서 사용하는 권장 순서
++1. 아래 '화면 위 컨트롤'을 누릅니다.
++2. 자동화할 앱으로 직접 이동합니다.
++3. 컨트롤의 '글자'를 눌러 문구를 입력하고 인식/터치/미리보기를 실행합니다.
++4. 일반 매크로는 '시작'으로 실행하고 '일시정지/계속/정지'로 제어합니다.
++5. 상태 글자를 끌어 컨트롤을 이동하고 '접기'로 작은 버튼으로 줄입니다.
++6. 작은 버튼은 눌러 펼치고, 길게 눌러 매크로를 정지할 수 있습니다.
++7. 타이머는 경과 시간과 설정한 최대 실행 시간의 남은 시간을 표시합니다.
++8. 실행 중 컨트롤과 실제 제스처가 겹칠 때만 컨트롤을 잠시 숨깁니다.
++   OCR 캡처 중에는 컨트롤과 번호 점을 잠시 숨겨 인식에 섞이지 않게 합니다.
++9. 편집 화면을 열면 실행 중 매크로는 일시정지합니다.
++10. 알림에서도 정지하거나 컨트롤을 닫을 수 있습니다.
+ 
+-검색 옵션
+-- 포함 / 완전 일치 / 정규식
+-- 공백과 줄바꿈 무시, 영문 대소문자 무시
+-- 화면 정보만 / OCR만 / 자동(화면 정보 먼저, 못 찾으면 OCR)
+-- 같은 글자가 여러 개라면 1번째, 2번째 등의 항목 선택
+-- 정렬 기준: 화면의 위→아래, 같은 높이에서는 왼쪽→오른쪽
+-- 정규식의 문법은 그대로 유지합니다. 공백 무시는 화면 글자에 적용됩니다.
+-- '글자 나타날 때까지 대기'와 '글자 조건 분기'도 다른 동작 사이에 추가할 수 있습니다.
+-- 조건 분기는 글자가 있을 때/없을 때 각각 지정한 동작 번호로 이동합니다. 0은 다음 동작입니다.
+-- 동작을 재정렬하거나 삭제하면 분기·이동 번호를 다시 확인하세요.
++곡선·멀티터치 녹화
++1. 원하는 앱에서 화면 위 컨트롤의 '녹화'를 누릅니다.
++2. 탭, 길게 누르기, 곡선 이동, 두 손가락 확대/축소 등을 직접 그립니다.
++3. 손을 떼면 그 제스처를 원래 앱에 재생한 뒤 다음 동작을 녹화합니다.
++   녹화 입력은 먼저 캡처하며 손을 뗀 후 전달됩니다. 실시간 입력 감시는 아닙니다.
++4. '녹화 끝내기'를 누르면 현재 매크로에 보관합니다.
++5. 제스처 사이에서 기다린 시간도 이전 동작의 완료 후 대기로 기록합니다.
++6. 한 동작만 녹화하거나 기존 동작을 교체하는 기능도 제공합니다.
++7. 동시 경로는 최대 20개, 한 제스처는 최대 59초, 경로당 점은 최대 512개입니다.
++   경로는 손가락별 시작 시각과 지속 시간으로 재생하며 경로 내부 이동 속도는 균일하게 재구성됩니다.
++8. 취소해도 이미 완료한 녹화 동작은 현재 작업에 남습니다. 불필요한 동작은 삭제하세요.
+ 
+-들어 있는 동작 15종
+-좌표 터치, 두 번 터치, 길게 누르기, 스와이프, 대기,
+-글자 찾아 터치, 글자 대기, 글자 조건 분기,
+-뒤로가기, 홈, 최근 앱, 문자 입력, 앱 실행, 동작 번호로 이동, 정지.
++화면 위에서 편집
++- 번호 점을 끌어 터치 위치를 바꿉니다. 녹화된 제스처는 전체 경로를 이동합니다.
++- '동작 목록'에서 위/아래, 복제, 사용 여부, 삭제, 해당 번호부터 실행, 다시 녹화를 선택합니다.
++- '동작 추가'에서 좌표 캡처, 한 동작 녹화, 글자, 뒤로, 대기, 홈, 최근 앱을 추가할 수 있습니다.
++- 상세 검색 영역·보정·조건 분기는 앱의 '동작' 탭에서 편집하세요.
++- '저장'은 현재 매크로를 이름으로 보관합니다.
++- 번호 점은 최대 40개까지만 표시하며 동작 목록은 최대 500개입니다.
+ 
+-편집·실행 기능
+-- 동작 순서 위/아래 이동, 복제, 사용/사용 안 함, 삭제
+-- 화면에서 좌표 선택: 해당 위치를 눌러 좌표만 기록합니다. 실제 앱 터치는 하지 않습니다.
+-- 좌표는 화면 전체의 0~100%입니다. 스와이프는 시작/끝 좌표를 직접 입력합니다.
+-- 동작마다 반복 횟수와 완료 후 대기 시간
+-- 전체 반복 횟수(0은 무한), 반복 간격, 시작 전 대기, 최대 실행 시간(0은 제한 없음)
+-- 이름별 매크로 저장/불러오기/삭제
+-- JSON 파일 내보내기/불러오기
+-- 최근 150줄 실행 기록 및 TXT 저장
+-- 한글 OCR 모델과 나눔고딕 Bold 폰트 내장
++글자 동작의 고급 옵션
++- 같은 글자 중 몇 번째인지 선택: 위→아래, 같은 높이에서는 왼쪽→오른쪽
++- 공백·줄바꿈 및 영문 대소문자 무시
++- 검색 영역: 화면 전체의 왼쪽/위/오른쪽/아래 %
++- 터치 X/Y 보정: 화면 비율 -50~50%
++- 각 화면 검색 시간, 재검색 횟수와 대기 시간
++- 없으면 정지 / 건너뛰기 / 뒤로가서 재검색 / 같은 화면 재확인 / 위로 스크롤 후 재검색
++- 최대 횟수 후에도 못 찾으면 중단
++- 캡처 오류나 OCR 엔진 오류는 '글자 없음'으로 처리하지 않고 중단
+ 
+-제한과 확인
+-- 지원: Android 11 이상 ARM64. 윤석님 기기인 Android 12를 기준으로 제작했습니다.
+-- 루팅은 필요하지 않습니다.
+-- OCR은 화면 화질·폰트·배치에 따라 오인식할 수 있으므로 사용할 화면에서 먼저 시험하세요.
+-- 보안 화면은 화면 캡처를 차단할 수 있습니다. 해당 앱이 글자 정보를 제공하면 '화면 정보만'을 사용하세요.
+-- 화면이 꺼지거나 잠금 화면이 되거나 방향이 바뀌면 실행이 중단됩니다.
+-- 시스템 설정의 자동 꺼짐 시간을 직접 조절하세요. 앱은 화면을 강제로 켜지 않습니다.
+-- 이미 시스템에 전달한 긴 제스처는 정지 후 잠깐 마무리될 수 있습니다.
+-- 문자 입력은 접근성 입력을 지원하는 입력 칸에서 동작합니다. 먼저 입력 칸을 터치하세요.
+-- Android 13 이상으로 옮겨 사용할 때 접근성이 차단되면 앱 정보의 '제한된 설정 허용'을 확인합니다.
+-- 앱은 인터넷 권한 없이 화면과 입력을 기기 안에서 처리합니다.
+-- 노트 10+ 실물에서의 검증은 기기가 연결되어 있지 않아 수행하지 않았습니다.
+-검증 상세는 '검증결과.txt'를 확인하세요.
++동작 목록
++좌표 터치, 두 번 터치, 길게 누르기, 스와이프, 곡선 스와이프,
++핀치 축소/확대, 동시 다중 터치, 녹화 제스처,
++대기, 글자 찾아 터치, 글자 대기, 글자 조건 분기, 글자 인식 확인,
++뒤로가기, 홈, 최근 앱, 알림 패널, 문자 입력, 앱 실행, 번호 이동, 정지.
+ 
+-보관 위치
+-D:\2026\PXE Project\1차
+-APK, 예제, 사용법, 검증 결과, source 폴더를 이곳에서 확인할 수 있습니다.
+-work 폴더는 빌드 도구와 작업용 파일입니다.
++실행 설정과 모양
++- 동작마다 지속 시간, 완료 후 대기, 반복 횟수, 시간 무작위 범위
++- 전체 반복(0은 무한), 반복 사이 대기, 시작 전 대기, 시작할 번호, 최대 실행 시간
++- 기기 설정 따르기 / 라이트 / 다크
++- 컨트롤 크기 75~140%, 불투명도 40~100%, 번호 점 표시 여부
++- 실행 중 화면 켜짐 유지 선택
++- 이름별 저장, JSON 내보내기/불러오기, 실행 기록 TXT 저장
++- 동작 번호를 재정렬하거나 삭제한 뒤 조건 분기/번호 이동 설정을 다시 확인하세요.
+ 
+-기술 참고
+-Android AccessibilityService: https://developer.android.com/reference/android/accessibilityservice/AccessibilityService
+-Google ML Kit Korean OCR: https://developers.google.com/ml-kit/vision/text-recognition/v2/android
+-폰트 라이선스: NanumGothic-OFL.txt
++주의할 동작 범위
++OCR 인식은 폰트·화질·배치에 따라 달라집니다. 먼저 인식 미리보기로 확인하세요.
++보안 화면은 캡처가 막힐 수 있습니다. 그 앱이 글자 정보를 제공하면 화면 정보 모드를 쓰세요.
++문자 입력은 접근성 입력을 지원하는 입력 칸에서 가능합니다.
++잠금 화면·화면 회전·최대 실행 시간 도달 시 중단합니다.
++이미 전달된 긴 제스처는 정지 후 잠깐 마무리될 수 있습니다.
++화면·문자·매크로는 기기 안에서 처리하며 앱에 인터넷 권한을 넣지 않았습니다.
++앱을 삭제하면 기기 안의 저장 데이터는 사라지므로 JSON으로 백업하세요.
++
++검증
++검증결과.txt와 검증 폴더를 확인하세요.
++노트 10+ 실물은 연결되어 있지 않아 직접 테스트하지 않았습니다.
++같은 소스의 Android 12 x86_64 가상 기기 빌드로 실행을 검증합니다.
++
++폰트
++나눔고딕 Bold 700, 폰트와 OFL 라이선스 APK 내장.
+--- 1차/예제_OCR_미리보기.json
++++ 2차/예제_OCR_미리보기.json
+@@ -0,0 +1,30 @@
++{
++  "schema": 1,
++  "name": "NEX · 글자 인식 미리보기",
++  "startAt": 1,
++  "rounds": 1,
++  "gap": 1000,
++  "startDelay": 3000,
++  "maxMinutes": 10,
++  "steps": [
++    {
++      "type": "TEXT_CHECK",
++      "text": "확인",
++      "match": "CONTAINS",
++      "source": "OCR",
++      "failure": "STOP",
++      "timeout": 2000,
++      "retries": 3,
++      "retryDelay": 1000,
++      "after": 500,
++      "repeat": 1,
++      "occurrence": 1,
++      "ignoreSpaces": true,
++      "ignoreCase": true,
++      "left": 0,
++      "top": 0,
++      "right": 100,
++      "bottom": 100
++    }
++  ]
++}--- 1차/예제_글자_뒤로가기.json
++++ 2차/예제_글자_뒤로가기.json
+@@ -0,0 +1,30 @@
++{
++  "schema": 1,
++  "name": "NEX · 글자 없으면 뒤로가기",
++  "startAt": 1,
++  "rounds": 1,
++  "gap": 1000,
++  "startDelay": 3000,
++  "maxMinutes": 10,
++  "steps": [
++    {
++      "type": "TEXT_TAP",
++      "text": "확인",
++      "match": "CONTAINS",
++      "source": "AUTO",
++      "failure": "BACK_RETRY",
++      "timeout": 2000,
++      "retries": 3,
++      "retryDelay": 1000,
++      "after": 500,
++      "repeat": 1,
++      "occurrence": 1,
++      "ignoreSpaces": true,
++      "ignoreCase": true,
++      "left": 0,
++      "top": 0,
++      "right": 100,
++      "bottom": 100
++    }
++  ]
++}--- 1차/예제_글자없으면_뒤로가기.json
++++ 2차/예제_글자없으면_뒤로가기.json
+@@ -1,25 +0,0 @@
+-{
+-  "schema": 1,
+-  "name": "예제 · 글자 없으면 뒤로가기",
+-  "rounds": 1,
+-  "gap": 1000,
+-  "startDelay": 3000,
+-  "maxMinutes": 10,
+-  "steps": [
+-    {
+-      "type": "TEXT_TAP",
+-      "text": "확인",
+-      "match": "CONTAINS",
+-      "source": "AUTO",
+-      "failure": "BACK_RETRY",
+-      "timeout": 2000,
+-      "retries": 3,
+-      "retryDelay": 1000,
+-      "after": 500,
+-      "repeat": 1,
+-      "occurrence": 1,
+-      "ignoreSpaces": true,
+-      "ignoreCase": true
+-    }
+-  ]
+-}--- 1차/참고앱_기능반영표.txt
++++ 2차/참고앱_기능반영표.txt
+@@ -0,0 +1,35 @@
++Click Assistant 참고 기능 → NEX 구현
++
++참고: 사용자가 첨부한 Click Assistant 1.22.7 XAPK
++확인: manifest.json, AndroidManifest.xml, 한국어 리소스, 개발사 공개 기능 설명
++공식 설명: https://ycstudio.app
++Google Play: https://play.google.com/store/apps/details?id=com.rise.automatic.autoclicker.clicker
++
++접근성 제스처 실행 → AccessibilityService.dispatchGesture
++화면 밖에서도 떠 있는 조작 UI → 접근성 오버레이 + 별도 foreground 컨트롤 서비스
++클릭·스와이프 → 좌표 터치, 두 번, 길게, 스와이프
++곡선 스와이프 → 제어점 곡선 및 직접 경로 녹화
++두 손가락 확대/축소 → PINCH_IN / PINCH_OUT
++멀티터치 → 동시 다중 터치 + 손가락별 경로/시작/지속 시간
++녹화 → 화면 위 터치를 먼저 캡처하고 손을 뗀 후 원래 앱에 제스처 재생
++개별 시간·반복 설정 → 지속 시간, 완료 후 대기, 동작 반복
++무작위 시간 → 지속 시간/완료 후 대기의 ±ms 범위
++화면 위 점 위치 편집 → 번호 점 드래그, 녹화 제스처 전체 이동
++동작 순서·복제·삭제 → 앱 및 화면 위 동작 목록
++지정된 번호부터 실행 → startAt 및 화면 위 목록의 '여기서부터'
++카운트다운·시작 지연 → 시작 전 대기, 경과/남은 시간, 최대 실행 시간
++크기·불투명도 → 컨트롤 크기 75~140%, 불투명도 40~100%
++표시·접기 → 번호 점 표시, 작은 NEX 버튼으로 접기
++저장·불러오기 → 이름별 보관 + JSON 파일
++
++NEX의 추가 핵심
++원하는 문구 찾고 터치, 한글 OCR 내장, 접근성 글자 + OCR 자동 모드,
++검색 영역/터치 보정, 인식 위치 미리보기, 글자 없으면 뒤로/대기/스크롤 재검색,
++라이트/다크/기기 테마, 화면 켜짐 유지, 조건 분기와 문자 입력.
++
++구현의 범위
++일반 사용 기능을 독립 코드로 구현했습니다.
++첨부 앱의 바이너리나 내부 구현 전체를 동일하게 복제했다고 주장하지 않습니다.
++첨부 앱의 리소스/원본 코드/서명을 NEX에 포함하지 않았습니다.
++원본 앱의 자체 저장 파일 형식과의 직접 호환은 확인하지 않았습니다.
++NEX 1차 JSON 파일은 2차에서 불러올 수 있습니다.

@@ -1,0 +1,14 @@
+{
+  "phase": "즉시",
+  "button_height": 147,
+  "visible": "[63,1729][1017,1810]",
+  "button_bounds": "[63,1729][1017,1876]",
+  "frame": "[0,145][1080,2154]",
+  "scroll_y": 0,
+  "scroll_height": 1491,
+  "content_height": 1901,
+  "max_scroll": 410,
+  "page_alpha": 0.17996913194656372,
+  "page_translation": 13.12049388885498,
+  "ime": []
+}

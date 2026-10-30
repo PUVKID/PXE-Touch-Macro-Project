@@ -1,0 +1,234 @@
+[
+  {
+    "path": "11차_보존기준.json",
+    "status": "추가",
+    "before_bytes": null,
+    "after_bytes": 17480,
+    "before_sha256": null,
+    "after_sha256": "1fc9b6237629d66318529b6f7137ef181280b29fe7593ff537b169249f47c5e8"
+  },
+  {
+    "path": "APK_SHA256.json",
+    "status": "이전만 존재",
+    "before_bytes": 437,
+    "after_bytes": null,
+    "before_sha256": "b8ddcb31daeedb0ccee473be5fb25bcdeef3f79984477907b47da2f6b7dc3ee9",
+    "after_sha256": null
+  },
+  {
+    "path": "NanumGothic-OFL.txt",
+    "status": "이전만 존재",
+    "before_bytes": 5398,
+    "after_bytes": null,
+    "before_sha256": "9413f0aaff51c59be2ff01113a28759b491e6fd67172c3d0a666e6354af18883",
+    "after_sha256": null
+  },
+  {
+    "path": "source/app/build.gradle",
+    "status": "수정",
+    "before_bytes": 1540,
+    "after_bytes": 1565,
+    "before_sha256": "cd07559c823ca14eb83b6edf2f77f53ae5daa1666c63a8f3acad68ec2e2e7179",
+    "after_sha256": "e5a7f186f0d0e6a9772d0768f2e5a1bca058841545ab232e2bbf941f63cf0800"
+  },
+  {
+    "path": "source/app/src/androidTest/java/kr/yunseok/touchmacro/CaptureRecoveryTest.java",
+    "status": "수정",
+    "before_bytes": 3815,
+    "after_bytes": 3811,
+    "before_sha256": "a91ee3c33f0a66e06a6bb602dd7d3ec50d3b680d3c62438d231337e9f28f961b",
+    "after_sha256": "d998858e24c909a4e31e9d8cecee72dcc5ea78fc089b2aa4d714e7f6e844fc5f"
+  },
+  {
+    "path": "source/app/src/androidTest/java/kr/yunseok/touchmacro/ContinuousOcrTest.java",
+    "status": "추가",
+    "before_bytes": null,
+    "after_bytes": 6699,
+    "before_sha256": null,
+    "after_sha256": "9126fcf0dd792f4100c6c05e3b99ca274e50d63ede887d53b4d860c17edd1306"
+  },
+  {
+    "path": "source/app/src/androidTest/java/kr/yunseok/touchmacro/PxeUpgradeTest.java",
+    "status": "수정",
+    "before_bytes": 2017,
+    "after_bytes": 2096,
+    "before_sha256": "87066c2e73b22123ae0dba3fbbed96c9a1949fbe801d6e47f42866dea93457b7",
+    "after_sha256": "c861944213d8f967171c375a88cb99dc1c05429628ad75011c984e958d1bca49"
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/CapturePacer.java",
+    "status": "수정",
+    "before_bytes": 496,
+    "after_bytes": 521,
+    "before_sha256": "b2ff068aaac6929e73889db57c3c03f1bdff20c64cd1e18d5273315b5c1879ef",
+    "after_sha256": "4e2958509c74bd510dc7624bddab1ec949fe8d541296ee0b068a3241dfbe9264"
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/ErrorJournal.java",
+    "status": "추가",
+    "before_bytes": null,
+    "after_bytes": 1514,
+    "before_sha256": null,
+    "after_sha256": "358d57538ea890748a2f1d642f33ed5097d1e84b6da8ca8e03d2d13b3125c571"
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/FloatingController.java",
+    "status": "수정",
+    "before_bytes": 27032,
+    "after_bytes": 27557,
+    "before_sha256": "c50dfbe35656646a372485b2690b3e2a0e6816ee13abb48baa09425a4fda7441",
+    "after_sha256": "0b7984cc5a1433e5c341395b64c862416914a50a2ff4e6f17607354ca7c8adaa"
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/Macro.java",
+    "status": "수정",
+    "before_bytes": 1850,
+    "after_bytes": 2187,
+    "before_sha256": "7a88dce5c08ba7fe943801201416801c927c56cbe904b4838072859c70bd0ef9",
+    "after_sha256": "0e720ae15a6ec0087d4efa0a447dc3cbffdec99cc18f8ff10d81bcb016e78bf2"
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/MacroService.java",
+    "status": "수정",
+    "before_bytes": 42324,
+    "after_bytes": 45747,
+    "before_sha256": "f17244c32771318d39375d97a3bbfe8ca63ea812676d3bc8f70af2f2c9312d9a",
+    "after_sha256": "81ea6810bf45c0164db0c9a926ce58994ab45bad1b000520da4c6bdd8f159fd2"
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/MainActivity.java",
+    "status": "수정",
+    "before_bytes": 54361,
+    "after_bytes": 56019,
+    "before_sha256": "bed1f67322743e4d36ddad55367aa724692511a5173ad6e31a1087a848dd3590",
+    "after_sha256": "d0c8f340c5a39973503ae43f1605ac665a19029e498190f20995678491975d77"
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/Step.java",
+    "status": "수정",
+    "before_bytes": 7844,
+    "after_bytes": 8390,
+    "before_sha256": "392600cd5d0cc2ac034cc7d21cca0069065b5f6eb1cc05010dc39886572b5769",
+    "after_sha256": "7ad441ab16f6a873e52f867d52a45488016b351c33bcdeea90be90dd44be817f"
+  },
+  {
+    "path": "source/app/src/test/java/kr/yunseok/touchmacro/ContinuousWaitTest.java",
+    "status": "추가",
+    "before_bytes": null,
+    "after_bytes": 2286,
+    "before_sha256": null,
+    "after_sha256": "162d0adc161932a35c15723d008cf6f587c2b850c5bfaa2f0851093057d7f407"
+  },
+  {
+    "path": "source/app/src/test/java/kr/yunseok/touchmacro/ErrorJournalTest.java",
+    "status": "추가",
+    "before_bytes": null,
+    "after_bytes": 1526,
+    "before_sha256": null,
+    "after_sha256": "eacedd2642485efbd4ccf7c0286640732ffd9465bef77c664208ec7c008dd423"
+  },
+  {
+    "path": "source/local.properties",
+    "status": "수정",
+    "before_bytes": 75,
+    "after_bytes": 75,
+    "before_sha256": "66d271f31d88b54ef51eb3f277e3c9ddec3c156fb710fd5810da6cb328f9a464",
+    "after_sha256": "d23285ef513f88f65172465e32bcbf7a5bb48a45c2193f5c0db3d1e35a1bee5f"
+  },
+  {
+    "path": "source/tools/check_device.py",
+    "status": "수정",
+    "before_bytes": 1185,
+    "after_bytes": 1206,
+    "before_sha256": "16a4e6eb24b7ca16c9108bfce16edeb2b6017df7dae25aea54eb074d80651b6f",
+    "after_sha256": "2b5fbaa1674de32c6112494a6d9e1457456e0b8e0d8c9f693ea24475cb0b5079"
+  },
+  {
+    "path": "source/빌드.ps1",
+    "status": "수정",
+    "before_bytes": 1569,
+    "after_bytes": 2247,
+    "before_sha256": "b1eed03e0ed323384a370bb539b87e0cf62f9c61f4f4376e899f2326210a2bbc",
+    "after_sha256": "4db0278756ab34b63a3982147b302eb10e83ea690e23a456e43c17e835adc837"
+  },
+  {
+    "path": "source/빌드방법.txt",
+    "status": "수정",
+    "before_bytes": 1541,
+    "after_bytes": 1619,
+    "before_sha256": "d8a579aa292c40f015a245f7e51798eedbd5b99c35df9613bf54d987eb19b227",
+    "after_sha256": "72534e909dceafdd8aa050e210965215f855dc81cae4bdd339288124ca438690"
+  },
+  {
+    "path": "검사명세.json",
+    "status": "수정",
+    "before_bytes": 501,
+    "after_bytes": 286,
+    "before_sha256": "fbe8d04d177a251bc1ab0a477e863b4798c528c9af313aaddc9d990801db01ad",
+    "after_sha256": "9141c67f36a565e74ad3acd83b375cf720f047c43ef9a3279720650a5c81fc30"
+  },
+  {
+    "path": "검증/최종_배정근거.json",
+    "status": "이전만 존재",
+    "before_bytes": 1068,
+    "after_bytes": null,
+    "before_sha256": "acb7341f5f81d0bb0bb6bc3dd1700df1443ad7c6e4adc78e339a655d08b5324a",
+    "after_sha256": null
+  },
+  {
+    "path": "검증/최초_독립검토.json",
+    "status": "이전만 존재",
+    "before_bytes": 4159,
+    "after_bytes": null,
+    "before_sha256": "1b545754a94145d193aa97ee47cdb5e5b70e441cc3ceac38388df2033cc028cc",
+    "after_sha256": null
+  },
+  {
+    "path": "검증/최초_배정근거.json",
+    "status": "이전만 존재",
+    "before_bytes": 939,
+    "after_bytes": null,
+    "before_sha256": "b459e026fd8a03664f660f2a7be679826e49200d7917b7cc357a46263cf75605",
+    "after_sha256": null
+  },
+  {
+    "path": "검증결과.txt",
+    "status": "수정",
+    "before_bytes": 3663,
+    "after_bytes": 2246,
+    "before_sha256": "c9ba78f05ca3c50183cf93dc78dff0603acb4452773fd9d6c177f83e66bb86d1",
+    "after_sha256": "2fcce0228d98ab1a6635d90ca9cb64e30856ae1b36f8be01f582d31ce45787e7"
+  },
+  {
+    "path": "검증결과_초기보고.txt",
+    "status": "추가",
+    "before_bytes": null,
+    "after_bytes": 1627,
+    "before_sha256": null,
+    "after_sha256": "3e7e6c332255b5803c6c12c5ab9575c7a1aeb480dc35a719795e42c321bab47b"
+  },
+  {
+    "path": "라우팅기록.md",
+    "status": "이전만 존재",
+    "before_bytes": 8824,
+    "after_bytes": null,
+    "before_sha256": "0b8636d12488a315ed3a51c482c8202798cd5e798e2e5ff0fccef5a03ca9a664",
+    "after_sha256": null
+  },
+  {
+    "path": "라우팅기록.txt",
+    "status": "추가",
+    "before_bytes": null,
+    "after_bytes": 15290,
+    "before_sha256": null,
+    "after_sha256": "b4235fe6abb13ebc32d20be197206a8fb956f2c0cb88514469d19a86bdb74c6f"
+  },
+  {
+    "path": "먼저읽기.txt",
+    "status": "수정",
+    "before_bytes": 1506,
+    "after_bytes": 2813,
+    "before_sha256": "849f7cc68b9d05f87c59a2c8a1c5b9792b16cb358286ce2ec0324d4d125dcd7c",
+    "after_sha256": "5cd9aef68bc0f51d052f62f7bec2a1f4f62478ac6dfadf45882fd1bd10fbfaa7"
+  }
+]

@@ -1,0 +1,6 @@
+한국 시각: 2026-10-21T00:17:19.6973567+09:00
+작업: bs-runtime-readonly-ten-20261020
+부모가 시작한 점검용 ADB 서버만 정리하기로 결정했습니다. 사용자 앱/기본 ADB 서버를 조작하지 않기 위한 범위입니다.
+실행: C:\Program Files\BlueStacks_nxt\HD-Adb.exe -P 5044 kill-server
+종료코드: 0, 출력 없음.
+사용자 BlueStacks/PXE/매크로 입력·설정 변경 없음. repair_used 0→0.

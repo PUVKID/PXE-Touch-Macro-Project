@@ -1,0 +1,499 @@
+--- 비교대상없음/APK_SHA256.txt
++++ 2차/APK_SHA256.txt
+@@ -0,0 +1 @@
++c59a6555126ee547f621814e5046d59579b65e942ed9d7f23272b3e4a7af5d0e  NEX_2차_v2.0_노트10플러스.apk
+--- 비교대상없음/NanumGothic-OFL.txt
++++ 2차/NanumGothic-OFL.txt
+@@ -0,0 +1,126 @@
++Nanum Gothic Bold — Copyright (c) 2010, NAVER Corporation. SIL Open Font License 1.1
++http://hangeul.naver.com/
++
++Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
++Upstream-Name: NanumFontSetup_TTF_ALL
++Upstream-Contact: http://hangeul.naver.com/
++Source: http://hangeul.naver.com/
++
++Files: *
++Copyright: 2010, NAVER Corporation (http://www.nhncorp.com)
++License: OFL-1.1
++ Copyright (c) 2010, NAVER Corporation (http://www.nhncorp.com),
++ .
++ with Reserved Font Name Nanum, Naver Nanum, NanumGothic, Naver
++ NanumGothic, NanumMyeongjo, Naver NanumMyeongjo, NanumBrush, Naver
++ NanumBrush, NanumPen, Naver NanumPen, Naver NanumGothicEco,
++ NanumGothicEco, Naver NanumMyeongjoEco, NanumMyeongjoEco, Naver
++ NanumGothicLight, NanumGothicLight, NanumBarunGothic, Naver
++ NanumBarunGothic,
++ .
++ This Font Software is licensed under the SIL Open Font License, Version 1.1.
++ .
++ This license is copied below, and is also available with a FAQ at:
++ http://scripts.sil.org/OFL 
++ .
++ SIL OPEN FONT LICENSE
++ .
++ Version 1.1 - 26 February 2007
++ .
++ PREAMBLE
++ .
++ The goals of the Open Font License (OFL) are to stimulate worldwide
++ development of collaborative font projects, to support the font creation
++ efforts of academic and linguistic communities, and to provide a free and
++ open framework in which fonts may be shared and improved in partnership
++ with others.
++ .
++ The OFL allows the licensed fonts to be used, studied, modified and
++ redistributed freely as long as they are not sold by themselves. The
++ fonts, including any derivative works, can be bundled, embedded, 
++ redistributed and/or sold with any software provided that any reserved
++ names are not used by derivative works. The fonts and derivatives,
++ however, cannot be released under any other type of license. The
++ requirement for fonts to remain under this license does not apply
++ to any document created using the fonts or their derivatives.
++ .
++ DEFINITIONS
++ .
++ "Font Software" refers to the set of files released by the Copyright
++ Holder(s) under this license and clearly marked as such. This may
++ include source files, build scripts and documentation.
++ .
++ "Reserved Font Name" refers to any names specified as such after the
++ copyright statement(s).
++ .
++ "Original Version" refers to the collection of Font Software components as
++ distributed by the Copyright Holder(s).
++ .
++ "Modified Version" refers to any derivative made by adding to, deleting,
++ or substituting -- in part or in whole -- any of the components of the
++ Original Version, by changing formats or by porting the Font Software to a
++ new environment.
++ .
++ "Author" refers to any designer, engineer, programmer, technical
++ writer or other person who contributed to the Font Software.
++ .
++ PERMISSION & CONDITIONS
++ .
++ Permission is hereby granted, free of charge, to any person obtaining
++ a copy of the Font Software, to use, study, copy, merge, embed, modify,
++ redistribute, and sell modified and unmodified copies of the Font
++ Software, subject to the following conditions:
++ .
++ 1) Neither the Font Software nor any of its individual components,
++ in Original or Modified Versions, may be sold by itself.
++ .
++ 2) Original or Modified Versions of the Font Software may be bundled,
++ redistributed and/or sold with any software, provided that each copy
++ contains the above copyright notice and this license. These can be
++ included either as stand-alone text files, human-readable headers or
++ in the appropriate machine-readable metadata fields within text or
++ binary files as long as those fields can be easily viewed by the user.
++ .
++ 3) No Modified Version of the Font Software may use the Reserved Font
++ Name(s) unless explicit written permission is granted by the corresponding
++ Copyright Holder. This restriction only applies to the primary font name as
++ presented to the users.
++ .
++ 4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
++ Software shall not be used to promote, endorse or advertise any
++ Modified Version, except to acknowledge the contribution(s) of the
++ Copyright Holder(s) and the Author(s) or with their explicit written
++ permission.
++ .
++ 5) The Font Software, modified or unmodified, in part or in whole,
++ must be distributed entirely under this license, and must not be
++ distributed under any other license. The requirement for fonts to
++ remain under this license does not apply to any document created
++ using the Font Software.
++ .
++ TERMINATION
++ .
++ This license becomes null and void if any of the above conditions are
++ not met.
++ .
++ DISCLAIMER
++ .
++ THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
++ EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
++ MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
++ OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
++ COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
++ INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
++ DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
++ FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
++ OTHER DEALINGS IN THE FONT SOFTWARE.
++
++Files: debian/*
++Copyright: 2010-2018, Changwoo Ryu <cwryu@debian.org>
++License: GPL-3+
++ See /usr/share/common-licenses/GPL-3 for the full license.
++
++Files: debian/*.metainfo.xml
++Copyright: 2018, Changwoo Ryu
++License: CC0-1.0
++ See /usr/share/common-licenses/CC0-1.0 for the full license.
+--- 비교대상없음/검증/APK_내장파일검증.txt
++++ 2차/검증/APK_내장파일검증.txt
+@@ -0,0 +1 @@
++PASS: final APK CRC/SHA256, exact Nanum Gothic Bold bytes, OFL, Korean/Latin OCR assets, ARM64, unchanged Round 1
+--- 비교대상없음/검증/APK_서명검증.txt
++++ 2차/검증/APK_서명검증.txt
+@@ -0,0 +1,17 @@
++Verifies
++Verified using v1 scheme (JAR signing): false
++Verified using v2 scheme (APK Signature Scheme v2): true
++Verified using v3 scheme (APK Signature Scheme v3): false
++Verified using v3.1 scheme (APK Signature Scheme v3.1): false
++Verified using v4 scheme (APK Signature Scheme v4): false
++Verified for SourceStamp: false
++Number of signers: 1
++Signer #1 certificate DN: CN=Yunseok Touch Macro, OU=Personal, O=Yunseok, C=KR
++Signer #1 certificate SHA-256 digest: 57339c32b3661e18f18a7f9f7a08c539130211ab93ab0000812f99c949c5ad3e
++Signer #1 certificate SHA-1 digest: 9e21e7bdb4d53a4bb6d0a3b67c9882f09b4124f9
++Signer #1 certificate MD5 digest: 0f5efdcf0516aafd7b1c7b6d8b3c9ab4
++Signer #1 key algorithm: RSA
++Signer #1 key size (bits): 3072
++Signer #1 public key SHA-256 digest: 23a220e2d21b4c5cd475314c002de3f35cccea70e7f3dc8f444617155fcd57ca
++Signer #1 public key SHA-1 digest: 4960ce47cfb631d077a0a650cc83c5c7a7aa5860
++Signer #1 public key MD5 digest: 860e7f6a151d4b8adc44f78f24d520bc
+--- 비교대상없음/검증/Android12_통합검증.txt
++++ 2차/검증/Android12_통합검증.txt
+@@ -0,0 +1,8 @@
++10-13 07:01:56.932  3952  3969 I TestRunner: run started: 2 tests
++10-13 07:01:56.933  3952  3969 I TestRunner: started: realGesturesTextOcrBackRetryPauseAndStop(kr.yunseok.touchmacro.DeviceFlowTest)
++10-13 07:02:29.540  3952  3969 I YUNSEOK_QA: PASS: accessibility, Korean OCR offline, back/recheck, branches, tap-repeat, long, double, macro-loop, pause/resume, stop, input, save/load, retry limit
++10-13 07:02:29.542  3952  3969 I TestRunner: finished: realGesturesTextOcrBackRetryPauseAndStop(kr.yunseok.touchmacro.DeviceFlowTest)
++10-13 07:02:29.544  3952  3969 I TestRunner: started: newTextModesGesturesAndRecorder(kr.yunseok.touchmacro.NexFeatureTest)
++10-13 07:02:52.809  3952  3969 I NEX_QA  : PASS: text region, OCR preview, text offset, retry, curve, pinch, multitap, point capture, curve recording/replay, multi-touch recording/replay, foreground outside activity, dark palette
++10-13 07:02:52.809  3952  3969 I TestRunner: finished: newTextModesGesturesAndRecorder(kr.yunseok.touchmacro.NexFeatureTest)
++10-13 07:02:52.826  3952  3969 I TestRunner: run finished: 2 tests, 0 failed, 0 ignored
+--- 비교대상없음/검증/Android_Lint.txt
++++ 2차/검증/Android_Lint.txt
+@@ -0,0 +1 @@
++No issues found.
+--- 비교대상없음/검증/TEST-kr.yunseok.touchmacro.GestureModelTest.xml
++++ 2차/검증/TEST-kr.yunseok.touchmacro.GestureModelTest.xml
+@@ -0,0 +1,17 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<testsuite name="kr.yunseok.touchmacro.GestureModelTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-10-13T06:52:10.408Z" hostname="DESKTOP-Q56I31F" time="0.011">
++  <properties/>
++  <testcase name="badStartNumberRejected" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.006"/>
++  <testcase name="reversedRegionRejected" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
++  <testcase name="pinchUsesSimultaneousTwoPaths" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.002"/>
++  <testcase name="multiTapCoordinatesStaySimultaneous" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
++  <testcase name="firstRoundStartNumberPreserved" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.001"/>
++  <testcase name="pinchOutsideScreenRejected" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
++  <testcase name="emptyRecordingRejected" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
++  <testcase name="duplicatedRecordingDoesNotShareMutablePoints" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.001"/>
++  <testcase name="tooManyFingersRejected" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.001"/>
++  <testcase name="curveContainsControlShape" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
++  <testcase name="recordedStrokeAndRegionRoundTrip" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
++  <system-out><![CDATA[]]></system-out>
++  <system-err><![CDATA[]]></system-err>
++</testsuite>
+--- 비교대상없음/검증/TEST-kr.yunseok.touchmacro.ModelTest.xml
++++ 2차/검증/TEST-kr.yunseok.touchmacro.ModelTest.xml
+@@ -0,0 +1,16 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<testsuite name="kr.yunseok.touchmacro.ModelTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-10-13T06:52:10.423Z" hostname="DESKTOP-Q56I31F" time="0.002">
++  <properties/>
++  <testcase name="futureSchemaRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
++  <testcase name="nanCoordinateRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
++  <testcase name="invalidGotoRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
++  <testcase name="invalidSourceRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
++  <testcase name="blankTargetRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.001"/>
++  <testcase name="sampleHasFiniteBackRetries" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
++  <testcase name="negativeRetriesRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
++  <testcase name="emptyMacroRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.001"/>
++  <testcase name="serializePreservesTextAndBranchSettings" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
++  <testcase name="missingBranchTargetRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
++  <system-out><![CDATA[]]></system-out>
++  <system-err><![CDATA[]]></system-err>
++</testsuite>
+--- 비교대상없음/검증/TEST-kr.yunseok.touchmacro.TextRulesTest.xml
++++ 2차/검증/TEST-kr.yunseok.touchmacro.TextRulesTest.xml
+@@ -0,0 +1,12 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<testsuite name="kr.yunseok.touchmacro.TextRulesTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-10-13T06:52:10.427Z" hostname="DESKTOP-Q56I31F" time="0.003">
++  <properties/>
++  <testcase name="containsAndCase" classname="kr.yunseok.touchmacro.TextRulesTest" time="0.002"/>
++  <testcase name="regexDoesNotDestroyExpression" classname="kr.yunseok.touchmacro.TextRulesTest" time="0.001"/>
++  <testcase name="unicodeNormalization" classname="kr.yunseok.touchmacro.TextRulesTest" time="0.0"/>
++  <testcase name="koreanSpaceAndExact" classname="kr.yunseok.touchmacro.TextRulesTest" time="0.0"/>
++  <testcase name="invalidRegexFails" classname="kr.yunseok.touchmacro.TextRulesTest" time="0.0"/>
++  <testcase name="neverMatchEmptyTarget" classname="kr.yunseok.touchmacro.TextRulesTest" time="0.0"/>
++  <system-out><![CDATA[]]></system-out>
++  <system-err><![CDATA[]]></system-err>
++</testsuite>
+--- 비교대상없음/검증/화면검증.txt
++++ 2차/검증/화면검증.txt
+@@ -0,0 +1 @@
++라이트/다크의 NEX 글자 화면을 Android 12 가상 기기에서 캡처하여 글자, 버튼, 상태 표시, 대비와 화면 배치를 확인했습니다. 실제 캡처는 화면_라이트.png, 화면_다크.png입니다.
+--- 비교대상없음/검증결과.txt
++++ 2차/검증결과.txt
+@@ -0,0 +1,60 @@
++NEX 2차 / 2.0 최종 검증
++날짜: 2026-10-13 (한국 시간)
++
++보존
++기존 v1.0을 1차로 옮겼습니다.
++1차 APK SHA-256은 원본 e14423c4a2e1f420dcc6a17f422944160088ba4d85f4a1af20cb210a4b8fc56b와 같습니다.
++원본 소스와 사용법도 1차에 보존했습니다.
++
++APK
++앱 표시 이름 NEX, 앱 ID kr.yunseok.touchmacro
++versionCode 2, versionName 2.0.0
++minSdk 30(Android 11), targetSdk 35
++release ARM64, 디버그 기능 꺼짐
++개인 RSA 3072 서명, APK Signature Scheme v2 검증 통과
++서명 인증서 SHA-256:
++57339c32b3661e18f18a7f9f7a08c539130211ab93ab0000812f99c949c5ad3e
++1차와 같은 앱 ID·서명으로 업데이트 설치 가능합니다.
++인터넷 권한 없음. 한글/라틴 OCR 모델과 나눔고딕 Bold/OFL 내장.
++
++자동 검사
++로컬 단위 테스트 27개 통과
++- 한글·영문·정규식 비교 6
++- 저장/설정/범위 10
++- 곡선·핀치·다중 터치·녹화 복제·영역/시작 번호 11
++Android Lint: No issues found
++ARM64 Note 10+ 배포 목적에 따라 ChromeOS ABI 검사만 제외했습니다.
++
++Android 12 실제 실행 검증
++AOSP API 31 x86_64 가상 기기, 1080×2280
++최종 DeviceFlowTest + NexFeatureTest:
++run finished: 2 tests, 0 failed, 0 ignored
++
++검증한 주요 동작
++화면 글자 찾고 터치, Google Play 서비스 없는 한글 OCR/이미지 글자 터치,
++글자 없으면 뒤로가기 후 이전 화면에서 찾고 터치,
++조건 분기, 좌표 반복, 길게/두 번 터치, 전체 반복,
++일시정지·계속·정지, 한글 문자 입력, 이름별 저장,
++최대 뒤로가기 횟수 도달 시 중단,
++검색 영역 제외, OCR 미리보기에서 터치 없음, 터치 오프셋,
++같은 화면 재검색, 곡선, 핀치, 동시 다중 터치,
++좌표 캡처 시 실제 터치 없음,
++곡선 녹화·원래 화면 재생, 두 손가락 녹화·재생,
++홈 화면에서도 컨트롤 및 실행 유지, 다크 팔레트/설정 저장.
++
++검증 중 발견해 수정한 내용
++녹화 창이 터치를 받는 상태에서 재생되는 문제:
++먼저 FLAG_NOT_TOUCHABLE로 변경하고 창 업데이트를 기다린 뒤 재생합니다.
++새 녹화 창을 누르는 기기 테스트는 입력 창 등록/화면 전환이 완료된 뒤 실행합니다.
++터치 직전에 글자가 사라지면 정해둔 재검색 정책을 적용합니다.
++연결 상태는 화면에 자동 반영되며 로그 UI/저장 갱신을 합쳐 과도한 갱신을 줄였습니다.
++
++한계
++노트 10+ 실물은 연결되어 있지 않아 직접 테스트하지 않았습니다.
++실행 검증은 동일 소스의 x86_64 debug 빌드이며 최종 ARM64 release는 패키지·서명·내장 자산을 확인했습니다.
++모든 외부 앱, 모든 보안 화면에서 인식·입력·제스처를 보장하지 않습니다.
++기기에서 먼저 인식 테스트/미리보기로 확인하세요.
++첨부 Click Assistant의 모든 내부 구현이나 고유 저장 파일 형식과의 호환을 보장하지 않습니다.
++
++최종 APK 크기: 22.5 MiB
++최종 APK SHA-256: c59a6555126ee547f621814e5046d59579b65e942ed9d7f23272b3e4a7af5d0e
+--- 비교대상없음/사용법.txt
++++ 2차/사용법.txt
+@@ -0,0 +1,101 @@
++NEX (넥스) · 2차 / 2.0
++갤럭시 노트 10+ · Android 12 기준 · ARM64 APK
++
++보관 위치
++D:\2026\PXE Project\1차 : 처음 만든 앱과 소스 보존
++D:\2026\PXE Project\2차 : 이번 NEX APK, 소스, 예제, 검증
++다음 새 버전은 3차, 4차 순서로 새 폴더에 보관합니다. 이전 차수는 덮어쓰지 않습니다.
++
++설치
++2차의 NEX APK를 휴대폰으로 옮겨 내 파일 앱에서 설치하세요.
++1차와 같은 앱 ID 및 개인 키를 사용하므로 1차 위에 업데이트 설치할 수 있습니다.
++앱의 이름은 NEX로 표시됩니다. 기존 매크로 저장 데이터는 유지됩니다.
++처음 설치하면 앱에서 접근성 설정을 열고 NEX 서비스를 켜 주세요.
++Android 13 이상에서 접근성이 막히면 앱 정보의 '제한된 설정 허용'을 확인합니다.
++Android 13 이상에서 알림을 허용하면 알림에서도 정지/컨트롤 닫기를 사용할 수 있습니다.
++
++가장 중요한 기능: 원하는 글자 인식 → 그 위치 터치
++1. NEX 첫 화면의 '글자' 탭에 찾을 문구를 입력합니다.
++2. 인식 방식을 자동 / 화면 정보 / OCR 중 선택합니다.
++   자동: 일반 버튼과 화면 글자를 먼저 읽고, 없으면 한글 OCR로 찾습니다.
++   OCR: 게임, 이미지, 캔버스 등의 글자를 화면 캡처로 인식합니다.
++3. 포함 / 완전 일치 / 정규식 비교를 선택합니다.
++4. 글자가 없으면 뒤로가기 후 최대 3회 다시 확인하도록 선택할 수 있습니다.
++5. '인식 미리보기'는 초록 테두리로 위치만 보여줍니다. 터치하지 않습니다.
++6. '글자 모드 실행'은 3초 뒤 검색하여 터치합니다.
++7. '이 글자 동작을 매크로에 추가'하면 다른 터치나 스와이프 사이에 넣을 수 있습니다.
++
++다른 앱 위에서 사용하는 권장 순서
++1. 아래 '화면 위 컨트롤'을 누릅니다.
++2. 자동화할 앱으로 직접 이동합니다.
++3. 컨트롤의 '글자'를 눌러 문구를 입력하고 인식/터치/미리보기를 실행합니다.
++4. 일반 매크로는 '시작'으로 실행하고 '일시정지/계속/정지'로 제어합니다.
++5. 상태 글자를 끌어 컨트롤을 이동하고 '접기'로 작은 버튼으로 줄입니다.
++6. 작은 버튼은 눌러 펼치고, 길게 눌러 매크로를 정지할 수 있습니다.
++7. 타이머는 경과 시간과 설정한 최대 실행 시간의 남은 시간을 표시합니다.
++8. 실행 중 컨트롤과 실제 제스처가 겹칠 때만 컨트롤을 잠시 숨깁니다.
++   OCR 캡처 중에는 컨트롤과 번호 점을 잠시 숨겨 인식에 섞이지 않게 합니다.
++9. 편집 화면을 열면 실행 중 매크로는 일시정지합니다.
++10. 알림에서도 정지하거나 컨트롤을 닫을 수 있습니다.
++
++곡선·멀티터치 녹화
++1. 원하는 앱에서 화면 위 컨트롤의 '녹화'를 누릅니다.
++2. 탭, 길게 누르기, 곡선 이동, 두 손가락 확대/축소 등을 직접 그립니다.
++3. 손을 떼면 그 제스처를 원래 앱에 재생한 뒤 다음 동작을 녹화합니다.
++   녹화 입력은 먼저 캡처하며 손을 뗀 후 전달됩니다. 실시간 입력 감시는 아닙니다.
++4. '녹화 끝내기'를 누르면 현재 매크로에 보관합니다.
++5. 제스처 사이에서 기다린 시간도 이전 동작의 완료 후 대기로 기록합니다.
++6. 한 동작만 녹화하거나 기존 동작을 교체하는 기능도 제공합니다.
++7. 동시 경로는 최대 20개, 한 제스처는 최대 59초, 경로당 점은 최대 512개입니다.
++   경로는 손가락별 시작 시각과 지속 시간으로 재생하며 경로 내부 이동 속도는 균일하게 재구성됩니다.
++8. 취소해도 이미 완료한 녹화 동작은 현재 작업에 남습니다. 불필요한 동작은 삭제하세요.
++
++화면 위에서 편집
++- 번호 점을 끌어 터치 위치를 바꿉니다. 녹화된 제스처는 전체 경로를 이동합니다.
++- '동작 목록'에서 위/아래, 복제, 사용 여부, 삭제, 해당 번호부터 실행, 다시 녹화를 선택합니다.
++- '동작 추가'에서 좌표 캡처, 한 동작 녹화, 글자, 뒤로, 대기, 홈, 최근 앱을 추가할 수 있습니다.
++- 상세 검색 영역·보정·조건 분기는 앱의 '동작' 탭에서 편집하세요.
++- '저장'은 현재 매크로를 이름으로 보관합니다.
++- 번호 점은 최대 40개까지만 표시하며 동작 목록은 최대 500개입니다.
++
++글자 동작의 고급 옵션
++- 같은 글자 중 몇 번째인지 선택: 위→아래, 같은 높이에서는 왼쪽→오른쪽
++- 공백·줄바꿈 및 영문 대소문자 무시
++- 검색 영역: 화면 전체의 왼쪽/위/오른쪽/아래 %
++- 터치 X/Y 보정: 화면 비율 -50~50%
++- 각 화면 검색 시간, 재검색 횟수와 대기 시간
++- 없으면 정지 / 건너뛰기 / 뒤로가서 재검색 / 같은 화면 재확인 / 위로 스크롤 후 재검색
++- 최대 횟수 후에도 못 찾으면 중단
++- 캡처 오류나 OCR 엔진 오류는 '글자 없음'으로 처리하지 않고 중단
++
++동작 목록
++좌표 터치, 두 번 터치, 길게 누르기, 스와이프, 곡선 스와이프,
++핀치 축소/확대, 동시 다중 터치, 녹화 제스처,
++대기, 글자 찾아 터치, 글자 대기, 글자 조건 분기, 글자 인식 확인,
++뒤로가기, 홈, 최근 앱, 알림 패널, 문자 입력, 앱 실행, 번호 이동, 정지.
++
++실행 설정과 모양
++- 동작마다 지속 시간, 완료 후 대기, 반복 횟수, 시간 무작위 범위
++- 전체 반복(0은 무한), 반복 사이 대기, 시작 전 대기, 시작할 번호, 최대 실행 시간
++- 기기 설정 따르기 / 라이트 / 다크
++- 컨트롤 크기 75~140%, 불투명도 40~100%, 번호 점 표시 여부
++- 실행 중 화면 켜짐 유지 선택
++- 이름별 저장, JSON 내보내기/불러오기, 실행 기록 TXT 저장
++- 동작 번호를 재정렬하거나 삭제한 뒤 조건 분기/번호 이동 설정을 다시 확인하세요.
++
++주의할 동작 범위
++OCR 인식은 폰트·화질·배치에 따라 달라집니다. 먼저 인식 미리보기로 확인하세요.
++보안 화면은 캡처가 막힐 수 있습니다. 그 앱이 글자 정보를 제공하면 화면 정보 모드를 쓰세요.
++문자 입력은 접근성 입력을 지원하는 입력 칸에서 가능합니다.
++잠금 화면·화면 회전·최대 실행 시간 도달 시 중단합니다.
++이미 전달된 긴 제스처는 정지 후 잠깐 마무리될 수 있습니다.
++화면·문자·매크로는 기기 안에서 처리하며 앱에 인터넷 권한을 넣지 않았습니다.
++앱을 삭제하면 기기 안의 저장 데이터는 사라지므로 JSON으로 백업하세요.
++
++검증
++검증결과.txt와 검증 폴더를 확인하세요.
++노트 10+ 실물은 연결되어 있지 않아 직접 테스트하지 않았습니다.
++같은 소스의 Android 12 x86_64 가상 기기 빌드로 실행을 검증합니다.
++
++폰트
++나눔고딕 Bold 700, 폰트와 OFL 라이선스 APK 내장.
+--- 비교대상없음/예제_OCR_미리보기.json
++++ 2차/예제_OCR_미리보기.json
+@@ -0,0 +1,30 @@
++{
++  "schema": 1,
++  "name": "NEX · 글자 인식 미리보기",
++  "startAt": 1,
++  "rounds": 1,
++  "gap": 1000,
++  "startDelay": 3000,
++  "maxMinutes": 10,
++  "steps": [
++    {
++      "type": "TEXT_CHECK",
++      "text": "확인",
++      "match": "CONTAINS",
++      "source": "OCR",
++      "failure": "STOP",
++      "timeout": 2000,
++      "retries": 3,
++      "retryDelay": 1000,
++      "after": 500,
++      "repeat": 1,
++      "occurrence": 1,
++      "ignoreSpaces": true,
++      "ignoreCase": true,
++      "left": 0,
++      "top": 0,
++      "right": 100,
++      "bottom": 100
++    }
++  ]
++}--- 비교대상없음/예제_글자_뒤로가기.json
++++ 2차/예제_글자_뒤로가기.json
+@@ -0,0 +1,30 @@
++{
++  "schema": 1,
++  "name": "NEX · 글자 없으면 뒤로가기",
++  "startAt": 1,
++  "rounds": 1,
++  "gap": 1000,
++  "startDelay": 3000,
++  "maxMinutes": 10,
++  "steps": [
++    {
++      "type": "TEXT_TAP",
++      "text": "확인",
++      "match": "CONTAINS",
++      "source": "AUTO",
++      "failure": "BACK_RETRY",
++      "timeout": 2000,
++      "retries": 3,
++      "retryDelay": 1000,
++      "after": 500,
++      "repeat": 1,
++      "occurrence": 1,
++      "ignoreSpaces": true,
++      "ignoreCase": true,
++      "left": 0,
++      "top": 0,
++      "right": 100,
++      "bottom": 100
++    }
++  ]
++}--- 비교대상없음/참고앱_기능반영표.txt
++++ 2차/참고앱_기능반영표.txt
+@@ -0,0 +1,35 @@
++Click Assistant 참고 기능 → NEX 구현
++
++참고: 사용자가 첨부한 Click Assistant 1.22.7 XAPK
++확인: manifest.json, AndroidManifest.xml, 한국어 리소스, 개발사 공개 기능 설명
++공식 설명: https://ycstudio.app
++Google Play: https://play.google.com/store/apps/details?id=com.rise.automatic.autoclicker.clicker
++
++접근성 제스처 실행 → AccessibilityService.dispatchGesture
++화면 밖에서도 떠 있는 조작 UI → 접근성 오버레이 + 별도 foreground 컨트롤 서비스
++클릭·스와이프 → 좌표 터치, 두 번, 길게, 스와이프
++곡선 스와이프 → 제어점 곡선 및 직접 경로 녹화
++두 손가락 확대/축소 → PINCH_IN / PINCH_OUT
++멀티터치 → 동시 다중 터치 + 손가락별 경로/시작/지속 시간
++녹화 → 화면 위 터치를 먼저 캡처하고 손을 뗀 후 원래 앱에 제스처 재생
++개별 시간·반복 설정 → 지속 시간, 완료 후 대기, 동작 반복
++무작위 시간 → 지속 시간/완료 후 대기의 ±ms 범위
++화면 위 점 위치 편집 → 번호 점 드래그, 녹화 제스처 전체 이동
++동작 순서·복제·삭제 → 앱 및 화면 위 동작 목록
++지정된 번호부터 실행 → startAt 및 화면 위 목록의 '여기서부터'
++카운트다운·시작 지연 → 시작 전 대기, 경과/남은 시간, 최대 실행 시간
++크기·불투명도 → 컨트롤 크기 75~140%, 불투명도 40~100%
++표시·접기 → 번호 점 표시, 작은 NEX 버튼으로 접기
++저장·불러오기 → 이름별 보관 + JSON 파일
++
++NEX의 추가 핵심
++원하는 문구 찾고 터치, 한글 OCR 내장, 접근성 글자 + OCR 자동 모드,
++검색 영역/터치 보정, 인식 위치 미리보기, 글자 없으면 뒤로/대기/스크롤 재검색,
++라이트/다크/기기 테마, 화면 켜짐 유지, 조건 분기와 문자 입력.
++
++구현의 범위
++일반 사용 기능을 독립 코드로 구현했습니다.
++첨부 앱의 바이너리나 내부 구현 전체를 동일하게 복제했다고 주장하지 않습니다.
++첨부 앱의 리소스/원본 코드/서명을 NEX에 포함하지 않았습니다.
++원본 앱의 자체 저장 파일 형식과의 직접 호환은 확인하지 않았습니다.
++NEX 1차 JSON 파일은 2차에서 불러올 수 있습니다.

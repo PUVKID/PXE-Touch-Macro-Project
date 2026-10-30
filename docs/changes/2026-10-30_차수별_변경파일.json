@@ -1,0 +1,995 @@
+{
+  "baseline_commit": "1c0f9553cb40981e0b74dbb5523f318b1f91f237",
+  "scope": "실제 공개 payload. 명세 자기 파일 제외",
+  "excluded_prefixes": [],
+  "files": [
+    {
+      "path": "README.md",
+      "status": "수정",
+      "before_sha256": "ea8e4454529341ef8c329cb6d745c020563787a2fbf155587b1e7b300a998e3a",
+      "after_sha256": "367e18b4e39786b60f6a6d0dfcfff80da1edde7857625c1a76e089e2ee963fac",
+      "bytes": 15613
+    },
+    {
+      "path": "docs/REVISION_AUDIT.md",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "57a41646f95db4f9a1cd576d13f19df00b2c3726b5ffb8a316e797d1bc5f9a1b",
+      "bytes": 3521
+    },
+    {
+      "path": "docs/VERSIONS.md",
+      "status": "수정",
+      "before_sha256": "e18e8b378f732543696b38cb4a5e1797f43e62eabb08ed0b5ac289c1226b0062",
+      "after_sha256": "fcb18a41e893b540b51cc65984a188670c710ef083cdb96da4bb230faf45f8a5",
+      "bytes": 5189
+    },
+    {
+      "path": "10차/source/app/src/main/res/values/strings.xml",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "2f20bfd229d1ed1c9c8e95e91af500aaaab409ad0d1a1712ec9896811f59f1d1",
+      "bytes": 628
+    },
+    {
+      "path": "11차/source/app/src/main/res/values/strings.xml",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "2f20bfd229d1ed1c9c8e95e91af500aaaab409ad0d1a1712ec9896811f59f1d1",
+      "bytes": 628
+    },
+    {
+      "path": "12차/source/app/src/main/res/values/strings.xml",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "2f20bfd229d1ed1c9c8e95e91af500aaaab409ad0d1a1712ec9896811f59f1d1",
+      "bytes": 628
+    },
+    {
+      "path": "13차/source/app/src/main/res/values/strings.xml",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "2f20bfd229d1ed1c9c8e95e91af500aaaab409ad0d1a1712ec9896811f59f1d1",
+      "bytes": 628
+    },
+    {
+      "path": "14차/source/app/src/main/res/values/strings.xml",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "2f20bfd229d1ed1c9c8e95e91af500aaaab409ad0d1a1712ec9896811f59f1d1",
+      "bytes": 628
+    },
+    {
+      "path": "1차/source/app/src/main/AndroidManifest.xml",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "b2fb0fd4ea273518fed3897afefaabc0630046162b5a7fcb1ea8088966ab1306",
+      "bytes": 1525
+    },
+    {
+      "path": "1차/source/app/src/main/res/values/strings.xml",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "73883b2b4dbdd4742385dae3115c54a884b00b56805ccf021ff7df71665bc947",
+      "bytes": 539
+    },
+    {
+      "path": "3차/source/app/src/main/AndroidManifest.xml",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "50f2e943a654510b5f9936aafcf882bdc563f3a6f3c90cd3af98085f427ed371",
+      "bytes": 1987
+    },
+    {
+      "path": "3차/source/app/src/main/res/values/strings.xml",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "00a53888578604a67a1aa128c73496615e5b73bf65c72c2294b6e9cc3dbb4707",
+      "bytes": 628
+    },
+    {
+      "path": "4차/source/app/src/main/res/values/strings.xml",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "00a53888578604a67a1aa128c73496615e5b73bf65c72c2294b6e9cc3dbb4707",
+      "bytes": 628
+    },
+    {
+      "path": "5차/source/app/src/main/res/values/strings.xml",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "00a53888578604a67a1aa128c73496615e5b73bf65c72c2294b6e9cc3dbb4707",
+      "bytes": 628
+    },
+    {
+      "path": "6차/source/app/src/main/res/values/strings.xml",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "00a53888578604a67a1aa128c73496615e5b73bf65c72c2294b6e9cc3dbb4707",
+      "bytes": 628
+    },
+    {
+      "path": "8차/source/app/src/main/res/values/strings.xml",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "00a53888578604a67a1aa128c73496615e5b73bf65c72c2294b6e9cc3dbb4707",
+      "bytes": 628
+    },
+    {
+      "path": "9차/source/app/src/main/res/values/strings.xml",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "00a53888578604a67a1aa128c73496615e5b73bf65c72c2294b6e9cc3dbb4707",
+      "bytes": 628
+    },
+    {
+      "path": "docs/changes/2026-10-30_차수별_전체비교.md",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "68308a98f8e6d64aad035a1b27cd36c3372c3e6373b8343524677de6e631b6fa",
+      "bytes": 1544
+    },
+    {
+      "path": "docs/revision-audit/10차.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "52e7f589b4cadf6874dc3f66e3ea72ebe38ca89c4fa3fc0c54d2f57ce0126613",
+      "bytes": 12197
+    },
+    {
+      "path": "docs/revision-audit/10차.folder.changes.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "2ca9f69a5abe0b5b652763ac898e5e4eeeb1d3019f135792b71050eb2dcd0311",
+      "bytes": 20372
+    },
+    {
+      "path": "docs/revision-audit/10차.folder.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "4939f62baded83658ccfc9047f00e7093d0e89b2972d284adba868edb57fd6da",
+      "bytes": 15583
+    },
+    {
+      "path": "docs/revision-audit/10차.folder.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "0a5b80b6200fba9f7f7387d2a23807bfa00fc520a6d6b286a49eb33d2a4442bb",
+      "bytes": 144658
+    },
+    {
+      "path": "docs/revision-audit/10차.md",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "0acf376c688ffbc99acd9703d5ec4901c3bb2dbada52a07c13dafffad2b72080",
+      "bytes": 7892
+    },
+    {
+      "path": "docs/revision-audit/10차.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "167f78ea031743a615f8b19fa4e46d3fdfdcf6e020a82ee7ac9d5e2db62fd590",
+      "bytes": 92668
+    },
+    {
+      "path": "docs/revision-audit/11차.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "c3e62636b054e389e6a26b95406a7751447f96e793616bc806e6cb251ae3ae29",
+      "bytes": 13409
+    },
+    {
+      "path": "docs/revision-audit/11차.folder.changes.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "a9a65d665f5630ff0634f50af76d3174b92dd234f0cb5ce987d5aa97d8519cde",
+      "bytes": 10200
+    },
+    {
+      "path": "docs/revision-audit/11차.folder.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "10092fa15bbf8fab71ce95b0cb52d553f369d5352e5a84429e645e5a3b6506e6",
+      "bytes": 14697
+    },
+    {
+      "path": "docs/revision-audit/11차.folder.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "ce18d177189b0c544ad532fa3131775f15947a45ce384ca316ece3fa5f03ff6c",
+      "bytes": 78084
+    },
+    {
+      "path": "docs/revision-audit/11차.md",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "b80cdc039ced788e89383eebb1caaf76405cd1b280f335e2d5e557a90fd806d4",
+      "bytes": 4266
+    },
+    {
+      "path": "docs/revision-audit/11차.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "1267feac2ce222039e56d6647167e517504c999e16f8952a8d6be20a9d773326",
+      "bytes": 48752
+    },
+    {
+      "path": "docs/revision-audit/12차.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "2682bd5f30d90382610c93d98c073d1e85f810ca5b2419297d839ae4a514d939",
+      "bytes": 14159
+    },
+    {
+      "path": "docs/revision-audit/12차.folder.changes.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "e2f4645eb8837dde3bd367b832586808604ec30a81b7162611e57cb51a0f85a0",
+      "bytes": 6417
+    },
+    {
+      "path": "docs/revision-audit/12차.folder.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "fbba321b816d18c02acf73bddf70f9edd5dc077348b0c0c80bcb2ca8f436de09",
+      "bytes": 15008
+    },
+    {
+      "path": "docs/revision-audit/12차.folder.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "902378a6920b73e15b56472f865c96caa4a26ca9ab9cbc118f073d945ac5409e",
+      "bytes": 79803
+    },
+    {
+      "path": "docs/revision-audit/12차.md",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "04bacc23e6dec8ac01a94e8b9117c6d55f95b36913ba8b1cc1a13120b423f5a4",
+      "bytes": 4671
+    },
+    {
+      "path": "docs/revision-audit/12차.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "bfb60ec17ee0dd3224d7857c9617b7143dd40c0113a7974dea2aa07d265d1801",
+      "bytes": 67778
+    },
+    {
+      "path": "docs/revision-audit/13차.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "f3b2917f28ee4ca843deb556b608915fb4b174e339f5c37720d3ae5f0e227949",
+      "bytes": 15623
+    },
+    {
+      "path": "docs/revision-audit/13차.folder.changes.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "a400ae09773443f173c502f868049158ef112303e4ce608a87b472f5c6b531c8",
+      "bytes": 7296
+    },
+    {
+      "path": "docs/revision-audit/13차.folder.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "f27b1c3e871f11a80fe06556419b1995c1a9ec67f002c3d6393c350114f468c5",
+      "bytes": 17244
+    },
+    {
+      "path": "docs/revision-audit/13차.folder.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "a2762a168fb28420c8e378a551af9b258d60c48be3c7c7c7b14d00fb78a69813",
+      "bytes": 119292
+    },
+    {
+      "path": "docs/revision-audit/13차.md",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "909a480508a89e18ae64dce13d245fad4b88b6ce70b6a5a9bef649c1461b2415",
+      "bytes": 5132
+    },
+    {
+      "path": "docs/revision-audit/13차.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "cb174af9d994dfef0fbf636d366714c7b97f6a35df383ae1448475ddb5c962ef",
+      "bytes": 102191
+    },
+    {
+      "path": "docs/revision-audit/14차.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "590224e2977b47edb0cd5e439891b3ea6e5bba7d5d5cbda5fbe8299d377424c4",
+      "bytes": 17830
+    },
+    {
+      "path": "docs/revision-audit/14차.folder.changes.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "3794bda72e5e85339738080e1412d8fb0a571d93feee131677317095107101df",
+      "bytes": 14993
+    },
+    {
+      "path": "docs/revision-audit/14차.folder.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "ccf8ad78a1896150865abcaead57f68112e7b4beca071f5b63b9562395388321",
+      "bytes": 19422
+    },
+    {
+      "path": "docs/revision-audit/14차.folder.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "107de8f6dd591f6f2d109d3a95af672e901e31dd04855ca22377dd28026beadb",
+      "bytes": 349250
+    },
+    {
+      "path": "docs/revision-audit/14차.md",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "934572c289204b66725d806e4b4145be442c965c4134d6f11feca210b853e897",
+      "bytes": 8559
+    },
+    {
+      "path": "docs/revision-audit/14차.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "9d66601ee356add9517fd9384a54099972f8c598929761ea77e733d5df8bd204",
+      "bytes": 329664
+    },
+    {
+      "path": "docs/revision-audit/15차.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "ea7edc72b9bc5e0bc0916daded75743b05924629572636208307fdeecd1558b5",
+      "bytes": 20165
+    },
+    {
+      "path": "docs/revision-audit/15차.folder.changes.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "1fc77696842f457d93746c370c4f63590c1ae96fd4b1f30e7f2da552af8fa8de",
+      "bytes": 9914
+    },
+    {
+      "path": "docs/revision-audit/15차.folder.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "5f877a464fbdc19193861019a1a3398e7502192d649725d256b76bc0f3bd6f2e",
+      "bytes": 21117
+    },
+    {
+      "path": "docs/revision-audit/15차.folder.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "d690908bf3b41b2615357f77f62fb7cd0f6707f743022173878bf4c3153c6a54",
+      "bytes": 143770
+    },
+    {
+      "path": "docs/revision-audit/15차.md",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "4648fe856aa759f0d7f9afe414fc9307b72d3e2c6d867e4c8c9ec46ae9d20e8e",
+      "bytes": 6420
+    },
+    {
+      "path": "docs/revision-audit/15차.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "cd93d5520b6e6e38bac4fc24ca50d65648538a25e69ff1dc2246b3fd23036e96",
+      "bytes": 130667
+    },
+    {
+      "path": "docs/revision-audit/16차.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "6198c3d56e367c7d61ef62c6f240ee24be240dca6e0c320775c90417a43d99a8",
+      "bytes": 23872
+    },
+    {
+      "path": "docs/revision-audit/16차.folder.changes.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "9604b88f7a79e49b17c36a64db1912e0c4b0041233e86ad0fbbfc02175d54170",
+      "bytes": 12453
+    },
+    {
+      "path": "docs/revision-audit/16차.folder.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "037f790aab37a75cf55e3c93a64e574c16337c51fc22de2a6a3fa42cd017ee98",
+      "bytes": 26215
+    },
+    {
+      "path": "docs/revision-audit/16차.folder.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "00cdc719f5ecfbc97d7b908bb94f79d24bd2a5cf2fbed17a2c5d182d9dabe026",
+      "bytes": 212025
+    },
+    {
+      "path": "docs/revision-audit/16차.md",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "855db1707d6389f326d348533dec3fa28ffdc0fb4a98856b6d0e3294ee951925",
+      "bytes": 7729
+    },
+    {
+      "path": "docs/revision-audit/16차.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "da43f91a0144bec645ed0dc3c088bc5cb2f2b4b384cc939871649def16692bd7",
+      "bytes": 189563
+    },
+    {
+      "path": "docs/revision-audit/1차.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "e64476653f9e6402f5e957c9910ede84f1b5f7109672d605ccaaa590d20c8450",
+      "bytes": 4114
+    },
+    {
+      "path": "docs/revision-audit/1차.folder.changes.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "eb44af61504db40ec4d70faa91b409bcaec685a5dc9a3b6d3041f094756d1100",
+      "bytes": 20440
+    },
+    {
+      "path": "docs/revision-audit/1차.folder.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "a90ab8ebbfae1ab2b43b788ccc97c07e23406acacad9364cd5cda4dff9b10025",
+      "bytes": 5264
+    },
+    {
+      "path": "docs/revision-audit/1차.folder.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "0a36fa8b94f3f126f68c78d30d8d47d58ef11cf3161270e4c517765aa37bea80",
+      "bytes": 420979
+    },
+    {
+      "path": "docs/revision-audit/1차.md",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "77757a4b283dd1231bfefb234a709b9628ab63993b8517ff262208aea86590f3",
+      "bytes": 13827
+    },
+    {
+      "path": "docs/revision-audit/1차.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "02ac7b566be50547022752ace53c4f8a904e41b9fdf1173ff09093273e3e06ea",
+      "bytes": 415901
+    },
+    {
+      "path": "docs/revision-audit/2차.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "d02729dc40e8e7a73c849876d1cb2852a78c9da583a537bb540b55bea59032a8",
+      "bytes": 1749
+    },
+    {
+      "path": "docs/revision-audit/2차.folder.changes.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "084bd1e235fd1e87a527c78bcbe43528a6254b3fa01d6edcf1f9cc8fa804551b",
+      "bytes": 9951
+    },
+    {
+      "path": "docs/revision-audit/2차.folder.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "d02729dc40e8e7a73c849876d1cb2852a78c9da583a537bb540b55bea59032a8",
+      "bytes": 1749
+    },
+    {
+      "path": "docs/revision-audit/2차.folder.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "0ece01684d773665b2edcf328ed8789ee9e5ab2c137b92fda3ea7d6c8377f4fd",
+      "bytes": 96267
+    },
+    {
+      "path": "docs/revision-audit/2차.md",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "607a4b1b38f73c4ddc7ae9adb61198eecc7890b8254d2978c747d034a0fa6dca",
+      "bytes": 7745
+    },
+    {
+      "path": "docs/revision-audit/2차.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "9f9488a042c19b1b2b1fd1eb5ffc00bf1317d188e3a8433b92d11a899f0685b2",
+      "bytes": 95322
+    },
+    {
+      "path": "docs/revision-audit/3차.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "04bb3e7a851d9dcce801e812f1d1b5317867effa90b87f47422ac95780dcd11b",
+      "bytes": 4712
+    },
+    {
+      "path": "docs/revision-audit/3차.folder.changes.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "c3e07f81130f1c10416e7e1ee450e5d897e2c701d82993241dfc6b727f7053ae",
+      "bytes": 10819
+    },
+    {
+      "path": "docs/revision-audit/3차.folder.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "5933013b5c4c6e63cc9c01f57ef235c4586b6072e58570e830203617c14593b6",
+      "bytes": 6245
+    },
+    {
+      "path": "docs/revision-audit/3차.folder.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "a317e7a9d106e33ebe7403e713b814d2cb39675e66213eb62c9440c9a683b68f",
+      "bytes": 155207
+    },
+    {
+      "path": "docs/revision-audit/3차.md",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "e3ac37bc0cce03f39b29e41095fdc5c8fc5af462ec193d4152c1576c1bb4ecfa",
+      "bytes": 8459
+    },
+    {
+      "path": "docs/revision-audit/3차.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "c84a281ea0580367c7ccb5de92fca0fd08a63df52b9ae549aa1782559eb53f00",
+      "bytes": 151799
+    },
+    {
+      "path": "docs/revision-audit/4차.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "5ea85a8ff4a40b2f44b4c13fc517f310cdebe81910cbb64b5836a992e67292bf",
+      "bytes": 7127
+    },
+    {
+      "path": "docs/revision-audit/4차.folder.changes.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "661ec0967f74320c10e1324518990fe1fd44775cf2a32eb878f261ec8cafe90b",
+      "bytes": 10014
+    },
+    {
+      "path": "docs/revision-audit/4차.folder.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "53f231a7c7b5180f65a408893eb29febc54ba5f200c109538863553f62b052d2",
+      "bytes": 8670
+    },
+    {
+      "path": "docs/revision-audit/4차.folder.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "6e1b41eb269efb6a9c5bca4ed583692894d7a0258523cf328ab4adb22246e253",
+      "bytes": 91673
+    },
+    {
+      "path": "docs/revision-audit/4차.md",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "41878331f83adffd3529cdb10ab1463982237b76d1f34d8f6c68b0b96e50cc8a",
+      "bytes": 5556
+    },
+    {
+      "path": "docs/revision-audit/4차.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "c7362102d72a33029e79f6625610ec7795e3ee0c5be7b1c6f0d8e4f36bd02d2c",
+      "bytes": 74308
+    },
+    {
+      "path": "docs/revision-audit/5차.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "b147727feab8cf2c7f1d2fc42cebec99e2af554924bbd3811b35a2499165c8c9",
+      "bytes": 7812
+    },
+    {
+      "path": "docs/revision-audit/5차.folder.changes.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "75a7c699fbc73bf531dd194d90d4ef6a994059a54d93d8ae45cbac7581f4a10c",
+      "bytes": 6960
+    },
+    {
+      "path": "docs/revision-audit/5차.folder.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "2987caa2b2fc3a6ee2a0ba8921825b9ce4c0cdbc77853a9df035654be254aaa4",
+      "bytes": 9408
+    },
+    {
+      "path": "docs/revision-audit/5차.folder.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "16b1b9af24615838d7c838dbd833a2231d09f415a5b1719c28e4e14e1712a45e",
+      "bytes": 72344
+    },
+    {
+      "path": "docs/revision-audit/5차.md",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "057033e891f031818bd99fda1350261a8219beb4ab97f7b44b54f8f56fe2164c",
+      "bytes": 4087
+    },
+    {
+      "path": "docs/revision-audit/5차.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "b23a90640b10c135911bbcee4fbcd72cf166462c237abc0e880397086f32924a",
+      "bytes": 57227
+    },
+    {
+      "path": "docs/revision-audit/6차.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "142f051f1f1174f11534c5cf89f1572aa28d24a31dead7cec32c455fa5c79267",
+      "bytes": 9832
+    },
+    {
+      "path": "docs/revision-audit/6차.folder.changes.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "ea5c0b33faad8be99d3b64509fecde55605c8721ed2efc9d9c62d463f03e7274",
+      "bytes": 11717
+    },
+    {
+      "path": "docs/revision-audit/6차.folder.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "71ae1ee6981c6ebce56681faa84f4a3d3dd739070f09975191eb8fc00f1cb1d5",
+      "bytes": 12352
+    },
+    {
+      "path": "docs/revision-audit/6차.folder.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "b5b4696ad6f999bd652a8bfec09524a76e32a066a227f9482f57d41f04f87833",
+      "bytes": 147145
+    },
+    {
+      "path": "docs/revision-audit/6차.md",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "1dc4cc802a8538f69b333213dd886ec78bc7b86ddfef77e3dec6103ba46297b2",
+      "bytes": 6364
+    },
+    {
+      "path": "docs/revision-audit/6차.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "174808fa7567d1f72d767c559285f169f4dd09c5636e5481b2be74387bf1b1c0",
+      "bytes": 113724
+    },
+    {
+      "path": "docs/revision-audit/7차.md",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "d39f1221565d736344e4137a9bb5819e396cb327be7956199229465a802d101b",
+      "bytes": 376
+    },
+    {
+      "path": "docs/revision-audit/8차.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "7c2f1461d18d6421d5cdbfffee89b4d837fe28bae3fb377f0383130f5747a19c",
+      "bytes": 10395
+    },
+    {
+      "path": "docs/revision-audit/8차.folder.changes.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "ea10bc53414d87c516cdaae2f8e268878d1b9949ca51597727bc1768629f01f8",
+      "bytes": 8720
+    },
+    {
+      "path": "docs/revision-audit/8차.folder.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "d4084839822e068007fa24480339a4376a0eac3aa88cebf63ef3dc714bfb4392",
+      "bytes": 12904
+    },
+    {
+      "path": "docs/revision-audit/8차.folder.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "4b8d5bd45fa4b9b08a7282c884a39687e797385147ba838f75fbd56610f5b645",
+      "bytes": 62601
+    },
+    {
+      "path": "docs/revision-audit/8차.md",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "1164a91728b793a814f7770e578f5d5418f40e3bc7ca9caeeab9d45f12a8be7c",
+      "bytes": 3202
+    },
+    {
+      "path": "docs/revision-audit/8차.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "189bc8ef50043c474f06fc8aa52c62eba9a3a2d9edde697b61a29331e51357ae",
+      "bytes": 24772
+    },
+    {
+      "path": "docs/revision-audit/9차.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "ade444f06dcb2a403d1c8ae52efc4ccaef85a2750bb654a0924f5cac9f8b8888",
+      "bytes": 10965
+    },
+    {
+      "path": "docs/revision-audit/9차.folder.changes.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "24ad8f9fca043d97de2fcb3694fcb07b0a7859c08ebffcdf7d19c2df264ad616",
+      "bytes": 10217
+    },
+    {
+      "path": "docs/revision-audit/9차.folder.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "e953e344f213a0ab297e95e9f95d6392535a34dd8271cd10c0c3ee3946ad380b",
+      "bytes": 15980
+    },
+    {
+      "path": "docs/revision-audit/9차.folder.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "47513927bf3edb1ae936892da2adb684f78e9b8642064d4741ef97d7b5124125",
+      "bytes": 71352
+    },
+    {
+      "path": "docs/revision-audit/9차.md",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "e36a13523c204a326e67568b52d30384e701109fa672156ea1d467a0b28e5298",
+      "bytes": 3415
+    },
+    {
+      "path": "docs/revision-audit/9차.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "6fdf029d734276facb4bd9940c37cb82ea0b8ee43bf62d6e78185d20a44a0880",
+      "bytes": 32262
+    },
+    {
+      "path": "docs/revision-audit/기본.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "b7dfd8cfc7c330e15dcf4c01b676c3b69cc73238c5d77742fcb7f1c91c769ca6",
+      "bytes": 7866
+    },
+    {
+      "path": "docs/revision-audit/기본.folder.changes.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "c7223f2fa236f0f20c412bcb021ecb223551ed92cc91e67da58e8c1323d9c9b6",
+      "bytes": 11960
+    },
+    {
+      "path": "docs/revision-audit/기본.folder.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "b7dfd8cfc7c330e15dcf4c01b676c3b69cc73238c5d77742fcb7f1c91c769ca6",
+      "bytes": 7866
+    },
+    {
+      "path": "docs/revision-audit/기본.folder.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "ec66a0daa3e7e88de4a94519782accf19dfab210feee94064483feebd7e545d1",
+      "bytes": 332229
+    },
+    {
+      "path": "docs/revision-audit/기본.md",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "3976477537912f89da22fc1ef76f1c6bf07e1af8472e841d014b7ad66a65a326",
+      "bytes": 9618
+    },
+    {
+      "path": "docs/revision-audit/기본.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "ec66a0daa3e7e88de4a94519782accf19dfab210feee94064483feebd7e545d1",
+      "bytes": 332229
+    },
+    {
+      "path": "docs/revision-audit/실행점검-2차.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "ad91867f501008a7c8e2644abc25a08b0e9b848a87846de55341dd8540948a69",
+      "bytes": 147
+    },
+    {
+      "path": "docs/revision-audit/실행점검-2차.folder.changes.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "5ee8e013df172e73d35382c41645324413cb903d4b0cdb94923d44d06eecf27c",
+      "bytes": 40803
+    },
+    {
+      "path": "docs/revision-audit/실행점검-2차.folder.files.json",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "ad91867f501008a7c8e2644abc25a08b0e9b848a87846de55341dd8540948a69",
+      "bytes": 147
+    },
+    {
+      "path": "docs/revision-audit/실행점검-2차.folder.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "bba34bcf413da43b91367cb8090e8bf31da74311c2ddb0226677c3c39d5c7c6f",
+      "bytes": 629932
+    },
+    {
+      "path": "docs/revision-audit/실행점검-2차.md",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "a5c268fdee0765a8fe5d952b0dfded1d6e6bdd6436da4eb612e25e9def7fe92d",
+      "bytes": 27657
+    },
+    {
+      "path": "docs/revision-audit/실행점검-2차.patch",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "6a97660fcacd470408bf9d559d7ac6718eedcb43c47d06912e9b01f3c693b2e9",
+      "bytes": 608368
+    },
+    {
+      "path": "docs/versions/10차.md",
+      "status": "수정",
+      "before_sha256": "4867419787b308461e86944e9a5682f460889c9ac4f09dc47bfbdb70f60c7cdd",
+      "after_sha256": "bfd76e76180d072f60fdaba16a83da79917965d24c506f1df1336bede9899e47",
+      "bytes": 6108
+    },
+    {
+      "path": "docs/versions/11차.md",
+      "status": "수정",
+      "before_sha256": "1a597d1d1e6f30eca7c33d2e4f2c947f2a431e9a93effc7f8f74bc296595507f",
+      "after_sha256": "a660cdbcfc372e9ef736413aedcafe93e10009bebbf0ff71043ff8a696202c0b",
+      "bytes": 3979
+    },
+    {
+      "path": "docs/versions/12차.md",
+      "status": "수정",
+      "before_sha256": "0345dd1bfec2c074cc8b3b9a53f70c790274b4b40f2942a68d1c4448e2ea0f3b",
+      "after_sha256": "013f52db37f40bd20b825f77b30683891ec33e2d4aef56f24531d946b2a6c32d",
+      "bytes": 4361
+    },
+    {
+      "path": "docs/versions/13차.md",
+      "status": "수정",
+      "before_sha256": "885743b984d9adc5132097c39a4cfb324c32ad5f59896cad9027395333b29fa6",
+      "after_sha256": "8e05025e99bd8e9017aa923e664ff8a277109f61ec079876603e5b2b046afdc3",
+      "bytes": 5166
+    },
+    {
+      "path": "docs/versions/14차.md",
+      "status": "수정",
+      "before_sha256": "c6e8c9fb7544d74806fa2666a45db9c07eab3cacb150f14a39b220a0be064df5",
+      "after_sha256": "63fd9d88d012893e247d16c420299c5dec5e9609f87a55d2841653676684f70f",
+      "bytes": 5529
+    },
+    {
+      "path": "docs/versions/15차.md",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "539f8ae73fe9bd52a43e2f69746b9c5f49f71ffce9a277bf4ce87142b837e62b",
+      "bytes": 1309
+    },
+    {
+      "path": "docs/versions/16차.md",
+      "status": "수정",
+      "before_sha256": "ebbb0737bb2d2020652f6362efada363d9a212b56f210c22b84485f3f4b6be0d",
+      "after_sha256": "e77d7ab942aea6128a80495d3c3958cb5ffeb410a0e051f54c398d58b935d6b7",
+      "bytes": 4568
+    },
+    {
+      "path": "docs/versions/1차.md",
+      "status": "수정",
+      "before_sha256": "7d72b3a1fa493c4b896d5bea5a581731bdf6a78b277f785acc03be983b691de4",
+      "after_sha256": "cd1b1c53e3b309ad9c1bf0e5d414973c1dfc81fdd5e4391b476f8e13e347ac6f",
+      "bytes": 2305
+    },
+    {
+      "path": "docs/versions/2차.md",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "aef35fee593f07f20356dd4ce4d362ece17da5ce02d2ce166f4add19f4339846",
+      "bytes": 585
+    },
+    {
+      "path": "docs/versions/3차.md",
+      "status": "수정",
+      "before_sha256": "1aef48b76f62fbe2809698e9cb2c84aa7cfa1ce31357b8123b79f08799044768",
+      "after_sha256": "428ea962f7224cd04867124b0208917b4f0b488fdc50faa1ec03ed32aeb443e8",
+      "bytes": 4152
+    },
+    {
+      "path": "docs/versions/4차.md",
+      "status": "수정",
+      "before_sha256": "b8b557e9bd973ad952b5379ac147cccc8f1d7ad8edb249a61eb6d7dafd212d65",
+      "after_sha256": "7cd5a10bb88efd964cc33546123b1165367baddda0ddd1263b604e93ac53b482",
+      "bytes": 4259
+    },
+    {
+      "path": "docs/versions/5차.md",
+      "status": "수정",
+      "before_sha256": "89ebd303f94b5eab3bbaab70c7966041358f62ecff64536cf4f4fbefd7b0c9a0",
+      "after_sha256": "7ab7d0ab341d0f163b487c7c3cfcaa828d37c0372fd00669baa856edb3bae5a9",
+      "bytes": 3862
+    },
+    {
+      "path": "docs/versions/6차.md",
+      "status": "수정",
+      "before_sha256": "eb625ab3c54b8f343f28cdfd3b37d6c20da107053fa0e36a94cfddbc2f128c98",
+      "after_sha256": "f885ea6749adb3af8e3419cfefedd881422c60bf4fb9ea0ebec580b87932df2c",
+      "bytes": 5879
+    },
+    {
+      "path": "docs/versions/8차.md",
+      "status": "수정",
+      "before_sha256": "1be4005e24630647d57537e65f89767d35d54b9a5ea62dff109caa0ab48b852b",
+      "after_sha256": "49872f1bf2c13bb93bbaf49d1151c3065513641f329485bfc5077498ec85f9d7",
+      "bytes": 3179
+    },
+    {
+      "path": "docs/versions/9차.md",
+      "status": "수정",
+      "before_sha256": "979b2520f2421022b88c54e44c0199e6da5a200252da68f92bc452d709b270d6",
+      "after_sha256": "8aa2db42bf87417b3413885ce03889d397fa99e4873915e58b87ab64eb6408e4",
+      "bytes": 3932
+    },
+    {
+      "path": "docs/versions/기본.md",
+      "status": "수정",
+      "before_sha256": "dd8fefef984677b5c93e6d1f2ddcb1237d8d9e2138ef7ae890d82cd8bd8b15fd",
+      "after_sha256": "ae66877e48236d57811bc05cc88a544f357f393f042f534d5953e4785002a670",
+      "bytes": 2282
+    },
+    {
+      "path": "docs/versions/실행점검-2차.md",
+      "status": "수정",
+      "before_sha256": "fe0f193f9141892d92e6e423cd858f227c675f004c1f5d2a0150e948fc4ee3be",
+      "after_sha256": "8ba11ef2216e86def02106744989620ae40dac99872127525b227d77ef4eff79",
+      "bytes": 1926
+    },
+    {
+      "path": "docs/versions/최종설정.md",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "4d5accb043abaf64d5871ae37d5ad871131a0c5b48834fe1ac284e11e88cf959",
+      "bytes": 428
+    },
+    {
+      "path": "코드/NEXSource2/app/src/main/AndroidManifest.xml",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "50f2e943a654510b5f9936aafcf882bdc563f3a6f3c90cd3af98085f427ed371",
+      "bytes": 1987
+    },
+    {
+      "path": "코드/NEXSource2/app/src/main/res/values/strings.xml",
+      "status": "추가",
+      "before_sha256": null,
+      "after_sha256": "00a53888578604a67a1aa128c73496615e5b73bf65c72c2294b6e9cc3dbb4707",
+      "bytes": 628
+    }
+  ],
+  "deletions": []
+}

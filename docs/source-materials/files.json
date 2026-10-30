@@ -1,0 +1,2770 @@
+[
+  {
+    "path": "10차/APK_SHA256.json",
+    "source": "10차/APK_SHA256.json",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 434,
+    "sha256": "767d70a02f8b8004955d0a7bfbfec21b0b6c7ebfc401b9089d44ad74c644b92f"
+  },
+  {
+    "path": "10차/NanumGothic-OFL.txt",
+    "source": "10차/NanumGothic-OFL.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 5398,
+    "sha256": "9413f0aaff51c59be2ff01113a28759b491e6fd67172c3d0a666e6354af18883"
+  },
+  {
+    "path": "10차/source/app/src/main/AndroidManifest.xml",
+    "source": "10차/source/app/src/main/AndroidManifest.xml",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 2028,
+    "sha256": "0b0b555dfe5b56f2f0acf4854a6a5abec73edbba0d5075827f707fd22d2efc96"
+  },
+  {
+    "path": "10차/source/app/src/main/assets/NanumGothic-OFL.txt",
+    "source": "10차/source/app/src/main/assets/NanumGothic-OFL.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 5398,
+    "sha256": "9413f0aaff51c59be2ff01113a28759b491e6fd67172c3d0a666e6354af18883"
+  },
+  {
+    "path": "10차/source/app/src/main/res/font/nanum_gothic_bold.ttf",
+    "source": "10차/source/app/src/main/res/font/nanum_gothic_bold.ttf",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 4642244,
+    "sha256": "454eb3f503f377782a99eb84fc4bb7dde22a0f075d41b47427737f2985053bc9"
+  },
+  {
+    "path": "10차/source/app/src/main/res/values/strings.xml",
+    "source": "10차/source/app/src/main/res/values/strings.xml",
+    "kind": "원본 파일",
+    "reason": "현재 공개 사본 경로가 존재: 원격/기존 정제본 보존",
+    "bytes": 628,
+    "sha256": "2f20bfd229d1ed1c9c8e95e91af500aaaab409ad0d1a1712ec9896811f59f1d1"
+  },
+  {
+    "path": "10차/source/gradlew",
+    "source": "10차/source/gradlew",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 8752,
+    "sha256": "734b3879d3501dce471cf0522d3bcbafe76873d9fc5129345b67fb43bd15e933"
+  },
+  {
+    "path": "10차/source/local.properties",
+    "source": "10차/source/local.properties",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 77,
+    "sha256": "675a9d8113a118c3b6026d9288990cbc9db036a121832ff42e7ef4711daa7313"
+  },
+  {
+    "path": "10차/검증결과.txt",
+    "source": "10차/검증결과.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 3019,
+    "sha256": "50ab482107596cb2c430384094f8ad42df795cabd6998fd277fa01ecdf5e6ac0"
+  },
+  {
+    "path": "10차/디자인파일/PXE_로고.svg",
+    "source": "10차/디자인파일/PXE_로고.svg",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 로고 원본 벡터 리소스",
+    "bytes": 393,
+    "sha256": "9f41011b673e0a59f9767255f9a070e542ef0dd2281581dea76f93b4142993ef"
+  },
+  {
+    "path": "10차/먼저읽기.txt",
+    "source": "10차/먼저읽기.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 2013,
+    "sha256": "3f31eec35402349feaa5b3ce4231fb2eabe3306516a85e6f51ac040cdbfce87b"
+  },
+  {
+    "path": "11차/APK_SHA256.json",
+    "source": "11차/APK_SHA256.json",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 437,
+    "sha256": "b8ddcb31daeedb0ccee473be5fb25bcdeef3f79984477907b47da2f6b7dc3ee9"
+  },
+  {
+    "path": "11차/NanumGothic-OFL.txt",
+    "source": "11차/NanumGothic-OFL.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 5398,
+    "sha256": "9413f0aaff51c59be2ff01113a28759b491e6fd67172c3d0a666e6354af18883"
+  },
+  {
+    "path": "11차/source/app/src/main/AndroidManifest.xml",
+    "source": "11차/source/app/src/main/AndroidManifest.xml",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 2028,
+    "sha256": "0b0b555dfe5b56f2f0acf4854a6a5abec73edbba0d5075827f707fd22d2efc96"
+  },
+  {
+    "path": "11차/source/app/src/main/assets/NanumGothic-OFL.txt",
+    "source": "11차/source/app/src/main/assets/NanumGothic-OFL.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 5398,
+    "sha256": "9413f0aaff51c59be2ff01113a28759b491e6fd67172c3d0a666e6354af18883"
+  },
+  {
+    "path": "11차/source/app/src/main/res/font/nanum_gothic_bold.ttf",
+    "source": "11차/source/app/src/main/res/font/nanum_gothic_bold.ttf",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 4642244,
+    "sha256": "454eb3f503f377782a99eb84fc4bb7dde22a0f075d41b47427737f2985053bc9"
+  },
+  {
+    "path": "11차/source/app/src/main/res/values/strings.xml",
+    "source": "11차/source/app/src/main/res/values/strings.xml",
+    "kind": "원본 파일",
+    "reason": "현재 공개 사본 경로가 존재: 원격/기존 정제본 보존",
+    "bytes": 628,
+    "sha256": "2f20bfd229d1ed1c9c8e95e91af500aaaab409ad0d1a1712ec9896811f59f1d1"
+  },
+  {
+    "path": "11차/source/gradlew",
+    "source": "11차/source/gradlew",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 8752,
+    "sha256": "734b3879d3501dce471cf0522d3bcbafe76873d9fc5129345b67fb43bd15e933"
+  },
+  {
+    "path": "11차/source/local.properties",
+    "source": "11차/source/local.properties",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 75,
+    "sha256": "66d271f31d88b54ef51eb3f277e3c9ddec3c156fb710fd5810da6cb328f9a464"
+  },
+  {
+    "path": "11차/검증결과.txt",
+    "source": "11차/검증결과.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 3663,
+    "sha256": "c9ba78f05ca3c50183cf93dc78dff0603acb4452773fd9d6c177f83e66bb86d1"
+  },
+  {
+    "path": "11차/라우팅기록.md",
+    "source": "11차/라우팅기록.md",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 8824,
+    "sha256": "0b8636d12488a315ed3a51c482c8202798cd5e798e2e5ff0fccef5a03ca9a664"
+  },
+  {
+    "path": "12차/11차_보존기준.json",
+    "source": "12차/11차_보존기준.json",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 17480,
+    "sha256": "1fc9b6237629d66318529b6f7137ef181280b29fe7593ff537b169249f47c5e8"
+  },
+  {
+    "path": "12차/source/app/src/main/AndroidManifest.xml",
+    "source": "12차/source/app/src/main/AndroidManifest.xml",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 2028,
+    "sha256": "0b0b555dfe5b56f2f0acf4854a6a5abec73edbba0d5075827f707fd22d2efc96"
+  },
+  {
+    "path": "12차/source/app/src/main/assets/NanumGothic-OFL.txt",
+    "source": "12차/source/app/src/main/assets/NanumGothic-OFL.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 5398,
+    "sha256": "9413f0aaff51c59be2ff01113a28759b491e6fd67172c3d0a666e6354af18883"
+  },
+  {
+    "path": "12차/source/app/src/main/res/font/nanum_gothic_bold.ttf",
+    "source": "12차/source/app/src/main/res/font/nanum_gothic_bold.ttf",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 4642244,
+    "sha256": "454eb3f503f377782a99eb84fc4bb7dde22a0f075d41b47427737f2985053bc9"
+  },
+  {
+    "path": "12차/source/app/src/main/res/values/strings.xml",
+    "source": "12차/source/app/src/main/res/values/strings.xml",
+    "kind": "원본 파일",
+    "reason": "현재 공개 사본 경로가 존재: 원격/기존 정제본 보존",
+    "bytes": 628,
+    "sha256": "2f20bfd229d1ed1c9c8e95e91af500aaaab409ad0d1a1712ec9896811f59f1d1"
+  },
+  {
+    "path": "12차/source/gradlew",
+    "source": "12차/source/gradlew",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 8752,
+    "sha256": "734b3879d3501dce471cf0522d3bcbafe76873d9fc5129345b67fb43bd15e933"
+  },
+  {
+    "path": "12차/source/local.properties",
+    "source": "12차/source/local.properties",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 75,
+    "sha256": "d23285ef513f88f65172465e32bcbf7a5bb48a45c2193f5c0db3d1e35a1bee5f"
+  },
+  {
+    "path": "12차/검증결과.txt",
+    "source": "12차/검증결과.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 2246,
+    "sha256": "2fcce0228d98ab1a6635d90ca9cb64e30856ae1b36f8be01f582d31ce45787e7"
+  },
+  {
+    "path": "12차/검증결과_초기보고.txt",
+    "source": "12차/검증결과_초기보고.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 1627,
+    "sha256": "3e7e6c332255b5803c6c12c5ab9575c7a1aeb480dc35a719795e42c321bab47b"
+  },
+  {
+    "path": "12차/라우팅기록.txt",
+    "source": "12차/라우팅기록.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 15290,
+    "sha256": "b4235fe6abb13ebc32d20be197206a8fb956f2c0cb88514469d19a86bdb74c6f"
+  },
+  {
+    "path": "13차/12차_보존기준.json",
+    "source": "13차/12차_보존기준.json",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 17978,
+    "sha256": "2631b060298d009b339a1d892db82d815c8d9e256d786ae52f1897b132badb9c"
+  },
+  {
+    "path": "13차/source/app/src/main/AndroidManifest.xml",
+    "source": "13차/source/app/src/main/AndroidManifest.xml",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 2028,
+    "sha256": "0b0b555dfe5b56f2f0acf4854a6a5abec73edbba0d5075827f707fd22d2efc96"
+  },
+  {
+    "path": "13차/source/app/src/main/assets/NanumGothic-OFL.txt",
+    "source": "13차/source/app/src/main/assets/NanumGothic-OFL.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 5398,
+    "sha256": "9413f0aaff51c59be2ff01113a28759b491e6fd67172c3d0a666e6354af18883"
+  },
+  {
+    "path": "13차/source/app/src/main/res/font/nanum_gothic_bold.ttf",
+    "source": "13차/source/app/src/main/res/font/nanum_gothic_bold.ttf",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 4642244,
+    "sha256": "454eb3f503f377782a99eb84fc4bb7dde22a0f075d41b47427737f2985053bc9"
+  },
+  {
+    "path": "13차/source/app/src/main/res/values/strings.xml",
+    "source": "13차/source/app/src/main/res/values/strings.xml",
+    "kind": "원본 파일",
+    "reason": "현재 공개 사본 경로가 존재: 원격/기존 정제본 보존",
+    "bytes": 628,
+    "sha256": "2f20bfd229d1ed1c9c8e95e91af500aaaab409ad0d1a1712ec9896811f59f1d1"
+  },
+  {
+    "path": "13차/source/gradlew",
+    "source": "13차/source/gradlew",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 8752,
+    "sha256": "734b3879d3501dce471cf0522d3bcbafe76873d9fc5129345b67fb43bd15e933"
+  },
+  {
+    "path": "13차/source/local.properties",
+    "source": "13차/source/local.properties",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 41,
+    "sha256": "dd13148c7897f83faa1fd5760225035c9fc66ccb6945c86b0af7eace544bf335"
+  },
+  {
+    "path": "13차/검증결과.txt",
+    "source": "13차/검증결과.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 6083,
+    "sha256": "a255e55e1719fe64b83486873e174db6c8f30868e1e43f83962eb0160ee899d0"
+  },
+  {
+    "path": "13차/디자인점검결과.txt",
+    "source": "13차/디자인점검결과.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 4006,
+    "sha256": "671aaaefb652d620fdd186781ff564c1ab6a76c9f675f34b505559e363a6efcc"
+  },
+  {
+    "path": "13차/디자인점검결과_초기보고.txt",
+    "source": "13차/디자인점검결과_초기보고.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 3740,
+    "sha256": "a4c1ce01b03d35b481d4d616ea9b25597bb2745dcdb060030c5843a57a543023"
+  },
+  {
+    "path": "13차/엔진수리_직접검사보고.txt",
+    "source": "13차/엔진수리_직접검사보고.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 5511,
+    "sha256": "56401c73174b9a683442bf6fddfc3fc1dac50996eec795e6d41c211a1edc7477"
+  },
+  {
+    "path": "13차/작업진행.json",
+    "source": "13차/작업진행.json",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 3436,
+    "sha256": "4955c0794c373818d8d0effd806f92963546b2aba6c98d82e7fb36fd378acc99"
+  },
+  {
+    "path": "14차/13차_보존기준.json",
+    "source": "14차/13차_보존기준.json",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 21722,
+    "sha256": "8c34e2229456f6f74dcefceb4ee88157d4f6b5a9b523b86fc909e596c2dd1bd9"
+  },
+  {
+    "path": "14차/source/app/src/main/AndroidManifest.xml",
+    "source": "14차/source/app/src/main/AndroidManifest.xml",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 2028,
+    "sha256": "0b0b555dfe5b56f2f0acf4854a6a5abec73edbba0d5075827f707fd22d2efc96"
+  },
+  {
+    "path": "14차/source/app/src/main/assets/NanumGothic-OFL.txt",
+    "source": "14차/source/app/src/main/assets/NanumGothic-OFL.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 5398,
+    "sha256": "9413f0aaff51c59be2ff01113a28759b491e6fd67172c3d0a666e6354af18883"
+  },
+  {
+    "path": "14차/source/app/src/main/res/font/nanum_gothic_bold.ttf",
+    "source": "14차/source/app/src/main/res/font/nanum_gothic_bold.ttf",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 4642244,
+    "sha256": "454eb3f503f377782a99eb84fc4bb7dde22a0f075d41b47427737f2985053bc9"
+  },
+  {
+    "path": "14차/source/app/src/main/res/values/strings.xml",
+    "source": "14차/source/app/src/main/res/values/strings.xml",
+    "kind": "원본 파일",
+    "reason": "현재 공개 사본 경로가 존재: 원격/기존 정제본 보존",
+    "bytes": 628,
+    "sha256": "2f20bfd229d1ed1c9c8e95e91af500aaaab409ad0d1a1712ec9896811f59f1d1"
+  },
+  {
+    "path": "14차/source/gradlew",
+    "source": "14차/source/gradlew",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 8752,
+    "sha256": "734b3879d3501dce471cf0522d3bcbafe76873d9fc5129345b67fb43bd15e933"
+  },
+  {
+    "path": "14차/source/local.properties",
+    "source": "14차/source/local.properties",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 41,
+    "sha256": "c5671a1bc1173f31d9236704c608d745a36d35b41ffc6d3802ccae9c60698174"
+  },
+  {
+    "path": "14차/source/빌드방법.txt",
+    "source": "14차/source/빌드방법.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 907,
+    "sha256": "8fd82c4e55124b7331ed6a29d09ecdefcf2249dca111d54da73380369a12ae61"
+  },
+  {
+    "path": "14차/검증결과.txt",
+    "source": "14차/검증결과.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 3893,
+    "sha256": "7ccbf7ab4ef0b4d36e15f2b17ce63297ec130cfc146985e67730d3adf9e2c0a4"
+  },
+  {
+    "path": "14차/작업진행.json",
+    "source": "14차/작업진행.json",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 2238,
+    "sha256": "7ae62419b1c069a8186afdd4f2d18cc7808ca9bddce396f1a54c77ea21b7586e"
+  },
+  {
+    "path": "15차/14차_보존기준.json",
+    "source": "15차/14차_보존기준.json",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 24739,
+    "sha256": "054c0b0ef27cc50f10a9bbff14af8d4f2078205fd996a3e7f3dfb390864d3a1a"
+  },
+  {
+    "path": "15차/source/local.properties",
+    "source": "15차/source/local.properties",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 46,
+    "sha256": "9dd5e1197c0ccbab92d420e990e23f4ac9b36772f9c6d92edeb80338e2977dc8"
+  },
+  {
+    "path": "15차/검사결과.md",
+    "source": "15차/검사결과.md",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 5671,
+    "sha256": "0888a4a3361856eb59677658115f87d6b44f4b1253549794a6c95cfa3220cad2"
+  },
+  {
+    "path": "16차/15차_보존기준.json",
+    "source": "16차/15차_보존기준.json",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 25747,
+    "sha256": "191402cf0ba972406b7d428427e7a542c090dd5ed678cfed5120a13542b8f9e5"
+  },
+  {
+    "path": "16차/source/docs/2026-10-28_16차_적응대기와입체UI_명세계획.md",
+    "source": "16차/source/docs/2026-10-28_16차_적응대기와입체UI_명세계획.md",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 11151,
+    "sha256": "c4905f268f640b82a6bafc7b222c9038e89d9071d7c5451097a35fd6b7253f52"
+  },
+  {
+    "path": "16차/source/local.properties",
+    "source": "16차/source/local.properties",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 46,
+    "sha256": "db1ea70367e10419400bdeb1c1cf1615d6f32008d7f0fc13021d00fe8c0151b0"
+  },
+  {
+    "path": "16차/경로정리/변경_검증_보고.md",
+    "source": "16차/경로정리/변경_검증_보고.md",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 3720,
+    "sha256": "dea5b11b4aeb9316261794c9fedd1973a3d34ac4495e54c460e4288302b5798a"
+  },
+  {
+    "path": "16차/경로정리/변경전 원본/local.properties",
+    "source": "16차/경로정리/변경전 원본/local.properties",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 41,
+    "sha256": "43a2ef6e4171245670a219a17309e491b3a78e9b020c791803bbb8bf515be279"
+  },
+  {
+    "path": "16차/경로정리/변경전 원본/tools/check_upgrade.py",
+    "source": "16차/경로정리/변경전 원본/tools/check_upgrade.py",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 3248,
+    "sha256": "03597aef17534f95b43e172e927bfd0ce52a6edf1026fae9cd39fe4d3d4fdcce"
+  },
+  {
+    "path": "16차/경로정리/변경전 원본/빌드.ps1",
+    "source": "16차/경로정리/변경전 원본/빌드.ps1",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 1904,
+    "sha256": "0cc1d7eea4e996b5b3813dfc94bb01d6f75ef5d54d9ed99517951a1009ea4b04"
+  },
+  {
+    "path": "16차/경로정리/변경전 원본/빌드방법.txt",
+    "source": "16차/경로정리/변경전 원본/빌드방법.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 907,
+    "sha256": "9eeaf5098fe6c5528778c4fe1be0eea1f2e221cea60e9a185e018b308ec0149e"
+  },
+  {
+    "path": "1차/APK_SHA256.txt",
+    "source": "1차/APK_SHA256.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 115,
+    "sha256": "db3cec12f7180e486e98dceedc858e19a49a129b19dd712418f8f169f5d8248a"
+  },
+  {
+    "path": "1차/NanumGothic-OFL.txt",
+    "source": "1차/NanumGothic-OFL.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 5398,
+    "sha256": "9413f0aaff51c59be2ff01113a28759b491e6fd67172c3d0a666e6354af18883"
+  },
+  {
+    "path": "1차/source/app/src/main/AndroidManifest.xml",
+    "source": "1차/source/app/src/main/AndroidManifest.xml",
+    "kind": "원본 파일",
+    "reason": "현재 공개 사본 경로가 존재: 원격/기존 정제본 보존",
+    "bytes": 1525,
+    "sha256": "b2fb0fd4ea273518fed3897afefaabc0630046162b5a7fcb1ea8088966ab1306"
+  },
+  {
+    "path": "1차/source/app/src/main/assets/NanumGothic-OFL.txt",
+    "source": "1차/source/app/src/main/assets/NanumGothic-OFL.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 5398,
+    "sha256": "9413f0aaff51c59be2ff01113a28759b491e6fd67172c3d0a666e6354af18883"
+  },
+  {
+    "path": "1차/source/app/src/main/res/font/nanum_gothic_bold.ttf",
+    "source": "1차/source/app/src/main/res/font/nanum_gothic_bold.ttf",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 4642244,
+    "sha256": "454eb3f503f377782a99eb84fc4bb7dde22a0f075d41b47427737f2985053bc9"
+  },
+  {
+    "path": "1차/source/app/src/main/res/values/strings.xml",
+    "source": "1차/source/app/src/main/res/values/strings.xml",
+    "kind": "원본 파일",
+    "reason": "현재 공개 사본 경로가 존재: 원격/기존 정제본 보존",
+    "bytes": 539,
+    "sha256": "73883b2b4dbdd4742385dae3115c54a884b00b56805ccf021ff7df71665bc947"
+  },
+  {
+    "path": "1차/source/gradlew",
+    "source": "1차/source/gradlew",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 8752,
+    "sha256": "734b3879d3501dce471cf0522d3bcbafe76873d9fc5129345b67fb43bd15e933"
+  },
+  {
+    "path": "1차/source/local.properties",
+    "source": "1차/source/local.properties",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 56,
+    "sha256": "46040d29cac5f84d9313b835b2a583c216bf27271d20f4b9750b02b1d51b9a6c"
+  },
+  {
+    "path": "1차/source/빌드방법.txt",
+    "source": "1차/source/빌드방법.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 1494,
+    "sha256": "aa55202f7d64e2f8c3aa0e3499c1902042c42d747475c2f21fea7032290040c6"
+  },
+  {
+    "path": "1차/검증/정적검사.txt",
+    "source": "1차/검증/정적검사.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 2827,
+    "sha256": "bb0ab32f95870561720e2aa0e525eccae8aa90915c62a2803695425b4519eeb4"
+  },
+  {
+    "path": "1차/검증결과.txt",
+    "source": "1차/검증결과.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 2086,
+    "sha256": "2d0f187b6a74c9e027d0acf961d5f222a31e3af408514555431db681d0f94cd1"
+  },
+  {
+    "path": "1차/사용법.txt",
+    "source": "1차/사용법.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 5363,
+    "sha256": "b53111ca2917ae0bc2bfc1894a4ce806bdbfda0e28589f0aad78447823ee8d44"
+  },
+  {
+    "path": "2차/APK_SHA256.txt",
+    "source": "2차/APK_SHA256.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 102,
+    "sha256": "2d841eba0ff109fb18061be805ed2e1fa52db72ac3e8b0f292063bfb90845c1f"
+  },
+  {
+    "path": "2차/NanumGothic-OFL.txt",
+    "source": "2차/NanumGothic-OFL.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 5398,
+    "sha256": "9413f0aaff51c59be2ff01113a28759b491e6fd67172c3d0a666e6354af18883"
+  },
+  {
+    "path": "2차/검증결과.txt",
+    "source": "2차/검증결과.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 3076,
+    "sha256": "c635279f57f2aedc9219332a413470b3740b6363cab2e1bdd021c1b1ffe6ee6f"
+  },
+  {
+    "path": "2차/사용법.txt",
+    "source": "2차/사용법.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 7029,
+    "sha256": "faa09a956ec39feae99114dba54741ce4d7f4a1ba9531a4d5321c8d25addf983"
+  },
+  {
+    "path": "3차/APK_SHA256.txt",
+    "source": "3차/APK_SHA256.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 66,
+    "sha256": "5261a55e5cde262c5ef1a444aaae9028325034c8b7c1da9cb06a7274e31e5770"
+  },
+  {
+    "path": "3차/NanumGothic-OFL.txt",
+    "source": "3차/NanumGothic-OFL.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 5398,
+    "sha256": "9413f0aaff51c59be2ff01113a28759b491e6fd67172c3d0a666e6354af18883"
+  },
+  {
+    "path": "3차/source/app/src/main/AndroidManifest.xml",
+    "source": "3차/source/app/src/main/AndroidManifest.xml",
+    "kind": "원본 파일",
+    "reason": "현재 공개 사본 경로가 존재: 원격/기존 정제본 보존",
+    "bytes": 1987,
+    "sha256": "50f2e943a654510b5f9936aafcf882bdc563f3a6f3c90cd3af98085f427ed371"
+  },
+  {
+    "path": "3차/source/app/src/main/assets/NanumGothic-OFL.txt",
+    "source": "3차/source/app/src/main/assets/NanumGothic-OFL.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 5398,
+    "sha256": "9413f0aaff51c59be2ff01113a28759b491e6fd67172c3d0a666e6354af18883"
+  },
+  {
+    "path": "3차/source/app/src/main/res/font/nanum_gothic_bold.ttf",
+    "source": "3차/source/app/src/main/res/font/nanum_gothic_bold.ttf",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 4642244,
+    "sha256": "454eb3f503f377782a99eb84fc4bb7dde22a0f075d41b47427737f2985053bc9"
+  },
+  {
+    "path": "3차/source/app/src/main/res/values/strings.xml",
+    "source": "3차/source/app/src/main/res/values/strings.xml",
+    "kind": "원본 파일",
+    "reason": "현재 공개 사본 경로가 존재: 원격/기존 정제본 보존",
+    "bytes": 628,
+    "sha256": "00a53888578604a67a1aa128c73496615e5b73bf65c72c2294b6e9cc3dbb4707"
+  },
+  {
+    "path": "3차/검증/lint-results-debug.txt",
+    "source": "3차/검증/lint-results-debug.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 17,
+    "sha256": "a69ecb171bea9d40de22744c85220b4a4ea12f5a25ce7976d67f2c88c9195334"
+  },
+  {
+    "path": "3차/검증결과.txt",
+    "source": "3차/검증결과.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 1796,
+    "sha256": "81514cbb1f86cc7dfd212527db651e696e1d045849a19705fb84d0ea770f05cb"
+  },
+  {
+    "path": "3차/사용법.txt",
+    "source": "3차/사용법.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 4221,
+    "sha256": "c17bcb4956237b52b72316b4b823650ed5508021f529713413bee8e59cbe6cda"
+  },
+  {
+    "path": "4차/APK_SHA256.txt",
+    "source": "4차/APK_SHA256.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 66,
+    "sha256": "c2a92a8a4f5c660a954e4252730fc488cff2a7401682196601d0bf8d359caf8b"
+  },
+  {
+    "path": "4차/NanumGothic-OFL.txt",
+    "source": "4차/NanumGothic-OFL.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 5398,
+    "sha256": "9413f0aaff51c59be2ff01113a28759b491e6fd67172c3d0a666e6354af18883"
+  },
+  {
+    "path": "4차/source/app/src/main/AndroidManifest.xml",
+    "source": "4차/source/app/src/main/AndroidManifest.xml",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 2028,
+    "sha256": "0b0b555dfe5b56f2f0acf4854a6a5abec73edbba0d5075827f707fd22d2efc96"
+  },
+  {
+    "path": "4차/source/app/src/main/assets/NanumGothic-OFL.txt",
+    "source": "4차/source/app/src/main/assets/NanumGothic-OFL.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 5398,
+    "sha256": "9413f0aaff51c59be2ff01113a28759b491e6fd67172c3d0a666e6354af18883"
+  },
+  {
+    "path": "4차/source/app/src/main/res/font/nanum_gothic_bold.ttf",
+    "source": "4차/source/app/src/main/res/font/nanum_gothic_bold.ttf",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 4642244,
+    "sha256": "454eb3f503f377782a99eb84fc4bb7dde22a0f075d41b47427737f2985053bc9"
+  },
+  {
+    "path": "4차/source/app/src/main/res/values/strings.xml",
+    "source": "4차/source/app/src/main/res/values/strings.xml",
+    "kind": "원본 파일",
+    "reason": "현재 공개 사본 경로가 존재: 원격/기존 정제본 보존",
+    "bytes": 628,
+    "sha256": "00a53888578604a67a1aa128c73496615e5b73bf65c72c2294b6e9cc3dbb4707"
+  },
+  {
+    "path": "4차/source/gradlew",
+    "source": "4차/source/gradlew",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 8752,
+    "sha256": "734b3879d3501dce471cf0522d3bcbafe76873d9fc5129345b67fb43bd15e933"
+  },
+  {
+    "path": "4차/source/local.properties",
+    "source": "4차/source/local.properties",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 55,
+    "sha256": "15c2d5d6310eaadd4f32a02e5cc87967c5a62adc5b2f5375673db8a2cc979de5"
+  },
+  {
+    "path": "4차/source/빌드방법.txt",
+    "source": "4차/source/빌드방법.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 749,
+    "sha256": "1fcbd6b189686c5fc279edf884b052b15a3c8d23c947a390b8d613469ecbdbbd"
+  },
+  {
+    "path": "4차/검증/lint-results-debug.txt",
+    "source": "4차/검증/lint-results-debug.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 17,
+    "sha256": "a69ecb171bea9d40de22744c85220b4a4ea12f5a25ce7976d67f2c88c9195334"
+  },
+  {
+    "path": "4차/검증결과.txt",
+    "source": "4차/검증결과.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 956,
+    "sha256": "57f546cda6b89632f56a8fd4b2a1393cae5dd8d2d8036b28bdc7d6ea91fe212a"
+  },
+  {
+    "path": "4차/사용법.txt",
+    "source": "4차/사용법.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 5813,
+    "sha256": "bded230c23ac74667f318cc466730602cb72e57bdc4cb322e6fdc073a7b80ed4"
+  },
+  {
+    "path": "5차/APK_SHA256.txt",
+    "source": "5차/APK_SHA256.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 66,
+    "sha256": "b2e628b6b0c22c332ddeb11b32d2516a7fa784883a92e7d7903a0c75e481a7e6"
+  },
+  {
+    "path": "5차/NanumGothic-OFL.txt",
+    "source": "5차/NanumGothic-OFL.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 5398,
+    "sha256": "9413f0aaff51c59be2ff01113a28759b491e6fd67172c3d0a666e6354af18883"
+  },
+  {
+    "path": "5차/source/app/src/main/AndroidManifest.xml",
+    "source": "5차/source/app/src/main/AndroidManifest.xml",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 2028,
+    "sha256": "0b0b555dfe5b56f2f0acf4854a6a5abec73edbba0d5075827f707fd22d2efc96"
+  },
+  {
+    "path": "5차/source/app/src/main/assets/NanumGothic-OFL.txt",
+    "source": "5차/source/app/src/main/assets/NanumGothic-OFL.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 5398,
+    "sha256": "9413f0aaff51c59be2ff01113a28759b491e6fd67172c3d0a666e6354af18883"
+  },
+  {
+    "path": "5차/source/app/src/main/res/font/nanum_gothic_bold.ttf",
+    "source": "5차/source/app/src/main/res/font/nanum_gothic_bold.ttf",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 4642244,
+    "sha256": "454eb3f503f377782a99eb84fc4bb7dde22a0f075d41b47427737f2985053bc9"
+  },
+  {
+    "path": "5차/source/app/src/main/res/values/strings.xml",
+    "source": "5차/source/app/src/main/res/values/strings.xml",
+    "kind": "원본 파일",
+    "reason": "현재 공개 사본 경로가 존재: 원격/기존 정제본 보존",
+    "bytes": 628,
+    "sha256": "00a53888578604a67a1aa128c73496615e5b73bf65c72c2294b6e9cc3dbb4707"
+  },
+  {
+    "path": "5차/source/gradlew",
+    "source": "5차/source/gradlew",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 8752,
+    "sha256": "734b3879d3501dce471cf0522d3bcbafe76873d9fc5129345b67fb43bd15e933"
+  },
+  {
+    "path": "5차/source/local.properties",
+    "source": "5차/source/local.properties",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 74,
+    "sha256": "8cba67ca8b5f6368e70c960879afb88ac0e78ec13f0d7ecdf67f882f3976735e"
+  },
+  {
+    "path": "5차/검증/lint-results-debug.txt",
+    "source": "5차/검증/lint-results-debug.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 17,
+    "sha256": "a69ecb171bea9d40de22744c85220b4a4ea12f5a25ce7976d67f2c88c9195334"
+  },
+  {
+    "path": "5차/검증/ui.xml",
+    "source": "5차/검증/ui.xml",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 7295,
+    "sha256": "5c0434e374bac701489e609551f2ff98ac731b5160f837e3400d617d2d2ce57b"
+  },
+  {
+    "path": "5차/검증결과.txt",
+    "source": "5차/검증결과.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 1843,
+    "sha256": "198fe271378eb5d41990ea61875465b4c294f61f40f805c30ea69c3e029c582c"
+  },
+  {
+    "path": "5차/사용법.txt",
+    "source": "5차/사용법.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 3580,
+    "sha256": "32eef87f2981994f2b7d6c831b5146f230cfc301475053946157b23d4f512ad3"
+  },
+  {
+    "path": "6차/APK_SHA256.json",
+    "source": "6차/APK_SHA256.json",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 311,
+    "sha256": "77bf602a2389f9b064ca0b4bcd30fb8ffb01198fce4b0f86ab18774f91d4d66d"
+  },
+  {
+    "path": "6차/NanumGothic-OFL.txt",
+    "source": "6차/NanumGothic-OFL.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 5398,
+    "sha256": "9413f0aaff51c59be2ff01113a28759b491e6fd67172c3d0a666e6354af18883"
+  },
+  {
+    "path": "6차/source/app/src/main/AndroidManifest.xml",
+    "source": "6차/source/app/src/main/AndroidManifest.xml",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 2028,
+    "sha256": "0b0b555dfe5b56f2f0acf4854a6a5abec73edbba0d5075827f707fd22d2efc96"
+  },
+  {
+    "path": "6차/source/app/src/main/assets/NanumGothic-OFL.txt",
+    "source": "6차/source/app/src/main/assets/NanumGothic-OFL.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 5398,
+    "sha256": "9413f0aaff51c59be2ff01113a28759b491e6fd67172c3d0a666e6354af18883"
+  },
+  {
+    "path": "6차/source/app/src/main/res/font/nanum_gothic_bold.ttf",
+    "source": "6차/source/app/src/main/res/font/nanum_gothic_bold.ttf",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 4642244,
+    "sha256": "454eb3f503f377782a99eb84fc4bb7dde22a0f075d41b47427737f2985053bc9"
+  },
+  {
+    "path": "6차/source/app/src/main/res/values/strings.xml",
+    "source": "6차/source/app/src/main/res/values/strings.xml",
+    "kind": "원본 파일",
+    "reason": "현재 공개 사본 경로가 존재: 원격/기존 정제본 보존",
+    "bytes": 628,
+    "sha256": "00a53888578604a67a1aa128c73496615e5b73bf65c72c2294b6e9cc3dbb4707"
+  },
+  {
+    "path": "6차/source/gradlew",
+    "source": "6차/source/gradlew",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 8752,
+    "sha256": "734b3879d3501dce471cf0522d3bcbafe76873d9fc5129345b67fb43bd15e933"
+  },
+  {
+    "path": "6차/source/local.properties",
+    "source": "6차/source/local.properties",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 74,
+    "sha256": "0209e7ab4bd293beab61da07397ca5f44ea9072079b0361467e5dbf56b27a91b"
+  },
+  {
+    "path": "6차/검증/lint-results-debug.txt",
+    "source": "6차/검증/lint-results-debug.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 17,
+    "sha256": "a69ecb171bea9d40de22744c85220b4a4ea12f5a25ce7976d67f2c88c9195334"
+  },
+  {
+    "path": "6차/검증결과.txt",
+    "source": "6차/검증결과.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 2998,
+    "sha256": "634d376f38eed5cae7e623b77d5e20e0acd72b24a30f4a0d39bc963bab0a6085"
+  },
+  {
+    "path": "7차/녹스_5개_설치전진단.json",
+    "source": "7차/녹스_5개_설치전진단.json",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 1070,
+    "sha256": "6f4da72a71b42b0156ce5df0a4b592672291bae776b9b1766a8d9f753c92eae1"
+  },
+  {
+    "path": "7차/녹스_5개_진행상태.txt",
+    "source": "7차/녹스_5개_진행상태.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 1842,
+    "sha256": "a31c8f1fc63e4f2361155d0346eb7d875596146cdfbc428019be74a1cf4abd3f"
+  },
+  {
+    "path": "8차/APK_SHA256.json",
+    "source": "8차/APK_SHA256.json",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 460,
+    "sha256": "1d3bc0b57f1adfe9f42bdaa02315914c10f42b29bac178b292c8e425c4c13f03"
+  },
+  {
+    "path": "8차/NanumGothic-OFL.txt",
+    "source": "8차/NanumGothic-OFL.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 5398,
+    "sha256": "9413f0aaff51c59be2ff01113a28759b491e6fd67172c3d0a666e6354af18883"
+  },
+  {
+    "path": "8차/source/app/src/main/AndroidManifest.xml",
+    "source": "8차/source/app/src/main/AndroidManifest.xml",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 2028,
+    "sha256": "0b0b555dfe5b56f2f0acf4854a6a5abec73edbba0d5075827f707fd22d2efc96"
+  },
+  {
+    "path": "8차/source/app/src/main/assets/NanumGothic-OFL.txt",
+    "source": "8차/source/app/src/main/assets/NanumGothic-OFL.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 5398,
+    "sha256": "9413f0aaff51c59be2ff01113a28759b491e6fd67172c3d0a666e6354af18883"
+  },
+  {
+    "path": "8차/source/app/src/main/res/font/nanum_gothic_bold.ttf",
+    "source": "8차/source/app/src/main/res/font/nanum_gothic_bold.ttf",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 4642244,
+    "sha256": "454eb3f503f377782a99eb84fc4bb7dde22a0f075d41b47427737f2985053bc9"
+  },
+  {
+    "path": "8차/source/app/src/main/res/values/strings.xml",
+    "source": "8차/source/app/src/main/res/values/strings.xml",
+    "kind": "원본 파일",
+    "reason": "현재 공개 사본 경로가 존재: 원격/기존 정제본 보존",
+    "bytes": 628,
+    "sha256": "00a53888578604a67a1aa128c73496615e5b73bf65c72c2294b6e9cc3dbb4707"
+  },
+  {
+    "path": "8차/source/gradlew",
+    "source": "8차/source/gradlew",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 8752,
+    "sha256": "734b3879d3501dce471cf0522d3bcbafe76873d9fc5129345b67fb43bd15e933"
+  },
+  {
+    "path": "8차/source/local.properties",
+    "source": "8차/source/local.properties",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 76,
+    "sha256": "e8d2c63bedd5ae10e51c78fc61e456d7d9222e43f9f20e364f8821990250038c"
+  },
+  {
+    "path": "8차/검증결과.txt",
+    "source": "8차/검증결과.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 2356,
+    "sha256": "57292e6e648ec847dd78a22193e5e7e915b564a9a4ea2acd6004b11fb81fd03e"
+  },
+  {
+    "path": "8차/블루스택_업데이트와_동기화.txt",
+    "source": "8차/블루스택_업데이트와_동기화.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 2410,
+    "sha256": "bf24d60658f8f47319e04db83d82f4ba3b0e9acc270c8bb5e7714bd437e86344"
+  },
+  {
+    "path": "9차/APK_SHA256.json",
+    "source": "9차/APK_SHA256.json",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 460,
+    "sha256": "acd5cbd37093ad6f245bd484ab58aee39289e3efeb96e02adb1eca22d61bd856"
+  },
+  {
+    "path": "9차/NanumGothic-OFL.txt",
+    "source": "9차/NanumGothic-OFL.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 5398,
+    "sha256": "9413f0aaff51c59be2ff01113a28759b491e6fd67172c3d0a666e6354af18883"
+  },
+  {
+    "path": "9차/source/app/src/main/AndroidManifest.xml",
+    "source": "9차/source/app/src/main/AndroidManifest.xml",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 2028,
+    "sha256": "0b0b555dfe5b56f2f0acf4854a6a5abec73edbba0d5075827f707fd22d2efc96"
+  },
+  {
+    "path": "9차/source/app/src/main/assets/NanumGothic-OFL.txt",
+    "source": "9차/source/app/src/main/assets/NanumGothic-OFL.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 5398,
+    "sha256": "9413f0aaff51c59be2ff01113a28759b491e6fd67172c3d0a666e6354af18883"
+  },
+  {
+    "path": "9차/source/app/src/main/res/font/nanum_gothic_bold.ttf",
+    "source": "9차/source/app/src/main/res/font/nanum_gothic_bold.ttf",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 4642244,
+    "sha256": "454eb3f503f377782a99eb84fc4bb7dde22a0f075d41b47427737f2985053bc9"
+  },
+  {
+    "path": "9차/source/app/src/main/res/values/strings.xml",
+    "source": "9차/source/app/src/main/res/values/strings.xml",
+    "kind": "원본 파일",
+    "reason": "현재 공개 사본 경로가 존재: 원격/기존 정제본 보존",
+    "bytes": 628,
+    "sha256": "00a53888578604a67a1aa128c73496615e5b73bf65c72c2294b6e9cc3dbb4707"
+  },
+  {
+    "path": "9차/source/gradlew",
+    "source": "9차/source/gradlew",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 8752,
+    "sha256": "734b3879d3501dce471cf0522d3bcbafe76873d9fc5129345b67fb43bd15e933"
+  },
+  {
+    "path": "9차/source/local.properties",
+    "source": "9차/source/local.properties",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 76,
+    "sha256": "c122ef21c4ecf99e9c6d75fafea42e85502a02d84d309133acc109b03153d9ff"
+  },
+  {
+    "path": "9차/검증결과.txt",
+    "source": "9차/검증결과.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 3304,
+    "sha256": "eb577be592682d003418a9e5322094826aa3613416d7d4a9b9ee2ab5d1cb9efc"
+  },
+  {
+    "path": "보존자료/작업소스/11차/source/work/device-regression.txt",
+    "source": "11차/source/work/device-regression.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 17580,
+    "sha256": "e4c2c980ff7e9f3de00e7d94758a211dde79ae17be65e074bec21fe8f9e82681"
+  },
+  {
+    "path": "보존자료/작업소스/11차/source/work/region-safety.txt",
+    "source": "11차/source/work/region-safety.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 13250,
+    "sha256": "c6a914ce58c56ca9dc7bce3e0da0a946c61881dbc677593925db4ba1b5c7a740"
+  },
+  {
+    "path": "보존자료/작업소스/11차/source/work/repair-build.txt",
+    "source": "11차/source/work/repair-build.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 6086,
+    "sha256": "a7049f405f79e9329cc2097a78b7cfe9726735df2336f805801743187c354a05"
+  },
+  {
+    "path": "보존자료/작업소스/11차/source/work/repair-device.txt",
+    "source": "11차/source/work/repair-device.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 18863,
+    "sha256": "c3e83a48465eba2097862c3703cbb91555f6165ad8b07a704cecfbe98d4bbdfc"
+  },
+  {
+    "path": "보존자료/작업소스/11차/source/work/repair-region.txt",
+    "source": "11차/source/work/repair-region.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 13253,
+    "sha256": "9dcd21b8165c186382dac57ce253becb61e3ca00acd2d6ca6f673b402c12dc29"
+  },
+  {
+    "path": "보존자료/작업소스/11차/source/work/repair-unit.txt",
+    "source": "11차/source/work/repair-unit.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 311,
+    "sha256": "2afc29bcb8cfca2307e85d81e8a8561f38a78752a1cb9ab245b7baeb619be51d"
+  },
+  {
+    "path": "보존자료/작업소스/11차/source/work/repair-upgrade-seed.txt",
+    "source": "11차/source/work/repair-upgrade-seed.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 735,
+    "sha256": "a03012ba19763b4172cef99b104efecc3f3f4e49900194e5031af6e1a52f8cd0"
+  },
+  {
+    "path": "보존자료/작업소스/11차/source/work/repair-upgrade.txt",
+    "source": "11차/source/work/repair-upgrade.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 11029,
+    "sha256": "2725dc8a9f49187bca5cd68ab61268d053ab9457689c4342c5d782bb4e4eb625"
+  },
+  {
+    "path": "보존자료/작업소스/12차/source/work/avd-home/NEX12.avd/emu-launch-params.txt",
+    "source": "12차/source/work/avd-home/NEX12.avd/emu-launch-params.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 382,
+    "sha256": "062de5c6756be3015a2cef6aac02d2ced6bf6e34afc0e4665e5e684177bf51a9"
+  },
+  {
+    "path": "보존자료/작업소스/12차/source/work/avd-home/NEX12.avd/qemu-version.txt",
+    "source": "12차/source/work/avd-home/NEX12.avd/qemu-version.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 1,
+    "sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35"
+  },
+  {
+    "path": "보존자료/작업소스/13차/source/work/android-user/avd/PXE13.avd/emu-launch-params.txt",
+    "source": "13차/source/work/android-user/avd/PXE13.avd/emu-launch-params.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 280,
+    "sha256": "6164f1b6abb75d783cb534a5aa4f7ac99e0a31c29b12f5b7eb1e1d293fdf59ae"
+  },
+  {
+    "path": "보존자료/작업소스/13차/source/work/android-user/avd/PXE13.avd/modem_simulator/etc/modem_simulator/files/numeric_operator.xml",
+    "source": "13차/source/work/android-user/avd/PXE13.avd/modem_simulator/etc/modem_simulator/files/numeric_operator.xml",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 297,
+    "sha256": "c2557e604beea20b67642cdbb14ae7b792f804e4476b3f6cf47035690234f436"
+  },
+  {
+    "path": "보존자료/작업소스/13차/source/work/android-user/avd/PXE13.avd/modem_simulator/iccprofile_for_carrierapitests.xml",
+    "source": "13차/source/work/android-user/avd/PXE13.avd/modem_simulator/iccprofile_for_carrierapitests.xml",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 16537,
+    "sha256": "dc4b5f5344f084fc44f89250bbcf2b12e452eb98c104e4ef3ec115366eb6ce32"
+  },
+  {
+    "path": "보존자료/작업소스/13차/source/work/android-user/avd/PXE13.avd/modem_simulator/iccprofile_for_sim0.xml",
+    "source": "13차/source/work/android-user/avd/PXE13.avd/modem_simulator/iccprofile_for_sim0.xml",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 14920,
+    "sha256": "6b6125f88516742766c137673d5f31d2535be79880cc525d33abc82207af27fb"
+  },
+  {
+    "path": "보존자료/작업소스/13차/source/work/android-user/avd/PXE13.avd/modem_simulator/modem_nvram.json",
+    "source": "13차/source/work/android-user/avd/PXE13.avd/modem_simulator/modem_nvram.json",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 175,
+    "sha256": "6422d95b15ff4a550ded913b3b8df1447f1eefd1970e77fe0a5cbf05362bf795"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/android-user/avd/PXE14.avd/emu-launch-params.txt",
+    "source": "14차/source/work/android-user/avd/PXE14.avd/emu-launch-params.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 318,
+    "sha256": "05937883ac109dfb32542ff8ca1d0e3853d35f1fbbc4c731980f26b8140b86ca"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/diagnose_long14.py",
+    "source": "14차/source/work/diagnose_long14.py",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 2612,
+    "sha256": "ff47908529bf2a19bdf3dac2a7fc0b0492436d8e74c438dcd5fc1823625c4afc"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/final42-repair4-end14.txt",
+    "source": "14차/source/work/final42-repair4-end14.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 28,
+    "sha256": "cd1f619e0efb853ec459c14f1c88534d9d19ee5689ef4907e7f900dfab09348e"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/final42-repair4-start14.txt",
+    "source": "14차/source/work/final42-repair4-start14.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 28,
+    "sha256": "52510ead518459d30bcc7b0585001e53f557f40bb51728ffe85d93ace77259d5"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/final42-repair5-end14.txt",
+    "source": "14차/source/work/final42-repair5-end14.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 28,
+    "sha256": "fdeec3d80a4d26010c002a944ec39f41a2fe09882f2a73c1f15ae07eea2f0026"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/final42-repair5-start14.txt",
+    "source": "14차/source/work/final42-repair5-start14.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 28,
+    "sha256": "df846ebdc778e8eac687b0a63a9ff741ae99f3bb565f9081b528eb1388f13966"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/final42-start14.txt",
+    "source": "14차/source/work/final42-start14.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 28,
+    "sha256": "97c99e2cc33cdcaf577c16fda0a38efb73fe7374f5b8e1d9da6b5f6ce56ecc40"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/finish_ui14.py",
+    "source": "14차/source/work/finish_ui14.py",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 3465,
+    "sha256": "96b368e98d45c976246e5735785a1f0659c8a076f4fea1ab018887eec5ed8add"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/freeze_ui14.py",
+    "source": "14차/source/work/freeze_ui14.py",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 4085,
+    "sha256": "3e8b72432a292d9ac70ccb932f35e3031d3d6007c4b6fa042ec228f8362b936c"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/implement_ui14.py",
+    "source": "14차/source/work/implement_ui14.py",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 16141,
+    "sha256": "76dbc6779ab467dc9c0363d403546c5da24d1e815082d1c088d1c2250437f23b"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/ownership_manifest14.py",
+    "source": "14차/source/work/ownership_manifest14.py",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 4725,
+    "sha256": "e8d0a2246db206716288bd30347a6069c10eed99934ab19a4d14afd2ce98e622"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/repair1_ui14.py",
+    "source": "14차/source/work/repair1_ui14.py",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 3452,
+    "sha256": "2706329fa5baba5190433ecb1f92c61dab7e502e2cccfb1a1fdafe3e3ce0d1fe"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/repair3_ui14.py",
+    "source": "14차/source/work/repair3_ui14.py",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 1801,
+    "sha256": "90cf7464b9a1ed6f4e860d724fb1de2bea66b2364973aef9b9be1fb392968491"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/repair4_ui14.py",
+    "source": "14차/source/work/repair4_ui14.py",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 1466,
+    "sha256": "e8d64fac208c53011ddd4579cc844e17f62620c915a9f383bb4b596b85668b49"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/summarize_checks14.py",
+    "source": "14차/source/work/summarize_checks14.py",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 2313,
+    "sha256": "46522cfe637b2e8b61a48339cdc56b0ee328043d87eefdd7336a79c1353d6ad3"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/summarize_checks14_repair5.py",
+    "source": "14차/source/work/summarize_checks14_repair5.py",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 2350,
+    "sha256": "bac0927f188602a10dbbcf4ce5c6b8f79600ef51990484552a4079b183faa245"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/test-build-repair7.txt",
+    "source": "14차/source/work/test-build-repair7.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 3290,
+    "sha256": "2c5a05912f407f5e0bdc4c3990bc6d9a911f53bc6c7c68ac32738d92cb046276"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/test_marker14.py",
+    "source": "14차/source/work/test_marker14.py",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 1830,
+    "sha256": "42eaf3fb3750666f58c62d57ae041cbff6c0c7a955d568ce3904dd78e55cebcd"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/test_native48_14.py",
+    "source": "14차/source/work/test_native48_14.py",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 2266,
+    "sha256": "b3d9710a517d9ff45f00f3d582719fea212e591ab45a1e3bbbf1723bf4059c53"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/test_repair14.py",
+    "source": "14차/source/work/test_repair14.py",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 1562,
+    "sha256": "1b1d6f76cc157f68acc86308a65cd425155a5d39978fadc073625e77550a0423"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/ui-captures14-repair5/files/control-restart-after-setup.txt",
+    "source": "14차/source/work/ui-captures14-repair5/files/control-restart-after-setup.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 4105,
+    "sha256": "f4a59c78fe2f56b7e94ec67b5bdbbb68badffb9b10559db4f22869d7096f9365"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/ui-captures14-repair5/files/control-resume-while-running.txt",
+    "source": "14차/source/work/ui-captures14-repair5/files/control-resume-while-running.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 14869,
+    "sha256": "361d88d15d008bfdafc41e0f08e227af1a890fcbf9aac51be06f57d24af91edb"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/ui-captures14-repair5/files/control-setup-hidden.txt",
+    "source": "14차/source/work/ui-captures14-repair5/files/control-setup-hidden.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 13537,
+    "sha256": "fe0edb51b7c8f54f6f1aac913b319d6e88ec578410cf112493da718c01e4d5c2"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/ui-captures14-repair5/files/control-start-after-setup.txt",
+    "source": "14차/source/work/ui-captures14-repair5/files/control-start-after-setup.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 8402,
+    "sha256": "5096e959dad2cd297e07746cb96f966f923c326a0173a6f6c10cb89879a117e4"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/ui-captures14/files/control-restart-after-setup.txt",
+    "source": "14차/source/work/ui-captures14/files/control-restart-after-setup.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 4101,
+    "sha256": "2df0b6a76dcc09a40c59455e0dd918f47b8b484e2ac1ffeec1e40739f0255690"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/ui-captures14/files/control-resume-while-running.txt",
+    "source": "14차/source/work/ui-captures14/files/control-resume-while-running.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 14900,
+    "sha256": "56b9fe021b03e6611f7d9b30aa263eb237a92d459a568e9e2777515010e43ad2"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/ui-captures14/files/control-setup-hidden.txt",
+    "source": "14차/source/work/ui-captures14/files/control-setup-hidden.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 13534,
+    "sha256": "a0d806240d174fc869e823829b0c59e2509f62630be86e45b51f7085c6d14cc4"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/ui-captures14/files/control-start-after-setup.txt",
+    "source": "14차/source/work/ui-captures14/files/control-start-after-setup.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 8333,
+    "sha256": "07fcf744154746bbb90f7ca1c85a12975e75650661cf9acb2b174f6073ea9c94"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/ui-captures14/files/long14_300ms후.json",
+    "source": "14차/source/work/ui-captures14/files/long14_300ms후.json",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 310,
+    "sha256": "d6e6231bc7b383a31d56f0cea9325ffdc1ce43c0a6ef1a6801e6bda8d0107e1e"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/ui-captures14/files/long14_즉시.json",
+    "source": "14차/source/work/ui-captures14/files/long14_즉시.json",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 340,
+    "sha256": "ce1374c4987e770cc5d5bfebebc6ad903caacfeaa20d6047bfcced0a0bd046cd"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/ui_capture14.py",
+    "source": "14차/source/work/ui_capture14.py",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 3296,
+    "sha256": "007951603abc07898c510c9b1ad0f77009dae32d7f417ca9800f89fb8e1246fb"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/verifier-final6-captures/files/control-restart-after-setup.txt",
+    "source": "14차/source/work/verifier-final6-captures/files/control-restart-after-setup.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 8501,
+    "sha256": "bd41ebdb91fbe1349bf43b7e4b856d692c09a743512290391d9408611ff01f03"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/verifier-final6-captures/files/control-resume-while-running.txt",
+    "source": "14차/source/work/verifier-final6-captures/files/control-resume-while-running.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 14904,
+    "sha256": "7ac40bf8ef11f60f2591977363c6c63bb2afd0decb7c9db76900036c5aaec6de"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/verifier-final6-captures/files/control-setup-hidden.txt",
+    "source": "14차/source/work/verifier-final6-captures/files/control-setup-hidden.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 13537,
+    "sha256": "e7cbd80ad2dab4609f2c925016b12a21776038e4ee3f364ac77b7a1009abb1ce"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/verifier-final6-captures/files/control-start-after-setup.txt",
+    "source": "14차/source/work/verifier-final6-captures/files/control-start-after-setup.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 8337,
+    "sha256": "7e674aa9e6ee6b2d84a3ee44ab62f60de8337e39010b98336a9efe4ac14fca4b"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/verifier_final6.py",
+    "source": "14차/source/work/verifier_final6.py",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 7729,
+    "sha256": "840455b07413f0b20487edee3479a930290246b354a620c12481fd7ddd15e8df"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/verifier_review6.py",
+    "source": "14차/source/work/verifier_review6.py",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 7940,
+    "sha256": "a7ed382cafdd1cf05460020ce00d2290dde4a417057c1e8ba0ad2167f84b2731"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/verifier_small6.py",
+    "source": "14차/source/work/verifier_small6.py",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 2957,
+    "sha256": "fe34d7a55520e3ca4893acbb169f114fbf7f47ef006d6a5ceeb0f1f6b5a1664a"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/디자인대조_초안.txt",
+    "source": "14차/source/work/디자인대조_초안.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 2109,
+    "sha256": "cb26ecc73f276745e52c7ac6c5780d64b909cfe61a05a250dbb4bf84fdae54b7"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/디자인대조_최종_UI단계.txt",
+    "source": "14차/source/work/디자인대조_최종_UI단계.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 2650,
+    "sha256": "80a151db269be99845abb4d4448ad7d4d4dd422a606f7b406a11ce55ee0186c4"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/직접검사_42_수리4.json",
+    "source": "14차/source/work/직접검사_42_수리4.json",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 5034,
+    "sha256": "e8ee279464ae84fda9471f67aa249683b60c01bc9e34aa7d837c6914e235207a"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/직접검사_42_수리5.json",
+    "source": "14차/source/work/직접검사_42_수리5.json",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 5072,
+    "sha256": "9c1ec184c2359fe8b5efe524950dfad4ffb8f9e4c66fabc182a82a861d2e9c2c"
+  },
+  {
+    "path": "보존자료/작업소스/14차/source/work/캡처_목록_수리5.json",
+    "source": "14차/source/work/캡처_목록_수리5.json",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 13046,
+    "sha256": "37f0a2d724a778c516d4dee6cfe2beb1c04448fb4f7d0c96c9b305436723a740"
+  },
+  {
+    "path": "보존자료/작업소스/14차/work/시험장치_복사.py",
+    "source": "14차/work/시험장치_복사.py",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 846,
+    "sha256": "2f0e03d55ca449d1e19a85f5210ee9ba608535b5abeac8bef329a41da24e2a6a"
+  },
+  {
+    "path": "보존자료/작업소스/14차/work/준비.py",
+    "source": "14차/work/준비.py",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 2640,
+    "sha256": "8fae9894ac8490140abceb03ec9214233f1f86bd0206ebd7889ef296e61c73b7"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/android-user/avd/PXE15.avd/emu-launch-params.txt",
+    "source": "15차/source/work/android-user/avd/PXE15.avd/emu-launch-params.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 304,
+    "sha256": "3c9c0b8593889c53debcb8e39186ad591e39e2d3b363106a847bdb02db8eea89"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/public-merge-backup/CHANGELOG.md",
+    "source": "15차/source/work/public-merge-backup/CHANGELOG.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 2709,
+    "sha256": "ad5d2b823cab3e57935467205c82449e9878993536305adb99f22522a2d4ad60"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/public-merge-backup/README.md",
+    "source": "15차/source/work/public-merge-backup/README.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 11104,
+    "sha256": "560dff205432506199c7ce49512a6ac0b5fbc9406b14d6ab44d715d549f33e9d"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/public-merge-backup/docs/VERSIONS.md",
+    "source": "15차/source/work/public-merge-backup/docs/VERSIONS.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 1996,
+    "sha256": "3901b428c09d5a6e7cd8ab90427ff8c6120b6dd0c4af6e1e7e71d86f761c6619"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/public-repo/CHANGELOG.md",
+    "source": "15차/source/work/public-repo/CHANGELOG.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 6361,
+    "sha256": "ff7eb5896bf1da52847e4b7d4c565ac27716764f7d4e8f7df5fc50dc359846fb"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/public-repo/README.md",
+    "source": "15차/source/work/public-repo/README.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 12188,
+    "sha256": "4518a414b019b6eb69b307bdae8332796676c47f9d4d14f3e2c37e4708b3e301"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/public-repo/docs/VERSIONS.md",
+    "source": "15차/source/work/public-repo/docs/VERSIONS.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 5496,
+    "sha256": "72f4aeccb8b5b6c0a7afdd0126154b4ad7e2c12c1e0b447b71b16182332a16fc"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/public-repo/docs/versions/10차.md",
+    "source": "15차/source/work/public-repo/docs/versions/10차.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 6676,
+    "sha256": "85381556e3a3985a62c3fba9d9216c392f5bc4b61707e37d7509501f6fb53f9a"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/public-repo/docs/versions/11차.md",
+    "source": "15차/source/work/public-repo/docs/versions/11차.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 4547,
+    "sha256": "9c25ddc5a8fbefb6d783bd3b3bd7c973243a0d7c266f35a245f90bd9e887d6c7"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/public-repo/docs/versions/12차.md",
+    "source": "15차/source/work/public-repo/docs/versions/12차.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 4929,
+    "sha256": "5002af90db782401166b3956943209fd903c70f55008f565195a9c5febdf853f"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/public-repo/docs/versions/13차.md",
+    "source": "15차/source/work/public-repo/docs/versions/13차.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 5734,
+    "sha256": "0cb31dbb5ee9540ad791371434ee44ed80acf65bb916016c5133d398eca1598c"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/public-repo/docs/versions/14차.md",
+    "source": "15차/source/work/public-repo/docs/versions/14차.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 6097,
+    "sha256": "34466c1fd61a0f6af618a69d69faf65bf7028875d98a15973fa3f160ab74742d"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/public-repo/docs/versions/1차.md",
+    "source": "15차/source/work/public-repo/docs/versions/1차.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 2611,
+    "sha256": "01e41ab171b20d05dab9eb63d03f60d6d9bad64ef98ba5bfd0bc0ab90a0d3de2"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/public-repo/docs/versions/3차.md",
+    "source": "15차/source/work/public-repo/docs/versions/3차.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 4721,
+    "sha256": "d2ce1f05a6d33d92fcf022e0a36dcf5bffaf8ff5074b972aa0632c00c4ee3a81"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/public-repo/docs/versions/4차.md",
+    "source": "15차/source/work/public-repo/docs/versions/4차.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 4828,
+    "sha256": "f4f73ce4eb22fb009f51be6508a111242cf0e5454d928dd5728a37c6c4949ceb"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/public-repo/docs/versions/5차.md",
+    "source": "15차/source/work/public-repo/docs/versions/5차.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 4431,
+    "sha256": "5a46b14a70c9a24d2e4b12b041ef863d352c274a0b285bfa33bcfec9e77b57a9"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/public-repo/docs/versions/6차.md",
+    "source": "15차/source/work/public-repo/docs/versions/6차.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 6448,
+    "sha256": "2ae64d96ddcac312b0fd5915197576c656a43e8453a2be97ce9e9a42940692fe"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/public-repo/docs/versions/8차.md",
+    "source": "15차/source/work/public-repo/docs/versions/8차.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 3799,
+    "sha256": "331629eebaa4e94cbcecdc87c0edb47b78ced77b321faee47d8be4a9a6b62d30"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/public-repo/docs/versions/9차.md",
+    "source": "15차/source/work/public-repo/docs/versions/9차.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 4501,
+    "sha256": "f7ff06edce08cca19a392d814125d1a3ba41cf523dc02cc06b2f4a98d1d34738"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/public-repo/docs/versions/기본.md",
+    "source": "15차/source/work/public-repo/docs/versions/기본.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 2618,
+    "sha256": "5aa0201aa08e064e0481487d1a7431841c296e1880075a3b9157c26a6771ed28"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/public-repo/docs/versions/실행점검-2차.md",
+    "source": "15차/source/work/public-repo/docs/versions/실행점검-2차.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 2089,
+    "sha256": "4c135d15dc8f1f87bde183d2aef17bfb590247dab193f041960b73db287b6838"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/ui-run-red.py",
+    "source": "15차/source/work/ui-run-red.py",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 2358,
+    "sha256": "fd2ab1b46c3406ae152cddf0243052a98e0125bbccb8cccd6ab720c8e1b302ac"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/verifier15-final3-focused-ui/control-restart-after-setup.txt",
+    "source": "15차/source/work/verifier15-final3-focused-ui/control-restart-after-setup.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 8533,
+    "sha256": "3ea5fadf478755a5e17f48c276904b247493285967a44bd087ffa70f39854552"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/verifier15-final3-focused-ui/control-resume-while-running.txt",
+    "source": "15차/source/work/verifier15-final3-focused-ui/control-resume-while-running.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 15926,
+    "sha256": "5557c689be4243ffb6085feb563188e622228b20a2d826a616e832cb15003484"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/verifier15-final3-focused-ui/control-setup-hidden.txt",
+    "source": "15차/source/work/verifier15-final3-focused-ui/control-setup-hidden.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 14488,
+    "sha256": "78a7134054d16123aca4e6084939a9dea45ebe2f6ddd0f42dbc370ffd49ea84d"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/verifier15-final3-focused-ui/control-start-after-setup.txt",
+    "source": "15차/source/work/verifier15-final3-focused-ui/control-start-after-setup.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 8369,
+    "sha256": "9d956067cbca775e899aae6740d04de7b1ea9bb908b6779d7c0dcba4106fa810"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/verifier15-gradle-failure13/TEST-kr.yunseok.touchmacro.CapturePacerTest.xml",
+    "source": "15차/source/work/verifier15-gradle-failure13/TEST-kr.yunseok.touchmacro.CapturePacerTest.xml",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 3408,
+    "sha256": "06c24849848d92ccf34a917398497ec153340cf88c61c4a9e748833237e68e81"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/verifier15-gradle-failure13/TEST-kr.yunseok.touchmacro.CaptureRequestsTest.xml",
+    "source": "15차/source/work/verifier15-gradle-failure13/TEST-kr.yunseok.touchmacro.CaptureRequestsTest.xml",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 3420,
+    "sha256": "6570f54ac483b30060d18f127ab95b1cd4af8b60bf7647575fc91b9527ce610d"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/verifier15-gradle-failure13/TEST-kr.yunseok.touchmacro.ContinuousWaitTest.xml",
+    "source": "15차/source/work/verifier15-gradle-failure13/TEST-kr.yunseok.touchmacro.ContinuousWaitTest.xml",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 3416,
+    "sha256": "edcfcc2eea74157e88e4d1b613e29d7d3d26c7352261965dd5715a30c236010d"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/verifier15-gradle-failure13/TEST-kr.yunseok.touchmacro.ErrorJournalTest.xml",
+    "source": "15차/source/work/verifier15-gradle-failure13/TEST-kr.yunseok.touchmacro.ErrorJournalTest.xml",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 3408,
+    "sha256": "636b6a3f8233b499ad0eedab2cf7cb5ca593e5933e801868b163e6f72d685b5e"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/verifier15-gradle-failure13/TEST-kr.yunseok.touchmacro.GestureModelTest.xml",
+    "source": "15차/source/work/verifier15-gradle-failure13/TEST-kr.yunseok.touchmacro.GestureModelTest.xml",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 3408,
+    "sha256": "a21d3b60294784d3bd9412ae18502106930848b8d1189a5d7cb81c15189cca20"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/verifier15-gradle-failure13/TEST-kr.yunseok.touchmacro.ModelTest.xml",
+    "source": "15차/source/work/verifier15-gradle-failure13/TEST-kr.yunseok.touchmacro.ModelTest.xml",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 3380,
+    "sha256": "3ab4a2d0a0b776a59010cd9b96d5f44333b0ae7556f6a02ed00d829c8392ec87"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/verifier15-gradle-failure13/TEST-kr.yunseok.touchmacro.QueryLaneTest.xml",
+    "source": "15차/source/work/verifier15-gradle-failure13/TEST-kr.yunseok.touchmacro.QueryLaneTest.xml",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 3396,
+    "sha256": "9b2a0b1426393d4bf597ecc19912bf933f7967ca8450f2c0190e0ca0bfbc24fb"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/verifier15-gradle-failure13/TEST-kr.yunseok.touchmacro.RepeatMeaningTest.xml",
+    "source": "15차/source/work/verifier15-gradle-failure13/TEST-kr.yunseok.touchmacro.RepeatMeaningTest.xml",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 3412,
+    "sha256": "e619ad6cd275603f7f7dce0bd193b40cc4b2c242578887e5b02c317312239bc6"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/verifier15-gradle-failure13/TEST-kr.yunseok.touchmacro.TextRulesTest.xml",
+    "source": "15차/source/work/verifier15-gradle-failure13/TEST-kr.yunseok.touchmacro.TextRulesTest.xml",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 3396,
+    "sha256": "93d32bf73bdec0b711dfffdde2e4d47c1904ceddd2579f7f6da4b0841580d38b"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/verifier15-gradle-failure13/TEST-kr.yunseok.touchmacro.TimesTest.xml",
+    "source": "15차/source/work/verifier15-gradle-failure13/TEST-kr.yunseok.touchmacro.TimesTest.xml",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 3380,
+    "sha256": "341e56cb6d7ca778ddc0529e58e68b6e17e0e63090b3c5820d1e394bfc4044cb"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/verifier15-gradle-failure13/TEST-kr.yunseok.touchmacro.WatchConfigTest.xml",
+    "source": "15차/source/work/verifier15-gradle-failure13/TEST-kr.yunseok.touchmacro.WatchConfigTest.xml",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 3404,
+    "sha256": "6e0c4be4883383df13a64ae00e341e02ae7dd2af5e9fde4072bcfb9c09310399"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/verifier15-gradle-failure13/TEST-kr.yunseok.touchmacro.WatchGateTest.xml",
+    "source": "15차/source/work/verifier15-gradle-failure13/TEST-kr.yunseok.touchmacro.WatchGateTest.xml",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 3396,
+    "sha256": "1d791b869f504d504580843cdda605c3ff7bd1c03bc5c74e811039c3b0325850"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/verifier15-gradle-failure13/TEST-kr.yunseok.touchmacro.WindowPackagesTest.xml",
+    "source": "15차/source/work/verifier15-gradle-failure13/TEST-kr.yunseok.touchmacro.WindowPackagesTest.xml",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 3416,
+    "sha256": "4e623063057e1dd825ccc410d3d2cd2b2ac1714682cdbf38a483c476e4d6c2d4"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/verifier15_collect.py",
+    "source": "15차/source/work/verifier15_collect.py",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 9009,
+    "sha256": "5d8356d249dc9f56ef034be675a0e428d1ff13636a73cf18b41d1a39c909b489"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/verifier15_review.py",
+    "source": "15차/source/work/verifier15_review.py",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 8736,
+    "sha256": "b0684a97b47f0355f110cdf8962f1a3b18ccd74a880d76d2972f3b780efcecfb"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/verify15.py",
+    "source": "15차/source/work/verify15.py",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 2899,
+    "sha256": "7e4af44473905738fe1f352dd13f9f3b3364b713638501b5424aeac039b07ad7"
+  },
+  {
+    "path": "보존자료/작업소스/15차/source/work/공개15차_커밋본문.txt",
+    "source": "15차/source/work/공개15차_커밋본문.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 850,
+    "sha256": "823e73e83042a6c8708817b14dc100239c2fe50ed6c1ba2612f2550024fc4a96"
+  },
+  {
+    "path": "보존자료/작업소스/16차/source/work/android-user/avd/PXE16.avd/emu-launch-params.txt",
+    "source": "16차/source/work/android-user/avd/PXE16.avd/emu-launch-params.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 314,
+    "sha256": "5627f1ef30071ee04da4835d20b6104fff08c263c84de0d7d8ade16594b65463"
+  },
+  {
+    "path": "보존자료/작업소스/16차/source/work/export_public16.py",
+    "source": "16차/source/work/export_public16.py",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 1649,
+    "sha256": "619e0868cf847f2ea2df33285db257b1a00c89690569bb417e10beae3a913f42"
+  },
+  {
+    "path": "보존자료/작업소스/16차/source/work/public-repo/CHANGELOG.md",
+    "source": "16차/source/work/public-repo/CHANGELOG.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 8013,
+    "sha256": "fb1d3228ff3ff005029c860190fb37a9f528c9d32214647462c402683e80b1b6"
+  },
+  {
+    "path": "보존자료/작업소스/16차/source/work/public-repo/README.md",
+    "source": "16차/source/work/public-repo/README.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 11969,
+    "sha256": "ea8e4454529341ef8c329cb6d745c020563787a2fbf155587b1e7b300a998e3a"
+  },
+  {
+    "path": "보존자료/작업소스/16차/source/work/public-repo/docs/VERSIONS.md",
+    "source": "16차/source/work/public-repo/docs/VERSIONS.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 4947,
+    "sha256": "e18e8b378f732543696b38cb4a5e1797f43e62eabb08ed0b5ac289c1226b0062"
+  },
+  {
+    "path": "보존자료/작업소스/16차/source/work/public-repo/docs/versions/10차.md",
+    "source": "16차/source/work/public-repo/docs/versions/10차.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 6006,
+    "sha256": "4867419787b308461e86944e9a5682f460889c9ac4f09dc47bfbdb70f60c7cdd"
+  },
+  {
+    "path": "보존자료/작업소스/16차/source/work/public-repo/docs/versions/11차.md",
+    "source": "16차/source/work/public-repo/docs/versions/11차.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 3877,
+    "sha256": "1a597d1d1e6f30eca7c33d2e4f2c947f2a431e9a93effc7f8f74bc296595507f"
+  },
+  {
+    "path": "보존자료/작업소스/16차/source/work/public-repo/docs/versions/12차.md",
+    "source": "16차/source/work/public-repo/docs/versions/12차.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 4311,
+    "sha256": "0345dd1bfec2c074cc8b3b9a53f70c790274b4b40f2942a68d1c4448e2ea0f3b"
+  },
+  {
+    "path": "보존자료/작업소스/16차/source/work/public-repo/docs/versions/13차.md",
+    "source": "16차/source/work/public-repo/docs/versions/13차.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 5119,
+    "sha256": "885743b984d9adc5132097c39a4cfb324c32ad5f59896cad9027395333b29fa6"
+  },
+  {
+    "path": "보존자료/작업소스/16차/source/work/public-repo/docs/versions/14차.md",
+    "source": "16차/source/work/public-repo/docs/versions/14차.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 5488,
+    "sha256": "c6e8c9fb7544d74806fa2666a45db9c07eab3cacb150f14a39b220a0be064df5"
+  },
+  {
+    "path": "보존자료/작업소스/16차/source/work/public-repo/docs/versions/16차.md",
+    "source": "16차/source/work/public-repo/docs/versions/16차.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 4466,
+    "sha256": "ebbb0737bb2d2020652f6362efada363d9a212b56f210c22b84485f3f4b6be0d"
+  },
+  {
+    "path": "보존자료/작업소스/16차/source/work/public-repo/docs/versions/1차.md",
+    "source": "16차/source/work/public-repo/docs/versions/1차.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 2239,
+    "sha256": "7d72b3a1fa493c4b896d5bea5a581731bdf6a78b277f785acc03be983b691de4"
+  },
+  {
+    "path": "보존자료/작업소스/16차/source/work/public-repo/docs/versions/3차.md",
+    "source": "16차/source/work/public-repo/docs/versions/3차.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 4102,
+    "sha256": "1aef48b76f62fbe2809698e9cb2c84aa7cfa1ce31357b8123b79f08799044768"
+  },
+  {
+    "path": "보존자료/작업소스/16차/source/work/public-repo/docs/versions/4차.md",
+    "source": "16차/source/work/public-repo/docs/versions/4차.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 4209,
+    "sha256": "b8b557e9bd973ad952b5379ac147cccc8f1d7ad8edb249a61eb6d7dafd212d65"
+  },
+  {
+    "path": "보존자료/작업소스/16차/source/work/public-repo/docs/versions/5차.md",
+    "source": "16차/source/work/public-repo/docs/versions/5차.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 3810,
+    "sha256": "89ebd303f94b5eab3bbaab70c7966041358f62ecff64536cf4f4fbefd7b0c9a0"
+  },
+  {
+    "path": "보존자료/작업소스/16차/source/work/public-repo/docs/versions/6차.md",
+    "source": "16차/source/work/public-repo/docs/versions/6차.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 5838,
+    "sha256": "eb625ab3c54b8f343f28cdfd3b37d6c20da107053fa0e36a94cfddbc2f128c98"
+  },
+  {
+    "path": "보존자료/작업소스/16차/source/work/public-repo/docs/versions/8차.md",
+    "source": "16차/source/work/public-repo/docs/versions/8차.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 3123,
+    "sha256": "1be4005e24630647d57537e65f89767d35d54b9a5ea62dff109caa0ab48b852b"
+  },
+  {
+    "path": "보존자료/작업소스/16차/source/work/public-repo/docs/versions/9차.md",
+    "source": "16차/source/work/public-repo/docs/versions/9차.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 3878,
+    "sha256": "979b2520f2421022b88c54e44c0199e6da5a200252da68f92bc452d709b270d6"
+  },
+  {
+    "path": "보존자료/작업소스/16차/source/work/public-repo/docs/versions/기본.md",
+    "source": "16차/source/work/public-repo/docs/versions/기본.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 2173,
+    "sha256": "dd8fefef984677b5c93e6d1f2ddcb1237d8d9e2138ef7ae890d82cd8bd8b15fd"
+  },
+  {
+    "path": "보존자료/작업소스/16차/source/work/public-repo/docs/versions/실행점검-2차.md",
+    "source": "16차/source/work/public-repo/docs/versions/실행점검-2차.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 1823,
+    "sha256": "fe0f193f9141892d92e6e423cd858f227c675f004c1f5d2a0150e948fc4ee3be"
+  },
+  {
+    "path": "보존자료/작업소스/16차/source/work/public16_commit_message.txt",
+    "source": "16차/source/work/public16_commit_message.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 938,
+    "sha256": "13e346885172d7e7d6a3dd43552fcbad493c21e877086d2b8deda82922546f66"
+  },
+  {
+    "path": "보존자료/작업소스/16차/경로정리/변경전 원본/work/verifier15_collect.py",
+    "source": "16차/경로정리/변경전 원본/work/verifier15_collect.py",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 8984,
+    "sha256": "88bc43e75e34236f67811cf5004107a7c43ba88a368795f3619a53aa88d9e794"
+  },
+  {
+    "path": "보존자료/작업소스/work/build10/avd/PXE12/emu-launch-params.txt",
+    "source": "work/build10/avd/PXE12/emu-launch-params.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 406,
+    "sha256": "a20624f9f4ce8d9a4fc013af8327347ea6645afc4504504c793bfe324673d949"
+  },
+  {
+    "path": "보존자료/작업소스/work/build10/avd/PXE12/modem_simulator/iccprofile_for_sim0.xml",
+    "source": "work/build10/avd/PXE12/modem_simulator/iccprofile_for_sim0.xml",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 14894,
+    "sha256": "c3e57cc1d2ffd6ca82d2df6728d851387a845f625d848fc28e781be2f070886f"
+  },
+  {
+    "path": "보존자료/작업소스/work/extract_image.py",
+    "source": "work/extract_image.py",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 1283,
+    "sha256": "90dcaa03a6a62f549bda9ccdd25e5a1ea5931d2bd8988f17b2aa567eb6555981"
+  },
+  {
+    "path": "보존자료/작업소스/work/extract_nex_image.py",
+    "source": "work/extract_nex_image.py",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 955,
+    "sha256": "892f9b8ac5879fe1aba5a9e4b002032960941b90ac3777353d1cb22d900ed524"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/gradle-8.13/init.d/readme.txt",
+    "source": "work/tools/gradle-8.13/init.d/readme.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 119,
+    "sha256": "16cf9450804c97d225bac3e2512583b628a139179fe9c6151d1a23166b66cd23"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/conf/logging.properties",
+    "source": "work/tools/jdk-17.0.20.1+1/conf/logging.properties",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 2732,
+    "sha256": "b62d2733ab99556b108a1951d894c5a8d76b1ac7a00c02c388f9eb9be046c56f"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/conf/management/management.properties",
+    "source": "work/tools/jdk-17.0.20.1+1/conf/management/management.properties",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 14410,
+    "sha256": "f80096ec028dcb71625c398ec16d12023cafc6a1c055aceaed07d02e8d56f637"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/conf/net.properties",
+    "source": "work/tools/jdk-17.0.20.1+1/conf/net.properties",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 7504,
+    "sha256": "56dd1f6095c189c1052f6baa32e457efc09de4832e19cdb82bb236dc8abfee9f"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/conf/security/policy/README.txt",
+    "source": "work/tools/jdk-17.0.20.1+1/conf/security/policy/README.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 2390,
+    "sha256": "6da0747334b0fea7592fd92614b2bbc8b126535e129b1fee483774d914e98eb5"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/conf/sound.properties",
+    "source": "work/tools/jdk-17.0.20.1+1/conf/sound.properties",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 1210,
+    "sha256": "299c2360b6155eb28990ec49cd21753f97e43442fe8fab03e04f3e213df43a66"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/legal/java.base/aes.md",
+    "source": "work/tools/jdk-17.0.20.1+1/legal/java.base/aes.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 1444,
+    "sha256": "45c6d4da48325edfbff3dcf71c704e504c057904435ed23c6d57046d551eb69d"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/legal/java.base/asm.md",
+    "source": "work/tools/jdk-17.0.20.1+1/legal/java.base/asm.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 1584,
+    "sha256": "1ff912740e84e024711def5fa482ffbb46eff64559760c467352dfa7c39a3307"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/legal/java.base/c-libutl.md",
+    "source": "work/tools/jdk-17.0.20.1+1/legal/java.base/c-libutl.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 1556,
+    "sha256": "bef40679922d6fdfb7e4ddb223ad6722300f6054ba737bbf6188d60fcec517f9"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/legal/java.base/cldr.md",
+    "source": "work/tools/jdk-17.0.20.1+1/legal/java.base/cldr.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 9130,
+    "sha256": "f2bd33ded550a05d59e8f659416ef382490504548d846e6388b1dffd273aa077"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/legal/java.base/icu.md",
+    "source": "work/tools/jdk-17.0.20.1+1/legal/java.base/icu.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 11086,
+    "sha256": "af0057e8553906083f69c2fb9fe9ed4ae8bc2340a0b1e376a424702f00300b29"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/legal/java.base/public_suffix.md",
+    "source": "work/tools/jdk-17.0.20.1+1/legal/java.base/public_suffix.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 17785,
+    "sha256": "e7705b408e894e91c93968640773b1532cd9927f8a7f178020aa3c3f38c8b363"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/legal/java.base/siphash.md",
+    "source": "work/tools/jdk-17.0.20.1+1/legal/java.base/siphash.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 8256,
+    "sha256": "5a792b5a74ad2a5f3d6a7ad8b7a841116e58a772c18bc6e392320a365b222c76"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/legal/java.base/unicode.md",
+    "source": "work/tools/jdk-17.0.20.1+1/legal/java.base/unicode.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 2384,
+    "sha256": "5e4e6623a21a63f9bc16ea54af4133b8038e490c0d499a74676f9e5a61b9c5b2"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/legal/java.base/wepoll.md",
+    "source": "work/tools/jdk-17.0.20.1+1/legal/java.base/wepoll.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 1454,
+    "sha256": "3ac2992770080453b98c42afa807ba4b2c1738ef756b92a55c645f55e7df48f0"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/legal/java.base/zlib.md",
+    "source": "work/tools/jdk-17.0.20.1+1/legal/java.base/zlib.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 1010,
+    "sha256": "c9c70c36a1f0325e8788771906202d42ba6ab4205caca44ec0f665707e83226b"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/legal/java.desktop/colorimaging.md",
+    "source": "work/tools/jdk-17.0.20.1+1/legal/java.desktop/colorimaging.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 167,
+    "sha256": "04d61e3e8e71dd452ebe52008af5378d9f6640d14578aeb515dc5375973b0189"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/legal/java.desktop/freetype.md",
+    "source": "work/tools/jdk-17.0.20.1+1/legal/java.desktop/freetype.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 30465,
+    "sha256": "553e804baecb7de7129d77c7259a6b70037d1893f1c600b41b35201695fb7758"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/legal/java.desktop/giflib.md",
+    "source": "work/tools/jdk-17.0.20.1+1/legal/java.desktop/giflib.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 1689,
+    "sha256": "206aab89ec75968e48a6a1ed6df7d8b9bfb7aea12cbe4c9345d93e5d97460a25"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/legal/java.desktop/harfbuzz.md",
+    "source": "work/tools/jdk-17.0.20.1+1/legal/java.desktop/harfbuzz.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 3629,
+    "sha256": "5ec7cba7f8e7fc3a089213140aab6fa1b3bd5bf8a91bf8bddb3b8d315fc5f7d0"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/legal/java.desktop/jpeg.md",
+    "source": "work/tools/jdk-17.0.20.1+1/legal/java.desktop/jpeg.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 3475,
+    "sha256": "580be596216ee11e2554b24ce944973acaede2ebf5ffba34a6bd8cc441c05043"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/legal/java.desktop/lcms.md",
+    "source": "work/tools/jdk-17.0.20.1+1/legal/java.desktop/lcms.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 2654,
+    "sha256": "843f9f6fa9c3f8109fcf4d5fe74caf7f2ae8e9bcd92238e4aff2d428c932b24b"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/legal/java.desktop/libpng.md",
+    "source": "work/tools/jdk-17.0.20.1+1/legal/java.desktop/libpng.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 7519,
+    "sha256": "f73afb394792f3aeecd959e89487603677a430e56b44eba596d8b572accfd540"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/legal/java.desktop/mesa3d.md",
+    "source": "work/tools/jdk-17.0.20.1+1/legal/java.desktop/mesa3d.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 5732,
+    "sha256": "63f4e6f75caebbccb95d903fb43e46ac7111b3624d0a34f146b276d7d9e7b152"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/legal/java.xml.crypto/santuario.md",
+    "source": "work/tools/jdk-17.0.20.1+1/legal/java.xml.crypto/santuario.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 11505,
+    "sha256": "d08690d25f660f145c73365d260ed522cd0aace8a0e1396706551b7a1ae8c9a3"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/legal/java.xml/bcel.md",
+    "source": "work/tools/jdk-17.0.20.1+1/legal/java.xml/bcel.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 11196,
+    "sha256": "cd578186ad93de46cca29ec8ace2b11f9da751987f3f140e6095c528596cc8c1"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/legal/java.xml/dom.md",
+    "source": "work/tools/jdk-17.0.20.1+1/legal/java.xml/dom.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 3761,
+    "sha256": "6686e8877667584a3a7c07344baadca1a03e29f677162d87c3c0811e990d1148"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/legal/java.xml/jcup.md",
+    "source": "work/tools/jdk-17.0.20.1+1/legal/java.xml/jcup.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 1448,
+    "sha256": "8d5dcfdf50455a3c34c753a98f21e953248af200415a9084e3f102cb6c43b8bf"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/legal/java.xml/xalan.md",
+    "source": "work/tools/jdk-17.0.20.1+1/legal/java.xml/xalan.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 13494,
+    "sha256": "ea67226be5cfe19c7e79725c2c24a16676323264d69f9747c528de0b44541b03"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/legal/java.xml/xerces.md",
+    "source": "work/tools/jdk-17.0.20.1+1/legal/java.xml/xerces.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 11852,
+    "sha256": "472224f99de833f4f4c19f2f8a0317f22114e1c641f5d77ffa3a4280a1b80176"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/legal/jdk.crypto.cryptoki/pkcs11cryptotoken.md",
+    "source": "work/tools/jdk-17.0.20.1+1/legal/jdk.crypto.cryptoki/pkcs11cryptotoken.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 4095,
+    "sha256": "1f36ff1342a581142c858f90064e20633d43529ac82adb85345bd902a14e18b2"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/legal/jdk.crypto.cryptoki/pkcs11wrapper.md",
+    "source": "work/tools/jdk-17.0.20.1+1/legal/jdk.crypto.cryptoki/pkcs11wrapper.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 2131,
+    "sha256": "371974b1fca3744a3892c7ee1fcc593b8b4281fc218f4cafd2f709e9df5fd81d"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/legal/jdk.dynalink/dynalink.md",
+    "source": "work/tools/jdk-17.0.20.1+1/legal/jdk.dynalink/dynalink.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 1502,
+    "sha256": "17312591cabee3ef6c34ed8897d92e4e361ba9cea41ec00dcd61a322a8fc2cdb"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/legal/jdk.internal.le/jline.md",
+    "source": "work/tools/jdk-17.0.20.1+1/legal/jdk.internal.le/jline.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 1579,
+    "sha256": "a6fb63a226b77b03cbd7559cce6cdc3e1ea8563af960b1dce2330c8e1dce1abf"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/legal/jdk.internal.opt/jopt-simple.md",
+    "source": "work/tools/jdk-17.0.20.1+1/legal/jdk.internal.opt/jopt-simple.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 1122,
+    "sha256": "99bc67f93cf57d6d20e6047731c93fbb267d70fbdd4115d119e0f85c6efe5c05"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/legal/jdk.javadoc/jquery.md",
+    "source": "work/tools/jdk-17.0.20.1+1/legal/jdk.javadoc/jquery.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 1157,
+    "sha256": "b68f454c2bd58959c862d94bf0f16c3f78a2d537388ca060d354344db80ee695"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/legal/jdk.javadoc/jqueryUI.md",
+    "source": "work/tools/jdk-17.0.20.1+1/legal/jdk.javadoc/jqueryUI.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 1871,
+    "sha256": "7854d2d568992ae25ff65867bd9021d655f70670142f0796b29a3b0621f19530"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/legal/jdk.localedata/cldr.md",
+    "source": "work/tools/jdk-17.0.20.1+1/legal/jdk.localedata/cldr.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 33,
+    "sha256": "09972449731a1d1a0863af0384aeb7839f84cac74983c96856e6c305e31ed8b2"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/legal/jdk.localedata/thaidict.md",
+    "source": "work/tools/jdk-17.0.20.1+1/legal/jdk.localedata/thaidict.md",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 1346,
+    "sha256": "c326144a2351c9608fa708b5d7d3c5a3da03e82b66479b128e9db4969539824a"
+  },
+  {
+    "path": "보존자료/작업소스/work/tools/jdk-17.0.20.1+1/lib/psfontj2d.properties",
+    "source": "work/tools/jdk-17.0.20.1+1/lib/psfontj2d.properties",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 11390,
+    "sha256": "780c565d5af3ee6f68b887b75c041cdf46a0592f67012f12eeb691283e92630a"
+  },
+  {
+    "path": "보존자료/작업소스/work/참고앱_반영메모.txt",
+    "source": "work/참고앱_반영메모.txt",
+    "kind": "원본 파일",
+    "reason": "작업 경로의 고유 코드·설계·사용법·실험 노트 원문 보존(독립 배포본 아님)",
+    "bytes": 872,
+    "sha256": "bb7412cf892a5e3f00b7d0316417af748b3fd8507c9c88ad7ca8ffcfbde74006"
+  },
+  {
+    "path": "실행점검/1차/독립검토.txt",
+    "source": "실행점검/1차/독립검토.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 5931,
+    "sha256": "24002d5a8b0bcee449bb437ff924a6c157695e4b78b0b06cddfec10375d7aa68"
+  },
+  {
+    "path": "실행점검/1차/점검결과.txt",
+    "source": "실행점검/1차/점검결과.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 5676,
+    "sha256": "635e07c83dfd2b4e9016f7b2d1ffccc852b32ea01e83b91684040f6c61e9bef8"
+  },
+  {
+    "path": "실행점검/1차/점검도구_정리.txt",
+    "source": "실행점검/1차/점검도구_정리.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 442,
+    "sha256": "d79f8a5263df1f83cb0d4ae01fc4f949534f8bc4cdeee925b2d9fab03b6d2093"
+  },
+  {
+    "path": "실행점검/2차/부모진행기록.txt",
+    "source": "실행점검/2차/부모진행기록.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 3969,
+    "sha256": "f3aa3f00488f53a4031533945396b5f79569aee147f8c9da3f82b2d0b9ae2308"
+  },
+  {
+    "path": "실행점검/2차/설정조사.txt",
+    "source": "실행점검/2차/설정조사.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 2343,
+    "sha256": "ca4a546c55633e013ab738d6a0971c589c41c1eee31e1fd16d693363084f3abc"
+  },
+  {
+    "path": "실행점검/2차/자원_1.json",
+    "source": "실행점검/2차/자원_1.json",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 1257,
+    "sha256": "1e7727188a7e788af7c71f144b03f84f49c926b3fcb1b8c065feaf753b792bc2"
+  },
+  {
+    "path": "실행점검/2차/자원_2.json",
+    "source": "실행점검/2차/자원_2.json",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 1260,
+    "sha256": "bb1d0d8fa80bc7ab72e36474f5b8fd9db2d6364ccace7c6fcb7b96a2d1ffd5b4"
+  },
+  {
+    "path": "실행점검/2차/자원_3.json",
+    "source": "실행점검/2차/자원_3.json",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 1256,
+    "sha256": "db686c397f2bc7e1319e6f2c67c76e608c5f530592012edecdddcf7c0b9fa065"
+  },
+  {
+    "path": "실행점검/2차/자원_4.json",
+    "source": "실행점검/2차/자원_4.json",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 1256,
+    "sha256": "150ef67e5e6753cba3e77ad73735c70400d4ddaf09076ac54cd0f0ad2b7f0daa"
+  },
+  {
+    "path": "실행점검/3차/독립검토.txt",
+    "source": "실행점검/3차/독립검토.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 4919,
+    "sha256": "3578eb84d74a923f280ca618473da0ef3ad4e55a54da101641779a1ea8479072"
+  },
+  {
+    "path": "실행점검/3차/부모판정.txt",
+    "source": "실행점검/3차/부모판정.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 2656,
+    "sha256": "009714773cf4705e277caf7c6d2a1dc604f62505592fd4fc21c7c0243cea735e"
+  },
+  {
+    "path": "실행점검/3차/오류문구대조표.txt",
+    "source": "실행점검/3차/오류문구대조표.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 3288,
+    "sha256": "c7a4e1bbb5bca0db4e8b6cab7ff68c9792cf94c6d936f460e4454ef80903d7b4"
+  },
+  {
+    "path": "실행점검/3차/확인된증상.txt",
+    "source": "실행점검/3차/확인된증상.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 1502,
+    "sha256": "5e5c22b0741e9f686e845522518486c68838d4ef638a14721d23b26faa554f7a"
+  },
+  {
+    "path": "실행환경점검/1차/도커_GPU_실제조회.json",
+    "source": "실행환경점검/1차/도커_GPU_실제조회.json",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 3510,
+    "sha256": "99b4841cf4dabb7d507c9e5f477fb23391ba709e3c061f0e3c221f19df360b9a"
+  },
+  {
+    "path": "실행환경점검/1차/메모리_GPU_추가조회.json",
+    "source": "실행환경점검/1차/메모리_GPU_추가조회.json",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 4725,
+    "sha256": "23831d26e8b25b1b59ce7a98185fce5bd3b50bdc3b4df765f249f371cd9f71cc"
+  },
+  {
+    "path": "실행환경점검/1차/블루스택_확인설정.txt",
+    "source": "실행환경점검/1차/블루스택_확인설정.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 1193,
+    "sha256": "31b507d0bddfaad9a796e7f6d95c5c346dc56c9cb502bd07eea7fcfb1fe2a438"
+  },
+  {
+    "path": "실행환경점검/1차/실제_부하측정.json",
+    "source": "실행환경점검/1차/실제_부하측정.json",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 1439330,
+    "sha256": "d86252a0592fdfbf00c88b4281c5fa8f493df3865c6c9bfb98750229a879e05f"
+  },
+  {
+    "path": "실행환경점검/1차/실제_컴퓨터_점검결과.md",
+    "source": "실행환경점검/1차/실제_컴퓨터_점검결과.md",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 4382,
+    "sha256": "2a02fd2a3e85275230977fc6262c35dcf9f5b181c1f283f1d9bec686332f6b71"
+  },
+  {
+    "path": "실행환경점검/1차/집계_프로그램별.json",
+    "source": "실행환경점검/1차/집계_프로그램별.json",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 25910,
+    "sha256": "e25308e51d9d33aeaa8db0cc768489a8bb9f0e9a28492edbbec2ca831b80cb41"
+  },
+  {
+    "path": "코드/NEXReference/manifest.json",
+    "source": "코드/NEXReference/manifest.json",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 2082,
+    "sha256": "147e2af3e84e73b07e82baf49324f156fd8d4f0a4bf139ffd5254969408b5979"
+  },
+  {
+    "path": "코드/NEXReference/nex-ui.xml",
+    "source": "코드/NEXReference/nex-ui.xml",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 12672,
+    "sha256": "98e662da83f7155013195497cab3f8768acb59f1d4074a566f94c3751fb28613"
+  },
+  {
+    "path": "코드/NEXSource2/app/src/main/AndroidManifest.xml",
+    "source": "코드/NEXSource2/app/src/main/AndroidManifest.xml",
+    "kind": "원본 파일",
+    "reason": "현재 공개 사본 경로가 존재: 원격/기존 정제본 보존",
+    "bytes": 1987,
+    "sha256": "50f2e943a654510b5f9936aafcf882bdc563f3a6f3c90cd3af98085f427ed371"
+  },
+  {
+    "path": "코드/NEXSource2/app/src/main/assets/NanumGothic-OFL.txt",
+    "source": "코드/NEXSource2/app/src/main/assets/NanumGothic-OFL.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 5398,
+    "sha256": "9413f0aaff51c59be2ff01113a28759b491e6fd67172c3d0a666e6354af18883"
+  },
+  {
+    "path": "코드/NEXSource2/app/src/main/res/font/nanum_gothic_bold.ttf",
+    "source": "코드/NEXSource2/app/src/main/res/font/nanum_gothic_bold.ttf",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 4642244,
+    "sha256": "454eb3f503f377782a99eb84fc4bb7dde22a0f075d41b47427737f2985053bc9"
+  },
+  {
+    "path": "코드/NEXSource2/app/src/main/res/values/strings.xml",
+    "source": "코드/NEXSource2/app/src/main/res/values/strings.xml",
+    "kind": "원본 파일",
+    "reason": "현재 공개 사본 경로가 존재: 원격/기존 정제본 보존",
+    "bytes": 628,
+    "sha256": "00a53888578604a67a1aa128c73496615e5b73bf65c72c2294b6e9cc3dbb4707"
+  },
+  {
+    "path": "코드/NEXSource2/gradlew",
+    "source": "코드/NEXSource2/gradlew",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 8752,
+    "sha256": "734b3879d3501dce471cf0522d3bcbafe76873d9fc5129345b67fb43bd15e933"
+  },
+  {
+    "path": "코드/NEXSource2/local.properties",
+    "source": "코드/NEXSource2/local.properties",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 56,
+    "sha256": "46040d29cac5f84d9313b835b2a583c216bf27271d20f4b9750b02b1d51b9a6c"
+  },
+  {
+    "path": "코드/NEXSource2/빌드방법.txt",
+    "source": "코드/NEXSource2/빌드방법.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 1811,
+    "sha256": "8379da82be284b6c2f89bead19712e53cc2c8cbf06c9b43ee07b8f43d291c6b5"
+  },
+  {
+    "path": "코드/NEXSource3/gradlew",
+    "source": "코드/NEXSource3/gradlew",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 8752,
+    "sha256": "734b3879d3501dce471cf0522d3bcbafe76873d9fc5129345b67fb43bd15e933"
+  },
+  {
+    "path": "코드/NEXSource3/local.properties",
+    "source": "코드/NEXSource3/local.properties",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 56,
+    "sha256": "46040d29cac5f84d9313b835b2a583c216bf27271d20f4b9750b02b1d51b9a6c"
+  },
+  {
+    "path": "코드/NEXSource3/빌드방법.txt",
+    "source": "코드/NEXSource3/빌드방법.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 1811,
+    "sha256": "8379da82be284b6c2f89bead19712e53cc2c8cbf06c9b43ee07b8f43d291c6b5"
+  },
+  {
+    "path": "코드/릴리즈_보관규칙.txt",
+    "source": "코드/릴리즈_보관규칙.txt",
+    "kind": "원본 파일",
+    "reason": "원문 바이트 공개 추가: 제품 코드·설정·설계·사용법·라이선스·리소스·검증/실험 자료 내용 확인",
+    "bytes": 286,
+    "sha256": "34789c8966c68d78fa0ae320665883a4df73ff7111e67b0fbb0585e16fdee2e1"
+  }
+]

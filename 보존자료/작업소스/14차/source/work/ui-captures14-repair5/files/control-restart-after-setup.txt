@@ -1,0 +1,40 @@
+현재 서비스 동일=true destroyed=false running=true paused=false
+setup_active=true setup_stage=0 controller.visible=true captureMode=false builtRunning=true collapsed=true
+scale=100 opacity=95 panel_x=-1 panel_y=-1
+windowParams={(16,249)(252x126) gr=TOP START CENTER ty=2032 fmt=TRANSLUCENT
+  fl=NOT_FOCUSABLE LAYOUT_IN_SCREEN HARDWARE_ACCELERATED
+  bhv=DEFAULT
+  fitTypes=STATUS_BARS NAVIGATION_BARS CAPTION_BAR}
+panel=LinearLayout visibility=0 shown=true attached=true size=252x126 alpha=0.95 globalVisible=true bounds=Rect(0, 0 - 252, 126) clickable=false enabled=true important=1
+stop=Button visibility=0 shown=true attached=true size=126x126 alpha=1.0 globalVisible=true bounds=Rect(126, 0 - 252, 126) clickable=true enabled=true important=1
+창 id=1104 type=4 layer=3 active=false focused=false root=true
+노드 depth=0 class=android.widget.LinearLayout text=null desc=null visible=true clickable=false enabled=true bounds=Rect(16, 249 - 268, 375)
+노드 depth=1 class=android.widget.ImageButton text=null desc=PXE 컨트롤 펼치기 · 길게 눌러 정지 visible=true clickable=true enabled=true bounds=Rect(16, 249 - 142, 375)
+노드 depth=1 class=android.widget.Button text=■ desc=정지 visible=true clickable=true enabled=true bounds=Rect(142, 249 - 268, 375)
+창 id=1001 type=3 layer=2 active=false focused=false root=true
+노드 depth=0 class=android.widget.FrameLayout text=null desc=null visible=true clickable=false enabled=true bounds=Rect(0, 2154 - 1080, 2280)
+노드 depth=1 class=android.widget.FrameLayout text=null desc=null visible=true clickable=false enabled=true bounds=Rect(0, 2154 - 1080, 2280)
+노드 depth=2 class=android.widget.ImageView text=null desc=Back visible=true clickable=true enabled=true bounds=Rect(164, 2154 - 351, 2280)
+노드 depth=2 class=android.widget.ImageView text=null desc=Overview visible=true clickable=true enabled=true bounds=Rect(727, 2154 - 915, 2280)
+노드 depth=2 class=android.widget.ImageView text=null desc=Home visible=true clickable=true enabled=true bounds=Rect(435, 2154 - 645, 2280)
+창 id=1003 type=3 layer=1 active=false focused=false root=true
+노드 depth=0 class=android.widget.FrameLayout text=null desc=null visible=true clickable=false enabled=true bounds=Rect(0, 0 - 1080, 145)
+노드 depth=1 class=android.widget.FrameLayout text=null desc=null visible=true clickable=false enabled=true bounds=Rect(0, 0 - 1080, 145)
+노드 depth=2 class=android.widget.TextView text=5:00 desc=5:00 PM visible=true clickable=false enabled=true bounds=Rect(71, 5 - 162, 145)
+노드 depth=2 class=android.widget.ImageView text=null desc=Android System notification: Serial console enabled visible=true clickable=false enabled=true bounds=Rect(162, 5 - 220, 145)
+노드 depth=2 class=android.widget.ImageView text=null desc=PXE notification: PXE · 화면 위 컨트롤 visible=true clickable=false enabled=true bounds=Rect(220, 5 - 278, 145)
+노드 depth=2 class=android.widget.FrameLayout text=null desc=Wifi signal full. visible=true clickable=false enabled=true bounds=Rect(885, 46 - 931, 104)
+노드 depth=2 class=android.widget.FrameLayout text=null desc=Phone signal full. visible=true clickable=false enabled=true bounds=Rect(931, 46 - 970, 104)
+노드 depth=2 class=android.widget.LinearLayout text=null desc=Battery charging, 100 percent. visible=true clickable=false enabled=true bounds=Rect(986, 5 - 1006, 145)
+창 id=1102 type=1 layer=0 active=true focused=true root=true
+노드 depth=0 class=android.widget.FrameLayout text=null desc=null visible=true clickable=false enabled=true bounds=Rect(0, 0 - 1080, 2280)
+노드 depth=1 class=android.widget.Button text=안내 대상 desc=null visible=true clickable=true enabled=true bounds=Rect(120, 745 - 960, 929)
+진행=다음 글자 대기 · 인식되면 바로 진행 · 0.1초 남음
+17:00:00  접근성 서비스 연결됨
+17:00:02  시작까지 0초
+17:00:02  1회 · 1/1 글자 나타날 때까지 대기
+17:00:02  일시정지
+17:00:02  편집 화면 · 일시정지
+17:00:02  정지
+17:00:03  시작까지 0초
+17:00:03  1회 · 1/1 글자 나타날 때까지 대기

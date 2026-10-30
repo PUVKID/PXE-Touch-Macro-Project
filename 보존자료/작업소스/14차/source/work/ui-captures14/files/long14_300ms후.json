@@ -1,0 +1,14 @@
+{
+  "phase": "300ms후",
+  "button_height": 147,
+  "visible": "[63,1306][1017,1453]",
+  "button_bounds": "[63,1306][1017,1453]",
+  "frame": "[0,145][1080,2154]",
+  "scroll_y": 410,
+  "scroll_height": 1491,
+  "content_height": 1901,
+  "max_scroll": 410,
+  "page_alpha": 1,
+  "page_translation": 0,
+  "ime": []
+}

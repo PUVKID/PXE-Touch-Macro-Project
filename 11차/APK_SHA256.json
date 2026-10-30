@@ -1,0 +1,11 @@
+{
+  "app": "PXE",
+  "versionCode": 11,
+  "versionName": "1.1.0",
+  "applicationId": "kr.yunseok.touchmacro",
+  "signingCertificateSHA256": "57339c32b3661e18f18a7f9f7a08c539130211ab93ab0000812f99c949c5ad3e",
+  "files": {
+    "PXE_11차_v1.1_PC용.apk": "BA0F075D60F696C28BA904640C7CBD6FEC2471CF22803DEAA2595019D4943BD3",
+    "PXE_11차_v1.1_노트10플러스.apk": "E0601F29FB83302A399F6381B25601A2F93C8476174578C43F2C5B80BF722DB1"
+  }
+}

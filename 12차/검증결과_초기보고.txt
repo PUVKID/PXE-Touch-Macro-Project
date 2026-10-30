@@ -1,0 +1,40 @@
+PXE 12차 독립 검증: FAIL
+
+최종 소스와 산출물의 코드/패키지/서명/보존 검토는 수행했습니다. 실제 Android 기기 검사는 0건으로, 신규 OCR·캡처 시간초과 복구·실제 정지 버튼과 11→12 업데이트 동작 검증은 완료하지 못했습니다. 24시간 연속 실행·사용자 게임·노트10+ 실기기는 미검증입니다.
+
+요구별 검토: source/evidence/review-pxe12.json
+산출물 직접 검사: source/evidence/artifact-pxe12.json
+이전 잘못된 중간 빌드 경로 조회 실패는 부모 입력 경로 오류로 분류 후 재배정됐으며 기록을 보존했습니다. repair_used=1/1, 소스 변경 0.
+
+중앙 검증 실제 결과:
+{
+  "at": "2026-10-21T02:15:18.136769+09:00",
+  "argv": [
+    "C:\\Users\\PUVKID\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "C:\\Users\\PUVKID\\.codex\\tools\\routing_verification.py",
+    "verify",
+    "--root",
+    "C:\\Users\\PUVKID\\Desktop\\매크로\\12차\\source",
+    "--session",
+    "01a131ad-d167-7873-9aa6-4d81ff131c60",
+    "--task",
+    "pxe12-wait-recovery-20261021",
+    "--agent-id",
+    "/root/pxe12_verifier",
+    "--review",
+    "C:\\Users\\PUVKID\\Desktop\\매크로\\12차\\source\\evidence\\review-pxe12.json"
+  ],
+  "cwd": "C:\\Users\\PUVKID\\Desktop\\매크로\\12차\\source",
+  "exit_code": 1,
+  "source_changes": 0,
+  "repair_used": 1,
+  "original_bytes": 433,
+  "captured_bytes": 433,
+  "truncated": false,
+  "passed": false,
+  "source_unchanged": null,
+  "results": null
+}

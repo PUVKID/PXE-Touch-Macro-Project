@@ -1,0 +1,1401 @@
+--- 5차/5차_변경사항.txt
++++ 6차/5차_변경사항.txt
+@@ -1,8 +0,0 @@
+-NEX 5차 v5.0.0 변경사항
+-- 글자를 눌러 들어가기 → 선택 매크로 15회 → 뒤로가기 → 10초 새로고침을 기본 설정으로 제공.
+-- 탐지 설정 한 화면에서 글자, 매크로, 반복 횟수, 새로고침 간격을 변경.
+-- 매크로 반복 횟수를 탐지 모드에서 별도로 지정. 저장본의 전체 반복과 곱하지 않음.
+-- 들어간 뒤 화면 대기를 별도 설정으로 제공.
+-- 앱의 시간 입력, 동작 설명, 실행 기록을 초 단위로 변경. 소수점 초 지원.
+-- 첫 화면을 탐지 모드로 변경하고 실행 흐름을 세 줄로 표시.
+-- 기존 매크로·녹화 파일 호환 및 나눔고딕 Bold 내장 유지.
+--- 5차/6차_변경사항.txt
++++ 6차/6차_변경사항.txt
+@@ -0,0 +1,10 @@
++NEX 6차 변경사항
++- 글자 → 최대 6개 네모 순위 영역 → 녹화 → 대기 → 실행의 5단계 안내.
++- 영역 저장과 녹화 완료 후 안내 자동 복귀, 이름을 붙여 녹화 저장, 이전 편집본 보존.
++- 매번 1순위부터 확인. 1순위가 없으면 2순위 등을 실행하고, 새로고침 후에도 같은 영역 재실행 허용.
++- 완료 후 첫 새로고침까지 기본 10분 휴식. 이후 기본 10초 새로고침. 둘 다 직접 설정.
++- 동작 단계별 대기와 전체 반복 횟수를 안내 화면에서 설정.
++- 하단에 현재 동작, 직전 완료 동작, 다음 동작, 남은 대기, 한 바퀴/전체 경과 시간 표시.
++- 개별 동작 반복을 세부 설정으로 옮기고 실제 의미와 1~1000회 허용 범위를 설명.
++- 순서 이동/분기/정지는 개별 반복 입력을 숨김.
++- 노트 10+ 및 PC 에뮬레이터용 APK 제공.
+--- 5차/APK_SHA256.json
++++ 6차/APK_SHA256.json
+@@ -0,0 +1,10 @@
++[
++  {
++    "File": "NEX_6차_v6.0_노트10플러스.apk",
++    "SHA256": "4984AC9AC30C364C100FA103C0239513AAF62A66A6CDD50EBF0C6242B6112FCF"
++  },
++  {
++    "File": "NEX_6차_v6.0_PC에뮬레이터_Android11이상.apk",
++    "SHA256": "0F1990AE018DD52DEA77B8A6CF6542F78A7E864DEFC9D4225F2AF38A11BA3601"
++  }
++]
+--- 5차/APK_SHA256.txt
++++ 6차/APK_SHA256.txt
+@@ -1 +0,0 @@
+-F6EE5DD0D95EF9FC5D938B7F61FE2C7B2F796975F701D00E66ED932D79FB81A2
+--- 5차/source/app/build.gradle
++++ 6차/source/app/build.gradle
+@@ -5,10 +5,10 @@
+ if (signingFile.exists()) { signingFile.withInputStream { signingProps.load(it) } }
+ android { signingConfigs { personal { storeFile rootProject.file(signingDir + '/macro.jks'); storePassword signingProps.getProperty('storePassword', ''); keyAlias 'yunseokmacro'; keyPassword signingProps.getProperty('storePassword', '') } }
+  namespace 'kr.yunseok.touchmacro'; compileSdk 35
+- defaultConfig { applicationId 'kr.yunseok.touchmacro'; minSdk 30; targetSdk 35; versionCode 5; versionName '5.0.0'; testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner' }
++ defaultConfig { applicationId 'kr.yunseok.touchmacro'; minSdk 30; targetSdk 35; versionCode 6; versionName '6.0.0'; testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner' }
+  // Release is a Note 10+ ARM64 build; debug keeps all emulator ABIs.
+  lint { disable 'ChromeOsAbiSupport' }
+  compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+- buildTypes { release { minifyEnabled false; signingConfig (signingFile.exists() ? signingConfigs.personal : signingConfigs.debug); ndk { abiFilters 'arm64-v8a' } } }
++ buildTypes { release { minifyEnabled false; signingConfig (signingFile.exists() ? signingConfigs.personal : signingConfigs.debug); ndk { if(project.hasProperty('NEX_PC')) { abiFilters 'arm64-v8a','x86_64' } else { abiFilters 'arm64-v8a' } } } }
+ }
+ dependencies { implementation 'com.google.mlkit:text-recognition-korean:16.0.1'; testImplementation 'junit:junit:4.13.2'; testImplementation 'org.json:json:20240303'; androidTestImplementation 'androidx.test:runner:1.7.0'; androidTestImplementation 'androidx.test.ext:junit:1.3.0' }
+--- 5차/source/app/src/androidTest/java/kr/yunseok/touchmacro/GuidedFlowTest.java
++++ 6차/source/app/src/androidTest/java/kr/yunseok/touchmacro/GuidedFlowTest.java
+@@ -0,0 +1,55 @@
++package kr.yunseok.touchmacro;
++import android.app.*;import android.accessibilityservice.AccessibilityServiceInfo;import android.content.*;import android.graphics.*;import android.os.*;import android.view.*;import android.view.accessibility.*;import android.widget.*;
++import androidx.test.platform.app.InstrumentationRegistry;import androidx.test.ext.junit.runners.AndroidJUnit4;
++import org.junit.*;import org.junit.runner.RunWith;import static org.junit.Assert.*;
++
++@RunWith(AndroidJUnit4.class) public class GuidedFlowTest {
++ Instrumentation in;UiAutomation auto;MainActivity a;MacroService svc;AlertDialog detail;
++ volatile int entries,actions,backs;Button entry,action;
++ void main(Runnable r){in.runOnMainSync(r);}
++ void shell(String command)throws Exception{try(ParcelFileDescriptor fd=auto.executeShellCommand(command);java.io.FileInputStream s=new java.io.FileInputStream(fd.getFileDescriptor())){byte[] b=new byte[4096];while(s.read(b)!=-1){}}}
++ void waitFor(java.util.function.BooleanSupplier test,long ms,String reason){long end=SystemClock.elapsedRealtime()+ms;while(!test.getAsBoolean()&&SystemClock.elapsedRealtime()<end)SystemClock.sleep(80);assertTrue(reason+(svc==null?"":"\n"+svc.logText()),test.getAsBoolean());}
++ @Before public void boot()throws Exception{
++  in=InstrumentationRegistry.getInstrumentation();auto=in.getUiAutomation(UiAutomation.FLAG_DONT_SUPPRESS_ACCESSIBILITY_SERVICES);AccessibilityServiceInfo info=auto.getServiceInfo();info.flags|=AccessibilityServiceInfo.FLAG_RETRIEVE_INTERACTIVE_WINDOWS;auto.setServiceInfo(info);
++  shell("settings put secure enabled_accessibility_services \"\"");shell("settings put secure accessibility_enabled 0");shell("settings put secure enabled_accessibility_services kr.yunseok.touchmacro/kr.yunseok.touchmacro.MacroService");shell("settings put secure accessibility_enabled 1");
++  a=(MainActivity)in.startActivitySync(new Intent(in.getTargetContext(),MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK));waitFor(()->MacroService.get()!=null,12000,"No accessibility service");svc=MacroService.get();
++ }
++ @After public void end(){if(svc!=null)main(()->{svc.stop();if(svc.controller().recording)svc.controller().endRecording();if(detail!=null)detail.dismiss();});}
++ AccessibilityNodeInfo search(AccessibilityNodeInfo n,String value){if(n==null)return null;if(value.contentEquals(n.getText()==null?"":n.getText()))return AccessibilityNodeInfo.obtain(n);for(int i=0;i<n.getChildCount();i++){AccessibilityNodeInfo child=n.getChild(i),found=search(child,value);if(child!=null)child.recycle();if(found!=null)return found;}return null;}
++ AccessibilityNodeInfo find(String text){for(AccessibilityWindowInfo w:auto.getWindows()){AccessibilityNodeInfo root=w.getRoot(),found=search(root,text);if(root!=null)root.recycle();if(found!=null)return found;}return null;}
++ void click(String text){waitFor(()->{AccessibilityNodeInfo n=find(text);if(n==null)return false;n.recycle();return true;},5000,"Missing UI: "+text);AccessibilityNodeInfo n=find(text);assertNotNull(n);assertTrue(n.performAction(AccessibilityNodeInfo.ACTION_CLICK));n.recycle();SystemClock.sleep(200);}
++ void setAfter(String label,String value){AccessibilityNodeInfo n=find(label);assertNotNull(label,n);AccessibilityNodeInfo parent=n.getParent();boolean next=false,done=false;for(int i=0;i<parent.getChildCount();i++){AccessibilityNodeInfo child=parent.getChild(i);if(next&&"android.widget.EditText".contentEquals(child.getClassName())){Bundle args=new Bundle();args.putCharSequence(AccessibilityNodeInfo.ACTION_ARGUMENT_SET_TEXT_CHARSEQUENCE,value);assertTrue(child.performAction(AccessibilityNodeInfo.ACTION_SET_TEXT,args));done=true;child.recycle();break;}if(label.contentEquals(child.getText()==null?"":child.getText()))next=true;child.recycle();}parent.recycle();n.recycle();assertTrue(label,done);}
++ void touch(float x,float y,int action,long down){MotionEvent e=MotionEvent.obtain(down,SystemClock.uptimeMillis(),action,x,y,0);e.setSource(InputDevice.SOURCE_TOUCHSCREEN);assertTrue(auto.injectInputEvent(e,true));e.recycle();}
++ void tap(float x,float y){long t=SystemClock.uptimeMillis();touch(x,y,MotionEvent.ACTION_DOWN,t);SystemClock.sleep(80);touch(x,y,MotionEvent.ACTION_UP,t);}
++ void drag(float x,float y,float endX,float endY){long t=SystemClock.uptimeMillis();touch(x,y,MotionEvent.ACTION_DOWN,t);for(int i=1;i<=10;i++){SystemClock.sleep(30);touch(x+(endX-x)*i/10,y+(endY-y)*i/10,MotionEvent.ACTION_MOVE,t);}touch(endX,endY,MotionEvent.ACTION_UP,t);}
++ Rect bounds(View v){int[] xy=new int[2];v.getLocationOnScreen(xy);return new Rect(xy[0],xy[1],xy[0]+v.getWidth(),xy[1]+v.getHeight());}
++ void fixture(){main(()->{try{java.lang.reflect.Field f=MainActivity.class.getDeclaredField("testing");f.setAccessible(true);f.setBoolean(a,true);}catch(Exception e){throw new RuntimeException(e);}LinearLayout box=new LinearLayout(a);box.setOrientation(LinearLayout.VERTICAL);box.setPadding(120,600,120,0);box.setBackgroundColor(Color.WHITE);entry=new Button(a);entry.setText("안내 대상");box.addView(entry,new LinearLayout.LayoutParams(-1,Ui.dp(a,70)));a.setContentView(box);});in.waitForIdleSync();}
++ void screenshot(String name)throws Exception{Bitmap b=auto.takeScreenshot();assertNotNull(b);try(java.io.FileOutputStream out=new java.io.FileOutputStream(new java.io.File(a.getExternalFilesDir(null),name))){b.compress(Bitmap.CompressFormat.PNG,100,out);}finally{b.recycle();}}
++
++ @Test public void regionRecordingAutomaticallyReturnAndSaveDelays()throws Exception{
++  main(()->{SetupFlow.begin(a);a.refreshSetup();});setAfter("찾을 글자","안내 대상");click("다음 · 탐지 영역 정하기");assertEquals(1,SetupFlow.stage(a));
++  fixture();main(()->svc.controller().showSetupCoach("REGION"));click("영역 그리기");drag(120,650,950,1050);click("이 영역 사용");waitFor(()->!WatchStore.load(a).priorityAreas.isEmpty(),4000,"Region did not save");
++  WatchConfig region=WatchStore.load(a);assertEquals(120*100.0/svc.size()[0],region.rule.left,.1);assertEquals(1050*100.0/svc.size()[1],region.rule.bottom,.1);
++  click("다음 · 매크로 녹화");waitFor(()->find("작업 이름")!=null,5000,"Guide did not reopen after region");screenshot("guide_record.png");
++  String original=Store.load(a).json().toString();fixture();main(()->{entry.setOnClickListener(v->actions++);svc.controller().showSetupCoach("RECORD");});click("녹화 시작");assertTrue(svc.controller().recording);
++  Rect[] box={null};main(()->box[0]=bounds(entry));tap(box[0].exactCenterX(),box[0].exactCenterY());waitFor(()->actions==1,5000,"Recorded tap was not replayed");click("완료");
++  waitFor(()->SetupFlow.stage(a)==3,5000,"Recording did not advance");assertFalse(SetupFlow.pending(a));assertEquals(original,Store.load(a).json().toString());WatchConfig selected=WatchStore.load(a);assertEquals(1,Store.library(a).get(selected.macroName).steps.size());
++  waitFor(()->find("매크로 전체 반복 · 회")!=null,5000,"Delay guide missing");
++  setAfter("글자 터치 → 매크로 시작 · 초","1.25");setAfter("매크로 한 회 → 다음 회 · 초","0.1");
++  // Remaining fields live below the fold. Scroll the guide, rather than bypassing its save path.
++  drag(850,1700,850,650);SystemClock.sleep(250);setAfter("매크로 모두 완료 → 뒤로가기 · 초","0.25");setAfter("뒤로가기 → 목록 화면 대기 · 초","0.3");
++  drag(850,1700,850,650);SystemClock.sleep(250);setAfter("완료 후 쉬는 시간 · 분","10");setAfter("추가 · 초","0");setAfter("그 이후 새로고침 간격 · 초","2");setAfter("새로고침 → 글자 탐지 · 초","0.3");setAfter("시작 버튼 → 첫 탐지 · 초","0");
++  click("다음 · 실행 준비");waitFor(()->SetupFlow.stage(a)==4,4000,"Delay save did not advance");WatchConfig saved=WatchStore.load(a);assertEquals(1250,saved.entryMs);assertEquals(100,saved.repeatGapMs);assertEquals(250,saved.beforeBackMs);assertEquals(300,saved.returnMs);assertEquals(2,saved.intervalSeconds);assertEquals(300,saved.settleMs);assertEquals(0,saved.startMs);assertFalse(saved.preventDuplicate);assertEquals(600000,saved.cooldownMs);screenshot("guide_ready.png");
++  android.util.Log.i("NEX_GUIDE_QA","PASS: word entry, real drawn region, automatic return, real recorded/replayed gesture, automatic named save, original macro restored, second-based delays saved, guide ready");
++ }
++ @Test public void duplicateLockSurvivesRefreshAndRestartUntilStableAbsence()throws Exception{
++  fixture();main(()->{LinearLayout body=new LinearLayout(a);body.setPadding(40,100,40,100);action=new Button(a);action.setText("매크로 동작");action.setOnClickListener(v->actions++);body.addView(action,new LinearLayout.LayoutParams(-1,Ui.dp(a,80)));detail=new AlertDialog.Builder(a).setTitle("작업 화면").setView(body).create();detail.show();});in.waitForIdleSync();Rect[] tapAt={null},roi={null};main(()->{tapAt[0]=bounds(action);detail.dismiss();roi[0]=bounds(entry);detail.setOnDismissListener(d->backs++);entry.setOnClickListener(v->{entries++;detail.show();});});
++  int[] size=svc.size();Macro m=new Macro();m.name="중복 차단 검증";m.rounds=15;m.startDelay=9000;Step s=new Step("TAP");s.duration=70;s.after=30;s.x=tapAt[0].exactCenterX()*100/size[0];s.y=tapAt[0].exactCenterY()*100/size[1];m.steps.add(s);
++  WatchConfig p=new WatchConfig();p.preventDuplicate=true;p.cooldownMs=2000;p.rule.text="안내 대상";p.rule.source="ACCESS";p.rule.match="EXACT";p.rule.left=(roi[0].left-2)*100.0/size[0];p.rule.top=(roi[0].top-2)*100.0/size[1];p.rule.right=(roi[0].right+2)*100.0/size[0];p.rule.bottom=(roi[0].bottom+2)*100.0/size[1];p.targetPackage=a.getPackageName();p.macroName=m.name;p.startMs=0;p.repeatGapMs=0;p.beforeBackMs=200;p.entryMs=300;p.returnMs=300;p.settleMs=300;p.intervalSeconds=2;p.rearmMs=1000;
++  main(()->{Store.put(a,m);WatchStore.blocked(a,p,false);svc.startWatch(p);});waitFor(()->svc.watchCompleted==1,15000,"First cycle failed");assertEquals(15,actions);assertEquals(1,backs);assertTrue(WatchStore.blocked(a,p));SystemClock.sleep(6500);assertEquals("Repeated same visible text after refresh",1,entries);assertTrue(svc.watching);assertTrue(svc.timingText().contains("직전"));screenshot("run_status.png");
++  main(()->{svc.stop();svc.startWatch(p);});SystemClock.sleep(3500);assertEquals("Restart bypassed persisted lock",1,entries);
++  main(()->entry.setText("대상 없음"));waitFor(()->!WatchStore.blocked(a,p),12000,"Stable absence did not release lock");assertEquals(1,entries);
++  main(()->entry.setText("안내 대상"));waitFor(()->svc.watchCompleted==1,15000,"Reappearance did not execute");assertEquals(2,entries);assertEquals(30,actions);assertEquals(2,backs);assertTrue(svc.timingText().contains("전체 경과"));assertTrue(svc.timingText().contains("완료 1바퀴"));main(()->svc.stop());String frozen=svc.timingText();SystemClock.sleep(400);assertEquals(frozen,svc.timingText());
++  android.util.Log.i("NEX_DUPLICATE_QA","PASS: exact 15 actions, refresh wait, same text blocked across multiple refreshes and restart, stable absence required, reappearance triggers next 15, live HUD and cycle/total timers, stop freezes totals");
++ }
++}
+--- 5차/source/app/src/androidTest/java/kr/yunseok/touchmacro/PriorityFlowTest.java
++++ 6차/source/app/src/androidTest/java/kr/yunseok/touchmacro/PriorityFlowTest.java
+@@ -0,0 +1,23 @@
++package kr.yunseok.touchmacro;
++import android.app.*;import android.graphics.*;import android.os.*;import android.widget.*;
++import androidx.test.ext.junit.runners.AndroidJUnit4;
++import org.junit.*;import org.junit.runner.RunWith;import static org.junit.Assert.*;
++
++@RunWith(AndroidJUnit4.class) public class PriorityFlowTest {
++ GuidedFlowTest h=new GuidedFlowTest();volatile int visits=0;volatile long firstBack=0,secondVisit=0;String[] order=new String[8];Button lower;
++ @Before public void boot()throws Exception{h.boot();}
++ @After public void end(){h.end();}
++ @Test public void secondPriorityRepeatsAfterRefreshAndFirstPriorityWinsWhenPresent()throws Exception{
++  h.fixture();h.main(()->{LinearLayout parent=(LinearLayout)h.entry.getParent();lower=new Button(h.a);lower.setText("대상 없음");LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(-1,Ui.dp(h.a,70));lp.topMargin=Ui.dp(h.a,70);parent.addView(lower,lp);h.detail=new AlertDialog.Builder(h.a).setTitle("작업 화면").setMessage("완료 후 뒤로").create();h.detail.setOnDismissListener(d->{if(firstBack==0)firstBack=SystemClock.elapsedRealtime();});h.entry.setOnClickListener(v->visit("priority2"));lower.setOnClickListener(v->visit("priority1"));});h.in.waitForIdleSync();
++  Rect[] top={null},bottom={null};h.main(()->{top[0]=h.bounds(h.entry);bottom[0]=h.bounds(lower);});int[] size=h.svc.size();
++  WatchConfig p=new WatchConfig();p.rule.text="안내 대상";p.rule.source="ACCESS";p.rule.match="EXACT";p.priorityAreas.add(area(bottom[0],size));p.priorityAreas.add(area(top[0],size));p.startMs=0;p.entryMs=300;p.returnMs=300;p.settleMs=300;p.repeatGapMs=0;p.cooldownMs=2000;p.intervalSeconds=1;p.repetitions=1;p.targetPackage=h.a.getPackageName();
++  Macro m=new Macro();m.name="우선순위 검증";Step wait=new Step("WAIT");wait.duration=10;wait.after=0;m.steps.add(wait);p.macroName=m.name;
++  h.main(()->{Store.put(h.a,m);for(int i=0;i<p.areaCount();i++)WatchStore.blocked(h.a,p.areaConfig(i),false);h.svc.startWatch(p);});
++  h.waitFor(()->h.svc.watchCompleted>=1,10000,"Second priority was not selected");assertEquals("priority2",order[0]);SystemClock.sleep(900);assertEquals("Re-executed before cooldown/refresh",1,visits);
++  h.waitFor(()->h.svc.watchCompleted>=2,12000,"Same second priority did not repeat after refresh");assertEquals("priority2",order[1]);assertTrue("Post-cycle cooldown was bypassed",secondVisit-firstBack>=2000);
++  h.main(()->lower.setText("안내 대상"));h.waitFor(()->h.svc.watchCompleted>=3,12000,"New first-priority text did not win");assertEquals("priority1",order[2]);h.main(()->h.svc.stop());
++  android.util.Log.i("NEX_PRIORITY_QA","PASS: user-drawn bottom priority 1 and top priority 2, priority 2 selected when 1 absent, no rerun during cooldown, same priority 2 repeats after refresh, every refresh starts at priority 1, priority 1 wins once present");
++ }
++ void visit(String location){order[visits]=location;visits++;if(visits==2)secondVisit=SystemClock.elapsedRealtime();h.detail.show();}
++ WatchArea area(Rect r,int[] size){return new WatchArea((r.left-2)*100.0/size[0],(r.top-2)*100.0/size[1],(r.right+2)*100.0/size[0],(r.bottom+2)*100.0/size[1]);}
++}
+--- 5차/source/app/src/androidTest/java/kr/yunseok/touchmacro/RepeatFlowTest.java
++++ 6차/source/app/src/androidTest/java/kr/yunseok/touchmacro/RepeatFlowTest.java
+@@ -0,0 +1,18 @@
++package kr.yunseok.touchmacro;
++import android.graphics.Rect;import android.widget.*;
++import androidx.test.ext.junit.runners.AndroidJUnit4;
++import org.junit.*;import org.junit.runner.RunWith;import static org.junit.Assert.*;
++@RunWith(AndroidJUnit4.class) public class RepeatFlowTest {
++ GuidedFlowTest h=new GuidedFlowTest();volatile int first=0,second=0;Button other;StringBuilder order=new StringBuilder();
++ @Before public void boot()throws Exception{h.boot();}
++ @After public void end(){h.end();}
++ @Test public void editStepRepeatMeansThisStepThenNextAndWholeMacroRepeatsSeparately(){
++  h.fixture();h.main(()->{LinearLayout parent=(LinearLayout)h.entry.getParent();h.entry.setText("A");h.entry.setOnClickListener(v->{first++;order.append('A');});other=new Button(h.a);other.setText("B");other.setOnClickListener(v->{second++;order.append('B');});parent.addView(other,new LinearLayout.LayoutParams(-1,Ui.dp(h.a,70)));});h.in.waitForIdleSync();
++  Rect[] a={null},b={null};h.main(()->{a[0]=h.bounds(h.entry);b[0]=h.bounds(other);});int[] size=h.svc.size();
++  Step one=new Step("TAP");one.x=a[0].exactCenterX()*100/size[0];one.y=a[0].exactCenterY()*100/size[1];one.duration=70;one.after=20;one.repeat=3;
++  Step two=new Step(one.json());two.x=b[0].exactCenterX()*100/size[0];two.y=b[0].exactCenterY()*100/size[1];two.repeat=1;
++  Macro m=new Macro();m.name="반복 의미 검증";m.rounds=2;m.startDelay=0;m.gap=0;m.steps.add(one);m.steps.add(two);
++  h.main(()->h.svc.start(m));h.waitFor(()->!h.svc.running,15000,"Repeat macro did not finish");assertEquals(6,first);assertEquals(2,second);assertEquals("AAABAAAB",order.toString());assertTrue(h.svc.progressText().contains("완료"));
++  android.util.Log.i("NEX_REPEAT_QA","PASS: edited step A repeat=3, B repeat=1, whole macro repeat=2 yields AAABAAAB (A6/B2), completion and next-action text retained");
++ }
++}
+--- 5차/source/app/src/androidTest/java/kr/yunseok/touchmacro/WatchFlowTest.java
++++ 6차/source/app/src/androidTest/java/kr/yunseok/touchmacro/WatchFlowTest.java
+@@ -26,7 +26,7 @@
+         });in.waitForIdleSync();SystemClock.sleep(600);
+         Rect[] region={null},button={null};main(()->{region[0]=bounds(target);button[0]=bounds(action);});int[] size=svc.size();
+         Macro m=new Macro();m.name="탐지 검증";m.startDelay=0;m.maxMinutes=1;Step tap=new Step("TAP");tap.x=button[0].exactCenterX()*100.0/size[0];tap.y=button[0].exactCenterY()*100.0/size[1];tap.after=200;m.steps.add(tap);
+-        WatchConfig p=new WatchConfig();p.repetitions=1;p.tapFound=false;p.rule.text="감지 대상";p.rule.match="EXACT";p.rule.source="ACCESS";p.rule.left=5;p.rule.right=95;p.rule.top=(region[0].top+10)*100.0/size[1];p.rule.bottom=(region[0].bottom-10)*100.0/size[1];p.intervalSeconds=3;p.waitForRefresh=true;p.settleMs=300;p.returnMs=300;p.maxMinutes=1;
++        WatchConfig p=new WatchConfig();p.cooldownMs=2000;p.preventDuplicate=false;p.repetitions=1;p.tapFound=false;p.rule.text="감지 대상";p.rule.match="EXACT";p.rule.source="ACCESS";p.rule.left=5;p.rule.right=95;p.rule.top=(region[0].top+10)*100.0/size[1];p.rule.bottom=(region[0].bottom-10)*100.0/size[1];p.intervalSeconds=3;p.waitForRefresh=true;p.settleMs=300;p.returnMs=300;p.maxMinutes=1;
+         main(()->Store.save(activity,m));main(()->svc.startWatch(p));SystemClock.sleep(4100);assertEquals("Outside-region accessibility text triggered",0,taps);main(()->svc.stop());
+         // Only the canvas text is inside the region: this proves the OCR path triggers the macro.
+         p.rule.source="OCR";main(()->svc.startWatch(p));waitFor(()->svc.watchCompleted>=1,30000,"No OCR-triggered macro/back cycle");assertEquals(1,taps);assertEquals(1,backs);assertTrue(svc.watching);assertTrue(svc.controller().isCollapsed());
+--- 5차/source/app/src/androidTest/java/kr/yunseok/touchmacro/WatchPresetTest.java
++++ 6차/source/app/src/androidTest/java/kr/yunseok/touchmacro/WatchPresetTest.java
+@@ -50,7 +50,7 @@
+         int[] size=svc.size();Macro m=new Macro();m.name="15회 검증 매크로";m.rounds=15;m.startAt=2;m.startDelay=0;m.gap=0;m.maxMinutes=1;
+         Step wait=new Step("WAIT");wait.duration=1;wait.after=0;m.steps.add(wait);
+         Step tap=new Step("TAP");tap.x=actionRect[0].exactCenterX()*100/size[0];tap.y=actionRect[0].exactCenterY()*100/size[1];tap.duration=70;tap.after=30;m.steps.add(tap);
+-        WatchConfig p=new WatchConfig();p.rule.text="예약 가능";p.rule.source="ACCESS";p.rule.match="EXACT";p.rule.left=(entryRect[0].left-2)*100.0/size[0];p.rule.top=(entryRect[0].top-2)*100.0/size[1];p.rule.right=(entryRect[0].right+2)*100.0/size[0];p.rule.bottom=(entryRect[0].bottom+2)*100.0/size[1];p.macroName=m.name;p.entryMs=300;p.settleMs=300;p.returnMs=300;
++        WatchConfig p=new WatchConfig();p.cooldownMs=10000;p.preventDuplicate=false;p.repeatGapMs=0;p.rule.text="예약 가능";p.rule.source="ACCESS";p.rule.match="EXACT";p.rule.left=(entryRect[0].left-2)*100.0/size[0];p.rule.top=(entryRect[0].top-2)*100.0/size[1];p.rule.right=(entryRect[0].right+2)*100.0/size[0];p.rule.bottom=(entryRect[0].bottom+2)*100.0/size[1];p.macroName=m.name;p.entryMs=300;p.settleMs=300;p.returnMs=300;
+         main(()->{Store.put(activity,m);WatchStore.save(activity,p);svc.startWatch(WatchStore.load(activity));});
+         waitFor(()->svc.watchCompleted>=1,35000,"First cycle did not finish");
+         assertEquals(1,entries);assertEquals("Exactly fifteen macro rounds required",15,actions);assertEquals(1,backs);assertFalse(detail.isShowing());
+--- 5차/source/app/src/main/java/kr/yunseok/touchmacro/FloatingController.java
++++ 6차/source/app/src/main/java/kr/yunseok/touchmacro/FloatingController.java
+@@ -9,7 +9,7 @@
+ import java.util.*;
+ public final class FloatingController {
+  private final MacroService owner;private final WindowManager wm;private final Handler h=new Handler(Looper.getMainLooper());
+- private View panel,capture,highlight;private RegionPicker regionPicker;private TextView status;private Button play;
++ private View panel,capture,highlight;private RegionPicker regionPicker;private TextView status;private Button play;private SetupCoach coach;private boolean guidedRecording=false;private RunHud hud;
+  private WindowManager.LayoutParams params,captureParams;private final ArrayList<View> markers=new ArrayList<>();
+  public boolean recording=false;private boolean once=false;private int replace=-1;private long session=0;private boolean collapsed=true, visible=true;private long lastReplayEnd=0;private int lastRecorded=-1;
+  public FloatingController(MacroService s){owner=s;wm=(WindowManager)s.getSystemService(Context.WINDOW_SERVICE);}
+@@ -19,9 +19,24 @@
+  }
+  public void show(){if(panel!=null)return;KeepAliveService.show(owner);build();h.post(ticker);}
+  public void refresh(){if(panel==null)return;removePanel();build();}
+- private final Runnable ticker=new Runnable(){@Override public void run(){if(panel==null)return;if(status!=null)status.setText(caption());if(play!=null)play.setText(recording?"완료":!owner.running?"▶":owner.paused?"▶":"Ⅱ");h.postDelayed(this,1000);}};
++ private final Runnable ticker=new Runnable(){@Override public void run(){if(panel==null)return;if(status!=null)status.setText(caption());if(play!=null)play.setText(recording?"완료":!owner.running?"▶":owner.paused?"▶":"Ⅱ");updateHud();h.postDelayed(this,250);}};
++ private void updateHud(){if(panel==null)return;if(hud==null&&(owner.running||owner.hasRunStats()))hud=new RunHud(owner);if(hud!=null)hud.update(owner.progressText(),owner.timingText(),visible);}
++ public void showSetupCoach(String kind){
++  if(owner.running||recording)throw new IllegalStateException("먼저 실행과 녹화를 정지하세요");
++  show();if(coach!=null)coach.close();coach=new SetupCoach(owner);setVisible(false);
++  Runnable back=()->{closeCoach();openWizard();};
++  if(kind.equals("REGION"))coach.show("글자가 보이는 대상 앱의 목록 화면을 열고 누르세요.","영역 그리기",()->{
++   closeCoach();regionPicker=new RegionPicker(owner,r->{WatchConfig p=WatchStore.load(owner);int index=SetupFlow.areaIndex(owner);String pkg=owner.activePackage();if(p.priorityAreas.size()>1&&!p.targetPackage.isEmpty()&&!p.targetPackage.equals(pkg))throw new IllegalArgumentException("다른 영역과 같은 대상 앱에서 지정하세요");WatchArea area=new WatchArea(r.left,r.top,r.right,r.bottom);if(index<0||index>p.priorityAreas.size()||index>=6)throw new IllegalArgumentException("영역 순서를 다시 선택하세요");if(index==p.priorityAreas.size())p.priorityAreas.add(area);else p.priorityAreas.set(index,area);p.priorityAreas.get(0).apply(p.rule);p.targetPackage=pkg;WatchStore.save(owner,p);SetupFlow.stage(owner,1);h.postDelayed(this::openWizard,150);},()->showSetupCoach("REGION"));regionPicker.show();
++  },back);
++  else if(kind.equals("RECORD"))coach.show("글자를 직접 눌러 들어간 뒤, 안에서 할 동작만 녹화하세요.","녹화 시작",()->{SetupFlow.beginDraft(owner);closeCoach();guidedRecording=true;beginRecording(false,-1);},back);
++  else coach.show("대상 앱의 목록 화면을 열고 시작하세요. 중복 방지가 적용됩니다.","이 화면에서 시작",()->{
++   WatchConfig p=WatchStore.load(owner);if(!p.targetPackage.isEmpty()&&!p.targetPackage.equals(owner.activePackage()))throw new IllegalStateException("영역을 지정했던 대상 앱으로 이동하세요");owner.startWatch(p);SetupFlow.finished(owner);closeCoach();
++  },back);
++ }
++ private void closeCoach(){if(coach!=null){coach.close();coach=null;}setVisible(true);}
++ private void openWizard(){owner.startActivity(new Intent(owner,MainActivity.class).putExtra("watch",true).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_SINGLE_TOP));}
+  public void cancelRegion(){if(regionPicker!=null){regionPicker.close();regionPicker=null;}}
+- public void pickWatchRegion(){if(owner.running||recording){toast("먼저 실행과 녹화를 정지하세요");return;}show();minimize();if(regionPicker!=null)regionPicker.close();regionPicker=new RegionPicker(owner,r->{WatchConfig p=WatchStore.load(owner);p.rule.left=r.left;p.rule.top=r.top;p.rule.right=r.right;p.rule.bottom=r.bottom;WatchStore.save(owner,p);});regionPicker.show();}
++ public void pickWatchRegion(){if(owner.running||recording){toast("먼저 실행과 녹화를 정지하세요");return;}SetupFlow.stage(owner,1);openWizard();}
+  public void minimize(){if(recording)return;collapsed=true;refresh();}
+  public boolean isCollapsed(){return collapsed;}
+  private void build(){
+@@ -57,12 +72,12 @@
+   if(panel==null||params==null)return false;RectF box=new RectF(params.x,params.y,params.x+panel.getWidth(),params.y+panel.getHeight());
+   try{for(int i=0;i<strokes.length();i++){JSONArray points=strokes.getJSONObject(i).getJSONArray("points");float minX=width,minY=height,maxX=0,maxY=0;for(int j=0;j<points.length();j++){JSONArray p=points.getJSONArray(j);float x=(float)p.getDouble(0)*width/100,y=(float)p.getDouble(1)*height/100;minX=Math.min(minX,x);maxX=Math.max(maxX,x);minY=Math.min(minY,y);maxY=Math.max(maxY,y);}RectF bounds=new RectF(minX-dp(5),minY-dp(5),maxX+dp(5),maxY+dp(5));if(RectF.intersects(box,bounds)){setVisible(false);return true;}}}catch(Exception ignored){setVisible(false);return true;}return false;
+  }
+- public void setVisible(boolean on){visible=on;if(panel!=null)panel.setVisibility(on?View.VISIBLE:View.GONE);for(View m:markers)m.setVisibility(on?View.VISIBLE:View.GONE);if(highlight!=null)highlight.setVisibility(on?View.VISIBLE:View.GONE);}
++ public void setVisible(boolean on){visible=on;if(panel!=null)panel.setVisibility(on?View.VISIBLE:View.GONE);for(View m:markers)m.setVisibility(on?View.VISIBLE:View.GONE);if(highlight!=null)highlight.setVisibility(on?View.VISIBLE:View.GONE);if(hud!=null)hud.visible(on);}
+  public boolean shown(){return panel!=null;}
+  private void removePanel(){if(panel!=null){try{wm.removeView(panel);}catch(Exception ignored){}panel=null;status=null;play=null;}clearMarkers();}
+- public void close(){if(regionPicker!=null){regionPicker.close();regionPicker=null;}endRecordingInternal();removePanel();if(highlight!=null){try{wm.removeView(highlight);}catch(Exception ignored){}highlight=null;}h.removeCallbacksAndMessages(null);KeepAliveService.close(owner);}
++ public void close(){if(coach!=null){coach.close();coach=null;}if(hud!=null){hud.close();hud=null;}if(regionPicker!=null){regionPicker.close();regionPicker=null;}endRecordingInternal();removePanel();if(highlight!=null){try{wm.removeView(highlight);}catch(Exception ignored){}highlight=null;}h.removeCallbacksAndMessages(null);KeepAliveService.close(owner);}
+  private String caption(){return owner.getString(R.string.nex_control_status,recording?"● 녹화":"NEX",owner.status,owner.clockText());}
+- public void update(){if(panel!=null){if(status!=null)status.setText(caption());if(play!=null)play.setText(recording?"완료":!owner.running?"▶":owner.paused?"▶":"Ⅱ");KeepAliveService.update(owner,owner.status);}rebuildMarkers();}
++ public void update(){if(panel!=null){if(status!=null)status.setText(caption());if(play!=null)play.setText(recording?"완료":!owner.running?"▶":owner.paused?"▶":"Ⅱ");KeepAliveService.update(owner,owner.status);}updateHud();rebuildMarkers();}
+  private void openApp(){owner.startActivity(new Intent(owner,MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_SINGLE_TOP));}
+  private void toast(String message){Toast.makeText(owner,message==null?"설정을 확인하세요":message,Toast.LENGTH_LONG).show();}
+  private AlertDialog dialog(String title,View body,String positive,Runnable action){
+@@ -86,11 +101,11 @@
+   if(owner.running){toast("먼저 정지하세요");return;}if(recording)return;recording=true;once=single;replace=replaceIndex;session++;lastReplayEnd=0;lastRecorded=-1;clearMarkers();collapsed=false;
+   if(panel==null)KeepAliveService.show(owner);removePanel();CaptureView view=new CaptureView(ctx());capture=view;WindowManager.LayoutParams p=layout(-1,-1,true);p.flags|=WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON;captureParams=p;wm.addView(capture,p);build();owner.log(replace==-2?"원하는 위치를 한 번 누르세요":"녹화 중 · 손을 떼면 원래 앱에 재생");
+  }
+- public void endRecording(){endRecordingInternal();refresh();owner.log("녹화 완료 · 현재 매크로에 저장됨");}
++ public void endRecording(){boolean guided=guidedRecording;guidedRecording=false;endRecordingInternal();refresh();owner.log("녹화 완료 · 현재 매크로에 저장됨");if(guided){try{SetupFlow.finishDraft(owner);openWizard();}catch(Exception e){toast("녹화할 동작이 없습니다. 다시 녹화하세요");showSetupCoach("RECORD");}}}
+  private void endRecordingInternal(){session++;recording=false;if(capture!=null){try{wm.removeView(capture);}catch(Exception ignored){}capture=null;}}
+  private void captured(Step s){
+   long ticket=session;Macro m=Store.load(owner);if(m.steps.size()>=500){toast("동작은 최대 500개입니다");endRecording();return;}
+-  if(replace>=0&&replace<m.steps.size()){m.steps.set(replace,s);lastRecorded=replace;}else{m.steps.add(s);lastRecorded=m.steps.size()-1;}Store.save(owner,m);owner.log("녹화 동작 "+m.steps.size()+"개");
++  if(replace>=0&&replace<m.steps.size()){m.steps.set(replace,s);lastRecorded=replace;}else{m.steps.add(s);lastRecorded=m.steps.size()-1;}Store.save(owner,m);if(guidedRecording)SetupFlow.captureDraft(owner,m);owner.log("녹화 동작 "+m.steps.size()+"개");
+   if(replace==-2){endRecording();return;}
+   if(capture!=null){captureParams.flags|=WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE;wm.updateViewLayout(capture,captureParams);capture.setVisibility(View.GONE);}if(panel!=null){params.flags|=WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE;wm.updateViewLayout(panel,params);panel.setVisibility(View.GONE);}
+   h.postDelayed(()->{if(session!=ticket||!recording)return;owner.replayRecorded(s,()->{if(session!=ticket||!recording)return;lastReplayEnd=SystemClock.uptimeMillis();if(once){endRecording();return;}if(capture!=null){captureParams.flags&=~WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE;wm.updateViewLayout(capture,captureParams);capture.setVisibility(View.VISIBLE);}if(panel!=null){params.flags&=~WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE;wm.updateViewLayout(panel,params);panel.setVisibility(View.VISIBLE);}});},180);
+--- 5차/source/app/src/main/java/kr/yunseok/touchmacro/MacroService.java
++++ 6차/source/app/src/main/java/kr/yunseok/touchmacro/MacroService.java
+@@ -23,7 +23,11 @@
+     public volatile boolean running=false, paused=false, watching=false; public volatile int watchCompleted=0; public volatile String watchPhase=""; private volatile long watchNextRefresh=0;
+     public volatile String status="준비";
+     private WindowManager wm;private FloatingController controller;
+-    private long startedAt=0;
++    private volatile long startedAt=0,finishedAt=0,cycleStartedAt=0,lastCycleMs=0,delayUntil=0;
++    private volatile String liveAction="준비";
++    private volatile String lastAction="";
++    private volatile int currentPriority=0;
++    private long pauseStartedAt=0;
+     private final ArrayDeque<String> logs=new ArrayDeque<>();
+     private TextRecognizer recognizer;
+     private int initialW,initialH;private long deadline,lastScreenshot=0;
+@@ -43,14 +47,29 @@
+     public synchronized void log(String s){
+         String line=new java.text.SimpleDateFormat("HH:mm:ss",Locale.KOREA).format(new java.util.Date())+"  "+s;
+         logs.addLast(line);while(logs.size()>150)logs.removeFirst();status=s;
+-        if(!logUpdateQueued){logUpdateQueued=true;ui.postDelayed(()->{synchronized(MacroService.this){getSharedPreferences("macros",0).edit().putString("last_log",String.join("\n",logs)).apply();logUpdateQueued=false;}if(controller!=null)controller.update();},250);}
++        if(!logUpdateQueued){logUpdateQueued=true;ui.postDelayed(()->{synchronized(MacroService.this){getSharedPreferences("macros",0).edit().putString("last_log",String.join("\n",logs)).apply();logUpdateQueued=false;}if(!destroyed&&controller!=null)controller.update();},250);}
+     }
+     public FloatingController controller(){return controller;}
++    public String activePackage(){android.view.accessibility.AccessibilityNodeInfo n=getRootInActiveWindow();if(n==null)return "";try{return n.getPackageName()==null?"":n.getPackageName().toString();}finally{n.recycle();}}
++    public boolean hasRunStats(){return startedAt>0;}
++    private void resetStats(){startedAt=SystemClock.elapsedRealtime();finishedAt=0;cycleStartedAt=0;lastCycleMs=0;delayUntil=0;currentPriority=0;liveAction="시작 준비";lastAction="";}
++    private void finishStats(){finishedAt=SystemClock.elapsedRealtime();delayUntil=0;}
++    private String remainingText(long ms){long seconds=Math.max(0,(ms+999)/1000);return seconds>=60?(seconds/60)+"분 "+(seconds%60)+"초":seconds+"초";}
++    public String progressText(){
++        String phase=watching&&!watchPhase.equals("매크로 실행")?watchPhase:liveAction;
++        if(watching&&currentPriority>0)phase=currentPriority+"순위 · "+phase;
++        if(!running)phase=status;if(paused)return "일시정지 · "+phase;
++        boolean refreshWait=watching&&(watchPhase.equals("완료 후 쉬는 중")||watchPhase.equals("새로고침 대기")||watchPhase.equals("중복 차단 · 사라짐 대기"));
++        if(refreshWait)phase+=" · 새로고침까지 "+remainingText(watchNextRefresh-SystemClock.elapsedRealtime());
++        else if(running&&delayUntil>SystemClock.elapsedRealtime()&&(!watching||watchPhase.equals("매크로 실행")||watchPhase.startsWith("새로고침")||watchPhase.equals("시작 대기")||watchPhase.startsWith("뒤로가기 완료")))phase+=" · "+String.format(Locale.KOREA,"%.1f초 남음",(delayUntil-SystemClock.elapsedRealtime())/1000.0);
++        return phase+(lastAction.isEmpty()?"":"\n직전: "+lastAction);
++    }
++    public String timingText(){long now=finishedAt>0?finishedAt:SystemClock.elapsedRealtime(),total=startedAt==0?0:Math.max(0,now-startedAt),cycle=cycleStartedAt==0?0:Math.max(0,now-cycleStartedAt);return "이번 한 바퀴 "+String.format(Locale.KOREA,"%.1f초",cycle/1000.0)+" · 직전 "+(lastCycleMs==0?"—":String.format(Locale.KOREA,"%.1f초",lastCycleMs/1000.0))+"\n전체 경과 "+(total/60000)+"분 "+(total/1000%60)+"초 · 완료 "+watchCompleted+"바퀴";}
+     public void showControls(){ui.post(()->{if(!destroyed&&controller!=null)controller.show();});}
+     public void hideControls(){ui.post(()->{if(controller!=null)controller.close();});}
+     public void pickPoint(){ui.post(()->controller.beginPoint());}
+     public int[] size(){android.util.DisplayMetrics m=new android.util.DisplayMetrics();wm.getDefaultDisplay().getRealMetrics(m);return new int[]{m.widthPixels,m.heightPixels};}
+-    public void togglePause(){if(!running)return;paused=!paused;pauseRevision.incrementAndGet();log(paused?"일시정지":"계속 실행");}
++    public void togglePause(){if(!running)return;paused=!paused;if(paused)pauseStartedAt=SystemClock.elapsedRealtime();else if(pauseStartedAt>0){if(watching)watchNextRefresh+=SystemClock.elapsedRealtime()-pauseStartedAt;pauseStartedAt=0;}pauseRevision.incrementAndGet();log(paused?"일시정지":"계속 실행");}
+     public String clockText(){if(watching&&!watchPhase.equals("매크로 실행")){long seconds=Math.max(0,(watchNextRefresh-SystemClock.elapsedRealtime()+999)/1000);return "탐지 "+watchCompleted+"회 · "+watchPhase+" · 새로고침 "+seconds+"초";}if(!running)return Store.load(this).steps.size()+"개 동작 · "+(controller!=null&&controller.recording?"녹화 중":"준비");long elapsed=Math.max(0,SystemClock.elapsedRealtime()-startedAt)/1000;String time=String.format(Locale.KOREA,"%02d:%02d:%02d",elapsed/3600,elapsed/60%60,elapsed%60);if(deadline>0){long rem=Math.max(0,deadline-SystemClock.elapsedRealtime())/1000;return time+" · 남은 "+String.format(Locale.KOREA,"%02d:%02d",rem/60,rem%60);}return time;}
+     public void replayRecorded(Step step,Runnable complete){
+         try{GestureDescription g=description(GesturePaths.forStep(step),size()[0],size()[1],0);if(!dispatchGesture(g,new GestureResultCallback(){@Override public void onCompleted(GestureDescription d){complete.run();}@Override public void onCancelled(GestureDescription d){log("녹화 제스처 재생 취소");complete.run();}},ui)){log("녹화 제스처 재생 불가");complete.run();}}catch(Exception e){log("재생 실패 · "+e.getMessage());complete.run();}
+@@ -60,7 +79,7 @@
+         Macro m=new Macro(original.json());long token=generation.incrementAndGet();running=true;paused=false;showControls();notification();
+         worker.execute(()->run(m,token));
+     }
+-    public void stop(){generation.incrementAndGet();running=false;paused=false;watching=false;watchPhase="";clearNotification();log("정지");}
++    public void stop(){generation.incrementAndGet();if(running)finishStats();running=false;paused=false;watching=false;watchPhase="";clearNotification();log("정지");}
+     private void check(long token)throws Exception {
+         if(token!=generation.get()||destroyed)throw new CancellationException();
+         if(deadline>0&&SystemClock.elapsedRealtime()>deadline)throw new IllegalStateException("최대 실행 시간에 도달했습니다");
+@@ -70,7 +89,7 @@
+     }
+     private void ready(long token)throws Exception{check(token);while(paused){Thread.sleep(70);check(token);}}
+     private void sleep(long ms,long token)throws Exception{
+-        long remaining=ms;while(remaining>0){ready(token);long chunk=Math.min(70,remaining),before=SystemClock.elapsedRealtime();Thread.sleep(chunk);if(!paused)remaining-=Math.max(1,SystemClock.elapsedRealtime()-before);}ready(token);
++        long remaining=ms;delayUntil=SystemClock.elapsedRealtime()+remaining;try{while(remaining>0){ready(token);delayUntil=SystemClock.elapsedRealtime()+remaining;long chunk=Math.min(70,remaining),before=SystemClock.elapsedRealtime();Thread.sleep(chunk);if(!paused)remaining-=Math.max(1,SystemClock.elapsedRealtime()-before);}ready(token);}finally{delayUntil=0;}
+     }
+     private <T> T await(CompletableFuture<T> f,long token,long max)throws Exception{
+         long activeElapsed=0,last=SystemClock.elapsedRealtime();
+@@ -82,23 +101,30 @@
+     @SuppressWarnings("deprecation") private void run(Macro m,long token){
+         PowerManager.WakeLock lock=((PowerManager)getSystemService(POWER_SERVICE)).newWakeLock(Ui.prefs(this).getBoolean("keep_screen",true)?PowerManager.SCREEN_DIM_WAKE_LOCK:PowerManager.PARTIAL_WAKE_LOCK,"NEX:run");
+         try{
+-            int[] sz=size();initialW=sz[0];initialH=sz[1];startedAt=SystemClock.elapsedRealtime();deadline=m.maxMinutes==0?0:SystemClock.elapsedRealtime()+m.maxMinutes*60000L;
++            int[] sz=size();initialW=sz[0];initialH=sz[1];resetStats();watchCompleted=0;deadline=m.maxMinutes==0?0:SystemClock.elapsedRealtime()+m.maxMinutes*60000L;
+             lock.acquire(m.maxMinutes==0?24*60*60000L:m.maxMinutes*60000L+10000);
+-            log("시작까지 "+Times.label(m.startDelay));sleep(m.startDelay,token);
++            liveAction="시작 대기";log("시작까지 "+Times.label(m.startDelay));sleep(m.startDelay,token);
+             runSequence(m,token);
+             if(token==generation.get())log("완료");
+         }catch(CancellationException ignored){}catch(Exception e){if(token==generation.get())log("중단 · "+(e.getMessage()==null?e.toString():e.getMessage()));}
+-        finally{if(lock.isHeld())lock.release();if(token==generation.get()){running=false;paused=false;clearNotification();ui.post(()->{if(controller!=null)controller.update();});}}
++        finally{if(lock.isHeld())lock.release();if(token==generation.get()){finishStats();running=false;paused=false;clearNotification();ui.post(()->{if(controller!=null)controller.update();});}}
+     }
+     private void runSequence(Macro m,long token)throws Exception{
+             for(int round=1;m.rounds==0||round<=m.rounds;round++){
++                if(!watching)cycleStartedAt=SystemClock.elapsedRealtime();
+                 int index=round==1?m.startAt-1:0;while(index<m.steps.size()){
+                     ready(token);Step s=m.steps.get(index);if(!s.enabled){index++;continue;}
+                     log(round+"회 · "+(index+1)+"/"+m.steps.size()+" "+s.name());
+-                    Integer jump=null;for(int r=0;r<s.repeat;r++){ready(token);jump=execute(s,token);sleep(jitter(s.after,s.afterJitter,600000),token);if(jump!=null)break;}
++                    Integer jump=null;for(int r=0;r<s.repeat;r++){
++                        ready(token);liveAction="매크로 "+round+"/"+(m.rounds==0?"∞":m.rounds)+"회 · "+(index+1)+"번 "+s.name()+(s.repeat>1?" "+(r+1)+"/"+s.repeat:"");
++                        jump=execute(s,token);lastAction=(index+1)+"번 "+s.name()+" 완료"+(s.repeat>1?" ("+(r+1)+"/"+s.repeat+")":"");log(lastAction);
++                        String next=jump!=null?(jump+1)+"번으로 이동":r+1<s.repeat?"같은 동작 반복":index+1<m.steps.size()?(index+2)+"번 "+m.steps.get(index+1).name():m.rounds==0||round<m.rounds?"다음 전체 반복":watching?"뒤로가기 준비":"매크로 완료";
++                        liveAction="완료 → "+next;sleep(jitter(s.after,s.afterJitter,600000),token);if(jump!=null)break;
++                    }
+                     index=jump==null?index+1:jump;
+                 }
+-                if(m.rounds==0||round<m.rounds)sleep(m.gap,token);
++                if(!watching){lastCycleMs=SystemClock.elapsedRealtime()-cycleStartedAt;cycleStartedAt=0;watchCompleted++;}
++                if(m.rounds==0||round<m.rounds){liveAction="다음 반복 대기 · "+round+"회 완료";sleep(m.gap,token);}
+             }
+ 
+     }
+@@ -114,34 +140,54 @@
+         PowerManager.WakeLock lock=((PowerManager)getSystemService(POWER_SERVICE)).newWakeLock(Ui.prefs(this).getBoolean("keep_screen",true)?PowerManager.SCREEN_DIM_WAKE_LOCK:PowerManager.PARTIAL_WAKE_LOCK,"NEX:watch");
+         long overall=0;
+         try{
+-            int[] sz=size();initialW=sz[0];initialH=sz[1];startedAt=SystemClock.elapsedRealtime();
++            int[] sz=size();initialW=sz[0];initialH=sz[1];resetStats();
+             overall=p.maxMinutes==0?0:startedAt+p.maxMinutes*60000L;deadline=overall;
+             lock.acquire(p.maxMinutes==0?24*60*60000L:p.maxMinutes*60000L+10000);
+-            log("탐지 시작까지 3초 · 원하는 앱으로 이동하세요");sleep(3000,token);
++            log("탐지 시작까지 "+Times.label(p.startMs)+" · 원하는 앱으로 이동하세요");sleep(p.startMs,token);
+             watchNextRefresh=SystemClock.elapsedRealtime()+p.intervalSeconds*1000L;
+             log("글자 탐지 중 · "+p.rule.text);boolean armed=true;
++            WatchGate[] gates=new WatchGate[p.areaCount()];WatchConfig[] areaConfigs=new WatchConfig[p.areaCount()];
++            for(int i=0;i<gates.length;i++){areaConfigs[i]=p.areaConfig(i);gates[i]=new WatchGate(p.preventDuplicate&&WatchStore.blocked(this,areaConfigs[i]));}
++            long observedRevision=pauseRevision.get();
+             while(true){
+                 ready(token);
++                if(observedRevision!=pauseRevision.get()){for(WatchGate gate:gates)gate.interruptAbsence();observedRevision=pauseRevision.get();}
++                if(!p.targetPackage.isEmpty()&&!p.targetPackage.equals(onUi(this::activePackage,token))){for(WatchGate gate:gates)gate.interruptAbsence();watchPhase="대상 앱 대기";sleep(500,token);continue;}
+                 if(SystemClock.elapsedRealtime()>=watchNextRefresh){
+                     long refreshAt=SystemClock.elapsedRealtime();watchPhase="새로고침";log("탐지 · "+(p.direction.equals("PULL_DOWN")?"아래로 당겨 새로고침":"목록 아래로 스크롤"));
+-                    gesture(50,p.swipeStartY(),50,p.swipeEndY(),500,token);sleep(p.settleMs,token);
++                    gesture(50,p.swipeStartY(),50,p.swipeEndY(),500,token);lastAction="목록 새로고침 완료";watchPhase="새로고침 완료 · 화면 대기";sleep(p.settleMs,token);
+                     watchNextRefresh=refreshAt+p.intervalSeconds*1000L;armed=true;
+                 }
+                 if(armed){
+-                    watchPhase="글자 찾는 중";
+-                    long scanRevision=pauseRevision.get();Hit hit=find(p.rule,token);
++                    watchPhase="글자 찾는 중";ScanFrame frame=new ScanFrame();
++                    long scanRevision=pauseRevision.get();Hit hit=null;int selected=-1;boolean anyBlocked=false;
++                    for(int area=0;area<gates.length;area++){
++                        watchPhase=(area+1)+"순위 확인";Hit candidate=find(areaConfigs[area].rule,token,frame);ready(token);
++                        lastAction=(area+1)+"순위 · "+(candidate==null?"글자 없음":"글자 발견");
++                        if(scanRevision!=pauseRevision.get())break;
++                        WatchGate gate=gates[area];boolean wasBlocked=gate.blocked();
++                        boolean allowed=!p.preventDuplicate||gate.observe(candidate!=null,SystemClock.elapsedRealtime(),p.rearmMs);
++                        if(p.preventDuplicate&&wasBlocked&&!gate.blocked()){WatchStore.blocked(this,areaConfigs[area],false);log((area+1)+"순위 글자 사라짐 확인 · 다시 나타나면 실행");}
++                        anyBlocked|=gate.blocked();if(allowed&&candidate!=null){hit=candidate;selected=area;break;}
++                    }
++                    ready(token);if(scanRevision!=pauseRevision.get()){for(WatchGate gate:gates)gate.interruptAbsence();continue;}
++                    if(!p.targetPackage.isEmpty()&&!p.targetPackage.equals(onUi(this::activePackage,token))){for(WatchGate gate:gates)gate.interruptAbsence();continue;}
++                    watchPhase=anyBlocked?"중복 차단 · 사라짐 대기":"글자 찾는 중";
+                     if(hit!=null){
+-                        ready(token);if(p.tapFound)hit=find(p.rule,token);ready(token);if(scanRevision!=pauseRevision.get())continue;
++                        ready(token);if(p.tapFound)hit=find(areaConfigs[selected].rule,token);ready(token);if(scanRevision!=pauseRevision.get())continue;
+                         if(hit!=null){
+-                            watchPhase="매크로 실행";log("지정 영역에서 발견 · "+p.rule.text+" → "+m.name+" "+p.repetitions+"회");
++                            if(p.preventDuplicate){WatchStore.blocked(this,areaConfigs[selected],true);gates[selected].reserve();}
++                            currentPriority=selected+1;cycleStartedAt=SystemClock.elapsedRealtime();watchPhase="매크로 실행";liveAction="글자 터치 · 들어가기";log((selected+1)+"순위에서 발견 · "+p.rule.text+" → "+m.name+" "+p.repetitions+"회");
+                             long macroLimit=SystemClock.elapsedRealtime()+(m.maxMinutes==0?30:m.maxMinutes)*60000L;
+                             deadline=overall==0?macroLimit:Math.min(overall,macroLimit);
+-                            if(p.tapFound){double x=hit.rect.exactCenterX()*100.0/initialW,y=hit.rect.exactCenterY()*100.0/initialH;gesture(x,y,x,y,100,token);sleep(p.entryMs,token);}
++                            if(p.tapFound){double x=hit.rect.exactCenterX()*100.0/initialW,y=hit.rect.exactCenterY()*100.0/initialH;gesture(x,y,x,y,100,token);liveAction="들어간 화면 대기";sleep(p.entryMs,token);}
+                             sleep(m.startDelay,token);runSequence(m,token);
++                            lastAction="매크로 "+p.repetitions+"회 완료";liveAction="전체 반복 완료 → 뒤로가기 대기";sleep(p.beforeBackMs,token);
+                             ready(token);deadline=overall;watchPhase="뒤로가기";log("매크로 완료 · 탐지 화면으로 뒤로가기");
+-                            for(int i=0;i<p.backCount;i++){global(GLOBAL_ACTION_BACK,token);sleep(p.returnMs,token);}
+-                            watchCompleted++;armed=!p.waitForRefresh;if(p.waitForRefresh)watchNextRefresh=SystemClock.elapsedRealtime()+p.intervalSeconds*1000L;
+-                            watchPhase=p.waitForRefresh?"새로고침 대기":"글자 찾는 중";log("탐지 "+watchCompleted+"회 완료 · "+(p.waitForRefresh?"다음 새로고침 대기":"바로 다시 탐지"));
++                            for(int i=0;i<p.backCount;i++){global(GLOBAL_ACTION_BACK,token);lastAction="뒤로가기 "+(i+1)+"/"+p.backCount+"회 완료";watchPhase="뒤로가기 완료 · 목록 대기";sleep(p.returnMs,token);}
++                            lastCycleMs=SystemClock.elapsedRealtime()-cycleStartedAt;cycleStartedAt=0;currentPriority=0;
++                            boolean waitRefresh=p.waitForRefresh||p.preventDuplicate;watchCompleted++;armed=!waitRefresh;if(waitRefresh)watchNextRefresh=SystemClock.elapsedRealtime()+p.cooldownMs;
++                            watchPhase=waitRefresh?"완료 후 쉬는 중":"글자 찾는 중";log("탐지 "+watchCompleted+"회 완료 · 한 바퀴 "+String.format(Locale.KOREA,"%.1f초",lastCycleMs/1000.0)+" · "+(waitRefresh?"다음 새로고침 대기":"바로 다시 탐지"));
+                         }
+                     }
+                 }
+@@ -149,7 +195,7 @@
+                 sleep(Math.min(2000,remaining),token);
+             }
+         }catch(CancellationException ignored){}catch(Exception e){if(token==generation.get())log("탐지 중단 · "+(e.getMessage()==null?e.toString():e.getMessage()));}
+-        finally{if(lock.isHeld())lock.release();if(token==generation.get()){running=false;watching=false;paused=false;watchPhase="";ui.post(()->{if(controller!=null)controller.update();});}}
++        finally{if(lock.isHeld())lock.release();if(token==generation.get()){finishStats();running=false;watching=false;paused=false;watchPhase="";ui.post(()->{if(controller!=null)controller.update();});}}
+     }
+     private Integer execute(Step s,long token)throws Exception{
+         switch(s.type){
+@@ -208,10 +254,13 @@
+     private Hit waitText(Step s,long token)throws Exception{
+         long elapsed=0;do{ready(token);long before=SystemClock.elapsedRealtime();Hit h=find(s,token);if(h!=null)return h;elapsed+=SystemClock.elapsedRealtime()-before;if(elapsed>=s.timeout)return null;long delay=Math.min(600,s.timeout-elapsed);sleep(delay,token);elapsed+=delay;}while(true);
+     }
+-    private Hit find(Step s,long token)throws Exception{
++    private static final class ScanFrame {com.google.mlkit.vision.text.Text text;}
++    private Hit find(Step s,long token)throws Exception{return find(s,token,new ScanFrame());}
++    private Hit find(Step s,long token,ScanFrame frame)throws Exception{
+         ready(token);Hit hit=null;
+         if(!s.source.equals("OCR"))hit=onUi(()->accessibleHit(s),token);
+-        if(hit!=null||s.source.equals("ACCESS"))return hit;
++        if(hit!=null||s.source.equals("ACCESS"))return hit;
++        if(frame.text!=null)return ocrHit(s,frame.text);
+         Bitmap bitmap=screenshot(token);
+         boolean processing=false;
+         try {
+@@ -219,6 +268,10 @@
+             com.google.android.gms.tasks.Task<com.google.mlkit.vision.text.Text> task=recognizer.process(InputImage.fromBitmap(bitmap,0));
+             processing=true;task.addOnSuccessListener(result::complete).addOnFailureListener(result::completeExceptionally).addOnCompleteListener(done->{if(!bitmap.isRecycled())bitmap.recycle();});
+             com.google.mlkit.vision.text.Text t=await(result,token,12000);
++            frame.text=t;return ocrHit(s,t);
++        }finally{if(!processing&&!bitmap.isRecycled())bitmap.recycle();}
++    }
++    private Hit ocrHit(Step s,com.google.mlkit.vision.text.Text t){
+             ArrayList<Hit> candidates=new ArrayList<>();
+             for(com.google.mlkit.vision.text.Text.TextBlock b:t.getTextBlocks()){
+                 int beforeBlock=candidates.size();
+@@ -234,8 +287,7 @@
+             candidates.removeIf(a->!inside(s,a.rect));
+             candidates.sort(Comparator.comparingInt((Hit a)->a.rect.top).thenComparingInt(a->a.rect.left));
+             return candidates.size()>=s.occurrence?candidates.get(s.occurrence-1):null;
+-        }finally{if(!processing&&!bitmap.isRecycled())bitmap.recycle();}
+-    }
++    }
+     private boolean inside(Step s,Rect r){double x=r.exactCenterX()*100.0/initialW,y=r.exactCenterY()*100.0/initialH;return x>=s.left&&x<=s.right&&y>=s.top&&y<=s.bottom;}
+     private Hit accessibleHit(Step s){
+         AccessibilityNodeInfo root=getRootInActiveWindow();if(root==null)return null;
+--- 5차/source/app/src/main/java/kr/yunseok/touchmacro/MainActivity.java
++++ 6차/source/app/src/main/java/kr/yunseok/touchmacro/MainActivity.java
+@@ -19,13 +19,13 @@
+     private boolean testing=false,shownConnected=false;
+     private final Handler connectionUi=new Handler(Looper.getMainLooper());
+     private final Runnable watchConnection=new Runnable(){public void run(){if(!testing&&shownConnected!=(MacroService.get()!=null))render();connectionUi.postDelayed(this,800);}};
+-    @Override protected void onPause(){connectionUi.removeCallbacks(watchConnection);super.onPause();}
++    @Override protected void onPause(){connectionUi.removeCallbacks(watchConnection);if(!testing&&MacroService.get()!=null)MacroService.get().controller().setVisible(true);super.onPause();}
+     private int dp(int n){return (int)(n*getResources().getDisplayMetrics().density+.5f);}
+     @Override public void onCreate(Bundle b){setTheme(Ui.theme(this));super.onCreate(b);blue=Ui.accent(this);ink=Ui.ink(this);muted=Ui.muted(this);macro=Store.load(this);setTaskDescription(new ActivityManager.TaskDescription("NEX",Ui.brandBitmap(this),Color.rgb(40,86,216)));if(getIntent().getBooleanExtra("watch",false))tab=4;else if(getIntent().getBooleanExtra("settings",false))tab=3;render();if(Build.VERSION.SDK_INT>=33&&checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS)!=android.content.pm.PackageManager.PERMISSION_GRANTED)requestPermissions(new String[]{android.Manifest.permission.POST_NOTIFICATIONS},201);}
+-    @Override public void onResume(){super.onResume();if(macro==null)return;if(!testing&&MacroService.get()!=null&&MacroService.get().running){MacroService.get().paused=true;MacroService.get().log("편집 화면 · 일시정지");}if(!testing)macro=Store.load(this);
++    @Override public void onResume(){super.onResume();if(macro==null)return;if(!testing&&MacroService.get()!=null&&MacroService.get().running){if(!MacroService.get().paused)MacroService.get().togglePause();MacroService.get().log("편집 화면 · 일시정지");}if(!testing)macro=Store.load(this);
+         String picked=getSharedPreferences("macros",0).getString("picked","");
+         if(!picked.isEmpty()){getSharedPreferences("macros",0).edit().remove("picked").apply();try{String[] xy=picked.split(",");Step s=new Step("TAP");s.x=Double.parseDouble(xy[0]);s.y=Double.parseDouble(xy[1]);macro.steps.add(s);save();testing=false;render();edit(s);}catch(Exception e){toast("좌표를 읽지 못했습니다");}}
+-        else if(!testing)render();connectionUi.removeCallbacks(watchConnection);connectionUi.postDelayed(watchConnection,800);
++        else if(!testing)render();if(!testing&&SetupFlow.active(this)&&MacroService.get()!=null)MacroService.get().controller().setVisible(false);connectionUi.removeCallbacks(watchConnection);connectionUi.postDelayed(watchConnection,800);
+     }
+     private void font(View v){if(v instanceof TextView)((TextView)v).setTypeface(getResources().getFont(R.font.nanum_gothic_bold));if(v instanceof ViewGroup)for(int i=0;i<((ViewGroup)v).getChildCount();i++)font(((ViewGroup)v).getChildAt(i));}
+     @Override protected void onNewIntent(Intent i){super.onNewIntent(i);setIntent(i);if(i.getBooleanExtra("watch",false))tab=4;else if(i.getBooleanExtra("settings",false))tab=3;macro=Store.load(this);render();}
+@@ -82,25 +82,30 @@
+             settingRow(page,"화면 위 컨트롤","크기 · 투명도 · 번호 표시",this::controlSettings);
+             settingRow(page,"접근성",connected?"연결됨":"연결 필요",this::accessibility);
+             space(page,24);quiet(page,"실행 기록",this::logs);quiet(page,"사용법",this::help);quiet(page,"인식 테스트",this::testScreen);
+-            space(page,24);text(page,"NEX 5.0 · 5차\n한글 OCR · 나눔고딕 Bold 내장",11,muted);
++            space(page,24);text(page,"NEX 6.0 · 6차\n한글 OCR · 나눔고딕 Bold 내장",11,muted);
+         }
+         LinearLayout dock=form();dock.setPadding(dp(24),dp(8),dp(24),dp(12));
+         Button floating=button(dock,"다른 앱에서 사용  ↗",()->{if(service()){save();MacroService.get().showControls();moveTaskToBack(true);}});floating.setTextColor(ink);floating.setBackground(Ui.rounded(Ui.card(this),dp(14)));
+         if(MacroService.get()!=null&&MacroService.get().running)quiet(dock,"실행 정지",()->{MacroService.get().stop();render();});shell.addView(dock);content(shell);Ui.font(shell);
+     }
+     private void buildWatchPage(){
++        if(SetupFlow.active(this)){new SetupWizard(this).render(page);return;}
+         WatchConfig p=WatchStore.load(this);
+         text(page,"찾으면 들어가서 반복",23,ink);text(page,"글자와 매크로를 고르면 준비 끝",13,muted);space(page,16);
+         LinearLayout summary=card(page);text(summary,"“"+p.rule.text+"”",22,ink);
+         text(summary,"1  글자를 찾으면 "+(p.tapFound?"터치해서 들어가기":"매크로 시작"),14,ink);
+         text(summary,"2  "+(p.macroName.isEmpty()?Store.load(this).name:p.macroName)+" · "+p.repetitions+"회 반복",14,ink);
+-        text(summary,"3  뒤로 "+p.backCount+"회 → "+p.intervalSeconds+"초마다 새로고침",14,ink);
++        text(summary,"3  뒤로 "+p.backCount+"회 → "+Times.durationLabel(p.cooldownMs)+" 쉬기",14,ink);text(summary,"이후 "+p.intervalSeconds+"초마다 새로고침 · "+p.areaCount()+"개 순위 영역",12,muted);
+         text(summary,p.rule.left==0&&p.rule.top==0&&p.rule.right==100&&p.rule.bottom==100?"탐지 영역 · 전체 화면":"탐지 영역 · 직접 지정한 위치",12,muted);
+         space(page,12);primary(page,"탐지 시작",this::startWatch);
+         LinearLayout actions=row(page);quietHalf(actions,"글자 · 매크로 설정",this::watchSettings);quietHalf(actions,"탐지 영역 지정",this::watchRegion);
+-        space(page,14);text(page,(p.waitForRefresh?"완료 후 뒤로가면 "+p.intervalSeconds+"초 뒤 새로고침부터 다시 시작합니다.":"완료 후 뒤로가면 바로 다시 탐지합니다.")+"\n매크로가 실행되는 동안에는 새로고침하지 않습니다.",12,muted);
++        space(page,14);text(page,((p.waitForRefresh||p.preventDuplicate)?"완료 후 "+Times.durationLabel(p.cooldownMs)+" 쉬고 새로고침합니다.":"완료 후 뒤로가면 바로 다시 탐지합니다.")+"\n매크로가 실행되는 동안에는 새로고침하지 않습니다.",12,muted);
+         quiet(page,"현재 화면 인식 미리보기",()->{if(!service())return;try{Step s=new Step(p.rule.json());s.type="TEXT_CHECK";s.timeout=0;s.failure="STOP";Macro preview=new Macro();preview.name="탐지 영역 미리보기";preview.startDelay=3000;preview.maxMinutes=1;preview.steps.add(s);MacroService.get().start(preview);moveTaskToBack(true);}catch(Exception e){toast(e.getMessage());}});
+-    }
++        text(page,p.preventDuplicate?"중복 방지 켜짐 · 같은 글자가 사라졌다가 다시 나타나야 실행합니다.":"완료 후 대기 중 재실행 금지 · 새로고침 후 재실행 허용",12,muted);
++        quiet(page,"순서대로 다시 설정",()->{SetupFlow.begin(this);render();});
++    }
++    void refreshSetup(){macro=Store.load(this);tab=4;render();}
++    void setupOutside(String kind){if(!service())return;if(MacroService.get().running||MacroService.get().controller().recording){toast("먼저 실행과 녹화를 정지하세요");return;}moveTaskToBack(true);new Handler(Looper.getMainLooper()).postDelayed(()->{if(MacroService.get()!=null)MacroService.get().controller().showSetupCoach(kind);},350);}
+     private void startWatch(){if(!service())return;try{save();MacroService.get().startWatch(WatchStore.load(this));moveTaskToBack(true);}catch(Exception e){toast(e.getMessage());}}
+     private void watchRegion(){if(!service())return;if(MacroService.get().running||MacroService.get().controller().recording){toast("먼저 실행과 녹화를 정지하세요");return;}moveTaskToBack(true);new Handler(Looper.getMainLooper()).postDelayed(()->{if(MacroService.get()!=null)MacroService.get().controller().pickWatchRegion();},300);}
+     private void watchSettings(){
+@@ -118,6 +123,8 @@
+         Button more=quiet(f,"세부 설정 보기",()->{});more.setOnClickListener(v->{boolean on=advanced.getVisibility()!=View.VISIBLE;advanced.setVisibility(on?View.VISIBLE:View.GONE);more.setText(on?"세부 설정 접기":"세부 설정 보기");});f.addView(advanced);
+         Spinner direction=spinner(advanced,"새로고침 동작",new String[]{"화면을 아래로 당기기","목록 아래로 이동하기"},p.direction.equals("PULL_DOWN")?0:1);
+         CheckBox waitRefresh=check(advanced,"완료 후 새로고침부터 다시 시작",p.waitForRefresh);text(advanced,"켜면 뒤로간 뒤 설정한 초만큼 기다려 새로고침합니다. 끄면 바로 다시 탐지합니다.",12,muted);
++        CheckBox duplicate=check(advanced,"같은 글자가 사라진 뒤에만 다시 실행",p.preventDuplicate);text(advanced,"켜면 새로고침 전 재실행도 막습니다. 완료한 글자가 계속 보이면 새로고침 후에도 건너뜁니다.",12,muted);
++        EditText startWait=timeField(advanced,"처음 시작 전 대기 · 초",p.startMs),repeatGap=timeField(advanced,"매크로 한 회 사이 대기 · 초",p.repeatGapMs),beforeBack=timeField(advanced,"모두 완료 후 뒤로가기 전 대기 · 초",p.beforeBackMs),rearm=timeField(advanced,"글자 사라짐 확인 시간 · 초, 최소 1",p.rearmMs),cooldown=timeField(advanced,"완료 후 첫 새로고침 대기 · 초, 600은 10분",p.cooldownMs);
+         Spinner source=spinner(advanced,"인식 방식",new String[]{"자동 · 화면 정보 + OCR","화면 정보","한글 OCR"},selected(new String[]{"AUTO","ACCESS","OCR"},p.rule.source));
+         Spinner match=spinner(advanced,"글자 비교",new String[]{"포함","완전 일치","정규식"},selected(new String[]{"CONTAINS","EXACT","REGEX"},p.rule.match));
+         EditText left=field(advanced,"영역 왼쪽 %",Double.toString(p.rule.left),true),top=field(advanced,"영역 위 %",Double.toString(p.rule.top),true),right=field(advanced,"영역 오른쪽 %",Double.toString(p.rule.right),true),bottom=field(advanced,"영역 아래 %",Double.toString(p.rule.bottom),true);
+@@ -128,6 +135,7 @@
+             p.rule.text=word.getText().toString().trim();p.macroName=keys.get(macroChoice.getSelectedItemPosition());p.repetitions=number(repetitions);p.intervalSeconds=number(seconds);p.direction=direction.getSelectedItemPosition()==0?"PULL_DOWN":"SCROLL_DOWN";
+             p.rule.source=new String[]{"AUTO","ACCESS","OCR"}[source.getSelectedItemPosition()];p.rule.match=new String[]{"CONTAINS","EXACT","REGEX"}[match.getSelectedItemPosition()];
+             p.rule.left=decimal(left);p.rule.top=decimal(top);p.rule.right=decimal(right);p.rule.bottom=decimal(bottom);p.backCount=number(count);p.entryMs=timeValue(entry);p.settleMs=timeValue(settle);p.returnMs=timeValue(backWait);p.maxMinutes=number(limit);p.tapFound=tap.isChecked();p.waitForRefresh=waitRefresh.isChecked();
++            p.preventDuplicate=duplicate.isChecked();p.startMs=timeValue(startWait);p.repeatGapMs=timeValue(repeatGap);p.beforeBackMs=timeValue(beforeBack);p.rearmMs=timeValue(rearm);p.cooldownMs=timeValue(cooldown);
+             WatchStore.save(this,p);d.dismiss();render();
+         }catch(Exception e){toast(e instanceof NumberFormatException?"숫자를 정확히 입력하세요":e.getMessage());}});});d.show();
+     }
+@@ -232,7 +240,7 @@
+         }
+         if(s.type.equals("GOTO")){text(f,"동작 번호는 목록을 재정렬하거나 삭제하면 달라집니다.",12,muted);fields.put("target",field(f,"이동할 동작 번호 · 1부터",Integer.toString(s.target),true));}
+         if(Arrays.asList("TAP","LONG","SWIPE","CURVE","PINCH_IN","PINCH_OUT","MULTI_TAP","GESTURE","WAIT").contains(s.type)){fields.put("durationJitter",timeField(advanced,"동작 시간 무작위 범위 · ±초, 0은 사용 안 함",s.durationJitter));}fields.put("afterJitter",timeField(advanced,"완료 후 대기 무작위 범위 · ±초",s.afterJitter));
+-        Button detail=quiet(f,"세부 설정 보기",()->{});detail.setOnClickListener(v->{boolean open=advanced.getVisibility()!=View.VISIBLE;advanced.setVisibility(open?View.VISIBLE:View.GONE);detail.setText(open?"세부 설정 접기":"세부 설정 보기");});f.addView(advanced);fields.put("repeat",field(f,"이 동작 반복 횟수 · 1~1000",Integer.toString(s.repeat),true));fields.put("after",timeField(f,"동작 완료 후 대기 · 초",s.after));CheckBox enabled=check(f,"이 동작 사용",s.enabled);
++        if(!Arrays.asList("GOTO","STOP","TEXT_BRANCH").contains(s.type)){fields.put("repeat",field(advanced,"이 동작 한 세트만 반복 · 회",Integer.toString(s.repeat),true));text(advanced,"기본 1회입니다. 3으로 정하면 이 동작만 3번 하고 다음 동작으로 넘어갑니다. 전체 매크로 15회와는 별도입니다. 입력 범위는 1~1000회입니다.",12,muted);}else{text(advanced,"순서 이동과 정지는 개별 반복 대신 실행 흐름을 바꾸는 동작입니다.",12,muted);}Button detail=quiet(f,"세부 설정 보기",()->{});detail.setOnClickListener(v->{boolean open=advanced.getVisibility()!=View.VISIBLE;advanced.setVisibility(open?View.VISIBLE:View.GONE);detail.setText(open?"세부 설정 접기":"세부 설정 보기");});f.addView(advanced);fields.put("after",timeField(f,"동작 완료 후 대기 · 초",s.after));CheckBox enabled=check(f,"이 동작 사용",s.enabled);
+         final Spinner fm=matching,fsrc=source,ff=failure;final CheckBox fsp=spaces,fca=casing;
+         AlertDialog d=new AlertDialog.Builder(this).setView(wrap(f)).setPositiveButton("적용",null).setNegativeButton("취소",null).create();
+         d.setOnShowListener(v->{font(d.getWindow().getDecorView());d.getButton(-1).setOnClickListener(b->{try{
+@@ -243,7 +251,7 @@
+             if(ff!=null){s.failure=failureValues[ff.getSelectedItemPosition()];s.retries=number(fields.get("retries"));s.retryDelay=timeValue(fields.get("retryDelay"));}
+             if(fields.containsKey("found")){s.found=number(fields.get("found"));s.missing=number(fields.get("missing"));}
+             if(fields.containsKey("packageName"))s.packageName=fields.get("packageName").getText().toString().trim();if(fields.containsKey("target"))s.target=number(fields.get("target"));
+-            s.repeat=number(fields.get("repeat"));s.after=timeValue(fields.get("after"));s.enabled=enabled.isChecked();s.validate(macro.steps.size());
++            s.repeat=fields.containsKey("repeat")?number(fields.get("repeat")):1;s.after=timeValue(fields.get("after"));s.enabled=enabled.isChecked();s.validate(macro.steps.size());
+             macro.steps.set(macro.steps.indexOf(original),s);save();render();d.dismiss();
+         }catch(Exception e){toast(e instanceof NumberFormatException?"숫자를 정확히 입력하세요":e.getMessage());}});});d.show();
+     }
+@@ -275,7 +283,9 @@
+     private void logs(){String log=MacroService.get()==null?getSharedPreferences("macros",0).getString("last_log","기록 없음"):MacroService.get().logText();LinearLayout f=form();text(f,log.isEmpty()?"기록 없음":log,12,ink);show(new AlertDialog.Builder(this).setTitle("최근 실행 기록").setView(wrap(f)).setPositiveButton("닫기",null).setNeutralButton("파일 저장",(d,w)->{exportText=log;startActivityForResult(new Intent(Intent.ACTION_CREATE_DOCUMENT).setType("text/plain").addCategory(Intent.CATEGORY_OPENABLE).putExtra(Intent.EXTRA_TITLE,"매크로 실행기록.txt"),103);}),null);}
+     private void help(){
+       LinearLayout f=form();text(f,"NEX · 원하는 글자를 자동 터치",21,ink);
+-      text(f,"글자 탐지 → 들어가기 → 15회 → 뒤로 → 10초 새로고침",18,blue);text(f,"탐지 탭의 ‘글자 · 매크로 설정’에서 찾을 글자와 저장한 매크로를 고르세요. 기본값은 매크로 15회, 새로고침 10초, 찾은 글자 눌러 들어가기입니다. 대상 앱에서 탐지 영역을 지정한 뒤 시작하세요. 매크로가 끝나면 뒤로간 뒤 10초 기다려 새로고침하고 다시 탐지합니다. 매크로 실행 중에는 새로고침하지 않습니다. 반복 횟수는 저장된 전체 반복과 곱하지 않고 여기서 정한 값으로 실행합니다.",14,ink);
++      text(f,"순서대로 설정",18,blue);text(f,"탐지 탭에서 글자 → 최대 6개 순위 영역 → 매크로 녹화 → 대기 시간 → 실행 준비를 차례대로 진행합니다. 영역을 저장하거나 녹화를 완료하면 안내로 돌아옵니다. 기존 매크로를 선택해 사용할 수도 있습니다.",14,ink);
++      text(f,"순위와 새로고침",18,blue);text(f,"매번 1순위부터 6순위까지 확인하고 처음 글자가 있는 영역을 실행합니다. 1순위가 없고 2순위에 있으면 2순위를 실행합니다. 완료 후 기본 10분을 쉬고 첫 새로고침을 합니다. 그때도 같은 2순위에 글자가 있으면 다시 실행합니다. 아무 영역에도 글자가 없으면 기본 10초마다 새로고침합니다. 쉬는 시간은 분과 초로 직접 정할 수 있습니다. 쉬는 동안에는 재실행하지 않습니다.",14,ink);
++      text(f,"하단 실행 표시",18,blue);text(f,"현재 순위, 매크로 반복과 동작, 대기 남은 시간, 직전 한 바퀴와 전체 경과 시간을 하단에 표시합니다. 한 바퀴는 글자를 눌러 들어간 순간부터 매크로와 뒤로가기를 마치고 목록 화면 대기를 끝낼 때까지입니다. 전체 경과 시간에는 새로고침 대기와 일시정지도 포함됩니다. 하단 표시는 터치를 통과시키고 OCR 캡처 순간에는 인식에 섞이지 않도록 잠깐 숨깁니다.",14,ink);
+       text(f,"시간 입력은 초 단위",18,blue);text(f,"1은 1초, 0.5는 반 초, 1.5는 1.5초입니다. 기존 저장본과 녹화 시간도 자동으로 초 단위로 표시됩니다.",14,ink);
+       text(f,"글자 탭에서 문구를 입력하세요. ‘글자 찾기 시작’을 누르면 3초 뒤 인식해 터치합니다. ‘미리보기’는 초록 테두리로 위치만 표시합니다. 다른 앱에서 쓰려면 ‘다른 앱에서 사용’을 눌러 그 앱으로 이동해 ‘글자’를 누르세요.",14,ink);
+       text(f,"곡선·멀티터치 녹화",18,blue);text(f,"매크로 탭의 ‘녹화’ 또는 컨트롤 더보기의 ‘녹화’를 누릅니다. 손가락으로 탭, 곡선 스와이프, 두 손가락 확대·축소를 그리세요. 손을 떼면 원래 앱에 같은 제스처를 재생한 뒤 다음 동작을 녹화합니다. ‘녹화 끝내기’로 저장합니다. 녹화 영역에서는 제스처가 손을 뗀 뒤 전달됩니다. 동시 경로는 최대 20개, 한 제스처는 최대 59초입니다.",14,ink);
+--- 5차/source/app/src/main/java/kr/yunseok/touchmacro/RegionPicker.java
++++ 6차/source/app/src/main/java/kr/yunseok/touchmacro/RegionPicker.java
+@@ -12,7 +12,9 @@
+     private View canvas,bar;
+     private final RectF rect=new RectF();
+     private final Consumer<RectF> accept;
+-    public RegionPicker(MacroService owner,Consumer<RectF> accept){this.owner=owner;this.accept=accept;wm=(WindowManager)owner.getSystemService(Context.WINDOW_SERVICE);}
++    private final Runnable cancel;
++    public RegionPicker(MacroService owner,Consumer<RectF> accept){this(owner,accept,null);}
++    public RegionPicker(MacroService owner,Consumer<RectF> accept,Runnable cancel){this.owner=owner;this.accept=accept;this.cancel=cancel;wm=(WindowManager)owner.getSystemService(Context.WINDOW_SERVICE);}
+     private WindowManager.LayoutParams layout(int width,int height){WindowManager.LayoutParams p=new WindowManager.LayoutParams(width,height,WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY,WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE|WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN,PixelFormat.TRANSLUCENT);p.gravity=Gravity.TOP|Gravity.START;return p;}
+     public void show(){
+         Context c=Ui.themed(owner);owner.controller().setVisible(false);
+@@ -29,7 +31,7 @@
+         LinearLayout box=new LinearLayout(c);box.setOrientation(LinearLayout.VERTICAL);box.setPadding(Ui.dp(c,12),Ui.dp(c,8),Ui.dp(c,12),Ui.dp(c,8));box.setBackground(Ui.rounded(Ui.card(c),Ui.dp(c,16)));
+         TextView hint=new TextView(c);hint.setText("탐지할 부분을 사각형으로 그리세요");hint.setTextColor(Ui.ink(c));hint.setTextSize(13);box.addView(hint);
+         LinearLayout actions=new LinearLayout(c);box.addView(actions);Button ok=Ui.button(c,"이 영역 사용"),cancel=Ui.button(c,"취소");actions.addView(ok,new LinearLayout.LayoutParams(0,Ui.dp(c,44),1));actions.addView(cancel,new LinearLayout.LayoutParams(0,Ui.dp(c,44),1));
+-        cancel.setOnClickListener(v->close());ok.setOnClickListener(v->{if(rect.width()<Ui.dp(c,12)||rect.height()<Ui.dp(c,12)){Toast.makeText(owner,"손가락으로 탐지할 영역을 그려 주세요",Toast.LENGTH_SHORT).show();return;}int[] s=owner.size();RectF percent=new RectF(Math.max(0,rect.left*100/s[0]),Math.max(0,rect.top*100/s[1]),Math.min(100,rect.right*100/s[0]),Math.min(100,rect.bottom*100/s[1]));accept.accept(percent);close();Toast.makeText(owner,"탐지 영역 저장 완료",Toast.LENGTH_SHORT).show();});
++        cancel.setOnClickListener(v->{close();if(this.cancel!=null)this.cancel.run();});ok.setOnClickListener(v->{if(rect.width()<Ui.dp(c,12)||rect.height()<Ui.dp(c,12)){Toast.makeText(owner,"손가락으로 탐지할 영역을 그려 주세요",Toast.LENGTH_SHORT).show();return;}int[] s=owner.size();RectF percent=new RectF(Math.max(0,rect.left*100/s[0]),Math.max(0,rect.top*100/s[1]),Math.min(100,rect.right*100/s[0]),Math.min(100,rect.bottom*100/s[1]));try{accept.accept(percent);close();Toast.makeText(owner,"탐지 영역 저장 완료",Toast.LENGTH_SHORT).show();}catch(Exception e){Toast.makeText(owner,e.getMessage(),Toast.LENGTH_LONG).show();}});
+         Ui.font(box);bar=box;WindowManager.LayoutParams p=layout(Ui.dp(c,300),-2);p.x=Math.max(0,(owner.size()[0]-p.width)/2);p.y=Ui.dp(c,40);wm.addView(bar,p);
+     }
+     public void close(){if(canvas!=null){wm.removeView(canvas);canvas=null;}if(bar!=null){wm.removeView(bar);bar=null;}owner.controller().setVisible(true);}
+--- 5차/source/app/src/main/java/kr/yunseok/touchmacro/RunHud.java
++++ 6차/source/app/src/main/java/kr/yunseok/touchmacro/RunHud.java
+@@ -0,0 +1,21 @@
++package kr.yunseok.touchmacro;
++import android.content.*;
++import android.graphics.PixelFormat;
++import android.view.*;
++import android.widget.*;
++
++/** Bottom progress is visible but never consumes touches; hidden during OCR captures. */
++public final class RunHud {
++    private final MacroService owner;private final WindowManager wm;private LinearLayout view;private TextView progress,times;
++    public RunHud(MacroService owner){this.owner=owner;wm=(WindowManager)owner.getSystemService(Context.WINDOW_SERVICE);}
++    public void update(String line,String timing,boolean visible){
++        if(view==null){Context c=Ui.themed(owner);view=new LinearLayout(c);view.setOrientation(LinearLayout.VERTICAL);view.setPadding(Ui.dp(c,12),Ui.dp(c,7),Ui.dp(c,12),Ui.dp(c,7));view.setBackground(Ui.rounded(Ui.card(c),Ui.dp(c,13)));view.setAlpha(.94f);
++            progress=new TextView(c);progress.setTextSize(12);progress.setTextColor(Ui.ink(c));progress.setMaxLines(2);view.addView(progress);
++            times=new TextView(c);times.setTextSize(10);times.setTextColor(Ui.muted(c));times.setMaxLines(2);view.addView(times);Ui.font(view);
++            WindowManager.LayoutParams p=new WindowManager.LayoutParams(Math.max(Ui.dp(c,200),owner.size()[0]-Ui.dp(c,24)),-2,WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY,WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE|WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,PixelFormat.TRANSLUCENT);p.gravity=Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL;p.y=Ui.dp(c,52);wm.addView(view,p);
++        }
++        progress.setText(line);times.setText(timing);visible(visible);
++    }
++    public void visible(boolean visible){if(view!=null)view.setVisibility(visible?View.VISIBLE:View.GONE);}
++    public void close(){if(view!=null){wm.removeView(view);view=null;}}
++}
+--- 5차/source/app/src/main/java/kr/yunseok/touchmacro/SetupCoach.java
++++ 6차/source/app/src/main/java/kr/yunseok/touchmacro/SetupCoach.java
+@@ -0,0 +1,19 @@
++package kr.yunseok.touchmacro;
++import android.content.*;
++import android.graphics.PixelFormat;
++import android.view.*;
++import android.widget.*;
++
++/** Small pass-around guide: navigation remains available until the user starts drawing/recording. */
++public final class SetupCoach {
++    private final MacroService owner;private final WindowManager wm;private View view;
++    public SetupCoach(MacroService owner){this.owner=owner;wm=(WindowManager)owner.getSystemService(Context.WINDOW_SERVICE);}
++    public void show(String instruction,String label,Runnable action,Runnable back){
++        close();Context c=Ui.themed(owner);LinearLayout box=new LinearLayout(c);box.setOrientation(LinearLayout.VERTICAL);box.setPadding(Ui.dp(c,10),Ui.dp(c,7),Ui.dp(c,10),Ui.dp(c,7));box.setBackground(Ui.rounded(Ui.card(c),Ui.dp(c,16)));box.setElevation(Ui.dp(c,5));
++        TextView hint=new TextView(c);hint.setText(instruction);hint.setTextSize(12);hint.setTextColor(Ui.ink(c));box.addView(hint);
++        LinearLayout row=new LinearLayout(c);box.addView(row);Button go=Ui.button(c,label),settings=Ui.button(c,"설정으로");go.setTextSize(12);settings.setTextSize(11);row.addView(go,new LinearLayout.LayoutParams(0,Ui.dp(c,44),1.4f));row.addView(settings,new LinearLayout.LayoutParams(0,Ui.dp(c,44),1));
++        go.setOnClickListener(v->{try{action.run();}catch(Exception e){Toast.makeText(owner,e.getMessage(),Toast.LENGTH_LONG).show();}});settings.setOnClickListener(v->back.run());Ui.font(box);
++        WindowManager.LayoutParams p=new WindowManager.LayoutParams(Ui.dp(c,270),-2,WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY,WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,PixelFormat.TRANSLUCENT);p.gravity=Gravity.TOP|Gravity.END;p.x=Ui.dp(c,8);p.y=Ui.dp(c,36);view=box;wm.addView(view,p);
++    }
++    public void close(){if(view!=null){wm.removeView(view);view=null;}}
++}
+--- 5차/source/app/src/main/java/kr/yunseok/touchmacro/SetupFlow.java
++++ 6차/source/app/src/main/java/kr/yunseok/touchmacro/SetupFlow.java
+@@ -0,0 +1,42 @@
++package kr.yunseok.touchmacro;
++import android.content.Context;
++import android.content.SharedPreferences;
++import org.json.JSONObject;
++
++/** Durable setup progress and a separate recording draft; existing macros are preserved. */
++public final class SetupFlow {
++    private SetupFlow(){}
++    private static SharedPreferences prefs(Context c){return Ui.prefs(c);}
++    public static boolean active(Context c){return prefs(c).getBoolean("setup_active",!prefs(c).getBoolean("setup_completed",false));}
++    public static int stage(Context c){return Math.max(0,Math.min(4,prefs(c).getInt("setup_stage",0)));}
++    public static void stage(Context c,int n){write(prefs(c).edit().putBoolean("setup_active",true).putInt("setup_stage",n));}
++    public static void begin(Context c){stage(c,0);}
++    public static void finished(Context c){write(prefs(c).edit().putBoolean("setup_active",false).putBoolean("setup_completed",true));}
++    public static String name(Context c){return prefs(c).getString("setup_name","내 반복 작업");}
++    public static int areaIndex(Context c){return prefs(c).getInt("setup_area_index",0);}
++    public static void areaIndex(Context c,int index){write(prefs(c).edit().putInt("setup_area_index",index));}
++    public static void name(Context c,String name){if(name.trim().isEmpty()||name.length()>70)throw new IllegalArgumentException("작업 이름을 1~70자로 입력하세요");write(prefs(c).edit().putString("setup_name",name.trim()));}
++    public static boolean pending(Context c){return prefs(c).contains("setup_backup");}
++    public static void beginDraft(Context c){
++        if(pending(c)){try{Store.save(c,new Macro(new JSONObject(prefs(c).getString("setup_draft",""))));return;}catch(Exception e){throw new IllegalStateException("임시 녹화를 읽지 못했습니다. 녹화 취소 후 다시 시작하세요",e);}}
++        Macro previous=Store.load(c),draft=new Macro();String base=name(c),unique=base;int n=2;
++        while(Store.library(c).containsKey(unique))unique=base+" ("+(n++)+")";
++        draft.name=unique;draft.startDelay=0;draft.rounds=1;
++        write(prefs(c).edit().putString("setup_backup",previous.json().toString()).putString("setup_draft",draft.json().toString()));
++        Store.save(c,draft);
++    }
++    public static void captureDraft(Context c,Macro m){if(pending(c))write(prefs(c).edit().putString("setup_draft",m.json().toString()));}
++    public static void finishDraft(Context c){
++        if(!pending(c))throw new IllegalStateException("먼저 녹화를 시작하세요");
++        Macro recorded=Store.load(c);recorded.validate();Store.put(c,recorded);
++        WatchConfig p=WatchStore.load(c);p.macroName=recorded.name;WatchStore.save(c,p);
++        restore(c);stage(c,3);
++    }
++    public static void cancelDraft(Context c){restore(c);stage(c,2);}
++    private static void restore(Context c){
++        if(!pending(c))return;
++        try{Store.save(c,new Macro(new JSONObject(prefs(c).getString("setup_backup",""))));}catch(Exception e){throw new IllegalStateException("이전 매크로를 복구하지 못했습니다",e);}
++        write(prefs(c).edit().remove("setup_backup").remove("setup_draft"));
++    }
++    private static void write(SharedPreferences.Editor e){if(!e.commit())throw new IllegalStateException("설정 저장에 실패했습니다");}
++}
+--- 5차/source/app/src/main/java/kr/yunseok/touchmacro/SetupWizard.java
++++ 6차/source/app/src/main/java/kr/yunseok/touchmacro/SetupWizard.java
+@@ -0,0 +1,71 @@
++package kr.yunseok.touchmacro;
++import android.app.*;
++import android.content.*;
++import android.text.InputType;
++import android.view.*;
++import android.widget.*;
++import java.util.*;
++
++/** One visible step at a time; outside-app actions resume this same saved flow. */
++public final class SetupWizard {
++    private final MainActivity a;
++    public SetupWizard(MainActivity a){this.a=a;}
++    private TextView text(LinearLayout box,String value,int size){TextView v=new TextView(a);v.setText(value);v.setTextSize(size);v.setTextColor(Ui.ink(a));v.setPadding(0,Ui.dp(a,7),0,Ui.dp(a,7));box.addView(v);return v;}
++    private EditText field(LinearLayout box,String label,String value,boolean numeric){text(box,label,12);EditText e=new EditText(a);e.setText(value);e.setTextSize(16);e.setTextColor(Ui.ink(a));e.setSingleLine(true);e.setSelectAllOnFocus(true);if(numeric)e.setInputType(InputType.TYPE_CLASS_NUMBER|InputType.TYPE_NUMBER_FLAG_DECIMAL);box.addView(e,new LinearLayout.LayoutParams(-1,-2));return e;}
++    private EditText time(LinearLayout box,String label,int ms){return field(box,label+" · 초",Times.seconds(ms),true);}
++    private void button(LinearLayout box,String label,Runnable action,boolean primary){Button b=Ui.button(a,label);b.setTextSize(14);if(primary){b.setBackground(Ui.rounded(Ui.accent(a),Ui.dp(a,14)));b.setTextColor(Ui.dark(a)?0xFF101828:0xFFFFFFFF);}LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(-1,Ui.dp(a,52));lp.setMargins(0,Ui.dp(a,8),0,0);box.addView(b,lp);b.setOnClickListener(v->{try{action.run();}catch(Exception e){Toast.makeText(a,e.getMessage()==null?"입력값을 확인하세요":e.getMessage(),Toast.LENGTH_LONG).show();}});}
++    private int integer(EditText e){try{return Integer.parseInt(e.getText().toString().trim());}catch(Exception x){throw new IllegalArgumentException("횟수와 새로고침 간격은 정수로 입력하세요");}}
++    private int millis(EditText e){return Times.millis(e.getText().toString());}
++    private void next(int n){SetupFlow.stage(a,n);a.refreshSetup();}
++    public void render(LinearLayout page){
++        int step=SetupFlow.stage(a);WatchConfig p=WatchStore.load(a);
++        String[] titles={"어떤 글자를 찾을까요?","어디에서 찾을까요?","들어간 뒤 할 동작 녹화","횟수와 대기 시간","준비가 끝났어요"};
++        text(page,(step+1)+" / 5  ·  순서대로 설정",12).setTextColor(Ui.accent(a));text(page,titles[step],23);
++        if(step==0){
++            text(page,"찾을 글자를 입력하면 다음 단계에서 화면의 위치를 정합니다.",13);
++            EditText word=field(page,"찾을 글자",p.rule.text,false);
++            button(page,"다음 · 탐지 영역 정하기",()->{p.rule.text=word.getText().toString().trim();WatchStore.save(a,p);next(1);},true);
++        }else if(step==1){
++            text(page,"네모 영역을 최대 6개까지 순서대로 그리세요. 매번 1순위부터 확인해 처음 글자가 있는 영역을 실행합니다. 영역은 서로 겹치지 않게 지정하세요.",14);
++            for(int i=0;i<p.priorityAreas.size();i++){final int index=i;button(page,(i+1)+"순위 영역 다시 지정",()->{SetupFlow.areaIndex(a,index);a.setupOutside("REGION");},false);}
++            if(p.priorityAreas.size()<6)button(page,(p.priorityAreas.size()+1)+"순위 영역 추가",()->{SetupFlow.areaIndex(a,p.priorityAreas.size());a.setupOutside("REGION");},p.priorityAreas.isEmpty());
++            if(!p.priorityAreas.isEmpty()){
++                button(page,"다음 · 매크로 녹화",()->next(2),true);
++                button(page,"마지막 순위 영역 삭제",()->{p.priorityAreas.remove(p.priorityAreas.size()-1);WatchStore.save(a,p);a.refreshSetup();},false);
++            }else if(p.rule.left!=0||p.rule.top!=0||p.rule.right!=100||p.rule.bottom!=100)button(page,"기존 영역을 1순위로 사용",()->{p.priorityAreas.add(new WatchArea(p.rule.left,p.rule.top,p.rule.right,p.rule.bottom));WatchStore.save(a,p);a.refreshSetup();},false);
++        }else if(step==2){
++            text(page,"대상 앱에서 글자를 직접 눌러 들어간 뒤 ‘녹화 시작’을 누르세요. 안에서 할 동작을 한 세트만 녹화하고 ‘완료’를 누르면 자동 저장됩니다.",14);
++            text(page,"들어가는 터치와 마지막 뒤로가기는 앱이 처리합니다. 녹화에는 넣지 마세요.",13);
++            EditText name=field(page,"작업 이름",SetupFlow.name(a),false);
++            button(page,SetupFlow.pending(a)?"임시 녹화 이어서 하기":"대상 앱에서 녹화 준비",()->{SetupFlow.name(a,name.getText().toString());a.setupOutside("RECORD");},true);
++            if(SetupFlow.pending(a))button(page,"임시 녹화 취소",()->{SetupFlow.cancelDraft(a);a.refreshSetup();},false);
++            button(page,"저장한 매크로 사용",()->chooseMacro(p),false);
++        }else if(step==3){
++            text(page,"단계 사이에 기다릴 시간을 직접 정하세요. 0.5는 반 초, 1.5는 1.5초입니다.",13);
++            EditText repeats=field(page,"매크로 전체 반복 · 회",Integer.toString(p.repetitions),true);
++            EditText entry=time(page,"글자 터치 → 매크로 시작",p.entryMs);
++            EditText gap=time(page,"매크로 한 회 → 다음 회",p.repeatGapMs);
++            EditText back=time(page,"매크로 모두 완료 → 뒤로가기",p.beforeBackMs);
++            EditText returned=time(page,"뒤로가기 → 목록 화면 대기",p.returnMs);
++            LinearLayout cooldownRow=new LinearLayout(a);page.addView(cooldownRow);LinearLayout minutesBox=new LinearLayout(a),secondsBox=new LinearLayout(a);minutesBox.setOrientation(LinearLayout.VERTICAL);secondsBox.setOrientation(LinearLayout.VERTICAL);cooldownRow.addView(minutesBox,new LinearLayout.LayoutParams(0,-2,1));cooldownRow.addView(secondsBox,new LinearLayout.LayoutParams(0,-2,1));
++            EditText cooldownMinutes=field(minutesBox,"완료 후 쉬는 시간 · 분",Integer.toString(p.cooldownMs/60000),true),cooldownSeconds=time(secondsBox,"추가",p.cooldownMs%60000);
++            EditText interval=field(page,"그 이후 새로고침 간격 · 초",Integer.toString(p.intervalSeconds),true);
++            EditText settle=time(page,"새로고침 → 글자 탐지",p.settleMs);
++            EditText start=time(page,"시작 버튼 → 첫 탐지",p.startMs);
++            text(page,"완료 후에는 정한 시간을 쉬고 새로고침하기 전까지 다시 누르지 않습니다. 새로고침 후에는 1순위부터 다시 확인하며, 같은 2순위에 글자가 있어도 다시 실행합니다.",13);
++            button(page,"다음 · 실행 준비",()->{p.repetitions=integer(repeats);p.entryMs=millis(entry);p.repeatGapMs=millis(gap);p.beforeBackMs=millis(back);p.returnMs=millis(returned);p.cooldownMs=Times.minutesAndSeconds(integer(cooldownMinutes),cooldownSeconds.getText().toString());p.intervalSeconds=integer(interval);p.settleMs=millis(settle);p.startMs=millis(start);p.tapFound=true;p.waitForRefresh=true;p.preventDuplicate=false;WatchStore.save(a,p);WatchStore.resolve(a,p);next(4);},true);
++        }else{
++            text(page,"1~"+p.areaCount()+"순위에서 “"+p.rule.text+"” 발견 → 들어가기\n"+p.macroName+" · "+p.repetitions+"회 반복\n뒤로가기 → "+Times.durationLabel(p.cooldownMs)+" 쉬기\n첫 새로고침 후 "+p.intervalSeconds+"초 간격 새로고침",16);
++            text(page,"쉬는 동안에는 재실행하지 않습니다. 새로고침 후에는 1순위부터 다시 확인하고, 같은 영역의 글자도 다시 실행합니다.",13);
++            text(page,"대상 앱의 목록 화면으로 돌아간 뒤 작은 안내창에서 시작하세요. 하단에 현재 단계와 한 바퀴·전체 시간이 표시됩니다.",13);
++            button(page,"대상 앱으로 이동해서 시작",()->{WatchStore.resolve(a,p);a.setupOutside("START");},true);
++            button(page,"설정을 저장하고 안내 닫기",()->{SetupFlow.finished(a);a.refreshSetup();},false);
++        }
++        if(step>0)button(page,"이전 단계",()->next(step-1),false);
++    }
++    private void chooseMacro(WatchConfig p){
++        if(SetupFlow.pending(a))throw new IllegalStateException("먼저 임시 녹화를 마치거나 취소하세요");
++        LinkedHashMap<String,Macro> all=Store.library(a);ArrayList<String> keys=new ArrayList<>();keys.add("");keys.addAll(all.keySet());ArrayList<String> labels=new ArrayList<>();labels.add("현재 매크로 · "+Store.load(a).name);labels.addAll(all.keySet());
++        AlertDialog d=new AlertDialog.Builder(a).setTitle("사용할 매크로").setItems(labels.toArray(new String[0]),(dialog,index)->{try{p.macroName=keys.get(index);WatchStore.resolve(a,p);if(p.macroName.isEmpty()){Macro current=Store.load(a);if(Store.library(a).containsKey(current.name))current.name=current.name+" · 안내용 "+System.currentTimeMillis();Store.put(a,current);p.macroName=current.name;}WatchStore.save(a,p);next(3);}catch(Exception e){Toast.makeText(a,e.getMessage(),Toast.LENGTH_LONG).show();}}).setNegativeButton("취소",null).create();d.setOnShowListener(v->Ui.font(d.getWindow().getDecorView()));d.show();
++    }
++}
+--- 5차/source/app/src/main/java/kr/yunseok/touchmacro/Step.java
++++ 6차/source/app/src/main/java/kr/yunseok/touchmacro/Step.java
+@@ -42,6 +42,7 @@
+         boolean known=false;for(String t:TYPES)if(t.equals(type))known=true;
+         if(!known)throw new IllegalArgumentException("알 수 없는 동작");
+         if(!Double.isFinite(x)||!Double.isFinite(y)||!Double.isFinite(x2)||!Double.isFinite(y2)||x<0||x>100||y<0||y>100||x2<0||x2>100||y2<0||y2>100)throw new IllegalArgumentException("좌표는 0~100%입니다");
++        if(repeat<1||repeat>1000)throw new IllegalArgumentException("개별 동작 반복은 1~1000회입니다");
+         if(duration<1||duration>600000||after<0||after>600000||repeat<1||repeat>1000||timeout<0||timeout>600000||retries<0||retries>100||retryDelay<300||retryDelay>600000||occurrence<1||occurrence>100)throw new IllegalArgumentException("시간·반복 횟수 범위를 확인하세요");
+         if((type.equals("LONG")||type.equals("SWIPE"))&&duration>59000)throw new IllegalArgumentException("길게 누르기·스와이프는 최대 59초입니다");
+         if(textAction()&&text.trim().isEmpty())throw new IllegalArgumentException("찾을 글자를 입력하세요");
+--- 5차/source/app/src/main/java/kr/yunseok/touchmacro/Times.java
++++ 6차/source/app/src/main/java/kr/yunseok/touchmacro/Times.java
+@@ -10,6 +10,8 @@
+         return BigDecimal.valueOf(millis,3).stripTrailingZeros().toPlainString();
+     }
+     public static String label(int millis) { return seconds(millis)+"초"; }
++    public static String durationLabel(int millis){return millis>=60000?(millis/60000)+"분"+(millis%60000==0?"":" "+label(millis%60000)):label(millis);}
++    public static int minutesAndSeconds(int minutes,String seconds){int extra=millis(seconds);if(minutes<0||minutes>1440||extra>=60000)throw new IllegalArgumentException("분은 0~1440, 추가 초는 0~60 미만으로 입력하세요");return minutes*60000+extra;}
+     public static int millis(String seconds) {
+         try {
+             BigDecimal value=new BigDecimal(seconds.trim());
+--- 5차/source/app/src/main/java/kr/yunseok/touchmacro/WatchArea.java
++++ 6차/source/app/src/main/java/kr/yunseok/touchmacro/WatchArea.java
+@@ -0,0 +1,11 @@
++package kr.yunseok.touchmacro;
++import org.json.JSONObject;
++/** A numbered, non-overlapping priority rectangle, in screen percentages. */
++public final class WatchArea {
++ public double left,top,right,bottom;
++ public WatchArea(double l,double t,double r,double b){left=l;top=t;right=r;bottom=b;}
++ public WatchArea(JSONObject o){this(o.optDouble("left"),o.optDouble("top"),o.optDouble("right"),o.optDouble("bottom"));}
++ public JSONObject json(){try{return new JSONObject().put("left",left).put("top",top).put("right",right).put("bottom",bottom);}catch(Exception e){throw new IllegalStateException(e);}}
++ public boolean overlaps(WatchArea other){return Math.max(left,other.left)<Math.min(right,other.right)&&Math.max(top,other.top)<Math.min(bottom,other.bottom);}
++ public void apply(Step s){s.left=left;s.top=top;s.right=right;s.bottom=bottom;}
++}
+--- 5차/source/app/src/main/java/kr/yunseok/touchmacro/WatchConfig.java
++++ 6차/source/app/src/main/java/kr/yunseok/touchmacro/WatchConfig.java
+@@ -4,9 +4,14 @@
+ 
+ /** A saved detection profile. It owns no macro steps and never changes the user's macro. */
+ public final class WatchConfig {
++    public final java.util.ArrayList<WatchArea> priorityAreas=new java.util.ArrayList<>();
+     public Step rule = new Step("TEXT_WAIT");
+     public String macroName = "";
+     public int intervalSeconds = 10, repetitions = 15, entryMs = 1500, settleMs = 1500, returnMs = 1500, backCount = 1, maxMinutes = 0;
++    public int startMs=3000,repeatGapMs=1000,beforeBackMs=0,rearmMs=2000;
++    public int cooldownMs=600000;
++    public String targetPackage="";
++    public boolean preventDuplicate=false;
+     public String direction = "PULL_DOWN";
+     public boolean tapFound = true, waitForRefresh = true;
+     public WatchConfig() { rule.text="확인"; rule.timeout=0; rule.failure="STOP"; }
+@@ -16,6 +21,10 @@
+         rule.type="TEXT_WAIT";rule.timeout=0;
+         macroName=o.optString("macroName","");intervalSeconds=o.optInt("intervalSeconds",10);
+         repetitions=o.optInt("repetitions",15);entryMs=o.optInt("entryMs",1500);
++        startMs=o.optInt("startMs",3000);repeatGapMs=o.optInt("repeatGapMs",1000);beforeBackMs=o.optInt("beforeBackMs",0);rearmMs=o.optInt("rearmMs",2000);
++        cooldownMs=o.optInt("cooldownMs",600000);
++        org.json.JSONArray areas=o.optJSONArray("priorityAreas");if(areas!=null){if(areas.length()>6)throw new IllegalArgumentException("우선순위 영역은 최대 6개입니다");for(int i=0;i<areas.length();i++)priorityAreas.add(new WatchArea(areas.optJSONObject(i)));}
++        targetPackage=o.optString("targetPackage","");preventDuplicate=o.optBoolean("preventDuplicate",false);
+         settleMs=o.optInt("settleMs",1500);returnMs=o.optInt("returnMs",1500);
+         backCount=o.optInt("backCount",1);maxMinutes=o.optInt("maxMinutes",0);
+         direction=o.optString("direction","PULL_DOWN");tapFound=o.optBoolean("tapFound",true);waitForRefresh=o.optBoolean("waitForRefresh",true);
+@@ -23,16 +32,24 @@
+         if(!o.has("repetitions")){intervalSeconds=10;tapFound=true;waitForRefresh=true;}
+     }
+     public JSONObject json() {
+-        try{return new JSONObject().put("rule",rule.json()).put("macroName",macroName)
++        org.json.JSONArray areas=new org.json.JSONArray();for(WatchArea area:priorityAreas)areas.put(area.json());
++        try{return new JSONObject().put("priorityAreas",areas).put("rule",rule.json()).put("macroName",macroName)
+             .put("intervalSeconds",intervalSeconds).put("repetitions",repetitions).put("entryMs",entryMs).put("settleMs",settleMs).put("returnMs",returnMs)
++            .put("startMs",startMs).put("repeatGapMs",repeatGapMs).put("beforeBackMs",beforeBackMs).put("rearmMs",rearmMs).put("targetPackage",targetPackage).put("preventDuplicate",preventDuplicate)
++            .put("cooldownMs",cooldownMs)
+             .put("backCount",backCount).put("maxMinutes",maxMinutes).put("direction",direction).put("tapFound",tapFound).put("waitForRefresh",waitForRefresh);
+         }catch(Exception e){throw new IllegalStateException(e);}
+     }
+     public void validate() {
+         rule.validate(1);
++        if(priorityAreas.size()>6)throw new IllegalArgumentException("우선순위 영역은 최대 6개입니다");
++        for(int i=0;i<priorityAreas.size();i++){Step s=new Step(rule.json());priorityAreas.get(i).apply(s);s.validate(1);for(int j=0;j<i;j++)if(priorityAreas.get(i).overlaps(priorityAreas.get(j)))throw new IllegalArgumentException("우선순위 영역은 서로 겹치지 않게 그려 주세요");}
+         if(intervalSeconds<1||intervalSeconds>86400)throw new IllegalArgumentException("새로고침 간격은 1~86400초입니다");
+         if(repetitions<1||repetitions>100000)throw new IllegalArgumentException("매크로 반복은 1~100000회입니다");
+         if(entryMs<300||entryMs>60000||settleMs<300||settleMs>60000||returnMs<300||returnMs>60000)throw new IllegalArgumentException("화면 대기는 0.3~60초입니다");
++        if(startMs<0||startMs>600000||repeatGapMs<0||repeatGapMs>600000||beforeBackMs<0||beforeBackMs>600000||rearmMs<1000||rearmMs>60000)throw new IllegalArgumentException("단계 대기는 0~600초, 사라짐 확인은 1~60초입니다");
++        if(cooldownMs<0||cooldownMs>86400000)throw new IllegalArgumentException("완료 후 대기는 0~86400초입니다");
++        if(!targetPackage.isEmpty()&&!targetPackage.matches("[a-zA-Z][a-zA-Z0-9_]*(\\.[a-zA-Z0-9_]+)+"))throw new IllegalArgumentException("대상 앱을 다시 지정하세요");
+         if(backCount<1||backCount>10)throw new IllegalArgumentException("뒤로가기는 1~10회입니다");
+         if(maxMinutes<0||maxMinutes>1440)throw new IllegalArgumentException("탐지 제한 시간은 0~1440분입니다");
+         if(!direction.equals("PULL_DOWN")&&!direction.equals("SCROLL_DOWN"))throw new IllegalArgumentException("새로고침 방향을 확인하세요");
+@@ -45,9 +62,12 @@
+     public Macro prepareMacro(Macro original) {
+         validate();
+         Macro m=new Macro(original.json());
+-        m.rounds=repetitions;m.startAt=1;
++        m.rounds=repetitions;m.startAt=1;m.gap=repeatGapMs;m.startDelay=0;
+         validateMacro(m);return m;
+     }
++    public String lockKey(){return targetPackage+"|"+rule.text+"|"+rule.match+"|"+rule.source+"|"+rule.occurrence+"|"+rule.left+","+rule.top+","+rule.right+","+rule.bottom;}
++    public int areaCount(){return priorityAreas.isEmpty()?1:priorityAreas.size();}
++    public WatchConfig areaConfig(int index){WatchConfig p=new WatchConfig(json());if(!priorityAreas.isEmpty()){priorityAreas.get(index).apply(p.rule);p.rule.occurrence=1;}p.priorityAreas.clear();return p;}
+     public double swipeStartY(){return direction.equals("PULL_DOWN")?30:75;}
+     public double swipeEndY(){return direction.equals("PULL_DOWN")?75:30;}
+ }
+--- 5차/source/app/src/main/java/kr/yunseok/touchmacro/WatchGate.java
++++ 6차/source/app/src/main/java/kr/yunseok/touchmacro/WatchGate.java
+@@ -0,0 +1,20 @@
++package kr.yunseok.touchmacro;
++
++/** Reserve before entering. Only repeated, stable absence can release the reservation. */
++public final class WatchGate {
++    private boolean blocked;
++    private long absentSince=-1;
++    private int absentScans;
++    public WatchGate(boolean blocked){this.blocked=blocked;}
++    public boolean blocked(){return blocked;}
++    public void reserve(){blocked=true;interruptAbsence();}
++    public void interruptAbsence(){absentSince=-1;absentScans=0;}
++    public boolean observe(boolean present,long now,int minimumAbsenceMs){
++        if(!blocked)return present;
++        if(present){interruptAbsence();return false;}
++        if(absentSince<0)absentSince=now;
++        absentScans++;
++        if(absentScans>=2&&now-absentSince>=minimumAbsenceMs){blocked=false;interruptAbsence();}
++        return false;
++    }
++}
+--- 5차/source/app/src/main/java/kr/yunseok/touchmacro/WatchStore.java
++++ 6차/source/app/src/main/java/kr/yunseok/touchmacro/WatchStore.java
+@@ -2,6 +2,13 @@
+ import android.content.Context;
+ import org.json.JSONObject;
+ public final class WatchStore {
++    public static boolean blocked(Context c,WatchConfig p){return Ui.prefs(c).getStringSet("watch_locks",java.util.Collections.emptySet()).contains(p.lockKey())||Ui.prefs(c).getString("watch_lock","").equals(p.lockKey());}
++    public static void blocked(Context c,WatchConfig p,boolean value){
++        android.content.SharedPreferences.Editor e=Ui.prefs(c).edit();java.util.HashSet<String> locks=new java.util.HashSet<>(Ui.prefs(c).getStringSet("watch_locks",java.util.Collections.emptySet()));
++        String old=Ui.prefs(c).getString("watch_lock","");if(!old.isEmpty())locks.add(old);
++        if(value)locks.add(p.lockKey());else locks.remove(p.lockKey());e.putStringSet("watch_locks",locks).remove("watch_lock");
++        if(!e.commit())throw new IllegalStateException("중복 방지 상태를 저장하지 못했습니다");
++    }
+     public static WatchConfig load(Context c){try{return new WatchConfig(new JSONObject(Ui.prefs(c).getString("watch_config","{}")));}catch(Exception e){return new WatchConfig();}}
+     public static void save(Context c,WatchConfig p){p.validate();Ui.prefs(c).edit().putString("watch_config",p.json().toString()).apply();}
+     public static Macro resolve(Context c,WatchConfig p){
+--- 5차/source/app/src/test/java/kr/yunseok/touchmacro/RepeatMeaningTest.java
++++ 6차/source/app/src/test/java/kr/yunseok/touchmacro/RepeatMeaningTest.java
+@@ -0,0 +1,7 @@
++package kr.yunseok.touchmacro;
++import org.junit.Test;import static org.junit.Assert.*;
++public class RepeatMeaningTest {
++ @Test public void individualRepeatAcceptsOneThroughOneThousand(){Step s=new Step("TAP");s.repeat=1;s.validate(1);s.repeat=1000;s.validate(1);assertEquals(1000,new Step(s.json()).repeat);}
++ @Test(expected=IllegalArgumentException.class) public void individualRepeatRejectsZero(){Step s=new Step("TAP");s.repeat=0;s.validate(1);}
++ @Test(expected=IllegalArgumentException.class) public void individualRepeatRejectsOneThousandAndOne(){Step s=new Step("TAP");s.repeat=1001;s.validate(1);}
++}
+--- 5차/source/app/src/test/java/kr/yunseok/touchmacro/TimesTest.java
++++ 6차/source/app/src/test/java/kr/yunseok/touchmacro/TimesTest.java
+@@ -3,6 +3,7 @@
+ import static org.junit.Assert.*;
+ public class TimesTest {
+     @Test public void secondsAreReadableAndLosslessForSavedTimings(){for(int value:new int[]{0,1,100,300,500,1000,1500,59000,600000})assertEquals(value,Times.millis(Times.seconds(value)));assertEquals("1",Times.seconds(1000));assertEquals("1.5초",Times.label(1500));assertEquals("0.1초",new Step("WAIT").detail());}
++    @Test public void minutesAndSecondsAreHumanReadable(){assertEquals(600000,Times.minutesAndSeconds(10,"0"));assertEquals(90250,Times.minutesAndSeconds(1,"30.25"));assertEquals("10분",Times.durationLabel(600000));}
+     @Test public void decimalInputUsesSeconds(){assertEquals(1500,Times.millis("1.5"));assertEquals(500,Times.millis(" 0.5 "));assertEquals(10000,Times.millis("10"));}
+     @Test(expected=IllegalArgumentException.class) public void rejectsNegative(){Times.millis("-1");}
+     @Test(expected=IllegalArgumentException.class) public void rejectsNonNumber(){Times.millis("NaN");}
+--- 5차/source/app/src/test/java/kr/yunseok/touchmacro/WatchGateTest.java
++++ 6차/source/app/src/test/java/kr/yunseok/touchmacro/WatchGateTest.java
+@@ -0,0 +1,14 @@
++package kr.yunseok.touchmacro;
++import org.junit.Test;import static org.junit.Assert.*;
++public class WatchGateTest {
++ @Test public void reservesBeforeEntryAndBlocksEveryPresentResult(){WatchGate g=new WatchGate(false);assertTrue(g.observe(true,0,2000));g.reserve();assertFalse(g.observe(true,10000,2000));assertTrue(g.blocked());}
++ @Test public void oneMissingScanNeverRearms(){WatchGate g=new WatchGate(true);assertFalse(g.observe(false,100,2000));assertTrue(g.blocked());assertFalse(g.observe(true,10000,2000));assertTrue(g.blocked());}
++ @Test public void requiresTwoAbsentScansAcrossTimeAndThenNewAppearance(){WatchGate g=new WatchGate(true);assertFalse(g.observe(false,100,2000));assertFalse(g.observe(false,2099,2000));assertTrue(g.blocked());assertFalse(g.observe(false,2100,2000));assertFalse(g.blocked());assertTrue(g.observe(true,2200,2000));}
++ @Test public void presenceAndInterruptedContextResetAbsence(){WatchGate g=new WatchGate(true);g.observe(false,0,2000);g.observe(true,1500,2000);g.observe(false,2100,2000);assertTrue(g.blocked());g.interruptAbsence();g.observe(false,8000,2000);assertTrue(g.blocked());}
++ @Test public void restoredReservationStartsBlocked(){WatchGate g=new WatchGate(true);assertFalse(g.observe(true,5000,2000));assertTrue(g.blocked());}
++ @Test public void profileTimingsAndLockSurviveSave(){WatchConfig p=new WatchConfig();p.startMs=500;p.beforeBackMs=250;p.repeatGapMs=125;p.rearmMs=3000;p.targetPackage="com.example.target";WatchConfig q=new WatchConfig(p.json());q.validate();assertFalse(q.preventDuplicate);assertEquals(p.lockKey(),q.lockKey());assertEquals(125,q.repeatGapMs);assertEquals(250,q.beforeBackMs);Macro m=new Macro();m.steps.add(new Step("WAIT"));m.startDelay=8000;m.gap=2000;Macro prepared=q.prepareMacro(m);assertEquals(0,prepared.startDelay);assertEquals(125,prepared.gap);assertEquals(8000,m.startDelay);}
++ @Test(expected=IllegalArgumentException.class) public void rejectsTooShortAbsence(){WatchConfig p=new WatchConfig();p.rearmMs=500;p.validate();}
++ @Test public void sixExplicitPrioritiesPreserveTheirOrderAndIndependentLocks(){WatchConfig p=new WatchConfig();for(int i=5;i>=0;i--)p.priorityAreas.add(new WatchArea((i%2)*50,(i/2)*30,(i%2)*50+45,(i/2)*30+25));WatchConfig q=new WatchConfig(p.json());q.validate();assertEquals(6,q.areaCount());assertEquals(50,q.areaConfig(0).rule.left,0);assertEquals(60,q.areaConfig(0).rule.top,0);assertNotEquals(q.areaConfig(0).lockKey(),q.areaConfig(1).lockKey());assertEquals(600000,q.cooldownMs);assertEquals(10,q.intervalSeconds);}
++ @Test(expected=IllegalArgumentException.class) public void rejectsOverlappingPriorityBoxes(){WatchConfig p=new WatchConfig();p.priorityAreas.add(new WatchArea(0,0,50,50));p.priorityAreas.add(new WatchArea(25,25,75,75));p.validate();}
++ @Test(expected=IllegalArgumentException.class) public void rejectsSeventhPriority(){WatchConfig p=new WatchConfig();for(int i=0;i<7;i++)p.priorityAreas.add(new WatchArea(0,i*10,50,i*10+5));p.validate();}
++}
+--- 5차/source/local.properties
++++ 6차/source/local.properties
+@@ -1 +1 @@
+-sdk.dir=C:/Users/PUVKID/AppData/Local/Temp/NEX_Build_5/android/android-sdk+sdk.dir=C:/Users/PUVKID/AppData/Local/Temp/NEX_Build_6/android/android-sdk--- 5차/source/빌드.ps1
++++ 6차/source/빌드.ps1
+@@ -1,8 +1,8 @@
+ $ErrorActionPreference = 'Stop'
+ $projectRoot4 = Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
+-$bridgeTarget4 = Join-Path $projectRoot4 'work\build5'
+-$bridge4 = Join-Path $env:TEMP 'NEX_Build_5'
+-if (!(Test-Path -LiteralPath $bridgeTarget4)) { throw '프로젝트 work\build5 연결 폴더가 없습니다.' }
++$bridgeTarget4 = Join-Path $projectRoot4 'work\build6'
++$bridge4 = Join-Path $env:TEMP 'NEX_Build_6'
++if (!(Test-Path -LiteralPath $bridgeTarget4)) { throw '프로젝트 work\build6 연결 폴더가 없습니다.' }
+ if (Test-Path -LiteralPath $bridge4) {
+     $existing4 = Get-Item -LiteralPath $bridge4
+     if ($existing4.LinkType -ne 'Junction' -or $existing4.Target -ne $bridgeTarget4) { throw '임시 빌드 경로가 다른 항목에서 사용 중입니다.' }
+--- 5차/source/빌드방법.txt
++++ 6차/source/빌드방법.txt
+@@ -1,12 +1,13 @@
+-NEX 5차 소스 빌드
++NEX 6차 소스 빌드
+ 
+-source 폴더에 전체 Android 프로젝트가 있습니다.
+-이 PC에서는 source\빌드.ps1을 PowerShell로 실행합니다.
+-프로젝트의 work\build5 연결 폴더와 코드\NEXTools, work\tools, 코드\NEXSigning 도구를 사용합니다.
+-임시 폴더에 ASCII 빌드 경로를 만들어 Android SDK의 한글 경로 문제를 피합니다.
+-빌드 후 APK는 source\app\build\outputs\apk\release\app-release.apk입니다.
+-서명 키는 기존 앱 업데이트에 필요하며 이 소스 폴더에 포함하지 않습니다.
++source 폴더의 빌드.ps1은 JDK 17 / Gradle 8.13 / Android SDK 35로 휴대전화 APK를 빌드합니다.
++같은 Desktop 프로젝트 안의 work\build6 연결 경로와 코드\NEXTools, 코드\NEXSigning, work\tools를 사용합니다.
++서명 키는 소스에 포함하지 않습니다. 기존 설치 위에 업데이트하려면 같은 서명 키가 필요합니다.
++PC용은 같은 빌드 환경에서 Gradle :app:assembleRelease -PNEX_PC=true 로 빌드합니다.
++PC용 ABI는 arm64-v8a와 x86_64이며, 휴대전화 기본 릴리스는 arm64-v8a입니다.
++두 빌드 모두 결과 위치는 app\build\outputs\apk\release\app-release.apk입니다.
++휴대전화 빌드 결과를 먼저 별도 저장하고 PC용을 빌드해야 합니다.
+ 
+-필요 환경: JDK 17, Gradle 8.13, Android SDK 35.
+-검사: testDebugUnitTest, lintDebug.
+-기기 검사: Android 12에서 androidTest의 WatchPresetTest 및 WatchFlowTest 실행.
++검사: :app:testDebugUnitTest :app:lintDebug
++Android 12 기기 검사: GuidedFlowTest, PriorityFlowTest, RepeatFlowTest, WatchPresetTest, WatchFlowTest.
++기존 JSON의 내부 시간 단위는 호환을 위해 그대로 유지하고, 화면에서는 분/초로 변환합니다.
+--- 5차/검증/Android12_반복탐지검사.txt
++++ 6차/검증/Android12_반복탐지검사.txt
+@@ -1,9 +0,0 @@
+---------- beginning of main
+-10-19 04:23:30.220  1947  1962 I TestRunner: run started: 2 tests
+-10-19 04:23:30.221  1947  1962 I TestRunner: started: entersRunsExactlyFifteenBacksAndRefreshesAfterTenSeconds(kr.yunseok.touchmacro.WatchPresetTest)
+-10-19 04:23:51.311  1947  1962 I NEX_PRESET_QA: PASS: chosen text tapped to enter, named macro exactly 15 rounds (not 225), BACK, full 10-second refresh wait, second entry with exactly 15 more actions, saved macro preserved
+-10-19 04:23:51.314  1947  1962 I TestRunner: finished: entersRunsExactlyFifteenBacksAndRefreshesAfterTenSeconds(kr.yunseok.touchmacro.WatchPresetTest)
+-10-19 04:23:51.781  1947  1962 I TestRunner: started: regionRefreshMacroBackRepeatAndCancellation(kr.yunseok.touchmacro.WatchFlowTest)
+-10-19 04:24:43.139  1947  1962 I NEX_WATCH_QA: PASS: region exclusion, OCR trigger, saved macro execution, automatic BACK, refresh/repeat, optional duplicate delay, immediate return/re-detect, pause/stop cancellation, failure stops without BACK, compact collapsed control
+-10-19 04:24:43.146  1947  1962 I TestRunner: finished: regionRefreshMacroBackRepeatAndCancellation(kr.yunseok.touchmacro.WatchFlowTest)
+-10-19 04:24:43.609  1947  1962 I TestRunner: run finished: 2 tests, 0 failed, 0 ignored
+--- 5차/검증/Android12_전체흐름_6검사.txt
++++ 6차/검증/Android12_전체흐름_6검사.txt
+@@ -0,0 +1,21 @@
++--------- beginning of main
++10-19 05:00:19.247  2415  2430 I TestRunner: run started: 6 tests
++10-19 05:00:19.248  2415  2430 I TestRunner: started: duplicateLockSurvivesRefreshAndRestartUntilStableAbsence(kr.yunseok.touchmacro.GuidedFlowTest)
++10-19 05:00:42.573  2415  2430 I NEX_DUPLICATE_QA: PASS: exact 15 actions, refresh wait, same text blocked across multiple refreshes and restart, stable absence required, reappearance triggers next 15, live HUD and cycle/total timers, stop freezes totals
++10-19 05:00:42.573  2415  2430 I TestRunner: finished: duplicateLockSurvivesRefreshAndRestartUntilStableAbsence(kr.yunseok.touchmacro.GuidedFlowTest)
++10-19 05:00:43.036  2415  2430 I TestRunner: started: regionRecordingAutomaticallyReturnAndSaveDelays(kr.yunseok.touchmacro.GuidedFlowTest)
++10-19 05:00:48.352  2415  2430 I NEX_GUIDE_QA: PASS: word entry, real drawn region, automatic return, real recorded/replayed gesture, automatic named save, original macro restored, second-based delays saved, guide ready
++10-19 05:00:48.353  2415  2430 I TestRunner: finished: regionRecordingAutomaticallyReturnAndSaveDelays(kr.yunseok.touchmacro.GuidedFlowTest)
++10-19 05:00:48.761  2415  2430 I TestRunner: started: secondPriorityRepeatsAfterRefreshAndFirstPriorityWinsWhenPresent(kr.yunseok.touchmacro.PriorityFlowTest)
++10-19 05:00:57.471  2415  2430 I NEX_PRIORITY_QA: PASS: user-drawn bottom priority 1 and top priority 2, priority 2 selected when 1 absent, no rerun during cooldown, same priority 2 repeats after refresh, every refresh starts at priority 1, priority 1 wins once present
++10-19 05:00:57.472  2415  2430 I TestRunner: finished: secondPriorityRepeatsAfterRefreshAndFirstPriorityWinsWhenPresent(kr.yunseok.touchmacro.PriorityFlowTest)
++10-19 05:00:57.977  2415  2430 I TestRunner: started: editStepRepeatMeansThisStepThenNextAndWholeMacroRepeatsSeparately(kr.yunseok.touchmacro.RepeatFlowTest)
++10-19 05:00:59.730  2415  2430 I NEX_REPEAT_QA: PASS: edited step A repeat=3, B repeat=1, whole macro repeat=2 yields AAABAAAB (A6/B2), completion and next-action text retained
++10-19 05:00:59.750  2415  2430 I TestRunner: finished: editStepRepeatMeansThisStepThenNextAndWholeMacroRepeatsSeparately(kr.yunseok.touchmacro.RepeatFlowTest)
++10-19 05:01:00.388  2415  2430 I TestRunner: started: entersRunsExactlyFifteenBacksAndRefreshesAfterTenSeconds(kr.yunseok.touchmacro.WatchPresetTest)
++10-19 05:01:21.149  2415  2430 I NEX_PRESET_QA: PASS: chosen text tapped to enter, named macro exactly 15 rounds (not 225), BACK, full 10-second refresh wait, second entry with exactly 15 more actions, saved macro preserved
++10-19 05:01:21.150  2415  2430 I TestRunner: finished: entersRunsExactlyFifteenBacksAndRefreshesAfterTenSeconds(kr.yunseok.touchmacro.WatchPresetTest)
++10-19 05:01:21.563  2415  2430 I TestRunner: started: regionRefreshMacroBackRepeatAndCancellation(kr.yunseok.touchmacro.WatchFlowTest)
++10-19 05:02:10.385  2415  2430 I NEX_WATCH_QA: PASS: region exclusion, OCR trigger, saved macro execution, automatic BACK, refresh/repeat, optional duplicate delay, immediate return/re-detect, pause/stop cancellation, failure stops without BACK, compact collapsed control
++10-19 05:02:10.390  2415  2430 I TestRunner: finished: regionRefreshMacroBackRepeatAndCancellation(kr.yunseok.touchmacro.WatchFlowTest)
++10-19 05:02:10.857  2415  2430 I TestRunner: run finished: 6 tests, 0 failed, 0 ignored
+--- 5차/검증/testDebugUnitTest/TEST-kr.yunseok.touchmacro.GestureModelTest.xml
++++ 6차/검증/testDebugUnitTest/TEST-kr.yunseok.touchmacro.GestureModelTest.xml
+@@ -1,16 +1,16 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<testsuite name="kr.yunseok.touchmacro.GestureModelTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-10-19T04:22:42.187Z" hostname="DESKTOP-Q56I31F" time="0.014">
++<testsuite name="kr.yunseok.touchmacro.GestureModelTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-10-19T05:02:34.408Z" hostname="DESKTOP-Q56I31F" time="0.012">
+   <properties/>
+-  <testcase name="badStartNumberRejected" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.007"/>
++  <testcase name="badStartNumberRejected" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.006"/>
+   <testcase name="reversedRegionRejected" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
+-  <testcase name="pinchUsesSimultaneousTwoPaths" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.003"/>
++  <testcase name="pinchUsesSimultaneousTwoPaths" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.002"/>
+   <testcase name="multiTapCoordinatesStaySimultaneous" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
+   <testcase name="firstRoundStartNumberPreserved" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.001"/>
+   <testcase name="pinchOutsideScreenRejected" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
+   <testcase name="emptyRecordingRejected" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
+-  <testcase name="duplicatedRecordingDoesNotShareMutablePoints" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.002"/>
++  <testcase name="duplicatedRecordingDoesNotShareMutablePoints" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.001"/>
+   <testcase name="tooManyFingersRejected" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
+-  <testcase name="curveContainsControlShape" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
++  <testcase name="curveContainsControlShape" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.001"/>
+   <testcase name="recordedStrokeAndRegionRoundTrip" classname="kr.yunseok.touchmacro.GestureModelTest" time="0.0"/>
+   <system-out><![CDATA[]]></system-out>
+   <system-err><![CDATA[]]></system-err>
+--- 5차/검증/testDebugUnitTest/TEST-kr.yunseok.touchmacro.ModelTest.xml
++++ 6차/검증/testDebugUnitTest/TEST-kr.yunseok.touchmacro.ModelTest.xml
+@@ -1,15 +1,15 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<testsuite name="kr.yunseok.touchmacro.ModelTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-10-19T04:22:42.205Z" hostname="DESKTOP-Q56I31F" time="0.003">
++<testsuite name="kr.yunseok.touchmacro.ModelTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-10-19T05:02:34.423Z" hostname="DESKTOP-Q56I31F" time="0.002">
+   <properties/>
+   <testcase name="futureSchemaRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
+   <testcase name="nanCoordinateRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
+   <testcase name="invalidGotoRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
+-  <testcase name="invalidSourceRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
++  <testcase name="invalidSourceRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.001"/>
+   <testcase name="blankTargetRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
+   <testcase name="sampleHasFiniteBackRetries" classname="kr.yunseok.touchmacro.ModelTest" time="0.001"/>
+   <testcase name="negativeRetriesRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
+   <testcase name="emptyMacroRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
+-  <testcase name="serializePreservesTextAndBranchSettings" classname="kr.yunseok.touchmacro.ModelTest" time="0.001"/>
++  <testcase name="serializePreservesTextAndBranchSettings" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
+   <testcase name="missingBranchTargetRejected" classname="kr.yunseok.touchmacro.ModelTest" time="0.0"/>
+   <system-out><![CDATA[]]></system-out>
+   <system-err><![CDATA[]]></system-err>
+--- 5차/검증/testDebugUnitTest/TEST-kr.yunseok.touchmacro.RepeatMeaningTest.xml
++++ 6차/검증/testDebugUnitTest/TEST-kr.yunseok.touchmacro.RepeatMeaningTest.xml
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<testsuite name="kr.yunseok.touchmacro.RepeatMeaningTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-19T05:02:34.428Z" hostname="DESKTOP-Q56I31F" time="0.0">
++  <properties/>
++  <testcase name="individualRepeatAcceptsOneThroughOneThousand" classname="kr.yunseok.touchmacro.RepeatMeaningTest" time="0.0"/>
++  <testcase name="individualRepeatRejectsOneThousandAndOne" classname="kr.yunseok.touchmacro.RepeatMeaningTest" time="0.0"/>
++  <testcase name="individualRepeatRejectsZero" classname="kr.yunseok.touchmacro.RepeatMeaningTest" time="0.0"/>
++  <system-out><![CDATA[]]></system-out>
++  <system-err><![CDATA[]]></system-err>
++</testsuite>
+--- 5차/검증/testDebugUnitTest/TEST-kr.yunseok.touchmacro.TextRulesTest.xml
++++ 6차/검증/testDebugUnitTest/TEST-kr.yunseok.touchmacro.TextRulesTest.xml
+@@ -1,11 +1,11 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<testsuite name="kr.yunseok.touchmacro.TextRulesTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-10-19T04:22:42.211Z" hostname="DESKTOP-Q56I31F" time="0.004">
++<testsuite name="kr.yunseok.touchmacro.TextRulesTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-10-19T05:02:34.430Z" hostname="DESKTOP-Q56I31F" time="0.004">
+   <properties/>
+   <testcase name="containsAndCase" classname="kr.yunseok.touchmacro.TextRulesTest" time="0.002"/>
+   <testcase name="regexDoesNotDestroyExpression" classname="kr.yunseok.touchmacro.TextRulesTest" time="0.001"/>
+   <testcase name="unicodeNormalization" classname="kr.yunseok.touchmacro.TextRulesTest" time="0.0"/>
+   <testcase name="koreanSpaceAndExact" classname="kr.yunseok.touchmacro.TextRulesTest" time="0.0"/>
+-  <testcase name="invalidRegexFails" classname="kr.yunseok.touchmacro.TextRulesTest" time="0.001"/>
++  <testcase name="invalidRegexFails" classname="kr.yunseok.touchmacro.TextRulesTest" time="0.0"/>
+   <testcase name="neverMatchEmptyTarget" classname="kr.yunseok.touchmacro.TextRulesTest" time="0.0"/>
+   <system-out><![CDATA[]]></system-out>
+   <system-err><![CDATA[]]></system-err>
+--- 5차/검증/testDebugUnitTest/TEST-kr.yunseok.touchmacro.TimesTest.xml
++++ 6차/검증/testDebugUnitTest/TEST-kr.yunseok.touchmacro.TimesTest.xml
+@@ -1,11 +1,12 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<testsuite name="kr.yunseok.touchmacro.TimesTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-10-19T04:22:42.217Z" hostname="DESKTOP-Q56I31F" time="0.002">
++<testsuite name="kr.yunseok.touchmacro.TimesTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-10-19T05:02:34.435Z" hostname="DESKTOP-Q56I31F" time="0.002">
+   <properties/>
+   <testcase name="rejectsBeyondPrecision" classname="kr.yunseok.touchmacro.TimesTest" time="0.001"/>
+   <testcase name="rejectsOverflow" classname="kr.yunseok.touchmacro.TimesTest" time="0.0"/>
+-  <testcase name="rejectsNegative" classname="kr.yunseok.touchmacro.TimesTest" time="0.001"/>
+-  <testcase name="secondsAreReadableAndLosslessForSavedTimings" classname="kr.yunseok.touchmacro.TimesTest" time="0.0"/>
++  <testcase name="rejectsNegative" classname="kr.yunseok.touchmacro.TimesTest" time="0.0"/>
++  <testcase name="secondsAreReadableAndLosslessForSavedTimings" classname="kr.yunseok.touchmacro.TimesTest" time="0.001"/>
+   <testcase name="rejectsNonNumber" classname="kr.yunseok.touchmacro.TimesTest" time="0.0"/>
++  <testcase name="minutesAndSecondsAreHumanReadable" classname="kr.yunseok.touchmacro.TimesTest" time="0.0"/>
+   <testcase name="decimalInputUsesSeconds" classname="kr.yunseok.touchmacro.TimesTest" time="0.0"/>
+   <system-out><![CDATA[]]></system-out>
+   <system-err><![CDATA[]]></system-err>
+--- 5차/검증/testDebugUnitTest/TEST-kr.yunseok.touchmacro.WatchConfigTest.xml
++++ 6차/검증/testDebugUnitTest/TEST-kr.yunseok.touchmacro.WatchConfigTest.xml
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<testsuite name="kr.yunseok.touchmacro.WatchConfigTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-10-19T04:22:42.221Z" hostname="DESKTOP-Q56I31F" time="0.002">
++<testsuite name="kr.yunseok.touchmacro.WatchConfigTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-10-19T05:02:34.439Z" hostname="DESKTOP-Q56I31F" time="0.002">
+   <properties/>
+   <testcase name="rejectsAllDisabled" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.001"/>
+   <testcase name="fifthRoundCustomValuesAreNotReset" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.0"/>
+@@ -7,7 +7,7 @@
+   <testcase name="rejectsZeroRepetitions" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.0"/>
+   <testcase name="rejectsBackwardsRegion" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.0"/>
+   <testcase name="rejectsEmptyText" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.0"/>
+-  <testcase name="ownCountOverridesMacroCountWithoutMultiplyingOrMutating" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.001"/>
++  <testcase name="ownCountOverridesMacroCountWithoutMultiplyingOrMutating" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.0"/>
+   <testcase name="migratesFourthRoundButKeepsWordRegionAndMacro" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.0"/>
+   <testcase name="endlessSourceStillBecomesFinite" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.0"/>
+   <testcase name="defaultIsEnterFifteenRoundsAndTenSecondRefresh" classname="kr.yunseok.touchmacro.WatchConfigTest" time="0.0"/>
+--- 5차/검증/testDebugUnitTest/TEST-kr.yunseok.touchmacro.WatchGateTest.xml
++++ 6차/검증/testDebugUnitTest/TEST-kr.yunseok.touchmacro.WatchGateTest.xml
+@@ -0,0 +1,16 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<testsuite name="kr.yunseok.touchmacro.WatchGateTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-10-19T05:02:34.443Z" hostname="DESKTOP-Q56I31F" time="0.003">
++  <properties/>
++  <testcase name="requiresTwoAbsentScansAcrossTimeAndThenNewAppearance" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.001"/>
++  <testcase name="rejectsSeventhPriority" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.0"/>
++  <testcase name="rejectsTooShortAbsence" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.0"/>
++  <testcase name="profileTimingsAndLockSurviveSave" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.001"/>
++  <testcase name="reservesBeforeEntryAndBlocksEveryPresentResult" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.0"/>
++  <testcase name="presenceAndInterruptedContextResetAbsence" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.0"/>
++  <testcase name="sixExplicitPrioritiesPreserveTheirOrderAndIndependentLocks" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.001"/>
++  <testcase name="rejectsOverlappingPriorityBoxes" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.0"/>
++  <testcase name="oneMissingScanNeverRearms" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.0"/>
++  <testcase name="restoredReservationStartsBlocked" classname="kr.yunseok.touchmacro.WatchGateTest" time="0.0"/>
++  <system-out><![CDATA[]]></system-out>
++  <system-err><![CDATA[]]></system-err>
++</testsuite>
+--- 5차/검증/ui.xml
++++ 6차/검증/ui.xml
+@@ -1 +0,0 @@
+-<?xml version='1.0' encoding='UTF-8' standalone='yes' ?><hierarchy rotation="0"><node index="0" text="" resource-id="" class="android.widget.FrameLayout" package="kr.yunseok.touchmacro" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" bounds="[28,654][1052,1645]"><node index="0" text="" resource-id="" class="android.widget.FrameLayout" package="kr.yunseok.touchmacro" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" bounds="[28,654][1052,1645]"><node index="0" text="" resource-id="android:id/content" class="android.widget.FrameLayout" package="kr.yunseok.touchmacro" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" bounds="[28,654][1052,1645]"><node index="0" text="" resource-id="android:id/parentPanel" class="android.widget.LinearLayout" package="kr.yunseok.touchmacro" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" bounds="[28,654][1052,1645]"><node index="0" text="" resource-id="android:id/customPanel" class="android.widget.FrameLayout" package="kr.yunseok.touchmacro" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" bounds="[28,654][1052,1481]"><node index="0" text="" resource-id="android:id/custom" class="android.widget.FrameLayout" package="kr.yunseok.touchmacro" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" bounds="[28,654][1052,1481]"><node index="0" text="" resource-id="" class="android.widget.ScrollView" package="kr.yunseok.touchmacro" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" bounds="[28,654][1052,1481]"><node index="0" text="" resource-id="" class="android.widget.LinearLayout" package="kr.yunseok.touchmacro" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" bounds="[28,654][1052,1481]"><node index="0" text="대기" resource-id="" class="android.widget.TextView" package="kr.yunseok.touchmacro" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" bounds="[81,675][999,758]" /><node index="1" text="동작 시간 · 초" resource-id="" class="android.widget.TextView" package="kr.yunseok.touchmacro" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" bounds="[81,758][999,817]" /><node index="2" text="0.5" resource-id="" class="android.widget.EditText" package="kr.yunseok.touchmacro" content-desc="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="true" password="false" selected="false" bounds="[81,817][999,913]" /><node index="3" text="세부 설정 보기" resource-id="" class="android.widget.Button" package="kr.yunseok.touchmacro" content-desc="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" bounds="[81,921][999,1047]" /><node index="4" text="이 동작 반복 횟수 · 1~1000" resource-id="" class="android.widget.TextView" package="kr.yunseok.touchmacro" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" bounds="[81,1055][999,1114]" /><node index="5" text="1" resource-id="" class="android.widget.EditText" package="kr.yunseok.touchmacro" content-desc="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="true" password="false" selected="false" bounds="[81,1114][999,1210]" /><node index="6" text="동작 완료 후 대기 · 초" resource-id="" class="android.widget.TextView" package="kr.yunseok.touchmacro" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" bounds="[81,1210][999,1269]" /><node index="7" text="0.5" resource-id="" class="android.widget.EditText" package="kr.yunseok.touchmacro" content-desc="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="true" password="false" selected="false" bounds="[81,1269][999,1365]" /><node index="8" text="이 동작 사용" resource-id="" class="android.widget.CheckBox" package="kr.yunseok.touchmacro" content-desc="" checkable="true" checked="true" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" bounds="[81,1365][999,1449]" /></node></node></node></node><node index="1" text="" resource-id="android:id/buttonPanel" class="android.widget.ScrollView" package="kr.yunseok.touchmacro" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" bounds="[28,1481][1052,1645]"><node index="0" text="" resource-id="" class="android.widget.LinearLayout" package="kr.yunseok.touchmacro" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" bounds="[28,1481][1052,1645]"><node index="0" text="취소" resource-id="android:id/button2" class="android.widget.Button" package="kr.yunseok.touchmacro" content-desc="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" bounds="[684,1492][852,1634]" /><node index="1" text="적용" resource-id="android:id/button1" class="android.widget.Button" package="kr.yunseok.touchmacro" content-desc="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" bounds="[852,1492][1020,1634]" /></node></node></node></node></node></node></hierarchy>--- 5차/검증/안내화면_검사.txt
++++ 6차/검증/안내화면_검사.txt
+@@ -0,0 +1,6 @@
++--------- beginning of main
++10-19 04:53:44.496  2253  2267 I TestRunner: run started: 1 tests
++10-19 04:53:44.497  2253  2267 I TestRunner: started: regionRecordingAutomaticallyReturnAndSaveDelays(kr.yunseok.touchmacro.GuidedFlowTest)
++10-19 04:53:50.187  2253  2267 I NEX_GUIDE_QA: PASS: word entry, real drawn region, automatic return, real recorded/replayed gesture, automatic named save, original macro restored, second-based delays saved, guide ready
++10-19 04:53:50.188  2253  2267 I TestRunner: finished: regionRecordingAutomaticallyReturnAndSaveDelays(kr.yunseok.touchmacro.GuidedFlowTest)
++10-19 04:53:50.648  2253  2267 I TestRunner: run finished: 1 tests, 0 failed, 0 ignored
+--- 5차/검증/안내화면_최종검사.txt
++++ 6차/검증/안내화면_최종검사.txt
+@@ -0,0 +1,69 @@
++--------- beginning of main
++10-19 05:00:19.247  2415  2430 I TestRunner: run started: 6 tests
++10-19 05:00:19.248  2415  2430 I TestRunner: started: duplicateLockSurvivesRefreshAndRestartUntilStableAbsence(kr.yunseok.touchmacro.GuidedFlowTest)
++10-19 05:00:42.573  2415  2430 I TestRunner: finished: duplicateLockSurvivesRefreshAndRestartUntilStableAbsence(kr.yunseok.touchmacro.GuidedFlowTest)
++10-19 05:00:43.036  2415  2430 I TestRunner: started: regionRecordingAutomaticallyReturnAndSaveDelays(kr.yunseok.touchmacro.GuidedFlowTest)
++10-19 05:00:48.352  2415  2430 I NEX_GUIDE_QA: PASS: word entry, real drawn region, automatic return, real recorded/replayed gesture, automatic named save, original macro restored, second-based delays saved, guide ready
++10-19 05:00:48.353  2415  2430 I TestRunner: finished: regionRecordingAutomaticallyReturnAndSaveDelays(kr.yunseok.touchmacro.GuidedFlowTest)
++10-19 05:00:48.761  2415  2430 I TestRunner: started: secondPriorityRepeatsAfterRefreshAndFirstPriorityWinsWhenPresent(kr.yunseok.touchmacro.PriorityFlowTest)
++10-19 05:00:57.472  2415  2430 I TestRunner: finished: secondPriorityRepeatsAfterRefreshAndFirstPriorityWinsWhenPresent(kr.yunseok.touchmacro.PriorityFlowTest)
++10-19 05:00:57.977  2415  2430 I TestRunner: started: editStepRepeatMeansThisStepThenNextAndWholeMacroRepeatsSeparately(kr.yunseok.touchmacro.RepeatFlowTest)
++10-19 05:00:59.750  2415  2430 I TestRunner: finished: editStepRepeatMeansThisStepThenNextAndWholeMacroRepeatsSeparately(kr.yunseok.touchmacro.RepeatFlowTest)
++10-19 05:01:00.388  2415  2430 I TestRunner: started: entersRunsExactlyFifteenBacksAndRefreshesAfterTenSeconds(kr.yunseok.touchmacro.WatchPresetTest)
++10-19 05:01:21.150  2415  2430 I TestRunner: finished: entersRunsExactlyFifteenBacksAndRefreshesAfterTenSeconds(kr.yunseok.touchmacro.WatchPresetTest)
++10-19 05:01:21.563  2415  2430 I TestRunner: started: regionRefreshMacroBackRepeatAndCancellation(kr.yunseok.touchmacro.WatchFlowTest)
++10-19 05:02:10.390  2415  2430 I TestRunner: finished: regionRefreshMacroBackRepeatAndCancellation(kr.yunseok.touchmacro.WatchFlowTest)
++10-19 05:02:10.857  2415  2430 I TestRunner: run finished: 6 tests, 0 failed, 0 ignored
++10-19 05:02:39.305  2816  2831 I TestRunner: run started: 1 tests
++10-19 05:02:39.305  2816  2831 I TestRunner: started: regionRecordingAutomaticallyReturnAndSaveDelays(kr.yunseok.touchmacro.GuidedFlowTest)
++10-19 05:02:44.808  2816  2831 E TestRunner: failed: regionRecordingAutomaticallyReturnAndSaveDelays(kr.yunseok.touchmacro.GuidedFlowTest)
++10-19 05:02:44.809  2816  2831 E TestRunner: ----- begin exception -----
++10-19 05:02:44.809  2816  2831 E TestRunner: java.lang.AssertionError: expected:<600000> but was:<10000>
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at org.junit.Assert.fail(Assert.java:89)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at org.junit.Assert.failNotEquals(Assert.java:835)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at org.junit.Assert.assertEquals(Assert.java:647)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at org.junit.Assert.assertEquals(Assert.java:633)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at kr.yunseok.touchmacro.GuidedFlowTest.regionRecordingAutomaticallyReturnAndSaveDelays(GuidedFlowTest.java:42)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at java.lang.reflect.Method.invoke(Native Method)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at androidx.test.internal.runner.junit4.statement.RunBefores.evaluate(RunBefores.java:80)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at androidx.test.internal.runner.junit4.statement.RunAfters.evaluate(RunAfters.java:61)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at androidx.test.ext.junit.runners.AndroidJUnit4.run(AndroidJUnit4.java:162)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at org.junit.runners.Suite.runChild(Suite.java:128)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at org.junit.runners.Suite.runChild(Suite.java:27)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:68)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:59)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at androidx.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:467)
++10-19 05:02:44.809  2816  2831 E TestRunner: 	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2248)
++10-19 05:02:44.810  2816  2831 E TestRunner: ----- end exception -----
++10-19 05:02:44.811  2816  2831 I TestRunner: finished: regionRecordingAutomaticallyReturnAndSaveDelays(kr.yunseok.touchmacro.GuidedFlowTest)
++10-19 05:02:45.277  2816  2831 I TestRunner: run finished: 1 tests, 1 failed, 0 ignored
++10-19 05:03:14.676  2926  2940 I TestRunner: run started: 1 tests
++10-19 05:03:14.677  2926  2940 I TestRunner: started: regionRecordingAutomaticallyReturnAndSaveDelays(kr.yunseok.touchmacro.GuidedFlowTest)
++10-19 05:03:20.412  2926  2940 I NEX_GUIDE_QA: PASS: word entry, real drawn region, automatic return, real recorded/replayed gesture, automatic named save, original macro restored, second-based delays saved, guide ready
++10-19 05:03:20.413  2926  2940 I TestRunner: finished: regionRecordingAutomaticallyReturnAndSaveDelays(kr.yunseok.touchmacro.GuidedFlowTest)
++10-19 05:03:20.931  2926  2940 I TestRunner: run finished: 1 tests, 0 failed, 0 ignored
+--- 5차/검증결과.txt
++++ 6차/검증결과.txt
+@@ -1,31 +1,40 @@
+-NEX 5차 v5.0.0 검증 결과
++NEX 6차 v6.0.0 검증 결과
+ 
+-빌드 및 호환
+-- 릴리스 APK, 디버그 APK, 기기 검사 APK 빌드 성공.
+-- versionCode 5 / versionName 5.0.0 / ARM64 / Android 11 이상.
+-- 기존 버전과 동일한 개인 서명 인증서 확인.
+-- Android Lint: No issues found.
+-- 단위 검사 44개 통과: 초 단위 변환, 잘못된 시간 입력, 기존 시간 보존, 반복 횟수 독립 적용, 4차 설정 전환 등.
++최종 적용 방식
++- 직접 그린 네모 영역 1~6순위. 매번 1순위부터 확인하여 처음 글자가 있는 영역을 실행.
++- 1순위가 없고 2순위에 있으면 2순위 실행. 완료 후 대기 중에는 재실행 금지.
++- 기본 10분 대기 후 첫 새로고침. 이후 글자가 없으면 기본 10초마다 새로고침.
++- 새로고침 후 같은 2순위에 같은 글자가 있어도 다시 실행.
++- 기본 흐름에서는 글자가 사라져야만 재실행하는 모드를 사용하지 않음.
+ 
+-Android 12 가상 기기 검사: 2개 통과 (73.389초)
+-1. WatchPresetTest
+-   - 지정 영역에서 선택한 글자를 실제 터치해 상세 화면으로 들어감.
+-   - 선택한 이름의 매크로를 정확히 15회 실행.
+-   - 원본 전체 반복도 15회인 상황에서 225회로 곱해지지 않음.
+-   - 자동 뒤로가기 후 10초가 지나기 전 재진입하지 않음.
+-   - 새로고침 후 다시 들어가 정확히 15회 더 실행 (총 30회).
+-   - 저장한 원본 매크로의 전체 반복 및 시작 번호가 바뀌지 않음.
+-2. WatchFlowTest
+-   - 영역 밖의 글자 제외, 영역 안 한글 OCR, 매크로 실행 및 자동 뒤로가기.
+-   - 새로고침 반복, 선택적인 즉시 재탐지.
+-   - 일시정지/정지 후 지연 실행 취소.
+-   - 실패 시 뒤로가기 없이 탐지 중단.
++빌드 / 정적 검사
++- versionCode 6, versionName 6.0.0, Android 11 이상.
++- 휴대전화 APK: arm64-v8a.
++- PC APK: arm64-v8a + x86_64. Android 12 x86_64 가상 기기에 실제 릴리스 APK 설치/첫 안내 실행 확인.
++- 두 APK 모두 기존 앱과 같은 개인 서명 인증서 확인.
++- 단위 검사 58개 통과. Android Lint: No issues found.
+ 
+-화면 확인
+-- 탐지 첫 화면과 쉬운 설정 화면에 기본 15회 / 10초 / 글자 눌러 들어가기 표시 확인.
+-- 실제 편집 화면에서 0.5초 입력, 저장, 다시 열기 확인.
+-- 저장된 동작 시간은 내부 500으로 올바르게 변환되며 기존 완료 후 대기 500도 유지됨.
+-- 초 단위 입력 화면과 설정 화면을 PNG로 저장.
++Android 12 가상 기기 통합 검사 6개 통과
++1. 안내: 실제 글자 입력 → 화면 영역 그리기 → 안내 복귀 → 터치 녹화/재생 → 이름을 붙여 저장 → 단계별 초 입력 → 실행 준비.
++   원래 편집하던 매크로 보존 확인.
++2. 우선순위: 직접 정한 아래쪽 1순위 / 위쪽 2순위. 1순위 없을 때 2순위 실행, 대기 전 재실행 차단,
++   새로고침 후 같은 2순위 재실행, 이후 1순위가 나타나면 1순위를 우선 실행.
++3. 개별 반복: 동작 A=3회, B=1회, 전체=2회. 실제 터치 순서 AAABAAAB, A 6회 / B 2회 확인.
++4. 전체 반복: 저장본 전체 반복도 15인 상황에서 탐지 설정의 정확한 15회만 실행 (225회로 곱하지 않음).
++5. 한글 OCR / 검색 영역 / 자동 뒤로가기 / 새로고침 / 일시정지 / 정지 / 오류 중단 검사.
++6. 추가 옵션인 사라짐 확인 모드의 차단과 재실행 상태 저장 검사. 기본 흐름은 이 옵션을 끈 상태임.
+ 
+-실제 갤럭시 노트 10+는 연결되지 않아 실기기 검사는 하지 않았습니다.
+-앱 응답 및 OCR 시간에 따라 실제 새로고침 시점이 설정 간격보다 늦어질 수 있습니다.
++마지막 화면 정리 후 안내 흐름을 별도로 다시 검사하여 통과.
++분/추가 초 입력으로 10분이 실제 600000 내부 시간으로 저장되는 것 확인.
++10분을 실제로 모두 기다리는 장시간 검사는 하지 않았으며, 동일한 대기 로직의 짧은 설정으로 시간 순서/차단을 확인.
++
++하단 표시
++- 현재 순위, 반복과 동작, 직전 완료한 일, 다음 일, 남은 대기 시간 표시.
++- 직전 한 바퀴 처리 시간 / 전체 경과 시간 / 완료 바퀴 수 표시.
++- 한 바퀴 처리 시간은 진입부터 복귀 후 목록 대기까지. 전체 경과에는 쉬는 시간과 일시정지 포함.
++- 하단 표시가 터치를 가로채지 않으며, OCR 캡처 시 잠깐 숨김.
++
++한계
++- 실제 노트 10+ 및 녹스는 연결되지 않아 실기기/녹스 검사는 하지 않음.
++- 녹스 5개 동시 실행, 장시간 10분 대기 반복은 아직 실검사하지 않음.
++- 노트 10+ 기존 설치 위 업데이트는 동일 서명 확인으로 준비했으며, 실기기 설치 자체는 미검사.
+--- 5차/사용법.txt
++++ 6차/사용법.txt
+@@ -1,47 +1,67 @@
+-NEX 5차 — 윤석님 반복 탐지 모드
++NEX 6차 v6.0 — 순서대로 설정
+ 
+-원하는 동작
+-글자 발견 → 그 글자를 눌러 들어가기 → 선택한 매크로 15회 → 뒤로가기 → 10초 대기 → 스크롤 새로고침 → 다시 탐지
++처음 앱을 열면 5단계 안내가 나옵니다.
++1. 찾을 글자 입력.
++2. 1순위 네모 영역을 지정. 필요하면 2~6순위 영역을 추가.
++3. 대상 앱에서 해당 글자를 직접 눌러 들어간 후 녹화 시작.
++   안에서 할 동작을 한 세트만 하고 ‘완료’를 누르면 자동 저장됩니다.
++   들어가기 터치와 마지막 뒤로가기는 앱이 처리하므로 녹화에 넣지 않습니다.
++   기존에 저장한 매크로를 선택해도 됩니다.
++4. 전체 반복 횟수와 단계 사이 대기 시간을 입력.
++5. 대상 앱의 목록 화면으로 돌아가 작은 안내창의 ‘이 화면에서 시작’을 누릅니다.
+ 
+-처음 설정
+-1. 기존 NEX 위에 이 APK를 설치합니다. 앱을 삭제하지 않아야 저장한 매크로가 유지됩니다.
+-2. 접근성을 연결합니다.
+-3. 매크로 탭에서 들어간 화면 안에서 할 동작을 만들고 ‘이름으로 저장’합니다.
+-4. 탐지 탭 → ‘글자 · 매크로 설정’에서 찾을 글자와 매크로를 고릅니다.
+-5. ‘들어간 뒤 매크로 반복’은 15, ‘새로고침 간격’은 10으로 둡니다.
+-6. ‘찾은 글자를 눌러 들어가기’를 켭니다. 기본으로 켜져 있습니다.
+-7. 대상 앱의 목록 화면에서 컨트롤 더보기 → ‘화면에서 탐지 영역 지정’을 선택합니다.
+-   글자가 나타날 부분을 손가락으로 사각형으로 그리고 ‘이 영역 사용’을 누릅니다.
+-8. 컨트롤 더보기 → ‘글자 탐지 시작’을 누릅니다. 3초 뒤 첫 탐지를 시작합니다.
++영역을 지정하거나 녹화를 완료하면 안내 화면으로 돌아옵니다.
++기존 매크로는 따로 보관하고 새 녹화는 이름을 붙여 저장합니다.
++영역들은 겹치지 않게 그려 주세요. 서로 겹치면 저장을 막습니다.
+ 
+-반복 방식
+-- 지정 영역에서 글자를 찾으면 그 글자의 가운데를 한 번 눌러 들어갑니다.
+-- 들어간 화면이 준비될 시간을 기다린 뒤 매크로를 첫 동작부터 15회 실행합니다.
+-- 저장한 매크로의 전체 반복이 15여도 15×15=225회로 실행하지 않습니다. 탐지 설정의 15회를 사용합니다.
+-- 각 동작 자체의 개별 반복은 그대로 적용됩니다. 한 회의 동작을 매크로에 기록해 주세요.
+-- 매크로가 정상적으로 끝나면 앱이 뒤로가기를 누릅니다. 이 자동 뒤로가기를 매크로 끝에 중복으로 넣지 마세요.
+-- 뒤로가기 후 화면 대기 뒤부터 10초를 세고, 아래로 당겨 새로고침한 다음 다시 탐지합니다.
+-- 글자가 없으면 매크로를 실행하지 않고 10초마다 새로고침하며 계속 찾습니다.
+-- 매크로 실행 도중에는 새로고침을 끼워 넣지 않습니다.
+-- 매크로 오류가 나면 전체 탐지를 중단합니다.
++우선순위 동작 — 최종 요청 반영
++항상 1순위부터 차례대로 확인해, 처음 글자가 있는 영역 하나를 실행합니다.
++1순위에 없고 2순위에 있으면 2순위를 눌러 들어갑니다.
++선택한 매크로를 기본 15회 실행한 후 뒤로갑니다.
++그 후 기본 10분을 쉬고 첫 새로고침을 합니다.
++그때도 1순위에 없고 같은 2순위에 글자가 있으면 2순위를 다시 실행합니다.
++어느 영역에도 글자가 없으면 기본 10초마다 새로고침하며 1순위부터 계속 탐지합니다.
++1순위와 2순위에 모두 글자가 있으면 1순위를 실행합니다.
++한 번에 영역 하나를 처리합니다. 그 처리가 끝나면 다시 설정한 대기를 적용합니다.
+ 
+-시간은 모두 초로 입력
+-1 = 1초 / 0.5 = 반 초 / 1.5 = 1.5초 / 10 = 10초
+-시간 입력과 동작 목록에 초를 표시합니다. 새로고침 간격은 정수 초입니다.
+-기존 매크로의 시간은 그대로 유지되며 표시와 입력 단위만 바뀝니다.
+-파일 백업용 JSON은 기존 저장본 호환을 위해 원래 내부 시간 형식을 유지합니다.
++중복 실행 방지
++완료 후 쉬는 동안에는 탐지나 터치를 다시 실행하지 않습니다.
++다음 새로고침이 끝나면 같은 영역의 같은 글자도 다시 실행할 수 있습니다.
++앞서 논의했던 ‘반드시 사라졌다가 나타나야 실행’은 기본 흐름에서 사용하지 않습니다.
++추가 설정에는 선택적인 사라짐 확인 모드도 남겨 두었지만, 안내를 완료하면 최종 요청 방식으로 설정됩니다.
+ 
+-화면이 느리게 열릴 때
+-‘글자 · 매크로 설정’ → ‘세부 설정 보기’에서 ‘들어간 뒤 화면 대기’를 늘립니다.
+-들어간 뒤 / 새로고침 후 / 뒤로가기 후 화면 대기는 기본 1.5초입니다.
+-저장한 매크로의 시작 전 대기도 추가로 적용됩니다.
+-실제 새로고침 시점은 화면 응답과 OCR 처리 시간에 따라 설정 시점보다 늦어질 수 있습니다.
++대기 시간
++‘완료 후 쉬는 시간’에 분과 추가 초를 입력합니다. 예: 10분 / 0초.
++이 시간은 매크로와 뒤로가기, 목록 화면 대기까지 끝난 후부터 셉니다.
++‘그 이후 새로고침 간격’은 초로 입력합니다. 기본 10초입니다.
++들어간 화면 대기, 전체 반복 한 회 사이 대기, 뒤로가기 전 대기,
++뒤로간 목록 화면 대기, 새로고침 후 화면 대기, 시작 전 대기도 따로 정할 수 있습니다.
++초 입력은 0.5 = 반 초, 1.5 = 1.5초입니다.
++녹화 중 동작 사이에 기다린 시간은 녹화에 포함됩니다.
++화면 반응 및 OCR 처리 시간에 따라 실제 새로고침 시점이 조금 늦어질 수 있습니다.
+ 
+-다른 방식도 가능
+-세부 설정에서 ‘완료 후 새로고침부터 다시 시작’을 끄면 뒤로간 뒤 바로 다시 탐지합니다.
+-새로고침 방향, 뒤로가기 횟수, 인식 방식, 비교 방식, 영역 좌표도 조절할 수 있습니다.
+-4차에서 업데이트하면 기존 글자·영역·매크로 선택은 유지하고, 새 기본 흐름(15회·10초·글자 터치·새로고침 대기)을 적용합니다.
++전체 반복과 개별 동작 반복의 차이
++안내의 ‘매크로 전체 반복 15회’는 한 세트를 통째로 15번 반복합니다.
++동작 편집의 세부 설정에 있는 ‘이 동작 한 세트만 반복’은 해당 동작 하나만 반복합니다.
++예: A 동작 3회, B 동작 1회, 전체 2회라면 AAAB → AAAB입니다.
++개별 동작 반복의 기본값은 1이고 입력 허용 범위는 1~1000회입니다.
++두 번 터치, 여러 손가락 녹화 등은 한 세트를 반복하므로 실제 터치 수는 더 많을 수 있습니다.
++순서 이동·분기·정지처럼 흐름을 바꾸는 동작에는 개별 반복 입력을 표시하지 않습니다.
++저장된 전체 반복과 탐지 설정의 15회는 곱하지 않고, 탐지 설정의 횟수를 사용합니다.
+ 
+-정지
+-NEX 아이콘을 길게 누르거나 펼친 컨트롤의 ■를 누릅니다.
+-아이콘 한 번 누르기는 접기/펼치기, 끌기는 이동입니다.
++하단 실행 표시
++현재 순위, 전체 반복 몇 번째인지, 어떤 동작이 진행 중인지 표시합니다.
++직전에 완료한 동작과 다음 동작, 대기 남은 시간도 계속 갱신합니다.
++‘이번 한 바퀴’는 글자를 눌러 들어간 순간부터 복귀 후 목록 대기까지의 처리 시간입니다.
++‘직전’은 마지막으로 완료한 한 바퀴의 처리 시간입니다.
++‘전체 경과’는 시작 이후 경과 시간이며 새로고침 대기와 일시정지도 포함합니다.
++정지하면 전체 시간은 멈춰 있습니다. 컨트롤을 닫으면 하단 표시도 사라집니다.
++하단 표시는 터치를 가로채지 않습니다. OCR 캡처 순간에는 인식에 섞이지 않도록 잠깐 숨깁니다.
++
++설치 파일
++노트10플러스 APK: ARM64 휴대전화용. 기존 앱을 지우지 말고 업데이트 설치합니다.
++PC에뮬레이터 APK: ARM64 + x86_64, Android 11 이상 64비트 에뮬레이터용.
++앱 5개를 독립적으로 실행하려면 에뮬레이터 인스턴스 5개에서 각각 설치·설정·실행합니다.
++녹스 Android 7/9 인스턴스에는 설치되지 않습니다.
++녹스에서 사용하려면 제공되는 Android 버전과 대상 앱, 접근성/OCR 호환성을 먼저 확인해야 합니다.
++녹스 5개 동시 실행은 아직 실검사하지 않았습니다.

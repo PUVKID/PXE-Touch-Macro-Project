@@ -1,0 +1,664 @@
+--- 9차/app/build.gradle
++++ 10차/app/build.gradle
+@@ -5,7 +5,7 @@
+ if (signingFile.exists()) { signingFile.withInputStream { signingProps.load(it) } }
+ android { signingConfigs { personal { storeFile rootProject.file(signingDir + '/macro.jks'); storePassword signingProps.getProperty('storePassword', ''); keyAlias 'yunseokmacro'; keyPassword signingProps.getProperty('storePassword', '') } }
+  namespace 'kr.yunseok.touchmacro'; compileSdk 35
+- defaultConfig { applicationId 'kr.yunseok.touchmacro'; minSdk 30; targetSdk 35; versionCode 9; versionName '9.0.0'; testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner' }
++ defaultConfig { applicationId 'kr.yunseok.touchmacro'; minSdk 30; targetSdk 35; versionCode 10; versionName '1.0.0'; testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner' }
+  // Release is a Note 10+ ARM64 build; debug keeps all emulator ABIs.
+  lint { disable 'ChromeOsAbiSupport' }
+  compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+--- 9차/app/src/androidTest/java/kr/yunseok/touchmacro/FloatingPlayTest.java
++++ 10차/app/src/androidTest/java/kr/yunseok/touchmacro/FloatingPlayTest.java
+@@ -17,7 +17,7 @@
+         if(rect[0]==null)return false;h.tap(rect[0].exactCenterX(),rect[0].exactCenterY());return true;
+     }
+     void click(String description){long end=SystemClock.elapsedRealtime()+5000;while(SystemClock.elapsedRealtime()<end){if(press(description))return;SystemClock.sleep(80);}fail(description+" · "+lastUi);}
+-    void expand(){if(h.svc.controller().isCollapsed()){click("NEX 컨트롤 펼치기 · 길게 눌러 정지");h.waitFor(()->!h.svc.controller().isCollapsed(),3000,"Panel did not expand");}}
++    void expand(){if(h.svc.controller().isCollapsed()){click("PXE 컨트롤 펼치기 · 길게 눌러 정지");h.waitFor(()->!h.svc.controller().isCollapsed(),3000,"Panel did not expand");}}
+     @Test public void playStartsDetectionUsesNamedMacroFifteenTimesAndPauseResumeStillWork()throws Exception{
+         Button[] action={null};Rect[] at={null};
+         h.main(()->{LinearLayout body=new LinearLayout(h.a);body.setPadding(40,100,40,100);action[0]=new Button(h.a);action[0].setText("등록한 매크로 동작");action[0].setOnClickListener(v->actions++);body.addView(action[0],new LinearLayout.LayoutParams(-1,Ui.dp(h.a,80)));h.detail=new AlertDialog.Builder(h.a).setTitle("작업 화면").setView(body).create();h.detail.show();});h.in.waitForIdleSync();h.main(()->{at[0]=h.bounds(action[0]);h.detail.dismiss();h.entry.setOnClickListener(v->{entries++;h.detail.show();});});
+--- 9차/app/src/androidTest/java/kr/yunseok/touchmacro/GuidedFlowTest.java
++++ 10차/app/src/androidTest/java/kr/yunseok/touchmacro/GuidedFlowTest.java
+@@ -24,7 +24,7 @@
+  void drag(float x,float y,float endX,float endY){long t=SystemClock.uptimeMillis();touch(x,y,MotionEvent.ACTION_DOWN,t);for(int i=1;i<=10;i++){SystemClock.sleep(30);touch(x+(endX-x)*i/10,y+(endY-y)*i/10,MotionEvent.ACTION_MOVE,t);}touch(endX,endY,MotionEvent.ACTION_UP,t);}
+  Rect bounds(View v){int[] xy=new int[2];v.getLocationOnScreen(xy);return new Rect(xy[0],xy[1],xy[0]+v.getWidth(),xy[1]+v.getHeight());}
+  void fixture(){main(()->{try{java.lang.reflect.Field f=MainActivity.class.getDeclaredField("testing");f.setAccessible(true);f.setBoolean(a,true);}catch(Exception e){throw new RuntimeException(e);}LinearLayout box=new LinearLayout(a);box.setOrientation(LinearLayout.VERTICAL);box.setPadding(120,600,120,0);box.setBackgroundColor(Color.WHITE);entry=new Button(a);entry.setText("안내 대상");box.addView(entry,new LinearLayout.LayoutParams(-1,Ui.dp(a,70)));a.setContentView(box);});in.waitForIdleSync();}
+- void screenshot(String name)throws Exception{Bitmap b=auto.takeScreenshot();assertNotNull(b);try(java.io.FileOutputStream out=new java.io.FileOutputStream(new java.io.File(a.getExternalFilesDir(null),name))){b.compress(Bitmap.CompressFormat.PNG,100,out);}finally{b.recycle();}}
++ void screenshot(String name)throws Exception{in.waitForIdleSync();SystemClock.sleep(250);Bitmap b=auto.takeScreenshot();assertNotNull(b);try(java.io.FileOutputStream out=new java.io.FileOutputStream(new java.io.File(a.getExternalFilesDir(null),name))){b.compress(Bitmap.CompressFormat.PNG,100,out);}finally{b.recycle();}}
+ 
+  @Test public void regionRecordingAutomaticallyReturnAndSaveDelays()throws Exception{
+   main(()->{SetupFlow.begin(a);a.refreshSetup();});setAfter("찾을 글자","안내 대상");click("다음 · 탐지 영역 정하기");assertEquals(1,SetupFlow.stage(a));
+@@ -40,7 +40,7 @@
+   drag(850,1700,850,650);SystemClock.sleep(250);setAfter("매크로 모두 완료 → 뒤로가기 · 초","0.25");setAfter("뒤로가기 → 목록 화면 대기 · 초","0.3");
+   drag(850,1700,850,650);SystemClock.sleep(250);setAfter("완료 후 쉬는 시간 · 분","10");setAfter("추가 · 초","0");setAfter("그 이후 새로고침 간격 · 초","2");setAfter("새로고침 → 글자 탐지 · 초","0.3");setAfter("시작 버튼 → 첫 탐지 · 초","0");
+   click("다음 · 실행 준비");waitFor(()->SetupFlow.stage(a)==4,4000,"Delay save did not advance");WatchConfig saved=WatchStore.load(a);assertEquals(1250,saved.entryMs);assertEquals(100,saved.repeatGapMs);assertEquals(250,saved.beforeBackMs);assertEquals(300,saved.returnMs);assertEquals(2,saved.intervalSeconds);assertEquals(300,saved.settleMs);assertEquals(0,saved.startMs);assertFalse(saved.preventDuplicate);assertEquals(600000,saved.cooldownMs);screenshot("guide_ready.png");
+-  android.util.Log.i("NEX_GUIDE_QA","PASS: word entry, real drawn region, automatic return, real recorded/replayed gesture, automatic named save, original macro restored, second-based delays saved, guide ready");
++  android.util.Log.i("PXE_GUIDE_QA","PASS: word entry, real drawn region, automatic return, real recorded/replayed gesture, automatic named save, original macro restored, second-based delays saved, guide ready");
+  }
+  @Test public void duplicateLockSurvivesRefreshAndRestartUntilStableAbsence()throws Exception{
+   fixture();main(()->{LinearLayout body=new LinearLayout(a);body.setPadding(40,100,40,100);action=new Button(a);action.setText("매크로 동작");action.setOnClickListener(v->actions++);body.addView(action,new LinearLayout.LayoutParams(-1,Ui.dp(a,80)));detail=new AlertDialog.Builder(a).setTitle("작업 화면").setView(body).create();detail.show();});in.waitForIdleSync();Rect[] tapAt={null},roi={null};main(()->{tapAt[0]=bounds(action);detail.dismiss();roi[0]=bounds(entry);detail.setOnDismissListener(d->backs++);entry.setOnClickListener(v->{entries++;detail.show();});});
+@@ -50,6 +50,6 @@
+   main(()->{svc.stop();svc.startWatch(p);});SystemClock.sleep(3500);assertEquals("Restart bypassed persisted lock",1,entries);
+   main(()->entry.setText("대상 없음"));waitFor(()->!WatchStore.blocked(a,p),12000,"Stable absence did not release lock");assertEquals(1,entries);
+   main(()->entry.setText("안내 대상"));waitFor(()->svc.watchCompleted==1,15000,"Reappearance did not execute");assertEquals(2,entries);assertEquals(30,actions);assertEquals(2,backs);assertTrue(svc.timingText().contains("전체 경과"));assertTrue(svc.timingText().contains("완료 1바퀴"));main(()->svc.stop());String frozen=svc.timingText();SystemClock.sleep(400);assertEquals(frozen,svc.timingText());
+-  android.util.Log.i("NEX_DUPLICATE_QA","PASS: exact 15 actions, refresh wait, same text blocked across multiple refreshes and restart, stable absence required, reappearance triggers next 15, live HUD and cycle/total timers, stop freezes totals");
++  android.util.Log.i("PXE_DUPLICATE_QA","PASS: exact 15 actions, refresh wait, same text blocked across multiple refreshes and restart, stable absence required, reappearance triggers next 15, live HUD and cycle/total timers, stop freezes totals");
+  }
+ }
+--- 9차/app/src/androidTest/java/kr/yunseok/touchmacro/NexFeatureTest.java
++++ 10차/app/src/androidTest/java/kr/yunseok/touchmacro/NexFeatureTest.java
+@@ -43,6 +43,6 @@
+   assertFalse("Single recording did not finish",svc.controller().recording);Macro multiRecord=Store.load(activity);assertEquals(1,multiRecord.steps.size());assertEquals(2,multiRecord.steps.get(0).strokes.length());assertTrue("Recorded multi-touch was not replayed",has("OCR 성공 횟수: 1"));
+   Step home=new Step("HOME");home.after=100;Step wait=new Step("WAIT");wait.duration=1000;wait.after=0;start(macro(home,wait));complete();assertTrue(svc.controller().shown());
+   main(()->{assertTrue(Ui.prefs(activity).edit().putInt("theme",2).commit());svc.controller().refresh();});assertTrue(Ui.dark(activity));
+-  android.util.Log.i("NEX_QA","PASS: text region, OCR preview, text offset, retry, curve, pinch, multitap, point capture, curve recording/replay, multi-touch recording/replay, foreground outside activity, dark palette");
++  android.util.Log.i("PXE_QA","PASS: text region, OCR preview, text offset, retry, curve, pinch, multitap, point capture, curve recording/replay, multi-touch recording/replay, foreground outside activity, dark palette");
+  }
+ }
+--- 9차/app/src/androidTest/java/kr/yunseok/touchmacro/PriorityFlowTest.java
++++ 10차/app/src/androidTest/java/kr/yunseok/touchmacro/PriorityFlowTest.java
+@@ -16,7 +16,7 @@
+   h.waitFor(()->h.svc.watchCompleted>=1,10000,"Second priority was not selected");assertEquals("priority2",order[0]);SystemClock.sleep(900);assertEquals("Re-executed before cooldown/refresh",1,visits);
+   h.waitFor(()->h.svc.watchCompleted>=2,12000,"Same second priority did not repeat after refresh");assertEquals("priority2",order[1]);assertTrue("Post-cycle cooldown was bypassed",secondVisit-firstBack>=2000);
+   h.main(()->lower.setText("안내 대상"));h.waitFor(()->h.svc.watchCompleted>=3,12000,"New first-priority text did not win");assertEquals("priority1",order[2]);h.main(()->h.svc.stop());
+-  android.util.Log.i("NEX_PRIORITY_QA","PASS: user-drawn bottom priority 1 and top priority 2, priority 2 selected when 1 absent, no rerun during cooldown, same priority 2 repeats after refresh, every refresh starts at priority 1, priority 1 wins once present");
++  android.util.Log.i("PXE_PRIORITY_QA","PASS: user-drawn bottom priority 1 and top priority 2, priority 2 selected when 1 absent, no rerun during cooldown, same priority 2 repeats after refresh, every refresh starts at priority 1, priority 1 wins once present");
+  }
+  void visit(String location){order[visits]=location;visits++;if(visits==2)secondVisit=SystemClock.elapsedRealtime();h.detail.show();}
+  WatchArea area(Rect r,int[] size){return new WatchArea((r.left-2)*100.0/size[0],(r.top-2)*100.0/size[1],(r.right+2)*100.0/size[0],(r.bottom+2)*100.0/size[1]);}
+--- 9차/app/src/androidTest/java/kr/yunseok/touchmacro/PxeDesignReviewTest.java
++++ 10차/app/src/androidTest/java/kr/yunseok/touchmacro/PxeDesignReviewTest.java
+@@ -0,0 +1,24 @@
++package kr.yunseok.touchmacro;
++import android.content.Intent;import android.graphics.*;import android.graphics.drawable.Drawable;import android.view.*;
++import androidx.test.ext.junit.runners.AndroidJUnit4;
++import org.junit.*;import org.junit.runner.RunWith;import static org.junit.Assert.*;
++
++@RunWith(AndroidJUnit4.class) public class PxeDesignReviewTest {
++    GuidedFlowTest h=new GuidedFlowTest();
++    @Before public void boot()throws Exception{h.boot();h.main(()->h.svc.controller().close());}
++    @After public void end(){h.end();}
++    View byDescription(View root,String value){if(value.contentEquals(root.getContentDescription()==null?"":root.getContentDescription()))return root;if(root instanceof ViewGroup){ViewGroup group=(ViewGroup)root;for(int i=0;i<group.getChildCount();i++){View found=byDescription(group.getChildAt(i),value);if(found!=null)return found;}}return null;}
++    void tab(String name,int expected)throws Exception{
++        Rect[] rect={null};h.main(()->{View v=byDescription(h.a.findViewById(android.R.id.content),name);assertNotNull(v);rect[0]=h.bounds(v);});h.tap(rect[0].exactCenterX(),rect[0].exactCenterY());h.in.waitForIdleSync();
++        java.lang.reflect.Field selected=MainActivity.class.getDeclaredField("tab");selected.setAccessible(true);assertEquals(expected,selected.getInt(h.a));
++    }
++    void open(int mode){h.main(()->Ui.prefs(h.a).edit().putInt("theme",mode).commit());h.a=(MainActivity)h.in.startActivitySync(new Intent(h.in.getTargetContext(),MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK));h.in.waitForIdleSync();}
++    @Test public void reviewBothThemesNavigationWizardAndBrand()throws Exception{
++        h.main(()->{Macro m=new Macro();m.name="내 매크로";m.startDelay=0;Step tap=new Step("TAP");tap.x=50;tap.y=50;m.steps.add(tap);Step wait=new Step("WAIT");wait.duration=1000;m.steps.add(wait);Store.put(h.a,m);WatchConfig p=new WatchConfig();p.rule.text="관심 키워드";p.macroName=m.name;p.priorityAreas.add(new WatchArea(5,20,95,35));p.priorityAreas.add(new WatchArea(5,40,95,55));p.priorityAreas.add(new WatchArea(5,60,95,75));WatchStore.save(h.a,p);SetupFlow.finished(h.a);});
++        open(1);assertEquals("PXE",h.a.getApplicationInfo().loadLabel(h.a.getPackageManager()).toString());assertFalse(Ui.dark(h.a));h.screenshot("PXE_라이트_탐지.png");
++        tab("동작",1);h.screenshot("PXE_라이트_동작.png");tab("설정",3);h.screenshot("PXE_라이트_설정.png");tab("글자",0);h.screenshot("PXE_라이트_글자.png");
++        open(2);assertTrue(Ui.dark(h.a));h.screenshot("PXE_다크_탐지.png");tab("설정",3);h.screenshot("PXE_다크_설정.png");
++        h.main(()->{SetupFlow.begin(h.a);h.a.refreshSetup();});h.in.waitForIdleSync();h.screenshot("PXE_다크_첫설정.png");open(1);h.screenshot("PXE_라이트_첫설정.png");
++        h.main(()->{Bitmap b=Bitmap.createBitmap(512,512,Bitmap.Config.ARGB_8888);Drawable icon=h.a.getDrawable(R.drawable.ic_macro);icon.setBounds(0,0,512,512);icon.draw(new Canvas(b));try(java.io.FileOutputStream out=new java.io.FileOutputStream(new java.io.File(h.a.getExternalFilesDir(null),"PXE_앱아이콘.png"))){b.compress(Bitmap.CompressFormat.PNG,100,out);}catch(Exception e){throw new RuntimeException(e);}finally{b.recycle();}});
++    }
++}
+--- 9차/app/src/androidTest/java/kr/yunseok/touchmacro/PxeGuideFlowTest.java
++++ 10차/app/src/androidTest/java/kr/yunseok/touchmacro/PxeGuideFlowTest.java
+@@ -0,0 +1,11 @@
++package kr.yunseok.touchmacro;
++import androidx.test.ext.junit.runners.AndroidJUnit4;
++import org.junit.*;import org.junit.runner.RunWith;
++
++/** 새 작업 상태에서 실제 영역 지정과 녹화 안내를 검사합니다. */
++@RunWith(AndroidJUnit4.class) public class PxeGuideFlowTest {
++    GuidedFlowTest flow=new GuidedFlowTest();
++    @Before public void boot()throws Exception{flow.boot();flow.main(()->WatchStore.save(flow.a,new WatchConfig()));}
++    @After public void end(){flow.end();}
++    @Test public void completeRedesignedGuideWithRealRegionAndRecording()throws Exception{flow.regionRecordingAutomaticallyReturnAndSaveDelays();}
++}
+--- 9차/app/src/androidTest/java/kr/yunseok/touchmacro/PxeUpgradeTest.java
++++ 10차/app/src/androidTest/java/kr/yunseok/touchmacro/PxeUpgradeTest.java
+@@ -0,0 +1,20 @@
++package kr.yunseok.touchmacro;
++import android.content.Context;
++import androidx.test.platform.app.InstrumentationRegistry;
++import androidx.test.ext.junit.runners.AndroidJUnit4;
++import org.junit.*;import org.junit.runner.RunWith;import static org.junit.Assert.*;
++
++/** 이전 앱에서 저장한 설정을 PXE 업데이트 후 그대로 읽는지 검사합니다. */
++@RunWith(AndroidJUnit4.class) public class PxeUpgradeTest {
++    Context context(){return InstrumentationRegistry.getInstrumentation().getTargetContext();}
++    @Test public void seedPreviousVersion()throws Exception{
++        Context c=context();assertEquals(9,c.getPackageManager().getPackageInfo(c.getPackageName(),0).versionCode);
++        Macro m=new Macro();m.name="이전 설정 유지 검증";Step wait=new Step("WAIT");wait.duration=1250;wait.repeat=3;m.steps.add(wait);Store.put(c,m);
++        WatchConfig p=new WatchConfig();p.rule.text="유지할 글자";p.macroName=m.name;p.repetitions=15;p.cooldownMs=600000;p.intervalSeconds=10;p.priorityAreas.add(new WatchArea(5,20,95,35));p.priorityAreas.add(new WatchArea(5,40,95,55));WatchStore.save(c,p);SetupFlow.finished(c);Ui.prefs(c).edit().putInt("theme",2).commit();
++    }
++    @Test public void verifyAfterPxeUpdate()throws Exception{
++        Context c=context();assertEquals(10,c.getPackageManager().getPackageInfo(c.getPackageName(),0).versionCode);assertEquals("PXE",c.getApplicationInfo().loadLabel(c.getPackageManager()).toString());
++        Macro m=Store.load(c);assertEquals("이전 설정 유지 검증",m.name);assertEquals(1250,m.steps.get(0).duration);assertEquals(3,m.steps.get(0).repeat);assertTrue(Store.library(c).containsKey(m.name));
++        WatchConfig p=WatchStore.load(c);assertEquals("유지할 글자",p.rule.text);assertEquals(m.name,p.macroName);assertEquals(15,p.repetitions);assertEquals(600000,p.cooldownMs);assertEquals(10,p.intervalSeconds);assertEquals(2,p.priorityAreas.size());assertFalse(SetupFlow.active(c));assertEquals(2,Ui.prefs(c).getInt("theme",0));
++    }
++}
+--- 9차/app/src/androidTest/java/kr/yunseok/touchmacro/RepeatFlowTest.java
++++ 10차/app/src/androidTest/java/kr/yunseok/touchmacro/RepeatFlowTest.java
+@@ -13,6 +13,6 @@
+   Step two=new Step(one.json());two.x=b[0].exactCenterX()*100/size[0];two.y=b[0].exactCenterY()*100/size[1];two.repeat=1;
+   Macro m=new Macro();m.name="반복 의미 검증";m.rounds=2;m.startDelay=0;m.gap=0;m.steps.add(one);m.steps.add(two);
+   h.main(()->h.svc.start(m));h.waitFor(()->!h.svc.running,15000,"Repeat macro did not finish");assertEquals(6,first);assertEquals(2,second);assertEquals("AAABAAAB",order.toString());assertTrue(h.svc.progressText().contains("완료"));
+-  android.util.Log.i("NEX_REPEAT_QA","PASS: edited step A repeat=3, B repeat=1, whole macro repeat=2 yields AAABAAAB (A6/B2), completion and next-action text retained");
++  android.util.Log.i("PXE_REPEAT_QA","PASS: edited step A repeat=3, B repeat=1, whole macro repeat=2 yields AAABAAAB (A6/B2), completion and next-action text retained");
+  }
+ }
+--- 9차/app/src/androidTest/java/kr/yunseok/touchmacro/WatchFlowTest.java
++++ 10차/app/src/androidTest/java/kr/yunseok/touchmacro/WatchFlowTest.java
+@@ -39,6 +39,6 @@
+         // Failure must not blindly press BACK or resume detection on an unknown screen.
+         Macro broken=new Macro(m.json());Step missing=new Step("TEXT_WAIT");missing.text="never-found-xyz";missing.source="ACCESS";missing.timeout=0;missing.failure="STOP";broken.steps.add(missing);
+         main(()->{Store.save(activity,broken);svc.startWatch(p);});waitFor(()->!svc.running,30000,"Failed macro did not stop watcher");assertTrue(svc.status.startsWith("탐지 중단"));assertEquals("Failure unexpectedly pressed BACK",completedBacks,backs);main(()->assertTrue(detail.isShowing()));
+-        android.util.Log.i("NEX_WATCH_QA","PASS: region exclusion, OCR trigger, saved macro execution, automatic BACK, refresh/repeat, optional duplicate delay, immediate return/re-detect, pause/stop cancellation, failure stops without BACK, compact collapsed control");
++        android.util.Log.i("PXE_WATCH_QA","PASS: region exclusion, OCR trigger, saved macro execution, automatic BACK, refresh/repeat, optional duplicate delay, immediate return/re-detect, pause/stop cancellation, failure stops without BACK, compact collapsed control");
+     }
+ }
+--- 9차/app/src/androidTest/java/kr/yunseok/touchmacro/WatchPresetTest.java
++++ 10차/app/src/androidTest/java/kr/yunseok/touchmacro/WatchPresetTest.java
+@@ -60,6 +60,6 @@
+         assertTrue("Refresh must wait ten seconds after returning",secondEntry-firstBack>=10000);
+         assertTrue(svc.logText().contains("아래로 당겨 새로고침"));
+         Macro saved=Store.library(activity).get(m.name);assertEquals(15,saved.rounds);assertEquals(2,saved.startAt);
+-        android.util.Log.i("NEX_PRESET_QA","PASS: chosen text tapped to enter, named macro exactly 15 rounds (not 225), BACK, full 10-second refresh wait, second entry with exactly 15 more actions, saved macro preserved");
++        android.util.Log.i("PXE_PRESET_QA","PASS: chosen text tapped to enter, named macro exactly 15 rounds (not 225), BACK, full 10-second refresh wait, second entry with exactly 15 more actions, saved macro preserved");
+     }
+ }
+--- 9차/app/src/main/java/kr/yunseok/touchmacro/FloatingController.java
++++ 10차/app/src/main/java/kr/yunseok/touchmacro/FloatingController.java
+@@ -48,7 +48,7 @@
+   Context c=ctx();LinearLayout box=new LinearLayout(c);box.setOrientation(LinearLayout.VERTICAL);box.setPadding(scaled(3),scaled(3),scaled(3),scaled(3));box.setBackground(Ui.rounded(Ui.card(c),scaled(24)));box.setElevation(dp(4));box.setAlpha(Ui.prefs(owner).getInt("opacity",95)/100f);
+   LinearLayout r=row(box);
+   ImageButton logo=new ImageButton(c);logo.setImageResource(R.drawable.ic_macro);logo.setScaleType(ImageView.ScaleType.FIT_CENTER);logo.setPadding(scaled(4),scaled(4),scaled(4),scaled(4));logo.setBackgroundColor(Color.TRANSPARENT);
+-  logo.setContentDescription(collapsed?"NEX 컨트롤 펼치기 · 길게 눌러 정지":"NEX 컨트롤 바로 접기");r.addView(logo,new LinearLayout.LayoutParams(scaled(38),scaled(38)));
++  logo.setContentDescription(collapsed?"PXE 컨트롤 펼치기 · 길게 눌러 정지":"PXE 컨트롤 바로 접기");r.addView(logo,new LinearLayout.LayoutParams(scaled(38),scaled(38)));
+   logo.setOnClickListener(v->{if(recording){toast("녹화를 먼저 끝내세요");return;}collapsed=!collapsed;refresh();});logo.setOnLongClickListener(v->{owner.stop();return true;});drag(logo);
+   if(!collapsed||recording){
+    play=button(r,recording?"완료":!owner.running?"▶":owner.paused?"▶":"Ⅱ",()->{if(recording){endRecording();return;}if(owner.running)owner.togglePause();else try{startDetection();}catch(Exception e){toast(e.getMessage());}});
+@@ -60,7 +60,7 @@
+   panel=box;Ui.font(box);wm.addView(panel,params);if(!visible)panel.setVisibility(View.GONE);rebuildMarkers();
+  }
+  private void openSettings(boolean watch){Intent i=new Intent(owner,MainActivity.class).putExtra(watch?"watch":"settings",true).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_SINGLE_TOP);owner.startActivity(i);}
+- private void moreMenu(){choices("NEX",new String[]{"글자 탐지 시작","화면에서 탐지 영역 지정","탐지 설정","글자 찾아 터치","동작 / 녹화","실행 상태","앱 설정","컨트롤 닫기"},i->{switch(i){
++ private void moreMenu(){choices("PXE",new String[]{"글자 탐지 시작","화면에서 탐지 영역 지정","탐지 설정","글자 찾아 터치","동작 / 녹화","실행 상태","앱 설정","컨트롤 닫기"},i->{switch(i){
+   case 0:try{startDetection();}catch(Exception e){toast(e.getMessage());}break;
+   case 1:pickWatchRegion();break;case 2:openSettings(true);break;case 3:wordDialog();break;
+   case 4:toolsMenu();break;case 5:choices(owner.status+" · "+owner.clockText(),new String[]{"닫기"},n->{});break;
+@@ -82,7 +82,7 @@
+  public boolean shown(){return panel!=null;}
+  private void removePanel(){if(panel!=null){try{wm.removeView(panel);}catch(Exception ignored){}panel=null;status=null;play=null;}clearMarkers();}
+  public void close(){if(coach!=null){coach.close();coach=null;}if(hud!=null){hud.close();hud=null;}if(regionPicker!=null){regionPicker.close();regionPicker=null;}endRecordingInternal();removePanel();if(highlight!=null){try{wm.removeView(highlight);}catch(Exception ignored){}highlight=null;}h.removeCallbacksAndMessages(null);KeepAliveService.close(owner);}
+- private String caption(){return owner.getString(R.string.nex_control_status,recording?"● 녹화":"NEX",owner.status,owner.clockText());}
++ private String caption(){return owner.getString(R.string.nex_control_status,recording?"● 녹화":"PXE",owner.status,owner.clockText());}
+  public void update(){if(panel!=null){if(status!=null)status.setText(caption());updatePlay();KeepAliveService.update(owner,owner.status);}updateHud();rebuildMarkers();}
+  private void openApp(){owner.startActivity(new Intent(owner,MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_SINGLE_TOP));}
+  private void toast(String message){Toast.makeText(owner,message==null?"설정을 확인하세요":message,Toast.LENGTH_LONG).show();}
+@@ -96,7 +96,7 @@
+  public void wordDialog(){
+   if(recording){toast("녹화를 먼저 끝내세요");return;}
+   LinearLayout f=form();EditText value=field(f,"찾을 글자",Ui.prefs(owner).getString("word","확인"));CheckBox back=new CheckBox(ctx());back.setText("글자 없으면 뒤로가기 후 최대 3회 재검색");back.setChecked(Ui.prefs(owner).getBoolean("word_back",true));f.addView(back);Spinner mode=new Spinner(ctx());mode.setAdapter(new ArrayAdapter<String>(ctx(),android.R.layout.simple_spinner_dropdown_item,new String[]{"인식하고 터치","인식 위치 미리보기","현재 동작 목록에 추가"}));f.addView(mode);
+-  dialog("NEX · 글자 인식",f,"확인",()->{String txt=value.getText().toString().trim();if(txt.isEmpty())throw new IllegalArgumentException("찾을 글자를 입력하세요");Ui.prefs(owner).edit().putString("word",txt).putBoolean("word_back",back.isChecked()).apply();Step s=wordStep(owner);if(mode.getSelectedItemPosition()==2){readyEdit();Macro m=Store.load(owner);s.validate(m.steps.size()+1);m.steps.add(s);Store.save(owner,m);refresh();owner.log("글자 동작 추가됨");}else{if(owner.running)throw new IllegalArgumentException("먼저 정지하세요");if(mode.getSelectedItemPosition()==1){s.type="TEXT_CHECK";s.failure="STOP";}Macro m=new Macro();m.name="NEX 글자 모드";m.startDelay=600;m.maxMinutes=3;m.steps.add(s);owner.start(m);}});
++  dialog("PXE · 글자 인식",f,"확인",()->{String txt=value.getText().toString().trim();if(txt.isEmpty())throw new IllegalArgumentException("찾을 글자를 입력하세요");Ui.prefs(owner).edit().putString("word",txt).putBoolean("word_back",back.isChecked()).apply();Step s=wordStep(owner);if(mode.getSelectedItemPosition()==2){readyEdit();Macro m=Store.load(owner);s.validate(m.steps.size()+1);m.steps.add(s);Store.save(owner,m);refresh();owner.log("글자 동작 추가됨");}else{if(owner.running)throw new IllegalArgumentException("먼저 정지하세요");if(mode.getSelectedItemPosition()==1){s.type="TEXT_CHECK";s.failure="STOP";}Macro m=new Macro();m.name="PXE 글자 모드";m.startDelay=600;m.maxMinutes=3;m.steps.add(s);owner.start(m);}});
+  }
+  public static Step wordStep(Context c){Step s=new Step("TEXT_TAP");s.text=Ui.prefs(c).getString("word","확인");s.source=Ui.prefs(c).getString("word_source","AUTO");s.match=Ui.prefs(c).getString("word_match","CONTAINS");s.failure=Ui.prefs(c).getBoolean("word_back",true)?"BACK_RETRY":"STOP";s.timeout=Ui.prefs(c).getInt("word_timeout",2000);s.retries=3;s.retryDelay=1000;return s;}
+  private void actionMenu(){try{readyEdit();choices("동작 추가",new String[]{"화면에서 터치 위치 선택","곡선·멀티터치 한 동작 녹화","글자 찾아 터치","뒤로가기","대기 1초","홈","최근 앱"},i->{try{if(i==0){beginPoint();return;}if(i==1){beginRecording(true,-1);return;}if(i==2){wordDialog();return;}Step s=new Step(i==3?"BACK":i==4?"WAIT":i==5?"HOME":"RECENTS");if(i==4)s.duration=1000;Macro m=Store.load(owner);m.steps.add(s);Store.save(owner,m);refresh();owner.log("동작 추가");}catch(Exception e){toast(e.getMessage());}});}catch(Exception e){toast(e.getMessage());}}
+--- 9차/app/src/main/java/kr/yunseok/touchmacro/KeepAliveService.java
++++ 10차/app/src/main/java/kr/yunseok/touchmacro/KeepAliveService.java
+@@ -5,11 +5,11 @@
+ public class KeepAliveService extends Service {
+  private static final int ID=20;
+  public static Notification note(Context c,String status){
+-  NotificationManager nm=(NotificationManager)c.getSystemService(NOTIFICATION_SERVICE);nm.createNotificationChannel(new NotificationChannel("nex_control","NEX 화면 위 컨트롤",NotificationManager.IMPORTANCE_LOW));
++  NotificationManager nm=(NotificationManager)c.getSystemService(NOTIFICATION_SERVICE);nm.createNotificationChannel(new NotificationChannel("nex_control","PXE 화면 위 컨트롤",NotificationManager.IMPORTANCE_LOW));
+   PendingIntent open=PendingIntent.getActivity(c,20,new Intent(c,MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP),PendingIntent.FLAG_UPDATE_CURRENT|PendingIntent.FLAG_IMMUTABLE);
+   PendingIntent stop=PendingIntent.getBroadcast(c,21,new Intent(c,StopReceiver.class).setAction("STOP"),PendingIntent.FLAG_UPDATE_CURRENT|PendingIntent.FLAG_IMMUTABLE);
+   PendingIntent close=PendingIntent.getBroadcast(c,22,new Intent(c,StopReceiver.class).setAction("CLOSE"),PendingIntent.FLAG_UPDATE_CURRENT|PendingIntent.FLAG_IMMUTABLE);
+-  return new Notification.Builder(c,"nex_control").setSmallIcon(R.drawable.ic_stat_nex).setLargeIcon(Ui.brandBitmap(c)).setContentTitle("NEX · 화면 위 컨트롤").setContentText(status).setContentIntent(open).setOngoing(true).setOnlyAlertOnce(true).addAction(new Notification.Action.Builder(null,"정지",stop).build()).addAction(new Notification.Action.Builder(null,"컨트롤 닫기",close).build()).build();
++  return new Notification.Builder(c,"nex_control").setSmallIcon(R.drawable.ic_stat_nex).setLargeIcon(Ui.brandBitmap(c)).setContentTitle("PXE · 화면 위 컨트롤").setContentText(status).setContentIntent(open).setOngoing(true).setOnlyAlertOnce(true).addAction(new Notification.Action.Builder(null,"정지",stop).build()).addAction(new Notification.Action.Builder(null,"컨트롤 닫기",close).build()).build();
+  }
+  public static void show(Context c){c.startForegroundService(new Intent(c,KeepAliveService.class));}
+  public static void update(Context c,String s){((NotificationManager)c.getSystemService(NOTIFICATION_SERVICE)).notify(ID,note(c,s));}
+--- 9차/app/src/main/java/kr/yunseok/touchmacro/MacroService.java
++++ 10차/app/src/main/java/kr/yunseok/touchmacro/MacroService.java
+@@ -119,7 +119,7 @@
+         finally{result.cancel(false);queryStartedAt=0;}
+     }
+     @SuppressWarnings("deprecation") private void run(Macro m,long token){
+-        PowerManager.WakeLock lock=((PowerManager)getSystemService(POWER_SERVICE)).newWakeLock(Ui.prefs(this).getBoolean("keep_screen",true)?PowerManager.SCREEN_DIM_WAKE_LOCK:PowerManager.PARTIAL_WAKE_LOCK,"NEX:run");
++        PowerManager.WakeLock lock=((PowerManager)getSystemService(POWER_SERVICE)).newWakeLock(Ui.prefs(this).getBoolean("keep_screen",true)?PowerManager.SCREEN_DIM_WAKE_LOCK:PowerManager.PARTIAL_WAKE_LOCK,"PXE:run");
+         try{
+             int[] sz=size();initialW=sz[0];initialH=sz[1];resetStats();watchCompleted=0;deadline=m.maxMinutes==0?0:SystemClock.elapsedRealtime()+m.maxMinutes*60000L;
+             lock.acquire(m.maxMinutes==0?24*60*60000L:m.maxMinutes*60000L+10000);
+@@ -157,7 +157,7 @@
+         worker.execute(()->runWatch(p,m,token));
+     }
+     @SuppressWarnings("deprecation") private void runWatch(WatchConfig p,Macro m,long token){
+-        PowerManager.WakeLock lock=((PowerManager)getSystemService(POWER_SERVICE)).newWakeLock(Ui.prefs(this).getBoolean("keep_screen",true)?PowerManager.SCREEN_DIM_WAKE_LOCK:PowerManager.PARTIAL_WAKE_LOCK,"NEX:watch");
++        PowerManager.WakeLock lock=((PowerManager)getSystemService(POWER_SERVICE)).newWakeLock(Ui.prefs(this).getBoolean("keep_screen",true)?PowerManager.SCREEN_DIM_WAKE_LOCK:PowerManager.PARTIAL_WAKE_LOCK,"PXE:watch");
+         long overall=0;
+         try{
+             int[] sz=size();initialW=sz[0];initialH=sz[1];resetStats();
+@@ -346,7 +346,7 @@
+                 ready(token);capturePhase=retry==0?"OCR 캡처 간격 대기":"캡처 간격 조정 · 재시도 "+retry+"/3 대기";
+                 long pendingSince=SystemClock.elapsedRealtime();
+                 while(capturePending.get()){
+-                    if(SystemClock.elapsedRealtime()-pendingSince>8000)throw new IllegalStateException("이전 OCR 캡처 응답이 없습니다. NEX 접근성을 껐다 켜고 다시 실행하세요");
++                    if(SystemClock.elapsedRealtime()-pendingSince>8000)throw new IllegalStateException("이전 OCR 캡처 응답이 없습니다. PXE 접근성을 껐다 켜고 다시 실행하세요");
+                     sleep(100,token);
+                 }
+                 long wait;while((wait=capturePacer.remaining(SystemClock.elapsedRealtime()))>0)sleep(wait,token);
+@@ -354,7 +354,7 @@
+                 catch(Exception e){
+                     CaptureFailure failure=null;for(Throwable cause=e;cause!=null;cause=cause.getCause())if(cause instanceof CaptureFailure){failure=(CaptureFailure)cause;break;}
+                     if(failure==null||failure.error!=ERROR_TAKE_SCREENSHOT_INTERVAL_TIME_SHORT)throw e;
+-                    if(retry>=3)throw new IllegalStateException("OCR 화면 캡처 실패(3) · 간격을 늘려 3회 재시도했지만 계속 거절됐습니다. NEX 접근성을 껐다 켠 뒤 다시 실행하세요",e);
++                    if(retry>=3)throw new IllegalStateException("OCR 화면 캡처 실패(3) · 간격을 늘려 3회 재시도했지만 계속 거절됐습니다. PXE 접근성을 껐다 켠 뒤 다시 실행하세요",e);
+                     capturePacer.rejected(SystemClock.elapsedRealtime());
+                     log("캡처 간격 조정 · "+(retry+1)+"/3 재시도 · 터치 없이 대기");
+                 }
+@@ -382,7 +382,7 @@
+         }finally{ui.post(()->{controller.setVisible(true);});}
+     }
+     static String captureError(int error){
+-        String reason;switch(error){case 2:reason="접근성 캡처 권한 없음 · NEX 접근성을 다시 켜세요";break;case 3:reason="캡처 간격이 너무 짧습니다";break;case 4:reason="캡처할 화면을 찾지 못했습니다";break;case 6:reason="보안 화면입니다 · 화면 정보 모드를 사용하세요";break;default:reason="화면 캡처 응답 오류 · 해당 블루스택 창과 NEX 접근성을 다시 시작하세요";}
++        String reason;switch(error){case 2:reason="접근성 캡처 권한 없음 · PXE 접근성을 다시 켜세요";break;case 3:reason="캡처 간격이 너무 짧습니다";break;case 4:reason="캡처할 화면을 찾지 못했습니다";break;case 6:reason="보안 화면입니다 · 화면 정보 모드를 사용하세요";break;default:reason="화면 캡처 응답 오류 · 해당 블루스택 창과 PXE 접근성을 다시 시작하세요";}
+         return "OCR 화면 캡처 실패("+error+") · "+reason;
+     }
+     private void input(String text,long token)throws Exception{
+--- 9차/app/src/main/java/kr/yunseok/touchmacro/MainActivity.java
++++ 10차/app/src/main/java/kr/yunseok/touchmacro/MainActivity.java
+@@ -21,13 +21,13 @@
+     private final Runnable watchConnection=new Runnable(){public void run(){if(!testing&&shownConnected!=(MacroService.get()!=null))render();connectionUi.postDelayed(this,800);}};
+     @Override protected void onPause(){connectionUi.removeCallbacks(watchConnection);if(!testing&&MacroService.get()!=null)MacroService.get().controller().setVisible(true);super.onPause();}
+     private int dp(int n){return (int)(n*getResources().getDisplayMetrics().density+.5f);}
+-    @Override public void onCreate(Bundle b){setTheme(Ui.theme(this));super.onCreate(b);blue=Ui.accent(this);ink=Ui.ink(this);muted=Ui.muted(this);macro=Store.load(this);setTaskDescription(new ActivityManager.TaskDescription("NEX",Ui.brandBitmap(this),Color.rgb(40,86,216)));if(getIntent().getBooleanExtra("watch",false))tab=4;else if(getIntent().getBooleanExtra("settings",false))tab=3;render();if(Build.VERSION.SDK_INT>=33&&checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS)!=android.content.pm.PackageManager.PERMISSION_GRANTED)requestPermissions(new String[]{android.Manifest.permission.POST_NOTIFICATIONS},201);}
++    @Override public void onCreate(Bundle b){setTheme(Ui.theme(this));super.onCreate(b);blue=Ui.accent(this);ink=Ui.ink(this);muted=Ui.muted(this);macro=Store.load(this);setTaskDescription(new ActivityManager.TaskDescription("PXE",Ui.brandBitmap(this),Ui.bg(this)));if(getIntent().getBooleanExtra("watch",false))tab=4;else if(getIntent().getBooleanExtra("settings",false))tab=3;render();if(Build.VERSION.SDK_INT>=33&&checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS)!=android.content.pm.PackageManager.PERMISSION_GRANTED)requestPermissions(new String[]{android.Manifest.permission.POST_NOTIFICATIONS},201);}
+     @Override public void onResume(){super.onResume();if(macro==null)return;if(!testing&&MacroService.get()!=null&&MacroService.get().running){if(!MacroService.get().paused)MacroService.get().togglePause();MacroService.get().log("편집 화면 · 일시정지");}if(!testing)macro=Store.load(this);
+         String picked=getSharedPreferences("macros",0).getString("picked","");
+         if(!picked.isEmpty()){getSharedPreferences("macros",0).edit().remove("picked").apply();try{String[] xy=picked.split(",");Step s=new Step("TAP");s.x=Double.parseDouble(xy[0]);s.y=Double.parseDouble(xy[1]);macro.steps.add(s);save();testing=false;render();edit(s);}catch(Exception e){toast("좌표를 읽지 못했습니다");}}
+         else if(!testing)render();if(!testing&&SetupFlow.active(this)&&MacroService.get()!=null)MacroService.get().controller().setVisible(false);connectionUi.removeCallbacks(watchConnection);connectionUi.postDelayed(watchConnection,800);
+     }
+-    private void font(View v){if(v instanceof TextView)((TextView)v).setTypeface(getResources().getFont(R.font.nanum_gothic_bold));if(v instanceof ViewGroup)for(int i=0;i<((ViewGroup)v).getChildCount();i++)font(((ViewGroup)v).getChildAt(i));}
++    private void font(View v){Ui.font(v);}
+     @Override protected void onNewIntent(Intent i){super.onNewIntent(i);setIntent(i);if(i.getBooleanExtra("watch",false))tab=4;else if(i.getBooleanExtra("settings",false))tab=3;macro=Store.load(this);render();}
+     private void save(){Store.save(this,macro);}
+     private TextView text(LinearLayout parent,String value,int sp,int color){TextView t=new TextView(this);t.setText(value);t.setTextSize(sp);t.setTextColor(color);t.setPadding(0,dp(5),0,dp(5));parent.addView(t);return t;}
+@@ -37,26 +37,23 @@
+     private LinearLayout row(LinearLayout box){LinearLayout r=new LinearLayout(this);r.setOrientation(LinearLayout.HORIZONTAL);box.addView(r,new LinearLayout.LayoutParams(-1,-2));return r;}
+     private void halfButton(LinearLayout r,String label,Runnable click){Button b=button(r,label,click);LinearLayout.LayoutParams p=new LinearLayout.LayoutParams(0,dp(52),1);p.setMargins(dp(2),dp(2),dp(2),dp(2));b.setLayoutParams(p);}
+     private LinearLayout card(LinearLayout parent){
+-        LinearLayout c=new LinearLayout(this);c.setOrientation(LinearLayout.VERTICAL);c.setPadding(dp(14),dp(10),dp(14),dp(10));android.graphics.drawable.GradientDrawable bg=new android.graphics.drawable.GradientDrawable();bg.setColor(Ui.card(this));bg.setCornerRadius(dp(16));c.setBackground(bg);
++        LinearLayout c=new LinearLayout(this);c.setOrientation(LinearLayout.VERTICAL);c.setPadding(dp(20),dp(18),dp(20),dp(18));android.graphics.drawable.GradientDrawable bg=new android.graphics.drawable.GradientDrawable();bg.setColor(Ui.card(this));bg.setCornerRadius(dp(24));c.setBackground(bg);
+         LinearLayout.LayoutParams p=new LinearLayout.LayoutParams(-1,-2);p.setMargins(0,dp(6),0,dp(8));parent.addView(c,p);return c;
+     }
+-    private void content(View v){v.setOnApplyWindowInsetsListener((view,insets)->{if(Build.VERSION.SDK_INT>=35){android.graphics.Insets bars=insets.getInsets(WindowInsets.Type.systemBars());view.setPadding(view.getPaddingLeft(),bars.top,view.getPaddingRight(),bars.bottom);}return insets;});setContentView(v);}
++    private void content(View v){v.setOnApplyWindowInsetsListener((view,insets)->{if(Build.VERSION.SDK_INT>=35){android.graphics.Insets bars=insets.getInsets(WindowInsets.Type.systemBars());view.setPadding(view.getPaddingLeft(),bars.top,view.getPaddingRight(),bars.bottom);}return insets;});setContentView(v);v.post(()->{WindowInsetsController bars=getWindow().getInsetsController();if(bars!=null){int mask=WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS|WindowInsetsController.APPEARANCE_LIGHT_NAVIGATION_BARS;bars.setSystemBarsAppearance(Ui.dark(this)?0:mask,mask);}});}
+     private void render(){
+         testing=false;blue=Ui.accent(this);ink=Ui.ink(this);muted=Ui.muted(this);
+         getWindow().setStatusBarColor(Ui.bg(this));getWindow().setNavigationBarColor(Ui.bg(this));
++        int lightBars=View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR|View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR;int barFlags=getWindow().getDecorView().getSystemUiVisibility();getWindow().getDecorView().setSystemUiVisibility(Ui.dark(this)?barFlags&~lightBars:barFlags|lightBars);
+         LinearLayout shell=new LinearLayout(this);shell.setOrientation(LinearLayout.VERTICAL);shell.setBackgroundColor(Ui.bg(this));
+-        LinearLayout header=form();header.setPadding(dp(24),dp(16),dp(24),dp(4));shell.addView(header);
+-        LinearLayout brand=row(header);brand.setGravity(Gravity.CENTER_VERTICAL);ImageView brandIcon=new ImageView(this);brandIcon.setImageResource(R.drawable.ic_macro);LinearLayout.LayoutParams brandSize=new LinearLayout.LayoutParams(dp(32),dp(32));brandSize.setMargins(0,0,dp(10),0);brand.addView(brandIcon,brandSize);TextView logo=text(brand,"NEX",26,ink);logo.setLayoutParams(new LinearLayout.LayoutParams(0,-2,1));
++        LinearLayout header=form();header.setPadding(dp(24),dp(14),dp(24),dp(4));shell.addView(header);
++        LinearLayout brand=row(header);brand.setGravity(Gravity.CENTER_VERTICAL);ImageView brandIcon=new ImageView(this);brandIcon.setImageResource(R.drawable.ic_macro);LinearLayout.LayoutParams brandSize=new LinearLayout.LayoutParams(dp(30),dp(30));brandSize.setMargins(0,0,dp(9),0);brand.addView(brandIcon,brandSize);TextView logo=text(brand,"PXE",23,ink);logo.setLetterSpacing(.1f);logo.setLayoutParams(new LinearLayout.LayoutParams(0,-2,1));
+         boolean connected=MacroService.get()!=null;shownConnected=connected;
+-        state=text(brand,connected?"● 연결됨":"연결하기",11,connected?muted:blue);state.setGravity(Gravity.CENTER_VERTICAL);state.setMinHeight(dp(44));state.setOnClickListener(v->accessibility());
+-        LinearLayout nav=row(header);String[] labels={"글자","탐지","매크로","설정"};int[] pages={0,4,1,3};
+-        for(int i=0;i<labels.length;i++){final int chosen=pages[i];boolean active=tab==chosen||(chosen==1&&tab==2);
+-            Button b=Ui.button(this,labels[i]);b.setTextSize(14);b.setTextColor(active?blue:muted);b.setBackgroundColor(Color.TRANSPARENT);
+-            LinearLayout.LayoutParams p=new LinearLayout.LayoutParams(0,dp(48),1);nav.addView(b,p);b.setOnClickListener(v->{tab=chosen;render();});
+-        }
+-        ScrollView scroll=new ScrollView(this);scroll.setFillViewport(true);page=form();page.setPadding(dp(24),dp(18),dp(24),dp(24));scroll.addView(page);shell.addView(scroll,new LinearLayout.LayoutParams(-1,0,1));
++        state=text(brand,connected?"연결됨":"연결하기",10,connected?muted:blue);state.setGravity(Gravity.CENTER);state.setMinHeight(dp(36));state.setPadding(dp(10),0,dp(10),0);state.setOnClickListener(v->accessibility());
++        Button shortcut=Ui.button(this,"단축창 ↗");shortcut.setTextSize(11);brand.addView(shortcut,new LinearLayout.LayoutParams(-2,dp(36)));shortcut.setOnClickListener(v->{if(service()){save();MacroService.get().showControls();moveTaskToBack(true);}});
++        ScrollView scroll=new ScrollView(this);scroll.setFillViewport(true);scroll.setVerticalScrollBarEnabled(false);page=form();page.setPadding(dp(24),dp(18),dp(24),dp(24));scroll.addView(page);shell.addView(scroll,new LinearLayout.LayoutParams(-1,0,1));
+         if(tab==0){
+-            text(page,"어떤 글자를 찾을까요?",24,ink);text(page,"찾으면 자동으로 터치합니다.",13,muted);space(page,24);
++            text(page,"글자 찾기",32,ink);text(page,"원하는 글자를 찾아 바로 터치하세요.",13,muted);space(page,24);
+             EditText word=new EditText(this);word.setText(Ui.prefs(this).getString("word","확인"));word.setHint("찾을 글자 입력");word.setSingleLine(true);word.setSelectAllOnFocus(true);word.setTextSize(24);word.setTextColor(ink);word.setHintTextColor(muted);word.setPadding(dp(18),dp(16),dp(18),dp(16));word.setBackground(Ui.rounded(Ui.card(this),dp(14)));page.addView(word,new LinearLayout.LayoutParams(-1,dp(80)));
+             word.addTextChangedListener(new android.text.TextWatcher(){public void beforeTextChanged(CharSequence s,int st,int count,int after){}public void onTextChanged(CharSequence s,int st,int before,int count){Ui.prefs(MainActivity.this).edit().putString("word",s.toString()).apply();}public void afterTextChanged(android.text.Editable e){}});
+             space(page,12);CheckBox back=check(page,"없으면 뒤로가서 다시 찾기",Ui.prefs(this).getBoolean("word_back",true));back.setTextSize(13);back.setTextColor(ink);back.setOnCheckedChangeListener((v,on)->Ui.prefs(this).edit().putBoolean("word_back",on).apply());
+@@ -77,33 +74,39 @@
+             for(String name:all.keySet())button(page,name,()->{macro=new Macro(all.get(name).json());save();tab=1;render();});
+             quiet(page,"저장본 관리",this::library);
+         }else{
+-            text(page,"설정",24,ink);space(page,18);
++            text(page,"설정",32,ink);text(page,"PXE를 나에게 맞게.",13,muted);space(page,18);
+             settingRow(page,"화면 모드",Ui.prefs(this).getInt("theme",0)==0?"기기 설정":Ui.dark(this)?"다크":"라이트",this::themeChoice);
+             settingRow(page,"화면 위 컨트롤","크기 · 투명도 · 번호 표시",this::controlSettings);
+             settingRow(page,"접근성",connected?"연결됨":"연결 필요",this::accessibility);
+             space(page,24);quiet(page,"실행 기록",this::logs);quiet(page,"사용법",this::help);quiet(page,"인식 테스트",this::testScreen);
+-            space(page,24);text(page,"NEX 9.0 · 9차\n한글 OCR · 나눔고딕 Bold 내장",11,muted);
+-        }
+-        LinearLayout dock=form();dock.setPadding(dp(24),dp(8),dp(24),dp(12));
+-        Button floating=button(dock,"다른 앱에서 사용  ↗",()->{if(service()){save();MacroService.get().showControls();moveTaskToBack(true);}});floating.setTextColor(ink);floating.setBackground(Ui.rounded(Ui.card(this),dp(14)));
+-        if(MacroService.get()!=null&&MacroService.get().running)quiet(dock,"실행 정지",()->{MacroService.get().stop();render();});shell.addView(dock);content(shell);Ui.font(shell);
++            space(page,24);text(page,"PXE 1.0\n작은 동작을, 편안하게.",11,muted);
++        }
++        if(MacroService.get()!=null&&MacroService.get().running){LinearLayout dock=form();dock.setPadding(dp(24),0,dp(24),0);quiet(dock,"실행 정지",()->{MacroService.get().stop();render();});shell.addView(dock);}
++        addNavigation(shell);content(shell);Ui.font(shell);
++    }
++    private void addNavigation(LinearLayout shell){
++        LinearLayout nav=new LinearLayout(this);nav.setGravity(Gravity.CENTER_VERTICAL);nav.setPadding(dp(6),dp(8),dp(6),dp(8));nav.setBackground(Ui.rounded(Ui.card(this),dp(25)));
++        LinearLayout.LayoutParams outer=new LinearLayout.LayoutParams(-1,dp(74));outer.setMargins(dp(18),dp(4),dp(18),dp(12));shell.addView(nav,outer);
++        String[] labels={"탐지","동작","글자","설정"};int[] pages={4,1,0,3},icons={R.drawable.pxe_scan,R.drawable.pxe_steps,R.drawable.pxe_text,R.drawable.pxe_settings};
++        for(int i=0;i<pages.length;i++){final int chosen=pages[i];boolean active=tab==chosen||(chosen==1&&tab==2);LinearLayout item=new LinearLayout(this);item.setOrientation(LinearLayout.VERTICAL);item.setGravity(Gravity.CENTER);item.setContentDescription(labels[i]);item.setClickable(true);item.setBackground(Ui.rounded(active?Ui.soft(this):Color.TRANSPARENT,dp(18)));nav.addView(item,new LinearLayout.LayoutParams(0,-1,1));
++            ImageView icon=new ImageView(this);icon.setImageResource(icons[i]);icon.setColorFilter(active?blue:muted);icon.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);item.addView(icon,new LinearLayout.LayoutParams(dp(23),dp(23)));TextView label=text(item,labels[i],10,active?blue:muted);label.setPadding(0,dp(4),0,0);label.setGravity(Gravity.CENTER);label.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);item.setOnClickListener(v->{tab=chosen;render();});}
+     }
+     private void buildWatchPage(){
+         if(SetupFlow.active(this)){new SetupWizard(this).render(page);return;}
+         WatchConfig p=WatchStore.load(this);
+-        text(page,"찾으면 들어가서 반복",23,ink);text(page,"글자와 매크로를 고르면 준비 끝",13,muted);space(page,16);
+-        LinearLayout summary=card(page);text(summary,"“"+p.rule.text+"”",22,ink);
+-        text(summary,"1  글자를 찾으면 "+(p.tapFound?"터치해서 들어가기":"매크로 시작"),14,ink);
+-        text(summary,"2  "+(p.macroName.isEmpty()?Store.load(this).name:p.macroName)+" · "+p.repetitions+"회 반복",14,ink);
+-        text(summary,"3  뒤로 "+p.backCount+"회 → "+Times.durationLabel(p.cooldownMs)+" 쉬기",14,ink);text(summary,"이후 "+p.intervalSeconds+"초마다 새로고침 · "+p.areaCount()+"개 순위 영역",12,muted);
+-        text(summary,p.rule.left==0&&p.rule.top==0&&p.rule.right==100&&p.rule.bottom==100?"탐지 영역 · 전체 화면":"탐지 영역 · 직접 지정한 위치",12,muted);
++        text(page,"탐지",32,ink);text(page,"찾고, 실행하고, 다시 기다립니다.",13,muted);space(page,18);
++        LinearLayout summary=card(page);text(summary,"찾을 글자",11,muted);text(summary,p.rule.text,32,ink);space(summary,8);
++        text(summary,p.areaCount()+"개 영역  ·  1순위부터 차례대로",12,blue);space(summary,14);
++        flowRow(summary,"01","글자 발견",p.tapFound?"항목을 눌러 들어갑니다":"등록한 동작을 시작합니다");
++        flowRow(summary,"02",p.repetitions+"회 반복",p.macroName.isEmpty()?Store.load(this).name:p.macroName);
++        flowRow(summary,"03","뒤로가기 · "+Times.durationLabel(p.cooldownMs)+" 대기","이후 "+p.intervalSeconds+"초마다 새로고침");
+         space(page,12);primary(page,"탐지 시작",this::startWatch);
+         LinearLayout actions=row(page);quietHalf(actions,"글자 · 매크로 설정",this::watchSettings);quietHalf(actions,"탐지 영역 지정",this::watchRegion);
+-        space(page,14);text(page,((p.waitForRefresh||p.preventDuplicate)?"완료 후 "+Times.durationLabel(p.cooldownMs)+" 쉬고 새로고침합니다.":"완료 후 뒤로가면 바로 다시 탐지합니다.")+"\n매크로가 실행되는 동안에는 새로고침하지 않습니다.",12,muted);
+-        quiet(page,"현재 화면 인식 미리보기",()->{if(!service())return;try{Step s=new Step(p.rule.json());s.type="TEXT_CHECK";s.timeout=0;s.failure="STOP";Macro preview=new Macro();preview.name="탐지 영역 미리보기";preview.startDelay=3000;preview.maxMinutes=1;preview.steps.add(s);MacroService.get().start(preview);moveTaskToBack(true);}catch(Exception e){toast(e.getMessage());}});
+-        text(page,p.preventDuplicate?"중복 방지 켜짐 · 같은 글자가 사라졌다가 다시 나타나야 실행합니다.":"완료 후 대기 중 재실행 금지 · 새로고침 후 재실행 허용",12,muted);
+-        quiet(page,"순서대로 다시 설정",()->{SetupFlow.begin(this);render();});
+-    }
++        LinearLayout extras=row(page);quietHalf(extras,"인식 미리보기",()->{if(!service())return;try{Step s=new Step(p.rule.json());s.type="TEXT_CHECK";s.timeout=0;s.failure="STOP";Macro preview=new Macro();preview.name="탐지 영역 미리보기";preview.startDelay=3000;preview.maxMinutes=1;preview.steps.add(s);MacroService.get().start(preview);moveTaskToBack(true);}catch(Exception e){toast(e.getMessage());}});
++        quietHalf(extras,"다시 설정",()->{SetupFlow.begin(this);render();});
++        if(p.preventDuplicate)text(page,"사라짐 확인 켜짐 · 글자가 사라진 뒤 다시 실행합니다.",12,muted);
++    }
++    private void flowRow(LinearLayout parent,String number,String title,String detail){LinearLayout r=row(parent);r.setPadding(0,dp(9),0,dp(9));r.setGravity(Gravity.CENTER_VERTICAL);TextView n=text(r,number,11,muted);n.setGravity(Gravity.CENTER);n.setBackground(Ui.rounded(Ui.soft(this),dp(11)));n.setLayoutParams(new LinearLayout.LayoutParams(dp(34),dp(34)));LinearLayout body=form();body.setPadding(dp(12),0,0,0);r.addView(body,new LinearLayout.LayoutParams(0,-2,1));TextView t=text(body,title,14,ink);t.setPadding(0,0,0,dp(4));TextView d=text(body,detail,11,muted);d.setPadding(0,0,0,0);}
+     void refreshSetup(){macro=Store.load(this);tab=4;render();}
+     void setupOutside(String kind){if(!service())return;if(MacroService.get().running||MacroService.get().controller().recording){toast("먼저 실행과 녹화를 정지하세요");return;}moveTaskToBack(true);new Handler(Looper.getMainLooper()).postDelayed(()->{if(MacroService.get()!=null)MacroService.get().controller().showSetupCoach(kind);},350);}
+     private void startWatch(){if(!service())return;try{save();MacroService.get().startWatch(WatchStore.load(this));moveTaskToBack(true);}catch(Exception e){toast(e.getMessage());}}
+@@ -166,7 +169,7 @@
+     private void themeChoice(){show(new AlertDialog.Builder(this).setTitle("라이트 / 다크").setSingleChoiceItems(new String[]{"기기 설정 따르기","라이트","다크"},Ui.prefs(this).getInt("theme",0),(d,w)->{if(!Ui.prefs(this).edit().putInt("theme",w).commit()){toast("테마 저장에 실패했습니다");return;}save();d.dismiss();refreshFloating();recreate();}).setNegativeButton("취소",null),null);}
+     private void slider(LinearLayout box,String label,int min,int max,String key,int def){TextView value=text(box,label+" · "+Ui.prefs(this).getInt(key,def),12,muted);SeekBar bar=new SeekBar(this);bar.setMax(max-min);bar.setProgress(Ui.prefs(this).getInt(key,def)-min);box.addView(bar);bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){public void onStartTrackingTouch(SeekBar s){}public void onStopTrackingTouch(SeekBar s){refreshFloating();}public void onProgressChanged(SeekBar s,int n,boolean user){if(user){Ui.prefs(MainActivity.this).edit().putInt(key,n+min).apply();value.setText(getString(R.string.nex_slider,label,n+min));}}});}
+     private void record(){if(service()){save();if(MacroService.get().running){toast("먼저 실행을 정지하세요");return;}moveTaskToBack(true);MacroService.get().controller().beginRecording(false,-1);}}
+-    private void quickWord(boolean preview){if(!service())return;try{Step s=FloatingController.wordStep(this);if(preview){s.type="TEXT_CHECK";s.failure="STOP";}Macro m=new Macro();m.name="NEX 글자 모드";m.startDelay=3000;m.maxMinutes=3;m.steps.add(s);m.validate();MacroService.get().start(m);moveTaskToBack(true);}catch(Exception e){toast(e.getMessage());}}
++    private void quickWord(boolean preview){if(!service())return;try{Step s=FloatingController.wordStep(this);if(preview){s.type="TEXT_CHECK";s.failure="STOP";}Macro m=new Macro();m.name="PXE 글자 모드";m.startDelay=3000;m.maxMinutes=3;m.steps.add(s);m.validate();MacroService.get().start(m);moveTaskToBack(true);}catch(Exception e){toast(e.getMessage());}}
+     private void refreshList(){
+         list.removeAllViews();if(macro.steps.isEmpty()){space(list,18);text(list,"동작을 추가하거나 화면을 녹화하세요.",14,muted);return;}
+         for(int i=0;i<macro.steps.size();i++){
+@@ -180,7 +183,7 @@
+     private void stepMenu(int i){Step s=macro.steps.get(i);show(new AlertDialog.Builder(this).setTitle((i+1)+"번 동작").setItems(new String[]{"편집","위로 이동","아래로 이동","복제",s.enabled?"사용 안 함으로":"사용함으로","삭제"},(d,w)->{if(w==0){edit(s);return;}if(w==1&&i>0)Collections.swap(macro.steps,i,i-1);if(w==2&&i<macro.steps.size()-1)Collections.swap(macro.steps,i,i+1);if(w==3)macro.steps.add(i+1,new Step(s.json()));if(w==4)s.enabled=!s.enabled;if(w==5)macro.steps.remove(i);save();render();}),null);}
+     private boolean service(){if(MacroService.get()!=null)return true;accessibility();return false;}
+     private void accessibility(){
+-        show(new AlertDialog.Builder(this).setTitle("접근성 사용 안내").setMessage("터치와 스와이프 실행, 다른 앱의 화면 글자 읽기, 화면 캡처를 통한 OCR, 뒤로가기에 접근성 권한을 사용합니다.\n\nOCR 모델은 APK에 포함되어 있습니다. 화면이나 입력 내용은 서버로 전송하지 않습니다. 실행은 직접 만든 매크로로만 시작되며, 컨트롤 또는 알림의 정지 버튼으로 중단할 수 있습니다.\n\n설정에서 ‘설치된 서비스 → NEX’를 켜주세요.")
++        show(new AlertDialog.Builder(this).setTitle("접근성 사용 안내").setMessage("터치와 스와이프 실행, 다른 앱의 화면 글자 읽기, 화면 캡처를 통한 OCR, 뒤로가기에 접근성 권한을 사용합니다.\n\nOCR 모델은 APK에 포함되어 있습니다. 화면이나 입력 내용은 서버로 전송하지 않습니다. 실행은 직접 만든 매크로로만 시작되며, 컨트롤 또는 알림의 정지 버튼으로 중단할 수 있습니다.\n\n설정에서 ‘설치된 서비스 → PXE’를 켜주세요.")
+             .setPositiveButton("설정 열기",(d,w)->startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))).setNegativeButton("취소",null),null);
+     }
+     private void start(){if(!service())return;try{macro.validate();save();MacroService.get().showControls();MacroService.get().start(macro);moveTaskToBack(true);}catch(Exception e){toast(e.getMessage());}}
+@@ -282,14 +285,14 @@
+     }
+     private void logs(){String log=MacroService.get()==null?getSharedPreferences("macros",0).getString("last_log","기록 없음"):MacroService.get().logText();LinearLayout f=form();text(f,log.isEmpty()?"기록 없음":log,12,ink);show(new AlertDialog.Builder(this).setTitle("최근 실행 기록").setView(wrap(f)).setPositiveButton("닫기",null).setNeutralButton("파일 저장",(d,w)->{exportText=log;startActivityForResult(new Intent(Intent.ACTION_CREATE_DOCUMENT).setType("text/plain").addCategory(Intent.CATEGORY_OPENABLE).putExtra(Intent.EXTRA_TITLE,"매크로 실행기록.txt"),103);}),null);}
+     private void help(){
+-      LinearLayout f=form();text(f,"NEX · 원하는 글자를 자동 터치",21,ink);
++      LinearLayout f=form();text(f,"PXE · 원하는 글자를 자동 터치",21,ink);
+       text(f,"순서대로 설정",18,blue);text(f,"탐지 탭에서 글자 → 최대 6개 순위 영역 → 매크로 녹화 → 대기 시간 → 실행 준비를 차례대로 진행합니다. 영역을 저장하거나 녹화를 완료하면 안내로 돌아옵니다. 기존 매크로를 선택해 사용할 수도 있습니다.",14,ink);
+       text(f,"순위와 새로고침",18,blue);text(f,"매번 1순위부터 6순위까지 확인하고 처음 글자가 있는 영역을 실행합니다. 1순위가 없고 2순위에 있으면 2순위를 실행합니다. 완료 후 기본 10분을 쉬고 첫 새로고침을 합니다. 그때도 같은 2순위에 글자가 있으면 다시 실행합니다. 아무 영역에도 글자가 없으면 기본 10초마다 새로고침합니다. 쉬는 시간은 분과 초로 직접 정할 수 있습니다. 쉬는 동안에는 재실행하지 않습니다.",14,ink);
+       text(f,"하단 실행 표시",18,blue);text(f,"현재 순위, 매크로 반복과 동작, 대기 남은 시간, 직전 한 바퀴와 전체 경과 시간을 하단에 표시합니다. 한 바퀴는 글자를 눌러 들어간 순간부터 매크로와 뒤로가기를 마치고 목록 화면 대기를 끝낼 때까지입니다. 전체 경과 시간에는 새로고침 대기와 일시정지도 포함됩니다. 하단 표시는 터치를 통과시키고 OCR 캡처 순간에는 인식에 섞이지 않도록 잠깐 숨깁니다.",14,ink);
+       text(f,"시간 입력은 초 단위",18,blue);text(f,"1은 1초, 0.5는 반 초, 1.5는 1.5초입니다. 기존 저장본과 녹화 시간도 자동으로 초 단위로 표시됩니다.",14,ink);
+       text(f,"글자 탭에서 문구를 입력하세요. ‘글자 찾기 시작’을 누르면 3초 뒤 인식해 터치합니다. ‘미리보기’는 초록 테두리로 위치만 표시합니다. 다른 앱에서 쓰려면 ‘다른 앱에서 사용’을 눌러 그 앱으로 이동해 ‘글자’를 누르세요.",14,ink);
+       text(f,"곡선·멀티터치 녹화",18,blue);text(f,"매크로 탭의 ‘녹화’ 또는 컨트롤 더보기의 ‘녹화’를 누릅니다. 손가락으로 탭, 곡선 스와이프, 두 손가락 확대·축소를 그리세요. 손을 떼면 원래 앱에 같은 제스처를 재생한 뒤 다음 동작을 녹화합니다. ‘녹화 끝내기’로 저장합니다. 녹화 영역에서는 제스처가 손을 뗀 뒤 전달됩니다. 동시 경로는 최대 20개, 한 제스처는 최대 59초입니다.",14,ink);
+-      text(f,"다른 앱 위에서 편집",18,blue);text(f,"NEX 아이콘을 누르면 바로 접고 펼칩니다. 끌면 이동하고 길게 누르면 정지합니다. 더보기에서 탐지 시작과 영역 지정, 녹화와 동작 편집을 선택합니다. 번호 점을 끌면 터치 위치가 수정됩니다. 모양은 설정 탭에서 크기·불투명도·라이트/다크를 조절하세요.",14,ink);
++      text(f,"다른 앱 위에서 편집",18,blue);text(f,"PXE 아이콘을 누르면 바로 접고 펼칩니다. 끌면 이동하고 길게 누르면 정지합니다. 더보기에서 탐지 시작과 영역 지정, 녹화와 동작 편집을 선택합니다. 번호 점을 끌면 터치 위치가 수정됩니다. 모양은 설정 탭에서 크기·불투명도·라이트/다크를 조절하세요.",14,ink);
+       text(f,"글자가 없을 때",18,blue);text(f,"글자 동작을 편집하면 정지, 건너뛰기, 뒤로가기 후 재검색, 같은 화면 재확인, 스크롤 재검색을 선택할 수 있습니다. 최대 횟수 후에도 못 찾으면 중단합니다. 검색 영역과 터치 보정도 지정할 수 있습니다. 캡처·OCR 오류는 글자 없음으로 처리하지 않습니다.",14,ink);
+       text(f,"실행과 데이터",18,blue);text(f,"실행 중에는 알림의 정지 버튼도 사용할 수 있습니다. 설정의 ‘화면 켜짐 유지’는 실행 동안만 적용됩니다. 잠금 화면·화면 회전·최대 실행 시간 도달 시 중단합니다. 이미 전달된 긴 제스처는 정지 후 잠깐 마무리될 수 있습니다. 이름별 저장과 JSON 파일로 백업하세요. 앱을 삭제하면 앱 안의 저장본은 사라집니다.",13,muted);
+       text(f,"한글 OCR은 기기 안에서 동작합니다. 보안 화면은 캡처가 막힐 수 있고, 폰트·화질에 따라 오인식할 수 있으므로 인식 테스트와 미리보기로 확인하세요. 문자 입력은 접근성 입력을 지원하는 입력 칸에서 가능합니다.",13,muted);show(new AlertDialog.Builder(this).setView(wrap(f)).setPositiveButton("닫기",null),null);
+--- 9차/app/src/main/java/kr/yunseok/touchmacro/QueryLane.java
++++ 10차/app/src/main/java/kr/yunseok/touchmacro/QueryLane.java
+@@ -7,7 +7,7 @@
+ final class QueryLane implements AutoCloseable {
+     private final AtomicBoolean busy=new AtomicBoolean();
+     private final ThreadPoolExecutor executor=new ThreadPoolExecutor(1,1,0,TimeUnit.MILLISECONDS,
+-        new ArrayBlockingQueue<>(1),r->{Thread t=new Thread(r,"NEX-screen-reader");t.setDaemon(true);return t;});
++        new ArrayBlockingQueue<>(1),r->{Thread t=new Thread(r,"PXE-screen-reader");t.setDaemon(true);return t;});
+     <T> CompletableFuture<T> submit(Callable<T> action){
+         CompletableFuture<T> result=new CompletableFuture<>();
+         if(!busy.compareAndSet(false,true)){result.completeExceptionally(unavailable());return result;}
+--- 9차/app/src/main/java/kr/yunseok/touchmacro/RegionPicker.java
++++ 10차/app/src/main/java/kr/yunseok/touchmacro/RegionPicker.java
+@@ -5,7 +5,7 @@
+ import android.widget.*;
+ import java.util.function.Consumer;
+ 
+-/** User-drawn screen region. No touch is replayed to the underlying app. */
++/** 직접 그린 영역을 저장하며 아래 앱으로 터치를 전달하지 않습니다. */
+ public final class RegionPicker {
+     private final MacroService owner;
+     private final WindowManager wm;
+@@ -25,10 +25,10 @@
+                 if(e.getActionMasked()==MotionEvent.ACTION_MOVE||e.getActionMasked()==MotionEvent.ACTION_UP){rect.set(Math.min(x,e.getRawX()),Math.min(y,e.getRawY()),Math.max(x,e.getRawX()),Math.max(y,e.getRawY()));if(e.getActionMasked()==MotionEvent.ACTION_UP)performClick();}
+                 invalidate();return true;
+             }
+-            @Override protected void onDraw(Canvas c){super.onDraw(c);getLocationOnScreen(origin);local.set(rect);local.offset(-origin[0],-origin[1]);paint.setColor(0x77000000);paint.setStyle(Paint.Style.FILL);c.drawRect(0,0,getWidth(),local.top,paint);c.drawRect(0,local.bottom,getWidth(),getHeight(),paint);c.drawRect(0,local.top,local.left,local.bottom,paint);c.drawRect(local.right,local.top,getWidth(),local.bottom,paint);paint.setColor(0xFF93ACFF);paint.setStyle(Paint.Style.STROKE);paint.setStrokeWidth(Ui.dp(owner,3));c.drawRect(local,paint);}
++            @Override protected void onDraw(Canvas c){super.onDraw(c);getLocationOnScreen(origin);local.set(rect);local.offset(-origin[0],-origin[1]);paint.setColor(0x66000000);paint.setStyle(Paint.Style.FILL);c.drawRect(0,0,getWidth(),local.top,paint);c.drawRect(0,local.bottom,getWidth(),getHeight(),paint);c.drawRect(0,local.top,local.left,local.bottom,paint);c.drawRect(local.right,local.top,getWidth(),local.bottom,paint);paint.setColor(0xFF5EAAFF);paint.setStyle(Paint.Style.STROKE);paint.setStrokeWidth(Ui.dp(owner,2));c.drawRoundRect(local,Ui.dp(owner,8),Ui.dp(owner,8),paint);}
+         };
+         wm.addView(canvas,layout(-1,-1));
+-        LinearLayout box=new LinearLayout(c);box.setOrientation(LinearLayout.VERTICAL);box.setPadding(Ui.dp(c,12),Ui.dp(c,8),Ui.dp(c,12),Ui.dp(c,8));box.setBackground(Ui.rounded(Ui.card(c),Ui.dp(c,16)));
++        LinearLayout box=new LinearLayout(c);box.setOrientation(LinearLayout.VERTICAL);box.setPadding(Ui.dp(c,16),Ui.dp(c,13),Ui.dp(c,16),Ui.dp(c,13));box.setBackground(Ui.rounded(Ui.card(c),Ui.dp(c,24)));
+         TextView hint=new TextView(c);hint.setText("탐지할 부분을 사각형으로 그리세요");hint.setTextColor(Ui.ink(c));hint.setTextSize(13);box.addView(hint);
+         LinearLayout actions=new LinearLayout(c);box.addView(actions);Button ok=Ui.button(c,"이 영역 사용"),cancel=Ui.button(c,"취소");actions.addView(ok,new LinearLayout.LayoutParams(0,Ui.dp(c,44),1));actions.addView(cancel,new LinearLayout.LayoutParams(0,Ui.dp(c,44),1));
+         cancel.setOnClickListener(v->{close();if(this.cancel!=null)this.cancel.run();});ok.setOnClickListener(v->{if(rect.width()<Ui.dp(c,12)||rect.height()<Ui.dp(c,12)){Toast.makeText(owner,"손가락으로 탐지할 영역을 그려 주세요",Toast.LENGTH_SHORT).show();return;}int[] s=owner.size();RectF percent=new RectF(Math.max(0,rect.left*100/s[0]),Math.max(0,rect.top*100/s[1]),Math.min(100,rect.right*100/s[0]),Math.min(100,rect.bottom*100/s[1]));try{accept.accept(percent);close();Toast.makeText(owner,"탐지 영역 저장 완료",Toast.LENGTH_SHORT).show();}catch(Exception e){Toast.makeText(owner,e.getMessage(),Toast.LENGTH_LONG).show();}});
+--- 9차/app/src/main/java/kr/yunseok/touchmacro/RunHud.java
++++ 10차/app/src/main/java/kr/yunseok/touchmacro/RunHud.java
+@@ -4,15 +4,15 @@
+ import android.view.*;
+ import android.widget.*;
+ 
+-/** Bottom progress is visible but never consumes touches; hidden during OCR captures. */
++/** 하단 상태창은 터치를 가리지 않으며 OCR 캡처 순간에만 숨깁니다. */
+ public final class RunHud {
+     private final MacroService owner;private final WindowManager wm;private LinearLayout view;private TextView progress,times;
+     public RunHud(MacroService owner){this.owner=owner;wm=(WindowManager)owner.getSystemService(Context.WINDOW_SERVICE);}
+     public void update(String line,String timing,boolean visible){
+-        if(view==null){Context c=Ui.themed(owner);view=new LinearLayout(c);view.setOrientation(LinearLayout.VERTICAL);view.setPadding(Ui.dp(c,12),Ui.dp(c,7),Ui.dp(c,12),Ui.dp(c,7));view.setBackground(Ui.rounded(Ui.card(c),Ui.dp(c,13)));view.setAlpha(.94f);
++        if(view==null){Context c=Ui.themed(owner);view=new LinearLayout(c);view.setOrientation(LinearLayout.VERTICAL);view.setPadding(Ui.dp(c,16),Ui.dp(c,11),Ui.dp(c,16),Ui.dp(c,11));view.setBackground(Ui.rounded(Ui.card(c),Ui.dp(c,22)));view.setAlpha(.96f);
+             progress=new TextView(c);progress.setTextSize(12);progress.setTextColor(Ui.ink(c));progress.setMaxLines(2);view.addView(progress);
+             times=new TextView(c);times.setTextSize(10);times.setTextColor(Ui.muted(c));times.setMaxLines(2);view.addView(times);Ui.font(view);
+-            WindowManager.LayoutParams p=new WindowManager.LayoutParams(Math.max(Ui.dp(c,200),owner.size()[0]-Ui.dp(c,24)),-2,WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY,WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE|WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,PixelFormat.TRANSLUCENT);p.gravity=Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL;p.y=Ui.dp(c,52);wm.addView(view,p);
++            WindowManager.LayoutParams p=new WindowManager.LayoutParams(Math.min(Ui.dp(c,390),Math.max(Ui.dp(c,200),owner.size()[0]-Ui.dp(c,32))),-2,WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY,WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE|WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,PixelFormat.TRANSLUCENT);p.gravity=Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL;p.y=Ui.dp(c,44);wm.addView(view,p);
+         }
+         progress.setText(line);times.setText(timing);visible(visible);
+     }
+--- 9차/app/src/main/java/kr/yunseok/touchmacro/SetupCoach.java
++++ 10차/app/src/main/java/kr/yunseok/touchmacro/SetupCoach.java
+@@ -4,14 +4,14 @@
+ import android.view.*;
+ import android.widget.*;
+ 
+-/** Small pass-around guide: navigation remains available until the user starts drawing/recording. */
++/** 영역 지정과 녹화 전에도 대상 앱을 조작할 수 있는 작은 안내창입니다. */
+ public final class SetupCoach {
+     private final MacroService owner;private final WindowManager wm;private View view;
+     public SetupCoach(MacroService owner){this.owner=owner;wm=(WindowManager)owner.getSystemService(Context.WINDOW_SERVICE);}
+     public void show(String instruction,String label,Runnable action,Runnable back){
+-        close();Context c=Ui.themed(owner);LinearLayout box=new LinearLayout(c);box.setOrientation(LinearLayout.VERTICAL);box.setPadding(Ui.dp(c,10),Ui.dp(c,7),Ui.dp(c,10),Ui.dp(c,7));box.setBackground(Ui.rounded(Ui.card(c),Ui.dp(c,16)));box.setElevation(Ui.dp(c,5));
++        close();Context c=Ui.themed(owner);LinearLayout box=new LinearLayout(c);box.setOrientation(LinearLayout.VERTICAL);box.setPadding(Ui.dp(c,16),Ui.dp(c,13),Ui.dp(c,16),Ui.dp(c,13));box.setBackground(Ui.rounded(Ui.card(c),Ui.dp(c,24)));box.setElevation(Ui.dp(c,3));
+         TextView hint=new TextView(c);hint.setText(instruction);hint.setTextSize(12);hint.setTextColor(Ui.ink(c));box.addView(hint);
+-        LinearLayout row=new LinearLayout(c);box.addView(row);Button go=Ui.button(c,label),settings=Ui.button(c,"설정으로");go.setTextSize(12);settings.setTextSize(11);row.addView(go,new LinearLayout.LayoutParams(0,Ui.dp(c,44),1.4f));row.addView(settings,new LinearLayout.LayoutParams(0,Ui.dp(c,44),1));
++        LinearLayout row=new LinearLayout(c);row.setPadding(0,Ui.dp(c,10),0,0);box.addView(row);Button go=Ui.button(c,label),settings=Ui.button(c,"설정으로");go.setTextSize(12);go.setBackground(Ui.rounded(Ui.accent(c),Ui.dp(c,14)));go.setTextColor(Ui.dark(c)?0xFF101828:0xFFFFFFFF);settings.setTextSize(11);settings.setBackgroundColor(android.graphics.Color.TRANSPARENT);row.addView(go,new LinearLayout.LayoutParams(0,Ui.dp(c,44),1.4f));row.addView(settings,new LinearLayout.LayoutParams(0,Ui.dp(c,44),1));
+         go.setOnClickListener(v->{try{action.run();}catch(Exception e){Toast.makeText(owner,e.getMessage(),Toast.LENGTH_LONG).show();}});settings.setOnClickListener(v->back.run());Ui.font(box);
+         WindowManager.LayoutParams p=new WindowManager.LayoutParams(Ui.dp(c,270),-2,WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY,WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,PixelFormat.TRANSLUCENT);p.gravity=Gravity.TOP|Gravity.END;p.x=Ui.dp(c,8);p.y=Ui.dp(c,36);view=box;wm.addView(view,p);
+     }
+--- 9차/app/src/main/java/kr/yunseok/touchmacro/SetupWizard.java
++++ 10차/app/src/main/java/kr/yunseok/touchmacro/SetupWizard.java
+@@ -6,12 +6,12 @@
+ import android.widget.*;
+ import java.util.*;
+ 
+-/** One visible step at a time; outside-app actions resume this same saved flow. */
++/** 한 번에 한 단계만 표시하고 외부 앱 작업 후 같은 설정 흐름으로 돌아옵니다. */
+ public final class SetupWizard {
+     private final MainActivity a;
+     public SetupWizard(MainActivity a){this.a=a;}
+-    private TextView text(LinearLayout box,String value,int size){TextView v=new TextView(a);v.setText(value);v.setTextSize(size);v.setTextColor(Ui.ink(a));v.setPadding(0,Ui.dp(a,7),0,Ui.dp(a,7));box.addView(v);return v;}
+-    private EditText field(LinearLayout box,String label,String value,boolean numeric){text(box,label,12);EditText e=new EditText(a);e.setText(value);e.setTextSize(16);e.setTextColor(Ui.ink(a));e.setSingleLine(true);e.setSelectAllOnFocus(true);if(numeric)e.setInputType(InputType.TYPE_CLASS_NUMBER|InputType.TYPE_NUMBER_FLAG_DECIMAL);box.addView(e,new LinearLayout.LayoutParams(-1,-2));return e;}
++    private TextView text(LinearLayout box,String value,int size){TextView v=new TextView(a);v.setText(value);v.setTextSize(size);v.setTextColor(size<=14?Ui.muted(a):Ui.ink(a));v.setLineSpacing(Ui.dp(a,3),1);v.setPadding(0,Ui.dp(a,8),0,Ui.dp(a,8));box.addView(v);return v;}
++    private EditText field(LinearLayout box,String label,String value,boolean numeric){text(box,label,12);EditText e=new EditText(a);e.setText(value);e.setTextSize(16);e.setTextColor(Ui.ink(a));e.setSingleLine(true);e.setSelectAllOnFocus(true);if(numeric)e.setInputType(InputType.TYPE_CLASS_NUMBER|InputType.TYPE_NUMBER_FLAG_DECIMAL);LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(-1,Ui.dp(a,54));lp.setMargins(0,0,0,Ui.dp(a,10));box.addView(e,lp);return e;}
+     private EditText time(LinearLayout box,String label,int ms){return field(box,label+" · 초",Times.seconds(ms),true);}
+     private void button(LinearLayout box,String label,Runnable action,boolean primary){Button b=Ui.button(a,label);b.setTextSize(14);if(primary){b.setBackground(Ui.rounded(Ui.accent(a),Ui.dp(a,14)));b.setTextColor(Ui.dark(a)?0xFF101828:0xFFFFFFFF);}LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(-1,Ui.dp(a,52));lp.setMargins(0,Ui.dp(a,8),0,0);box.addView(b,lp);b.setOnClickListener(v->{try{action.run();}catch(Exception e){Toast.makeText(a,e.getMessage()==null?"입력값을 확인하세요":e.getMessage(),Toast.LENGTH_LONG).show();}});}
+     private int integer(EditText e){try{return Integer.parseInt(e.getText().toString().trim());}catch(Exception x){throw new IllegalArgumentException("횟수와 새로고침 간격은 정수로 입력하세요");}}
+@@ -20,7 +20,9 @@
+     public void render(LinearLayout page){
+         int step=SetupFlow.stage(a);WatchConfig p=WatchStore.load(a);
+         String[] titles={"어떤 글자를 찾을까요?","어디에서 찾을까요?","들어간 뒤 할 동작 녹화","횟수와 대기 시간","준비가 끝났어요"};
+-        text(page,(step+1)+" / 5  ·  순서대로 설정",12).setTextColor(Ui.accent(a));text(page,titles[step],23);
++        LinearLayout progress=new LinearLayout(a);LinearLayout.LayoutParams progressSize=new LinearLayout.LayoutParams(-1,Ui.dp(a,5));progressSize.setMargins(0,Ui.dp(a,4),0,Ui.dp(a,20));page.addView(progress,progressSize);
++        for(int i=0;i<5;i++){View bar=new View(a);bar.setBackground(Ui.rounded(i<=step?Ui.accent(a):Ui.soft(a),Ui.dp(a,3)));LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(0,-1,1);if(i<4)lp.setMargins(0,0,Ui.dp(a,5),0);progress.addView(bar,lp);}
++        text(page,(step+1)+" / 5  ·  새로운 작업",11).setTextColor(Ui.accent(a));text(page,titles[step],29);
+         if(step==0){
+             text(page,"찾을 글자를 입력하면 다음 단계에서 화면의 위치를 정합니다.",13);
+             EditText word=field(page,"찾을 글자",p.rule.text,false);
+--- 9차/app/src/main/java/kr/yunseok/touchmacro/Ui.java
++++ 10차/app/src/main/java/kr/yunseok/touchmacro/Ui.java
+@@ -10,15 +10,15 @@
+  public static boolean dark(Context c){int mode=prefs(c).getInt("theme",0);return mode==2||(mode==0&&(c.getResources().getConfiguration().uiMode&Configuration.UI_MODE_NIGHT_MASK)==Configuration.UI_MODE_NIGHT_YES);}
+  public static int theme(Context c){return dark(c)?R.style.NexDark:R.style.AppTheme;}
+  public static Context themed(Context c){return new android.view.ContextThemeWrapper(c,theme(c));}
+- public static int bg(Context c){return Color.parseColor(dark(c)?"#0C1220":"#F6F7F9");}
+- public static int card(Context c){return Color.parseColor(dark(c)?"#172133":"#FFFFFF");}
+- public static int ink(Context c){return Color.parseColor(dark(c)?"#F2F6FF":"#192840");}
+- public static int muted(Context c){return Color.parseColor(dark(c)?"#A6B5CB":"#596B86");}
+- public static int accent(Context c){return Color.parseColor(dark(c)?"#93ACFF":"#2856D8");}
+- public static int soft(Context c){return Color.parseColor(dark(c)?"#243553":"#EBEEF4");}
++ public static int bg(Context c){return Color.parseColor(dark(c)?"#000000":"#F2F2F7");}
++ public static int card(Context c){return Color.parseColor(dark(c)?"#1C1C1E":"#FFFFFF");}
++ public static int ink(Context c){return Color.parseColor(dark(c)?"#F5F5F7":"#1D1D1F");}
++ public static int muted(Context c){return Color.parseColor(dark(c)?"#A1A1AA":"#63636E");}
++ public static int accent(Context c){return Color.parseColor(dark(c)?"#5EAAFF":"#006BE6");}
++ public static int soft(Context c){return Color.parseColor(dark(c)?"#2C2C2E":"#E9E9EF");}
+  public static int dp(Context c,float n){return (int)(n*c.getResources().getDisplayMetrics().density+.5f);}
+  public static GradientDrawable rounded(int color,int radius){GradientDrawable g=new GradientDrawable();g.setColor(color);g.setCornerRadius(radius);return g;}
+- public static void font(View v){if(v instanceof TextView)((TextView)v).setTypeface(v.getResources().getFont(R.font.nanum_gothic_bold));if(v instanceof ViewGroup)for(int i=0;i<((ViewGroup)v).getChildCount();i++)font(((ViewGroup)v).getChildAt(i));}
++ public static void font(View v){if(v instanceof TextView){((TextView)v).setTypeface(v.getResources().getFont(R.font.nanum_gothic_bold));((TextView)v).setIncludeFontPadding(false);}if(v instanceof EditText){EditText e=(EditText)v;Context c=e.getContext();e.setBackground(rounded(soft(c),dp(c,13)));e.setPadding(dp(c,14),dp(c,14),dp(c,14),dp(c,14));e.setMinHeight(dp(c,50));}if(v instanceof ViewGroup)for(int i=0;i<((ViewGroup)v).getChildCount();i++)font(((ViewGroup)v).getChildAt(i));}
+  public static android.graphics.Bitmap brandBitmap(Context c){int s=dp(c,48);android.graphics.Bitmap b=android.graphics.Bitmap.createBitmap(s,s,android.graphics.Bitmap.Config.ARGB_8888);android.graphics.drawable.Drawable d=androidx.core.content.ContextCompat.getDrawable(c,R.drawable.ic_macro);d.setBounds(0,0,s,s);d.draw(new android.graphics.Canvas(b));return b;}
+- public static Button button(Context c,String text){Button b=new Button(c);b.setStateListAnimator(null);b.setElevation(0);b.setText(text);b.setAllCaps(false);b.setTextColor(ink(c));b.setTextSize(13);b.setMinWidth(0);b.setMinimumWidth(0);b.setMinimumHeight(dp(c,44));b.setPadding(dp(c,8),0,dp(c,8),0);b.setBackground(rounded(soft(c),dp(c,11)));font(b);return b;}
++ public static Button button(Context c,String text){Button b=new Button(c);b.setStateListAnimator(null);b.setElevation(0);b.setText(text);b.setAllCaps(false);b.setTextColor(ink(c));b.setTextSize(13);b.setMinWidth(0);b.setMinimumWidth(0);b.setMinimumHeight(dp(c,44));b.setPadding(dp(c,12),0,dp(c,12),0);android.content.res.ColorStateList ripple=android.content.res.ColorStateList.valueOf(dark(c)?0x26FFFFFF:0x14000000);b.setBackground(new android.graphics.drawable.RippleDrawable(ripple,rounded(soft(c),dp(c,14)),null));font(b);return b;}
+ }
+--- 9차/app/src/main/res/drawable/ic_launcher_foreground.xml
++++ 10차/app/src/main/res/drawable/ic_launcher_foreground.xml
+@@ -1 +1,5 @@
+-<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="108dp" android:height="108dp" android:viewportWidth="108" android:viewportHeight="108"><path android:fillColor="#FFFFFF" android:pathData="M32,76V32H42L64,61V32H76V76H66L44,47V76Z"/></vector>+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="108dp" android:height="108dp" android:viewportWidth="108" android:viewportHeight="108">
++<group android:scaleX="1.5" android:scaleY="1.5" android:translateX="18" android:translateY="18">
++<path android:fillColor="#FFFFFF" android:fillType="evenOdd" android:pathData="M12,36V12H24C32,12 36,16 36,23C36,30 31,34 24,34H18V36ZM18,18V28H24C28,28 30,26 30,23C30,20 28,18 24,18Z"/>
++<path android:fillColor="#5EAAFF" android:pathData="M33,36a3,3 0,1 0,6 0a3,3 0,1 0,-6 0"/>
++</group></vector>--- 9차/app/src/main/res/drawable/ic_macro.xml
++++ 10차/app/src/main/res/drawable/ic_macro.xml
+@@ -1 +1,5 @@
+-<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="48dp" android:height="48dp" android:viewportWidth="48" android:viewportHeight="48"><path android:fillColor="#2856D8" android:pathData="M12,0H36Q48,0 48,12V36Q48,48 36,48H12Q0,48 0,36V12Q0,0 12,0Z"/><path android:fillColor="#FFFFFF" android:pathData="M11,35V13H16L31,28V13H37V35H32L17,20V35Z"/></vector>+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="48dp" android:height="48dp" android:viewportWidth="48" android:viewportHeight="48">
++<path android:fillColor="#161617" android:pathData="M13,0H35C43,0 48,5 48,13V35C48,43 43,48 35,48H13C5,48 0,43 0,35V13C0,5 5,0 13,0Z"/>
++<path android:fillColor="#FFFFFF" android:fillType="evenOdd" android:pathData="M12,36V12H24C32,12 36,16 36,23C36,30 31,34 24,34H18V36ZM18,18V28H24C28,28 30,26 30,23C30,20 28,18 24,18Z"/>
++<path android:fillColor="#5EAAFF" android:pathData="M33,36a3,3 0,1 0,6 0a3,3 0,1 0,-6 0"/>
++</vector>--- 9차/app/src/main/res/drawable/ic_stat_nex.xml
++++ 10차/app/src/main/res/drawable/ic_stat_nex.xml
+@@ -1 +1,4 @@
+-<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="24dp" android:height="24dp" android:viewportWidth="24" android:viewportHeight="24"><path android:fillColor="#FFFFFF" android:pathData="M4,20V4H8L16,14V4H20V20H16L8,10V20Z"/></vector>+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="24dp" android:height="24dp" android:viewportWidth="48" android:viewportHeight="48">
++<path android:fillColor="#FFFFFF" android:fillType="evenOdd" android:pathData="M12,36V12H24C32,12 36,16 36,23C36,30 31,34 24,34H18V36ZM18,18V28H24C28,28 30,26 30,23C30,20 28,18 24,18Z"/>
++<path android:fillColor="#FFFFFF" android:pathData="M33,36a3,3 0,1 0,6 0a3,3 0,1 0,-6 0"/>
++</vector>--- 9차/app/src/main/res/drawable/nex_dialog_dark.xml
++++ 10차/app/src/main/res/drawable/nex_dialog_dark.xml
+@@ -1 +1 @@
+-<shape xmlns:android="http://schemas.android.com/apk/res/android"><solid android:color="#172133"/><corners android:radius="20dp"/></shape>+<shape xmlns:android="http://schemas.android.com/apk/res/android"><solid android:color="#1C1C1E"/><corners android:radius="20dp"/></shape>--- 9차/app/src/main/res/drawable/pxe_scan.xml
++++ 10차/app/src/main/res/drawable/pxe_scan.xml
+@@ -0,0 +1 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="24dp" android:height="24dp" android:viewportWidth="24" android:viewportHeight="24"><path android:fillColor="@android:color/transparent" android:strokeColor="#1D1D1F" android:strokeWidth="1.8" android:strokeLineCap="round" android:strokeLineJoin="round" android:pathData="M8,3H5Q3,3 3,5V8M16,3H19Q21,3 21,5V8M3,16V19Q3,21 5,21H8M21,16V19Q21,21 19,21H16M7,9H17M7,12H14M7,15H16"/></vector>--- 9차/app/src/main/res/drawable/pxe_settings.xml
++++ 10차/app/src/main/res/drawable/pxe_settings.xml
+@@ -0,0 +1 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="24dp" android:height="24dp" android:viewportWidth="24" android:viewportHeight="24"><path android:fillColor="@android:color/transparent" android:strokeColor="#1D1D1F" android:strokeWidth="1.8" android:strokeLineCap="round" android:pathData="M4,6H20M4,12H20M4,18H20"/><path android:fillColor="#F2F2F7" android:strokeColor="#1D1D1F" android:strokeWidth="1.8" android:pathData="M7,6m-2.5,0a2.5,2.5 0,1 0,5 0a2.5,2.5 0,1 0,-5 0M16,12m-2.5,0a2.5,2.5 0,1 0,5 0a2.5,2.5 0,1 0,-5 0M9,18m-2.5,0a2.5,2.5 0,1 0,5 0a2.5,2.5 0,1 0,-5 0"/></vector>--- 9차/app/src/main/res/drawable/pxe_steps.xml
++++ 10차/app/src/main/res/drawable/pxe_steps.xml
+@@ -0,0 +1 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="24dp" android:height="24dp" android:viewportWidth="24" android:viewportHeight="24"><path android:fillColor="@android:color/transparent" android:strokeColor="#1D1D1F" android:strokeWidth="1.8" android:strokeLineCap="round" android:strokeLineJoin="round" android:pathData="M5,4H19Q21,4 21,6V18Q21,20 19,20H5Q3,20 3,18V6Q3,4 5,4ZM7,8H8M12,8H17M7,12H8M12,12H17M7,16H8M12,16H17"/></vector>--- 9차/app/src/main/res/drawable/pxe_text.xml
++++ 10차/app/src/main/res/drawable/pxe_text.xml
+@@ -0,0 +1 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="24dp" android:height="24dp" android:viewportWidth="24" android:viewportHeight="24"><path android:fillColor="@android:color/transparent" android:strokeColor="#1D1D1F" android:strokeWidth="1.8" android:strokeLineCap="round" android:strokeLineJoin="round" android:pathData="M4,5H20M12,5V20M8,20H16M4,5V8M20,5V8"/></vector>--- 9차/app/src/main/res/values/nex_colors.xml
++++ 10차/app/src/main/res/values/nex_colors.xml
+@@ -1 +1 @@
+-<resources><color name="nex_blue">#2856D8</color></resources>+<resources><color name="nex_blue">#161617</color></resources>--- 9차/app/src/main/res/values/strings.xml
++++ 10차/app/src/main/res/values/strings.xml
+@@ -1 +1 @@
+-<resources><string name="app_name">NEX</string><string name="service_description">윤석님이 직접 만든 동작을 실행합니다. 화면 글자 읽기, 기기 내 한글 OCR, 좌표 터치, 스와이프와 뒤로가기에 접근성을 사용합니다. 화면이나 입력 내용은 서버로 전송하지 않습니다. 화면 위 정지 버튼으로 언제든 멈출 수 있습니다.</string><string name="test_taps">성공 횟수: %1$d</string><string name="ocr_taps">OCR 성공 횟수: %1$d</string><string name="nex_control_status">%1$s · %2$s\n%3$s</string><string name="nex_slider">%1$s · %2$d</string></resources>+<resources><string name="app_name">PXE</string><string name="service_description">윤석님이 직접 만든 동작을 실행합니다. 화면 글자 읽기, 기기 내 한글 OCR, 좌표 터치, 스와이프와 뒤로가기에 접근성을 사용합니다. 화면이나 입력 내용은 서버로 전송하지 않습니다. 화면 위 정지 버튼으로 언제든 멈출 수 있습니다.</string><string name="test_taps">성공 횟수: %1$d</string><string name="ocr_taps">OCR 성공 횟수: %1$d</string><string name="nex_control_status">%1$s · %2$s\n%3$s</string><string name="nex_slider">%1$s · %2$d</string></resources>--- 9차/app/src/main/res/values/styles.xml
++++ 10차/app/src/main/res/values/styles.xml
+@@ -3,30 +3,30 @@
+         <item name="android:fontFamily">@font/nanum_gothic_bold</item>
+         <item name="android:windowLightStatusBar">true</item>
+         <item name="android:windowLightNavigationBar">true</item>
+-        <item name="android:statusBarColor">#F6F7F9</item>
+-        <item name="android:navigationBarColor">#F6F7F9</item>
+-        <item name="android:colorAccent">#2856D8</item>
++        <item name="android:statusBarColor">#F2F2F7</item>
++        <item name="android:navigationBarColor">#F2F2F7</item>
++        <item name="android:colorAccent">#006BE6</item>
+         <item name="android:alertDialogTheme">@style/NexLightDialog</item>
+     </style>
+     <style name="NexDark" parent="android:style/Theme.Material.NoActionBar">
+         <item name="android:fontFamily">@font/nanum_gothic_bold</item>
+         <item name="android:windowLightStatusBar">false</item>
+         <item name="android:windowLightNavigationBar">false</item>
+-        <item name="android:statusBarColor">#0C1220</item>
+-        <item name="android:navigationBarColor">#0C1220</item>
+-        <item name="android:colorAccent">#93ACFF</item>
++        <item name="android:statusBarColor">#000000</item>
++        <item name="android:navigationBarColor">#000000</item>
++        <item name="android:colorAccent">#5EAAFF</item>
+         <item name="android:alertDialogTheme">@style/NexDarkDialog</item>
+     </style>
+     <style name="NexLightDialog" parent="android:style/Theme.Material.Light.Dialog.Alert">
+         <item name="android:fontFamily">@font/nanum_gothic_bold</item>
+-        <item name="android:colorAccent">#2856D8</item>
++        <item name="android:colorAccent">#006BE6</item>
+         <item name="android:colorBackgroundFloating">#FFFFFF</item>
+         <item name="android:windowBackground">@drawable/nex_dialog_light</item>
+     </style>
+     <style name="NexDarkDialog" parent="android:style/Theme.Material.Dialog.Alert">
+         <item name="android:fontFamily">@font/nanum_gothic_bold</item>
+-        <item name="android:colorAccent">#93ACFF</item>
+-        <item name="android:colorBackgroundFloating">#172133</item>
++        <item name="android:colorAccent">#5EAAFF</item>
++        <item name="android:colorBackgroundFloating">#1C1C1E</item>
+         <item name="android:windowBackground">@drawable/nex_dialog_dark</item>
+     </style>
+ </resources>--- 9차/local.properties
++++ 10차/local.properties
+@@ -1 +1 @@
+-sdk.dir=C:/Users/PUVKID/AppData/Local/Temp/NEX_Build_9/android/android-sdk
++sdk.dir=C:/Users/PUVKID/AppData/Local/Temp/NEX_Build_10/android/android-sdk
+--- 9차/settings.gradle
++++ 10차/settings.gradle
+@@ -1,4 +1,4 @@
+ pluginManagement { repositories { google(); mavenCentral(); gradlePluginPortal() } }
+ dependencyResolutionManagement { repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS); repositories { google(); mavenCentral() } }
+-rootProject.name = 'YunseokTouchMacro'
++rootProject.name = 'PXE'
+ include ':app'
+--- 9차/빌드.ps1
++++ 10차/빌드.ps1
+@@ -1,8 +1,8 @@
+ $ErrorActionPreference = 'Stop'
+ $projectRoot4 = Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
+-$bridgeTarget4 = Join-Path $projectRoot4 'work\build9'
+-$bridge4 = Join-Path $env:TEMP 'NEX_Build_9'
+-if (!(Test-Path -LiteralPath $bridgeTarget4)) { throw '프로젝트 work\build9 연결 폴더가 없습니다.' }
++$bridgeTarget4 = Join-Path $projectRoot4 'work\build10'
++$bridge4 = Join-Path $env:TEMP 'NEX_Build_10'
++if (!(Test-Path -LiteralPath $bridgeTarget4)) { throw '프로젝트 work\build10 연결 폴더가 없습니다.' }
+ if (Test-Path -LiteralPath $bridge4) {
+     $existing4 = Get-Item -LiteralPath $bridge4
+     if ($existing4.LinkType -ne 'Junction' -or $existing4.Target -ne $bridgeTarget4) { throw '임시 빌드 경로가 다른 항목에서 사용 중입니다.' }
+--- 9차/빌드방법.txt
++++ 10차/빌드방법.txt
+@@ -1,7 +1,7 @@
+-NEX 9차 소스 빌드
++PXE 1.0 · 10차 소스 빌드
+ 
+ source 폴더의 빌드.ps1은 JDK 17 / Gradle 8.13 / Android SDK 35로 휴대전화 APK를 빌드합니다.
+-같은 Desktop 프로젝트 안의 work\build9 연결 경로와 코드\NEXTools, 코드\NEXSigning, work\tools를 사용합니다.
++같은 Desktop 프로젝트 안의 work\build10 연결 경로와 코드\NEXTools, 코드\NEXSigning, work\tools를 사용합니다.
+ 서명 키는 소스에 포함하지 않습니다. 기존 설치 위에 업데이트하려면 같은 서명 키가 필요합니다.
+ PC용은 같은 빌드 환경에서 Gradle :app:assembleRelease -PNEX_PC=true 로 빌드합니다.
+ PC용 ABI는 arm64-v8a와 x86_64이며, 휴대전화 기본 릴리스는 arm64-v8a입니다.

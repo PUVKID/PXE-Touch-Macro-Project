@@ -1,0 +1,331 @@
+--- 8차/app/build.gradle
++++ 9차/app/build.gradle
+@@ -5,7 +5,7 @@
+ if (signingFile.exists()) { signingFile.withInputStream { signingProps.load(it) } }
+ android { signingConfigs { personal { storeFile rootProject.file(signingDir + '/macro.jks'); storePassword signingProps.getProperty('storePassword', ''); keyAlias 'yunseokmacro'; keyPassword signingProps.getProperty('storePassword', '') } }
+  namespace 'kr.yunseok.touchmacro'; compileSdk 35
+- defaultConfig { applicationId 'kr.yunseok.touchmacro'; minSdk 30; targetSdk 35; versionCode 8; versionName '8.0.0'; testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner' }
++ defaultConfig { applicationId 'kr.yunseok.touchmacro'; minSdk 30; targetSdk 35; versionCode 9; versionName '9.0.0'; testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner' }
+  // Release is a Note 10+ ARM64 build; debug keeps all emulator ABIs.
+  lint { disable 'ChromeOsAbiSupport' }
+  compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+--- 8차/app/src/androidTest/java/kr/yunseok/touchmacro/CaptureRecoveryTest.java
++++ 9차/app/src/androidTest/java/kr/yunseok/touchmacro/CaptureRecoveryTest.java
+@@ -0,0 +1,50 @@
++package kr.yunseok.touchmacro;
++import android.app.AlertDialog;
++import android.os.SystemClock;
++import androidx.test.ext.junit.runners.AndroidJUnit4;
++import org.junit.*;import org.junit.runner.RunWith;
++import java.lang.reflect.Field;import java.util.*;import java.util.concurrent.atomic.AtomicInteger;
++import static org.junit.Assert.*;
++
++@RunWith(AndroidJUnit4.class) public class CaptureRecoveryTest {
++    GuidedFlowTest h=new GuidedFlowTest();AtomicInteger attempts=new AtomicInteger();volatile int entries;
++    final List<Long> requests=Collections.synchronizedList(new ArrayList<>());
++    Object original;Field source;
++    @Before public void boot()throws Exception{
++        h.boot();h.fixture();source=MacroService.class.getDeclaredField("screenshotSource");source.setAccessible(true);original=source.get(h.svc);
++        h.main(()->{h.detail=new AlertDialog.Builder(h.a).setTitle("작업 화면").setMessage("캡처 성공 후에만 들어옵니다").create();h.entry.setOnClickListener(v->{entries++;h.detail.show();});});
++    }
++    @After public void end()throws Exception{h.end();if(source!=null&&original!=null)source.set(h.svc,original);}
++    void inject(int failures)throws Exception{
++        source.set(h.svc,(MacroService.ScreenshotSource)(executor,callback)->{
++            requests.add(SystemClock.elapsedRealtime());
++            if(attempts.incrementAndGet()<=failures)callback.onFailure(3);
++            else ((MacroService.ScreenshotSource)original).take(executor,callback);
++        });
++    }
++    void start(){
++        WatchConfig p=new WatchConfig();p.rule.source="OCR";p.rule.text="안내 대상";p.rule.match="EXACT";
++        p.startMs=0;p.entryMs=300;p.returnMs=300;p.repeatGapMs=0;p.repetitions=1;p.cooldownMs=600000;
++        Macro m=new Macro();m.name="캡처 재시도 검증";Step wait=new Step("WAIT");wait.duration=10;wait.after=0;m.steps.add(wait);p.macroName=m.name;
++        h.main(()->{Store.put(h.a,m);h.svc.startWatch(p);});
++    }
++    @Test public void twoIntervalFailuresRecoverAndFreshOcrConfirmationPrecedesOneEntry()throws Exception{
++        inject(2);start();h.waitFor(()->attempts.get()>=2,12000,"Second capture attempt missing");assertEquals(0,entries);
++        h.waitFor(()->h.svc.progressText().contains("캡처 간격"),3000,"Retry countdown not shown");
++        long before=SystemClock.elapsedRealtime();h.main(()->{});assertTrue("Retry blocked UI",SystemClock.elapsedRealtime()-before<1000);
++        h.waitFor(()->h.svc.watchCompleted==1,45000,"OCR did not recover after interval failures");
++        assertEquals(1,entries);assertEquals("Expected 2 failures + OCR + fresh pre-tap confirmation",4,attempts.get());
++        assertTrue(requests.get(1)-requests.get(0)>=4000);assertTrue(requests.get(2)-requests.get(1)>=8000);assertTrue(requests.get(3)-requests.get(2)>=8000);
++        SystemClock.sleep(1000);assertEquals("Executed again during cooldown",1,entries);
++    }
++    @Test public void stopDuringRetryDoesNotCaptureOrEnterLater()throws Exception{
++        inject(Integer.MAX_VALUE);start();h.waitFor(()->attempts.get()==1,8000,"No first capture");
++        h.waitFor(()->h.svc.progressText().contains("캡처 간격"),3000,"No retry state");
++        long before=SystemClock.elapsedRealtime();h.main(()->h.svc.stop());assertTrue(SystemClock.elapsedRealtime()-before<1000);
++        SystemClock.sleep(5000);assertEquals(1,attempts.get());assertEquals(0,entries);assertFalse(h.svc.running);
++    }
++    @Test public void persistentIntervalErrorStopsAfterThreeRetriesWithoutTouching()throws Exception{
++        inject(Integer.MAX_VALUE);start();h.waitFor(()->!h.svc.running,40000,"Retry loop did not end");
++        assertEquals(4,attempts.get());assertEquals(0,entries);assertEquals(0,h.svc.watchCompleted);assertTrue(h.svc.status,h.svc.status.contains("3회 재시도"));
++    }
++}
+--- 8차/app/src/androidTest/java/kr/yunseok/touchmacro/FloatingPlayTest.java
++++ 9차/app/src/androidTest/java/kr/yunseok/touchmacro/FloatingPlayTest.java
+@@ -0,0 +1,36 @@
++package kr.yunseok.touchmacro;
++import android.app.*;import android.graphics.Rect;import android.os.SystemClock;import android.view.accessibility.*;import android.widget.*;
++import androidx.test.ext.junit.runners.AndroidJUnit4;
++import org.junit.*;import org.junit.runner.RunWith;import static org.junit.Assert.*;
++
++@RunWith(AndroidJUnit4.class) public class FloatingPlayTest {
++    GuidedFlowTest h=new GuidedFlowTest();volatile int entries,actions;String lastUi="";
++    @Before public void boot()throws Exception{h.boot();h.fixture();h.main(()->{h.svc.controller().show();h.svc.controller().setVisible(true);});}
++    @After public void end(){h.end();}
++    AccessibilityNodeInfo find(AccessibilityNodeInfo n,String description){
++        if(n==null)return null;if(description.contentEquals(n.getContentDescription()==null?"":n.getContentDescription()))return AccessibilityNodeInfo.obtain(n);
++        for(int i=0;i<n.getChildCount();i++){AccessibilityNodeInfo c=n.getChild(i);AccessibilityNodeInfo hit=find(c,description);if(c!=null)c.recycle();if(hit!=null)return hit;}return null;
++    }
++    android.view.View view(android.view.View v,String description){if(v==null)return null;if(description.contentEquals(v.getContentDescription()==null?"":v.getContentDescription()))return v;if(v instanceof android.view.ViewGroup){android.view.ViewGroup g=(android.view.ViewGroup)v;for(int i=0;i<g.getChildCount();i++){android.view.View found=view(g.getChildAt(i),description);if(found!=null)return found;}}return null;}
++    boolean press(String description){
++        Rect[] rect={null};h.main(()->{try{java.lang.reflect.Field f=FloatingController.class.getDeclaredField("panel");f.setAccessible(true);android.view.View root=(android.view.View)f.get(h.svc.controller());android.view.View button=view(root,description);lastUi="panel="+root+", button="+button+", current="+(MacroService.get()==h.svc);if(button!=null&&button.isShown()&&button.getWidth()>0)rect[0]=h.bounds(button);}catch(Exception e){throw new RuntimeException(e);}});
++        if(rect[0]==null)return false;h.tap(rect[0].exactCenterX(),rect[0].exactCenterY());return true;
++    }
++    void click(String description){long end=SystemClock.elapsedRealtime()+5000;while(SystemClock.elapsedRealtime()<end){if(press(description))return;SystemClock.sleep(80);}fail(description+" · "+lastUi);}
++    void expand(){if(h.svc.controller().isCollapsed()){click("NEX 컨트롤 펼치기 · 길게 눌러 정지");h.waitFor(()->!h.svc.controller().isCollapsed(),3000,"Panel did not expand");}}
++    @Test public void playStartsDetectionUsesNamedMacroFifteenTimesAndPauseResumeStillWork()throws Exception{
++        Button[] action={null};Rect[] at={null};
++        h.main(()->{LinearLayout body=new LinearLayout(h.a);body.setPadding(40,100,40,100);action[0]=new Button(h.a);action[0].setText("등록한 매크로 동작");action[0].setOnClickListener(v->actions++);body.addView(action[0],new LinearLayout.LayoutParams(-1,Ui.dp(h.a,80)));h.detail=new AlertDialog.Builder(h.a).setTitle("작업 화면").setView(body).create();h.detail.show();});h.in.waitForIdleSync();h.main(()->{at[0]=h.bounds(action[0]);h.detail.dismiss();h.entry.setOnClickListener(v->{entries++;h.detail.show();});});
++        Macro current=new Macro();current.name="현재 편집 중인 다른 동작";Step wait=new Step("WAIT");wait.duration=10;wait.after=0;current.steps.add(wait);
++        Macro selected=new Macro();selected.name="탐지에 등록한 매크로";Step tap=new Step("TAP");tap.duration=60;tap.after=0;int[] size=h.svc.size();tap.x=at[0].exactCenterX()*100.0/size[0];tap.y=at[0].exactCenterY()*100.0/size[1];selected.steps.add(tap);
++        WatchConfig p=new WatchConfig();p.rule.text="안내 대상";p.rule.source="ACCESS";p.rule.match="EXACT";p.macroName=selected.name;p.repetitions=15;p.startMs=100;p.entryMs=300;p.returnMs=300;p.repeatGapMs=0;p.cooldownMs=600000;p.targetPackage=h.a.getPackageName();
++        h.main(()->{Store.put(h.a,selected);Store.save(h.a,current);WatchStore.save(h.a,p);});String original=Store.load(h.a).json().toString();
++        expand();click("글자 탐지 시작");h.waitFor(()->h.svc.watching,3000,"Play ran the current macro instead of detection");
++        h.waitFor(()->h.svc.watchCompleted==1,15000,"Floating play did not finish detection cycle");assertEquals(1,entries);assertEquals(15,actions);assertEquals(original,Store.load(h.a).json().toString());assertEquals("완료 후 쉬는 중",h.svc.watchPhase);
++        expand();click("일시정지");h.waitFor(()->h.svc.paused,3000,"Pause failed");click("계속 실행");h.waitFor(()->!h.svc.paused,3000,"Resume failed");click("정지");h.waitFor(()->!h.svc.running,3000,"Stop failed");
++    }
++    @Test public void unconfiguredPlayNeverFallsBackToCurrentMacro()throws Exception{
++        h.main(()->{Ui.prefs(h.a).edit().remove("watch_config").commit();h.entry.setOnClickListener(v->entries++);Macro m=new Macro();Step tap=new Step("TAP");Rect r=h.bounds(h.entry);int[] size=h.svc.size();tap.x=r.exactCenterX()*100.0/size[0];tap.y=r.exactCenterY()*100.0/size[1];m.startDelay=0;m.steps.add(tap);Store.save(h.a,m);});
++        expand();click("글자 탐지 시작");SystemClock.sleep(1200);assertFalse(h.svc.running);assertEquals(0,entries);
++    }
++}
+--- 8차/app/src/main/java/kr/yunseok/touchmacro/CapturePacer.java
++++ 9차/app/src/main/java/kr/yunseok/touchmacro/CapturePacer.java
+@@ -0,0 +1,10 @@
++package kr.yunseok.touchmacro;
++
++/** Pace from the actual response, including failures and late callbacks. */
++final class CapturePacer {
++    private long lastResponse,interval=2000;
++    CapturePacer(long now){lastResponse=now;}
++    synchronized long remaining(long now){return Math.max(0,lastResponse+interval-now);}
++    synchronized void responded(long now){lastResponse=Math.max(lastResponse,now);}
++    synchronized void rejected(long now){responded(now);interval=Math.min(12000,interval*2);}
++}
+--- 8차/app/src/main/java/kr/yunseok/touchmacro/FloatingController.java
++++ 9차/app/src/main/java/kr/yunseok/touchmacro/FloatingController.java
+@@ -19,7 +19,12 @@
+  }
+  public void show(){if(panel!=null)return;KeepAliveService.show(owner);build();h.post(ticker);}
+  public void refresh(){if(panel==null)return;removePanel();build();}
+- private final Runnable ticker=new Runnable(){@Override public void run(){if(panel==null)return;if(status!=null)status.setText(caption());if(play!=null)play.setText(recording?"완료":!owner.running?"▶":owner.paused?"▶":"Ⅱ");updateHud();h.postDelayed(this,250);}};
++ private final Runnable ticker=new Runnable(){@Override public void run(){if(panel==null)return;if(status!=null)status.setText(caption());updatePlay();updateHud();h.postDelayed(this,250);}};
++ private void updatePlay(){if(play!=null){play.setText(recording?"완료":!owner.running?"▶":owner.paused?"▶":"Ⅱ");play.setContentDescription(recording?"녹화 완료":!owner.running?"글자 탐지 시작":owner.paused?"계속 실행":"일시정지");}}
++ private void startDetection(){
++  if(!Ui.prefs(owner).contains("watch_config")){toast("찾을 글자·영역·매크로를 먼저 설정하세요");openSettings(true);return;}
++  owner.startWatch(WatchStore.load(owner));
++ }
+  private void updateHud(){if(panel==null)return;if(hud==null&&(owner.running||owner.hasRunStats()))hud=new RunHud(owner);if(hud!=null)hud.update(owner.progressText(),owner.timingText(),visible);}
+  public void showSetupCoach(String kind){
+   if(owner.running||recording)throw new IllegalStateException("먼저 실행과 녹화를 정지하세요");
+@@ -46,8 +51,8 @@
+   logo.setContentDescription(collapsed?"NEX 컨트롤 펼치기 · 길게 눌러 정지":"NEX 컨트롤 바로 접기");r.addView(logo,new LinearLayout.LayoutParams(scaled(38),scaled(38)));
+   logo.setOnClickListener(v->{if(recording){toast("녹화를 먼저 끝내세요");return;}collapsed=!collapsed;refresh();});logo.setOnLongClickListener(v->{owner.stop();return true;});drag(logo);
+   if(!collapsed||recording){
+-   play=button(r,recording?"완료":!owner.running?"▶":owner.paused?"▶":"Ⅱ",()->{if(recording){endRecording();return;}if(owner.running)owner.togglePause();else try{owner.start(Store.load(owner));minimize();}catch(Exception e){toast(e.getMessage());}});
+-   play.setContentDescription(recording?"녹화 완료":"시작 / 일시정지 / 계속");play.setTextSize(recording?10:17);play.setTextColor(Ui.accent(c));
++   play=button(r,recording?"완료":!owner.running?"▶":owner.paused?"▶":"Ⅱ",()->{if(recording){endRecording();return;}if(owner.running)owner.togglePause();else try{startDetection();}catch(Exception e){toast(e.getMessage());}});
++   updatePlay();play.setTextSize(recording?10:17);play.setTextColor(Ui.accent(c));
+    Button stop=button(r,"■",()->{owner.stop();if(recording)endRecording();});stop.setContentDescription("정지");stop.setTextSize(17);
+    Button more=button(r,"⋮",()->{if(recording){endRecording();return;}moreMenu();});more.setTextSize(22);more.setContentDescription(recording?"녹화 끝내기":"컨트롤 더보기");
+   }
+@@ -56,14 +61,15 @@
+  }
+  private void openSettings(boolean watch){Intent i=new Intent(owner,MainActivity.class).putExtra(watch?"watch":"settings",true).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_SINGLE_TOP);owner.startActivity(i);}
+  private void moreMenu(){choices("NEX",new String[]{"글자 탐지 시작","화면에서 탐지 영역 지정","탐지 설정","글자 찾아 터치","동작 / 녹화","실행 상태","앱 설정","컨트롤 닫기"},i->{switch(i){
+-  case 0:try{owner.startWatch(WatchStore.load(owner));}catch(Exception e){toast(e.getMessage());}break;
++  case 0:try{startDetection();}catch(Exception e){toast(e.getMessage());}break;
+   case 1:pickWatchRegion();break;case 2:openSettings(true);break;case 3:wordDialog();break;
+   case 4:toolsMenu();break;case 5:choices(owner.status+" · "+owner.clockText(),new String[]{"닫기"},n->{});break;
+   case 6:openSettings(false);break;case 7:owner.stop();close();break;}});
+  }
+- private void toolsMenu(){choices("동작 / 녹화",new String[]{"동작 추가","녹화","동작 목록","저장","편집 화면","점 표시 켜기 / 끄기"},i->{switch(i){
++ private void toolsMenu(){choices("동작 / 녹화",new String[]{"동작 추가","녹화","동작 목록","저장","편집 화면","점 표시 켜기 / 끄기","글자 탐지 없이 매크로만 실행"},i->{switch(i){
+   case 0:actionMenu();break;case 1:beginRecording(false,-1);break;case 2:sequenceDialog();break;case 3:saveDialog();break;
+-  case 4:owner.stop();openApp();break;case 5:Ui.prefs(owner).edit().putBoolean("markers",!Ui.prefs(owner).getBoolean("markers",true)).apply();rebuildMarkers();break;}});
++  case 4:owner.stop();openApp();break;case 5:Ui.prefs(owner).edit().putBoolean("markers",!Ui.prefs(owner).getBoolean("markers",true)).apply();rebuildMarkers();break;
++  case 6:try{owner.start(Store.load(owner));minimize();}catch(Exception e){toast(e.getMessage());}break;}});
+  }
+  private LinearLayout row(LinearLayout b){LinearLayout r=new LinearLayout(ctx());b.addView(r);return r;}
+  private Button button(LinearLayout r,String text,Runnable action){Button b=Ui.button(ctx(),text);b.setTextSize(10);b.setPadding(0,0,0,0);b.setBackgroundColor(Color.TRANSPARENT);LinearLayout.LayoutParams p=new LinearLayout.LayoutParams(0,scaled(38),1);p.setMargins(0,0,0,0);r.addView(b,p);b.setOnClickListener(v->action.run());return b;}
+@@ -77,7 +83,7 @@
+  private void removePanel(){if(panel!=null){try{wm.removeView(panel);}catch(Exception ignored){}panel=null;status=null;play=null;}clearMarkers();}
+  public void close(){if(coach!=null){coach.close();coach=null;}if(hud!=null){hud.close();hud=null;}if(regionPicker!=null){regionPicker.close();regionPicker=null;}endRecordingInternal();removePanel();if(highlight!=null){try{wm.removeView(highlight);}catch(Exception ignored){}highlight=null;}h.removeCallbacksAndMessages(null);KeepAliveService.close(owner);}
+  private String caption(){return owner.getString(R.string.nex_control_status,recording?"● 녹화":"NEX",owner.status,owner.clockText());}
+- public void update(){if(panel!=null){if(status!=null)status.setText(caption());if(play!=null)play.setText(recording?"완료":!owner.running?"▶":owner.paused?"▶":"Ⅱ");KeepAliveService.update(owner,owner.status);}updateHud();rebuildMarkers();}
++ public void update(){if(panel!=null){if(status!=null)status.setText(caption());updatePlay();KeepAliveService.update(owner,owner.status);}updateHud();rebuildMarkers();}
+  private void openApp(){owner.startActivity(new Intent(owner,MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_SINGLE_TOP));}
+  private void toast(String message){Toast.makeText(owner,message==null?"설정을 확인하세요":message,Toast.LENGTH_LONG).show();}
+  private AlertDialog dialog(String title,View body,String positive,Runnable action){
+--- 8차/app/src/main/java/kr/yunseok/touchmacro/MacroService.java
++++ 9차/app/src/main/java/kr/yunseok/touchmacro/MacroService.java
+@@ -21,6 +21,11 @@
+     private final ExecutorService worker=Executors.newSingleThreadExecutor();
+     private final QueryLane screenReader=new QueryLane();
+     private volatile long queryStartedAt=0;
++    private final CapturePacer capturePacer=new CapturePacer(SystemClock.elapsedRealtime());
++    private final AtomicBoolean capturePending=new AtomicBoolean();
++    private volatile String capturePhase="";
++    interface ScreenshotSource {void take(java.util.concurrent.Executor executor,TakeScreenshotCallback callback);}
++    private ScreenshotSource screenshotSource=(executor,callback)->takeScreenshot(Display.DEFAULT_DISPLAY,executor,callback);
+     private final AtomicLong generation=new AtomicLong();private final AtomicLong pauseRevision=new AtomicLong();
+     public volatile boolean running=false, paused=false, watching=false; public volatile int watchCompleted=0; public volatile String watchPhase=""; private volatile long watchNextRefresh=0;
+     public volatile String status="준비";
+@@ -32,7 +37,7 @@
+     private long pauseStartedAt=0;
+     private final ArrayDeque<String> logs=new ArrayDeque<>();
+     private TextRecognizer recognizer;
+-    private int initialW,initialH;private long deadline,lastScreenshot=0;
++    private int initialW,initialH;private long deadline;
+     private volatile boolean destroyed=false;private boolean logUpdateQueued=false;
+     private void notification(){if(controller!=null)controller.show();}
+     private void clearNotification(){}
+@@ -61,6 +66,7 @@
+         String phase=watching&&!watchPhase.equals("매크로 실행")?watchPhase:liveAction;
+         if(watching&&currentPriority>0)phase=currentPriority+"순위 · "+phase;
+         if(running&&queryStartedAt>0)phase+=" · 화면 정보 읽는 중 "+String.format(Locale.KOREA,"%.1f초",(SystemClock.elapsedRealtime()-queryStartedAt)/1000.0);
++        if(running&&!capturePhase.isEmpty())phase+=" · "+capturePhase+(delayUntil>SystemClock.elapsedRealtime()?" · "+remainingText(delayUntil-SystemClock.elapsedRealtime()):"");
+         if(!running)phase=status;if(paused)return "일시정지 · "+phase;
+         boolean refreshWait=watching&&(watchPhase.equals("완료 후 쉬는 중")||watchPhase.equals("새로고침 대기")||watchPhase.equals("중복 차단 · 사라짐 대기"));
+         if(refreshWait)phase+=" · 새로고침까지 "+remainingText(watchNextRefresh-SystemClock.elapsedRealtime());
+@@ -95,8 +101,11 @@
+         long remaining=ms;delayUntil=SystemClock.elapsedRealtime()+remaining;try{while(remaining>0){ready(token);delayUntil=SystemClock.elapsedRealtime()+remaining;long chunk=Math.min(70,remaining),before=SystemClock.elapsedRealtime();Thread.sleep(chunk);if(!paused)remaining-=Math.max(1,SystemClock.elapsedRealtime()-before);}ready(token);}finally{delayUntil=0;}
+     }
+     private <T> T await(CompletableFuture<T> f,long token,long max)throws Exception{
++        return await(f,token,max,"화면 응답 시간이 초과되었습니다");
++    }
++    private <T> T await(CompletableFuture<T> f,long token,long max,String timeoutMessage)throws Exception{
+         long activeElapsed=0,last=SystemClock.elapsedRealtime();
+-        while(true){check(token);long now=SystemClock.elapsedRealtime();if(!paused)activeElapsed+=now-last;last=now;try{return f.get(70,TimeUnit.MILLISECONDS);}catch(TimeoutException e){if(activeElapsed>max){IllegalStateException timeout=new IllegalStateException("화면 응답 시간이 초과되었습니다");f.completeExceptionally(timeout);throw timeout;}}catch(ExecutionException e){Throwable cause=e.getCause();throw new IllegalStateException(cause.getMessage(),cause);}}
++        while(true){check(token);long now=SystemClock.elapsedRealtime();if(!paused)activeElapsed+=now-last;last=now;try{return f.get(70,TimeUnit.MILLISECONDS);}catch(TimeoutException e){if(activeElapsed>max){IllegalStateException timeout=new IllegalStateException(timeoutMessage);f.completeExceptionally(timeout);throw timeout;}}catch(ExecutionException e){Throwable cause=e.getCause();throw new IllegalStateException(cause.getMessage(),cause);}}
+     }
+     private <T> T onUi(Callable<T> action,long token)throws Exception{
+         ready(token);CompletableFuture<T> f=new CompletableFuture<>();Runnable task=new Runnable(){public void run(){try{if(f.isDone())return;check(token);if(paused){ui.postDelayed(this,70);return;}f.complete(action.call());}catch(Exception e){f.completeExceptionally(e);}}};ui.post(task);return await(f,token,5000);
+@@ -186,6 +195,7 @@
+                     watchPhase=anyBlocked?"중복 차단 · 사라짐 대기":"글자 찾는 중";
+                     if(hit!=null){
+                         ready(token);if(p.tapFound)hit=find(areaConfigs[selected].rule,token);ready(token);if(scanRevision!=pauseRevision.get())continue;
++                        if(!p.targetPackage.isEmpty()&&!p.targetPackage.equals(readScreen(this::activePackage,token))){for(WatchGate gate:gates)gate.interruptAbsence();continue;}
+                         if(hit!=null){
+                             if(p.preventDuplicate){WatchStore.blocked(this,areaConfigs[selected],true);gates[selected].reserve();}
+                             currentPriority=selected+1;cycleStartedAt=SystemClock.elapsedRealtime();watchPhase="매크로 실행";liveAction="글자 터치 · 들어가기";log((selected+1)+"순위에서 발견 · "+p.rule.text+" → "+m.name+" "+p.repetitions+"회");
+@@ -281,7 +291,7 @@
+             CompletableFuture<com.google.mlkit.vision.text.Text> result=new CompletableFuture<>();
+             com.google.android.gms.tasks.Task<com.google.mlkit.vision.text.Text> task=recognizer.process(InputImage.fromBitmap(bitmap,0));
+             processing=true;task.addOnSuccessListener(result::complete).addOnFailureListener(result::completeExceptionally).addOnCompleteListener(done->{if(!bitmap.isRecycled())bitmap.recycle();});
+-            com.google.mlkit.vision.text.Text t=await(result,token,12000);
++            com.google.mlkit.vision.text.Text t=await(result,token,12000,"한글 OCR 인식 응답 시간이 초과되었습니다");
+             frame.text=t;return ocrHit(s,t);
+         }finally{if(!processing&&!bitmap.isRecycled())bitmap.recycle();}
+     }
+@@ -331,16 +341,44 @@
+         }
+     }
+     private Bitmap screenshot(long token)throws Exception{
++        try{
++            for(int retry=0;;retry++){
++                ready(token);capturePhase=retry==0?"OCR 캡처 간격 대기":"캡처 간격 조정 · 재시도 "+retry+"/3 대기";
++                long pendingSince=SystemClock.elapsedRealtime();
++                while(capturePending.get()){
++                    if(SystemClock.elapsedRealtime()-pendingSince>8000)throw new IllegalStateException("이전 OCR 캡처 응답이 없습니다. NEX 접근성을 껐다 켜고 다시 실행하세요");
++                    sleep(100,token);
++                }
++                long wait;while((wait=capturePacer.remaining(SystemClock.elapsedRealtime()))>0)sleep(wait,token);
++                try{capturePhase="OCR 화면 캡처 중";return captureOnce(token);}
++                catch(Exception e){
++                    CaptureFailure failure=null;for(Throwable cause=e;cause!=null;cause=cause.getCause())if(cause instanceof CaptureFailure){failure=(CaptureFailure)cause;break;}
++                    if(failure==null||failure.error!=ERROR_TAKE_SCREENSHOT_INTERVAL_TIME_SHORT)throw e;
++                    if(retry>=3)throw new IllegalStateException("OCR 화면 캡처 실패(3) · 간격을 늘려 3회 재시도했지만 계속 거절됐습니다. NEX 접근성을 껐다 켠 뒤 다시 실행하세요",e);
++                    capturePacer.rejected(SystemClock.elapsedRealtime());
++                    log("캡처 간격 조정 · "+(retry+1)+"/3 재시도 · 터치 없이 대기");
++                }
++            }
++        }finally{capturePhase="";}
++    }
++    private static final class CaptureFailure extends IllegalStateException {
++        final int error;CaptureFailure(int error){super(captureError(error));this.error=error;}
++    }
++    private Bitmap captureOnce(long token)throws Exception{
+         onUi(()->{controller.setVisible(false);return true;},token);
+         try{
+-            sleep(Math.max(150,700-(SystemClock.elapsedRealtime()-lastScreenshot)),token);lastScreenshot=SystemClock.elapsedRealtime();CompletableFuture<Bitmap> f=new CompletableFuture<>();
+-            ui.post(()->{try{check(token);takeScreenshot(Display.DEFAULT_DISPLAY,getMainExecutor(),new TakeScreenshotCallback(){
++            sleep(150,token);CompletableFuture<Bitmap> f=new CompletableFuture<>();
++            ui.post(new Runnable(){public void run(){try{if(f.isDone())return;check(token);if(paused){ui.postDelayed(this,70);return;}
++                if(!capturePending.compareAndSet(false,true))throw new IllegalStateException("이전 OCR 캡처가 아직 진행 중입니다");
++                try{screenshotSource.take(getMainExecutor(),new TakeScreenshotCallback(){
+                 @Override public void onSuccess(ScreenshotResult r){
++                    capturePacer.responded(SystemClock.elapsedRealtime());capturePending.set(false);
+                     Bitmap copy=null;try{Bitmap hardware=Bitmap.wrapHardwareBuffer(r.getHardwareBuffer(),r.getColorSpace());if(hardware==null)throw new IllegalStateException("화면 이미지가 비었습니다");copy=hardware.copy(Bitmap.Config.ARGB_8888,false);hardware.recycle();if(!f.complete(copy))copy.recycle();}catch(Exception e){if(copy!=null)copy.recycle();f.completeExceptionally(e);}finally{r.getHardwareBuffer().close();}
+                 }
+-                @Override public void onFailure(int error){f.completeExceptionally(new IllegalStateException(captureError(error)));}
+-            });}catch(Exception e){f.completeExceptionally(e);}});
+-            try{return await(f,token,8000);}catch(Exception e){f.thenAccept(b->{if(b!=null&&!b.isRecycled())b.recycle();});throw e;}
++                @Override public void onFailure(int error){capturePacer.responded(SystemClock.elapsedRealtime());capturePending.set(false);f.completeExceptionally(new CaptureFailure(error));}
++            });}catch(Exception e){capturePacer.responded(SystemClock.elapsedRealtime());capturePending.set(false);throw e;}
++            }catch(Exception e){f.completeExceptionally(e);}}});
++            try{return await(f,token,8000,"OCR 화면 캡처 응답 시간이 초과되었습니다");}catch(Exception e){f.thenAccept(b->{if(b!=null&&!b.isRecycled())b.recycle();});throw e;}
+         }finally{ui.post(()->{controller.setVisible(true);});}
+     }
+     static String captureError(int error){
+--- 8차/app/src/main/java/kr/yunseok/touchmacro/MainActivity.java
++++ 9차/app/src/main/java/kr/yunseok/touchmacro/MainActivity.java
+@@ -82,7 +82,7 @@
+             settingRow(page,"화면 위 컨트롤","크기 · 투명도 · 번호 표시",this::controlSettings);
+             settingRow(page,"접근성",connected?"연결됨":"연결 필요",this::accessibility);
+             space(page,24);quiet(page,"실행 기록",this::logs);quiet(page,"사용법",this::help);quiet(page,"인식 테스트",this::testScreen);
+-            space(page,24);text(page,"NEX 8.0 · 8차\n한글 OCR · 나눔고딕 Bold 내장",11,muted);
++            space(page,24);text(page,"NEX 9.0 · 9차\n한글 OCR · 나눔고딕 Bold 내장",11,muted);
+         }
+         LinearLayout dock=form();dock.setPadding(dp(24),dp(8),dp(24),dp(12));
+         Button floating=button(dock,"다른 앱에서 사용  ↗",()->{if(service()){save();MacroService.get().showControls();moveTaskToBack(true);}});floating.setTextColor(ink);floating.setBackground(Ui.rounded(Ui.card(this),dp(14)));
+--- 8차/local.properties
++++ 9차/local.properties
+@@ -1 +1 @@
+-sdk.dir=C:/Users/PUVKID/AppData/Local/Temp/NEX_Build_8/android/android-sdk
++sdk.dir=C:/Users/PUVKID/AppData/Local/Temp/NEX_Build_9/android/android-sdk
+--- 8차/빌드.ps1
++++ 9차/빌드.ps1
+@@ -1,8 +1,8 @@
+ $ErrorActionPreference = 'Stop'
+ $projectRoot4 = Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
+-$bridgeTarget4 = Join-Path $projectRoot4 'work\build8'
+-$bridge4 = Join-Path $env:TEMP 'NEX_Build_8'
+-if (!(Test-Path -LiteralPath $bridgeTarget4)) { throw '프로젝트 work\build8 연결 폴더가 없습니다.' }
++$bridgeTarget4 = Join-Path $projectRoot4 'work\build9'
++$bridge4 = Join-Path $env:TEMP 'NEX_Build_9'
++if (!(Test-Path -LiteralPath $bridgeTarget4)) { throw '프로젝트 work\build9 연결 폴더가 없습니다.' }
+ if (Test-Path -LiteralPath $bridge4) {
+     $existing4 = Get-Item -LiteralPath $bridge4
+     if ($existing4.LinkType -ne 'Junction' -or $existing4.Target -ne $bridgeTarget4) { throw '임시 빌드 경로가 다른 항목에서 사용 중입니다.' }
+--- 8차/빌드방법.txt
++++ 9차/빌드방법.txt
+@@ -1,7 +1,7 @@
+-NEX 8차 소스 빌드
++NEX 9차 소스 빌드
+ 
+ source 폴더의 빌드.ps1은 JDK 17 / Gradle 8.13 / Android SDK 35로 휴대전화 APK를 빌드합니다.
+-같은 Desktop 프로젝트 안의 work\build8 연결 경로와 코드\NEXTools, 코드\NEXSigning, work\tools를 사용합니다.
++같은 Desktop 프로젝트 안의 work\build9 연결 경로와 코드\NEXTools, 코드\NEXSigning, work\tools를 사용합니다.
+ 서명 키는 소스에 포함하지 않습니다. 기존 설치 위에 업데이트하려면 같은 서명 키가 필요합니다.
+ PC용은 같은 빌드 환경에서 Gradle :app:assembleRelease -PNEX_PC=true 로 빌드합니다.
+ PC용 ABI는 arm64-v8a와 x86_64이며, 휴대전화 기본 릴리스는 arm64-v8a입니다.
+@@ -9,5 +9,5 @@
+ 휴대전화 빌드 결과를 먼저 별도 저장하고 PC용을 빌드해야 합니다.
+ 
+ 검사: :app:testDebugUnitTest :app:lintDebug
+-Android 12 기기 검사: ReaderResponsivenessTest, GuidedFlowTest, PriorityFlowTest, RepeatFlowTest, WatchPresetTest, WatchFlowTest.
++Android 12 기기 검사: CaptureRecoveryTest, ReaderResponsivenessTest, GuidedFlowTest, PriorityFlowTest, RepeatFlowTest, WatchPresetTest, WatchFlowTest.
+ 기존 JSON의 내부 시간 단위는 호환을 위해 그대로 유지하고, 화면에서는 분/초로 변환합니다.

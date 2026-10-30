@@ -1,0 +1,562 @@
+[
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\.gitignore",
+    "bytes": 53,
+    "sha256": "76BBF877C87000883B47BD677E72FD554EF3077BD394C2051A61850A06A937DE"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\build.gradle",
+    "bytes": 266,
+    "sha256": "CACE31BA942453288A3DFDA03600B9A37CBB18CD8B5EB459237A0A3A903AA62F"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\gradle.properties",
+    "bytes": 140,
+    "sha256": "8097D687B525291028E82BCC3E166F04C064375747CC8556294709DD29140ADA"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\gradlew",
+    "bytes": 8752,
+    "sha256": "734B3879D3501DCE471CF0522D3BCBAFE76873D9FC5129345B67FB43BD15E933"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\gradlew.bat",
+    "bytes": 2966,
+    "sha256": "57931B17DD228E5C24DAC90E815D0BF82477E831A4618DFAB4136F5446B42A9F"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\local.properties",
+    "bytes": 41,
+    "sha256": "C5671A1BC1173F31D9236704C608D745A36D35B41FFC6D3802CCAE9C60698174"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\ROUTING-LESSONS.md",
+    "bytes": 74921,
+    "sha256": "FFBE1C4925FFAB07245DDB55B6A29B67E7C5E782F2307B3323CB15AE4A05BFA2"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\settings.gradle",
+    "bytes": 264,
+    "sha256": "08028E7135AB111EF0747FC68D5D97A94FD8283F39B8C27A554834D0C2F14B33"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\빌드.ps1",
+    "bytes": 1904,
+    "sha256": "46D5069EB11583A1712369CB0AC0AEB8EBCA34B2535C396A88326B1C7E8AE0E0"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\빌드방법.txt",
+    "bytes": 907,
+    "sha256": "8FD82C4E55124B7331ED6A29D09ECDEFCF2249DCA111D54DA73380369A12AE61"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\build.gradle",
+    "bytes": 1580,
+    "sha256": "525EBD8278A227D90187CA96D5D9A952E0B8B9D19FE9530249EB6E494CF286DF"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\CaptureRecoveryTest.java",
+    "bytes": 3811,
+    "sha256": "D998858E24C909A4E31E9D8CECEE72DCC5EA78FC089B2AA4D714E7F6E844FC5F"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\ContinuousOcrTest.java",
+    "bytes": 7057,
+    "sha256": "E028935248D33D009189570ACF2108A9097E0D0447CAA84056751DBF7182122A"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\ControlDiagnostics.java",
+    "bytes": 5584,
+    "sha256": "7DC95403A6E27D24AF40B3F71508FF76E94F36B76E63902FB9F223CB912E563B"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\ControlVisibilityTest.java",
+    "bytes": 3877,
+    "sha256": "F491DB29007B80FCC1040B678D431EFB59D455CB8F0F57E52F9DD9BC3EAE0231"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\DeviceFlowTest.java",
+    "bytes": 7414,
+    "sha256": "DCA73C062E05D49964CEC14DE69CAD715FE8F79FA2225572FB899E82607EDF2F"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\FloatingPlayTest.java",
+    "bytes": 5241,
+    "sha256": "0426F66B33180DECBA4B85517290B6FEE462A0323E578E44D60742AF040EBB01"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\GuidedFlowTest.java",
+    "bytes": 11666,
+    "sha256": "FAACC26994786773641D7BCE7C12C07B5C0B965502579027FFBABF6826FFACD2"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\NexFeatureTest.java",
+    "bytes": 9213,
+    "sha256": "F33BFC48F979D6AEFE1909FCED91A6015A0C19E3F89AC01784016D1B693C98AD"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\OcrStallRecoveryTest.java",
+    "bytes": 13326,
+    "sha256": "5506AD0DC5E43E0A7C3B3A9AD25AE817598949390C610BC06EF33231C69D3B5E"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\PriorityFlowTest.java",
+    "bytes": 3167,
+    "sha256": "A7F7CB00462A6734BA74AA3884EBBBC832E7ACAF2EEC030465680A287567DF90"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\PxeDesignReviewTest.java",
+    "bytes": 3435,
+    "sha256": "22A40AD4B4B95676E7B87479625A1CCF9996F8DFA2FA30C562C9F85034725948"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\PxeGuideFlowTest.java",
+    "bytes": 644,
+    "sha256": "79A5087369266B395702ABC989B7B159578335F23D37B647F8513BFACC90A768"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\PxeRedesignTest.java",
+    "bytes": 12060,
+    "sha256": "D0C6CBD083F7764E2D83066DD759250B48B855AE437B1B89AECF79C51A216534"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\PxeUpgradeTest.java",
+    "bytes": 2116,
+    "sha256": "E3873C7B2E2963D768672438FED2FE3726B1CEA69B93DBA55F3CEA89064102DB"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\ReaderResponsivenessTest.java",
+    "bytes": 2662,
+    "sha256": "29036D0671E51002158DAB2BF14818DB4EC198470D75B03E957812216313C7E0"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\RegionPackageSafetyTest.java",
+    "bytes": 2941,
+    "sha256": "1408D3D707EFDE229933AC6A1FFBEC6FFA8620C767332D9017F94D1ACCC3E9B2"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\RepeatFlowTest.java",
+    "bytes": 1854,
+    "sha256": "60D0816734B21E1392D64D97ADE57A185BFC998FAA5854DC22A9793683F22464"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\ScreenDelayRecoveryTest.java",
+    "bytes": 8863,
+    "sha256": "EF6B3946E6153B6A47B111F77ADBE2220EACFBC8D31A93163D06028A1C22FA52"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\ServiceLifecycleTest.java",
+    "bytes": 6236,
+    "sha256": "9F380B34AD3EF6DEDB47FAA60181CDF31F4AC9D1EB9254EEA95ECF52891760C3"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\TextConfirmationTest.java",
+    "bytes": 7845,
+    "sha256": "8BA07F89C2A065A69A3B8498965F7714D5FEA15831C23AE50B23611B52489CD8"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\WatchFlowTest.java",
+    "bytes": 6889,
+    "sha256": "9F901881216A5652FA099DABCD9599EB0869AD4798500EED2AC8380A6E240578"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\androidTest\\java\\kr\\yunseok\\touchmacro\\WatchPresetTest.java",
+    "bytes": 5993,
+    "sha256": "BF583C4635220D5DC144CB15A5B83EFF981C94A150E34CA54AE9B947DAC93278"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\AndroidManifest.xml",
+    "bytes": 2028,
+    "sha256": "0B0B555DFE5B56F2F0ACF4854A6A5ABEC73EDBBA0D5075827F707FD22D2EFC96"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\assets\\NanumGothic-OFL.txt",
+    "bytes": 5398,
+    "sha256": "9413F0AAFF51C59BE2FF01113A28759B491E6FD67172C3D0A666E6354AF18883"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\CapturePacer.java",
+    "bytes": 521,
+    "sha256": "4E2958509C74BD510DC7624BDDAB1EC949FE8D541296EE0B068A3241DFBE9264"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\CaptureRequests.java",
+    "bytes": 523,
+    "sha256": "D496F9BFDD32D7760F25968BF80039F4EE33C56562AB84FAACF1623574225749"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\ErrorJournal.java",
+    "bytes": 1514,
+    "sha256": "358D57538EA890748A2F1D642F33ED5097D1E84B6DA8CA8E03D2D13B3125C571"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\FloatingController.java",
+    "bytes": 28424,
+    "sha256": "B2956BD12D2FEDFF86FDFD0B4C3D8799ECF4AAA4D69BEDBA5E4525A73852CA46"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\GesturePaths.java",
+    "bytes": 2475,
+    "sha256": "0281BA7D7EF6291CAC98514FE7A43E980EF2C9A01F4FA616CC239F3EE841969D"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\KeepAliveService.java",
+    "bytes": 2072,
+    "sha256": "081080ECAAB5091877990EC7D832A1519F1D8F8FFB6D24D801E44F837A5D9BFD"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\Macro.java",
+    "bytes": 2187,
+    "sha256": "0E720AE15A6EC0087D4EFA0A447DC3CBFFDEC99CC18F8FF10D81BCB016E78BF2"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\MacroService.java",
+    "bytes": 53587,
+    "sha256": "114D8358D6E1C5A472E535E5A5C20C2E712DD35D558DC480B585338338B71E70"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\MainActivity.java",
+    "bytes": 60687,
+    "sha256": "A3847709F465ED7B3195F16EF0D4903E3431248A47B79A0302399386F4555665"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\QueryLane.java",
+    "bytes": 1434,
+    "sha256": "4029CC87A2729DED7C57F77B873D46DCAF2BE9C5AC736F952EE4DEA5EFAC8A60"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\RegionPicker.java",
+    "bytes": 4342,
+    "sha256": "0B03B48D98FE9F4565A8E05BDD8E370684BDBAD97C790F5CAF2280372FEFF724"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\RunHud.java",
+    "bytes": 1818,
+    "sha256": "786BBDD0540E064B738B918D7AD37B102258B9A794B427C6A204B9AB41024DBA"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\SetupCoach.java",
+    "bytes": 2078,
+    "sha256": "93504FAECB165D512D66485E00899B06E5E84E0A00A7B77258898D46DCAEA5D4"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\SetupFlow.java",
+    "bytes": 3309,
+    "sha256": "CBD31EDEC306426094E751D61462E460A561B06FCEABAB3A8FE05D9DDE374C6A"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\SetupWizard.java",
+    "bytes": 9911,
+    "sha256": "2BA94B14730542292AABDB7B3FB966AF62449A550102751E0C3DB676ECAEFD09"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\Step.java",
+    "bytes": 8390,
+    "sha256": "7AD441AB16F6A873E52F867D52A45488016B351C33BCDEEA90BE90DD44BE817F"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\StopReceiver.java",
+    "bytes": 362,
+    "sha256": "5F64A0F1126ABA74ED5AE1E0540F182A37D45AD7AB42B53DAEFFEEF71A28B86F"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\Store.java",
+    "bytes": 1757,
+    "sha256": "23240A7D974FB0B566A89D6A4DC55BE051C9E9564B91EB471D30B56B2B80CFD9"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\TextRules.java",
+    "bytes": 1118,
+    "sha256": "BB97A2E81411E8F646AB6249ED08CEA3FFED1C854289B5540BB4FEBDB2CDAFB2"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\Times.java",
+    "bytes": 1416,
+    "sha256": "7D9E682B2F6C0E2796727A8F41802880C2B2F72226DE367CF4A922EA21A91D2F"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\TouchLabel.java",
+    "bytes": 390,
+    "sha256": "06A6C45EF4E982EAE78747B1739287DAE4C8F1B05DAB19000FDAA90FEC675F7D"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\TouchPane.java",
+    "bytes": 256,
+    "sha256": "DA024F18CEAD993522FD50982BB4BF79B979B5825E7839506D3984FC8B33D036"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\Ui.java",
+    "bytes": 4062,
+    "sha256": "DF2E0DC1B2752B3782B34E433623046867CC44D9D8529290355DC788ADA20B07"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\WatchArea.java",
+    "bytes": 842,
+    "sha256": "3976ED3C0CB14A4756F5CAF89671ADF285EF406B23E3693F5C75B3FB85075E94"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\WatchConfig.java",
+    "bytes": 6120,
+    "sha256": "EB2BC05CE8794E078C6696113FB1046241C0C0949E326307E3CDCB8CF9475EAC"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\WatchGate.java",
+    "bytes": 835,
+    "sha256": "C196B9A122D0AB66CA65A8573021A718F5C37EDF0FF673C37BEEF86C37E3A5A2"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\WatchStore.java",
+    "bytes": 1604,
+    "sha256": "0EE8881A2952F4268304BFB50FED92B23DA33EADB2921DB17EAD7CADA8B06CBC"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\java\\kr\\yunseok\\touchmacro\\WindowPackages.java",
+    "bytes": 2073,
+    "sha256": "E61EEAD612E8FCB359353608ACB4C3AEDCDD7CF56D65E1AC8ECAA7D3773F894D"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\res\\drawable\\ic_launcher_foreground.xml",
+    "bytes": 567,
+    "sha256": "CBB7445BA8BC59A12CD1966FB7B54BFA6E494475D81DBF44A1539ADA4D47ECE5"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\res\\drawable\\ic_macro.xml",
+    "bytes": 593,
+    "sha256": "C0EF2C85E5FEF03089323DD497859290F585301398D60E57C974D11D87667558"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\res\\drawable\\ic_stat_nex.xml",
+    "bytes": 456,
+    "sha256": "6B79BE19CF7799279788C123216882A56465A401F852499C5F97DD77F3523D24"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\res\\drawable\\nex_dialog_dark.xml",
+    "bytes": 138,
+    "sha256": "18BD2872B359FB115071FB833173A76B01FE57871C66E22E747C04745A35318D"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\res\\drawable\\nex_dialog_light.xml",
+    "bytes": 138,
+    "sha256": "7094707EA2815C219CC6E589334F3B127AD8FDC181908510C7CFFF69C5218D5D"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\res\\drawable\\pxe_accessibility.xml",
+    "bytes": 446,
+    "sha256": "26BFF06BD881D3039327BFB1AD8BC08A3EDCDD5E6B1B63415455059AEFF0FCE8"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\res\\drawable\\pxe_back.xml",
+    "bytes": 416,
+    "sha256": "086589A0152FF0DBB47745459151BDBC180968ADED7D80B6924FBC66372CC4AD"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\res\\drawable\\pxe_chevron.xml",
+    "bytes": 382,
+    "sha256": "9CBEB5A2067949028511A3F05350E0C15691BA235B27E0039144FDB21E972016"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\res\\drawable\\pxe_clock.xml",
+    "bytes": 417,
+    "sha256": "605D4A84325AD94780E15C1FCD0B5F247460466ECE9592AC2B1671CC43D2DAE6"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\res\\drawable\\pxe_eye.xml",
+    "bytes": 432,
+    "sha256": "2B4F6ADE18C9A5A80547FC40805663B0F03AD92668E507790DF664C3A6A7714F"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\res\\drawable\\pxe_focus.xml",
+    "bytes": 447,
+    "sha256": "7356657BC0CA5EA2D75F7842550A17933F4700FE31B453093E9E7F4EFFF730DA"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\res\\drawable\\pxe_help.xml",
+    "bytes": 445,
+    "sha256": "B21FFB34BF72B88F8B9E4362F97AA8C29594D310CB90DFD0F2F80598F83EA384"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\res\\drawable\\pxe_refresh.xml",
+    "bytes": 437,
+    "sha256": "8EC7565EE24EB2B15DA2D2D7E948339EE537D4119976DAA301F76421EC7A6628"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\res\\drawable\\pxe_scan.xml",
+    "bytes": 468,
+    "sha256": "775674AED770B0444D043E4FC3B1F0AD5E1FC595E325E59AFB644FE14FE7ECD6"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\res\\drawable\\pxe_settings.xml",
+    "bytes": 615,
+    "sha256": "949953C5267F3B5B62AAEDE564E86ED04D340A23D75D5314689FCAE032A87500"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\res\\drawable\\pxe_steps.xml",
+    "bytes": 466,
+    "sha256": "5671300DAF3480915786D1ED0F7BA4B9FFD854C8DF63AE68BCDBCCC37F9E6373"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\res\\drawable\\pxe_sun.xml",
+    "bytes": 475,
+    "sha256": "C84D2A7812926F719A4B80AD60E7780FAFAFE734E73DED5A733A8846D04ED582"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\res\\drawable\\pxe_text.xml",
+    "bytes": 401,
+    "sha256": "A0B80DEDD5152E49CD2751689E612B582AE095D408FD10230DC85824ED29BF1A"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\res\\drawable\\pxe_warning.xml",
+    "bytes": 398,
+    "sha256": "0B77EFDAD0195A8CF289AB9FB26C3E3957068833A75FE4F7A506096662B0C580"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\res\\font\\nanum_gothic_bold.ttf",
+    "bytes": 4642244,
+    "sha256": "454EB3F503F377782A99EB84FC4BB7DDE22A0F075D41B47427737F2985053BC9"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\res\\mipmap-anydpi\\ic_launcher.xml",
+    "bytes": 268,
+    "sha256": "34CC7C1866744EB4F9E7EA2EDD5805FCB09ECDBE11A3FC8D2875F31B04E72A2C"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\res\\values\\nex_colors.xml",
+    "bytes": 61,
+    "sha256": "DDCA9846052B821C279EE776B081B4CCEF359877597AE845605C0B56957FC580"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\res\\values\\strings.xml",
+    "bytes": 628,
+    "sha256": "2F20BFD229D1ED1C9C8E95E91AF500AAAAB409AD0D1A1712EC9896811F59F1D1"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\res\\values\\styles.xml",
+    "bytes": 1897,
+    "sha256": "D8698D0145F859AC4AA8C261EB7480284B597DBCF3FD18C4BEF93596EC40154F"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\res\\xml\\accessibility.xml",
+    "bytes": 607,
+    "sha256": "9C1B21EC93CDCCA866F0B24B525851535FDBA0A333916E59BAC61BF427917419"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\main\\res\\xml\\data_extraction.xml",
+    "bytes": 177,
+    "sha256": "66C2D7C6AC2A3C03200235A556E0F410620CAE5BDFEDD4EBDF18528FCBC42886"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\test\\java\\kr\\yunseok\\touchmacro\\CaptureRequestsTest.java",
+    "bytes": 987,
+    "sha256": "1B8D214762EE70AE6518381C5C195854546C8B81EAA7F0A6F9545BA61CD5069F"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\test\\java\\kr\\yunseok\\touchmacro\\ContinuousWaitTest.java",
+    "bytes": 2286,
+    "sha256": "162D0ADC161932A35C15723D008CF6F587C2B850C5BFAA2F0851093057D7F407"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\test\\java\\kr\\yunseok\\touchmacro\\ErrorJournalTest.java",
+    "bytes": 1526,
+    "sha256": "EACEDD2642485EFBD4CCF7C0286640732FFD9465BEF77C664208EC7C008DD423"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\test\\java\\kr\\yunseok\\touchmacro\\GestureModelTest.java",
+    "bytes": 3075,
+    "sha256": "49E065B526E7E3501078F3967F2CA11E785D5227B975D5CB5F6770A3149C2BBF"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\test\\java\\kr\\yunseok\\touchmacro\\ModelTest.java",
+    "bytes": 1942,
+    "sha256": "8FFD9B2E77A5E5C80797F9DA8E3E81D1D74C7F21A20B01C2F769795CD7A091F3"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\test\\java\\kr\\yunseok\\touchmacro\\QueryLaneTest.java",
+    "bytes": 1859,
+    "sha256": "B7F04233E7A5D4AA245252830BD51CC1579CC7D4423DF9281CC4944F3286BEDD"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\test\\java\\kr\\yunseok\\touchmacro\\RepeatMeaningTest.java",
+    "bytes": 607,
+    "sha256": "8ADEEF654E6B31C3BC9F12716DD1E13142735FA13640BD13028ADA03E3D98123"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\test\\java\\kr\\yunseok\\touchmacro\\TextRulesTest.java",
+    "bytes": 1229,
+    "sha256": "F5052EE6D6D0609F8DE55E990DB67088C2659DE44450D4FF7778A83CE9ABDF2D"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\test\\java\\kr\\yunseok\\touchmacro\\TimesTest.java",
+    "bytes": 1257,
+    "sha256": "4DE05AC7B4676EAC79279B5BA8864200E76E3A10FFFDA223CA34C5E0B06C6C73"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\test\\java\\kr\\yunseok\\touchmacro\\WatchConfigTest.java",
+    "bytes": 3547,
+    "sha256": "C46C43E94385C120FFCC096E5961C1934B5E4A3A7761BF8088204B1626CC79D3"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\test\\java\\kr\\yunseok\\touchmacro\\WatchGateTest.java",
+    "bytes": 2974,
+    "sha256": "73F4C588903719D444C7EA3CB089758B15B3E35737C80BF777B671CF08979F84"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\app\\src\\test\\java\\kr\\yunseok\\touchmacro\\WindowPackagesTest.java",
+    "bytes": 2494,
+    "sha256": "9FBF2BA72DFD16A82113AFE1B4E075500A346F3C0D786189882D6C053E4D6C3B"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\docs\\2026-10-26_재디자인_명세와계획.md",
+    "bytes": 13383,
+    "sha256": "7F5D7DBAFB3D273DC702BB655F89FFE0104F03449475F6C4E02430884505F936"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\gradle\\wrapper\\gradle-wrapper.jar",
+    "bytes": 43705,
+    "sha256": "81A82AAEA5ABCC8FF68B3DFCB58B3C3C429378EFD98E7433460610FECD7AE45F"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\gradle\\wrapper\\gradle-wrapper.properties",
+    "bytes": 251,
+    "sha256": "CDAB1FFB439219B1DB125E3C99A86CF2424F8762B9B3FAA404ED061E3635ECDE"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\tools\\check_artifacts.py",
+    "bytes": 3695,
+    "sha256": "64C15EA7068287C09AAAFDE64E05DCEA24A3E47FA62BC61CB4EB314E8B5DD4CA"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\tools\\check_device.py",
+    "bytes": 1250,
+    "sha256": "78C10FA8D5021638428D8EFB26D3393C11821EE26A6995F039DF10635443C9E4"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\tools\\check_regression.py",
+    "bytes": 4392,
+    "sha256": "A182480027C783E939A7124311D581BF1542D6E7D5B9B3D9B9A48B9B4E353345"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\tools\\check_upgrade.py",
+    "bytes": 3190,
+    "sha256": "20D8D2909C8EB5831BFA827C69471A153D5C98811E653461FA705F3F88004E76"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\tools\\check_utf8.py",
+    "bytes": 827,
+    "sha256": "C28C865F0223EC41DD64A5BED2791744407D11DCF4CB457E6683CB1355C256E3"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\source\\tools\\required-check-plan.json",
+    "bytes": 2610,
+    "sha256": "1145F82AC2D7C6729706B3FD117205B9FEFDC71128B28D251F457B64A0C09EBD"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\PXE_14차_v1.4_PC용.apk",
+    "bytes": 35331843,
+    "sha256": "3DDFFB8AC2F7E8AA317F2B403E680693AD98B2449BB27D4FE02809D3A6B1F982"
+  },
+  {
+    "path": "D:\\2026\\PXE Project\\14차\\PXE_14차_v1.4_노트10플러스.apk",
+    "bytes": 23694587,
+    "sha256": "3F54C21298DF837532B9BEF50382E8A5BC8722AB8660AEFE2114C6D0F0028257"
+  }
+]

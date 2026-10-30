@@ -1,0 +1,24 @@
+윤석 터치매크로 빌드 안내
+Java 17 / Android SDK 35 / Gradle 8.13 / Android Gradle Plugin 8.9.1
+
+현재 PC
+1. PowerShell에서 이 source 폴더로 이동합니다.
+2. JAVA_HOME을 ../../work/tools/jdk-17.0.20.1+1의 절대 경로로 지정합니다.
+3. gradlew.bat :app:assembleRelease :app:testDebugUnitTest :app:lintDebug
+
+별도 PC
+1. Java 17과 Android SDK 35를 설치합니다.
+2. local.properties의 sdk.dir을 자신의 SDK 경로로 수정합니다.
+3. 개인 서명으로 업데이트하려면 같은 프로젝트의 work/signing 폴더를 별도로 안전하게 보관하고 같은 상대 경로에 복원합니다.
+4. 서명 설정이 없을 때는 개발용 기본 키로 빌드됩니다. 기존 앱 업데이트에는 같은 개인 키가 필요합니다.
+
+release APK: ARM64, 갤럭시 노트 10+용. 디버그 기능은 꺼져 있습니다.
+debug APK: ARM64/ARM32/x86/x86_64, 가상 기기 검증용.
+
+검증 명령
+로컬: gradlew.bat :app:testDebugUnitTest :app:lintDebug
+기기: gradlew.bat :app:assembleDebug :app:assembleDebugAndroidTest
+Android 12 기기에 두 debug APK를 설치한 다음:
+adb shell am instrument -w -e disableAnalytics true -e class kr.yunseok.touchmacro.DeviceFlowTest kr.yunseok.touchmacro.test/androidx.test.runner.AndroidJUnitRunner
+
+기기 테스트는 접근성 서비스를 명시적으로 켜며 본 앱의 인식 테스트 화면에서 수행됩니다. 개인 휴대폰 대신 테스트용 가상 기기 사용을 권장합니다.

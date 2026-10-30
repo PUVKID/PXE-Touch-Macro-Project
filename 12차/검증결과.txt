@@ -1,0 +1,24 @@
+PXE12차 검증 결과 — 부모 요약 정정
+전체판정: FAILED / 실제기기검증미완료
+
+독립verifier가직접확인한통과범위
+- 중앙단위회귀78개: 종료코드0
+- 중앙UTF-8엄격/대체문자검사89개: 종료코드0
+- 영수증source_unchanged=true,검토후소스동결유지
+- 최종두APK해시/앱ID kr.yunseok.touchmacro/버전12·1.2.0/표시이름PXE
+- PC ABI arm64-v8a+x86_64,휴대전화arm64-v8a
+- 11차PC와12차PC·휴대전화개인서명동일
+- 11차보존기준80개파일해시일치
+- 소스검토:새옵션기본false/기존timeout0·after보존,단일캡처요청복구대기,취소·pause·늦은결과제외,오류128KBx2회전및내보내기경로
+
+미완료
+실제Android기기검사0건. 새무한대기/실제OCR/8초초과후실제복구/실제정지버튼/늦은콜백과타앱무터치/11→12실제업데이트설정보존은기기에서검증하지못했습니다. 저장공간부족·전용AVD기동후ADBoffline으로장치연결못함. 사용자BlueStacks·게임·노트10+및24시간연속실측미검증.
+
+중앙CLI종료1은위기기검증미충족reviewFAIL결과입니다. 실제영수증은존재하고명세검사는통과했습니다. 초기보고의'영수증미발급/명세미실행'추정은정정하며초기문서는검증결과_초기보고.txt로보존했습니다.
+실제영수증: source/.codex/routing-state/df1ea7273e46d16ba9664afc.verification.json
+요구별독립검토: source/evidence/review-pxe12.json
+산출물검사: source/evidence/artifact-pxe12.json
+
+보고정정시verifier메모리Python문자열의Windows역슬래시이스케이프문법오류로파일쓰기0에서중단했습니다. 부모가이미실제영수증을읽어확인했고verifier도동일영수증읽기로78/89통과·sourceunchanged·FAIL사유를직접확인한후,부모가이요약문서만정정했습니다. 독립검토문/영수증/소스는변경하지않았습니다.
+역할 deep gpt-6.1-sol/xhigh → escalate gpt-6-astra/medium → 별도verifier gpt-6.1-sol/high의도구요청근거. 서버런타임신원미확인,자동commandStop미확인,수리1/1.
+생성APK는검증완료운영릴리스로표현하지않습니다. 사용법은먼저읽기.txt를확인하세요.

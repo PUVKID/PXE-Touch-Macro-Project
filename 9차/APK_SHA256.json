@@ -1,0 +1,19 @@
+[
+  {
+    "File": "NEX_9차_v9.0_노트10플러스.apk",
+    "Bytes": 23652914,
+    "SHA256": "09D4CB839B48054F8A5E6E855D3495A8359CC16C79B9207ADEA1FB55EA3A297A",
+    "ABIs": [
+      "arm64-v8a"
+    ]
+  },
+  {
+    "File": "NEX_9차_v9.0_PC에뮬레이터_Android11이상.apk",
+    "Bytes": 35290170,
+    "SHA256": "8CC741E2C4547997AE12E9440EF8D443EC23EB39A25696DFCB3145B97D392919",
+    "ABIs": [
+      "arm64-v8a",
+      "x86_64"
+    ]
+  }
+]

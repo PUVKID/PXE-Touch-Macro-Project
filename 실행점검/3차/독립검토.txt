@@ -1,0 +1,35 @@
+독립 읽기 전용 검토: PASS (소스 근거 대조 범위)
+검토시각: 2026-10-21 01:40 한국 시각
+세션: 01a131ad-d167-7873-9aa6-4d81ff131c60
+작업: pxe-error-record-readonly-20261021
+역할: verifier / gpt-6.1-sol / high (부모 배정 요청값). 서버 런타임 모델 신원 미확인. 추가 작업자 없음. repair_used=0/1.
+
+최신 C:\Users\PUVKID\.codex\AGENTS.md와 11차/source/ROUTING-LESSONS.md를 직접 읽었습니다. 11차/source/docs는 존재하지 않습니다. 중앙 프로젝트 활성화·검증 영수증을 생성하지 않은 읽기 전용 자료 검토입니다.
+
+요구별 대조 8항목:
+1. 후보1: MacroService.java:319~322의 recognizer.process 이후 await(...,12000,...)에서 '한글 OCR 인식 응답 시간이 초과되었습니다'. 일치합니다. 이 시간은 일시정지 시간 제외 await 기준이며 실제 정지 시각의 보증이 아닙니다.
+2. 후보2: MacroService.java:395~409의 captureOnce await(...,8000,...)에서 'OCR 화면 캡처 응답 시간이 초과되었습니다'. 일치합니다. 글자 인식 전 화면 캡처 단계의 제한입니다.
+3. 후보3: MacroService.java:371~388의 간격 부족 오류에만 재시도하고 retry>=3에서 최종 문구를 던집니다. 초기 시도 후 최대 3회 재시도 설명과 일치합니다. captureError(3)의 초기 문구도 412~414행과 일치합니다.
+4. 후보4: MacroService.java:375~378에서 capturePending이 지속되고 대기 시간이 8000ms를 넘을 때 해당 문구를 던집니다. 일치합니다.
+5. 추가 오류2/4/6/기타의 문구는 MacroService.java:412~414와 일치합니다. 해당 번호가 과거 실제 발생했다는 증거는 없습니다.
+6. MacroService.java:45,65~69: 새 인스턴스 logs는 빈 ArrayDeque이며 최근 150줄만 유지합니다. 250ms 후 macros.last_log에 apply 저장합니다. onServiceConnected:51은 저장본을 복원하지 않고 연결 문구를 기록합니다. 메서드 자체가 기존 logs를 clear하지 않는다는 설명도 맞습니다.
+7. MainActivity.java:286,282: 서비스 존재 시 logText, 없을 때 last_log를 읽고 '최근 실행 기록'에서 파일 저장하며 UTF-8로 내보냅니다. 앱 기록을 직접 열어 과거 오류를 회수한 결과가 아니라 소스 구조를 확인한 것입니다.
+8. '최근150줄에 없음/OCR 관련으로 중단'은 사용자 보고이며 정확한 예외는 미확인이라는 제한이 명시되어 있습니다. 공개 logcat 조회 timeout은 조회 도구의 실패이며 앱 오류 원인으로 확정하지 않은 판단이 적절합니다. 6기기 versionCode11/name1.1.0은 quick 조회자 보고이고 이 검토에서 독립 재조회하지 않았습니다. 새 APK 생성·소스/앱/설정 수정 없이 후보표만 제공한다는 범위와 맞습니다.
+
+부모판정.txt의 이전 관측자 '01:43경'은 실제 01:38 작성 시각보다 늦다는 오류를 삭제하지 않고 확인 불가로 정정했습니다. 실제 실패 시각과 예외 원인을 확정할 추가 근거는 없습니다. 이 검토자는 ADB·기기·앱에 접근하지 않았으며 logcat 원문을 독립 재조회하지 않았습니다.
+
+직접 검사:
+- PowerShell 읽기 명령 3회: 최신 AGENTS/폴더 목록/후보표·부모판정 Get-Content, ROUTING-LESSONS Get-Content 및 rg -n 오류/보존 경로 검색, 두 Java 관련 행 Get-Content. 모두 종료 코드 0. 출력 생략 없음.
+- PowerShell 엄격 검사 1회: [System.Text.UTF8Encoding]::new($false,$true).GetString([System.IO.File]::ReadAllBytes(...)), U+FFFD 포함 여부, Get-FileHash -Algorithm SHA256. 6파일 모두 통과, 대체문자 0, 종료 코드 0. 출력 생략 없음.
+- 실행 위치: C:\Users\PUVKID\Documents\Codex\2026-10-13\new-chat-4
+- 읽기 검사 명령 4회/검사파일 6개/요구 대조 8항목. 컴파일·단위검사·lint·실기기 동작 검사는 수행하지 않았습니다. 읽기 전용 후보표 대조이므로 필요하지 않은 구현 검사를 실행하지 않았습니다.
+
+확인 SHA-256:
+AGENTS.md: 47A16435B50030E3DE24B83B67327DA01A3370068C021A1CD26B6D209BAC2E4D
+ROUTING-LESSONS.md: 164B297E42EA8080054AF7657816AB0F1588FD1B6F0D512583A7D23029B5FC24
+MacroService.java: F17244C32771318D39375D97A3BBFE8CA63EA812676D3BC8F70AF2F2C9312D9A
+MainActivity.java: BED1F67322743E4D36DDAD55367AA724692511A5173AD6E31A1087A848DD3590
+오류문구대조표.txt: C7A4E1BBB5BCA0DB4E8B6CAB7FF68C9792CF94C6D936F460E4454EF80903D7B4
+부모판정.txt: 009714773CF4705E277CAF7C6D2A1DC604F62505592FD4FC21C7C0243CEA735E
+
+한계: 이 PASS는 후보 문구·로그 보존 구조와 제한 설명의 일치 판정입니다. 과거 오류 로그 복구·실제 오류 원인·앱 무오류·새 옵션 구현·APK 납품의 PASS가 아닙니다. 최종 사용자 설명은 후보 번호를 보고 기억하는 문구를 선택할 수 있게 제시해야 합니다.

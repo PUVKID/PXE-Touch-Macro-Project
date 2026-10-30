@@ -1,0 +1,186 @@
+{
+  "time": "2026-10-28T23:45:41.9952923+09:00",
+  "memory": {
+    "AvailableMBytes": 16764,
+    "CommittedBytes": 110709575680,
+    "CommitLimit": 114913587200,
+    "PercentCommittedBytesInUse": 96,
+    "PagesInputPersec": 39,
+    "PagesOutputPersec": 0
+  },
+  "pagefile": [
+    {
+      "Name": "C:\\pagefile.sys",
+      "AllocatedBaseSize": 44313,
+      "CurrentUsage": 5730,
+      "PeakUsage": 21003
+    }
+  ],
+  "automatic_pagefile": true,
+  "top_private": [
+    {
+      "ProcessName": "vmmemWSL",
+      "Id": 36708,
+      "WorkingSet64": 3807817728,
+      "PrivateMemorySize64": 24603541504
+    },
+    {
+      "ProcessName": "HD-Player",
+      "Id": 55544,
+      "WorkingSet64": 1460060160,
+      "PrivateMemorySize64": 4774006784
+    },
+    {
+      "ProcessName": "HD-Player",
+      "Id": 87228,
+      "WorkingSet64": 1111953408,
+      "PrivateMemorySize64": 4639744000
+    },
+    {
+      "ProcessName": "HD-Player",
+      "Id": 19152,
+      "WorkingSet64": 1109921792,
+      "PrivateMemorySize64": 4621713408
+    },
+    {
+      "ProcessName": "HD-Player",
+      "Id": 118944,
+      "WorkingSet64": 1277251584,
+      "PrivateMemorySize64": 4501864448
+    },
+    {
+      "ProcessName": "ZZeroSrvc",
+      "Id": 14404,
+      "WorkingSet64": 402087936,
+      "PrivateMemorySize64": 4499279872
+    },
+    {
+      "ProcessName": "HD-Player",
+      "Id": 65952,
+      "WorkingSet64": 1460154368,
+      "PrivateMemorySize64": 4491509760
+    },
+    {
+      "ProcessName": "HD-Player",
+      "Id": 114960,
+      "WorkingSet64": 1133518848,
+      "PrivateMemorySize64": 4471222272
+    },
+    {
+      "ProcessName": "MapleIdleRPG",
+      "Id": 61024,
+      "WorkingSet64": 2250936320,
+      "PrivateMemorySize64": 4248764416
+    },
+    {
+      "ProcessName": "codex",
+      "Id": 5992,
+      "WorkingSet64": 1620987904,
+      "PrivateMemorySize64": 2820521984
+    },
+    {
+      "ProcessName": "ChatGPT",
+      "Id": 6004,
+      "WorkingSet64": 1989812224,
+      "PrivateMemorySize64": 2374172672
+    },
+    {
+      "ProcessName": "java",
+      "Id": 114032,
+      "WorkingSet64": 203530240,
+      "PrivateMemorySize64": 1724166144
+    },
+    {
+      "ProcessName": "java",
+      "Id": 112152,
+      "WorkingSet64": 156766208,
+      "PrivateMemorySize64": 1645879296
+    },
+    {
+      "ProcessName": "grap-core64.aes",
+      "Id": 73628,
+      "WorkingSet64": 522915840,
+      "PrivateMemorySize64": 1194225664
+    },
+    {
+      "ProcessName": "python",
+      "Id": 66980,
+      "WorkingSet64": 88977408,
+      "PrivateMemorySize64": 831041536
+    },
+    {
+      "ProcessName": "Everything",
+      "Id": 20064,
+      "WorkingSet64": 357822464,
+      "PrivateMemorySize64": 770928640
+    }
+  ],
+  "gpu_memory": [
+    {
+      "Name": "pid_118944_luid_0x00000000_0x00010529_phys_0",
+      "DedicatedUsage": 722157568,
+      "SharedUsage": 238071808
+    },
+    {
+      "Name": "pid_65952_luid_0x00000000_0x00010529_phys_0",
+      "DedicatedUsage": 702361600,
+      "SharedUsage": 257826816
+    },
+    {
+      "Name": "pid_87228_luid_0x00000000_0x00010529_phys_0",
+      "DedicatedUsage": 866570240,
+      "SharedUsage": 233754624
+    },
+    {
+      "Name": "pid_114960_luid_0x00000000_0x00010529_phys_0",
+      "DedicatedUsage": 713318400,
+      "SharedUsage": 230748160
+    },
+    {
+      "Name": "pid_19152_luid_0x00000000_0x00010529_phys_0",
+      "DedicatedUsage": 823365632,
+      "SharedUsage": 241987584
+    },
+    {
+      "Name": "pid_55544_luid_0x00000000_0x00010529_phys_0",
+      "DedicatedUsage": 872091648,
+      "SharedUsage": 278228992
+    },
+    {
+      "Name": "pid_86236_luid_0x00000000_0x00010529_phys_0",
+      "DedicatedUsage": 13278445568,
+      "SharedUsage": 652214272
+    },
+    {
+      "Name": "pid_100384_luid_0x00000000_0x00010529_phys_0",
+      "DedicatedUsage": 329216000,
+      "SharedUsage": 8773632
+    },
+    {
+      "Name": "pid_61024_luid_0x00000000_0x00010529_phys_0",
+      "DedicatedUsage": 1195212800,
+      "SharedUsage": 16932864
+    },
+    {
+      "Name": "pid_64848_luid_0x00000000_0x00010529_phys_0",
+      "DedicatedUsage": 1490325504,
+      "SharedUsage": 7045120
+    },
+    {
+      "Name": "pid_31480_luid_0x00000000_0x00010529_phys_0",
+      "DedicatedUsage": 480006144,
+      "SharedUsage": 1462272
+    },
+    {
+      "Name": "pid_20660_luid_0x00000000_0x00010529_phys_0",
+      "DedicatedUsage": 132571136,
+      "SharedUsage": 10948608
+    }
+  ],
+  "gpu_engines": [
+    {
+      "Name": "pid_86236_luid_0x00000000_0x00010529_phys_0_eng_0_engtype_3D",
+      "UtilizationPercentage": 91
+    }
+  ]
+}

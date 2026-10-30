@@ -1,0 +1,197 @@
+[
+  {
+    "path": "APK_SHA256.txt",
+    "bytes": 102,
+    "sha256": "2d841eba0ff109fb18061be805ed2e1fa52db72ac3e8b0f292063bfb90845c1f",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 1,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NanumGothic-OFL.txt",
+    "bytes": 5398,
+    "sha256": "9413f0aaff51c59be2ff01113a28759b491e6fd67172c3d0a666e6354af18883",
+    "text_bytes": {
+      "utf8_bom_count": 1,
+      "crlf_count": 0,
+      "lf_without_cr_count": 126,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "검증/APK_내장파일검증.txt",
+    "bytes": 115,
+    "sha256": "0a4fd2b79a7bb4e60d259e2fa282a1be95443dd3f49ff9c8fdb3399b1a1314f4",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 1,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "검증/APK_서명검증.txt",
+    "bytes": 991,
+    "sha256": "d2eeeb798e9d68e22eafe66d97970f1a07865c3fd371486b798e57b234a24233",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 17,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "검증/Android12_통합검증.txt",
+    "bytes": 1106,
+    "sha256": "00fe2a79c7f93d9293c048e16214bd237154a99c4214be226174e38a4ab70936",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 8,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "검증/Android_Lint.txt",
+    "bytes": 17,
+    "sha256": "a69ecb171bea9d40de22744c85220b4a4ea12f5a25ce7976d67f2c88c9195334",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 1,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "검증/TEST-kr.yunseok.touchmacro.GestureModelTest.xml",
+    "bytes": 1590,
+    "sha256": "f8af121f6489cf525db4f8eefd4d7be38cba3dcdb7c54ca0c0669741f3171c7a",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 17,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "검증/TEST-kr.yunseok.touchmacro.ModelTest.xml",
+    "bytes": 1346,
+    "sha256": "aac2ed4467cafe61ba405376bdd9740f1002a3184d3b2ce3716c21714b455a2b",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 16,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "검증/TEST-kr.yunseok.touchmacro.TextRulesTest.xml",
+    "bytes": 949,
+    "sha256": "1865d9336bdfad9669a1ea2c70f36c050f02d10eba0387a0a01fd48f249fe028",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 12,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "검증/화면검증.txt",
+    "bytes": 230,
+    "sha256": "590b572af63da8ec581b94da28a0b67504e086c8fff0d9ab3cbbb322e7e0daa7",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 1,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "검증결과.txt",
+    "bytes": 3076,
+    "sha256": "c635279f57f2aedc9219332a413470b3740b6363cab2e1bdd021c1b1ffe6ee6f",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 60,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "사용법.txt",
+    "bytes": 7029,
+    "sha256": "faa09a956ec39feae99114dba54741ce4d7f4a1ba9531a4d5321c8d25addf983",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 101,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "예제_OCR_미리보기.json",
+    "bytes": 567,
+    "sha256": "a82a7f5bc67a3c6e6cda38b54ba1a12144fb50487411b9f343754f6644bd986b",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 29,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": false,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "예제_글자_뒤로가기.json",
+    "bytes": 575,
+    "sha256": "15d80d7ac86624f617e896258c845ccd029d2cee21ff5ee6d2fdcf92491c530c",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 29,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": false,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "참고앱_기능반영표.txt",
+    "bytes": 2299,
+    "sha256": "0e68be1395ca05cb63fa7566770409493025726d14d9c8c43c6e2c2121928f93",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 35,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  }
+]

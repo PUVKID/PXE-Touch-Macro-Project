@@ -1,0 +1,3617 @@
+[
+  {
+    "sha256": "e08295bc2efab92a63ee60876eb55e0d54b7ef2e15a7b177f4c60cbd70ddcc39",
+    "bytes": 148473,
+    "public_path": "자료/화면과검증/e08295bc2efa_guide_ready.png",
+    "source_paths": [
+      "10차/검증/guide_ready.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "3f00429b0a5f8d54cc24b828211cce01f7ea8b16b66cc5b0711cfb404315e5e8",
+    "bytes": 130585,
+    "public_path": "자료/화면과검증/3f00429b0a5f_guide_record.png",
+    "source_paths": [
+      "10차/검증/guide_record.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "138d62af05bb35b701b3aa25398e9bb2449974c014f077dd726ada3fee849419",
+    "bytes": 13788,
+    "public_path": "자료/화면과검증/138d62af05bb_PXE_앱아이콘.png",
+    "source_paths": [
+      "10차/디자인파일/PXE_앱아이콘.png",
+      "10차/미리보기/PXE_앱아이콘.png",
+      "13차/source/evidence/design-final/PXE_앱아이콘.png"
+    ],
+    "width": 512,
+    "height": 512,
+    "new_file": true
+  },
+  {
+    "sha256": "ecfaf51fb4924d89b4affa6a0dfcbd6871f94e6ead7ec5b0d8481f5739f6e9f3",
+    "bytes": 75377,
+    "public_path": "자료/화면과검증/ecfaf51fb492_PXE_다크_설정.png",
+    "source_paths": [
+      "10차/미리보기/PXE_다크_설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "457af9fc866f5eaf7e3b54e1f985993db9fdc49e361b6d32f95877600b305a34",
+    "bytes": 79938,
+    "public_path": "자료/화면과검증/457af9fc866f_PXE_다크_첫설정.png",
+    "source_paths": [
+      "10차/미리보기/PXE_다크_첫설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "d7aaedb5621306a47da1892f2e90254919e1f37ba230e6ec70641a12c33f1acd",
+    "bytes": 101960,
+    "public_path": "자료/화면과검증/d7aaedb56213_PXE_다크_탐지.png",
+    "source_paths": [
+      "10차/미리보기/PXE_다크_탐지.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "38b6077f9a55de6db2ad1592b5d9c4db6217e65a6ae6a0e95b8e5f10dee26d79",
+    "bytes": 99236,
+    "public_path": "자료/화면과검증/38b6077f9a55_PXE_라이트_글자.png",
+    "source_paths": [
+      "10차/미리보기/PXE_라이트_글자.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "81832405349487b03cf24dbddf6a3df08f4d09203dd8cb29e9b187d7fd470a7b",
+    "bytes": 67873,
+    "public_path": "자료/화면과검증/818324053494_PXE_라이트_동작.png",
+    "source_paths": [
+      "10차/미리보기/PXE_라이트_동작.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "27acd97997ab6d46f40ad69a850cca88f373e4993df02be619be315a10ede4fd",
+    "bytes": 79048,
+    "public_path": "자료/화면과검증/27acd97997ab_PXE_라이트_설정.png",
+    "source_paths": [
+      "10차/미리보기/PXE_라이트_설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "f2b4de8cedf0ea2eae345eeff7189ad3a2e87d103349f1200ed78d32a05f9dc2",
+    "bytes": 82788,
+    "public_path": "자료/화면과검증/f2b4de8cedf0_PXE_라이트_첫설정.png",
+    "source_paths": [
+      "10차/미리보기/PXE_라이트_첫설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "df53382ef1985dfda634c767b25c5939b3b3e00e8d0f0182139d12754a699dda",
+    "bytes": 105364,
+    "public_path": "자료/화면과검증/df53382ef198_PXE_라이트_탐지.png",
+    "source_paths": [
+      "10차/미리보기/PXE_라이트_탐지.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "25b36811e7593fa474ca2bda7d108add03acd9613a83212dfbf2792726e97fb0",
+    "bytes": 121301,
+    "public_path": "자료/화면과검증/25b36811e759_design-before-stable.png",
+    "source_paths": [
+      "13차/source/evidence/design-before-stable.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "b49d2a2152326031b28a7667da73feb52f7e11a0fa5184abd57f750d9cd0beee",
+    "bytes": 260294,
+    "public_path": "자료/화면과검증/b49d2a215232_design-before.png",
+    "source_paths": [
+      "13차/source/evidence/design-before.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "35a7fe04b6fba075fb7a55a0e52f057822ed30667c0f6af3498d78bc6fa74dac",
+    "bytes": 86565,
+    "public_path": "자료/화면과검증/35a7fe04b6fb_design-settings-before.png",
+    "source_paths": [
+      "13차/source/evidence/design-settings-before.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "c41e3f8b8ec20c1ff75fcaf392db70216a24bf1899138c8186c5313d8a91718e",
+    "bytes": 49202,
+    "public_path": "자료/화면과검증/c41e3f8b8ec2_green4-control-restart-after-setup.png",
+    "source_paths": [
+      "13차/source/evidence/green4-control-restart-after-setup.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "0aa5baf74117466e7b73fb9529a5c2cac68d47f0ea7f3f952fc7f3650d926c26",
+    "bytes": 117858,
+    "public_path": "자료/화면과검증/0aa5baf74117_green4-control-resume-while-running.png",
+    "source_paths": [
+      "13차/source/evidence/green4-control-resume-while-running.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "def750c5fca394bcddaa226dd82bdee10d52097b01cf6f86cae4366840eee922",
+    "bytes": 49110,
+    "public_path": "자료/화면과검증/def750c5fca3_green4-control-start-after-setup.png",
+    "source_paths": [
+      "13차/source/evidence/green4-control-start-after-setup.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "d22a2ab03d5a89c93e5eeca556134e701a60970d72801639eaebbef93dd5b695",
+    "bytes": 89435,
+    "public_path": "자료/화면과검증/d22a2ab03d5a_red4-control-resume-while-running.png",
+    "source_paths": [
+      "13차/source/evidence/red4-control-resume-while-running.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "b831edb88e2eb786342cfff962ca4cfe68086df450b428cdb6f53bf59a7ff6d4",
+    "bytes": 23371,
+    "public_path": "자료/화면과검증/b831edb88e2e_red4-control-start-after-setup.png",
+    "source_paths": [
+      "13차/source/evidence/red4-control-start-after-setup.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "5f5e599b351380d133c28ca028176c405ea0f63dc47bd0fbfa4c30a50628ffea",
+    "bytes": 150556,
+    "public_path": "자료/화면과검증/5f5e599b3513_guide_ready.png",
+    "source_paths": [
+      "13차/source/evidence/design-final/guide_ready.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "9e08e32a311379e830c8eb8c9faca359cdddc064dfbefcde0541246cb8b73b69",
+    "bytes": 132599,
+    "public_path": "자료/화면과검증/9e08e32a3113_guide_record.png",
+    "source_paths": [
+      "13차/source/evidence/design-final/guide_record.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "926b3e49ceb82d2eb881248642af03d5cad29ed823cf7aa9c81a783102bb65f6",
+    "bytes": 114848,
+    "public_path": "자료/화면과검증/926b3e49ceb8_PXE_글자_키보드.png",
+    "source_paths": [
+      "13차/source/evidence/design-final/PXE_글자_키보드.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "3eb9783bc07ec29f7242a2a0fa788de9fd989c278a09b3533fa80cac0b970e82",
+    "bytes": 137664,
+    "public_path": "자료/화면과검증/3eb9783bc07e_PXE_글자_키보드_안정화.png",
+    "source_paths": [
+      "13차/source/evidence/design-final/PXE_글자_키보드_안정화.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "624aaa00be0a7d87e21baec14ddfa52c45bde2569330d3dc2c6b0671183270e6",
+    "bytes": 83886,
+    "public_path": "자료/화면과검증/624aaa00be0a_PXE_다크_설정.png",
+    "source_paths": [
+      "13차/source/evidence/design-final/PXE_다크_설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "c7b661c807f1de8ccafc7e30cfa2087e6f55f5dcadd2fdf2a8ceb9dfb3da9794",
+    "bytes": 82548,
+    "public_path": "자료/화면과검증/c7b661c807f1_PXE_다크_첫설정.png",
+    "source_paths": [
+      "13차/source/evidence/design-final/PXE_다크_첫설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "212243194b03b24e46ba8b7c8929f89b9cba8480dbd81b4a1ceaf2996a31a8bc",
+    "bytes": 107486,
+    "public_path": "자료/화면과검증/212243194b03_PXE_다크_탐지.png",
+    "source_paths": [
+      "13차/source/evidence/design-final/PXE_다크_탐지.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "feda4766f73e68b4542ca1cc3911970d0e51b1250ec2136dc0d21d2c64c32303",
+    "bytes": 104174,
+    "public_path": "자료/화면과검증/feda4766f73e_PXE_라이트_글자.png",
+    "source_paths": [
+      "13차/source/evidence/design-final/PXE_라이트_글자.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "d8565482e64afb53f3489d7e2ea79bfd13be11ae28494191486db97aad3c951f",
+    "bytes": 70788,
+    "public_path": "자료/화면과검증/d8565482e64a_PXE_라이트_동작.png",
+    "source_paths": [
+      "13차/source/evidence/design-final/PXE_라이트_동작.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "f3a2382fec7ca82e8ab8afe661eaad78350b04d23e0e05861fef120c0330d356",
+    "bytes": 86971,
+    "public_path": "자료/화면과검증/f3a2382fec7c_PXE_라이트_설정.png",
+    "source_paths": [
+      "13차/source/evidence/design-final/PXE_라이트_설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "805e5e2a1a6c3b9441f3a27558f42efbab4ddba1aac76ac458a9fd55290bf27a",
+    "bytes": 85777,
+    "public_path": "자료/화면과검증/805e5e2a1a6c_PXE_라이트_첫설정.png",
+    "source_paths": [
+      "13차/source/evidence/design-final/PXE_라이트_첫설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "b9aae110c553d84a9edb4532b5ef5f95e8a2db93ebe391a28195169f839f6fba",
+    "bytes": 110375,
+    "public_path": "자료/화면과검증/b9aae110c553_PXE_라이트_탐지.png",
+    "source_paths": [
+      "13차/source/evidence/design-final/PXE_라이트_탐지.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "e99d4c1931dca2c0cd75b5b3b9c878cd1823b5440f75ec76d8ec1339b14cc4d4",
+    "bytes": 114520,
+    "public_path": "자료/화면과검증/e99d4c1931dc_PXE_설정_스크롤하단.png",
+    "source_paths": [
+      "13차/source/evidence/design-final/PXE_설정_스크롤하단.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "44429b414d695129457ccc53fa9f86c3adf3b1738546b85809ce7e5745763a15",
+    "bytes": 1402318,
+    "public_path": "자료/화면과검증/44429b414d69_설정_동작_제어창_시안.png",
+    "source_paths": [
+      "14차/evidence/설정_동작_제어창_시안.png"
+    ],
+    "width": 1008,
+    "height": 1561,
+    "new_file": true
+  },
+  {
+    "sha256": "2ccd703eda789ccd011771b58f43e5fa83fa0d8d142782f060f8edb15221074a",
+    "bytes": 119924,
+    "public_path": "자료/화면과검증/2ccd703eda78_실제앱_다크.png",
+    "source_paths": [
+      "14차/evidence/실제앱_다크.png",
+      "14차/source/evidence/verifier-final7-captures/files/PXE_다크_탐지.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "7a7cf8057084419a5318287d64231edd532dd742fd0cdd40e86e9f463763a21f",
+    "bytes": 119356,
+    "public_path": "자료/화면과검증/7a7cf8057084_실제앱_라이트.png",
+    "source_paths": [
+      "14차/evidence/실제앱_라이트.png",
+      "14차/source/evidence/verifier-final7-captures/files/PXE_라이트_탐지.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "e473a309a7724333d60b856c550fec1fe3247150137c5adc2823b855def19d09",
+    "bytes": 1314601,
+    "public_path": "자료/화면과검증/e473a309a772_탐지홈_라이트다크_시안.png",
+    "source_paths": [
+      "14차/evidence/탐지홈_라이트다크_시안.png"
+    ],
+    "width": 1219,
+    "height": 1290,
+    "new_file": true
+  },
+  {
+    "sha256": "5ee151cbe98fcb2cb0bc35a57b84d858cb52e103178b21eef0c73d06ce04cb85",
+    "bytes": 48957,
+    "public_path": "자료/화면과검증/5ee151cbe98f_control-restart-after-setup.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-captures/files/control-restart-after-setup.png",
+      "14차/source/evidence/verifier-final7-small-captures/files/control-restart-after-setup.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "b2990cdc79708fe3a29a178af9d108c8c049e52cf86b121d4a83bd0a35f5a891",
+    "bytes": 155509,
+    "public_path": "자료/화면과검증/b2990cdc7970_control-resume-while-running.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-captures/files/control-resume-while-running.png",
+      "14차/source/evidence/verifier-final7-small-captures/files/control-resume-while-running.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "e2986e9ca5a9f2a6be57dc2e177d7e9a063fd70aca1bdda998741968e8722bb3",
+    "bytes": 117918,
+    "public_path": "자료/화면과검증/e2986e9ca5a9_control-setup-hidden.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-captures/files/control-setup-hidden.png",
+      "14차/source/evidence/verifier-final7-small-captures/files/control-setup-hidden.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "50dd587b149dd45f2dc3735df33b7a50a7b89b35b1f0a2778caec275c3a38071",
+    "bytes": 50935,
+    "public_path": "자료/화면과검증/50dd587b149d_control-start-after-setup.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-captures/files/control-start-after-setup.png",
+      "14차/source/evidence/verifier-final7-small-captures/files/control-start-after-setup.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "d9160bf7c7de030dfb9b0abe905e3acf7c34c6344c6ffe4f0249f620a025c2c5",
+    "bytes": 165295,
+    "public_path": "자료/화면과검증/d9160bf7c7de_guide_ready.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-captures/files/guide_ready.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "0dfa9b63c971514b941c323e8263152659755d4a4bb8828fdaabc344d0e1128e",
+    "bytes": 146915,
+    "public_path": "자료/화면과검증/0dfa9b63c971_guide_record.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-captures/files/guide_record.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "0a3fa988f7b2df2ab31597417d5d3a563ed7f09f5f32b0078f179ba9f4395e7f",
+    "bytes": 122669,
+    "public_path": "자료/화면과검증/0a3fa988f7b2_PXE14_글자_키보드_탐색.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-captures/files/PXE14_글자_키보드_탐색.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "3be1b62cd54ffdff3a636663f8ada60ff584ed87c835dad6afc19e470bb1264b",
+    "bytes": 101185,
+    "public_path": "자료/화면과검증/3be1b62cd54f_PXE14_긴문구_스크롤.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-captures/files/PXE14_긴문구_스크롤.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "35d74ab8d4efa33312cb5951c6011aaca0a6d8e70000cbecbf98fb10f4fcc7ac",
+    "bytes": 96476,
+    "public_path": "자료/화면과검증/35d74ab8d4ef_PXE14_네이티브_설정_48dp.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-captures/files/PXE14_네이티브_설정_48dp.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "1efd402d02ced3b46a99e11c66fcaa460f296f5239acdc15e00e7fcca49c7359",
+    "bytes": 101061,
+    "public_path": "자료/화면과검증/1efd402d02ce_PXE14_모션꺼짐.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-captures/files/PXE14_모션꺼짐.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "dbebc348961ef639a5531635e22155e84c152eb1eed0b710b40abe1890dd3932",
+    "bytes": 117774,
+    "public_path": "자료/화면과검증/dbebc348961e_PXE14_번호점_이동.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-captures/files/PXE14_번호점_이동.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "de58e1871deb0988f5f4a9bee342fd648f18094951f747001ec6fe98bc480dae",
+    "bytes": 137956,
+    "public_path": "자료/화면과검증/de58e1871deb_PXE14_설정_입력.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-captures/files/PXE14_설정_입력.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "6dfd17279ad3c5cca96a1cde09ee4f9bc046ab0376d9107d618d146ab9d09c14",
+    "bytes": 117258,
+    "public_path": "자료/화면과검증/6dfd17279ad3_PXE14_제어창_펼침.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-captures/files/PXE14_제어창_펼침.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "a873afbf898854b192a75b04d4624e54ba2a7212765a7918d04fdc178e996e0f",
+    "bytes": 102433,
+    "public_path": "자료/화면과검증/a873afbf8988_PXE_다크_글자.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-captures/files/PXE_다크_글자.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "6b17ea28ef1d2c24cde2f36ca7054a8b4f5e4a5c0dec1fc4fc46f9c43d90b682",
+    "bytes": 90798,
+    "public_path": "자료/화면과검증/6b17ea28ef1d_PXE_다크_동작.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-captures/files/PXE_다크_동작.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "3bc60229f309cc771f5e0b47eeb27c873dfbd270cc2a9c1a5780432833fca834",
+    "bytes": 100489,
+    "public_path": "자료/화면과검증/3bc60229f309_PXE_다크_설정.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-captures/files/PXE_다크_설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "031d4d14d538710ed59dc00bd4b69fa98da5bc7e9520d9c128b84c19d867fed4",
+    "bytes": 98498,
+    "public_path": "자료/화면과검증/031d4d14d538_PXE_다크_첫설정.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-captures/files/PXE_다크_첫설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "0709fd90039e93c46b741236c782bca41a6c3c2d8c6ef7b709f025ef9135f567",
+    "bytes": 101493,
+    "public_path": "자료/화면과검증/0709fd90039e_PXE_라이트_글자.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-captures/files/PXE_라이트_글자.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "a226381c7c9c03f852567bfe2055ec177a3d720d13ac8d3e6b2927d08af49d57",
+    "bytes": 89747,
+    "public_path": "자료/화면과검증/a226381c7c9c_PXE_라이트_동작.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-captures/files/PXE_라이트_동작.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "0177ce093b883dd4632e71b09e68ab8b982f5db79c897f7d71487e8db9a4af8b",
+    "bytes": 100687,
+    "public_path": "자료/화면과검증/0177ce093b88_PXE_라이트_설정.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-captures/files/PXE_라이트_설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "31864cc16c2cfc289ba3ff00f619c4df7ce50b8e8b59793395e211945260aba5",
+    "bytes": 106954,
+    "public_path": "자료/화면과검증/31864cc16c2c_PXE_라이트_첫설정.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-captures/files/PXE_라이트_첫설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "cbbde4060f7c048b9fb694f6778f9e86f749c50625b2a8e78cb30e6a084df223",
+    "bytes": 13926,
+    "public_path": "자료/화면과검증/cbbde4060f7c_PXE_앱아이콘.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-captures/files/PXE_앱아이콘.png",
+      "14차/source/evidence/verifier-final7-small-captures/files/PXE_앱아이콘.png",
+      "14차/source/work/ui-captures14/files/PXE_앱아이콘.png",
+      "14차/source/work/ui-captures14-repair5/files/PXE_앱아이콘.png",
+      "14차/source/work/verifier-final6-captures/files/PXE_앱아이콘.png",
+      "14차/source/work/verifier-final6-small-captures/files/PXE_앱아이콘.png",
+      "15차/source/work/verifier15-default-ui/PXE_앱아이콘.png",
+      "15차/source/work/verifier15-final3-default-ui/PXE_앱아이콘.png",
+      "15차/source/work/verifier15-final3-focused-ui/PXE_앱아이콘.png",
+      "15차/source/work/verifier15-final3-small-ui/PXE_앱아이콘.png"
+    ],
+    "width": 512,
+    "height": 512,
+    "new_file": true
+  },
+  {
+    "sha256": "b3125eeccdf7d9d5661059d227d2b0df03be685487d789dbf0998e63da593661",
+    "bytes": 100343,
+    "public_path": "자료/화면과검증/b3125eeccdf7_guide_ready.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-small-captures/files/guide_ready.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "a42009c7d166155f0b649cb5de5c3006844d61ea789d6f14442d025683e54dec",
+    "bytes": 111877,
+    "public_path": "자료/화면과검증/a42009c7d166_guide_record.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-small-captures/files/guide_record.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "6e3e698314ac9db8f940c1edc99b7655a615ffe26dddd85abf5e4b7e2722c567",
+    "bytes": 76111,
+    "public_path": "자료/화면과검증/6e3e698314ac_PXE14_글자_키보드_탐색.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-small-captures/files/PXE14_글자_키보드_탐색.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "3b2193e5fd15fb08a366af6e7460f13211c5f911c78e116b4d070aff9e5b1f34",
+    "bytes": 66408,
+    "public_path": "자료/화면과검증/3b2193e5fd15_PXE14_긴문구_스크롤.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-small-captures/files/PXE14_긴문구_스크롤.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "3455ab2cce608219a300cc7568fde01c45e9d05b6ae82326dd8e55a108c63ec6",
+    "bytes": 62979,
+    "public_path": "자료/화면과검증/3455ab2cce60_PXE14_네이티브_설정_48dp.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-small-captures/files/PXE14_네이티브_설정_48dp.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "a6f903850d606a99f8c621be47edd6b0c71a89274703d3b06a65544f09d8be12",
+    "bytes": 67533,
+    "public_path": "자료/화면과검증/a6f903850d60_PXE14_모션꺼짐.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-small-captures/files/PXE14_모션꺼짐.png",
+      "14차/source/evidence/verifier-final7-small-captures/files/PXE_라이트_설정.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "75521575c7c4e643b4f13415fdf062857c242d27b7f37573e323d49f15069e5f",
+    "bytes": 90983,
+    "public_path": "자료/화면과검증/75521575c7c4_PXE14_번호점_이동.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-small-captures/files/PXE14_번호점_이동.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "951ee56d1e220f5a1b4f31cbd21b1fe80c1b04b5dad1b5a7f4993eade9624c16",
+    "bytes": 89357,
+    "public_path": "자료/화면과검증/951ee56d1e22_PXE14_설정_입력.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-small-captures/files/PXE14_설정_입력.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "e140c47b7cf0451b1b8cb869a59c675267257d9faa0e2137c32eb05684324b8b",
+    "bytes": 89871,
+    "public_path": "자료/화면과검증/e140c47b7cf0_PXE14_제어창_펼침.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-small-captures/files/PXE14_제어창_펼침.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "a0df14feb4ef1d9fa67a951d369957dad17f7bb2242cad3d98c11f4398d94f2c",
+    "bytes": 64733,
+    "public_path": "자료/화면과검증/a0df14feb4ef_PXE_다크_글자.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-small-captures/files/PXE_다크_글자.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "e93c660869d8ac037811924dd1ad970038ce6301b9355ffc2d2724fa0282dc18",
+    "bytes": 62447,
+    "public_path": "자료/화면과검증/e93c660869d8_PXE_다크_동작.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-small-captures/files/PXE_다크_동작.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "28c40bf526ff6e7d89a15505a19a9e420353d83f90bb73d40580ecd9b5850bfc",
+    "bytes": 67753,
+    "public_path": "자료/화면과검증/28c40bf526ff_PXE_다크_설정.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-small-captures/files/PXE_다크_설정.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "827bc5f3e94018661cfd789f20da5cead31d20ab6d15ebcd1e4d28ec39ae6a9c",
+    "bytes": 83353,
+    "public_path": "자료/화면과검증/827bc5f3e940_PXE_다크_첫설정.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-small-captures/files/PXE_다크_첫설정.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "9b84e0338cef36f1593cf0a173e65250cb4dff1eaa000c89ed29707ffa18311f",
+    "bytes": 79221,
+    "public_path": "자료/화면과검증/9b84e0338cef_PXE_다크_탐지.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-small-captures/files/PXE_다크_탐지.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "d3de5849f18da2c4b6043f1bf98e7178776552236ce16513875b714a8492c08e",
+    "bytes": 63589,
+    "public_path": "자료/화면과검증/d3de5849f18d_PXE_라이트_글자.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-small-captures/files/PXE_라이트_글자.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "29bac48eba4ffa5e37cd5a68cc7bdfe323bac4b744a3746952a5876e5772f88b",
+    "bytes": 60979,
+    "public_path": "자료/화면과검증/29bac48eba4f_PXE_라이트_동작.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-small-captures/files/PXE_라이트_동작.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "bcb3f5be3d8aa3d632179017366c4c906a355455631512453a8b88c971f2908b",
+    "bytes": 81439,
+    "public_path": "자료/화면과검증/bcb3f5be3d8a_PXE_라이트_첫설정.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-small-captures/files/PXE_라이트_첫설정.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "77733d23937d0f2235fc8ab00cb77c054eb75e95a215d62d970ee6c35a6077e2",
+    "bytes": 78064,
+    "public_path": "자료/화면과검증/77733d23937d_PXE_라이트_탐지.png",
+    "source_paths": [
+      "14차/source/evidence/verifier-final7-small-captures/files/PXE_라이트_탐지.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "fa78b3d982160bf0140997c81386aedf2993e7879e14642d70af97de5758a3c3",
+    "bytes": 49065,
+    "public_path": "자료/화면과검증/fa78b3d98216_control-restart-after-setup.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14/files/control-restart-after-setup.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "8349f7d61b5141a0b2425e74c219025b275cde734a20e5e32c62558b6d3b1355",
+    "bytes": 153771,
+    "public_path": "자료/화면과검증/8349f7d61b51_control-resume-while-running.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14/files/control-resume-while-running.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "2a42cc694e4bd299ec1f6caaa5749cca3493a799d77d40b555d85dbb2466bd9a",
+    "bytes": 116352,
+    "public_path": "자료/화면과검증/2a42cc694e4b_control-setup-hidden.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14/files/control-setup-hidden.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "1428e0a5116d721479e93fb207d790fe17c9defb3978f8ee75a6d6bc48cff98e",
+    "bytes": 49970,
+    "public_path": "자료/화면과검증/1428e0a5116d_control-start-after-setup.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14/files/control-start-after-setup.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "b60b3d5f60d941fb087f28cd3a2f03bd7f777065cc589584dc5777bf8f6280b0",
+    "bytes": 165193,
+    "public_path": "자료/화면과검증/b60b3d5f60d9_guide_ready.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14/files/guide_ready.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "4b42d5ad7bc74b3e62bb445f51b13b6b58867d1efc14b09ac37342b5dd3596dd",
+    "bytes": 146801,
+    "public_path": "자료/화면과검증/4b42d5ad7bc7_guide_record.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14/files/guide_record.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "232502673c67eb53e43e6304a8294d7a17fe441c33646b6f5c09e430884a36da",
+    "bytes": 123976,
+    "public_path": "자료/화면과검증/232502673c67_PXE14_글자_키보드_탐색.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14/files/PXE14_글자_키보드_탐색.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "5bdececc080989d3ed3b4b9900ae496fa777666715b58a90de3bb8993d497b52",
+    "bytes": 100873,
+    "public_path": "자료/화면과검증/5bdececc0809_PXE14_긴문구_300ms후.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14/files/PXE14_긴문구_300ms후.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "7021b9537338280c2eeeb23088bdcda808a8421ed4a8a00ae80485cbbd21b02a",
+    "bytes": 101131,
+    "public_path": "자료/화면과검증/7021b9537338_PXE14_긴문구_스크롤.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14/files/PXE14_긴문구_스크롤.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "4bb470183780c860eb3239ac5e2b009de7b4264698f26c6c7892aa1067890d12",
+    "bytes": 54389,
+    "public_path": "자료/화면과검증/4bb470183780_PXE14_긴문구_즉시.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14/files/PXE14_긴문구_즉시.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "7068df7bb15494131aae27feb2873b0c167b2a172e71025fd001b8d7f0c2e7c4",
+    "bytes": 101001,
+    "public_path": "자료/화면과검증/7068df7bb154_PXE14_모션꺼짐.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14/files/PXE14_모션꺼짐.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "68dff752469af9867948789dc88d56969dab2804f73ab153a3995f3184d7bbd2",
+    "bytes": 117747,
+    "public_path": "자료/화면과검증/68dff752469a_PXE14_번호점_이동.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14/files/PXE14_번호점_이동.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "b0cc2160e4919144c2ef605ed106b9c22d2199ac1fd9db32511f745dd9a935c4",
+    "bytes": 144906,
+    "public_path": "자료/화면과검증/b0cc2160e491_PXE14_설정_입력.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14/files/PXE14_설정_입력.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "ae5e42736b00cab6c1fe374eb4473287015c421e71aaa9397cdfcc160d4442a6",
+    "bytes": 117186,
+    "public_path": "자료/화면과검증/ae5e42736b00_PXE14_제어창_펼침.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14/files/PXE14_제어창_펼침.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "a44670fcf7b4f456b072573d83c267848219c18ff34d06c9b3ec3bd8ac56c950",
+    "bytes": 102393,
+    "public_path": "자료/화면과검증/a44670fcf7b4_PXE_다크_글자.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14/files/PXE_다크_글자.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "065251a808870f02e6d5ba9d7bb598517e752e035982cc0f0e3a2047d64f68d4",
+    "bytes": 90946,
+    "public_path": "자료/화면과검증/065251a80887_PXE_다크_동작.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14/files/PXE_다크_동작.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "9584d02744a33c7b13e67adcc71ec834729d49e4571329caf872d171dae9bbd7",
+    "bytes": 100645,
+    "public_path": "자료/화면과검증/9584d02744a3_PXE_다크_설정.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14/files/PXE_다크_설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "071a90d7f6cf765a24613c94a306f49ed6629f61cb6e6107e4dfa86f64e00188",
+    "bytes": 98645,
+    "public_path": "자료/화면과검증/071a90d7f6cf_PXE_다크_첫설정.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14/files/PXE_다크_첫설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "79ebcaa46918f5d3fde235dfc16868399946e63540df678f05ff23c5a6701f9c",
+    "bytes": 120065,
+    "public_path": "자료/화면과검증/79ebcaa46918_PXE_다크_탐지.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14/files/PXE_다크_탐지.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "bb8ce095865d0fdebd1ad6c615d434d7e4ef3639834608285fa2c1738e11ed68",
+    "bytes": 101689,
+    "public_path": "자료/화면과검증/bb8ce095865d_PXE_라이트_글자.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14/files/PXE_라이트_글자.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "6a5f48c43c4248b5a5019c77459e77cbbf3fead1d2ec28ff8f020a9e44c9e903",
+    "bytes": 89958,
+    "public_path": "자료/화면과검증/6a5f48c43c42_PXE_라이트_동작.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14/files/PXE_라이트_동작.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "b88687a2128f01961455a337804ebc59647bd2745ec0869611d11375d4fbe1cb",
+    "bytes": 100923,
+    "public_path": "자료/화면과검증/b88687a2128f_PXE_라이트_설정.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14/files/PXE_라이트_설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "1e76c8b104b2b4be448ab374320124ff109cb3bb6c19d2d5b600fdf46e3d47b7",
+    "bytes": 107234,
+    "public_path": "자료/화면과검증/1e76c8b104b2_PXE_라이트_첫설정.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14/files/PXE_라이트_첫설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "96ed8d3645a2b8fa6a9c7645ba17c36ef23147fa102d03ec102c2c51d67bb6a6",
+    "bytes": 119588,
+    "public_path": "자료/화면과검증/96ed8d3645a2_PXE_라이트_탐지.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14/files/PXE_라이트_탐지.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "4c83f8568ec7478dd7137f241337daf7d9c4dd53505ad69b4fdc5927e070a36f",
+    "bytes": 49752,
+    "public_path": "자료/화면과검증/4c83f8568ec7_control-restart-after-setup.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14-repair5/files/control-restart-after-setup.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "d4455cf1efbf8a5bd6a64112ba6e250cb5912f3205ceed075663797acf0f948c",
+    "bytes": 147996,
+    "public_path": "자료/화면과검증/d4455cf1efbf_control-resume-while-running.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14-repair5/files/control-resume-while-running.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "95eedc3d62b78a8d6afcc4ac15c9c7e168386c90a23036e4e2ab5530a7469eb4",
+    "bytes": 107299,
+    "public_path": "자료/화면과검증/95eedc3d62b7_control-setup-hidden.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14-repair5/files/control-setup-hidden.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "d3ebf6108c7cc800896ae27e17f5e8bd59994bb1600b9339f1082b006535ad92",
+    "bytes": 50323,
+    "public_path": "자료/화면과검증/d3ebf6108c7c_control-start-after-setup.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14-repair5/files/control-start-after-setup.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "421eb39f9f8cab69d657dea149708a915485d4daf4f28decd4069768e7bc9bb5",
+    "bytes": 164711,
+    "public_path": "자료/화면과검증/421eb39f9f8c_guide_ready.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14-repair5/files/guide_ready.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "d8262c533c06b6b4ee8b8dc9a10af881597e0a59111c4545f58ef0e10c380a40",
+    "bytes": 146352,
+    "public_path": "자료/화면과검증/d8262c533c06_guide_record.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14-repair5/files/guide_record.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "1c2a8e026be4d9ae03c4debcc467bade659e356e115a05c5b9806a823f92be6b",
+    "bytes": 122153,
+    "public_path": "자료/화면과검증/1c2a8e026be4_PXE14_글자_키보드_탐색.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14-repair5/files/PXE14_글자_키보드_탐색.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "8006af94ffac0882ab70710bcfd0f66659e658db3f0a8a9d88fd5fd3f37dd9e4",
+    "bytes": 100644,
+    "public_path": "자료/화면과검증/8006af94ffac_PXE14_긴문구_스크롤.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14-repair5/files/PXE14_긴문구_스크롤.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "f1dd88674180afe4847b71add21df7b94e0c7efefe63e388beed9a3af3437173",
+    "bytes": 95858,
+    "public_path": "자료/화면과검증/f1dd88674180_PXE14_네이티브_설정_48dp.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14-repair5/files/PXE14_네이티브_설정_48dp.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "25275c2bacf5dcf590b81eaaa09371bdaf4c1e01ae8c689c7da7470e41655a07",
+    "bytes": 100518,
+    "public_path": "자료/화면과검증/25275c2bacf5_PXE14_모션꺼짐.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14-repair5/files/PXE14_모션꺼짐.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "310eaf11bbcec54f7d8fc3bf2e24d90d8a3d3e4b305f5b0dc7cd882be26a04b7",
+    "bytes": 117176,
+    "public_path": "자료/화면과검증/310eaf11bbce_PXE14_번호점_이동.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14-repair5/files/PXE14_번호점_이동.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "15f4b262f10f8026a9c93fd5c9d99ecedab22c42e3a0646b968068568c3e238d",
+    "bytes": 137222,
+    "public_path": "자료/화면과검증/15f4b262f10f_PXE14_설정_입력.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14-repair5/files/PXE14_설정_입력.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "5f75a05c2cfd9fa4ecf9aa32e1260dd62a3ab0418c1dee81ef77571963f8b1fd",
+    "bytes": 116446,
+    "public_path": "자료/화면과검증/5f75a05c2cfd_PXE14_제어창_펼침.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14-repair5/files/PXE14_제어창_펼침.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "077411264e5139510916a1f9e2840e0bba7a1871b268a582a65381d871f769ca",
+    "bytes": 101781,
+    "public_path": "자료/화면과검증/077411264e51_PXE_다크_글자.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14-repair5/files/PXE_다크_글자.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "5d6189cba1b38721636bf3fb19931416f5eec02ad0325eb90bda69662a9eacb5",
+    "bytes": 90096,
+    "public_path": "자료/화면과검증/5d6189cba1b3_PXE_다크_동작.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14-repair5/files/PXE_다크_동작.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "d13c999657e9f80f2ed0794c27249311298787f1459214b64d3e7d1275c9b439",
+    "bytes": 99798,
+    "public_path": "자료/화면과검증/d13c999657e9_PXE_다크_설정.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14-repair5/files/PXE_다크_설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "cb6c9cc7a5f814449825dd80f40e1b9a2a3c62b298c530b6c4688cd4b6d2dfa9",
+    "bytes": 97769,
+    "public_path": "자료/화면과검증/cb6c9cc7a5f8_PXE_다크_첫설정.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14-repair5/files/PXE_다크_첫설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "adb7b72a3228379055b6d43a279fd77c37c3b4e4255c66f31425bf55915f88da",
+    "bytes": 107155,
+    "public_path": "자료/화면과검증/adb7b72a3228_PXE_다크_탐지.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14-repair5/files/PXE_다크_탐지.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "2e14b84de6b839fc73fc9a7ac5b729f8f4c72cf50d19a7361093346fc7d28958",
+    "bytes": 100991,
+    "public_path": "자료/화면과검증/2e14b84de6b8_PXE_라이트_글자.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14-repair5/files/PXE_라이트_글자.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "67ecf16571623e670f7fa686951481ba816a15f93577f9088f56b345760df1b2",
+    "bytes": 89231,
+    "public_path": "자료/화면과검증/67ecf1657162_PXE_라이트_동작.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14-repair5/files/PXE_라이트_동작.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "41e7aaea26bb9261ea98a19377b0155a55d186e045eba02557f6faf643e2de5f",
+    "bytes": 100172,
+    "public_path": "자료/화면과검증/41e7aaea26bb_PXE_라이트_설정.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14-repair5/files/PXE_라이트_설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "8f32395e98b628a96c07d7001bad812d27ed49da4f553d2151603bfbb6084673",
+    "bytes": 106359,
+    "public_path": "자료/화면과검증/8f32395e98b6_PXE_라이트_첫설정.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14-repair5/files/PXE_라이트_첫설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "79ac7a7cb500f3d2cd4cf70876f9d2b4c53d64df4722cc4d8a5d9a4149cf8fe6",
+    "bytes": 118828,
+    "public_path": "자료/화면과검증/79ac7a7cb500_PXE_라이트_탐지.png",
+    "source_paths": [
+      "14차/source/work/ui-captures14-repair5/files/PXE_라이트_탐지.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "86993e11884494d5f7d5ea6168bca9a954bd40a95cf745da5ee9f761245a7e93",
+    "bytes": 200747,
+    "public_path": "자료/화면과검증/86993e118844_글자_동작_세부설정.png",
+    "source_paths": [
+      "14차/source/work/ui-final14/글자_동작_세부설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "7214a904fe36aadd3925698de18fa01d5b0b22dde44bd3392e1a6e3c3e64a6dd",
+    "bytes": 182986,
+    "public_path": "자료/화면과검증/7214a904fe36_글자_동작_편집.png",
+    "source_paths": [
+      "14차/source/work/ui-final14/글자_동작_편집.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "86d6db6def3aafe35560c95bd4fb5a555acaea9527be96b6005e146d613c62a7",
+    "bytes": 94832,
+    "public_path": "자료/화면과검증/86d6db6def3a_동작_더보기.png",
+    "source_paths": [
+      "14차/source/work/ui-final14/동작_더보기.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "3e9fb08fe44cf682f3f844b8002eb3c68f0719751a4c258f9dc05c6b491674ac",
+    "bytes": 94702,
+    "public_path": "자료/화면과검증/3e9fb08fe44c_동작_종류.png",
+    "source_paths": [
+      "14차/source/work/ui-final14/동작_종류.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "c0bf3802be0a61593221e4256af31f0cae14d33042aeb6bb85b2613cb1f7b336",
+    "bytes": 149572,
+    "public_path": "자료/화면과검증/c0bf3802be0a_반복_시간_설정.png",
+    "source_paths": [
+      "14차/source/work/ui-final14/반복_시간_설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "155efb516c34297894b8899c84885e2369d090f23aa742f95f24546c28c09cad",
+    "bytes": 508122,
+    "public_path": "자료/화면과검증/155efb516c34_사용법_스크롤.png",
+    "source_paths": [
+      "14차/source/work/ui-final14/사용법_스크롤.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "fba230b3ae2ec03b29d127f7b36c1a4e967a34558e56006ac1d40c7f3e1dd1bd",
+    "bytes": 497957,
+    "public_path": "자료/화면과검증/fba230b3ae2e_사용법_안내.png",
+    "source_paths": [
+      "14차/source/work/ui-final14/사용법_안내.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "30a2249d6702c956b40cea9b5837a6b66a88b3e9b690d7dca17bbf5674e7b9b6",
+    "bytes": 110873,
+    "public_path": "자료/화면과검증/30a2249d6702_설정_전체.png",
+    "source_paths": [
+      "14차/source/work/ui-final14/설정_전체.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "cb5874d31d1996155b76195641dd69534be63875c7d8c5d63d6d6aeb52defa40",
+    "bytes": 106254,
+    "public_path": "자료/화면과검증/cb5874d31d19_설정_하단.png",
+    "source_paths": [
+      "14차/source/work/ui-final14/설정_하단.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "98070b16dd0fb3a613e2bc2d7dca3d9bb70c59c2e6a0be4fbcc20e411a716702",
+    "bytes": 134792,
+    "public_path": "자료/화면과검증/98070b16dd0f_실행_기록.png",
+    "source_paths": [
+      "14차/source/work/ui-final14/실행_기록.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "8792fd273a272f8d0dcab82dc6ca6a4d75f26a1bbb1de639aa5ec5245daedc75",
+    "bytes": 632700,
+    "public_path": "자료/화면과검증/8792fd273a27_오류_기록.png",
+    "source_paths": [
+      "14차/source/work/ui-final14/오류_기록.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "dd4c6c334277219396d6dd861e7b1c2fa743de74e31342088f2ca48793ce2d72",
+    "bytes": 81996,
+    "public_path": "자료/화면과검증/dd4c6c334277_인식_테스트.png",
+    "source_paths": [
+      "14차/source/work/ui-final14/인식_테스트.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "9bdaadd72331d4886b0cdd8078ce9e7edc7837bd8a13335b2e695a243cca9cd0",
+    "bytes": 196758,
+    "public_path": "자료/화면과검증/9bdaadd72331_접근성_안내.png",
+    "source_paths": [
+      "14차/source/work/ui-final14/접근성_안내.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "a373e9534b35758fc9b28e89d0156664162129228229bb82d3619ff278e45a6a",
+    "bytes": 113127,
+    "public_path": "자료/화면과검증/a373e9534b35_제어창_설정.png",
+    "source_paths": [
+      "14차/source/work/ui-final14/제어창_설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "4f52b9e82bbc7dd69e7a3bc9f7cd97d9d0e95c7f965638fd20c5766c1f0e727b",
+    "bytes": 132116,
+    "public_path": "자료/화면과검증/4f52b9e82bbc_좌표_편집.png",
+    "source_paths": [
+      "14차/source/work/ui-final14/좌표_편집.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "b5f4a522715a052d67b02f19e92a99f1c2503239a103472056b072cac152d9e4",
+    "bytes": 102620,
+    "public_path": "자료/화면과검증/b5f4a522715a_화면모드_선택.png",
+    "source_paths": [
+      "14차/source/work/ui-final14/화면모드_선택.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "1119b042fbc36a828de441b57e8fa697a6b4b8ad31784f256d0f5285cc8972d7",
+    "bytes": 179738,
+    "public_path": "자료/화면과검증/1119b042fbc3_글자_동작_세부설정.png",
+    "source_paths": [
+      "14차/source/work/ui-final14-repair5/글자_동작_세부설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "e2e6574f0a796e84f843e51e25c10363140114360847cca08009467a2cbbc8de",
+    "bytes": 161526,
+    "public_path": "자료/화면과검증/e2e6574f0a79_글자_동작_편집.png",
+    "source_paths": [
+      "14차/source/work/ui-final14-repair5/글자_동작_편집.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "73a48dccccb5583f126a237aad316f0de9e6440f872e865e3158c5676ae166a1",
+    "bytes": 95009,
+    "public_path": "자료/화면과검증/73a48dccccb5_동작_더보기.png",
+    "source_paths": [
+      "14차/source/work/ui-final14-repair5/동작_더보기.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "f717cb47d8ca2fd20757527b83a3e728c845133a09330d92a2aa902bc30e4b26",
+    "bytes": 94965,
+    "public_path": "자료/화면과검증/f717cb47d8ca_동작_종류.png",
+    "source_paths": [
+      "14차/source/work/ui-final14-repair5/동작_종류.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "731b8536a66e54978b553416d259b0a711292bde101ccff2667dacb620789df2",
+    "bytes": 135675,
+    "public_path": "자료/화면과검증/731b8536a66e_반복_시간_설정.png",
+    "source_paths": [
+      "14차/source/work/ui-final14-repair5/반복_시간_설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "c12c41ed00a4bbe458770524c50f577dc4561037ee9e8282339d2735cc67ec9d",
+    "bytes": 508705,
+    "public_path": "자료/화면과검증/c12c41ed00a4_사용법_스크롤.png",
+    "source_paths": [
+      "14차/source/work/ui-final14-repair5/사용법_스크롤.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "93e08d1d2f04a66b823ffcd2d6595a54b64458c045841ad4f778024aa30a4957",
+    "bytes": 498606,
+    "public_path": "자료/화면과검증/93e08d1d2f04_사용법_안내.png",
+    "source_paths": [
+      "14차/source/work/ui-final14-repair5/사용법_안내.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "3f25cb1c6efe156b860b2906f58df129844b75af4fc65ec6c1e68beffd312c02",
+    "bytes": 104193,
+    "public_path": "자료/화면과검증/3f25cb1c6efe_설정_전체.png",
+    "source_paths": [
+      "14차/source/work/ui-final14-repair5/설정_전체.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "aa1c9247e7467f46d63a24f6efba8b79f3f6c255ca2c7a7a4f87d5dde66105d6",
+    "bytes": 106540,
+    "public_path": "자료/화면과검증/aa1c9247e746_설정_하단.png",
+    "source_paths": [
+      "14차/source/work/ui-final14-repair5/설정_하단.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "43e4b48b55bbb93e05f5751275e284f3aef34f6efc5ad6d5ceab1c84849b11e8",
+    "bytes": 132331,
+    "public_path": "자료/화면과검증/43e4b48b55bb_실행_기록.png",
+    "source_paths": [
+      "14차/source/work/ui-final14-repair5/실행_기록.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "19ace32161b58c54bf366540be1eff125df63a049498dcf74c53d90cc877f4a7",
+    "bytes": 631690,
+    "public_path": "자료/화면과검증/19ace32161b5_오류_기록.png",
+    "source_paths": [
+      "14차/source/work/ui-final14-repair5/오류_기록.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "81ab1504bb82953e9a431010b0c0a6295b2cd6b6fb19021b0730a1ca1b594c7b",
+    "bytes": 82334,
+    "public_path": "자료/화면과검증/81ab1504bb82_인식_테스트.png",
+    "source_paths": [
+      "14차/source/work/ui-final14-repair5/인식_테스트.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "60ba90c7285774ca95a6c6ebc538fd7d9d69f2632d892f5ea97e2c09aef7481b",
+    "bytes": 197355,
+    "public_path": "자료/화면과검증/60ba90c72857_접근성_안내.png",
+    "source_paths": [
+      "14차/source/work/ui-final14-repair5/접근성_안내.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "c1a7898e0f29549afa3b9b3e6046aace86c551e2eb7a8e64890fe7ab377c9e20",
+    "bytes": 106818,
+    "public_path": "자료/화면과검증/c1a7898e0f29_제어창_설정.png",
+    "source_paths": [
+      "14차/source/work/ui-final14-repair5/제어창_설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "c0decf500c0d2ecd3e058e40cc2c613d1922dc8f077cd57ffd47b71121999f6a",
+    "bytes": 126860,
+    "public_path": "자료/화면과검증/c0decf500c0d_좌표_편집.png",
+    "source_paths": [
+      "14차/source/work/ui-final14-repair5/좌표_편집.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "53f60bd38d1f1973ebd97b9d7dbcb36e629c14affc310f7ec60fe6328cad351a",
+    "bytes": 104022,
+    "public_path": "자료/화면과검증/53f60bd38d1f_화면모드_선택.png",
+    "source_paths": [
+      "14차/source/work/ui-final14-repair5/화면모드_선택.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "71dbec13b804791dc39c368e6d6c949991a5bb7a622c7fe3e79060921122216e",
+    "bytes": 54035,
+    "public_path": "자료/화면과검증/71dbec13b804_control-restart-after-setup.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-captures/files/control-restart-after-setup.png",
+      "14차/source/work/verifier-final6-small-captures/files/control-restart-after-setup.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "d5de916bd1d455da4bb960429004182bc7e5beb7d3e27402bff9acbc201a2a1e",
+    "bytes": 154635,
+    "public_path": "자료/화면과검증/d5de916bd1d4_control-resume-while-running.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-captures/files/control-resume-while-running.png",
+      "14차/source/work/verifier-final6-small-captures/files/control-resume-while-running.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "aa1a8084bee704a82188b063e5b531cece425c7585dc25631460d08585add66a",
+    "bytes": 107897,
+    "public_path": "자료/화면과검증/aa1a8084bee7_control-setup-hidden.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-captures/files/control-setup-hidden.png",
+      "14차/source/work/verifier-final6-small-captures/files/control-setup-hidden.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "ed460ddde0acf0945fdbdb2b95e79b5a6e42652aaa5b2b3f455364fad19b09c8",
+    "bytes": 53717,
+    "public_path": "자료/화면과검증/ed460ddde0ac_control-start-after-setup.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-captures/files/control-start-after-setup.png",
+      "14차/source/work/verifier-final6-small-captures/files/control-start-after-setup.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "e9cdbb0dd847a93270a1f5c18c31d45deb767ef835b74672b894641290f206e1",
+    "bytes": 165314,
+    "public_path": "자료/화면과검증/e9cdbb0dd847_guide_ready.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-captures/files/guide_ready.png",
+      "14차/source/work/verifier-final6-small-captures/files/guide_ready.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "0ae466227bf5be46a05c06cf1a7f800a1475a176b9ed130d63a2ad9a048895fc",
+    "bytes": 146485,
+    "public_path": "자료/화면과검증/0ae466227bf5_guide_record.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-captures/files/guide_record.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "04ce60858bba3c3d1074939afe4e575118fe4dbdd156cf081463535709925b20",
+    "bytes": 123015,
+    "public_path": "자료/화면과검증/04ce60858bba_PXE14_글자_키보드_탐색.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-captures/files/PXE14_글자_키보드_탐색.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "836057df417b9cb7b638c6783e2648aeee28beedce0e53a885913c4ea1f68a75",
+    "bytes": 101145,
+    "public_path": "자료/화면과검증/836057df417b_PXE14_긴문구_스크롤.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-captures/files/PXE14_긴문구_스크롤.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "1b64826ffe2b55852184d78d7b05fa5fe3ed1d3cf2a72779eb637a381d2354ae",
+    "bytes": 96724,
+    "public_path": "자료/화면과검증/1b64826ffe2b_PXE14_네이티브_설정_48dp.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-captures/files/PXE14_네이티브_설정_48dp.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "385f9c3745a6f2f179d9c15b5a3ca4eb42da45cda97196efc9e89fae48506c11",
+    "bytes": 101132,
+    "public_path": "자료/화면과검증/385f9c3745a6_PXE14_모션꺼짐.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-captures/files/PXE14_모션꺼짐.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "a7e2249e15ba0a735c45551fb2f4acd09a0e631d1359122e69b15f5295fc2133",
+    "bytes": 117882,
+    "public_path": "자료/화면과검증/a7e2249e15ba_PXE14_번호점_이동.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-captures/files/PXE14_번호점_이동.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "d0de1c97823c8a8933b9e6f06d7aad642d9432c414e37191f411c0ef962b6b40",
+    "bytes": 138197,
+    "public_path": "자료/화면과검증/d0de1c97823c_PXE14_설정_입력.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-captures/files/PXE14_설정_입력.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "f1c58495c7c052efb9b6e3ddacc50a168b3537405b0c6205e03bca9b45fc1c35",
+    "bytes": 117170,
+    "public_path": "자료/화면과검증/f1c58495c7c0_PXE14_제어창_펼침.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-captures/files/PXE14_제어창_펼침.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "c1e1c9ad5c5b66094b24a57652f796ae8d59e2727d3673468f53477be195b63f",
+    "bytes": 102220,
+    "public_path": "자료/화면과검증/c1e1c9ad5c5b_PXE_다크_글자.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-captures/files/PXE_다크_글자.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "7fcb0c9ae0691d2724b03c8b5ccdc1bc3fe5df5482f85722563332209f3bd0be",
+    "bytes": 90569,
+    "public_path": "자료/화면과검증/7fcb0c9ae069_PXE_다크_동작.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-captures/files/PXE_다크_동작.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "9f8eed741d418f9843a8b7b743403bc77ba387f01e2726c1b53ba4f3f2a68b52",
+    "bytes": 100261,
+    "public_path": "자료/화면과검증/9f8eed741d41_PXE_다크_설정.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-captures/files/PXE_다크_설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "e6da8025e762ec562978abe471547db5d657792db777d0fdc616af0d63c4a0ef",
+    "bytes": 98267,
+    "public_path": "자료/화면과검증/e6da8025e762_PXE_다크_첫설정.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-captures/files/PXE_다크_첫설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "05a4c9feff1ba1ffac6de5f43bf9c56120a0cce75c21faadb52a26bf97d10343",
+    "bytes": 107642,
+    "public_path": "자료/화면과검증/05a4c9feff1b_PXE_다크_탐지.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-captures/files/PXE_다크_탐지.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "be943de81a0dc850d0764a4390465cf318607b918d7a0e6cd8370844af039061",
+    "bytes": 101431,
+    "public_path": "자료/화면과검증/be943de81a0d_PXE_라이트_글자.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-captures/files/PXE_라이트_글자.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "b09881ed7240838fe951b730acf5462f28d92ec529d9dabcab29bf45a160f58c",
+    "bytes": 89678,
+    "public_path": "자료/화면과검증/b09881ed7240_PXE_라이트_동작.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-captures/files/PXE_라이트_동작.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "aea897da3ae8e38cf5d2adf426b7363840a4631299d0c5915ae9ce4bfd26382a",
+    "bytes": 100618,
+    "public_path": "자료/화면과검증/aea897da3ae8_PXE_라이트_설정.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-captures/files/PXE_라이트_설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "57405ab2e1970d1dc8a7745ce3e7715e6b60c9df882728e5bbff13dd68c92844",
+    "bytes": 96737,
+    "public_path": "자료/화면과검증/57405ab2e197_PXE_라이트_첫설정.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-captures/files/PXE_라이트_첫설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "e620abeb2a9cb57ef9c247e330b6dd34cc516cf06eb83a70fb53c126b10101af",
+    "bytes": 119288,
+    "public_path": "자료/화면과검증/e620abeb2a9c_PXE_라이트_탐지.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-captures/files/PXE_라이트_탐지.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "ba5a259d5fbb82edf1e482042eea0d35ec9dbb1372f8643e4bd1cd4b67dea678",
+    "bytes": 112000,
+    "public_path": "자료/화면과검증/ba5a259d5fbb_guide_record.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-small-captures/files/guide_record.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "90d2ef2579d6424b9888ac98219fd9c64f9bfeffcbaf2669639286a26ec73468",
+    "bytes": 76285,
+    "public_path": "자료/화면과검증/90d2ef2579d6_PXE14_글자_키보드_탐색.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-small-captures/files/PXE14_글자_키보드_탐색.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "842b05c073717bdb1e1973ef5c0ca2d3bd27cb1c537df1462e5d8d1fa8803686",
+    "bytes": 66986,
+    "public_path": "자료/화면과검증/842b05c07371_PXE14_긴문구_스크롤.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-small-captures/files/PXE14_긴문구_스크롤.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "3956139b34b44faa76000dfd54f4150fe4a65f666a918cb795d8c65dd6138ff2",
+    "bytes": 63058,
+    "public_path": "자료/화면과검증/3956139b34b4_PXE14_네이티브_설정_48dp.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-small-captures/files/PXE14_네이티브_설정_48dp.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "e89941f6e689d999490a53973a4f6f3cb435ab0e23445c27a01fca1d099dbe39",
+    "bytes": 67720,
+    "public_path": "자료/화면과검증/e89941f6e689_PXE14_모션꺼짐.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-small-captures/files/PXE14_모션꺼짐.png",
+      "14차/source/work/verifier-final6-small-captures/files/PXE_라이트_설정.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "db3fd2683d3a57588cffe9628057a2b19f405c62fb8ca284e25d6c97032bbfa8",
+    "bytes": 91105,
+    "public_path": "자료/화면과검증/db3fd2683d3a_PXE14_번호점_이동.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-small-captures/files/PXE14_번호점_이동.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "d1b7bddd3382b6ed751ce233fa19d12a8eccf556558d33d25bbdba00ba619d6f",
+    "bytes": 89436,
+    "public_path": "자료/화면과검증/d1b7bddd3382_PXE14_설정_입력.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-small-captures/files/PXE14_설정_입력.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "c2db46e4478583ca62d7a1b1db1bbf926badb55ecabefc79d5a91c9a63ed2bce",
+    "bytes": 90110,
+    "public_path": "자료/화면과검증/c2db46e44785_PXE14_제어창_펼침.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-small-captures/files/PXE14_제어창_펼침.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "bcd266826cfdc93123dacb294b0cf952af7b134b84fd2f431160f01f7b880f83",
+    "bytes": 64854,
+    "public_path": "자료/화면과검증/bcd266826cfd_PXE_다크_글자.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-small-captures/files/PXE_다크_글자.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "e91b375fc61452a3f6a3277565d7918109e0dfbfbef9f9cb025a027ec4512214",
+    "bytes": 62565,
+    "public_path": "자료/화면과검증/e91b375fc614_PXE_다크_동작.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-small-captures/files/PXE_다크_동작.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "c13c960b7a397e4bc79c7d10d8f07bacbd03c6e2349810602907cbe5919528f4",
+    "bytes": 67865,
+    "public_path": "자료/화면과검증/c13c960b7a39_PXE_다크_설정.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-small-captures/files/PXE_다크_설정.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "b7234d730bde232ed60c98a36dff413eb7f377fb1d3777a4c8d5f9f9199a1f05",
+    "bytes": 83474,
+    "public_path": "자료/화면과검증/b7234d730bde_PXE_다크_첫설정.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-small-captures/files/PXE_다크_첫설정.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "06ce230966956571ccb2367ace17df87baa11dfa0020b77472e0dc5ba553981d",
+    "bytes": 79332,
+    "public_path": "자료/화면과검증/06ce23096695_PXE_다크_탐지.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-small-captures/files/PXE_다크_탐지.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "5f45a92e671a741dc88a3870cd92acba26e5593796b36c5a251761afc73a2c75",
+    "bytes": 63781,
+    "public_path": "자료/화면과검증/5f45a92e671a_PXE_라이트_글자.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-small-captures/files/PXE_라이트_글자.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "fbd3a1bbb6df5502306790439e445376daa309fa1373fc9c5ed0f7bb8c4a77c0",
+    "bytes": 61171,
+    "public_path": "자료/화면과검증/fbd3a1bbb6df_PXE_라이트_동작.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-small-captures/files/PXE_라이트_동작.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "c054233fb069692a9f8dee4baab0fc490b072f4a69d00ee4bb11c6f868eaff05",
+    "bytes": 81621,
+    "public_path": "자료/화면과검증/c054233fb069_PXE_라이트_첫설정.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-small-captures/files/PXE_라이트_첫설정.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "27087dc5f6a58a2a5170eaf2faca464954093ef81e778198feb0696ddd4ab3a1",
+    "bytes": 78256,
+    "public_path": "자료/화면과검증/27087dc5f6a5_PXE_라이트_탐지.png",
+    "source_paths": [
+      "14차/source/work/verifier-final6-small-captures/files/PXE_라이트_탐지.png"
+    ],
+    "width": 840,
+    "height": 1493,
+    "new_file": true
+  },
+  {
+    "sha256": "98ee442c0834e586c8666f72ba001e170bf918ed1e0c548d67e40425499663c5",
+    "bytes": 183607,
+    "public_path": "자료/화면과검증/98ee442c0834_list-basic.png",
+    "source_paths": [
+      "15차/source/work/list-basic.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "618bab59190b1fa74b7dcce4f80cb9d214e2b7023bf51a39504030fb1b0a2770",
+    "bytes": 156165,
+    "public_path": "자료/화면과검증/618bab59190b_step-basic.png",
+    "source_paths": [
+      "15차/source/work/step-basic.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "fb5591666224a5f2b7893d7ad97cf54404a7c8d91054c0baccc0b993f7385035",
+    "bytes": 67371,
+    "public_path": "assets/overview.png",
+    "source_paths": [
+      "15차/source/work/public-repo/assets/overview.png",
+      "16차/source/work/public-repo/assets/overview.png"
+    ],
+    "width": 1600,
+    "height": 574,
+    "new_file": false
+  },
+  {
+    "sha256": "6d30802bbac08c22010902adf885d25afebf07672ef8e16ef65dd25f8cac3000",
+    "bytes": 149471,
+    "public_path": "assets/previews/historical-app-preview.png",
+    "source_paths": [
+      "15차/source/work/public-repo/assets/previews/historical-app-preview.png",
+      "16차/source/work/public-repo/assets/previews/historical-app-preview.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": false
+  },
+  {
+    "sha256": "7103bb465ff99eb37b8de2b063d9714af778f84d08306b7415cff13b909cfc3a",
+    "bytes": 185472,
+    "public_path": "assets/previews/pxe15-list-settings.png",
+    "source_paths": [
+      "15차/source/work/public-repo/assets/previews/pxe15-list-settings.png",
+      "15차/source/work/verifier15-final3-focused-ui/PXE15_목록_기본설정.png",
+      "16차/source/work/public-repo/assets/previews/pxe15-list-settings.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": false
+  },
+  {
+    "sha256": "54c96bd41a1a33b9a853cd5dbcc537e9ac6238c3f559d5a82ddb75e7c8495def",
+    "bytes": 163964,
+    "public_path": "assets/previews/pxe15-step-settings.png",
+    "source_paths": [
+      "15차/source/work/public-repo/assets/previews/pxe15-step-settings.png",
+      "15차/source/work/verifier15-final3-focused-ui/PXE15_글자동작_기본설정.png",
+      "16차/source/work/public-repo/assets/previews/pxe15-step-settings.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": false
+  },
+  {
+    "sha256": "11ff81118909ab45b7da9b5bda625819b1e23aef7057db4db8bc7c4b650ffc58",
+    "bytes": 173464,
+    "public_path": "자료/화면과검증/11ff81118909_guide_ready.png",
+    "source_paths": [
+      "15차/source/work/verifier15-default-ui/guide_ready.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "4e51a012f618d3e9aa08c34c8d74d7a84b0cc8b6480ab64e35f83dfda551517e",
+    "bytes": 145002,
+    "public_path": "자료/화면과검증/4e51a012f618_guide_record.png",
+    "source_paths": [
+      "15차/source/work/verifier15-default-ui/guide_record.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "10553f40c066b6319c1507046d1002c78df4cafa10b7f86ec6a3ed0e74b0b993",
+    "bytes": 113174,
+    "public_path": "자료/화면과검증/10553f40c066_PXE14_글자_키보드_탐색.png",
+    "source_paths": [
+      "15차/source/work/verifier15-default-ui/PXE14_글자_키보드_탐색.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "c62ab958f843d3815f34ed6220d7ece6e5443641fb3784cb0aa495315246c3e3",
+    "bytes": 108095,
+    "public_path": "자료/화면과검증/c62ab958f843_PXE14_긴문구_스크롤.png",
+    "source_paths": [
+      "15차/source/work/verifier15-default-ui/PXE14_긴문구_스크롤.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "97a4e27ce4c8d876187a963f1f43565d1b0193a2ac0bbfe14f3a0d0b739db3c9",
+    "bytes": 96261,
+    "public_path": "자료/화면과검증/97a4e27ce4c8_PXE14_네이티브_설정_48dp.png",
+    "source_paths": [
+      "15차/source/work/verifier15-default-ui/PXE14_네이티브_설정_48dp.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "8f6bc147e26fb49086d197cf36aded1a79eb016a8ea1c2e8ce2f9d9983236e6a",
+    "bytes": 100744,
+    "public_path": "자료/화면과검증/8f6bc147e26f_PXE14_모션꺼짐.png",
+    "source_paths": [
+      "15차/source/work/verifier15-default-ui/PXE14_모션꺼짐.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "926a5bcacecf1f63b0a2f1d950913a71f2c768979495e0411a386df5a0509174",
+    "bytes": 121436,
+    "public_path": "자료/화면과검증/926a5bcacecf_PXE14_번호점_이동.png",
+    "source_paths": [
+      "15차/source/work/verifier15-default-ui/PXE14_번호점_이동.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "334a05be4ffce311d4bdf4e1ade8eb1d26b1f491f4f086ea8cf815caf7dae47e",
+    "bytes": 159019,
+    "public_path": "자료/화면과검증/334a05be4ffc_PXE14_설정_입력.png",
+    "source_paths": [
+      "15차/source/work/verifier15-default-ui/PXE14_설정_입력.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "97eac2f2a70b6b4ae806fa6bb8681f0f59c6678a3c90e73438adc152d9f19399",
+    "bytes": 120791,
+    "public_path": "자료/화면과검증/97eac2f2a70b_PXE14_제어창_펼침.png",
+    "source_paths": [
+      "15차/source/work/verifier15-default-ui/PXE14_제어창_펼침.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "9397fe65bcf296ec2039e72fc256a6da23e4503500e4eb0d6b858b5bb2340b67",
+    "bytes": 102204,
+    "public_path": "자료/화면과검증/9397fe65bcf2_PXE_다크_글자.png",
+    "source_paths": [
+      "15차/source/work/verifier15-default-ui/PXE_다크_글자.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "94b200328780eea028e44afce0c5c515485b7a36de249cb8c184467389b03720",
+    "bytes": 90557,
+    "public_path": "자료/화면과검증/94b200328780_PXE_다크_동작.png",
+    "source_paths": [
+      "15차/source/work/verifier15-default-ui/PXE_다크_동작.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "32afe115f64e2ed78902f7fdedbb9826e46de8400a40c629c82cc0c5d041b4c5",
+    "bytes": 100238,
+    "public_path": "자료/화면과검증/32afe115f64e_PXE_다크_설정.png",
+    "source_paths": [
+      "15차/source/work/verifier15-default-ui/PXE_다크_설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "bc2f42c8e8d3822286dae67a441c0bcc49773e154f0c051deafe85ba018772b7",
+    "bytes": 152607,
+    "public_path": "자료/화면과검증/bc2f42c8e8d3_PXE_다크_첫설정.png",
+    "source_paths": [
+      "15차/source/work/verifier15-default-ui/PXE_다크_첫설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "f6f91ce81fc572d46766143a1d8a50cb93d8469adf6183cee5c34179405b27ad",
+    "bytes": 111519,
+    "public_path": "자료/화면과검증/f6f91ce81fc5_PXE_다크_탐지.png",
+    "source_paths": [
+      "15차/source/work/verifier15-default-ui/PXE_다크_탐지.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "43c3cd636022623f0806bde321884b16b15000e3462473ecf357d77a4f44ec5c",
+    "bytes": 101385,
+    "public_path": "자료/화면과검증/43c3cd636022_PXE_라이트_글자.png",
+    "source_paths": [
+      "15차/source/work/verifier15-default-ui/PXE_라이트_글자.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "7e848537e95b738993dbe76ecd9a2d4acf84eb00dae21639ea502f576cb7941e",
+    "bytes": 89622,
+    "public_path": "자료/화면과검증/7e848537e95b_PXE_라이트_동작.png",
+    "source_paths": [
+      "15차/source/work/verifier15-default-ui/PXE_라이트_동작.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "9fb5531e3c918b690d1adc80685a13a5f317014bbb2ccd86ed288972416717da",
+    "bytes": 100562,
+    "public_path": "자료/화면과검증/9fb5531e3c91_PXE_라이트_설정.png",
+    "source_paths": [
+      "15차/source/work/verifier15-default-ui/PXE_라이트_설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "1dc3a13b67cdabfcb5e9c1c2ce0bf1d17a948448e9cae8101beedca1c83a4392",
+    "bytes": 151917,
+    "public_path": "자료/화면과검증/1dc3a13b67cd_PXE_라이트_첫설정.png",
+    "source_paths": [
+      "15차/source/work/verifier15-default-ui/PXE_라이트_첫설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "b673d926eb0cbf90373e8697e211246031027176f19e2d26d2467c7454cb6181",
+    "bytes": 122721,
+    "public_path": "자료/화면과검증/b673d926eb0c_PXE_라이트_탐지.png",
+    "source_paths": [
+      "15차/source/work/verifier15-default-ui/PXE_라이트_탐지.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "69e5d6cdc6848bbd1899617b3b93fbdee34e5cdae02b345fb6d44991fbd685e4",
+    "bytes": 173716,
+    "public_path": "자료/화면과검증/69e5d6cdc684_guide_ready.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-default-ui/guide_ready.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "4cfddfd90f616f9083bef8e10541c381f05421c0b6d004e2656ac48f14638d80",
+    "bytes": 145181,
+    "public_path": "자료/화면과검증/4cfddfd90f61_guide_record.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-default-ui/guide_record.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "ab6b820bdce175ba61674eeeefdadd7d9c0b968961aad41aea31b2f87a80fafc",
+    "bytes": 113356,
+    "public_path": "자료/화면과검증/ab6b820bdce1_PXE14_글자_키보드_탐색.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-default-ui/PXE14_글자_키보드_탐색.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "636ffdfff85412d06f1b6e65b358e18dd1736137ac369f7646973d6498e93828",
+    "bytes": 108471,
+    "public_path": "자료/화면과검증/636ffdfff854_PXE14_긴문구_스크롤.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-default-ui/PXE14_긴문구_스크롤.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "3aa36768fc686b6e7dcb51a2aa466e91a8b8199834f74c33a55cc97f765cc054",
+    "bytes": 96391,
+    "public_path": "자료/화면과검증/3aa36768fc68_PXE14_네이티브_설정_48dp.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-default-ui/PXE14_네이티브_설정_48dp.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "e8d6c2f75375064ed2ffee7e2a917828e15fbbc85566341d71c3ecb3e45a2b4f",
+    "bytes": 101132,
+    "public_path": "자료/화면과검증/e8d6c2f75375_PXE14_모션꺼짐.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-default-ui/PXE14_모션꺼짐.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "3603a0c9981a9a86b96893c50ee2ad17096294aa4a835d8c9cff02e04ebc8759",
+    "bytes": 121767,
+    "public_path": "자료/화면과검증/3603a0c9981a_PXE14_번호점_이동.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-default-ui/PXE14_번호점_이동.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "24ed5b1439127b29b5246ed7915a586a96ffdcef291a7c18b80ba52a8314aaf3",
+    "bytes": 159133,
+    "public_path": "자료/화면과검증/24ed5b143912_PXE14_설정_입력.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-default-ui/PXE14_설정_입력.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "2e7dd630742cd5fa66378702c3a24191de6bb44d192a061852550b852d8ed895",
+    "bytes": 121270,
+    "public_path": "자료/화면과검증/2e7dd630742c_PXE14_제어창_펼침.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-default-ui/PXE14_제어창_펼침.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "09691c09f1cc8bc873451f56319f4a8b8b82b39b484e5b42acaed7d8ee5c2338",
+    "bytes": 102419,
+    "public_path": "자료/화면과검증/09691c09f1cc_PXE_다크_글자.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-default-ui/PXE_다크_글자.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "7daadf9860beee0f169d8048ed8a9ee510a52ad1f93fff81acf16e04561ddd21",
+    "bytes": 90789,
+    "public_path": "자료/화면과검증/7daadf9860be_PXE_다크_동작.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-default-ui/PXE_다크_동작.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "509714006aee1dd37caefcfda20406ddcf9f197ff1c337abca5d3ee72ef0141b",
+    "bytes": 100471,
+    "public_path": "자료/화면과검증/509714006aee_PXE_다크_설정.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-default-ui/PXE_다크_설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "96794f8ceec22a298c49e9e2668f67fe48abc8a1906d4a50c5b5ea9b30ef1f7a",
+    "bytes": 152890,
+    "public_path": "자료/화면과검증/96794f8ceec2_PXE_다크_첫설정.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-default-ui/PXE_다크_첫설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "b097f3cf658ffe6d7fc96d704decf893ab63ae9ce26330b9e883707be5530173",
+    "bytes": 111720,
+    "public_path": "자료/화면과검증/b097f3cf658f_PXE_다크_탐지.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-default-ui/PXE_다크_탐지.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "e160679e659f29578643a5e38bf00009aaeeb1dc397e7bba2668c4a6d3cc6058",
+    "bytes": 101578,
+    "public_path": "자료/화면과검증/e160679e659f_PXE_라이트_글자.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-default-ui/PXE_라이트_글자.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "74f5d615e0d24d90cde980e48a9c9bec19f8e5853f254dbcf01e1bc84616a55b",
+    "bytes": 89813,
+    "public_path": "자료/화면과검증/74f5d615e0d2_PXE_라이트_동작.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-default-ui/PXE_라이트_동작.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "5284730d8af47c0b7a74349ce296d4fe783c32ccb8eef9fff408b3f1a6c02f12",
+    "bytes": 100763,
+    "public_path": "자료/화면과검증/5284730d8af4_PXE_라이트_설정.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-default-ui/PXE_라이트_설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "529f8ea662c9bf0f43397b7792b48ab5d26bb956056fe093b7efcac7be73355f",
+    "bytes": 152112,
+    "public_path": "자료/화면과검증/529f8ea662c9_PXE_라이트_첫설정.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-default-ui/PXE_라이트_첫설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "83724185b8e72dd6380def6cf0b7cec37d0982ed5e688140a0f99f3b2c155127",
+    "bytes": 122917,
+    "public_path": "자료/화면과검증/83724185b8e7_PXE_라이트_탐지.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-default-ui/PXE_라이트_탐지.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "53a04476575b5ea7cbe133552249bbd2f3b1640a3280cd6e9087d2f56f9b6605",
+    "bytes": 57845,
+    "public_path": "자료/화면과검증/53a04476575b_control-restart-after-setup.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-focused-ui/control-restart-after-setup.png",
+      "15차/source/work/verifier15-final3-small-ui/control-restart-after-setup.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "cda207b737ae436f1361b122ff86b57633936d9339804a8f2056f919bf3c03a0",
+    "bytes": 210089,
+    "public_path": "자료/화면과검증/cda207b737ae_control-resume-while-running.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-focused-ui/control-resume-while-running.png",
+      "15차/source/work/verifier15-final3-small-ui/control-resume-while-running.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "edbc22bdf729e2ac756efd19c1a716d1a151c9e1291d1e2b61f01b0f800a4c98",
+    "bytes": 164104,
+    "public_path": "자료/화면과검증/edbc22bdf729_control-setup-hidden.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-focused-ui/control-setup-hidden.png",
+      "15차/source/work/verifier15-final3-small-ui/control-setup-hidden.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "0a3d62aad7f0a36f223e85e6f19aeede925ea11acfc122916071fd3b37ca789d",
+    "bytes": 54831,
+    "public_path": "자료/화면과검증/0a3d62aad7f0_control-start-after-setup.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-focused-ui/control-start-after-setup.png",
+      "15차/source/work/verifier15-final3-small-ui/control-start-after-setup.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "c93623688616e13c7e59d4ecceb6abc20373d9664c8ba84e78971c6b81308466",
+    "bytes": 78193,
+    "public_path": "자료/화면과검증/c93623688616_guide_ready.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-focused-ui/guide_ready.png",
+      "15차/source/work/verifier15-final3-small-ui/guide_ready.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "90e8c8faa4b53a1deb28d2666f33596302ef42bedd74d241f7df60a3a4fa77e3",
+    "bytes": 91639,
+    "public_path": "자료/화면과검증/90e8c8faa4b5_guide_record.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-focused-ui/guide_record.png",
+      "15차/source/work/verifier15-final3-small-ui/guide_record.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "f1ca4b95c40a3048ae02d3b38091b3ed93cd9d8b89293bac2f9673500a72fe43",
+    "bytes": 58722,
+    "public_path": "자료/화면과검증/f1ca4b95c40a_PXE14_글자_키보드_탐색.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-focused-ui/PXE14_글자_키보드_탐색.png",
+      "15차/source/work/verifier15-final3-small-ui/PXE14_글자_키보드_탐색.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "06225e0a35c0a11835a2b18b711cabf1f973e4a23800c8375f64f807cda7199d",
+    "bytes": 54520,
+    "public_path": "자료/화면과검증/06225e0a35c0_PXE14_긴문구_스크롤.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-focused-ui/PXE14_긴문구_스크롤.png",
+      "15차/source/work/verifier15-final3-small-ui/PXE14_긴문구_스크롤.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "8a4dde09648ec1f475b28d0b54db120e6bedbc9963997d4b0f91e41fb448bd50",
+    "bytes": 53114,
+    "public_path": "자료/화면과검증/8a4dde09648e_PXE14_네이티브_설정_48dp.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-focused-ui/PXE14_네이티브_설정_48dp.png",
+      "15차/source/work/verifier15-final3-small-ui/PXE14_네이티브_설정_48dp.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "c175f825c0b6ab3f72c47cd7656c1e17164bee22f7b2a367bb0e510cb882cf2a",
+    "bytes": 56359,
+    "public_path": "자료/화면과검증/c175f825c0b6_PXE14_모션꺼짐.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-focused-ui/PXE14_모션꺼짐.png",
+      "15차/source/work/verifier15-final3-small-ui/PXE14_모션꺼짐.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "c214e467dcc86d1b3ad780c599f2119be20ed6ede298d0c82f66ef42dcc0255a",
+    "bytes": 70743,
+    "public_path": "자료/화면과검증/c214e467dcc8_PXE14_번호점_이동.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-focused-ui/PXE14_번호점_이동.png",
+      "15차/source/work/verifier15-final3-small-ui/PXE14_번호점_이동.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "a6bde78a182c3a22b7a606f5b62920dcc6b58e59a8c7410601493ec28ad81de0",
+    "bytes": 67118,
+    "public_path": "자료/화면과검증/a6bde78a182c_PXE14_설정_입력.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-focused-ui/PXE14_설정_입력.png",
+      "15차/source/work/verifier15-final3-small-ui/PXE14_설정_입력.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "507b5bc7f6bbe8ffa78671326d03383ebf4351215662f2db91fa446036c5437f",
+    "bytes": 70303,
+    "public_path": "자료/화면과검증/507b5bc7f6bb_PXE14_제어창_펼침.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-focused-ui/PXE14_제어창_펼침.png",
+      "15차/source/work/verifier15-final3-small-ui/PXE14_제어창_펼침.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "b1b2e7ab75b423beb2d6c1a50f29bac6c5cc6c473c3ca7d06b341fb18a257417",
+    "bytes": 114589,
+    "public_path": "자료/화면과검증/b1b2e7ab75b4_PXE15_개별_인식설정_저장.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-focused-ui/PXE15_개별_인식설정_저장.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "7f1092701e32974a0eccad6cb3b35682fe27500e5b8833dd99275001df3f5f61",
+    "bytes": 111529,
+    "public_path": "자료/화면과검증/7f1092701e32_PXE15_목록_인식설정_저장.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-focused-ui/PXE15_목록_인식설정_저장.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "9f0bb5cfae8f2815137697d2d52ae68502993ab445c1e2d28d2fb6fbcf8d3df5",
+    "bytes": 172801,
+    "public_path": "자료/화면과검증/9f0bb5cfae8f_PXE15_안내_인식요약.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-focused-ui/PXE15_안내_인식요약.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "74bb49ecb533dfed7019785504d04a6cc57d65b28bc90f90cf3c62091b1250d7",
+    "bytes": 52689,
+    "public_path": "자료/화면과검증/74bb49ecb533_PXE_다크_글자.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-focused-ui/PXE_다크_글자.png",
+      "15차/source/work/verifier15-final3-small-ui/PXE_다크_글자.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "56d0b56327b391c90dc1b41b57b6ac8b68b64cc66ef098fafd5e9c0918846c0a",
+    "bytes": 49733,
+    "public_path": "자료/화면과검증/56d0b56327b3_PXE_다크_동작.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-focused-ui/PXE_다크_동작.png",
+      "15차/source/work/verifier15-final3-small-ui/PXE_다크_동작.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "1cf82bf14b6091fdefdda5c9016c0d2c4aceaa147931f6f22fed6279d0b244dc",
+    "bytes": 56656,
+    "public_path": "자료/화면과검증/1cf82bf14b60_PXE_다크_설정.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-focused-ui/PXE_다크_설정.png",
+      "15차/source/work/verifier15-final3-small-ui/PXE_다크_설정.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "8f094e5ade7b37a50c8e2d0301dba678df0c6c8fa40c2fc4538278c773488b8f",
+    "bytes": 68648,
+    "public_path": "자료/화면과검증/8f094e5ade7b_PXE_다크_첫설정.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-focused-ui/PXE_다크_첫설정.png",
+      "15차/source/work/verifier15-final3-small-ui/PXE_다크_첫설정.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "56c865d57878ac557506056239a555e7d62807e453b9870937d98b6917f80b5d",
+    "bytes": 63873,
+    "public_path": "자료/화면과검증/56c865d57878_PXE_다크_탐지.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-focused-ui/PXE_다크_탐지.png",
+      "15차/source/work/verifier15-final3-small-ui/PXE_다크_탐지.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "86ff30cac920665d8cbcc8499a922100764e97057f17457db91b6ef3c43d5106",
+    "bytes": 68113,
+    "public_path": "자료/화면과검증/86ff30cac920_PXE_라이트_글자.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-focused-ui/PXE_라이트_글자.png",
+      "15차/source/work/verifier15-final3-small-ui/PXE_라이트_글자.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "7e13a4f1e7db58456a94b2ce31f2d612bbeb40d05f6b540510461ab4b0a85922",
+    "bytes": 66553,
+    "public_path": "자료/화면과검증/7e13a4f1e7db_PXE_라이트_동작.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-focused-ui/PXE_라이트_동작.png",
+      "15차/source/work/verifier15-final3-small-ui/PXE_라이트_동작.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "f38fdeae055cd155bb0f57810db79357a02471e13fd6d389d1f233a003681cb0",
+    "bytes": 72615,
+    "public_path": "자료/화면과검증/f38fdeae055c_PXE_라이트_설정.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-focused-ui/PXE_라이트_설정.png",
+      "15차/source/work/verifier15-final3-small-ui/PXE_라이트_설정.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "3a021d659d1165766544e53c14156b22363b9d2557655685456c525819d32134",
+    "bytes": 67771,
+    "public_path": "자료/화면과검증/3a021d659d11_PXE_라이트_첫설정.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-focused-ui/PXE_라이트_첫설정.png",
+      "15차/source/work/verifier15-final3-small-ui/PXE_라이트_첫설정.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "41ac50e6c4bbbb47ace2490c8678a8306afc7df053a6b0db047887c79da25cc9",
+    "bytes": 74068,
+    "public_path": "자료/화면과검증/41ac50e6c4bb_PXE_라이트_탐지.png",
+    "source_paths": [
+      "15차/source/work/verifier15-final3-focused-ui/PXE_라이트_탐지.png",
+      "15차/source/work/verifier15-final3-small-ui/PXE_라이트_탐지.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "13cf91c6fd95632bbca5f21eaceed4292e809ea49ba8c586184b1d2ab401a677",
+    "bytes": 71563,
+    "public_path": "자료/화면과검증/13cf91c6fd95_pxe16-corpus-diagnostic6-2803588.png",
+    "source_paths": [
+      "16차/source/evidence/pxe16-corpus-diagnostic6-2803588.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "f902d4e48f4716760087d86d33250d107a0bd83d0b02cb5c41d5c19b4de31416",
+    "bytes": 21499,
+    "public_path": "자료/화면과검증/f902d4e48f47_pxe16-corpus-failed-input11-4631299.png",
+    "source_paths": [
+      "16차/source/evidence/pxe16-corpus-failed-input11-4631299.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "215c70c3c38a7efd87d35e18c3f2c7a8caadf56797451925c2f22232b0c6ff71",
+    "bytes": 80158,
+    "public_path": "docs/images/16차/다음글자_설정.png",
+    "source_paths": [
+      "16차/source/work/public-repo/docs/images/16차/다음글자_설정.png",
+      "16차/source/work/ui16-final-captures/PXE16_다음글자_진행설정.png",
+      "16차/화면_미리보기/다음글자_설정.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": false
+  },
+  {
+    "sha256": "866abe5884e9dbd3c05fda7574bc0061b6f2d8ace828e94c3ee4fa94192caccb",
+    "bytes": 83196,
+    "public_path": "docs/images/16차/다크.png",
+    "source_paths": [
+      "16차/source/work/public-repo/docs/images/16차/다크.png",
+      "16차/source/work/ui16-final-captures/PXE16_모델_다크_모션꺼짐.png",
+      "16차/화면_미리보기/다크.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": false
+  },
+  {
+    "sha256": "2684b7a5c57771a51047c0f3aca64f227579308449277ce2e86f7f257c4faaa3",
+    "bytes": 83273,
+    "public_path": "docs/images/16차/라이트.png",
+    "source_paths": [
+      "16차/source/work/public-repo/docs/images/16차/라이트.png",
+      "16차/source/work/ui16-final-captures/PXE16_모델_라이트_모션꺼짐.png",
+      "16차/화면_미리보기/라이트.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": false
+  },
+  {
+    "sha256": "887a79ba7510378bb94505734089ced01fc79722c05a52df204169bd9eec2388",
+    "bytes": 156979,
+    "public_path": "자료/화면과검증/887a79ba7510_PXE16_다음글자_진행설정.png",
+    "source_paths": [
+      "16차/source/work/ui16-default-captures/PXE16_다음글자_진행설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "514ea46971db601f5ab4d6488c8340638f134a63be89055c9174d3c8930e2abd",
+    "bytes": 151246,
+    "public_path": "자료/화면과검증/514ea46971db_PXE16_모델_다크_모션꺼짐.png",
+    "source_paths": [
+      "16차/source/work/ui16-default-captures/PXE16_모델_다크_모션꺼짐.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "eddd7bf41e1c6cf82ae80a5fb7fcae3ba33b3748c3c817f3f51142f1a780d88d",
+    "bytes": 152491,
+    "public_path": "자료/화면과검증/eddd7bf41e1c_PXE16_모델_라이트_모션꺼짐.png",
+    "source_paths": [
+      "16차/source/work/ui16-default-captures/PXE16_모델_라이트_모션꺼짐.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "1394f079bb602e6e257221a7ce54cbc79da5f7c8d9db7912f1748188118ca80d",
+    "bytes": 116952,
+    "public_path": "자료/화면과검증/1394f079bb60_PXE16_모델_홈.png",
+    "source_paths": [
+      "16차/source/work/ui16-default-captures/PXE16_모델_홈.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "8724059d78086656b6ab81dcbd6659fdba3ee440bf63ea8413a57a826c4a8003",
+    "bytes": 63701,
+    "public_path": "자료/화면과검증/8724059d7808_PXE16_모델_홈.png",
+    "source_paths": [
+      "16차/source/work/ui16-final-captures/PXE16_모델_홈.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "f19781d5e94218ec1ceaa827f1a8de31530ad93bc3fbe5cc4bffa99eeb975f8c",
+    "bytes": 165725,
+    "public_path": "자료/화면과검증/f19781d5e942_앱화면.png",
+    "source_paths": [
+      "1차/앱화면.png",
+      "work/main.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "3423050589b874f2424eafac934cf8b7ee8b41dbc975edeaf65fb954f6d89b29",
+    "bytes": 168311,
+    "public_path": "자료/화면과검증/3423050589b8_화면_다크.png",
+    "source_paths": [
+      "2차/화면_다크.png",
+      "코드/NEXReference/nex-dark.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "78d728c40840dbfa564cac92010824f7083f6407be4673b13bdba9f1ac5d81ae",
+    "bytes": 174240,
+    "public_path": "자료/화면과검증/78d728c40840_화면_라이트.png",
+    "source_paths": [
+      "2차/화면_라이트.png",
+      "코드/NEXReference/nex-light.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "0514a7c31e3df0fe5843173ae76df58d3f3e9e69fe1daab5214c99ddb2eeb36a",
+    "bytes": 116194,
+    "public_path": "자료/화면과검증/0514a7c31e3d_화면_다크.png",
+    "source_paths": [
+      "3차/화면_다크.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "0c063710dee1d53ae538d28d80ec648fefa5cab6c18d98e98a65f9ab06685668",
+    "bytes": 114539,
+    "public_path": "자료/화면과검증/0c063710dee1_화면_라이트.png",
+    "source_paths": [
+      "3차/화면_라이트.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "bc9d97be4b43537b7d94f3e60991d9e57932c897642a638ffb8b31aa16b62ece",
+    "bytes": 87654,
+    "public_path": "자료/화면과검증/bc9d97be4b43_화면_설정.png",
+    "source_paths": [
+      "3차/화면_설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "65faafa2ea7261ddf21ddb20c76ce700633c6075ec05b022d75518746e59f86c",
+    "bytes": 586563,
+    "public_path": "자료/화면과검증/65faafa2ea72_화면_컨트롤.png",
+    "source_paths": [
+      "3차/화면_컨트롤.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "fa7f7124b7ae8acee675d305a32912bb25c9542d52d8614fe8ae17524e051d0f",
+    "bytes": 92779,
+    "public_path": "자료/화면과검증/fa7f7124b7ae_모드_선택.png",
+    "source_paths": [
+      "3차/검증/모드_선택.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "4f60105d35248747854ec5bd7aef342206d726c8f795b651f4096ec90250bf2c",
+    "bytes": 283092,
+    "public_path": "자료/화면과검증/4f60105d3524_컨트롤_더보기.png",
+    "source_paths": [
+      "3차/검증/컨트롤_더보기.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "8aca57abaf2b0f0e3d9c2707ea555c6a4c3b7efe2d8a3988cc85ad58c035f41e",
+    "bytes": 464400,
+    "public_path": "자료/화면과검증/8aca57abaf2b_화면_영역지정.png",
+    "source_paths": [
+      "4차/화면_영역지정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "2f30ddf62a3eee90799a91d1f2165af29975e94f066bd93820ac624c52e388dd",
+    "bytes": 596061,
+    "public_path": "자료/화면과검증/2f30ddf62a3e_화면_접힘.png",
+    "source_paths": [
+      "4차/화면_접힘.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "5a20ff5d658e593e892771dfb9611e505213a043fa7b1c8396365361f9891a56",
+    "bytes": 123344,
+    "public_path": "자료/화면과검증/5a20ff5d658e_화면_탐지.png",
+    "source_paths": [
+      "4차/화면_탐지.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "c607c0bcee693328ac73a1c7a2492cb1e2ead7070fa4c4372ecb225500650b76",
+    "bytes": 588682,
+    "public_path": "자료/화면과검증/c607c0bcee69_화면_펼침.png",
+    "source_paths": [
+      "4차/화면_펼침.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "5410b98a6e61eda03a2df1654c525d86eb017e8f7f9cfabfc77935324e2fb462",
+    "bytes": 134244,
+    "public_path": "자료/화면과검증/5410b98a6e61_화면_반복탐지.png",
+    "source_paths": [
+      "5차/화면_반복탐지.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "8475d29fa1777be24909897ac05ba038f3117850c0f451acc60fe98ef1d80a64",
+    "bytes": 141375,
+    "public_path": "자료/화면과검증/8475d29fa177_화면_쉬운설정.png",
+    "source_paths": [
+      "5차/화면_쉬운설정.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "7ad8217297ba3e25ba536feb272e5b26e84e6488f6ff2ecf723d1978410837c9",
+    "bytes": 100786,
+    "public_path": "자료/화면과검증/7ad8217297ba_화면_초단위입력.png",
+    "source_paths": [
+      "5차/화면_초단위입력.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "4f1002181827c218fa93ea1cd187fc1710dd470053814bc8c1c80a59b5ae0c74",
+    "bytes": 133878,
+    "public_path": "자료/화면과검증/4f1002181827_화면_녹화안내.png",
+    "source_paths": [
+      "6차/화면_녹화안내.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "b3d3a99889063757fc58987b9fdaa71bf39aee73fe6a139a6462043955816083",
+    "bytes": 152057,
+    "public_path": "자료/화면과검증/b3d3a9988906_화면_실행준비.png",
+    "source_paths": [
+      "6차/화면_실행준비.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "d41bfbcd5477dc5a3007555007b1936ffb3614a7a3f8f4026f06e92e9bdcc096",
+    "bytes": 89185,
+    "public_path": "자료/화면과검증/d41bfbcd5477_화면_첫안내.png",
+    "source_paths": [
+      "6차/화면_첫안내.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "79d493dfbcdf80fbd3bd88fd6bd621b902e8cd6ceb8b40006a35f9b51f318b2c",
+    "bytes": 47216,
+    "public_path": "자료/화면과검증/79d493dfbcdf_화면_하단상태.png",
+    "source_paths": [
+      "6차/화면_하단상태.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "60b3d76fa114cc272b591ca7257857ef294ba8ca6c1a0d346dbb310a468e22bf",
+    "bytes": 594291,
+    "public_path": "자료/화면과검증/60b3d76fa114_영역검사_참고.png",
+    "source_paths": [
+      "6차/검증/영역검사_참고.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "70fc1845d3bf2c2af9bf90b2f91555b28803e428b47f64719a122caa20435315",
+    "bytes": 594092,
+    "public_path": "자료/화면과검증/70fc1845d3bf_단축창_시험화면.png",
+    "source_paths": [
+      "9차/검증/단축창_시험화면.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "b717eb3ac47c64cd880a17edc66cfd5d2ca2b4598a023ab9e6455822887f6c91",
+    "bytes": 665596,
+    "public_path": "자료/화면과검증/b717eb3ac47c_화면_05.png",
+    "source_paths": [
+      "실행점검/1차/화면_05.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "650a20357e46ea0bdf8e0d6aa4790522ff4f38823c92a82b4ad5d64c96e39d5d",
+    "bytes": 665593,
+    "public_path": "자료/화면과검증/650a20357e46_화면_06.png",
+    "source_paths": [
+      "실행점검/1차/화면_06.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "b75d620388d9b32df80c203861ab76b069468bc803e2930118723a0734db0cbe",
+    "bytes": 674012,
+    "public_path": "자료/화면과검증/b75d620388d9_화면_07.png",
+    "source_paths": [
+      "실행점검/1차/화면_07.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "5e594a931487390d2032a47ece63ede8075085cf9727a04b9844831915de2868",
+    "bytes": 547861,
+    "public_path": "자료/화면과검증/5e594a931487_화면_08.png",
+    "source_paths": [
+      "실행점검/1차/화면_08.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "e6a4f3bd9c8c52611ec059dcd0179704f29055072c932417a2e0e068998afc26",
+    "bytes": 673028,
+    "public_path": "자료/화면과검증/e6a4f3bd9c8c_화면_09.png",
+    "source_paths": [
+      "실행점검/1차/화면_09.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "8f3f95994cadb0b8ad7ab665f044ef4db10f5f74cd8cf5ecab48f97fde184ff0",
+    "bytes": 673746,
+    "public_path": "자료/화면과검증/8f3f95994cad_화면_10.png",
+    "source_paths": [
+      "실행점검/1차/화면_10.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "febcd0f94939a95a95c7f014b72d43e6889cf2791a6e0e9db99ef34b337e2915",
+    "bytes": 222306,
+    "public_path": "자료/화면과검증/febcd0f94939_화면_01_01_한컴오피스.png",
+    "source_paths": [
+      "실행점검/2차/화면_01_01_한컴오피스.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "afabae5827b06b6130dd013efb32050439985ac0a916e4ab7cc5cdc5fe3e444f",
+    "bytes": 538673,
+    "public_path": "자료/화면과검증/afabae5827b0_화면_01_02_라이노.png",
+    "source_paths": [
+      "실행점검/2차/화면_01_02_라이노.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "5aceb37b5539b0b95ce3ae34c2da458e0bbbf1ba023ce0eaa8376d5c99841cb8",
+    "bytes": 494231,
+    "public_path": "자료/화면과검증/5aceb37b5539_화면_01_03_어도비.png",
+    "source_paths": [
+      "실행점검/2차/화면_01_03_어도비.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "60e669f6028c3b9e71d6d6bed10b23106d505b411db8098369dff2177d43517a",
+    "bytes": 599106,
+    "public_path": "자료/화면과검증/60e669f6028c_화면_01_04_로직프로.png",
+    "source_paths": [
+      "실행점검/2차/화면_01_04_로직프로.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "d505467784c86e3027a410ae14329a8dedc2e086e5c9ff86ebddef1a74dda814",
+    "bytes": 494476,
+    "public_path": "자료/화면과검증/d505467784c8_화면_01_05_가상악기1.png",
+    "source_paths": [
+      "실행점검/2차/화면_01_05_가상악기1.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "0d263f2f7335b3877611bce6be57a8eae591d7907bcdf0bd3046d548f16c9382",
+    "bytes": 642955,
+    "public_path": "자료/화면과검증/0d263f2f7335_화면_01_06_가상악기2.png",
+    "source_paths": [
+      "실행점검/2차/화면_01_06_가상악기2.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "992a486055afb6c062f7e7d42bb54a5338449966ff6069d60f41064a7c750b65",
+    "bytes": 103009,
+    "public_path": "자료/화면과검증/992a486055af_화면_02_01_한컴오피스.png",
+    "source_paths": [
+      "실행점검/2차/화면_02_01_한컴오피스.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "27bdcc6d7d11a78895b8cf8051f290eaff1c5b742bf4ab4c483c437aaedd7d83",
+    "bytes": 538688,
+    "public_path": "자료/화면과검증/27bdcc6d7d11_화면_02_02_라이노.png",
+    "source_paths": [
+      "실행점검/2차/화면_02_02_라이노.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "8c5dad070ca897ec564118efc88fe1843b0d9f34ef5752ad04c910fe7096b4da",
+    "bytes": 541194,
+    "public_path": "자료/화면과검증/8c5dad070ca8_화면_02_03_어도비.png",
+    "source_paths": [
+      "실행점검/2차/화면_02_03_어도비.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "1fdd84056608484651703097ce5ae899f73aa6071cfe4170be40f157a9482764",
+    "bytes": 575547,
+    "public_path": "자료/화면과검증/1fdd84056608_화면_02_04_로직프로.png",
+    "source_paths": [
+      "실행점검/2차/화면_02_04_로직프로.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "03a40ef32effd79b9e8078368ca26de903f409098563620237269e0f34e1ebb0",
+    "bytes": 641432,
+    "public_path": "자료/화면과검증/03a40ef32eff_화면_02_05_가상악기1.png",
+    "source_paths": [
+      "실행점검/2차/화면_02_05_가상악기1.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "1fd29d20e5697ee457a936afec678367754e0192a189a497712bcc4fbf8c5ddd",
+    "bytes": 548696,
+    "public_path": "자료/화면과검증/1fd29d20e569_화면_02_06_가상악기2.png",
+    "source_paths": [
+      "실행점검/2차/화면_02_06_가상악기2.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "6998542425b9cfb5b5bbcae3c190aae29c726b801ccb6b3222518aa4d8d31a71",
+    "bytes": 465432,
+    "public_path": "자료/화면과검증/6998542425b9_화면_03_01_한컴오피스.png",
+    "source_paths": [
+      "실행점검/2차/화면_03_01_한컴오피스.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "ea9b48b95b4b4cb55ac6c729c32c8848a4df9444b530117e91d95612d1dc0a2b",
+    "bytes": 435736,
+    "public_path": "자료/화면과검증/ea9b48b95b4b_화면_03_02_라이노.png",
+    "source_paths": [
+      "실행점검/2차/화면_03_02_라이노.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "71e168697f2365afb47da268579583b3dbdbcb32a29be9f01cf8f3ee334305ef",
+    "bytes": 541303,
+    "public_path": "자료/화면과검증/71e168697f23_화면_03_03_어도비.png",
+    "source_paths": [
+      "실행점검/2차/화면_03_03_어도비.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "2b2392e512eefca4009d8a1d44ed6ae6a80b978c86948c6f6b00c8812f1cd73d",
+    "bytes": 575737,
+    "public_path": "자료/화면과검증/2b2392e512ee_화면_03_04_로직프로.png",
+    "source_paths": [
+      "실행점검/2차/화면_03_04_로직프로.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "d38dafa696b3fb7fed3f4a261073f5409406fb47ac9da7f1fa9f5b04cb817117",
+    "bytes": 591234,
+    "public_path": "자료/화면과검증/d38dafa696b3_화면_03_05_가상악기1.png",
+    "source_paths": [
+      "실행점검/2차/화면_03_05_가상악기1.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "48bacea95dff4652634091c99e1975894435e364765b59e556147389b9c9cb3a",
+    "bytes": 687287,
+    "public_path": "자료/화면과검증/48bacea95dff_화면_03_06_가상악기2.png",
+    "source_paths": [
+      "실행점검/2차/화면_03_06_가상악기2.png"
+    ],
+    "width": 720,
+    "height": 1280,
+    "new_file": true
+  },
+  {
+    "sha256": "215d64fb576b24e616ef82c4080fc441cef87ece94a856be0ea6c3b441c9ba8f",
+    "bytes": 131025,
+    "public_path": "자료/화면과검증/215d64fb576b_nex-settings.png",
+    "source_paths": [
+      "코드/NEXReference/nex-settings.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  },
+  {
+    "sha256": "0b419595f1ad6310c4ebf7aef9687d7cca2e68e03e092690047f7512b038c631",
+    "bytes": 102133,
+    "public_path": "자료/화면과검증/0b419595f1ad_nex-theme-dialog.png",
+    "source_paths": [
+      "코드/NEXReference/nex-theme-dialog.png"
+    ],
+    "width": 1080,
+    "height": 2280,
+    "new_file": true
+  }
+]

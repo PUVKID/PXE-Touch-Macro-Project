@@ -1,0 +1,28 @@
+[
+  {
+    "path": "녹스_5개_설치전진단.json",
+    "bytes": 1070,
+    "sha256": "6f4da72a71b42b0156ce5df0a4b592672291bae776b9b1766a8d9f753c92eae1",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 36,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "녹스_5개_진행상태.txt",
+    "bytes": 1842,
+    "sha256": "a31c8f1fc63e4f2361155d0346eb7d875596146cdfbc428019be74a1cf4abd3f",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 1,
+      "lf_without_cr_count": 26,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  }
+]

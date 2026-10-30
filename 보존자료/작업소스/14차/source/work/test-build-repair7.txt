@@ -1,0 +1,75 @@
+
+> Configure project :app
+WARNING: The option setting 'android.overridePathCheck=true' is experimental.
+The current default is 'false'.
+
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preReleaseBuild UP-TO-DATE
+> Task :app:javaPreCompileRelease
+> Task :app:generateReleaseResValues
+> Task :app:checkReleaseAarMetadata
+> Task :app:mapReleaseSourceSetPaths
+> Task :app:generateReleaseResources
+> Task :app:packageReleaseResources
+> Task :app:createReleaseCompatibleScreenManifests
+> Task :app:extractDeepLinksRelease
+> Task :app:parseReleaseLocalResources
+> Task :app:processReleaseMainManifest
+> Task :app:processReleaseManifest
+> Task :app:preReleaseAndroidTestBuild SKIPPED
+> Task :app:javaPreCompileReleaseAndroidTest
+> Task :app:checkReleaseAndroidTestAarMetadata
+> Task :app:generateReleaseAndroidTestResValues
+> Task :app:mapReleaseAndroidTestSourceSetPaths
+> Task :app:generateReleaseAndroidTestResources
+> Task :app:mergeReleaseAndroidTestResources
+> Task :app:processReleaseAndroidTestManifest
+> Task :app:mergeReleaseAndroidTestShaders
+> Task :app:compileReleaseAndroidTestShaders NO-SOURCE
+> Task :app:generateReleaseAndroidTestAssets UP-TO-DATE
+> Task :app:mergeReleaseAndroidTestAssets
+> Task :app:compressReleaseAndroidTestAssets
+> Task :app:desugarReleaseAndroidTestFileDependencies
+> Task :app:processReleaseAndroidTestJavaRes NO-SOURCE
+> Task :app:checkReleaseAndroidTestDuplicateClasses
+> Task :app:mergeReleaseResources
+> Task :app:mergeReleaseAndroidTestJavaResource
+> Task :app:mergeReleaseAndroidTestJniLibFolders
+> Task :app:mergeReleaseJniLibFolders
+> Task :app:processReleaseManifestForPackage
+> Task :app:validateSigningReleaseAndroidTest
+> Task :app:writeReleaseAndroidTestSigningConfigVersions
+> Task :app:mergeExtDexReleaseAndroidTest
+> Task :app:processReleaseAndroidTestResources
+> Task :app:mergeReleaseNativeLibs
+> Task :app:mergeReleaseAndroidTestNativeLibs NO-SOURCE
+> Task :app:stripReleaseAndroidTestDebugSymbols NO-SOURCE
+> Task :app:processReleaseResources
+
+> Task :app:compileReleaseJavaWithJavac
+
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+> Task :app:bundleReleaseClassesToCompileJar
+
+> Task :app:compileReleaseAndroidTestJavaWithJavac
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :app:dexBuilderReleaseAndroidTest
+> Task :app:mergeReleaseAndroidTestGlobalSynthetics
+> Task :app:mergeDexReleaseAndroidTest
+> Task :app:packageReleaseAndroidTest
+> Task :app:createReleaseAndroidTestApkListingFileRedirect
+> Task :app:assembleReleaseAndroidTest
+
+[Incubating] Problems report is available at: file:///D:/2026/PXE%20Project/14%EC%B0%A8/source/work/build/PXE/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 8s
+42 actionable tasks: 42 executed

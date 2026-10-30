@@ -1,0 +1,15 @@
+현재설정과 OCR검증 범위 — 2026-10-21
+실제신고흐름을발견한뒤권고범위를조정한기록입니다. 부모진행기록에변경이유를남겼습니다. 앱·매크로·블루스택설정변경0.
+현재6개블루스택저장설정: 각CPU2코어/RAM2048MB/최대20FPS/1280x720/240DPI/ASTC꺼짐/VSync꺼짐. eco_mode_max_fps5는Eco활성여부근거가아닙니다.
+PC i9-13900K/논리32/물리메모리약63.7GiB. CPU는표본마다달라순간상승을지속포화로판정하지않습니다. 자원_1~5.json별도.
+OCR단독처리시간은HUD의직전한바퀴시간과다릅니다. 11차코드의직전한바퀴는발견글자터치→들어간화면→매크로전체반복→뒤로가기후대기까지포함하고이전탐색/완료후쉬기는포함하지않습니다. 설치버전확인전에는구현분석과현재실행을동일하다고단정하지않습니다.
+11차코드에서순위영역은한번인식한텍스트를공유하고전체bitmap OCR뒤영역필터링합니다. 네모를좁히는것만으로OCR연산이미지가줄거나순위수만큼속도차이가난다고말할수없습니다.
+실제OCR검증에필요한조건: 신고를제출하지않는별도테스트화면,동일한글자/해상도/모드/영역,각5회인식정확도와처리시간개별측정. 실제플랫폼의신고동작과분리해야인식성능을평가할수있습니다.
+현재관찰로설정변경후개선/무제재를확인하거나보장하지않습니다. 신고제출반복/터치/재시도속도최적화수치는제공하지않습니다.
+공식자료:
+https://support.bluestacks.com/hc/en-us/articles/360052834772-How-to-run-multiple-instances-of-BlueStacks-5-more-efficiently-using-Eco-mode
+Eco는인스턴스별로활성/비활성및FPS조절가능. 현재실제활성상태는미확인.
+https://support.bluestacks.com/hc/en-us/articles/360057205611-How-to-allocate-more-CPU-cores-and-memory-RAM-to-BlueStacks-5
+성능탭CPU/RAM은앱종류별조정항목입니다. 특정값이현재PXE의최적값이라는공식자료는아닙니다.
+https://developer.android.com/reference/android/accessibilityservice/AccessibilityService#ERROR_TAKE_SCREENSHOT_INTERVAL_TIME_SHORT
+캡처시간간격이너무짧으면오류가발생할수있습니다. 보호간격/대상확인가드를끄는권고는하지않습니다.

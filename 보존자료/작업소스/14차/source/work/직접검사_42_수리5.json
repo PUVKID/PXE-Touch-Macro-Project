@@ -1,0 +1,198 @@
+{
+  "role_requested": "build",
+  "model_requested": "gpt-6.1-sol",
+  "effort_requested": "medium",
+  "server_identity_verified": false,
+  "repair_used_at_run": 5,
+  "input_fix_used_at_run": 11,
+  "start_kst": "2026-10-26T01:55:06+09:00",
+  "end_kst": "2026-10-26T02:02:43+09:00",
+  "wall_seconds": 457.0,
+  "shared_budget_seconds": 720,
+  "tests": 42,
+  "results": [
+    {
+      "log": "D:\\2026\\PXE Project\\14차\\source\\work\\upgrade14-repair5.log",
+      "argv": [
+        "C:/Users/PUVKID/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_upgrade.py"
+      ],
+      "cwd": "D:\\2026\\PXE Project\\14차\\source",
+      "exit_code_observed": 0,
+      "tests": 2,
+      "instrumentation_seconds": 0.068,
+      "outer_log_bytes": 34135,
+      "outer_log_sha256": "07f345b7c0e2374c03ec367a93e48efc4ab0c53d9a6fa27526ee758e644e6e58",
+      "timeout_seconds": 180,
+      "instrumentation_output_capture": [
+        [
+          "7",
+          "7",
+          "False"
+        ],
+        [
+          "10578",
+          "10578",
+          "False"
+        ],
+        [
+          "9",
+          "9",
+          "False"
+        ],
+        [
+          "38",
+          "38",
+          "False"
+        ],
+        [
+          "9884",
+          "9884",
+          "False"
+        ],
+        [
+          "38",
+          "38",
+          "False"
+        ],
+        [
+          "735",
+          "735",
+          "False"
+        ],
+        [
+          "38",
+          "38",
+          "False"
+        ],
+        [
+          "9887",
+          "9887",
+          "False"
+        ],
+        [
+          "737",
+          "737",
+          "False"
+        ]
+      ]
+    },
+    {
+      "log": "D:\\2026\\PXE Project\\14차\\source\\work\\ui14-repair5.log",
+      "argv": [
+        "C:/Users/PUVKID/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_device.py",
+        "PxeDesignReviewTest",
+        "PxeGuideFlowTest",
+        "PxeRedesignTest"
+      ],
+      "cwd": "D:\\2026\\PXE Project\\14차\\source",
+      "exit_code_observed": 0,
+      "tests": 6,
+      "instrumentation_seconds": 27.959,
+      "outer_log_bytes": 15008,
+      "outer_log_sha256": "ba090db7b3d8a3e85e3ed0f65427c0250666119e584f7cef1f453b796b21cf10",
+      "timeout_seconds": 120,
+      "instrumentation_output_capture": [
+        [
+          "7",
+          "7",
+          "False"
+        ],
+        [
+          "9887",
+          "9887",
+          "False"
+        ],
+        [
+          "4360",
+          "4360",
+          "False"
+        ]
+      ]
+    },
+    {
+      "log": "D:\\2026\\PXE Project\\14차\\source\\work\\core14-repair5.log",
+      "argv": [
+        "C:/Users/PUVKID/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_device.py",
+        "OcrStallRecoveryTest",
+        "ContinuousOcrTest",
+        "ControlVisibilityTest",
+        "ServiceLifecycleTest"
+      ],
+      "cwd": "D:\\2026\\PXE Project\\14차\\source",
+      "exit_code_observed": 0,
+      "tests": 20,
+      "instrumentation_seconds": 217.886,
+      "outer_log_bytes": 25773,
+      "outer_log_sha256": "73a7e76d8e326239c7161cfdd536e5088163be9315bde226ff5da0d68e3f0fea",
+      "timeout_seconds": 260,
+      "instrumentation_output_capture": [
+        [
+          "7",
+          "7",
+          "False"
+        ],
+        [
+          "10579",
+          "10579",
+          "False"
+        ],
+        [
+          "14023",
+          "14023",
+          "False"
+        ]
+      ]
+    },
+    {
+      "log": "D:\\2026\\PXE Project\\14차\\source\\work\\screen14-repair5.log",
+      "argv": [
+        "C:/Users/PUVKID/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_device.py",
+        "ScreenDelayRecoveryTest",
+        "ReaderResponsivenessTest",
+        "CaptureRecoveryTest",
+        "RegionPackageSafetyTest"
+      ],
+      "cwd": "D:\\2026\\PXE Project\\14차\\source",
+      "exit_code_observed": 0,
+      "tests": 14,
+      "instrumentation_seconds": 124.872,
+      "outer_log_bytes": 21404,
+      "outer_log_sha256": "496fa61e7f46d18bea21baef3843b0e71c0d18ac67a9a60fc9ecaccb16bc44f8",
+      "timeout_seconds": 180,
+      "instrumentation_output_capture": [
+        [
+          "7",
+          "7",
+          "False"
+        ],
+        [
+          "10579",
+          "10579",
+          "False"
+        ],
+        [
+          "9828",
+          "9828",
+          "False"
+        ]
+      ]
+    }
+  ],
+  "limitation": "수리5 시점 직접 검사이며 독립 영수증이 아닙니다. 최종 수리5 구현자의 직접 검사이며 별도 verifier 판정은 부모가 조율합니다."
+}

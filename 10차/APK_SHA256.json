@@ -1,0 +1,19 @@
+[
+  {
+    "File": "PXE_10차_v1.0_노트10플러스.apk",
+    "Bytes": 23655815,
+    "SHA256": "0460F2687FCA299FFF6EEF2E9E32A3ACFAAA4293545DC505F0B0A86C29A99782",
+    "ABIs": [
+      "arm64-v8a"
+    ]
+  },
+  {
+    "File": "PXE_10차_v1.0_PC용.apk",
+    "Bytes": 35293071,
+    "SHA256": "6329FEE159876F9ACBD65E83B24F3EC6298ABCDAED0B0A7E308523943A0210E0",
+    "ABIs": [
+      "arm64-v8a",
+      "x86_64"
+    ]
+  }
+]

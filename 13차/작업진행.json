@@ -1,0 +1,51 @@
+{
+  "updated_kst": "2026-10-25T20:18:17.5791173+09:00",
+  "project": "D:\\2026\\PXE Project",
+  "source": "D:\\2026\\PXE Project\\13차\\source",
+  "session": "01a131ad-d167-7873-9aa6-4d81ff131c60",
+  "task": "pxe13-ocr-stall-20261025",
+  "mode": "reassess",
+  "repair": 7,
+  "input_fix": 6,
+  "verification_failures": 2,
+  "current_status": "완료: 독립36기기/단위80/린트/중앙3PASS. 최종receiptpassed/sourceunchanged 확인. 시험PXE13만종료",
+  "latest_source_digest": "41899a602f7c2c33a09d75636c797d9d70a7da813e93fb591faf227af07c68e3",
+  "global_digest": "08ee321a29c67f920341a05dbfca6e3616477d930d0ecb261d1118a581569a43",
+  "agents": [
+    {
+      "id": "/root/pxe13_diagnose",
+      "role": "deep",
+      "model": "gpt-6.1-sol",
+      "effort": "xhigh",
+      "state": "수리7까지완료/소스동결"
+    },
+    {
+      "id": "/root/pxe13_design",
+      "role": "build",
+      "model": "gpt-6.1-sol",
+      "effort": "medium",
+      "state": "UI/통합빌드반환완료"
+    },
+    {
+      "id": "/root/pxe13_verifier",
+      "role": "verifier",
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "state": "독립36+중앙3검증PASS/구현수정0/AVD반환"
+    }
+  ],
+  "latest_failure": "과거실패원문과2개실패영수증보존. 이후수리7최종검증PASS",
+  "receipt": ".codex/routing-state/df1ea7273e46d16ba9664afc.verification.json",
+  "gate": "중앙MAX개별75/전체125변경금지. 현재3gate pure30/UTF15/artifact30 total75. 필수전체명세tools/required-check-plan.json의Android3batch36개는같은argv/260·180·120초/내부240/총720초로독립직접실행,review에전후source/global/APK/masterhash+rawSHA결합. 자동6개라고주장금지",
+  "owned_device": "소유PXE13 이름확인후adb -P5043 -semulator-5598 emukill OK. 사용자BlueStacks미조작",
+  "python": "C:\\Users\\PUVKID\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe -B -X utf8",
+  "build": "빌드.ps1, ASCII D:\\PXE13Build junction→프로젝트work/build13. 서명키외부코드/NEXSigning 출력금지",
+  "old_preservation": "12차원본80개SHA보존통과. 모든이전차수변경0",
+  "current_apk_pc_sha": "586a812e5bd31f5f36b762b16dd2842d7ccbc78c7769e66fe77c97d291b98a13",
+  "current_apk_phone_sha": "b1ef968ffa2dcf5072ebacfcd19e5082280ffc3a6376c14a53456d6323d8fd7e",
+  "core_fixes": "OCR 작업 한 개만 유지하며 12초 지연 후 복구, 실제 인식 완료 후 이미지 해제. 캡처 요청 ID별 최대 두 개, 첫 8초 미응답 시 예비 요청. 일시정지 전 결과 폐기 신호는 최상위에서 한 번만 재시도. 중단·재시작 사이 실제 미완료 개수 유지",
+  "ui_changes": "Ui/MainActivity시각만48dp보조grid/설정그룹/ripple/여백. FloatingController기존12와동일",
+  "prior_tests": "최종독립기기36PASS/Gradle단위80/순수회귀80/lint0오류0경고/UTF234/12차80원본보존PASS",
+  "global_agents_sha": "1BAF8B5668CF8F3158C7EE5AC561634BDA9680C3C67A57774F1A3FCDBF9A17D2",
+  "user_preferences": "취침하므로불필요질문말고오류확인→수정→독립검증계속. 관련설치플러그인우선. ProductDesigninstalledtrue실사용audit+디자인반영. PowerBI/Linear이작업에불필요/미실행. D저장공통지침확인했으나모든열린채팅강제재주입/동기화보장금지. 중간FAIL최종종료금지"
+}

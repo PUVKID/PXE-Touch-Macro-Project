@@ -1,0 +1,1305 @@
+--- 14차/README.md
++++ 15차/README.md
+@@ -0,0 +1,37 @@
++# PXE 15차 · 1.5.0
++
++Android 접근성 서비스와 ML Kit 한국어 OCR로 글자 조건·터치·제스처 매크로를 실행합니다. 앱 ID와 저장 형식은 유지하며 기존 설치 앱과 같은 개인 서명으로 만든 APK만 덮어 업데이트할 수 있습니다.
++
++## 변경 범위
++
++- 목록 탐지와 개별 글자 동작의 인식 방식을 기본 설정에서 고르고 적용 범위를 확인합니다. 글자 탭의 선택은 그 탭의 단독 실행 및 글자 탭에서 추가하는 동작에만 적용됩니다.
++- 실제 오류 단계와 요청/실제 인식 방식을 구분합니다. 화면 정보는 OCR을 호출하지 않으며, 이미지 글자를 제공하지 않는 앱에서 접근성 텍스트를 만들어 내지는 않습니다.
++- 캡처 간격은 API30에서 1.1초, API31 이상에서 0.5초를 기준으로 합니다. 간격 거절 시 최대12초까지 후퇴하고 실제 성공 뒤 점진적으로 기준에 복귀합니다. 이는 기기별 성능 보장이나 숨은 OS API 호출이 아닙니다.
++- 목록 확인의 추가2초 대기를 줄이고, 세부 설정의 인식 즉시 들어가기가 켜진 경우에만 터치 전 재확인을 생략합니다. 기본은 재확인을 유지합니다.
++- 기본 설정과 동작 사이 대기·세부 설정을 나누어 접습니다. 기존 값·1~6순위·동일 글자 순번·중복 방지·계속 기다리기·중단 기능은 유지합니다.
++- OCR은 전체 이미지와 기존 중심점 영역 필터를 유지합니다. 경계 글자 손실 위험이 있어 이번 차수에는 영역 자르기를 도입하지 않았습니다.
++
++## 개발 환경
++
++Java17, Gradle8.13, Android Gradle Plugin8.9.1, compile/target SDK35, min SDK30, ML Kit 한국어16.0.1입니다. 나눔고딕 Bold 파일과 기존 OFL 고지를 포함합니다. 프로젝트 전체의 새 라이선스는 부여하지 않습니다.
++
++일반 개발 환경에서는 Android SDK를 local.properties 또는 ANDROID_HOME으로 지정한 후 Gradle wrapper를 사용할 수 있습니다.
++
++```powershell
++.\gradlew.bat :app:assembleRelease :app:testDebugUnitTest :app:lintDebug
++.\gradlew.bat :app:assembleRelease :app:assembleReleaseAndroidTest -PNEX_PC
++```
++
++개인 키와 key.properties는 공개하지 않습니다. NEX_SIGNING_DIR가 유효한 개인 서명 폴더를 가리키지 않으면 개발 구성은 debug 서명을 선택하므로 기존 설치본 업데이트용으로 사용하지 않습니다. 납품 빌드.ps1은 프로젝트 소유의 D:/2026/PXE15Build 전용 연결과 기존 개인 키 존재를 확인합니다. PC는 ARM64/x86_64, 휴대전화는 ARM64를 포함합니다.
++
++## 검사 범위
++
++필수 검사 명세는 tools/required-check-plan.json, 추가 인식/UI 검사는 tools/recognition-check-plan.json입니다. 기기 검사 도구는 소유 PXE15 AVD, 별도 ADB5043, emulator5598, 설치 버전15를 확인한 후 실행합니다. 사용자 블루스택을 자동 선택하지 않습니다. 서명/원본 보존 검사는 별도로 보관한 이전 차수 APK와 로컬 보존 기준이 필요합니다.
++
++실제 사용자 블루스택의 처리 속도, 5개 동시 실행, 24시간 무중단은 이 시험 구성의 검증 범위가 아닙니다. OS가 캡처를 제한하는 화면은 우회하지 않고 해당 단계에서 원인을 표시합니다.
++
++## 공식 근거
++
++- [Android31 AccessibilityService 원본](https://android.googlesource.com/platform/prebuilts/fullsdk/sources/android-31/+/refs/heads/androidx-savedstate-release/android/accessibilityservice/AccessibilityService.java)
++- [Android30 AccessibilityService 원본](https://android.googlesource.com/platform/prebuilts/fullsdk/sources/android-30/+/refs/heads/main/android/accessibilityservice/AccessibilityService.java)
++- [ML Kit 입력 이미지와 성능 안내](https://developers.google.com/ml-kit/vision/text-recognition/v2/android)
+--- 14차/app/build.gradle
++++ 15차/app/build.gradle
+@@ -5,7 +5,7 @@
+ if (signingFile.exists()) { signingFile.withInputStream { signingProps.load(it) } }
+ android { signingConfigs { personal { storeFile rootProject.file(signingDir + '/macro.jks'); storePassword signingProps.getProperty('storePassword', ''); keyAlias 'yunseokmacro'; keyPassword signingProps.getProperty('storePassword', '') } }
+  namespace 'kr.yunseok.touchmacro'; compileSdk 35
+- defaultConfig { applicationId 'kr.yunseok.touchmacro'; minSdk 30; targetSdk 35; versionCode 14; versionName '1.4.0'; testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner' }
++ defaultConfig { applicationId 'kr.yunseok.touchmacro'; minSdk 30; targetSdk 35; versionCode 15; versionName '1.5.0'; testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner' }
+  // 휴대전화용은 ARM64, PC용은 ARM64와 x86_64를 함께 포함합니다.
+  lint { disable 'ChromeOsAbiSupport' }
+  testBuildType 'release'
+--- 14차/app/src/androidTest/java/kr/yunseok/touchmacro/CaptureRecoveryTest.java
++++ 15차/app/src/androidTest/java/kr/yunseok/touchmacro/CaptureRecoveryTest.java
+@@ -29,12 +29,26 @@
+         h.main(()->{Store.put(h.a,m);h.svc.startWatch(p);});
+     }
+     @Test public void twoIntervalFailuresRecoverAndFreshOcrConfirmationPrecedesOneEntry()throws Exception{
+-        inject(2);start();h.waitFor(()->attempts.get()>=2,12000,"Second capture attempt missing");assertEquals(0,entries);
++        final List<Long> responses=Collections.synchronizedList(new ArrayList<>());
++        source.set(h.svc,(MacroService.ScreenshotSource)(executor,callback)->{
++            requests.add(SystemClock.elapsedRealtime());
++            if(attempts.incrementAndGet()<=2){responses.add(SystemClock.elapsedRealtime());callback.onFailure(3);}
++            else ((MacroService.ScreenshotSource)original).take(executor,new android.accessibilityservice.AccessibilityService.TakeScreenshotCallback(){
++                @Override public void onSuccess(android.accessibilityservice.AccessibilityService.ScreenshotResult result){responses.add(SystemClock.elapsedRealtime());callback.onSuccess(result);}
++                @Override public void onFailure(int error){responses.add(SystemClock.elapsedRealtime());callback.onFailure(error);}
++            });
++        });
++        start();h.waitFor(()->attempts.get()>=2,12000,"Second capture attempt missing");assertEquals(0,entries);
+         h.waitFor(()->h.svc.progressText().contains("캡처 간격"),3000,"Retry countdown not shown");
+         long before=SystemClock.elapsedRealtime();h.main(()->{});assertTrue("Retry blocked UI",SystemClock.elapsedRealtime()-before<1000);
+         h.waitFor(()->h.svc.watchCompleted==1,45000,"OCR did not recover after interval failures");
+         assertEquals(1,entries);assertEquals("Expected 2 failures + OCR + fresh pre-tap confirmation",4,attempts.get());
+-        assertTrue(requests.get(1)-requests.get(0)>=4000);assertTrue(requests.get(2)-requests.get(1)>=8000);assertTrue(requests.get(3)-requests.get(2)>=8000);
++        assertEquals("실제 캡처 응답이 모두 전달되어야 합니다",4,responses.size());
++        // 제품의 내부 값을 읽지 않고 15차 명세의 기본 간격과 2배 후퇴·절반 회복을 검증합니다.
++        long base=android.os.Build.VERSION.SDK_INT<=30?1100:500;
++        long firstGap=requests.get(1)-responses.get(0),secondGap=requests.get(2)-responses.get(1),successGap=requests.get(3)-responses.get(2);
++        String timing="실제 응답→다음 요청 간격(ms): 첫 거절 뒤="+firstGap+", 두 번째 거절 뒤="+secondGap+", 성공 후 재확인="+successGap;
++        assertTrue("첫 거절 뒤 "+(base*2)+"ms 하한 · "+timing,firstGap>=base*2);assertTrue("두 번째 거절 뒤 "+(base*4)+"ms 하한 · "+timing,secondGap>=base*4);assertTrue("성공 후 "+(base*2)+"ms 하한 · "+timing,successGap>=base*2);
+         SystemClock.sleep(1000);assertEquals("Executed again during cooldown",1,entries);
+     }
+     @Test public void stopDuringRetryDoesNotCaptureOrEnterLater()throws Exception{
+--- 14차/app/src/androidTest/java/kr/yunseok/touchmacro/PxeRecognitionSettingsTest.java
++++ 15차/app/src/androidTest/java/kr/yunseok/touchmacro/PxeRecognitionSettingsTest.java
+@@ -0,0 +1,94 @@
++package kr.yunseok.touchmacro;
++
++import android.view.accessibility.AccessibilityNodeInfo;
++import androidx.test.ext.junit.runners.AndroidJUnit4;
++import org.junit.*;
++import org.junit.runner.RunWith;
++import static org.junit.Assert.*;
++
++/** 실제 설정 창의 기본 인식 선택과 저장 범위, 기존 고급 값 보존을 검사합니다. */
++@RunWith(AndroidJUnit4.class) public class PxeRecognitionSettingsTest {
++    final GuidedFlowTest h=new GuidedFlowTest();
++    String libraryBefore,currentBefore,wordSourceBefore;
++
++    @Before public void boot()throws Exception{
++        h.boot();h.main(()->{
++            h.svc.controller().close();SetupFlow.finished(h.a);
++            Macro m=new Macro();m.name="인식 설정 검사";
++            Step s=new Step("TEXT_TAP");s.text="설정 검사 대상";s.source="OCR";s.match="EXACT";
++            s.timeout=4250;s.after=750;s.offsetX=2.5;s.offsetY=-1.5;s.repeat=2;s.retries=4;s.retryDelay=1250;
++            s.left=5;s.top=10;s.right=95;s.bottom=90;m.steps.add(s);Store.save(h.a,m);Store.put(h.a,m);
++            Ui.prefs(h.a).edit().putString("word_source","AUTO").commit();
++            WatchConfig p=new WatchConfig();p.rule.text="목록 검사 대상";p.rule.source="AUTO";p.macroName=m.name;
++            p.entryMs=1250;p.repeatGapMs=250;p.beforeBackMs=500;p.returnMs=750;p.settleMs=1000;
++            p.startMs=1750;p.cooldownMs=600000;p.priorityAreas.add(new WatchArea(5,20,95,40));WatchStore.save(h.a,p);
++            h.a.refreshSetup();
++        });h.in.waitForIdleSync();
++        libraryBefore=Store.library(h.a).get("인식 설정 검사").json().toString();
++        currentBefore=Store.load(h.a).json().toString();wordSourceBefore=Ui.prefs(h.a).getString("word_source","");
++    }
++    @After public void end()throws Exception{h.shell("input keyevent 4");h.end();}
++
++    void open(String method){h.main(()->{try{java.lang.reflect.Method m=MainActivity.class.getDeclaredMethod(method);m.setAccessible(true);m.invoke(h.a);}catch(Exception e){throw new RuntimeException(e);}});h.in.waitForIdleSync();}
++    void openStep(){h.main(()->{try{java.lang.reflect.Field field=MainActivity.class.getDeclaredField("macro");field.setAccessible(true);Macro m=(Macro)field.get(h.a);java.lang.reflect.Method edit=MainActivity.class.getDeclaredMethod("edit",Step.class);edit.setAccessible(true);edit.invoke(h.a,m.steps.get(0));}catch(Exception e){throw new RuntimeException(e);}});h.in.waitForIdleSync();}
++    AccessibilityNodeInfo spinner(String label){
++        AccessibilityNodeInfo title=h.find(label);assertNotNull("기본 설정에서 인식 방식에 도달할 수 있어야 합니다: "+label,title);
++        AccessibilityNodeInfo parent=title.getParent();title.recycle();boolean after=false;
++        try{for(int i=0;i<parent.getChildCount();i++){AccessibilityNodeInfo child=parent.getChild(i);if(child==null)continue;
++            if(after&&"android.widget.Spinner".contentEquals(child.getClassName()))return child;
++            if(label.contentEquals(child.getText()==null?"":child.getText()))after=true;child.recycle();}}
++        finally{parent.recycle();}throw new AssertionError("인식 선택 상자가 없습니다: "+label);
++    }
++    void choose(String label,String choice){AccessibilityNodeInfo node=spinner(label);try{assertTrue(node.performAction(AccessibilityNodeInfo.ACTION_CLICK));}finally{node.recycle();}h.click(choice);}
++    void visible(String label){AccessibilityNodeInfo node=h.find(label);try{assertNotNull("기본 설정에서 보여야 합니다: "+label,node);assertTrue("접지 않고 보여야 합니다: "+label,node.isVisibleToUser());}finally{if(node!=null)node.recycle();}}
++    void untouched(){assertEquals(currentBefore,Store.load(h.a).json().toString());assertEquals(libraryBefore,Store.library(h.a).get("인식 설정 검사").json().toString());assertEquals(wordSourceBefore,Ui.prefs(h.a).getString("word_source",""));}
++
++    // 인식 방식을 접어 숨기거나 목록 저장이 다른 모드를 덮어쓰면 실패합니다.
++    @Test public void listModeIsBasicAndSaveCancelPreserveOtherModes()throws Exception{
++        String before=WatchStore.load(h.a).json().toString();open("watchSettings");visible("목록 인식 방식");
++        visible("목록 탐지에만 적용합니다. 실행 매크로의 개별 인식 방식은 유지됩니다.");
++        h.screenshot("PXE15_목록_기본설정.png");
++        choose("목록 인식 방식","화면 정보");h.click("취소");assertEquals(before,WatchStore.load(h.a).json().toString());untouched();
++        open("watchSettings");choose("목록 인식 방식","화면 정보");h.click("저장");
++        WatchConfig saved=WatchStore.load(h.a);assertEquals("ACCESS",saved.rule.source);
++        saved.rule.source="AUTO";assertEquals(before,saved.json().toString());untouched();h.screenshot("PXE15_목록_인식설정_저장.png");
++    }
++
++    // 개별 방식과 유한 대기를 숨기거나 저장 시 보정/반복/재시도 값을 초기화하면 실패합니다.
++    @Test public void stepModeAndFiniteWaitAreBasicAndAdvancedValuesSurvive()throws Exception{
++        String before=Store.load(h.a).steps.get(0).json().toString();openStep();visible("검색 방식");
++        visible("이 동작에만 적용합니다. 목록 탐지와 다른 동작의 인식 방식은 유지됩니다.");
++        h.screenshot("PXE15_글자동작_기본설정.png");
++        AccessibilityNodeInfo limit=h.find("최대 기다릴 시간 · 초, 0은 한 번 확인");assertNotNull("유한 대기를 기본에서 편집해야 합니다",limit);limit.recycle();
++        choose("검색 방식","화면 정보");h.setAfter("최대 기다릴 시간 · 초, 0은 한 번 확인","5.5");
++        h.click("세부 설정 보기");h.setAfter("터치 X 보정 % · -50~50","3.5");h.click("적용");
++        Step saved=Store.load(h.a).steps.get(0);assertEquals("ACCESS",saved.source);assertEquals(5500,saved.timeout);assertEquals(3.5,saved.offsetX,0);
++        saved.source="OCR";saved.timeout=4250;saved.offsetX=2.5;assertEquals(before,saved.json().toString());
++        assertEquals(libraryBefore,Store.library(h.a).get("인식 설정 검사").json().toString());assertEquals("AUTO",WatchStore.load(h.a).rule.source);assertEquals(wordSourceBefore,Ui.prefs(h.a).getString("word_source",""));
++        h.screenshot("PXE15_개별_인식설정_저장.png");
++    }
++
++    // 안내 첫 단계의 선택이 저장되지 않거나 준비 요약이 다른 방식을 표시하면 실패합니다.
++    @Test public void guideSavesListModeAndShowsItInReadySummary()throws Exception{
++        h.main(()->{SetupFlow.begin(h.a);h.a.refreshSetup();});h.in.waitForIdleSync();visible("목록 인식 방식");
++        choose("목록 인식 방식","화면 정보");h.click("다음 · 탐지 영역 정하기");assertEquals(1,SetupFlow.stage(h.a));assertEquals("ACCESS",WatchStore.load(h.a).rule.source);
++        h.main(()->{SetupFlow.stage(h.a,4);h.a.refreshSetup();});h.in.waitForIdleSync();
++        AccessibilityNodeInfo summary=h.find("목록 인식 · 화면 정보");assertNotNull("준비 요약에 저장한 목록 인식 방식이 있어야 합니다",summary);summary.recycle();
++        untouched();assertEquals(1250,WatchStore.load(h.a).entryMs);assertEquals(600000,WatchStore.load(h.a).cooldownMs);h.screenshot("PXE15_안내_인식요약.png");
++    }
++
++    // 즉시 진입의 기본값을 바꾸거나 취소·저장 범위·재열기 상태가 잘못되면 실패합니다.
++    @Test public void listImmediateEntryIsOptionalAndSurvivesSaveOnly()throws Exception{
++        String before=WatchStore.load(h.a).json().toString();assertFalse(WatchStore.load(h.a).rule.immediate);
++        open("watchSettings");h.click("세부 설정 보기");
++        AccessibilityNodeInfo initial=h.find("인식 즉시 들어가기");assertNotNull("목록의 즉시 진입을 세부 설정에서 선택할 수 있어야 합니다",initial);
++        try{assertTrue(initial.isCheckable());assertFalse(initial.isChecked());}finally{initial.recycle();}
++        AccessibilityNodeInfo help=h.find("켜면 터치 전 재확인을 생략합니다. 화면이 빠르게 바뀌면 끄세요.");assertNotNull("즉시 진입의 정확도 차이를 안내해야 합니다",help);help.recycle();
++        h.click("인식 즉시 들어가기");h.click("취소");assertEquals(before,WatchStore.load(h.a).json().toString());untouched();
++        open("watchSettings");h.click("세부 설정 보기");h.click("인식 즉시 들어가기");h.click("저장");
++        WatchConfig saved=WatchStore.load(h.a);assertTrue(saved.rule.immediate);saved.rule.immediate=false;assertEquals(before,saved.json().toString());untouched();
++        open("watchSettings");h.click("세부 설정 보기");AccessibilityNodeInfo reopened=h.find("인식 즉시 들어가기");assertNotNull(reopened);
++        try{assertTrue("저장한 즉시 진입이 재열기 후 유지되어야 합니다",reopened.isChecked());}finally{reopened.recycle();}
++        h.click("취소");assertTrue(WatchStore.load(h.a).rule.immediate);untouched();
++    }
++}
+--- 14차/app/src/androidTest/java/kr/yunseok/touchmacro/PxeUpgradeTest.java
++++ 15차/app/src/androidTest/java/kr/yunseok/touchmacro/PxeUpgradeTest.java
+@@ -8,12 +8,12 @@
+ @RunWith(AndroidJUnit4.class) public class PxeUpgradeTest {
+     Context context(){return InstrumentationRegistry.getInstrumentation().getTargetContext();}
+     @Test public void seedPreviousVersion()throws Exception{
+-        Context c=context();assertEquals(13,c.getPackageManager().getPackageInfo(c.getPackageName(),0).versionCode);
++        Context c=context();assertEquals(14,c.getPackageManager().getPackageInfo(c.getPackageName(),0).versionCode);
+         Macro m=new Macro();m.name="이전 설정 유지 검증";Step wait=new Step("WAIT");wait.duration=1250;wait.repeat=3;m.steps.add(wait);Store.put(c,m);
+         WatchConfig p=new WatchConfig();p.rule.text="유지할 글자";p.macroName=m.name;p.repetitions=15;p.cooldownMs=600000;p.intervalSeconds=10;p.priorityAreas.add(new WatchArea(5,20,95,35));p.priorityAreas.add(new WatchArea(5,40,95,55));WatchStore.save(c,p);SetupFlow.finished(c);Ui.prefs(c).edit().putInt("theme",2).commit();
+     }
+     @Test public void verifyAfterPxeUpdate()throws Exception{
+-        Context c=context();assertEquals(14,c.getPackageManager().getPackageInfo(c.getPackageName(),0).versionCode);assertEquals("PXE",c.getApplicationInfo().loadLabel(c.getPackageManager()).toString());
++        Context c=context();assertEquals(15,c.getPackageManager().getPackageInfo(c.getPackageName(),0).versionCode);assertEquals("PXE",c.getApplicationInfo().loadLabel(c.getPackageManager()).toString());
+         Macro m=Store.load(c);assertEquals("이전 설정 유지 검증",m.name);assertEquals(1250,m.steps.get(0).duration);assertEquals(3,m.steps.get(0).repeat);assertFalse(m.steps.get(0).waitForever);assertFalse(m.steps.get(0).immediate);assertTrue(Store.library(c).containsKey(m.name));
+         WatchConfig p=WatchStore.load(c);assertEquals("유지할 글자",p.rule.text);assertEquals(m.name,p.macroName);assertEquals(15,p.repetitions);assertEquals(600000,p.cooldownMs);assertEquals(10,p.intervalSeconds);assertEquals(2,p.priorityAreas.size());assertFalse(SetupFlow.active(c));assertEquals(2,Ui.prefs(c).getInt("theme",0));
+     }
+--- 14차/app/src/androidTest/java/kr/yunseok/touchmacro/RecognitionModeTest.java
++++ 15차/app/src/androidTest/java/kr/yunseok/touchmacro/RecognitionModeTest.java
+@@ -0,0 +1,92 @@
++package kr.yunseok.touchmacro;
++
++import android.graphics.Rect;
++import android.os.SystemClock;
++import androidx.test.ext.junit.runners.AndroidJUnit4;
++import org.junit.*;
++import org.junit.runner.RunWith;
++import java.lang.reflect.Field;
++import java.util.ArrayList;
++import java.util.concurrent.CountDownLatch;
++import java.util.concurrent.TimeUnit;
++import java.util.concurrent.atomic.*;
++import static org.junit.Assert.*;
++
++/** 인식 방식의 실제 적용 범위와 반복 탐지·즉시 진행을 소유 화면에서 검사합니다. */
++@RunWith(AndroidJUnit4.class) public class RecognitionModeTest {
++    final GuidedFlowTest h=new GuidedFlowTest();
++    final AtomicInteger reads=new AtomicInteger(),captures=new AtomicInteger(),entries=new AtomicInteger();
++    Field screenField,captureField;
++    MacroService.ScreenSource originalScreen;
++    MacroService.ScreenshotSource originalCapture;
++
++    @Before public void boot()throws Exception{
++        h.boot();h.fixture();
++        screenField=field("accessibilitySource");originalScreen=(MacroService.ScreenSource)screenField.get(h.svc);
++        captureField=field("screenshotSource");originalCapture=(MacroService.ScreenshotSource)captureField.get(h.svc);
++        h.main(()->h.entry.setOnClickListener(v->entries.incrementAndGet()));
++        h.waitFor(()->h.a.getPackageName().equals(h.svc.activePackage()),4000,"검사 대상 앱 확인 실패");
++        captureField.set(h.svc,(MacroService.ScreenshotSource)(executor,callback)->{captures.incrementAndGet();callback.onFailure(6);});
++    }
++    @After public void end()throws Exception{
++        h.end();
++        if(screenField!=null)screenField.set(h.svc,originalScreen);
++        if(captureField!=null)captureField.set(h.svc,originalCapture);
++    }
++    Field field(String name)throws Exception{Field value=MacroService.class.getDeclaredField(name);value.setAccessible(true);return value;}
++    Macro macro(Step step){Macro value=new Macro();value.name="인식 방식 범위 검사";value.startDelay=0;value.maxMinutes=0;value.steps.add(step);return value;}
++    WatchConfig profile(Macro macro)throws Exception{
++        Rect[] region={null};h.main(()->region[0]=h.bounds(h.entry));int[] size=h.svc.size();
++        WatchConfig value=new WatchConfig();value.rule.text="안내 대상";value.rule.match="EXACT";value.rule.source="ACCESS";
++        value.rule.left=(region[0].left-2)*100.0/size[0];value.rule.top=(region[0].top-2)*100.0/size[1];
++        value.rule.right=(region[0].right+2)*100.0/size[0];value.rule.bottom=(region[0].bottom+2)*100.0/size[1];
++        value.targetPackage=h.a.getPackageName();value.macroName=macro.name;value.startMs=0;value.repetitions=1;value.entryMs=300;value.returnMs=300;value.settleMs=300;value.repeatGapMs=0;
++        h.main(()->Store.put(h.a,macro));return value;
++    }
++    void countActualReads()throws Exception{screenField.set(h.svc,(MacroService.ScreenSource)token->{reads.incrementAndGet();return originalScreen.read(token);});}
++    String evidence(){return "조회="+reads.get()+", 캡처="+captures.get()+", 진입="+entries.get()+"\n"+h.svc.progressText()+"\n"+h.svc.logText();}
++
++    @Test public void strictAccessWithoutExposedTextNeverCapturesAndReportsItsMode()throws Exception{
++        screenField.set(h.svc,(MacroService.ScreenSource)token->{reads.incrementAndGet();return new ArrayList<>();});
++        Step step=new Step("TEXT_TAP");step.source="ACCESS";step.text="화면이 제공하지 않은 글자";step.timeout=0;step.immediate=true;step.after=0;
++        h.main(()->h.svc.start(macro(step)));h.waitFor(()->!h.svc.running,4000,"화면 정보 부재의 유한 실패가 끝나지 않음");
++        assertEquals(evidence(),0,captures.get());assertEquals(evidence(),0,entries.get());assertEquals(evidence(),1,reads.get());
++        String errors=new ErrorJournal(h.a.getFilesDir()).read();int mark=errors.lastIndexOf(" | TEXT_NOT_FOUND | ");assertTrue(errors,mark>=0);
++        int end=errors.indexOf('\n',mark);String last=errors.substring(mark,end<0?errors.length():end);
++        assertTrue("요청 방식과 실제 방식이 오류 기록에서 구분되지 않습니다\n"+last,last.contains("requested_source=ACCESS")&&last.contains("actual_source=ACCESS"));
++        assertTrue("읽을 수 있는 글자가 없다는 화면 정보 안내가 없습니다\n"+evidence(),h.svc.status.contains("화면 정보"));
++        assertFalse(evidence(),h.svc.status.contains("보안 화면"));assertFalse(last,last.contains(step.text));
++    }
++    @Test public void accessDetectionThenOcrStepReportsActualStageAndSecureRefusal()throws Exception{
++        countActualReads();Step step=new Step("TEXT_TAP");step.source="OCR";step.text="안내 대상";step.waitForever=true;step.immediate=true;step.after=0;
++        WatchConfig value=profile(macro(step));value.rule.immediate=true;
++        h.main(()->h.svc.startWatch(value));h.waitFor(()->!h.svc.running,7000,"실제 OCR 단계의 보안 거부가 정지하지 않음");
++        assertEquals(evidence(),1,entries.get());assertEquals(evidence(),1,captures.get());assertEquals(evidence(),0,h.svc.watchCompleted);
++        String errors=new ErrorJournal(h.a.getFilesDir()).read();int mark=errors.lastIndexOf(" | OCR_CAPTURE_ERROR_6 | ");assertTrue(errors,mark>=0);
++        int end=errors.indexOf('\n',mark);String last=errors.substring(mark,end<0?errors.length():end);
++        assertTrue("탐지와 실행 동작의 방식이 분리되어 기록되지 않습니다\n"+last,last.contains("requested_source=OCR")&&last.contains("actual_source=OCR")&&last.contains("실행 동작 1"));
++        assertTrue(evidence(),h.svc.status.contains("실행 동작 1"));assertTrue(evidence(),h.svc.status.contains("보안 화면"));
++        assertFalse("화면 정보만 고르면 항상 읽힌다는 잘못된 안내가 남았습니다\n"+evidence(),h.svc.status.contains("화면 정보 모드를 사용하세요"));
++    }
++    @Test public void watchPollsAccessWithoutAnExtraTwoSecondTail()throws Exception{
++        CountDownLatch first=new CountDownLatch(1);h.main(()->h.entry.setText("아직 없음"));
++        screenField.set(h.svc,(MacroService.ScreenSource)token->{ArrayList<MacroService.Hit> result=originalScreen.read(token);if(reads.incrementAndGet()==1)first.countDown();return result;});
++        Step step=new Step("WAIT");step.duration=5000;WatchConfig value=profile(macro(step));value.rule.immediate=true;
++        h.main(()->h.svc.startWatch(value));assertTrue("첫 실제 화면 정보 조회가 없습니다",first.await(4,TimeUnit.SECONDS));
++        long appeared=SystemClock.elapsedRealtime();h.main(()->h.entry.setText("안내 대상"));
++        h.waitFor(()->entries.get()==1,1200,"인식 가능한 글자 뒤에 탐지 루프 2초 대기가 남았습니다");
++        assertTrue(evidence(),SystemClock.elapsedRealtime()-appeared<1200);assertEquals(evidence(),0,captures.get());
++    }
++    @Test public void immediateWatchUsesTheFirstHitWithoutASecondRead()throws Exception{
++        countActualReads();AtomicInteger readsAtTouch=new AtomicInteger();h.main(()->h.entry.setOnClickListener(v->{readsAtTouch.set(reads.get());entries.incrementAndGet();}));
++        Step step=new Step("WAIT");step.duration=5000;WatchConfig value=profile(macro(step));value.rule.immediate=true;
++        h.main(()->h.svc.startWatch(value));h.waitFor(()->entries.get()==1,4000,"즉시 탐지의 실제 진입이 없습니다");
++        assertEquals("즉시 진행인데 별도 재확인이 추가되었습니다\n"+evidence(),1,readsAtTouch.get());assertEquals(evidence(),0,captures.get());
++    }
++    @Test public void defaultWatchStillRechecksBeforeTouching()throws Exception{
++        countActualReads();AtomicInteger readsAtTouch=new AtomicInteger();h.main(()->h.entry.setOnClickListener(v->{readsAtTouch.set(reads.get());entries.incrementAndGet();}));
++        Step step=new Step("WAIT");step.duration=5000;WatchConfig value=profile(macro(step));assertFalse(value.rule.immediate);
++        h.main(()->h.svc.startWatch(value));h.waitFor(()->entries.get()==1,4000,"기본 탐지의 실제 진입이 없습니다");
++        assertEquals("기본값의 재확인이 사라졌습니다\n"+evidence(),2,readsAtTouch.get());assertEquals(evidence(),0,captures.get());
++    }
++}
+--- 14차/app/src/androidTest/java/kr/yunseok/touchmacro/RecognitionRegionTest.java
++++ 15차/app/src/androidTest/java/kr/yunseok/touchmacro/RecognitionRegionTest.java
+@@ -0,0 +1,100 @@
++package kr.yunseok.touchmacro;
++
++import android.graphics.Rect;
++import android.widget.*;
++import com.google.mlkit.vision.common.InputImage;
++import com.google.mlkit.vision.text.Text;
++import com.google.mlkit.vision.text.TextRecognizer;
++import androidx.test.ext.junit.runners.AndroidJUnit4;
++import org.junit.*;
++import org.junit.runner.RunWith;
++import java.lang.reflect.*;
++import java.util.concurrent.atomic.*;
++import static org.junit.Assert.*;
++
++/** 전체 OCR의 경계 중심·동일 글자 순번·우선순위 캐시와 원래 터치 좌표를 보존합니다. */
++@RunWith(AndroidJUnit4.class) public class RecognitionRegionTest {
++    final GuidedFlowTest h=new GuidedFlowTest();
++    final AtomicInteger captures=new AtomicInteger(),recognitions=new AtomicInteger(),taps=new AtomicInteger();
++    final AtomicInteger inputWidth=new AtomicInteger(),inputHeight=new AtomicInteger();
++    final AtomicReference<Text> firstText=new AtomicReference<>();
++    Field screenshotField,recognizerField;
++    MacroService.ScreenshotSource originalScreenshot;
++    TextRecognizer originalRecognizer;
++
++    @Before public void boot()throws Exception{
++        h.boot();h.fixture();
++        screenshotField=field("screenshotSource");originalScreenshot=(MacroService.ScreenshotSource)screenshotField.get(h.svc);
++        recognizerField=field("recognizer");originalRecognizer=(TextRecognizer)recognizerField.get(h.svc);
++        h.main(()->h.entry.setOnClickListener(v->taps.incrementAndGet()));
++        h.waitFor(()->h.a.getPackageName().equals(h.svc.activePackage()),4000,"검사 대상 앱 확인 실패");
++        screenshotField.set(h.svc,(MacroService.ScreenshotSource)(executor,callback)->{captures.incrementAndGet();originalScreenshot.take(executor,callback);});
++        recognizerField.set(h.svc,Proxy.newProxyInstance(TextRecognizer.class.getClassLoader(),new Class<?>[]{TextRecognizer.class},(proxy,method,args)->{
++            if(method.getName().equals("process")){InputImage image=(InputImage)args[0];recognitions.incrementAndGet();inputWidth.set(image.getWidth());inputHeight.set(image.getHeight());}
++            Object result=method.invoke(originalRecognizer,args);
++            if(method.getName().equals("process")){
++                @SuppressWarnings("unchecked") com.google.android.gms.tasks.Task<Text> task=(com.google.android.gms.tasks.Task<Text>)result;
++                task.addOnSuccessListener(text->firstText.compareAndSet(null,text));
++            }
++            return result;
++        }));
++    }
++    @After public void end()throws Exception{
++        h.end();
++        if(screenshotField!=null)screenshotField.set(h.svc,originalScreenshot);
++        if(recognizerField!=null)recognizerField.set(h.svc,originalRecognizer);
++    }
++    Field field(String name)throws Exception{Field value=MacroService.class.getDeclaredField(name);value.setAccessible(true);return value;}
++    Step text(){Step value=new Step("TEXT_TAP");value.text="안내 대상";value.match="EXACT";value.source="OCR";value.timeout=0;value.immediate=true;value.after=0;return value;}
++    Macro macro(Step step){Macro value=new Macro();value.name="실제 OCR 영역 검사";value.startDelay=0;value.maxMinutes=0;value.steps.add(step);return value;}
++    Rect bounds(){Rect[] result={null};h.main(()->result[0]=h.bounds(h.entry));return result[0];}
++    void region(Step step,Rect rectangle){int[] size=h.svc.size();step.left=rectangle.left*100.0/size[0];step.top=rectangle.top*100.0/size[1];step.right=rectangle.right*100.0/size[0];step.bottom=rectangle.bottom*100.0/size[1];}
++    String normalized(String value){return value.replaceAll("\\s+","").toLowerCase(java.util.Locale.ROOT);}
++    String evidence(){return "입력="+inputWidth.get()+"×"+inputHeight.get()+", 캡처="+captures.get()+", OCR="+recognitions.get()+", 터치="+taps.get()+"\n"+h.svc.progressText()+"\n"+h.svc.logText();}
++
++    @Test public void aBoundaryCrossingWordWhoseCenterIsInsideStillTouchesTheOriginalButton()throws Exception{
++        h.main(()->h.svc.start(macro(text())));h.waitFor(()->!h.svc.running,12000,"기준 화면의 실제 OCR 터치가 완료되지 않음");
++        assertEquals(evidence(),1,taps.get());h.waitFor(()->firstText.get()!=null,2000,"기준 실제 OCR 결과가 없습니다");
++        Rect nativeButton=bounds();Text actualText=firstText.get();
++        Method detector=MacroService.class.getDeclaredMethod("ocrHit",Step.class,Text.class);detector.setAccessible(true);
++        MacroService.Hit fullHit=(MacroService.Hit)detector.invoke(h.svc,text(),actualText);
++        assertNotNull("같은 실제 OCR 결과의 전체 영역에서 글자가 없습니다",fullHit);assertEquals("안내대상",normalized(fullHit.text));
++        Rect word=new Rect(fullHit.rect);assertTrue(word.toString(),word.width()>12&&word.height()>8);
++        // 같은 실제 OCR 결과로 중심 필터를 비교해 프레임 사이의 인식 흔들림과 분리합니다.
++        Rect center=new Rect(word.centerX()-3,word.centerY()-3,word.centerX()+3,word.centerY()+3);
++        assertTrue(word.toString(),word.left<center.left&&word.right>center.right&&word.top<center.top&&word.bottom>center.bottom);
++        Step bounded=text();region(bounded,center);MacroService.Hit boundaryHit=(MacroService.Hit)detector.invoke(h.svc,bounded,actualText);
++        assertNotNull("글자 중심을 포함한 6px 영역에서 기존 일치가 사라졌습니다",boundaryHit);assertEquals(word,boundaryHit.rect);assertEquals(fullHit.rect,boundaryHit.rect);
++        assertEquals(normalized(fullHit.text),normalized(boundaryHit.text));
++        assertEquals(word.exactCenterX(),boundaryHit.rect.exactCenterX(),0);assertEquals(word.exactCenterY(),boundaryHit.rect.exactCenterY(),0);
++        float centerX=boundaryHit.rect.exactCenterX(),centerY=boundaryHit.rect.exactCenterY();
++        assertTrue(center.toString(),centerX>=center.left&&centerX<=center.right&&centerY>=center.top&&centerY<=center.bottom);
++        assertTrue(nativeButton.toString(),centerX>=nativeButton.left&&centerX<nativeButton.right&&centerY>=nativeButton.top&&centerY<nativeButton.bottom);
++        // 글자와 겹치더라도 중심을 제외한 영역은 기존 중심 필터에서 거절해야 합니다.
++        Rect overlap=new Rect(word.left-3,word.top,word.left+3,word.top+6);assertTrue(Rect.intersects(word,overlap));
++        assertFalse(overlap.toString(),centerX>=overlap.left&&centerX<=overlap.right&&centerY>=overlap.top&&centerY<=overlap.bottom);
++        Step excluded=text();region(excluded,overlap);assertNull("중심이 밖인 글자를 단순 교집합으로 허용했습니다",detector.invoke(h.svc,excluded,actualText));
++        int[] size=h.svc.size();Step tap=new Step("TAP");tap.x=boundaryHit.rect.exactCenterX()*100.0/size[0];tap.y=boundaryHit.rect.exactCenterY()*100.0/size[1];tap.duration=100;tap.after=0;
++        h.main(()->h.svc.start(macro(tap)));h.waitFor(()->!h.svc.running,12000,"판정된 원래 좌표의 실제 터치가 완료되지 않음");
++        assertEquals("경계에 걸친 글자의 원래 화면 좌표가 보존되지 않았습니다\n"+evidence(),2,taps.get());
++        assertEquals(evidence(),1,captures.get());assertEquals(evidence(),1,recognitions.get());
++        assertEquals(evidence(),size[0],inputWidth.get());assertEquals(evidence(),size[1],inputHeight.get());
++    }
++    @Test public void priorityScanSharesOneFullImageAndFindsTheSecondAreaOnce()throws Exception{
++        Rect[] first={null};h.main(()->{LinearLayout parent=(LinearLayout)h.entry.getParent();Button other=new Button(h.a);other.setText("다른 항목");parent.addView(other,0,new LinearLayout.LayoutParams(-1,Ui.dp(h.a,70)));other.post(()->first[0]=h.bounds(other));});
++        h.in.waitForIdleSync();h.waitFor(()->first[0]!=null,2000,"첫 번째 영역 배치 실패");Rect second=bounds();
++        Step wait=new Step("WAIT");wait.duration=5000;Macro macro=macro(wait);
++        WatchConfig value=new WatchConfig();value.rule.text="안내 대상";value.rule.match="EXACT";value.rule.source="OCR";value.rule.immediate=true;
++        int[] size=h.svc.size();value.priorityAreas.add(new WatchArea(first[0].left*100.0/size[0],first[0].top*100.0/size[1],first[0].right*100.0/size[0],first[0].bottom*100.0/size[1]));
++        value.priorityAreas.add(new WatchArea(second.left*100.0/size[0],second.top*100.0/size[1],second.right*100.0/size[0],second.bottom*100.0/size[1]));
++        value.targetPackage=h.a.getPackageName();value.macroName=macro.name;value.startMs=0;value.repetitions=1;value.entryMs=300;value.returnMs=300;value.settleMs=300;
++        h.main(()->{Store.put(h.a,macro);h.svc.startWatch(value);});h.waitFor(()->taps.get()==1,12000,"두 번째 우선 영역의 실제 터치가 없습니다");
++        assertEquals(evidence(),1,captures.get());assertEquals(evidence(),1,recognitions.get());assertTrue(evidence(),h.svc.logText().contains("2순위에서 발견"));
++        assertEquals(evidence(),size[0],inputWidth.get());assertEquals(evidence(),size[1],inputHeight.get());
++    }
++    @Test public void occurrenceTwoTouchesOnlyTheSecondIdenticalWord()throws Exception{
++        AtomicInteger firstTaps=new AtomicInteger();h.main(()->{LinearLayout parent=(LinearLayout)h.entry.getParent();Button first=new Button(h.a);first.setText("안내 대상");first.setOnClickListener(v->firstTaps.incrementAndGet());parent.addView(first,0,new LinearLayout.LayoutParams(-1,Ui.dp(h.a,70)));});h.in.waitForIdleSync();
++        Step step=text();step.occurrence=2;h.main(()->h.svc.start(macro(step)));h.waitFor(()->!h.svc.running,12000,"두 번째 동일 글자의 실제 터치가 완료되지 않음");
++        assertEquals(evidence(),0,firstTaps.get());assertEquals(evidence(),1,taps.get());assertEquals(evidence(),1,captures.get());assertEquals(evidence(),1,recognitions.get());
++    }
++}
+--- 14차/app/src/main/java/kr/yunseok/touchmacro/CapturePacer.java
++++ 15차/app/src/main/java/kr/yunseok/touchmacro/CapturePacer.java
+@@ -2,9 +2,15 @@
+ 
+ /** 실패와 늦은 콜백을 포함한 실제 응답 시점부터 캡처 간격을 지킵니다. */
+ final class CapturePacer {
+-    private long lastResponse,interval=2000;
+-    CapturePacer(long now){lastResponse=now;}
++    private final long minimum;
++    private long lastResponse,interval;
++    CapturePacer(long now){this(now,500);}
++    CapturePacer(long now,long minimum){
++        if(minimum<=0||minimum>12000)throw new IllegalArgumentException("캡처 기본 간격을 확인하세요");
++        this.minimum=minimum;lastResponse=now;interval=minimum;
++    }
+     synchronized long remaining(long now){return Math.max(0,lastResponse+interval-now);}
+-    synchronized void responded(long now){lastResponse=Math.max(lastResponse,now);}
+-    synchronized void rejected(long now){responded(now);interval=Math.min(12000,interval*2);}
++    synchronized void responded(long now){failed(now);interval=Math.max(minimum,interval/2);}
++    synchronized void failed(long now){lastResponse=Math.max(lastResponse,now);}
++    synchronized void rejected(long now){failed(now);interval=Math.min(12000,interval*2);}
+ }
+--- 14차/app/src/main/java/kr/yunseok/touchmacro/MacroService.java
++++ 15차/app/src/main/java/kr/yunseok/touchmacro/MacroService.java
+@@ -28,11 +28,12 @@
+     private ScreenSource accessibilitySource=this::accessibleSnapshot;
+     private volatile boolean accessibleFallback=false;
+     private volatile long queryStartedAt=0;
+-    private final CapturePacer capturePacer=new CapturePacer(SystemClock.elapsedRealtime());
++    private final CapturePacer capturePacer=new CapturePacer(SystemClock.elapsedRealtime(),Build.VERSION.SDK_INT<=30?1100:500);
+     private final CaptureRequests captureRequests=new CaptureRequests();
+     private final AtomicReference<RecognitionRequest> pendingRecognition=new AtomicReference<>();
+     private volatile String capturePhase="";
+     private volatile String recognitionPhase="";
++    private volatile String recognitionStage="",requestedSource="",actualSource="",recognitionNote="";
+     interface ScreenshotSource {void take(java.util.concurrent.Executor executor,TakeScreenshotCallback callback);}
+     private ScreenshotSource screenshotSource=(executor,callback)->takeScreenshot(Display.DEFAULT_DISPLAY,executor,callback);
+     private final AtomicLong generation=new AtomicLong();private final AtomicLong pauseRevision=new AtomicLong();
+@@ -80,7 +81,11 @@
+         if(!logUpdateQueued){logUpdateQueued=true;ui.postDelayed(()->{synchronized(MacroService.this){getSharedPreferences("macros",0).edit().putString("last_log",String.join("\n",logs)).apply();logUpdateQueued=false;}if(connectionActive()&&controller!=null)controller.update();},250);}
+     }
+     public FloatingController controller(){return controller;}
+-    private void recordError(String kind){recordError(kind,"");}
++    private void recordError(String kind){recordError(kind,recognitionDetail());}
++    private void recognitionStage(String stage){recognitionStage=stage;requestedSource="";actualSource="";recognitionNote="";}
++    private String recognitionDetail(){return requestedSource.isEmpty()?"":"recognition_stage="+recognitionStage+", requested_source="+requestedSource+", actual_source="+actualSource;}
++    private String recognitionSummary(){return actualSource.isEmpty()?"":recognitionStage+" · "+("ACCESS".equals(actualSource)?"화면 정보":"한글 OCR")+("AUTO".equals(requestedSource)?" (자동)":"")+(recognitionNote.isEmpty()?"":" · "+recognitionNote);}
++    private String recognitionFailure(Exception error){String message=error.getMessage()==null?error.toString():error.getMessage();String summary=recognitionSummary();return message+(summary.isEmpty()?"":" · "+summary);}
+     private void recordError(String kind,String detail){
+         try{if(errorJournal!=null)errorJournal.append(kind,"실행="+running+", 일시정지="+paused+", 캡처대기="+captureRequests.size()+", 인식대기="+(pendingRecognition.get()!=null)+", 단계="+(watching?watchPhase:liveAction)+(detail.isEmpty()?"":"\n"+detail));}
+         catch(java.io.IOException e){log("오류 기록 파일 저장 실패 · 저장 공간을 확인하세요");}
+@@ -107,7 +112,7 @@
+         finally{result.cancel(false);}
+     }
+     public boolean hasRunStats(){return startedAt>0;}
+-    private void resetStats(){startedAt=SystemClock.elapsedRealtime();finishedAt=0;cycleStartedAt=0;lastCycleMs=0;delayUntil=0;currentPriority=0;liveAction="시작 준비";lastAction="";}
++    private void resetStats(){startedAt=SystemClock.elapsedRealtime();finishedAt=0;cycleStartedAt=0;lastCycleMs=0;delayUntil=0;currentPriority=0;liveAction="시작 준비";lastAction="";recognitionStage("");}
+     private void finishStats(){finishedAt=SystemClock.elapsedRealtime();delayUntil=0;}
+     private String remainingText(long ms){long seconds=Math.max(0,(ms+999)/1000);return seconds>=60?(seconds/60)+"분 "+(seconds%60)+"초":seconds+"초";}
+     public String progressText(){
+@@ -116,6 +121,7 @@
+         if(running&&queryStartedAt>0)phase+=" · 화면 정보 읽는 중 "+String.format(Locale.KOREA,"%.1f초",(SystemClock.elapsedRealtime()-queryStartedAt)/1000.0);
+         if(running&&!capturePhase.isEmpty())phase+=" · "+capturePhase+(delayUntil>SystemClock.elapsedRealtime()?" · "+remainingText(delayUntil-SystemClock.elapsedRealtime()):"");
+         if(running&&!recognitionPhase.isEmpty())phase+=" · "+recognitionPhase;
++        if(running&&!actualSource.isEmpty())phase+=" · "+recognitionSummary();
+         if(!running)phase=status;if(paused)return "일시정지 · "+phase;
+         boolean refreshWait=watching&&(watchPhase.equals("완료 후 쉬는 중")||watchPhase.equals("새로고침 대기")||watchPhase.equals("중복 차단 · 사라짐 대기"));
+         if(refreshWait)phase+=" · 새로고침까지 "+remainingText(watchNextRefresh-SystemClock.elapsedRealtime());
+@@ -178,7 +184,7 @@
+             liveAction="시작 대기";log("시작까지 "+Times.label(m.startDelay));sleep(m.startDelay,token);
+             runSequence(m,token);
+             if(token==generation.get())log("완료");
+-        }catch(CancellationException ignored){}catch(Exception e){if(token==generation.get()){recordError(errorKind(e));log("중단 · "+(e.getMessage()==null?e.toString():e.getMessage()));}}
++        }catch(CancellationException ignored){}catch(Exception e){if(token==generation.get()){recordError(errorKind(e));log("중단 · "+recognitionFailure(e));}}
+         finally{if(lock.isHeld())lock.release();if(token==generation.get()){finishStats();running=false;paused=false;clearNotification();ui.post(()->{if(controller!=null)controller.update();});}}
+     }
+     private void runSequence(Macro m,long token)throws Exception{
+@@ -189,7 +195,7 @@
+                     log(round+"회 · "+(index+1)+"/"+m.steps.size()+" "+s.name());
+                     Integer jump=null;for(int r=0;r<s.repeat;r++){
+                         ready(token);liveAction="매크로 "+round+"/"+(m.rounds==0?"∞":m.rounds)+"회 · "+(index+1)+"번 "+s.name()+(s.repeat>1?" "+(r+1)+"/"+s.repeat:"");
+-                        jump=execute(s,token);lastAction=(index+1)+"번 "+s.name()+" 완료"+(s.repeat>1?" ("+(r+1)+"/"+s.repeat+")":"");log(lastAction);
++                        recognitionStage(s.textAction()?"실행 동작 "+(index+1):"");jump=execute(s,token);recognitionStage("");lastAction=(index+1)+"번 "+s.name()+" 완료"+(s.repeat>1?" ("+(r+1)+"/"+s.repeat+")":"");log(lastAction);
+                         String next=jump!=null?(jump+1)+"번으로 이동":r+1<s.repeat?"같은 동작 반복":index+1<m.steps.size()?(index+2)+"번 "+m.steps.get(index+1).name():m.rounds==0||round<m.rounds?"다음 전체 반복":watching?"뒤로가기 준비":"매크로 완료";
+                         liveAction="완료 → "+next;if(s.canWaitForever()&&s.immediate)ready(token);else sleep(s.after==0&&s.afterJitter==0?0:jitter(s.after,s.afterJitter,600000),token);if(jump!=null)break;
+                     }
+@@ -238,7 +244,7 @@
+                     watchPhase="글자 찾는 중";ScanFrame frame=new ScanFrame(p.targetPackage);
+                     long scanRevision=pauseRevision.get();Hit hit=null;int selected=-1;boolean anyBlocked=false;
+                     for(int area=0;area<gates.length;area++){
+-                        watchPhase=(area+1)+"순위 확인";Hit candidate=find(areaConfigs[area].rule,token,frame);ready(token);
++                        watchPhase=(area+1)+"순위 확인";recognitionStage("목록 탐지 "+(area+1)+"순위");Hit candidate=find(areaConfigs[area].rule,token,frame);ready(token);
+                         lastAction=(area+1)+"순위 · "+(candidate==null?"글자 없음":"글자 발견");
+                         if(scanRevision!=pauseRevision.get())break;
+                         WatchGate gate=gates[area];boolean wasBlocked=gate.blocked();
+@@ -250,7 +256,7 @@
+                     if(!p.targetPackage.equals(foregroundPackage(token))){for(WatchGate gate:gates)gate.interruptAbsence();continue;}
+                     watchPhase=anyBlocked?"중복 차단 · 사라짐 대기":"글자 찾는 중";
+                     if(hit!=null){
+-                        ready(token);if(p.tapFound)hit=find(areaConfigs[selected].rule,token,new ScanFrame(p.targetPackage));ready(token);if(scanRevision!=pauseRevision.get())continue;
++                        ready(token);if(p.tapFound&&!areaConfigs[selected].rule.immediate)hit=find(areaConfigs[selected].rule,token,new ScanFrame(p.targetPackage));ready(token);if(scanRevision!=pauseRevision.get())continue;
+                         if(!p.targetPackage.equals(foregroundPackage(token))){for(WatchGate gate:gates)gate.interruptAbsence();continue;}
+                         if(hit!=null){
+                             if(p.preventDuplicate){WatchStore.blocked(this,areaConfigs[selected],true);gates[selected].reserve();}
+@@ -269,9 +275,9 @@
+                     }catch(StaleCapture|TargetChanged e){for(WatchGate gate:gates)gate.interruptAbsence();continue;}
+                 }
+                 long remaining=Math.max(1,watchNextRefresh-SystemClock.elapsedRealtime());
+-                sleep(Math.min(2000,remaining),token);
+-            }
+-        }catch(CancellationException ignored){}catch(Exception e){if(token==generation.get()){recordError(errorKind(e));log("탐지 중단 · "+(e.getMessage()==null?e.toString():e.getMessage()));}}
++                sleep(Math.min(armed?100:2000,remaining),token);
++            }
++        }catch(CancellationException ignored){}catch(Exception e){if(token==generation.get()){recordError(errorKind(e));log("탐지 중단 · "+recognitionFailure(e));}}
+         finally{if(lock.isHeld())lock.release();if(token==generation.get()){finishStats();running=false;watching=false;paused=false;watchPhase="";ui.post(()->{if(controller!=null)controller.update();});}}
+     }
+     private Integer execute(Step s,long token)throws Exception{
+@@ -323,7 +329,7 @@
+                     if(s.type.equals("TEXT_BRANCH"))return s.missing==0?null:s.missing-1;
+                     if(attempt<s.retries&&Arrays.asList("BACK_RETRY","RETRY","SCROLL_RETRY").contains(s.failure)){if("BACK_RETRY".equals(s.failure)){log("글자 없음 · 뒤로가기 "+(attempt+1)+"/"+s.retries);global(GLOBAL_ACTION_BACK,token);}else if("SCROLL_RETRY".equals(s.failure)){log("글자 없음 · 스크롤 "+(attempt+1)+"/"+s.retries);gesture(50,75,50,30,450,token);}else log("글자 없음 · 재확인 "+(attempt+1)+"/"+s.retries);sleep(s.retryDelay,token);attempt++;continue;}
+                     if("SKIP".equals(s.failure)){log("글자 없음 · 다음 동작");return null;}
+-                    recordError("TEXT_NOT_FOUND","source="+s.source+", match="+s.match+", 영역="+s.left+","+s.top+","+s.right+","+s.bottom+", waitForever="+s.waitForever+", immediate="+s.immediate+", timeout_ms="+s.timeout);
++                    recordError("TEXT_NOT_FOUND","source="+s.source+", match="+s.match+", 영역="+s.left+","+s.top+","+s.right+","+s.bottom+", waitForever="+s.waitForever+", immediate="+s.immediate+", timeout_ms="+s.timeout+", "+recognitionDetail());
+                     throw new IllegalStateException("글자를 찾지 못했습니다: "+s.text);
+                     }catch(StaleCapture|TargetChanged e){ready(token);}
+                 }
+@@ -373,15 +379,17 @@
+     }
+     private Hit find(Step s,long token)throws Exception{return find(s,token,new ScanFrame());}
+     private Hit find(Step s,long token,ScanFrame frame)throws Exception{
+-        ready(token);Hit hit=null;
++        ready(token);requestedSource=s.source;actualSource="";recognitionNote="";Hit hit=null;
+         if(!s.source.equals("OCR")&&(!accessibleFallback||s.source.equals("ACCESS"))){
+-            try{if(frame.accessible==null)frame.accessible=readScreen(()->accessibilitySource.read(token),token);hit=accessibleHit(s,frame.accessible);}
++            actualSource="ACCESS";
++            try{if(frame.accessible==null)frame.accessible=readScreen(()->accessibilitySource.read(token),token);hit=accessibleHit(s,frame.accessible);if(frame.accessible.isEmpty())recognitionNote="읽을 수 있는 화면 글자 없음";}
+             catch(ScreenReadFailure e){
+                 if(s.source.equals("ACCESS"))throw e;
+                 accessibleFallback=true;ready(token);log("화면 정보 응답 지연 · 이 실행은 화면 OCR로 전환합니다");
+             }
+         }
+         if(hit!=null||s.source.equals("ACCESS"))return hit;
++        actualSource="OCR";recognitionNote="";
+         if(frame.text!=null)return ocrHit(s,frame.text);
+         frame.text=recognizeText(token,frame.targetPackage);return ocrHit(s,frame.text);
+     }
+@@ -519,7 +527,7 @@
+     private Bitmap captureOnce(long token)throws Exception{
+         onUi(()->{controller.setCaptureMode(true);return true;},token);
+         try{
+-            sleep(150,token);CompletableFuture<Bitmap> f=new CompletableFuture<>();long revision=pauseRevision.get();
++            sleep(150,token);CompletableFuture<Bitmap> f=new CompletableFuture<>();long revision=pauseRevision.get();String captureDetail=recognitionDetail();
+             ui.post(new Runnable(){public void run(){try{if(f.isDone())return;check(token);if(paused){ui.postDelayed(this,70);return;}
+                 long requestId=captureRequests.begin();if(requestId==0)throw new IllegalStateException("이전 OCR 캡처 2개가 아직 진행 중입니다");
+                 try{screenshotSource.take(getMainExecutor(),new TakeScreenshotCallback(){
+@@ -527,14 +535,14 @@
+                     capturePacer.responded(SystemClock.elapsedRealtime());captureRequests.complete(requestId);
+                     Bitmap copy=null;try{if(token!=generation.get()||f.isDone()){f.cancel(false);return;}if(paused||revision!=pauseRevision.get()){f.completeExceptionally(new StaleCapture());return;}Bitmap hardware=Bitmap.wrapHardwareBuffer(r.getHardwareBuffer(),r.getColorSpace());if(hardware==null)throw new IllegalStateException("화면 이미지가 비었습니다");copy=hardware.copy(Bitmap.Config.ARGB_8888,false);hardware.recycle();if(!f.complete(copy))copy.recycle();}catch(Exception e){if(copy!=null&&!copy.isRecycled())copy.recycle();f.completeExceptionally(e);}finally{r.getHardwareBuffer().close();}
+                 }
+-                @Override public void onFailure(int error){capturePacer.responded(SystemClock.elapsedRealtime());captureRequests.complete(requestId);CaptureFailure failure=new CaptureFailure(error);if(!f.completeExceptionally(failure))recordError("OCR_CAPTURE_LATE_ERROR_"+error);}
+-            });}catch(Exception e){capturePacer.responded(SystemClock.elapsedRealtime());captureRequests.complete(requestId);throw e;}
++                @Override public void onFailure(int error){capturePacer.failed(SystemClock.elapsedRealtime());captureRequests.complete(requestId);CaptureFailure failure=new CaptureFailure(error);if(!f.completeExceptionally(failure))recordError("OCR_CAPTURE_LATE_ERROR_"+error,captureDetail);}
++            });}catch(Exception e){capturePacer.failed(SystemClock.elapsedRealtime());captureRequests.complete(requestId);throw e;}
+             }catch(Exception e){f.completeExceptionally(e);}}});
+             try{return await(f,token,8000,"OCR 화면 캡처 응답 시간이 초과되었습니다");}catch(Exception e){f.thenAccept(b->{if(b!=null&&!b.isRecycled())b.recycle();});f.completeExceptionally(e);if("OCR 화면 캡처 응답 시간이 초과되었습니다".equals(e.getMessage()))throw new CaptureTimeout(e);for(Throwable cause=e;cause!=null;cause=cause.getCause())if(cause instanceof StaleCapture)throw (StaleCapture)cause;throw e;}
+         }finally{ui.post(()->{if(controller!=null)controller.setCaptureMode(false);});}
+     }
+     static String captureError(int error){
+-        String reason;switch(error){case 2:reason="접근성 캡처 권한 없음 · PXE 접근성을 다시 켜세요";break;case 3:reason="캡처 간격이 너무 짧습니다";break;case 4:reason="캡처할 화면을 찾지 못했습니다";break;case 6:reason="보안 화면입니다 · 화면 정보 모드를 사용하세요";break;default:reason="화면 캡처 응답 오류 · 해당 블루스택 창과 PXE 접근성을 다시 시작하세요";}
++        String reason;switch(error){case 2:reason="접근성 캡처 권한 없음 · PXE 접근성을 다시 켜세요";break;case 3:reason="캡처 간격이 너무 짧습니다";break;case 4:reason="캡처할 화면을 찾지 못했습니다";break;case 6:reason="보안 화면으로 보고되어 캡처가 거부되었습니다 · 화면 정보도 앱이 제공하는 글자만 읽을 수 있습니다";break;default:reason="화면 캡처 응답 오류 · 해당 블루스택 창과 PXE 접근성을 다시 시작하세요";}
+         return "OCR 화면 캡처 실패("+error+") · "+reason;
+     }
+     private void input(String text,long token)throws Exception{
+--- 14차/app/src/main/java/kr/yunseok/touchmacro/MainActivity.java
++++ 15차/app/src/main/java/kr/yunseok/touchmacro/MainActivity.java
+@@ -83,7 +83,7 @@
+             settingRow(page,"접근성",connected?"연결됨":"연결 필요",this::accessibility);
+             space(page,16);text(page,"기록과 도움말",13,muted);LinearLayout resources=new LinearLayout(this);resources.setOrientation(LinearLayout.VERTICAL);page.addView(resources);
+             settingsAction(resources,"실행 기록",this::logs);settingsAction(resources,"오류 기록",this::errorLogs);settingsAction(resources,"사용법",this::help);settingsAction(resources,"인식 테스트",this::testScreen);
+-            space(page,12);text(page,"PXE 1.4.0 · 14차",11,muted);
++            space(page,12);text(page,"PXE 1.5.0 · 15차",11,muted);
+         }
+         if(MacroService.get()!=null&&MacroService.get().running){LinearLayout dock=form();dock.setPadding(dp(24),0,dp(24),0);quiet(dock,"실행 정지",()->{MacroService.get().stop();render();});shell.addView(dock);}
+         addStatusDock(shell);addNavigation(shell);content(shell);Ui.font(shell);Ui.enter(page);
+@@ -119,6 +119,7 @@
+         text(page,"찾을 글자",15,muted);LinearLayout heading=row(page);heading.setGravity(Gravity.CENTER_VERTICAL);TextView word=text(heading,p.rule.text,34,ink);word.setLayoutParams(new LinearLayout.LayoutParams(0,-2,1));
+         ImageView focus=new ImageView(this);focus.setImageResource(R.drawable.pxe_focus);focus.setColorFilter(blue);heading.addView(focus,new LinearLayout.LayoutParams(dp(44),dp(44)));space(page,6);View underline=new View(this);underline.setBackground(Ui.rounded(blue,dp(2)));page.addView(underline,new LinearLayout.LayoutParams(dp(46),dp(3)));space(page,24);
+         actionRow(page,R.drawable.pxe_focus,"탐지 영역",p.areaCount()+"개 영역 · 순서대로 확인",true,this::watchRegion);space(page,8);
++        actionRow(page,R.drawable.pxe_eye,"목록 인식",Ui.recognitionName(p.rule.source),false,this::watchSettings);
+         actionRow(page,R.drawable.pxe_steps,"실행 매크로",(p.macroName.isEmpty()?Store.load(this).name:p.macroName)+" · "+p.repetitions+"회",false,this::watchSettings);
+         actionRow(page,R.drawable.pxe_clock,"완료 후 대기",Times.durationLabel(p.cooldownMs),false,this::watchSettings);
+         actionRow(page,R.drawable.pxe_refresh,"새로고침 간격",p.intervalSeconds+"초",false,this::watchSettings);
+@@ -135,35 +136,45 @@
+     private void watchSettings(){
+         WatchConfig p=WatchStore.load(this);LinearLayout f=form();
+         EditText word=field(f,"탐지할 글자",p.rule.text,false);
++        Spinner source=spinner(f,"목록 인식 방식",Ui.recognitionNames(),selected(new String[]{"AUTO","ACCESS","OCR"},p.rule.source));
++        text(f,"목록 탐지에만 적용합니다. 실행 매크로의 개별 인식 방식은 유지됩니다.",12,muted);
++        text(f,"화면 정보는 앱이 제공하는 글자를 읽습니다. 이미지 속 글자는 한글 OCR을 선택하세요.",12,muted);
+         ArrayList<String> keys=new ArrayList<>(),names=new ArrayList<>();keys.add("");names.add("현재 매크로 · "+macro.name);
+         for(String name:Store.library(this).keySet()){keys.add(name);names.add(name);}
+         if(!p.macroName.isEmpty()&&!keys.contains(p.macroName)){keys.add(p.macroName);names.add(p.macroName+" · 저장본 없음");}
+         Spinner macroChoice=spinner(f,"탐지되면 실행할 매크로",names.toArray(new String[0]),keys.indexOf(p.macroName));
+         EditText repetitions=field(f,"들어간 뒤 매크로 반복 · 회",Integer.toString(p.repetitions),true);
+         EditText seconds=field(f,"새로고침 간격 · 초",Integer.toString(p.intervalSeconds),true);
++        EditText cooldown=timeField(f,"완료 후 첫 새로고침 대기 · 초, 600은 10분",p.cooldownMs);
+         CheckBox tap=check(f,"찾은 글자를 눌러 들어가기",p.tapFound);
+         text(f,"반복 횟수는 여기서 한 번만 정합니다. 저장한 매크로의 전체 반복 설정과 곱하지 않습니다.",12,muted);
+-        LinearLayout advanced=new LinearLayout(this);advanced.setOrientation(LinearLayout.VERTICAL);advanced.setVisibility(View.GONE);
+-        Button more=quiet(f,"세부 설정 보기",()->{});more.setOnClickListener(v->{boolean on=advanced.getVisibility()!=View.VISIBLE;advanced.setVisibility(on?View.VISIBLE:View.GONE);more.setText(on?"세부 설정 접기":"세부 설정 보기");});f.addView(advanced);
++        LinearLayout timing=fold(f,"동작 사이 대기");
++        EditText startWait=timeField(timing,"처음 시작 전 대기 · 초",p.startMs),entry=timeField(timing,"들어간 뒤 화면 대기 · 초",p.entryMs),repeatGap=timeField(timing,"매크로 한 회 사이 대기 · 초",p.repeatGapMs),beforeBack=timeField(timing,"모두 완료 후 뒤로가기 전 대기 · 초",p.beforeBackMs),backWait=timeField(timing,"뒤로가기 후 화면 대기 · 초",p.returnMs),settle=timeField(timing,"새로고침 후 화면 대기 · 초",p.settleMs);
++        LinearLayout advanced=fold(f,"세부 설정");
++        CheckBox immediateEntry=check(advanced,"인식 즉시 들어가기",p.rule.immediate);
++        text(advanced,"켜면 터치 전 재확인을 생략합니다. 화면이 빠르게 바뀌면 끄세요.",12,muted);
+         Spinner direction=spinner(advanced,"새로고침 동작",new String[]{"화면을 아래로 당기기","목록 아래로 이동하기"},p.direction.equals("PULL_DOWN")?0:1);
+         CheckBox waitRefresh=check(advanced,"완료 후 새로고침부터 다시 시작",p.waitForRefresh);text(advanced,"켜면 뒤로간 뒤 설정한 초만큼 기다려 새로고침합니다. 끄면 바로 다시 탐지합니다.",12,muted);
+         CheckBox duplicate=check(advanced,"같은 글자가 사라진 뒤에만 다시 실행",p.preventDuplicate);text(advanced,"켜면 새로고침 전 재실행도 막습니다. 완료한 글자가 계속 보이면 새로고침 후에도 건너뜁니다.",12,muted);
+-        EditText startWait=timeField(advanced,"처음 시작 전 대기 · 초",p.startMs),repeatGap=timeField(advanced,"매크로 한 회 사이 대기 · 초",p.repeatGapMs),beforeBack=timeField(advanced,"모두 완료 후 뒤로가기 전 대기 · 초",p.beforeBackMs),rearm=timeField(advanced,"글자 사라짐 확인 시간 · 초, 최소 1",p.rearmMs),cooldown=timeField(advanced,"완료 후 첫 새로고침 대기 · 초, 600은 10분",p.cooldownMs);
+-        Spinner source=spinner(advanced,"인식 방식",new String[]{"자동 · 화면 정보 + OCR","화면 정보","한글 OCR"},selected(new String[]{"AUTO","ACCESS","OCR"},p.rule.source));
++        EditText rearm=timeField(advanced,"글자 사라짐 확인 시간 · 초, 최소 1",p.rearmMs);
+         Spinner match=spinner(advanced,"글자 비교",new String[]{"포함","완전 일치","정규식"},selected(new String[]{"CONTAINS","EXACT","REGEX"},p.rule.match));
+         EditText left=field(advanced,"영역 왼쪽 %",Double.toString(p.rule.left),true),top=field(advanced,"영역 위 %",Double.toString(p.rule.top),true),right=field(advanced,"영역 오른쪽 %",Double.toString(p.rule.right),true),bottom=field(advanced,"영역 아래 %",Double.toString(p.rule.bottom),true);
+-        EditText count=field(advanced,"뒤로가기 횟수",Integer.toString(p.backCount),true),entry=timeField(advanced,"들어간 뒤 화면 대기 · 초",p.entryMs),settle=timeField(advanced,"새로고침 후 화면 대기 · 초",p.settleMs),backWait=timeField(advanced,"뒤로가기 후 화면 대기 · 초",p.returnMs),limit=field(advanced,"전체 제한 · 분, 0은 제한 없음",Integer.toString(p.maxMinutes),true);
++        EditText count=field(advanced,"뒤로가기 횟수",Integer.toString(p.backCount),true),limit=field(advanced,"전체 제한 · 분, 0은 제한 없음",Integer.toString(p.maxMinutes),true);
+         text(advanced,"저장한 매크로를 첫 동작부터 지정 횟수만큼 실행합니다. 각 동작의 개별 반복은 그대로 적용됩니다. 매크로 실행 제한이 없으면 한 번 들어가서 최대 30분까지 실행합니다.",12,muted);
+         AlertDialog d=new AlertDialog.Builder(this).setIcon(R.drawable.ic_macro).setTitle("글자 · 매크로 설정").setView(wrap(f)).setPositiveButton("저장",null).setNegativeButton("취소",null).create();
+         d.setOnShowListener(v->{font(d.getWindow().getDecorView());d.getButton(-1).setOnClickListener(b->{try{
+             p.rule.text=word.getText().toString().trim();p.macroName=keys.get(macroChoice.getSelectedItemPosition());p.repetitions=number(repetitions);p.intervalSeconds=number(seconds);p.direction=direction.getSelectedItemPosition()==0?"PULL_DOWN":"SCROLL_DOWN";
+-            p.rule.source=new String[]{"AUTO","ACCESS","OCR"}[source.getSelectedItemPosition()];p.rule.match=new String[]{"CONTAINS","EXACT","REGEX"}[match.getSelectedItemPosition()];
++            p.rule.source=new String[]{"AUTO","ACCESS","OCR"}[source.getSelectedItemPosition()];p.rule.match=new String[]{"CONTAINS","EXACT","REGEX"}[match.getSelectedItemPosition()];p.rule.immediate=immediateEntry.isChecked();
+             p.rule.left=decimal(left);p.rule.top=decimal(top);p.rule.right=decimal(right);p.rule.bottom=decimal(bottom);p.backCount=number(count);p.entryMs=timeValue(entry);p.settleMs=timeValue(settle);p.returnMs=timeValue(backWait);p.maxMinutes=number(limit);p.tapFound=tap.isChecked();p.waitForRefresh=waitRefresh.isChecked();
+             p.preventDuplicate=duplicate.isChecked();p.startMs=timeValue(startWait);p.repeatGapMs=timeValue(repeatGap);p.beforeBackMs=timeValue(beforeBack);p.rearmMs=timeValue(rearm);p.cooldownMs=timeValue(cooldown);
+             WatchStore.save(this,p);d.dismiss();render();
+         }catch(Exception e){toast(e instanceof NumberFormatException?"숫자를 정확히 입력하세요":e.getMessage());}});});d.show();
+     }
+     private void space(LinearLayout box,int height){box.addView(new View(this),new LinearLayout.LayoutParams(1,dp(height)));}
++    private LinearLayout fold(LinearLayout parent,String title){
++        LinearLayout body=new LinearLayout(this);body.setOrientation(LinearLayout.VERTICAL);body.setVisibility(View.GONE);
++        Button toggle=quiet(parent,getString(R.string.pxe_section_show,title),()->{});toggle.setOnClickListener(v->{boolean open=body.getVisibility()!=View.VISIBLE;body.setVisibility(open?View.VISIBLE:View.GONE);toggle.setText(getString(open?R.string.pxe_section_hide:R.string.pxe_section_show,title));});parent.addView(body);return body;
++    }
+     private Button primary(LinearLayout box,String label,Runnable action){Button b=button(box,label,action);b.setTextSize(17);b.setTextColor(Ui.dark(this)?Color.rgb(12,18,32):Color.WHITE);b.setBackground(Ui.ripple(this,blue,8));b.setLayoutParams(new LinearLayout.LayoutParams(-1,dp(56)));return b;}
+     private Button quiet(LinearLayout box,String label,Runnable action){Button b=button(box,label,action);b.setBackgroundColor(Color.TRANSPARENT);b.setTextColor(muted);return b;}
+     private void quietHalf(LinearLayout box,String label,Runnable action){Button b=button(box,label,action);b.setTextColor(ink);b.setTextSize(12);b.setBackground(Ui.ripple(this,Color.TRANSPARENT,0));LinearLayout.LayoutParams p=new LinearLayout.LayoutParams(0,dp(48),1);int index=box.indexOfChild(b);p.setMargins(index==0?0:dp(4),dp(6),index==0?dp(4):0,dp(2));b.setLayoutParams(p);}
+@@ -171,7 +182,8 @@
+     private void settingsAction(LinearLayout box,String label,Runnable action){actionRow(box,label.equals("인식 테스트")?R.drawable.pxe_eye:label.equals("사용법")?R.drawable.pxe_help:label.equals("오류 기록")?R.drawable.pxe_warning:R.drawable.pxe_steps,label,"",false,action);}
+     private void settingRow(LinearLayout box,String title,String value,Runnable action){actionRow(box,title.equals("접근성")?R.drawable.pxe_accessibility:title.equals("화면 모드")?R.drawable.pxe_sun:R.drawable.pxe_settings,title,value,false,action);}
+     private void recognitionSettings(){
+-        LinearLayout f=form();Spinner source=spinner(f,"인식 방식",new String[]{"자동 · 화면 정보 + 한글 OCR","화면 정보","OCR · 이미지/게임 글자"},selected(new String[]{"AUTO","ACCESS","OCR"},Ui.prefs(this).getString("word_source","AUTO")));
++        LinearLayout f=form();Spinner source=spinner(f,"인식 방식",Ui.recognitionNames(),selected(new String[]{"AUTO","ACCESS","OCR"},Ui.prefs(this).getString("word_source","AUTO")));
++        text(f,"글자 탭의 단독 실행과 글자 탭에서 추가하는 동작에 적용합니다. 이미 저장한 동작과 목록 탐지 설정은 유지됩니다.",12,muted);
+         Spinner match=spinner(f,"비교 방식",new String[]{"포함","완전 일치","정규식"},selected(new String[]{"CONTAINS","EXACT","REGEX"},Ui.prefs(this).getString("word_match","CONTAINS")));
+         text(f,"뒤로가기 재검색은 최대 3회입니다.\n검색 영역·터치 보정은 매크로 동작을 추가한 뒤 편집할 수 있습니다.",12,muted);
+         show(new AlertDialog.Builder(this).setTitle("인식 설정").setView(wrap(f)).setPositiveButton("적용",(d,w)->Ui.prefs(this).edit().putString("word_source",new String[]{"AUTO","ACCESS","OCR"}[source.getSelectedItemPosition()]).putString("word_match",new String[]{"CONTAINS","EXACT","REGEX"}[match.getSelectedItemPosition()]).apply()).setNegativeButton("취소",null),null);
+@@ -241,25 +253,26 @@
+         String[] matchValues={"CONTAINS","EXACT","REGEX"},sourceValues={"AUTO","ACCESS","OCR"},failureValues={"STOP","SKIP","BACK_RETRY","RETRY","SCROLL_RETRY"};
+         if(s.textAction()){
+             fields.put("text",field(f,"찾을 글자",s.text,false));
++            source=spinner(f,"검색 방식",Ui.recognitionNames(),selected(sourceValues,s.source));
++            text(f,"이 동작에만 적용합니다. 목록 탐지와 다른 동작의 인식 방식은 유지됩니다.",12,muted);
++            fields.put("timeout",timeField(f,"최대 기다릴 시간 · 초, 0은 한 번 확인",s.timeout));
+             if(s.canWaitForever()){
+                 forever=check(f,"글자가 나타날 때까지 계속 기다리기",s.waitForever);
+                 immediate=check(f,"인식 후 추가 대기 없이 다음 동작",s.immediate);
+                 final CheckBox nextNow=immediate;forever.setOnCheckedChangeListener((v,on)->{if(on)nextNow.setChecked(true);});
+-                text(f,"계속 기다리는 동안 정지할 수 있습니다. 즉시 진행을 켜면 저장된 완료 후 대기만 생략합니다. OCR 처리·캡처 보호 간격은 필요합니다.",12,muted);
++                text(f,"계속 기다리는 동안 정지할 수 있습니다. 즉시 진행은 완료 후 대기를 생략하고, 글자 터치는 터치 전 재확인도 생략합니다. 실제 인식 시간은 필요합니다.",12,muted);
+             }
+             matching=spinner(advanced,"글자 비교",new String[]{"포함","완전 일치","정규식"},selected(matchValues,s.match));
+-            source=spinner(advanced,"검색 방식",new String[]{"자동 · 화면 정보 → OCR","화면 정보만 · 빠름","OCR만 · 이미지 속 글자"},selected(sourceValues,s.source));
+             spaces=check(advanced,"공백·줄바꿈 무시",s.ignoreSpaces);casing=check(advanced,"영문 대소문자 무시",s.ignoreCase);
+             fields.put("occurrence",field(advanced,"같은 글자 중 몇 번째 · 위에서 아래, 왼쪽에서 오른쪽",Integer.toString(s.occurrence),true));
+             fields.put("left",field(advanced,"검색 영역 왼쪽 %",Double.toString(s.left),true));fields.put("top",field(advanced,"검색 영역 위 %",Double.toString(s.top),true));fields.put("right",field(advanced,"검색 영역 오른쪽 %",Double.toString(s.right),true));fields.put("bottom",field(advanced,"검색 영역 아래 %",Double.toString(s.bottom),true));fields.put("offsetX",field(advanced,"터치 X 보정 % · -50~50",Double.toString(s.offsetX),false));fields.put("offsetY",field(advanced,"터치 Y 보정 % · -50~50",Double.toString(s.offsetY),false));
+-            fields.put("timeout",timeField(advanced,"최대 기다릴 시간 · 초, 0은 한 번 확인",s.timeout));
+             if(s.type.equals("TEXT_BRANCH")){
+-                text(f,"0은 다음 동작입니다. 번호는 현재 목록을 기준으로 합니다. 재정렬·삭제 후 확인하세요.",12,muted);
+-                fields.put("found",field(f,"글자 있으면 이동할 동작 번호",Integer.toString(s.found),true));fields.put("missing",field(f,"글자 없으면 이동할 동작 번호",Integer.toString(s.missing),true));
++                text(advanced,"0은 다음 동작입니다. 번호는 현재 목록을 기준으로 합니다. 재정렬·삭제 후 확인하세요.",12,muted);
++                fields.put("found",field(advanced,"글자 있으면 이동할 동작 번호",Integer.toString(s.found),true));fields.put("missing",field(advanced,"글자 없으면 이동할 동작 번호",Integer.toString(s.missing),true));
+             }else{
+-                failure=spinner(f,"글자가 없으면",new String[]{"매크로 정지","다음 동작으로","뒤로가기 후 다시 찾기","같은 화면에서 다시 확인","위로 스크롤 후 다시 찾기"},selected(failureValues,s.failure));
++                failure=spinner(advanced,"글자가 없으면",new String[]{"매크로 정지","다음 동작으로","뒤로가기 후 다시 찾기","같은 화면에서 다시 확인","위로 스크롤 후 다시 찾기"},selected(failureValues,s.failure));
+                 fields.put("retries",field(advanced,"최대 뒤로가기 횟수 · 0~100",Integer.toString(s.retries),true));fields.put("retryDelay",timeField(advanced,"뒤로간 뒤 화면 대기 · 초, 최소 0.3",s.retryDelay));
+-                text(f,"최대 횟수 뒤에도 글자가 없으면 중단합니다. 캡처 오류는 ‘글자 없음’으로 처리하지 않습니다.",11,muted);
++                text(advanced,"최대 횟수 뒤에도 글자가 없으면 중단합니다. 캡처 오류는 ‘글자 없음’으로 처리하지 않습니다.",11,muted);
+             }
+         }
+         if(s.type.equals("INPUT"))fields.put("text",field(f,"입력할 문자 · 여러 줄 가능",s.text,false));
+--- 14차/app/src/main/java/kr/yunseok/touchmacro/SetupWizard.java
++++ 15차/app/src/main/java/kr/yunseok/touchmacro/SetupWizard.java
+@@ -13,6 +13,13 @@
+     private TextView text(LinearLayout box,String value,int size){TextView v=new TextView(a);v.setText(value);v.setTextSize(size);v.setTextColor(size<=14?Ui.muted(a):Ui.ink(a));v.setLineSpacing(Ui.dp(a,3),1);v.setPadding(0,Ui.dp(a,8),0,Ui.dp(a,8));box.addView(v);return v;}
+     private EditText field(LinearLayout box,String label,String value,boolean numeric){text(box,label,12);EditText e=new EditText(a);e.setText(value);e.setTextSize(16);e.setTextColor(Ui.ink(a));e.setSingleLine(true);e.setSelectAllOnFocus(true);if(numeric)e.setInputType(InputType.TYPE_CLASS_NUMBER|InputType.TYPE_NUMBER_FLAG_DECIMAL);LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(-1,Ui.dp(a,54));lp.setMargins(0,0,0,Ui.dp(a,10));box.addView(e,lp);return e;}
+     private EditText time(LinearLayout box,String label,int ms){return field(box,label+" · 초",Times.seconds(ms),true);}
++    private Spinner recognition(LinearLayout box,String source){
++        text(box,"목록 인식 방식",12);Spinner choice=new Spinner(a);
++        ArrayAdapter<String> adapter=new ArrayAdapter<String>(a,android.R.layout.simple_spinner_item,Ui.recognitionNames()){
++            @Override public View getView(int position,View reused,ViewGroup parent){View view=super.getView(position,reused,parent);Ui.font(view);return view;}
++            @Override public View getDropDownView(int position,View reused,ViewGroup parent){View view=super.getDropDownView(position,reused,parent);Ui.font(view);return view;}
++        };adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);choice.setAdapter(adapter);choice.setSelection("ACCESS".equals(source)?1:"OCR".equals(source)?2:0);box.addView(choice,new LinearLayout.LayoutParams(-1,Ui.dp(a,48)));return choice;
++    }
+     private void button(LinearLayout box,String label,Runnable action,boolean primary){Button b=Ui.button(a,label);b.setTextSize(14);if(primary){b.setBackground(Ui.rounded(Ui.accent(a),Ui.dp(a,8)));b.setTextColor(Ui.dark(a)?0xFF101828:0xFFFFFFFF);}LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(-1,Ui.dp(a,52));lp.setMargins(0,Ui.dp(a,8),0,0);box.addView(b,lp);b.setOnClickListener(v->{try{action.run();}catch(Exception e){Toast.makeText(a,e.getMessage()==null?"입력값을 확인하세요":e.getMessage(),Toast.LENGTH_LONG).show();}});}
+     private int integer(EditText e){try{return Integer.parseInt(e.getText().toString().trim());}catch(Exception x){throw new IllegalArgumentException("횟수와 새로고침 간격은 정수로 입력하세요");}}
+     private int millis(EditText e){return Times.millis(e.getText().toString());}
+@@ -26,7 +33,10 @@
+         if(step==0){
+             text(page,"찾을 글자를 입력하면 다음 단계에서 화면의 위치를 정합니다.",13);
+             EditText word=field(page,"찾을 글자",p.rule.text,false);
+-            button(page,"다음 · 탐지 영역 정하기",()->{p.rule.text=word.getText().toString().trim();WatchStore.save(a,p);next(1);},true);
++            Spinner source=recognition(page,p.rule.source);
++            text(page,"목록 탐지에만 적용합니다. 실행 매크로의 개별 인식 방식은 유지됩니다.",12);
++            text(page,"화면 정보는 앱이 제공하는 글자를 읽습니다. 이미지 속 글자는 한글 OCR을 선택하세요.",12);
++            button(page,"다음 · 탐지 영역 정하기",()->{p.rule.text=word.getText().toString().trim();p.rule.source=new String[]{"AUTO","ACCESS","OCR"}[source.getSelectedItemPosition()];WatchStore.save(a,p);next(1);},true);
+         }else if(step==1){
+             text(page,"네모 영역을 최대 6개까지 순서대로 그리세요. 매번 1순위부터 확인해 처음 글자가 있는 영역을 실행합니다. 영역은 서로 겹치지 않게 지정하세요.",14);
+             for(int i=0;i<p.priorityAreas.size();i++){final int index=i;button(page,(i+1)+"순위 영역 다시 지정",()->{SetupFlow.areaIndex(a,index);a.setupOutside("REGION");},false);}
+@@ -57,6 +67,7 @@
+             text(page,"완료 후에는 정한 시간을 쉬고 새로고침하기 전까지 다시 누르지 않습니다. 새로고침 후에는 1순위부터 다시 확인하며, 같은 2순위에 글자가 있어도 다시 실행합니다.",13);
+             button(page,"다음 · 실행 준비",()->{p.repetitions=integer(repeats);p.entryMs=millis(entry);p.repeatGapMs=millis(gap);p.beforeBackMs=millis(back);p.returnMs=millis(returned);p.cooldownMs=Times.minutesAndSeconds(integer(cooldownMinutes),cooldownSeconds.getText().toString());p.intervalSeconds=integer(interval);p.settleMs=millis(settle);p.startMs=millis(start);p.tapFound=true;p.waitForRefresh=true;p.preventDuplicate=false;WatchStore.save(a,p);WatchStore.resolve(a,p);next(4);},true);
+         }else{
++            text(page,"목록 인식 · "+Ui.recognitionName(p.rule.source),14);
+             text(page,"1~"+p.areaCount()+"순위에서 “"+p.rule.text+"” 발견 → 들어가기\n"+p.macroName+" · "+p.repetitions+"회 반복\n뒤로가기 → "+Times.durationLabel(p.cooldownMs)+" 쉬기\n첫 새로고침 후 "+p.intervalSeconds+"초 간격 새로고침",16);
+             text(page,"쉬는 동안에는 재실행하지 않습니다. 새로고침 후에는 1순위부터 다시 확인하고, 같은 영역의 글자도 다시 실행합니다.",13);
+             text(page,"대상 앱의 목록 화면으로 돌아간 뒤 작은 안내창에서 시작하세요. 하단에 현재 단계와 한 바퀴·전체 시간이 표시됩니다.",13);
+--- 14차/app/src/main/java/kr/yunseok/touchmacro/Ui.java
++++ 15차/app/src/main/java/kr/yunseok/touchmacro/Ui.java
+@@ -17,6 +17,8 @@
+  public static int accent(Context c){return Color.parseColor(dark(c)?"#56D7C7":"#007F78");}
+  public static int soft(Context c){return Color.parseColor(dark(c)?"#203B42":"#E9F7F3");}
+  public static int line(Context c){return Color.parseColor(dark(c)?"#31444E":"#DCE5E8");}
++ public static String[] recognitionNames(){return new String[]{"자동 · 화면 정보 → OCR","화면 정보","한글 OCR"};}
++ public static String recognitionName(String source){return "ACCESS".equals(source)?"화면 정보":"OCR".equals(source)?"한글 OCR":"자동 · 화면 정보 → OCR";}
+  public static GradientDrawable outline(Context c,int color,int radius){GradientDrawable g=rounded(color,dp(c,radius));g.setStroke(dp(c,1),line(c));return g;}
+  // 시스템 애니메이션 설정을 따르며 동작 실행을 지연하지 않는 짧은 진입 전환입니다.
+  public static void enter(View v){if(!android.animation.ValueAnimator.areAnimatorsEnabled())return;v.setAlpha(0f);v.setTranslationY(dp(v.getContext(),6));v.animate().alpha(1f).translationY(0).setDuration(180).setInterpolator(new android.view.animation.DecelerateInterpolator()).start();}
+--- 14차/app/src/main/res/values/strings.xml
++++ 15차/app/src/main/res/values/strings.xml
+@@ -1 +1 @@
+-<resources><string name="app_name">PXE</string><string name="service_description">윤석님이 직접 만든 동작을 실행합니다. 화면 글자 읽기, 기기 내 한글 OCR, 좌표 터치, 스와이프와 뒤로가기에 접근성을 사용합니다. 화면이나 입력 내용은 서버로 전송하지 않습니다. 화면 위 정지 버튼으로 언제든 멈출 수 있습니다.</string><string name="test_taps">성공 횟수: %1$d</string><string name="ocr_taps">OCR 성공 횟수: %1$d</string><string name="nex_control_status">%1$s · %2$s\n%3$s</string><string name="nex_slider">%1$s · %2$d</string></resources>+<resources><string name="app_name">PXE</string><string name="service_description">윤석님이 직접 만든 동작을 실행합니다. 화면 글자 읽기, 기기 내 한글 OCR, 좌표 터치, 스와이프와 뒤로가기에 접근성을 사용합니다. 화면이나 입력 내용은 서버로 전송하지 않습니다. 화면 위 정지 버튼으로 언제든 멈출 수 있습니다.</string><string name="test_taps">성공 횟수: %1$d</string><string name="ocr_taps">OCR 성공 횟수: %1$d</string><string name="nex_control_status">%1$s · %2$s\n%3$s</string><string name="nex_slider">%1$s · %2$d</string><string name="pxe_section_show">%1$s 보기</string><string name="pxe_section_hide">%1$s 접기</string></resources>
+--- 14차/app/src/test/java/kr/yunseok/touchmacro/CapturePacerTest.java
++++ 15차/app/src/test/java/kr/yunseok/touchmacro/CapturePacerTest.java
+@@ -0,0 +1,49 @@
++package kr.yunseok.touchmacro;
++
++import org.junit.Test;
++import static org.junit.Assert.*;
++
++/** 실제 응답 시점의 간격과 제한된 후퇴·성공 회복을 검사합니다. */
++public class CapturePacerTest {
++    @Test public void normalIntervalDoesNotImposeTwoSeconds(){
++        CapturePacer pacer=new CapturePacer(100);
++        assertEquals(500,pacer.remaining(100));
++        assertEquals(1,pacer.remaining(599));
++        assertEquals(0,pacer.remaining(600));
++    }
++    @Test public void intervalRejectionDoublesAndRemainsBounded(){
++        CapturePacer pacer=new CapturePacer(0);
++        pacer.rejected(1000);assertEquals(1000,pacer.remaining(1000));
++        for(int i=0;i<20;i++)pacer.rejected(2000+i);
++        assertEquals(12000,pacer.remaining(2019));
++    }
++    @Test public void successfulResponsesRecoverWithoutDroppingBelowBase(){
++        CapturePacer pacer=new CapturePacer(0);
++        for(int i=0;i<10;i++)pacer.rejected(i);
++        pacer.responded(1000);assertEquals(6000,pacer.remaining(1000));
++        pacer.responded(2000);assertEquals(3000,pacer.remaining(2000));
++        pacer.responded(3000);assertEquals(1500,pacer.remaining(3000));
++        pacer.responded(4000);assertEquals(750,pacer.remaining(4000));
++        pacer.responded(5000);assertEquals(500,pacer.remaining(5000));
++        pacer.responded(6000);assertEquals(500,pacer.remaining(6000));
++    }
++    @Test public void lateResponseMovesTheNextDeadlineForward(){
++        CapturePacer pacer=new CapturePacer(0);
++        pacer.responded(8000);assertEquals(500,pacer.remaining(8000));
++        pacer.responded(7000);assertEquals(500,pacer.remaining(8000));
++        assertEquals(0,pacer.remaining(8500));
++    }
++    @Test public void androidElevenMarginIsPreservedAfterRecovery(){
++        CapturePacer pacer=new CapturePacer(0,1100);
++        assertEquals(1100,pacer.remaining(0));
++        pacer.rejected(2000);assertEquals(2200,pacer.remaining(2000));
++        pacer.responded(4000);assertEquals(1100,pacer.remaining(4000));
++    }
++    @Test public void failureResponseKeepsBackoffAndStillMovesDeadline(){
++        CapturePacer pacer=new CapturePacer(0);
++        pacer.rejected(1000);pacer.failed(2000);
++        assertEquals(1000,pacer.remaining(2000));
++        pacer.rejected(3000);assertEquals(2000,pacer.remaining(3000));
++        pacer.failed(2500);assertEquals(2000,pacer.remaining(3000));
++    }
++}
+--- 14차/docs/2026-10-28_15차_인식개선_명세와계획.md
++++ 15차/docs/2026-10-28_15차_인식개선_명세와계획.md
+@@ -0,0 +1,46 @@
++# 15차 인식 지연과 설정 단순화 명세 및 계획
++
++확인일: 2026-10-28. 요청: 블루스택의 화면 정보/보안 안내 혼동, 지연과 정확도 문제를 조사해 새 APK로 만들고 내부 설정을 간결하게 한다. 14차는 완료 상태이며 15차는 새 사용자 요청이다. 과거 실패 및 14차 원본은 보존한다.
++
++## 확인된 원인과 한계
++- 목록 탐지 WatchRule.source, 개별 Step.source, 글자 탭 word_source는 별도다. ACCESS는 OCR을 호출하지 않지만 실행 매크로에는 기존 AUTO/OCR 단계가 남을 수 있다.
++- CapturePacer는 응답 후 기본 2초이며 간격 거절 후 최대 12초까지 늘어나고 성공 시 회복하지 않는다. 목록 루프에도 최대 2초 대기가 있다.
++- OCR은 전체 화면을 처리한 다음 영역을 필터링한다. 영역 자르기는 캐시/절대 좌표/원본 수명을 함께 검증해야 한다.
++- 대상 앱이 접근성 글자를 제공하지 않거나 OS가 캡처를 막으면 인식 가능성을 보장할 수 없다. 보안 제한을 우회하거나 못 읽은 좌표를 누르지 않는다.
++
++## 성공 조건
++- 엄격 화면 정보 방식에서는 OCR을 호출하지 않는다. 실패 안내는 실제 단계/인식 방식/원인을 구분한다.
++- 간격 오류 대응은 제한된 후퇴와 성공 시 회복을 사용한다. 취소/일시정지/대상 앱 경계/단일 OCR 작업과 비트맵 수명은 유지한다.
++- 실제 ROI 처리는 좌표 매핑과 같은 순회의 우선순위 캐시 재사용을 보존하는 경우만 도입한다. 실제 확인하지 않은 속도 개선 수치를 제시하지 않는다.
++- 목록 및 글자 동작의 방식 선택을 기본에 표시한다. 목록 설정은 글자/방식/매크로/반복/새로고침/완료 후 대기를 기본에, 추가 시간/비교/좌표/분기/재시도는 접는다.
++- 기존 5단계 안내 및 저장, 1~6순위, 반복, 중복 방지, 대기/중단과 모든 기존 기능을 유지한다. 일괄 인식 방식 변경은 이번에 추가하지 않으며 적용 범위를 설명한다.
++- 글자 동작 편집은 방식과 무한/유한 대기를 쉽게 설정하며 고급 값도 편집/저장 가능하다. PXE 이름/라이트다크/나눔고딕 Bold/48dp 조작 영역 유지.
++- 기존 검사 단언을 약화하지 않는다. 새 동작은 먼저 실패를 재현하고 수정한다. 14→15 실제 업데이트 설정 보존, 기존 필수 46개 및 작은 화면 UI6, 새 집중 검사, 빌드/단위/린트/UTF-8/서명/ABI/원본 보존을 확인한다.
++
++## 역할과 순서
++1. 부모: 지침 및 원본/도구 확인, 명세, 빌드 연결과 소유 장치, 버전/빌드 검사 도구 업데이트, 이력 기록.
++2. 엔진 deep: MacroService/CapturePacer 및 관련 엔진 테스트. 원인별 RED 후 최소 수정. UI와 모델 계약은 부모와 조율.
++3. UI build: MainActivity/Ui/SetupWizard/SetupCoach 및 직접 UI 검사. 기본/고급 구조와 방식 범위 설명. 엔진 파일은 수정하지 않는다.
++4. 부모: 통합 빌드와 구현 검증, 소스 동결. 별도 verifier Sol/high가 요구 사항과 실제 전체 검사를 독립 확인한다.
++5. 부모: PC/휴대전화 APK를 15차에 납품. 연결된 PUVKID/PXE-Touch-Macro-Project의 공개 소스 구조를 확인해 코드/검사/변경 기록만 정상 커밋/푸시한다. 비밀 키/개인 프로필/개인 로그/빌드 캐시/전역 지침은 공개하지 않는다.
++
++## 검증 환경과 시간
++실제 사용자 블루스택과 매크로는 조작하지 않는다. 복사한 소유 PXE15 Android31 장치에서 검증한다. 기존 필수 검사 계획 총 720초/개별 제한 유지. 신규 검사 배치는 별도 제한을 명시하고 기존 검사와 중복 합산하지 않는다. 333ms 공식 AOSP 상수는 OS 구현 참고이며 블루스택에 동일 성능을 보장하는 근거가 아니다.
++
++## 16:05 설계 확정 · 영역 인식 의미 보존
++
++독립 검토와 엔진 분석 모두 기존 중심점 포함 기준에서 정확한 영역 자르기가 경계 글자를 소실시킴을 확인했다. 고정 여백은 모든 글자 경계 보존 근거가 없고 전체 화면 재시도는 새 중복 OCR 지연을 만든다. 따라서 선택적 ROI 제품 도입은 이번 범위에서 제외하며 전체 화면 OCR과 중심점 필터/같은 글자 순번/우선순위 캐시를 유지한다. ROI 제품은 수정0이고 crop 요구 검사는 실행 전 설계 초안이었다. 기존 검사의 기대값은 바꾸지 않는다. 신규 영역 검사는 기존 경계 중심/순번/우선순위 단일 캐시와 실제 좌표 보존을 검증한다. 이 결정은 입력 보정 또는 실패 은폐가 아니며 정확도 보존을 위한 최소 구현 범위 확정이다.
++
++추가 검사는 tools/recognition-check-plan.json에 고정한다. 작은 화면 UI6은 기존 필수720초의 남은 시간 안에서 수행하고 새로운 UI3/인식5/영역3은 별도 총240초(90/150), 각 내부60/120초로 수행한다. 모든 장치는 소유 PXE15만 사용한다.
++
++## 16:11 즉시 진입 선택의 실제 UI 노출
++
++목록 rule.immediate는 저장 모델에는 있으나 UI에 없으므로 세부 설정에 인식 즉시 들어가기 선택을 추가한다. 기본 false/기존 저장값 유지, 켜면 재확인 생략의 정확도 차이를 안내한다. 새 UI 네 번째 검사는 기본값/취소/저장/다른 방식 보존을 검증하며 기존 세 검사 기대값은 그대로다. 신규 UI 배치 expected4로 확정하고 90/60초 상한과 집중검사 총240초를 유지한다.
++
++## 수리12~13 · 의도된 캡처 시간 정책 검사 개정
++
++독립검증46개 중45개가 통과하고 CaptureRecoveryTest 첫 메서드의 구정책4초/8초/8초 하한이 실패했다. 실제 진단 요청간격1163/2153/4664ms에서 첫4000ms 조건이 실패했으며 4캡처(2거절+실제OCR+새재확인)·1진입·45초완료·UI응답은 먼저 통과했다. 마지막4664ms에는 실제OCR 처리도 포함되어 고정5초상한을 임의로 추가하지 않는다.
++
++이번 요청의 의도된 지연 개선에 따라 이 한 메서드의 시간 정책 기대값만 개정한다. 공식API31의333ms 제한에 여유를 둔 명세base500ms, API30의1000ms에 여유를 둔base1100ms에서 2배/4배/성공후2배 간격을 독립 도출한다. 실제 callback응답→다음요청의 최소1000/2000/1000ms(API31+) 또는2200/4400/2200ms(API30)를 확인한다. 제품의 현재 interval값을 정답으로 읽지 않는다. 기존45초완료·4캡처/1진입·쿨다운·중단·UI응답 단언과 같은 클래스의 다른두메서드는 유지한다. 결정론적 Pacer6개가 정확한 기본·후퇴·성공절반회복·최대12초를 검증하므로 옛 느린 정책도 검출한다.
++
++‘기존 검사 기대값 유지’는 이 의도된 시간 정책 변경을 숨기기 위한 기계적4/8/8유지가 아니다. 변경 전후의 명세와 진단RED·독립FAIL을 보존하고, 이 한 성능 정책 단언의 명시 개정을 별도 독립 검토로 확인한다. 안전 경계·재확인·터치 횟수는 약화하지 않는다. 기존32통과를 재사용하지 않고 새 동결에서 전체52를 공유720초 내 직접 재실행하며 추가12는 별도240초 내 실행한다.
+--- 14차/local.properties
++++ 15차/local.properties
+@@ -1 +1 @@
+-sdk.dir=D:/PXE14Build/android/android-sdk+sdk.dir=D:/2026/PXE15Build/android/android-sdk--- 14차/tools/check_artifacts.py
++++ 15차/tools/check_artifacts.py
+@@ -10,7 +10,7 @@
+ 
+ ROOT = Path(__file__).resolve().parents[1]
+ DELIVERY = ROOT.parent
+-BRIDGE = Path('D:/PXE14Build')
++BRIDGE = Path('D:/2026/PXE15Build')
+ CERTIFICATE = '57339c32b3661e18f18a7f9f7a08c539130211ab93ab0000812f99c949c5ad3e'
+ 
+ 
+@@ -34,19 +34,19 @@
+ 
+ 
+ def main():
+-    baseline = json.loads((DELIVERY / '13차_보존기준.json').read_text(encoding='utf-8-sig'))
++    baseline = json.loads((DELIVERY / '14차_보존기준.json').read_text(encoding='utf-8-sig'))
+     for entry in baseline:
+         path = Path(entry['path'])
+         if path.stat().st_size != entry['bytes'] or digest(path).upper() != entry['sha256']:
+             raise RuntimeError(f'이전 차수 변경 감지: {path}')
+-    print(f'13차 원본 보존: {len(baseline)}개 통과')
++    print(f'14차 원본 보존: {len(baseline)}개 통과')
+     output = ROOT / 'work/artifact-verification'
+     output.mkdir(parents=True, exist_ok=True)
+     tools = BRIDGE / 'android/android-sdk/build-tools/35.0.0'
+     variants = [('노트10플러스', 'phone', {'arm64-v8a'}),
+                 ('PC용', 'pc', {'arm64-v8a', 'x86_64'})]
+     for label, short, expected_abis in variants:
+-        source = DELIVERY / f'PXE_14차_v1.4_{label}.apk'
++        source = DELIVERY / f'PXE_15차_v1.5_{label}.apk'
+         target = output / f'{short}.apk'
+         shutil.copyfile(source, target)
+         if digest(source) != digest(target):
+@@ -54,7 +54,7 @@
+         # Windows Android 도구의 한글 경로 제한을 피하되 납품본 해시를 대조합니다.
+         ascii_target = BRIDGE / f'source/work/artifact-verification/{short}.apk'
+         metadata = command([str(tools / 'aapt.exe'), 'dump', 'badging', str(ascii_target)])
+-        if not re.search(r"package: name='kr\.yunseok\.touchmacro'.*versionCode='14'.*versionName='1\.4\.0'", metadata):
++        if not re.search(r"package: name='kr\.yunseok\.touchmacro'.*versionCode='15'.*versionName='1\.5\.0'", metadata):
+             raise RuntimeError('APK 앱 ID 또는 버전 불일치')
+         if "application-label:'PXE'" not in metadata:
+             raise RuntimeError('APK 앱 이름 불일치')
+@@ -70,7 +70,7 @@
+             abis = {name.split('/')[1] for name in archive.namelist() if name.startswith('lib/') and name.endswith('.so')}
+         if abis != expected_abis:
+             raise RuntimeError(f'APK 지원 기기 불일치: {abis!r}')
+-        print(f'{label}: 앱 ID·PXE·14/1.4.0·기존 서명·ABI·CRC 통과 / SHA256 {digest(source)}')
++        print(f'{label}: 앱 ID·PXE·15/1.5.0·기존 서명·ABI·CRC 통과 / SHA256 {digest(source)}')
+ 
+ 
+ if __name__ == '__main__':
+--- 14차/tools/check_device.py
++++ 15차/tools/check_device.py
+@@ -1,4 +1,4 @@
+-"""소유한 PXE14 검사 장치와 14차 설치를 확인한 뒤 기기 회귀 검사를 실행합니다."""
++"""소유한 PXE15 검사 장치와 15차 설치를 확인한 뒤 기기 회귀 검사를 실행합니다."""
+ import re
+ import sys
+ sys.dont_write_bytecode = True
+@@ -7,11 +7,11 @@
+ adb = str(PROJECT / "코드/NEXTools/android-sdk/platform-tools/adb.exe")
+ prefix = [adb, "-P", "5043", "-s", "emulator-5598", "shell"]
+ device = run(prefix + ["getprop", "ro.boot.qemu.avd_name"]).strip()
+-if device != "PXE14":
+-    raise SystemExit("소유한 PXE14 검사 장치가 아닙니다")
++if device != "PXE15":
++    raise SystemExit("소유한 PXE15 검사 장치가 아닙니다")
+ package = run(prefix + ["dumpsys", "package", "kr.yunseok.touchmacro"])
+-if not re.search(r"versionCode=14\s", package):
+-    raise SystemExit("설치 버전이 14차가 아닙니다")
++if not re.search(r"versionCode=15\s", package):
++    raise SystemExit("설치 버전이 15차가 아닙니다")
+ classes = sys.argv[1:] or ["OcrStallRecoveryTest", "ContinuousOcrTest", "ScreenDelayRecoveryTest", "ReaderResponsivenessTest"]
+ if any(not re.fullmatch(r"[A-Za-z]+Test(?:#[A-Za-z]+)?", item) for item in classes):
+     raise SystemExit("검사 클래스 또는 메서드 형식 오류")
+--- 14차/tools/check_recognition_device.py
++++ 15차/tools/check_recognition_device.py
+@@ -0,0 +1,31 @@
++"""소유 PXE15에서 신규 집중 검사를 승인된 내부 시간으로로 제한해 실행합니다."""
++import re
++import sys
++import time
++import json
++from pathlib import Path
++
++sys.dont_write_bytecode = True
++sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
++from check_regression import PROJECT, ROOT, run
++
++started = time.monotonic()
++adb = str(PROJECT / "코드/NEXTools/android-sdk/platform-tools/adb.exe")
++prefix = [adb, "-P", "5043", "-s", "emulator-5598", "shell"]
++device = run(prefix + ["getprop", "ro.boot.qemu.avd_name"], timeout=10).strip()
++if device != "PXE15":
++    raise SystemExit("소유 PXE15가 아니므로 검사를 중단합니다")
++package = run(prefix + ["dumpsys", "package", "kr.yunseok.touchmacro"], timeout=10)
++if not re.search(r"versionCode=15\s", package):
++    raise SystemExit("설치 버전이 15가 아닙니다")
++classes = sys.argv[1:]
++if not classes or any(not re.fullmatch(r"(?:Recognition(?:Mode|Region)|PxeRecognitionSettings)Test(?:#[A-Za-z]+)?", item) for item in classes):
++    raise SystemExit("승인된 신규 인식 검사만 실행합니다")
++inner=60 if all(item.startswith('PxeRecognitionSettingsTest') for item in classes) else 120
++outer=90 if inner==60 else 150
++command = prefix + ["am", "instrument", "-w", "-r", "-e", "class",
++                    ",".join("kr.yunseok.touchmacro." + item for item in classes),
++                    "kr.yunseok.touchmacro.test/androidx.test.runner.AndroidJUnitRunner"]
++print(json.dumps({"argv": command, "cwd": str(ROOT), "instrument_timeout_seconds": inner,
++                  "outer_budget_seconds": outer}, ensure_ascii=False), flush=True)
++run(command, timeout=min(inner, max(1, outer-5-(time.monotonic()-started))), require_success=True)
+--- 14차/tools/check_upgrade.py
++++ 15차/tools/check_upgrade.py
+@@ -1,59 +1,59 @@
+-"""소유 PXE14 장치에서만 13→14 실제 업데이트와 기존 데이터 보존을 검사합니다."""
+-import hashlib
+-import json
+-from pathlib import Path
+-import re
+-import shutil
+-import sys
+-sys.dont_write_bytecode = True
+-from check_regression import ROOT, run
+-
+-BRIDGE = Path('D:/PXE14Build')
+-ADB = str(BRIDGE / 'android/android-sdk/platform-tools/adb.exe')
+-PREFIX = [ADB, '-P', '5043', '-s', 'emulator-5598']
+-PACKAGE = 'kr.yunseok.touchmacro'
+-
+-def sha(path):
+-    return hashlib.sha256(path.read_bytes()).hexdigest()
+-
+-def main():
+-    device = run(PREFIX + ['shell', 'getprop', 'ro.boot.qemu.avd_name']).strip()
+-    if device != 'PXE14':
+-        raise SystemExit('소유한 PXE14 장치가 아닙니다')
+-    delivery = ROOT.parent
+-    baseline = json.loads((delivery / '13차_보존기준.json').read_text(encoding='utf-8-sig'))
+-    previous = Path('D:/2026/PXE Project/13차/PXE_13차_v1.3_PC용.apk')
+-    entry = next(item for item in baseline if Path(item['path']) == previous)
+-    if previous.stat().st_size != entry['bytes'] or sha(previous).upper() != entry['sha256']:
+-        raise SystemExit('13차 원본 APK 보존 기준 불일치')
+-    current = delivery / 'PXE_14차_v1.4_PC용.apk'
+-    tests = ROOT / 'work/build/app/outputs/apk/androidTest/release/app-release-androidTest.apk'
+-    work = ROOT / 'work/upgrade14'
+-    work.mkdir(parents=True, exist_ok=True)
+-    for source, name in [(previous, 'previous.apk'), (current, 'current.apk'), (tests, 'tests.apk')]:
+-        target = work / name
+-        shutil.copyfile(source, target)
+-        if sha(source) != sha(target):
+-            raise SystemExit('설치용 ASCII 복사본 해시 불일치')
+-        print(f'{name} SHA256 {sha(source)}')
+-    metadata = run(PREFIX + ['shell', 'dumpsys', 'package', PACKAGE])
+-    if re.search(r'versionCode=14\s', metadata):
+-        # 독립 재실행 때에도 같은 전용 시험 앱만 초기화합니다.
+-        run(PREFIX + ['uninstall', PACKAGE], timeout=40)
+-    run(PREFIX + ['install', '-r', str(BRIDGE / 'source/work/upgrade14/previous.apk')], timeout=60)
+-    metadata = run(PREFIX + ['shell', 'dumpsys', 'package', PACKAGE])
+-    if not re.search(r'versionCode=13\s', metadata):
+-        raise SystemExit('업데이트 전 설치 버전이 13차가 아닙니다')
+-    run(PREFIX + ['install', '-r', str(BRIDGE / 'source/work/upgrade14/tests.apk')], timeout=60)
+-    instrument = PREFIX + ['shell', 'am', 'instrument', '-w', '-r', '-e', 'class']
+-    runner = PACKAGE + '.test/androidx.test.runner.AndroidJUnitRunner'
+-    run(instrument + [PACKAGE + '.PxeUpgradeTest#seedPreviousVersion', runner], timeout=60, require_success=True)
+-    run(PREFIX + ['install', '-r', str(BRIDGE / 'source/work/upgrade14/current.apk')], timeout=60)
+-    metadata = run(PREFIX + ['shell', 'dumpsys', 'package', PACKAGE])
+-    if not re.search(r'versionCode=14\s', metadata):
+-        raise SystemExit('업데이트 후 설치 버전이 14차가 아닙니다')
+-    run(instrument + [PACKAGE + '.PxeUpgradeTest#verifyAfterPxeUpdate', runner], timeout=60, require_success=True)
+-    print('13→14 실제 업데이트와 기존 저장 데이터 보존: 2개 통과')
+-
+-if __name__ == '__main__':
++"""소유 PXE15 장치에서만 14→15 실제 업데이트와 기존 데이터 보존을 검사합니다."""
++import hashlib
++import json
++from pathlib import Path
++import re
++import shutil
++import sys
++sys.dont_write_bytecode = True
++from check_regression import ROOT, run
++
++BRIDGE = Path('D:/2026/PXE15Build')
++ADB = str(BRIDGE / 'android/android-sdk/platform-tools/adb.exe')
++PREFIX = [ADB, '-P', '5043', '-s', 'emulator-5598']
++PACKAGE = 'kr.yunseok.touchmacro'
++
++def sha(path):
++    return hashlib.sha256(path.read_bytes()).hexdigest()
++
++def main():
++    device = run(PREFIX + ['shell', 'getprop', 'ro.boot.qemu.avd_name']).strip()
++    if device != 'PXE15':
++        raise SystemExit('소유한 PXE15 장치가 아닙니다')
++    delivery = ROOT.parent
++    baseline = json.loads((delivery / '14차_보존기준.json').read_text(encoding='utf-8-sig'))
++    previous = Path('D:/2026/PXE Project/14차/PXE_14차_v1.4_PC용.apk')
++    entry = next(item for item in baseline if Path(item['path']) == previous)
++    if previous.stat().st_size != entry['bytes'] or sha(previous).upper() != entry['sha256']:
++        raise SystemExit('14차 원본 APK 보존 기준 불일치')
++    current = delivery / 'PXE_15차_v1.5_PC용.apk'
++    tests = ROOT / 'work/build/app/outputs/apk/androidTest/release/app-release-androidTest.apk'
++    work = ROOT / 'work/upgrade15'
++    work.mkdir(parents=True, exist_ok=True)
++    for source, name in [(previous, 'previous.apk'), (current, 'current.apk'), (tests, 'tests.apk')]:
++        target = work / name
++        shutil.copyfile(source, target)
++        if sha(source) != sha(target):
++            raise SystemExit('설치용 ASCII 복사본 해시 불일치')
++        print(f'{name} SHA256 {sha(source)}')
++    metadata = run(PREFIX + ['shell', 'dumpsys', 'package', PACKAGE])
++    if re.search(r'versionCode=15\s', metadata):
++        # 독립 재실행 때에도 같은 전용 시험 앱만 초기화합니다.
++        run(PREFIX + ['uninstall', PACKAGE], timeout=40)
++    run(PREFIX + ['install', '-r', str(BRIDGE / 'source/work/upgrade15/previous.apk')], timeout=60)
++    metadata = run(PREFIX + ['shell', 'dumpsys', 'package', PACKAGE])
++    if not re.search(r'versionCode=14\s', metadata):
++        raise SystemExit('업데이트 전 설치 버전이 14차가 아닙니다')
++    run(PREFIX + ['install', '-r', str(BRIDGE / 'source/work/upgrade15/tests.apk')], timeout=60)
++    instrument = PREFIX + ['shell', 'am', 'instrument', '-w', '-r', '-e', 'class']
++    runner = PACKAGE + '.test/androidx.test.runner.AndroidJUnitRunner'
++    run(instrument + [PACKAGE + '.PxeUpgradeTest#seedPreviousVersion', runner], timeout=60, require_success=True)
++    run(PREFIX + ['install', '-r', str(BRIDGE / 'source/work/upgrade15/current.apk')], timeout=60)
++    metadata = run(PREFIX + ['shell', 'dumpsys', 'package', PACKAGE])
++    if not re.search(r'versionCode=15\s', metadata):
++        raise SystemExit('업데이트 후 설치 버전이 15차가 아닙니다')
++    run(instrument + [PACKAGE + '.PxeUpgradeTest#verifyAfterPxeUpdate', runner], timeout=60, require_success=True)
++    print('14→15 실제 업데이트와 기존 저장 데이터 보존: 2개 통과')
++
++if __name__ == '__main__':
+     main()
+--- 14차/tools/recognition-check-plan.json
++++ 15차/tools/recognition-check-plan.json
+@@ -0,0 +1,71 @@
++{
++  "schema_version": 1,
++  "existing_shared_total_timeout_seconds": 720,
++  "small_screen": {
++    "classes": [
++      "PxeDesignReviewTest",
++      "PxeGuideFlowTest",
++      "PxeRedesignTest"
++    ],
++    "expected_tests": 6,
++    "size": "720x1280",
++    "density": 360,
++    "timeout_seconds": 120,
++    "restore": {
++      "size": "1080x2280",
++      "density": 420
++    },
++    "argv": [
++      "{python}",
++      "-B",
++      "-X",
++      "utf8",
++      "tools/check_device.py",
++      "PxeDesignReviewTest",
++      "PxeGuideFlowTest",
++      "PxeRedesignTest"
++    ],
++    "cwd": "."
++  },
++  "focused_total_timeout_seconds": 240,
++  "checks": [
++    {
++      "id": "인식설정 저장과 범위",
++      "classes": [
++        "PxeRecognitionSettingsTest"
++      ],
++      "expected_tests": 4,
++      "timeout_seconds": 90,
++      "inner_timeout_seconds": 60,
++      "argv": [
++        "{python}",
++        "-B",
++        "-X",
++        "utf8",
++        "tools/check_recognition_device.py",
++        "PxeRecognitionSettingsTest"
++      ],
++      "cwd": "."
++    },
++    {
++      "id": "인식방식과 경계영역 보존",
++      "classes": [
++        "RecognitionModeTest",
++        "RecognitionRegionTest"
++      ],
++      "expected_tests": 8,
++      "timeout_seconds": 150,
++      "inner_timeout_seconds": 120,
++      "argv": [
++        "{python}",
++        "-B",
++        "-X",
++        "utf8",
++        "tools/check_recognition_device.py",
++        "RecognitionModeTest",
++        "RecognitionRegionTest"
++      ],
++      "cwd": "."
++    }
++  ]
++}--- 14차/tools/required-check-plan.json
++++ 15차/tools/required-check-plan.json
+@@ -39,6 +39,49 @@
+       "timeout_seconds": 90
+     },
+     {
++      "id": "14차에서15차실제업데이트설정보존",
++      "argv": [
++        "{python}",
++        "-B",
++        "-X",
++        "utf8",
++        "tools/check_upgrade.py"
++      ],
++      "cwd": ".",
++      "timeout_seconds": 180,
++      "expected_tests": 2
++    },
++    {
++      "id": "라이트 다크 화면 및 탐지 안내 회귀",
++      "argv": [
++        "{python}",
++        "-B",
++        "-X",
++        "utf8",
++        "tools/check_device.py",
++        "PxeDesignReviewTest",
++        "PxeGuideFlowTest",
++        "PxeRedesignTest"
++      ],
++      "cwd": ".",
++      "timeout_seconds": 120,
++      "expected_tests": 6
++    },
++    {
++      "id": "OCR 터치 전 재확인 부재의 무한 대기 및 기존 정책",
++      "argv": [
++        "{python}",
++        "-B",
++        "-X",
++        "utf8",
++        "tools/check_device.py",
++        "TextConfirmationTest"
++      ],
++      "cwd": ".",
++      "timeout_seconds": 90,
++      "expected_tests": 4
++    },
++    {
+       "id": "소유 Android OCR 지연 및 제어 회귀",
+       "argv": [
+         "{python}",
+@@ -71,49 +114,6 @@
+       "cwd": ".",
+       "timeout_seconds": 180,
+       "expected_tests": 14
+-    },
+-    {
+-      "id": "라이트 다크 화면 및 탐지 안내 회귀",
+-      "argv": [
+-        "{python}",
+-        "-B",
+-        "-X",
+-        "utf8",
+-        "tools/check_device.py",
+-        "PxeDesignReviewTest",
+-        "PxeGuideFlowTest",
+-        "PxeRedesignTest"
+-      ],
+-      "cwd": ".",
+-      "timeout_seconds": 120,
+-      "expected_tests": 6
+-    },
+-    {
+-      "id": "13차에서14차실제업데이트설정보존",
+-      "argv": [
+-        "{python}",
+-        "-B",
+-        "-X",
+-        "utf8",
+-        "tools/check_upgrade.py"
+-      ],
+-      "cwd": ".",
+-      "timeout_seconds": 180,
+-      "expected_tests": 2
+-    },
+-    {
+-      "id": "OCR 터치 전 재확인 부재의 무한 대기 및 기존 정책",
+-      "argv": [
+-        "{python}",
+-        "-B",
+-        "-X",
+-        "utf8",
+-        "tools/check_device.py",
+-        "TextConfirmationTest"
+-      ],
+-      "cwd": ".",
+-      "timeout_seconds": 90,
+-      "expected_tests": 4
+     }
+   ]
+-}
++}--- 14차/빌드.ps1
++++ 15차/빌드.ps1
+@@ -1,22 +1,22 @@
+ $ErrorActionPreference = 'Stop'
+-$source14 = 'D:\2026\PXE Project\14차\source'
+-$bridge14 = 'D:\PXE14Build'
+-$delivery14 = 'D:\2026\PXE Project\14차'
+-$sourceLink14 = Get-Item -LiteralPath (Join-Path $bridge14 'source')
+-if ($sourceLink14.LinkType -ne 'Junction' -or $sourceLink14.Target -ne $source14) { throw '14차 전용 빌드 연결을 확인하세요.' }
+-$env:JAVA_HOME = Join-Path $bridge14 'tools\jdk-17.0.20.1+1'
+-$env:ANDROID_HOME = Join-Path $bridge14 'android\android-sdk'
+-$env:NEX_SIGNING_DIR = (Join-Path $bridge14 'signing').Replace('\','/')
++$source15 = 'D:\2026\PXE Project\15차\source'
++$bridge15 = 'D:\2026\PXE15Build'
++$delivery15 = 'D:\2026\PXE Project\15차'
++$sourceLink15 = Get-Item -LiteralPath (Join-Path $bridge15 'source')
++if ($sourceLink15.LinkType -ne 'Junction' -or $sourceLink15.Target -ne $source15) { throw '15차 전용 빌드 연결을 확인하세요.' }
++$env:JAVA_HOME = Join-Path $bridge15 'tools\jdk-17.0.20.1+1'
++$env:ANDROID_HOME = Join-Path $bridge15 'android\android-sdk'
++$env:NEX_SIGNING_DIR = (Join-Path $bridge15 'signing').Replace('\','/')
+ if (!(Test-Path -LiteralPath (Join-Path $env:NEX_SIGNING_DIR 'macro.jks'))) { throw '기존 앱과 같은 개인 서명 키가 필요합니다.' }
+-[IO.File]::WriteAllText((Join-Path $source14 'local.properties'), 'sdk.dir='+$env:ANDROID_HOME.Replace('\','/'), [Text.UTF8Encoding]::new($false))
+-Push-Location (Join-Path $bridge14 'source')
++[IO.File]::WriteAllText((Join-Path $source15 'local.properties'), 'sdk.dir='+$env:ANDROID_HOME.Replace('\','/'), [Text.UTF8Encoding]::new($false))
++Push-Location (Join-Path $bridge15 'source')
+ try {
+-    $gradle14 = Join-Path $bridge14 'tools\gradle-8.13\bin\gradle.bat'
+-    & $gradle14 :app:assembleRelease :app:testDebugUnitTest :app:lintDebug --console=plain --no-watch-fs --project-cache-dir work/.gradle
++    $gradle15 = Join-Path $bridge15 'tools\gradle-8.13\bin\gradle.bat'
++    & $gradle15 :app:assembleRelease :app:testDebugUnitTest :app:lintDebug --console=plain --no-watch-fs --project-cache-dir work/.gradle
+     if ($LASTEXITCODE -ne 0) { throw '휴대전화 APK 빌드 또는 검사 실패' }
+-    Copy-Item -LiteralPath (Join-Path $source14 'work\build\app\outputs\apk\release\app-release.apk') -Destination (Join-Path $delivery14 'PXE_14차_v1.4_노트10플러스.apk')
+-    & $gradle14 :app:assembleRelease :app:assembleReleaseAndroidTest -PNEX_PC --console=plain --no-watch-fs --project-cache-dir work/.gradle
++    Copy-Item -LiteralPath (Join-Path $source15 'work\build\app\outputs\apk\release\app-release.apk') -Destination (Join-Path $delivery15 'PXE_15차_v1.5_노트10플러스.apk')
++    & $gradle15 :app:assembleRelease :app:assembleReleaseAndroidTest -PNEX_PC --console=plain --no-watch-fs --project-cache-dir work/.gradle
+     if ($LASTEXITCODE -ne 0) { throw 'PC APK 또는 기기 검사 APK 빌드 실패' }
+-    Copy-Item -LiteralPath (Join-Path $source14 'work\build\app\outputs\apk\release\app-release.apk') -Destination (Join-Path $delivery14 'PXE_14차_v1.4_PC용.apk')
++    Copy-Item -LiteralPath (Join-Path $source15 'work\build\app\outputs\apk\release\app-release.apk') -Destination (Join-Path $delivery15 'PXE_15차_v1.5_PC용.apk')
+ } finally { Pop-Location }
+-Write-Host '완료: 14차 폴더에 휴대전화용과 PC용 APK를 저장했습니다.'
++Write-Host '완료: 15차 폴더에 휴대전화용과 PC용 APK를 저장했습니다.'
+--- 14차/빌드방법.txt
++++ 15차/빌드방법.txt
+@@ -1,14 +1,14 @@
+-PXE 1.4.0 · 14차 소스 빌드
++PXE 1.5.0 · 15차 소스 빌드
+ 
+-source의 빌드.ps1은 D:/PXE14Build 전용 연결로 JDK 17 / Gradle 8.13 / Android SDK 35를 사용합니다.
++source의 빌드.ps1은 D:/2026/PXE15Build 전용 연결로 JDK 17 / Gradle 8.13 / Android SDK 35를 사용합니다.
+ 기존 개인 서명 키와 앱 ID를 유지합니다. 키는 소스에 포함하지 않습니다.
+ 휴대전화용 ARM64 빌드를 먼저 저장하고 PC용 ARM64/x86_64 APK와 기기 검사 APK를 빌드합니다.
+-납품 위치: D:/2026/PXE Project/14차
++납품 위치: D:/2026/PXE Project/15차
+ 
+ 검사: :app:testDebugUnitTest :app:lintDebug
+ 순수 모델: python -B -X utf8 tools/check_regression.py
+ 텍스트: python -B -X utf8 tools/check_utf8.py
+-APK·13차 보존: python -B -X utf8 tools/check_artifacts.py
+-소유 PXE14 AVD에서만: python -B -X utf8 tools/check_device.py <검사 클래스>
++APK·14차 보존: python -B -X utf8 tools/check_artifacts.py
++소유 PXE15 AVD에서만: python -B -X utf8 tools/check_device.py <검사 클래스>
+ 기기 검사는 emulator-5598 / 전용 ADB 서버 5043을 사용합니다.
+ 기존 모델·저장 형식과 내부 밀리초 단위를 유지합니다. 화면 입력은 분/초입니다.

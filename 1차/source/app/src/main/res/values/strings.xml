@@ -1,0 +1,1 @@
+<resources><string name="app_name">윤석 터치매크로</string><string name="service_description">윤석님이 직접 만든 동작을 실행합니다. 화면 글자 읽기, 기기 내 한글 OCR, 좌표 터치, 스와이프와 뒤로가기에 접근성을 사용합니다. 화면이나 입력 내용은 서버로 전송하지 않습니다. 화면 위 정지 버튼으로 언제든 멈출 수 있습니다.</string><string name="test_taps">성공 횟수: %1$d</string><string name="ocr_taps">OCR 성공 횟수: %1$d</string></resources>

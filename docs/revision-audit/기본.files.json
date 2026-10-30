@@ -1,0 +1,735 @@
+[
+  {
+    "path": "NEXReference/final-device-logcat.txt",
+    "bytes": 14904,
+    "sha256": "0f1856f5a59a40bcc04d9d42d41c10d213e809e907632acc37b2ac2e31f84191",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 128,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXReference/ko-resources.txt",
+    "bytes": 159494,
+    "sha256": "daa4206e809cb9b406f3b2fd857e63e1eb081f0226e08026ccb366fd99e5e34f",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 1513,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXReference/manifest.json",
+    "bytes": 2082,
+    "sha256": "147e2af3e84e73b07e82baf49324f156fd8d4f0a4bf139ffd5254969408b5979",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": false,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXReference/nex-ui.xml",
+    "bytes": 12672,
+    "sha256": "98e662da83f7155013195497cab3f8768acb59f1d4074a566f94c3751fb28613",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": false,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXReference/release-signature.txt",
+    "bytes": 991,
+    "sha256": "d2eeeb798e9d68e22eafe66d97970f1a07865c3fd371486b798e57b234a24233",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 17,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSigning/key.properties",
+    "bytes": 85,
+    "sha256": "f59c4a994533315f8b92ded45e9ed32f886f9ca4448b8d53275d6b6e3cc9ce46",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 2,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSigning/보관안내.txt",
+    "bytes": 236,
+    "sha256": "3d2ca2a86a2c1319f0aa3446d17550d8083d60cfdaff9a8467fe907f2ce9bc74",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 1,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/.gitignore",
+    "bytes": 53,
+    "sha256": "76bbf877c87000883b47bd677e72fd554ef3077bd394c2051a61850a06a937de",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 5,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/app/build.gradle",
+    "bytes": 1448,
+    "sha256": "0854a4470f2dc22a25dd3f31f191c6efba4132f6847c43b2454390df024cbbf1",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 14,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/app/src/androidTest/java/kr/yunseok/touchmacro/DeviceFlowTest.java",
+    "bytes": 7414,
+    "sha256": "dca73c062e05d49964cec14de69cad715fe8f79fa2225572fb899e82607edf2f",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 58,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/app/src/androidTest/java/kr/yunseok/touchmacro/NexFeatureTest.java",
+    "bytes": 9213,
+    "sha256": "8593d3917c975dd48e54debdbe8c9f7a2bd0c6df65a9b7691dfbe4fb1f338397",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 48,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/app/src/main/AndroidManifest.xml",
+    "bytes": 1987,
+    "sha256": "50f2e943a654510b5f9936aafcf882bdc563f3a6f3c90cd3af98085f427ed371",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 14,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/app/src/main/assets/NanumGothic-OFL.txt",
+    "bytes": 5398,
+    "sha256": "9413f0aaff51c59be2ff01113a28759b491e6fd67172c3d0a666e6354af18883",
+    "text_bytes": {
+      "utf8_bom_count": 1,
+      "crlf_count": 0,
+      "lf_without_cr_count": 126,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/app/src/main/java/kr/yunseok/touchmacro/FloatingController.java",
+    "bytes": 22208,
+    "sha256": "d0f8073937a43f191141d8ffb54dcde9c872049453d13e21dfd9cdccdc4263c5",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 120,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/app/src/main/java/kr/yunseok/touchmacro/GesturePaths.java",
+    "bytes": 2475,
+    "sha256": "0281ba7d7ef6291cac98514fe7a43e980ef2c9a01f4fa616cc239f3ee841969d",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 23,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/app/src/main/java/kr/yunseok/touchmacro/KeepAliveService.java",
+    "bytes": 2037,
+    "sha256": "5835d44d1b026b5660be52eca4de5db0f7f2c31aae774269b474a3ece5cc45d1",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 20,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/app/src/main/java/kr/yunseok/touchmacro/Macro.java",
+    "bytes": 1850,
+    "sha256": "7a88dce5c08ba7fe943801201416801c927c56cbe904b4838072859c70bd0ef9",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 25,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/app/src/main/java/kr/yunseok/touchmacro/MacroService.java",
+    "bytes": 22351,
+    "sha256": "b340e774464352e36fe5b459b051c1ce37f82dbaa887af05f3aa209e2109521f",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 222,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/app/src/main/java/kr/yunseok/touchmacro/MainActivity.java",
+    "bytes": 38237,
+    "sha256": "6c228d8528a61cc579467257d907643ef17aac6bd3da9ba0d9bde3b38f45bc13",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 217,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/app/src/main/java/kr/yunseok/touchmacro/Step.java",
+    "bytes": 7706,
+    "sha256": "33b8048a541d22164c065c1951fef46088f2d31cf8ca2ed578246d9800ca7491",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 57,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/app/src/main/java/kr/yunseok/touchmacro/StopReceiver.java",
+    "bytes": 362,
+    "sha256": "5f64a0f1126aba74ed5ae1e0540f182a37d45ad7ab42b53daeffeef71a28b86f",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 1,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/app/src/main/java/kr/yunseok/touchmacro/Store.java",
+    "bytes": 1757,
+    "sha256": "23240a7d974fb0b566a89d6a4dc55be051c9e9564b91eb471d30b56b2b80cfd9",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 16,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/app/src/main/java/kr/yunseok/touchmacro/TextRules.java",
+    "bytes": 1118,
+    "sha256": "bb97a2e81411e8f646ab6249ed08cea3ffed1c854289b5540bb4febdb2cdafb2",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 23,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/app/src/main/java/kr/yunseok/touchmacro/TouchLabel.java",
+    "bytes": 390,
+    "sha256": "06a6c45ef4e982eae78747b1739287dae4c8f1b05dab19000fdaa90fec675f7d",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 2,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/app/src/main/java/kr/yunseok/touchmacro/TouchPane.java",
+    "bytes": 256,
+    "sha256": "da024f18cead993522fd50982bb4bf79b979b5825e7839506d3984fc8b33d036",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 1,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/app/src/main/java/kr/yunseok/touchmacro/Ui.java",
+    "bytes": 2135,
+    "sha256": "4f5ec0a730059afaf3e65125da06c668aa566e64e169886953bddbeddf5f5cc7",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 23,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/app/src/main/res/drawable/ic_macro.xml",
+    "bytes": 337,
+    "sha256": "7208fe08bdea35a31aebe808a34798b06cbe41abe985fb147312098057fa0377",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": false,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/app/src/main/res/font/nanum_gothic_bold.ttf",
+    "bytes": 4642244,
+    "sha256": "454eb3f503f377782a99eb84fc4bb7dde22a0f075d41b47427737f2985053bc9"
+  },
+  {
+    "path": "NEXSource2/app/src/main/res/values/strings.xml",
+    "bytes": 628,
+    "sha256": "00a53888578604a67a1aa128c73496615e5b73bf65c72c2294b6e9cc3dbb4707",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": false,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/app/src/main/res/values/styles.xml",
+    "bytes": 723,
+    "sha256": "5bee6d699d2a94695de64dbcd5bda66e9b685c4429e7056a3166b89fa3b04178",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": false,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/app/src/main/res/xml/accessibility.xml",
+    "bytes": 588,
+    "sha256": "a2b70fe4c3fc321cbe10717409b2e9b88f7e71e4bc6969703e8dd1322f02bd43",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 2,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/app/src/main/res/xml/data_extraction.xml",
+    "bytes": 177,
+    "sha256": "66c2d7c6ac2a3c03200235a556e0f410620cae5bdfedd4ebdf18528fcbc42886",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": false,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/app/src/test/java/kr/yunseok/touchmacro/GestureModelTest.java",
+    "bytes": 3075,
+    "sha256": "49e065b526e7e3501078f3967f2ca11e785d5227b975d5cb5f6770a3149c2bbf",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 15,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/app/src/test/java/kr/yunseok/touchmacro/ModelTest.java",
+    "bytes": 1942,
+    "sha256": "8ffd9b2e77a5e5c80797f9da8e3e81d1d74c7f21a20b01c2f769795cd7a091f3",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 16,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/app/src/test/java/kr/yunseok/touchmacro/TextRulesTest.java",
+    "bytes": 1229,
+    "sha256": "f5052ee6d6d0609f8de55e990db67088c2659de44450d4ff7778a83ce9abdf2d",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 11,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/build.gradle",
+    "bytes": 69,
+    "sha256": "7c2248fd2eddd20ccc0da72abb80cfb4beab12b2ec71cc022b36746df856290a",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 1,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/gradle.properties",
+    "bytes": 140,
+    "sha256": "8097d687b525291028e82bcc3e166f04c064375747cc8556294709dd29140ada",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 4,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/gradle/wrapper/gradle-wrapper.properties",
+    "bytes": 251,
+    "sha256": "cdab1ffb439219b1db125e3c99a86cf2424f8762b9b3faa404ed061e3635ecde",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 7,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/gradlew",
+    "bytes": 8752,
+    "sha256": "734b3879d3501dce471cf0522d3bcbafe76873d9fc5129345b67fb43bd15e933",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 251,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/gradlew.bat",
+    "bytes": 2966,
+    "sha256": "57931b17dd228e5c24dac90e815d0bf82477e831a4618dfab4136f5446b42a9f",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 94,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/local.properties",
+    "bytes": 56,
+    "sha256": "46040d29cac5f84d9313b835b2a583c216bf27271d20f4b9750b02b1d51b9a6c",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 1,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/settings.gradle",
+    "bytes": 278,
+    "sha256": "65b51b18cd5b5947a79cb13b1e14b3403c5f76ec83fa49c3e0c779da88e4da6d",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 4,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource2/빌드방법.txt",
+    "bytes": 1811,
+    "sha256": "8379da82be284b6c2f89bead19712e53cc2c8cbf06c9b43ee07b8f43d291c6b5",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 29,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource3/.gitignore",
+    "bytes": 53,
+    "sha256": "76bbf877c87000883b47bd677e72fd554ef3077bd394c2051a61850a06a937de",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 5,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource3/build.gradle",
+    "bytes": 69,
+    "sha256": "7c2248fd2eddd20ccc0da72abb80cfb4beab12b2ec71cc022b36746df856290a",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 1,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource3/gradle.properties",
+    "bytes": 140,
+    "sha256": "8097d687b525291028e82bcc3e166f04c064375747cc8556294709dd29140ada",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 4,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource3/gradle/wrapper/gradle-wrapper.properties",
+    "bytes": 251,
+    "sha256": "cdab1ffb439219b1db125e3c99a86cf2424f8762b9b3faa404ed061e3635ecde",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 7,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource3/gradlew",
+    "bytes": 8752,
+    "sha256": "734b3879d3501dce471cf0522d3bcbafe76873d9fc5129345b67fb43bd15e933",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 251,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource3/gradlew.bat",
+    "bytes": 2966,
+    "sha256": "57931b17dd228e5c24dac90e815d0bf82477e831a4618dfab4136f5446b42a9f",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 94,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource3/local.properties",
+    "bytes": 56,
+    "sha256": "46040d29cac5f84d9313b835b2a583c216bf27271d20f4b9750b02b1d51b9a6c",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 1,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource3/settings.gradle",
+    "bytes": 278,
+    "sha256": "65b51b18cd5b5947a79cb13b1e14b3403c5f76ec83fa49c3e0c779da88e4da6d",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 4,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXSource3/빌드방법.txt",
+    "bytes": 1811,
+    "sha256": "8379da82be284b6c2f89bead19712e53cc2c8cbf06c9b43ee07b8f43d291c6b5",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 29,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXTools/avd/NEX12.ini",
+    "bytes": 116,
+    "sha256": "2d865bc132e8119502276538fbed1b204f99c2b733d003c5ab82c2e7be2c8912",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 3,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXTools/avd/Note12/config.ini",
+    "bytes": 3605,
+    "sha256": "8029c1ca88965afa02ad31d9a8420547086c08f0db8dee4b3f6f6c981355c487",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 154,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXTools/avd/Note12/hardware-qemu.ini",
+    "bytes": 4619,
+    "sha256": "dd6f5a1c7b488f354e7762303284ed40e309890748ab77a0c9504abf229cb900",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 131,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NEXTools/avd/Note12/netsim.ini",
+    "bytes": 38,
+    "sha256": "d2eab250906e76f6decde96bafc81690359823727ba375761ac1a67296b9eb7b",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 1,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "릴리즈_보관규칙.txt",
+    "bytes": 286,
+    "sha256": "34789c8966c68d78fa0ae320665883a4df73ff7111e67b0fbb0585e16fdee2e1",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 6,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": false,
+      "empty_file": false
+    }
+  }
+]

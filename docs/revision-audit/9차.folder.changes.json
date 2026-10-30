@@ -1,0 +1,306 @@
+[
+  {
+    "path": "8차_변경사항.txt",
+    "status": "이전만 존재",
+    "before_bytes": 1851,
+    "after_bytes": null,
+    "before_sha256": "49769fa1774dde0d92cadec165b5a2acd358be6010da50842b6f7536fa380f62",
+    "after_sha256": null
+  },
+  {
+    "path": "9차_변경사항.txt",
+    "status": "추가",
+    "before_bytes": null,
+    "after_bytes": 2400,
+    "before_sha256": null,
+    "after_sha256": "3b76e43fb5b17c976c44594e0424f03bd25de58bc16a5c6041724738ad5fb80c"
+  },
+  {
+    "path": "APK_SHA256.json",
+    "status": "수정",
+    "before_bytes": 460,
+    "after_bytes": 460,
+    "before_sha256": "1d3bc0b57f1adfe9f42bdaa02315914c10f42b29bac178b292c8e425c4c13f03",
+    "after_sha256": "acd5cbd37093ad6f245bd484ab58aee39289e3efeb96e02adb1eca22d61bd856"
+  },
+  {
+    "path": "LD플레이어14_사용안내.txt",
+    "status": "추가",
+    "before_bytes": null,
+    "after_bytes": 1824,
+    "before_sha256": null,
+    "after_sha256": "930dd8225ed855f9839a3e26344e0e4f94b36217e924a309b9b4921f7fefca15"
+  },
+  {
+    "path": "source/app/build.gradle",
+    "status": "수정",
+    "before_bytes": 1527,
+    "after_bytes": 1527,
+    "before_sha256": "06abd145f709ab1856a9d1ecd561adb5df8ca5f43626d0aa48198b991003fc11",
+    "after_sha256": "4c7c1e068af79e9802d5393a7dde71dbf3f42d11c0ff5e52da1849c46a0da51d"
+  },
+  {
+    "path": "source/app/src/androidTest/java/kr/yunseok/touchmacro/CaptureRecoveryTest.java",
+    "status": "추가",
+    "before_bytes": null,
+    "after_bytes": 3815,
+    "before_sha256": null,
+    "after_sha256": "a91ee3c33f0a66e06a6bb602dd7d3ec50d3b680d3c62438d231337e9f28f961b"
+  },
+  {
+    "path": "source/app/src/androidTest/java/kr/yunseok/touchmacro/FloatingPlayTest.java",
+    "status": "추가",
+    "before_bytes": null,
+    "after_bytes": 5241,
+    "before_sha256": null,
+    "after_sha256": "53bf39947b43f389d84b75ea0a05046aa9c7adcc9df3ce45c9046331e9131691"
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/CapturePacer.java",
+    "status": "추가",
+    "before_bytes": null,
+    "after_bytes": 496,
+    "before_sha256": null,
+    "after_sha256": "b2ff068aaac6929e73889db57c3c03f1bdff20c64cd1e18d5273315b5c1879ef"
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/FloatingController.java",
+    "status": "수정",
+    "before_bytes": 26417,
+    "after_bytes": 26765,
+    "before_sha256": "a862d7d6c7fa43dd22a7a4eac25c01c3c5ba582dd917d5a0b912284a470b7164",
+    "after_sha256": "4df287d54c178acd497b58e20727b526d06b075d77c483af6a98ca091dfcb724"
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/MacroService.java",
+    "status": "수정",
+    "before_bytes": 36740,
+    "after_bytes": 40016,
+    "before_sha256": "ca1441c0bd19b854e3304197705d2943e5985e13885cf17e0ee358e6d456970b",
+    "after_sha256": "cb594a6e6c10fc038e832b7d58a40872f30deb0caeb1fa32b907420f8d151332"
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/MainActivity.java",
+    "status": "수정",
+    "before_bytes": 52828,
+    "after_bytes": 52828,
+    "before_sha256": "29ce68b401b863079ab6168f4cc3b72e40bd36a1bfb79a2d3191425bf30d9c26",
+    "after_sha256": "7551626823cc2b59fd54c83f55c4baef7a3b02da64c1680728bdab858ec56f4e"
+  },
+  {
+    "path": "source/local.properties",
+    "status": "수정",
+    "before_bytes": 76,
+    "after_bytes": 76,
+    "before_sha256": "e8d2c63bedd5ae10e51c78fc61e456d7d9222e43f9f20e364f8821990250038c",
+    "after_sha256": "c122ef21c4ecf99e9c6d75fafea42e85502a02d84d309133acc109b03153d9ff"
+  },
+  {
+    "path": "source/빌드.ps1",
+    "status": "수정",
+    "before_bytes": 1528,
+    "after_bytes": 1528,
+    "before_sha256": "5cc13ec9170bf776225949f6f23e438b5eedfe2d2f48abce6af85559356e5ada",
+    "after_sha256": "774895c7e10829ef1cf8aebe83cf1a7034cb38e131a8495c3db3dd1139b06ec6"
+  },
+  {
+    "path": "source/빌드방법.txt",
+    "status": "수정",
+    "before_bytes": 1075,
+    "after_bytes": 1096,
+    "before_sha256": "599d658b80a95f1c2aea03adbcc89cac161a7e31c79790a8301eaae8a66d658d",
+    "after_sha256": "dcd1a601b23a67a90a4dbacbde10738df94c5d6b75a0c7c04bb73f0c4e35bc51"
+  },
+  {
+    "path": "검증/Android12_단축창_실제터치검사.txt",
+    "status": "추가",
+    "before_bytes": null,
+    "after_bytes": 2432,
+    "before_sha256": null,
+    "after_sha256": "cade1dfdfe95285dc82835ed133f2521aef8a4593dd4ab56552355e0136374f3"
+  },
+  {
+    "path": "검증/Android12_단축창_재검사.txt",
+    "status": "추가",
+    "before_bytes": null,
+    "after_bytes": 2432,
+    "before_sha256": null,
+    "after_sha256": "ee207bc200697ada79ee6968484b7665e76998e7792026dfd419ac8116657b8f"
+  },
+  {
+    "path": "검증/Android12_단축창_초기검사.txt",
+    "status": "추가",
+    "before_bytes": null,
+    "after_bytes": 2125,
+    "before_sha256": null,
+    "after_sha256": "d1c03c13fda8e14b9e5850ad85b02f3a88380fc582412e3bb27a3848ccd4d6ff"
+  },
+  {
+    "path": "검증/Android12_단축창_최종검사.txt",
+    "status": "추가",
+    "before_bytes": null,
+    "after_bytes": 80,
+    "before_sha256": null,
+    "after_sha256": "8cb05bace7267adb86aafbb88110dfc63cdb6a2e5af2400052d5fb0a18b38045"
+  },
+  {
+    "path": "검증/Android12_실행시험.txt",
+    "status": "수정",
+    "before_bytes": 501,
+    "after_bytes": 341,
+    "before_sha256": "66f8350f1fd98bc4c53eb674b97481202aaf823abab330c6a37e9be30ada7930",
+    "after_sha256": "481ed2dced8a78bc4f43cf31306c289a9c64e27896ccbda330c43e1aa1a0738d"
+  },
+  {
+    "path": "검증/단위검사/TEST-kr.yunseok.touchmacro.GestureModelTest.xml",
+    "status": "수정",
+    "before_bytes": 1590,
+    "after_bytes": 1586,
+    "before_sha256": "d4abc0e83722d4860d94a816e14d437678991c3ae15402d0392a8997ce117d0d",
+    "after_sha256": "c5502e32f7c1c275bf2f1c8612a6733ca3d79adf17c95d448187472182854767"
+  },
+  {
+    "path": "검증/단위검사/TEST-kr.yunseok.touchmacro.ModelTest.xml",
+    "status": "수정",
+    "before_bytes": 1344,
+    "after_bytes": 1348,
+    "before_sha256": "6694734f9e9d014046cb8d5506a8b9e82cf2889980a11385e87d488cd3ff466d",
+    "after_sha256": "3dba0fa7831becfc84060f37c391a906f29a8cd46cf51d8549f6f4f623ffa396"
+  },
+  {
+    "path": "검증/단위검사/TEST-kr.yunseok.touchmacro.QueryLaneTest.xml",
+    "status": "수정",
+    "before_bytes": 700,
+    "after_bytes": 701,
+    "before_sha256": "94a742353682716bf56e00eed50b3be185afa6b679355c6042ff256c1bec0a57",
+    "after_sha256": "094c8791cb8405b727ff49b879306074960cad4ed6ef8ef80ec496ac1a06671b"
+  },
+  {
+    "path": "검증/단위검사/TEST-kr.yunseok.touchmacro.RepeatMeaningTest.xml",
+    "status": "수정",
+    "before_bytes": 703,
+    "after_bytes": 703,
+    "before_sha256": "3111ebe8917ff5843097c8ef792dae0458070a41bd868da317e8b774292748fa",
+    "after_sha256": "944ace6f835dd38485d7c4c472b5620b719f8d4e36beb95e27140107b0a0d0fd"
+  },
+  {
+    "path": "검증/단위검사/TEST-kr.yunseok.touchmacro.TextRulesTest.xml",
+    "status": "수정",
+    "before_bytes": 949,
+    "after_bytes": 947,
+    "before_sha256": "85e2e353d12cd6de00d38874dff3df4d19c61c93d91b04651fb7184b5ce0c273",
+    "after_sha256": "1ef2c6064fa8689345625ee36da4537a16ec6475cfe56aa4c7ea40d9fc81b0ae"
+  },
+  {
+    "path": "검증/단위검사/TEST-kr.yunseok.touchmacro.TimesTest.xml",
+    "status": "수정",
+    "before_bytes": 1044,
+    "after_bytes": 1046,
+    "before_sha256": "c9349d1d9252db880ab4b651b0368edc66769a691dd15faadd8dc3c56af9747e",
+    "after_sha256": "f4cd4694bda1881cf0e86d67a49385432bcd943396f81b2a48b2890cccfd77b2"
+  },
+  {
+    "path": "검증/단위검사/TEST-kr.yunseok.touchmacro.WatchConfigTest.xml",
+    "status": "수정",
+    "before_bytes": 1593,
+    "after_bytes": 1593,
+    "before_sha256": "264df07d5717d91a361e3fca9e4e52a474a5631bc945ccfdf8ef3d0da2adfcef",
+    "after_sha256": "c11e48e0c1299c2c2465be8197c13c9f4496d6f8deaaf56e801fd245676828d7"
+  },
+  {
+    "path": "검증/단위검사/TEST-kr.yunseok.touchmacro.WatchGateTest.xml",
+    "status": "수정",
+    "before_bytes": 1522,
+    "after_bytes": 1518,
+    "before_sha256": "c0fadf52a99fe4b20e9fc8dd6631de965877a6a2d8df1235c4b1dea956cf6b04",
+    "after_sha256": "09c26fe0967cfdab8a36f61f84c8032a7bb4924bddcb4bda1488933cdf3b4652"
+  },
+  {
+    "path": "검증/단위검사/testDebugUnitTest/TEST-kr.yunseok.touchmacro.GestureModelTest.xml",
+    "status": "추가",
+    "before_bytes": null,
+    "after_bytes": 1586,
+    "before_sha256": null,
+    "after_sha256": "c5502e32f7c1c275bf2f1c8612a6733ca3d79adf17c95d448187472182854767"
+  },
+  {
+    "path": "검증/단위검사/testDebugUnitTest/TEST-kr.yunseok.touchmacro.ModelTest.xml",
+    "status": "추가",
+    "before_bytes": null,
+    "after_bytes": 1348,
+    "before_sha256": null,
+    "after_sha256": "3dba0fa7831becfc84060f37c391a906f29a8cd46cf51d8549f6f4f623ffa396"
+  },
+  {
+    "path": "검증/단위검사/testDebugUnitTest/TEST-kr.yunseok.touchmacro.QueryLaneTest.xml",
+    "status": "추가",
+    "before_bytes": null,
+    "after_bytes": 701,
+    "before_sha256": null,
+    "after_sha256": "094c8791cb8405b727ff49b879306074960cad4ed6ef8ef80ec496ac1a06671b"
+  },
+  {
+    "path": "검증/단위검사/testDebugUnitTest/TEST-kr.yunseok.touchmacro.RepeatMeaningTest.xml",
+    "status": "추가",
+    "before_bytes": null,
+    "after_bytes": 703,
+    "before_sha256": null,
+    "after_sha256": "944ace6f835dd38485d7c4c472b5620b719f8d4e36beb95e27140107b0a0d0fd"
+  },
+  {
+    "path": "검증/단위검사/testDebugUnitTest/TEST-kr.yunseok.touchmacro.TextRulesTest.xml",
+    "status": "추가",
+    "before_bytes": null,
+    "after_bytes": 947,
+    "before_sha256": null,
+    "after_sha256": "1ef2c6064fa8689345625ee36da4537a16ec6475cfe56aa4c7ea40d9fc81b0ae"
+  },
+  {
+    "path": "검증/단위검사/testDebugUnitTest/TEST-kr.yunseok.touchmacro.TimesTest.xml",
+    "status": "추가",
+    "before_bytes": null,
+    "after_bytes": 1046,
+    "before_sha256": null,
+    "after_sha256": "f4cd4694bda1881cf0e86d67a49385432bcd943396f81b2a48b2890cccfd77b2"
+  },
+  {
+    "path": "검증/단위검사/testDebugUnitTest/TEST-kr.yunseok.touchmacro.WatchConfigTest.xml",
+    "status": "추가",
+    "before_bytes": null,
+    "after_bytes": 1593,
+    "before_sha256": null,
+    "after_sha256": "c11e48e0c1299c2c2465be8197c13c9f4496d6f8deaaf56e801fd245676828d7"
+  },
+  {
+    "path": "검증/단위검사/testDebugUnitTest/TEST-kr.yunseok.touchmacro.WatchGateTest.xml",
+    "status": "추가",
+    "before_bytes": null,
+    "after_bytes": 1518,
+    "before_sha256": null,
+    "after_sha256": "09c26fe0967cfdab8a36f61f84c8032a7bb4924bddcb4bda1488933cdf3b4652"
+  },
+  {
+    "path": "검증결과.txt",
+    "status": "수정",
+    "before_bytes": 2356,
+    "after_bytes": 3304,
+    "before_sha256": "57292e6e648ec847dd78a22193e5e7e915b564a9a4ea2acd6004b11fb81fd03e",
+    "after_sha256": "eb577be592682d003418a9e5322094826aa3613416d7d4a9b9ee2ab5d1cb9efc"
+  },
+  {
+    "path": "블루스택_업데이트와_동기화.txt",
+    "status": "이전만 존재",
+    "before_bytes": 2410,
+    "after_bytes": null,
+    "before_sha256": "bf24d60658f8f47319e04db83d82f4ba3b0e9acc270c8bb5e7714bd437e86344",
+    "after_sha256": null
+  },
+  {
+    "path": "사용법.txt",
+    "status": "수정",
+    "before_bytes": 5112,
+    "after_bytes": 5112,
+    "before_sha256": "9e6490eb195f60ea7da5c4da95236d37eb55aa10f378c9a9e7642653605d5549",
+    "after_sha256": "9db2bb20e7954fe25780b917246e91fdb481e91f59f85c3abca0e4468500b43a"
+  }
+]

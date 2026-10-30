@@ -1,0 +1,71 @@
+[
+  {
+    "time": "2026-10-28T23:43:33.295026+09:00",
+    "argv": [
+      "C:/Program Files/Docker/Docker/resources/bin/docker.exe",
+      "inspect",
+      "--format",
+      "{{json .HostConfig.DeviceRequests}}",
+      "2026"
+    ],
+    "exit_code": 0,
+    "encoding": "utf-8",
+    "output": "[{\"Driver\":\"\",\"Count\":-1,\"DeviceIDs\":null,\"Capabilities\":[[\"gpu\"]],\"Options\":{}}]\n",
+    "original_bytes": 82
+  },
+  {
+    "time": "2026-10-28T23:43:33.529005+09:00",
+    "argv": [
+      "C:/Program Files/Docker/Docker/resources/bin/docker.exe",
+      "inspect",
+      "--format",
+      "{{json .HostConfig.Memory}} {{json .HostConfig.NanoCpus}} {{json .HostConfig.CpusetCpus}}",
+      "2026"
+    ],
+    "exit_code": 0,
+    "encoding": "utf-8",
+    "output": "51539607552 24000000000 \"\"\n",
+    "original_bytes": 27
+  },
+  {
+    "time": "2026-10-28T23:43:33.797490+09:00",
+    "argv": [
+      "C:/Program Files/Docker/Docker/resources/bin/docker.exe",
+      "top",
+      "2026",
+      "-eo",
+      "pid,comm,pcpu,pmem"
+    ],
+    "exit_code": 0,
+    "encoding": "utf-8",
+    "output": "PID                 COMMAND             %CPU                %MEM\n12767               docker-init         0.0                 0.0\n12810               tini                0.0                 0.0\n12811               sleep               0.0                 0.0\n83230               python              0.3                 0.0\n83243               python              0.1                 0.1\n71809               python              61.0                6.1\n662                 pt_data_worker      12.2                3.1\n663                 pt_data_worker      12.2                3.2\n664                 pt_data_worker      12.3                3.1\n665                 pt_data_worker      12.3                3.1\n1638                pt_data_worker      0.2                 4.2\n1639                pt_data_worker      0.2                 4.1\n1640                pt_data_worker      0.2                 4.1\n1641                pt_data_worker      0.2                 4.1\n1642                pt_data_worker      0.2                 4.1\n1643                pt_data_worker      0.2                 4.2\n1644                pt_data_worker      0.2                 4.1\n1645                pt_data_worker      0.2                 4.2\n19899               python              38.2                1.3\n21238               python              11.8                0.1\n21484               python              14.8                0.1\n21569               python              34.8                0.1\n",
+    "original_bytes": 1473
+  },
+  {
+    "time": "2026-10-28T23:43:34.236526+09:00",
+    "argv": [
+      "C:/Program Files/Docker/Docker/resources/bin/docker.exe",
+      "exec",
+      "2026",
+      "sh",
+      "-c",
+      "if command -v nvidia-smi >/dev/null 2>&1; then nvidia-smi --query-compute-apps=pid,process_name,used_gpu_memory --format=csv,noheader,nounits; else printf \"GPU_QUERY_TOOL_UNAVAILABLE\\n\"; fi"
+    ],
+    "exit_code": 0,
+    "encoding": "utf-8",
+    "output": "37429, [Not Found], [N/A]\n",
+    "original_bytes": 26
+  },
+  {
+    "time": "2026-10-28T23:43:34.529630+09:00",
+    "argv": [
+      "C:/Windows/System32/wsl.exe",
+      "--list",
+      "--verbose"
+    ],
+    "exit_code": 0,
+    "encoding": "utf-16-le",
+    "output": "  NAME              STATE           VERSION\r\n* Ubuntu            Stopped         2\r\n  docker-desktop    Running         2\r\n",
+    "original_bytes": 246
+  }
+]

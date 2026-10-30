@@ -1,0 +1,1008 @@
+{
+  "programs": [
+    {
+      "name": "HD-Player",
+      "host_cpu_avg": 23.8,
+      "mean_combined_ram_mb": 7547,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "dllhost",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 60,
+      "unknown_cpu_samples": 24,
+      "cpu_measurement": "일부프로세스권한으로미확인",
+      "known_process_cpu_avg": 2.16
+    },
+    {
+      "name": "MapleIdleRPG",
+      "host_cpu_avg": 1.08,
+      "mean_combined_ram_mb": 3112,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "Taskmgr",
+      "host_cpu_avg": 1.0,
+      "mean_combined_ram_mb": 156,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "AnyDesk",
+      "host_cpu_avg": 0.85,
+      "mean_combined_ram_mb": 363,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "grap-core64.aes",
+      "host_cpu_avg": 0.25,
+      "mean_combined_ram_mb": 505,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "adb",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 21,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "AggregatorHost",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 16,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "AppActions",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 48,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "ApplicationFrameHost",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 30,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "ASDSvc",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 531,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "audiodg",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 18,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "backgroundTaskHost",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 69,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "BlueStacksServices",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 668,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "BstkSVC",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 13,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "ChatGPT",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 4357,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "chrome",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 4055,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "chromedriver",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 37,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "CHXSmartScreen",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 8,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "CleanView5",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 65,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "cmd",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 303,
+      "unknown_cpu_samples": 3,
+      "cpu_measurement": "일부프로세스권한으로미확인",
+      "known_process_cpu_avg": 0.0
+    },
+    {
+      "name": "codex",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 2644,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "codex-code-mode-host",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 95,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "codex-computer-use",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 50,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "codex-computer-use-swift",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 91,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "com.docker.backend",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 450,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "com.docker.build",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 73,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "conhost",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 1165,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "일부프로세스권한으로미확인",
+      "known_process_cpu_avg": 0.0
+    },
+    {
+      "name": "crashpad_handler",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 18,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "일부프로세스권한으로미확인",
+      "known_process_cpu_avg": 0.0
+    },
+    {
+      "name": "CrossDeviceResume",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 8,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "csrss",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 16,
+      "unknown_cpu_samples": 24,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "ctfmon",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 27,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "dasHost",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 22,
+      "unknown_cpu_samples": 24,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "docker",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 15,
+      "unknown_cpu_samples": 8,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "Docker Desktop",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 1299,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "docker-agent",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 125,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "dwm",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 109,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "esasvc",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 18,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "Everything",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 360,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "일부프로세스권한으로미확인",
+      "known_process_cpu_avg": 0.0
+    },
+    {
+      "name": "EXP Pro",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 301,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "explorer",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 505,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "extension-host",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 7,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "FlipRing",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 1042,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "fontdrvhost",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 48,
+      "unknown_cpu_samples": 24,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "HD-MultiInstanceManager",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 58,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "HncCheck96",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 29,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "Idle",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 0,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "IMGSF50Svc",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 9,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "innorixem",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 6,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "innorixes",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 23,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "innorixet",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 18,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "java",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 288,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "jhi_service",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 8,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "KakaoTalk",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 156,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "logi_lamparray_service.AMD64",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 14,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "LsaIso",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 4,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "lsass",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 30,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "MaEPSBroker",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 14,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "Memory Compression",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 5411,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "MoNotificationUx",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 14,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "MoUsoCoreWorker",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 28,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "msedgewebview2",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 737,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "msrdc",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 19,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "n6agent",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 63,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "n6hlp32",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 15,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "n6hlp64",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 7,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "n6pmu",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 19,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "neas",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 32,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "neat",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 12,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "nepss64",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 17,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "nepws64",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 12,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "NexonLauncher64",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 10,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "NexonPlug",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 560,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "node",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 9605,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "node_repl",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 2065,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "nosstarter.npe",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 19,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "nossvc",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 1,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "Notepad",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 76,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "nvcontainer",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 104,
+      "unknown_cpu_samples": 24,
+      "cpu_measurement": "일부프로세스권한으로미확인",
+      "known_process_cpu_avg": 0.0
+    },
+    {
+      "name": "NVDisplay.Container",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 55,
+      "unknown_cpu_samples": 24,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "pwsh",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 125,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "python",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 60,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "Registry",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 29,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "regsvc",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 13,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "RstMwService",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 10,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "RuntimeBroker",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 126,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "SamsungPortableSSDMon_1.0",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 6,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "SearchFilterHost",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 13,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "SearchHost",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 94,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "SearchIndexer",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 78,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "SearchProtocolHost",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 13,
+      "unknown_cpu_samples": 7,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "Secure System",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 198,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "SecurityHealthService",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 13,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "SecurityHealthSystray",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 14,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "services",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 20,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "ShellExperienceHost",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 70,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "ShellHost",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 14,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "sihost",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 44,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "smartscreen",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 13,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "smss",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 2,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "spoolsv",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 8,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "sppsvc",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 18,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "StartMenuExperienceHost",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 81,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "steam",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 83,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "steamservice",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 15,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "steamwebhelper",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 684,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "svchost",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 1377,
+      "unknown_cpu_samples": 948,
+      "cpu_measurement": "일부프로세스권한으로미확인",
+      "known_process_cpu_avg": 0.0
+    },
+    {
+      "name": "System",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 4,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "taskhostw",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 52,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "TeamViewer",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 103,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "TeamViewer_Service",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 38,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "TextInputHost",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 109,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "ThumbnailCare",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 77,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "tv_w32",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 12,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "tv_x64",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 12,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "UnityCrashHandler64",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 10,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "unsecapp",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 12,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "V3UI",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 24,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "vmcompute",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 16,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "vmmemWSL",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 3826,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "vmwp",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 16,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "Widgets",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 14,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "WidgetService",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 6,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "WindowsPackageManagerServer",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 21,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "wininit",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 9,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "winlogon",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 12,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "wlanext",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 8,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "WmiPrvSE",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 127,
+      "unknown_cpu_samples": 35,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "WMIRegistrationService",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 14,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "wsl",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 47,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "wslhost",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 59,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "wslrelay",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 13,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "wslservice",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 19,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "ZZero",
+      "host_cpu_avg": 0.0,
+      "mean_combined_ram_mb": 51,
+      "unknown_cpu_samples": 0,
+      "cpu_measurement": "전체관측가능"
+    },
+    {
+      "name": "ZZeroSrvc",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 381,
+      "unknown_cpu_samples": 12,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "WmiApSrv",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 12,
+      "unknown_cpu_samples": 11,
+      "cpu_measurement": "CPU조회불가"
+    },
+    {
+      "name": "tasklist",
+      "host_cpu_avg": null,
+      "mean_combined_ram_mb": 2,
+      "unknown_cpu_samples": 2,
+      "cpu_measurement": "CPU조회불가"
+    }
+  ],
+  "instance_pids": {
+    "19152": {
+      "cpu_weighted": 435.394487,
+      "ram_sum": 13142.4,
+      "count": 12,
+      "max_cpu": 6
+    },
+    "55544": {
+      "cpu_weighted": 0.0,
+      "ram_sum": 17710.7,
+      "count": 12,
+      "max_cpu": 0
+    },
+    "65952": {
+      "cpu_weighted": 36.0984014,
+      "ram_sum": 19467.300000000003,
+      "count": 12,
+      "max_cpu": 1
+    },
+    "87228": {
+      "cpu_weighted": 452.76353070000005,
+      "ram_sum": 13315.8,
+      "count": 12,
+      "max_cpu": 7
+    },
+    "114960": {
+      "cpu_weighted": 435.5128579,
+      "ram_sum": 13131.800000000001,
+      "count": 12,
+      "max_cpu": 7
+    },
+    "118944": {
+      "cpu_weighted": 441.6632138,
+      "ram_sum": 13799.7,
+      "count": 12,
+      "max_cpu": 6
+    }
+  }
+}

@@ -1,0 +1,1008 @@
+[
+  {
+    "path": "6차_변경사항.txt",
+    "bytes": 911,
+    "sha256": "6b269318079cb6c749f1750e918e37b10d80e3b54f3f3e3fad8851b9f4e30246",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 1,
+      "lf_without_cr_count": 9,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "APK_SHA256.json",
+    "bytes": 311,
+    "sha256": "77bf602a2389f9b064ca0b4bcd30fb8ffb01198fce4b0f86ab18774f91d4d66d",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 10,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "NanumGothic-OFL.txt",
+    "bytes": 5398,
+    "sha256": "9413f0aaff51c59be2ff01113a28759b491e6fd67172c3d0a666e6354af18883",
+    "text_bytes": {
+      "utf8_bom_count": 1,
+      "crlf_count": 0,
+      "lf_without_cr_count": 126,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/.gitignore",
+    "bytes": 53,
+    "sha256": "76bbf877c87000883b47bd677e72fd554ef3077bd394c2051a61850a06a937de",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 5,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/build.gradle",
+    "bytes": 1527,
+    "sha256": "b56cab3eab2ad9fda29a1c252bf5faf6f7ff6e96aec597f3f115204a8436b58b",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 14,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/androidTest/java/kr/yunseok/touchmacro/DeviceFlowTest.java",
+    "bytes": 7414,
+    "sha256": "dca73c062e05d49964cec14de69cad715fe8f79fa2225572fb899e82607edf2f",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 58,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/androidTest/java/kr/yunseok/touchmacro/GuidedFlowTest.java",
+    "bytes": 11167,
+    "sha256": "59541066e41d290744f4513f9f7d4b423fa3d28de18d9df5ff1968c60e460870",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 55,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/androidTest/java/kr/yunseok/touchmacro/NexFeatureTest.java",
+    "bytes": 9213,
+    "sha256": "8593d3917c975dd48e54debdbe8c9f7a2bd0c6df65a9b7691dfbe4fb1f338397",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 48,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/androidTest/java/kr/yunseok/touchmacro/PriorityFlowTest.java",
+    "bytes": 3167,
+    "sha256": "b0df9df89bd1276fa17acde90bfb3e75141facd12c2f5be90fe7547dec68b1f1",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 23,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/androidTest/java/kr/yunseok/touchmacro/RepeatFlowTest.java",
+    "bytes": 1854,
+    "sha256": "a4022f979c616aa92bfae15dd8a3e0f28297d173ae00e3b907e9d84625329f61",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 18,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/androidTest/java/kr/yunseok/touchmacro/WatchFlowTest.java",
+    "bytes": 6889,
+    "sha256": "4caba09682ae618f86b2de44aa173048b70337c9bdee291e646c620bf83ffdbe",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 1,
+      "lf_without_cr_count": 43,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/androidTest/java/kr/yunseok/touchmacro/WatchPresetTest.java",
+    "bytes": 5993,
+    "sha256": "fdeadf1fc40ebebb6562cee5d8f5759d26af8451e27d12b7e4ec0cd4c2fe1790",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 65,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/AndroidManifest.xml",
+    "bytes": 2028,
+    "sha256": "0b0b555dfe5b56f2f0acf4854a6a5abec73edbba0d5075827f707fd22d2efc96",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 14,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/assets/NanumGothic-OFL.txt",
+    "bytes": 5398,
+    "sha256": "9413f0aaff51c59be2ff01113a28759b491e6fd67172c3d0a666e6354af18883",
+    "text_bytes": {
+      "utf8_bom_count": 1,
+      "crlf_count": 0,
+      "lf_without_cr_count": 126,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/FloatingController.java",
+    "bytes": 26417,
+    "sha256": "a862d7d6c7fa43dd22a7a4eac25c01c3c5ba582dd917d5a0b912284a470b7164",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 2,
+      "lf_without_cr_count": 147,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/GesturePaths.java",
+    "bytes": 2475,
+    "sha256": "0281ba7d7ef6291cac98514fe7a43e980ef2c9a01f4fa616cc239f3ee841969d",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 23,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/KeepAliveService.java",
+    "bytes": 2072,
+    "sha256": "2f25a39dfb9c35b1ea7486c47017f36bd7e0da8d2785ab59068cea84fd501b60",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 20,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/Macro.java",
+    "bytes": 1850,
+    "sha256": "7a88dce5c08ba7fe943801201416801c927c56cbe904b4838072859c70bd0ef9",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 25,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/MacroService.java",
+    "bytes": 34314,
+    "sha256": "8c056dc01ee2d339a8a0ce8e1c3cbc4bf2b9e1797ccdd58d380aad7afe0328cd",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 9,
+      "lf_without_cr_count": 318,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/MainActivity.java",
+    "bytes": 52828,
+    "sha256": "7a6927f8b3f494fd1e7ed773ab9309ea26998aab879561ab9e053d00457cf22d",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 6,
+      "lf_without_cr_count": 301,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/RegionPicker.java",
+    "bytes": 4247,
+    "sha256": "b31b9ac9016bd0fa518835501306a683702481a0012d4a375a2eb7f3492d191a",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 38,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/RunHud.java",
+    "bytes": 1774,
+    "sha256": "1383297f13a917a2163a8c759f6eb9677205b42cc92be9a79194b0ec36b8aca2",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 21,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/SetupCoach.java",
+    "bytes": 1861,
+    "sha256": "15aa05f33e672c9f7dcec67e2399ae3d268900b10db0cfea4028f3011b5caadd",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 19,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/SetupFlow.java",
+    "bytes": 3309,
+    "sha256": "cbd31edec306426094e751d61462e460a561b06fceabab3a8fe05d9dde374c6a",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 42,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/SetupWizard.java",
+    "bytes": 9209,
+    "sha256": "72a4b79522d33a7f0be0e276f6e65f18799eb0e3f11d3e0379397ac6ab798689",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 71,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/Step.java",
+    "bytes": 7844,
+    "sha256": "392600cd5d0cc2ac034cc7d21cca0069065b5f6eb1cc05010dc39886572b5769",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 1,
+      "lf_without_cr_count": 57,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/StopReceiver.java",
+    "bytes": 362,
+    "sha256": "5f64a0f1126aba74ed5ae1e0540f182a37d45ad7ab42b53daeffeef71a28b86f",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 1,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/Store.java",
+    "bytes": 1757,
+    "sha256": "23240a7d974fb0b566a89d6a4dc55be051c9e9564b91eb471d30b56b2b80cfd9",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 16,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/TextRules.java",
+    "bytes": 1118,
+    "sha256": "bb97a2e81411e8f646ab6249ed08cea3ffed1c854289b5540bb4febdb2cdafb2",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 23,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/Times.java",
+    "bytes": 1416,
+    "sha256": "7d9e682b2f6c0e2796727a8f41802880c2b2f72226de367cf4a922ea21a91d2f",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 24,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/TouchLabel.java",
+    "bytes": 390,
+    "sha256": "06a6c45ef4e982eae78747b1739287dae4c8f1b05dab19000fdaa90fec675f7d",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 2,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/TouchPane.java",
+    "bytes": 256,
+    "sha256": "da024f18cead993522fd50982bb4bf79b979b5825e7839506d3984fc8b33d036",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 1,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/Ui.java",
+    "bytes": 2548,
+    "sha256": "526c8f1e49dd9aa61efdd8f4dc554cb1518de2357f0af6ed1e5fd2a4badb4d34",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 1,
+      "lf_without_cr_count": 23,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/WatchArea.java",
+    "bytes": 842,
+    "sha256": "3976ed3c0cb14a4756f5caf89671adf285ef406b23e3693f5c75b3fb85075e94",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 11,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/WatchConfig.java",
+    "bytes": 6120,
+    "sha256": "eb2bc05ce8794e078c6696113fb1046241c0c0949e326307e3cdcb8cf9475eac",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 73,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/WatchGate.java",
+    "bytes": 835,
+    "sha256": "c196b9a122d0ab66ca65a8573021a718f5c37edf0ff673c37beef86c37e3a5a2",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 20,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/WatchStore.java",
+    "bytes": 1604,
+    "sha256": "0ee8881a2952f4268304bfb50fed92b23da33eadb2921db17ead7cada8b06cbc",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 19,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/res/drawable/ic_launcher_foreground.xml",
+    "bytes": 273,
+    "sha256": "a1ee111a6022ea0d7fbcdc3b5b4f35704dd07256745a46406e9fe2139f7aaada",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": false,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/res/drawable/ic_macro.xml",
+    "bytes": 384,
+    "sha256": "4cf4b3cee38a8220f29738601caea3a3197476189b6646a52db871d4cd4f2ea0",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": false,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/res/drawable/ic_stat_nex.xml",
+    "bytes": 264,
+    "sha256": "499cc1423313bcc1d2f1fd81179f80de1a1b516dd55fc930c7536ca9b41aab3c",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": false,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/res/drawable/nex_dialog_dark.xml",
+    "bytes": 138,
+    "sha256": "7896d6f27cd84aba293c168a4ebc7b236f00b99bc3795bd984b158b3f0c41fb4",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": false,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/res/drawable/nex_dialog_light.xml",
+    "bytes": 138,
+    "sha256": "7094707ea2815c219cc6e589334f3b127ad8fdc181908510c7cfff69c5218d5d",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": false,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/res/font/nanum_gothic_bold.ttf",
+    "bytes": 4642244,
+    "sha256": "454eb3f503f377782a99eb84fc4bb7dde22a0f075d41b47427737f2985053bc9"
+  },
+  {
+    "path": "source/app/src/main/res/mipmap-anydpi/ic_launcher.xml",
+    "bytes": 268,
+    "sha256": "34cc7c1866744eb4f9e7ea2edd5805fcb09ecdbe11a3fc8d2875f31b04e72a2c",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": false,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/res/values/nex_colors.xml",
+    "bytes": 61,
+    "sha256": "3535080317cebbd792d8cc1efc83b001cef1feaef8daa8bd2bda43d5aab4b205",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": false,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/res/values/strings.xml",
+    "bytes": 628,
+    "sha256": "00a53888578604a67a1aa128c73496615e5b73bf65c72c2294b6e9cc3dbb4707",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": false,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/res/values/styles.xml",
+    "bytes": 1866,
+    "sha256": "90ac818b68915bb1fc789ca0fb7e58185af08798058c0c9c8478d7abfe5d339f",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 31,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": false,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/res/xml/accessibility.xml",
+    "bytes": 588,
+    "sha256": "a2b70fe4c3fc321cbe10717409b2e9b88f7e71e4bc6969703e8dd1322f02bd43",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 2,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/main/res/xml/data_extraction.xml",
+    "bytes": 177,
+    "sha256": "66c2d7c6ac2a3c03200235a556e0f410620cae5bdfedd4ebdf18528fcbc42886",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": false,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/test/java/kr/yunseok/touchmacro/GestureModelTest.java",
+    "bytes": 3075,
+    "sha256": "49e065b526e7e3501078f3967f2ca11e785d5227b975d5cb5f6770a3149c2bbf",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 15,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/test/java/kr/yunseok/touchmacro/ModelTest.java",
+    "bytes": 1942,
+    "sha256": "8ffd9b2e77a5e5c80797f9da8e3e81d1d74c7f21a20b01c2f769795cd7a091f3",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 16,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/test/java/kr/yunseok/touchmacro/RepeatMeaningTest.java",
+    "bytes": 607,
+    "sha256": "8adeef654e6b31c3bc9f12716dd1e13142735fa13640bd13028ada03e3d98123",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 7,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/test/java/kr/yunseok/touchmacro/TextRulesTest.java",
+    "bytes": 1229,
+    "sha256": "f5052ee6d6d0609f8de55e990db67088c2659de44450d4ff7778a83ce9abdf2d",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 11,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/test/java/kr/yunseok/touchmacro/TimesTest.java",
+    "bytes": 1257,
+    "sha256": "4de05ac7b4676eac79279b5ba8864200e76e3a10fffda223ca34c5e0b06c6c73",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 1,
+      "lf_without_cr_count": 11,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/test/java/kr/yunseok/touchmacro/WatchConfigTest.java",
+    "bytes": 3547,
+    "sha256": "c46c43e94385c120ffcc096e5961c1934b5e4a3a7761bf8088204b1626cc79d3",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 16,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/app/src/test/java/kr/yunseok/touchmacro/WatchGateTest.java",
+    "bytes": 2974,
+    "sha256": "73f4c588903719d444c7ea3cb089758b15b3e35737c80bf777b671cf08979f84",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 14,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/build.gradle",
+    "bytes": 69,
+    "sha256": "7c2248fd2eddd20ccc0da72abb80cfb4beab12b2ec71cc022b36746df856290a",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 1,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/gradle.properties",
+    "bytes": 140,
+    "sha256": "8097d687b525291028e82bcc3e166f04c064375747cc8556294709dd29140ada",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 4,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/gradle/wrapper/gradle-wrapper.properties",
+    "bytes": 251,
+    "sha256": "cdab1ffb439219b1db125e3c99a86cf2424f8762b9b3faa404ed061e3635ecde",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 7,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/gradlew",
+    "bytes": 8752,
+    "sha256": "734b3879d3501dce471cf0522d3bcbafe76873d9fc5129345b67fb43bd15e933",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 251,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/gradlew.bat",
+    "bytes": 2966,
+    "sha256": "57931b17dd228e5c24dac90e815d0bf82477e831a4618dfab4136f5446b42a9f",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 94,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/local.properties",
+    "bytes": 74,
+    "sha256": "0209e7ab4bd293beab61da07397ca5f44ea9072079b0361467e5dbf56b27a91b",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": false,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/settings.gradle",
+    "bytes": 278,
+    "sha256": "65b51b18cd5b5947a79cb13b1e14b3403c5f76ec83fa49c3e0c779da88e4da6d",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 4,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/빌드.ps1",
+    "bytes": 1528,
+    "sha256": "8b1f8f9cb92ef950bdb3e5e3086fe1379d92c72ed20a4e5f439df91e5ba02cf8",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 21,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "source/빌드방법.txt",
+    "bytes": 1049,
+    "sha256": "ac5e8dad47db0463cbce49a1a80ada7d4f5001bc80e860912686cb19ee4c06dd",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 1,
+      "lf_without_cr_count": 12,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "검증/Android12_전체흐름_6검사.txt",
+    "bytes": 3409,
+    "sha256": "48b237d59432adaeee2fb01d25c62ca5829349f7a72be7fb07957ebc3d7164e5",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 21,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "검증/lint-results-debug.txt",
+    "bytes": 17,
+    "sha256": "a69ecb171bea9d40de22744c85220b4a4ea12f5a25ce7976d67f2c88c9195334",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 0,
+      "lf_without_cr_count": 1,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "검증/testDebugUnitTest/TEST-kr.yunseok.touchmacro.GestureModelTest.xml",
+    "bytes": 1590,
+    "sha256": "df95e6681c8eba8f3c58292a6b446dc519ecacd39d115c96e50cd127529d03a8",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 17,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "검증/testDebugUnitTest/TEST-kr.yunseok.touchmacro.ModelTest.xml",
+    "bytes": 1346,
+    "sha256": "1d149f7168d2eb69187fc15a607f46b5c2e137d90468c63e157f64f74c6d4a6a",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 16,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "검증/testDebugUnitTest/TEST-kr.yunseok.touchmacro.RepeatMeaningTest.xml",
+    "bytes": 703,
+    "sha256": "7ec4ca7827a6aa0a78e5f21348fb1d13a9496f6257c39b0dd8cf3a95ac1f34ca",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 9,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "검증/testDebugUnitTest/TEST-kr.yunseok.touchmacro.TextRulesTest.xml",
+    "bytes": 949,
+    "sha256": "ea0c5dc59e429a2047aaef7b0132f5698ede20080af457048bc643534b346dae",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 12,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "검증/testDebugUnitTest/TEST-kr.yunseok.touchmacro.TimesTest.xml",
+    "bytes": 1046,
+    "sha256": "c8fe2a4e0248690444294047f4ecdb06a35c157c2e5cb6c8d2b1aabf75e39912",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 13,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "검증/testDebugUnitTest/TEST-kr.yunseok.touchmacro.WatchConfigTest.xml",
+    "bytes": 1593,
+    "sha256": "ba41673ec379a2060773e2d236f975ac99ae9bb8f229b0e5c555f15dee061e37",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 17,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "검증/testDebugUnitTest/TEST-kr.yunseok.touchmacro.WatchGateTest.xml",
+    "bytes": 1520,
+    "sha256": "965b918e7c5093bd2f32867636483eb55e0796bdca23ded92c2abd2022e56fa1",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 16,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "검증/안내화면_검사.txt",
+    "bytes": 689,
+    "sha256": "66587263dd74d278b942109ed49fbfd33d816a78c65d10fd26014a5815bc6ff2",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 6,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "검증/안내화면_최종검사.txt",
+    "bytes": 8377,
+    "sha256": "49adf5f61f2a7c93680efdd7a1e2ac7231490fa4e4429a6b9be809f9898b6bd9",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 69,
+      "lf_without_cr_count": 0,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "검증결과.txt",
+    "bytes": 2998,
+    "sha256": "634d376f38eed5cae7e623b77d5e20e0acd72b24a30f4a0d39bc963bab0a6085",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 1,
+      "lf_without_cr_count": 39,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  },
+  {
+    "path": "사용법.txt",
+    "bytes": 5112,
+    "sha256": "fbcf078d9bb16e04573e4cb0180ed20d667b53a6cc1f806ffe69d3e5d55f1e90",
+    "text_bytes": {
+      "utf8_bom_count": 0,
+      "crlf_count": 1,
+      "lf_without_cr_count": 66,
+      "cr_without_lf_count": 0,
+      "ends_with_newline": true,
+      "empty_file": false
+    }
+  }
+]
