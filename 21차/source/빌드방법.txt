@@ -1,0 +1,20 @@
+PXE 1.9.0 · 19차 소스 빌드
+
+UTF-8 한국어 스크립트는 PowerShell7에서 실행합니다: pwsh -NoProfile -File .\빌드.ps1
+Windows PowerShell5의 powershell -File은 BOM없는 한글을 ANSI로 읽을 수 있으므로 사용하지 않습니다.
+
+source의 빌드.ps1은 기준 소스를 tools/sync_build.py로 실제 일반 폴더에 복사하고 모든 선택 파일의 원문·해시를 대조합니다.
+실제 빌드 위치는 D:/2026/PXE Project/work/build19/source이며 바로가기·정션·심볼릭 링크를 만들지 않습니다.
+JDK17과 Gradle8.13은 프로젝트의 work/tools, Android SDK35는 코드/NEXTools/android-sdk 실제 폴더를 사용합니다.
+한글 SDK 경로는 local.properties에 유니코드 이스케이프로 기록합니다.
+기존 개인 서명 키와 앱 ID를 유지합니다. 키는 소스에 포함하지 않습니다.
+휴대전화용 ARM64 빌드를 먼저 저장하고 PC용 ARM64/x86_64 APK와 기기 검사 APK를 빌드합니다.
+납품 위치: D:/2026/PXE Project/19차
+
+검사: :app:testDebugUnitTest :app:lintDebug
+순수 모델: python -B -X utf8 tools/check_regression.py
+텍스트: python -B -X utf8 tools/check_utf8.py
+APK·18차 보존: python -B -X utf8 tools/check_artifacts.py
+소유 PXE19 AVD에서만: python -B -X utf8 tools/check_device.py <검사 클래스>
+기기 검사는 emulator-5598 / 전용 ADB 서버 5043을 사용합니다.
+기존 모델·저장 형식과 내부 밀리초 단위를 유지합니다. 화면 입력은 분/초입니다.

@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "total_timeout_seconds": 240,
+  "device_profile": {"avd":"PXE19","serial":"emulator-5598","adb_port":5043,"width":1080,"height":2280,"density":420},
+  "checks": [
+    {"id":"진행창 실제15회·접기·캡처·장기제스처정지·다중경로·녹화·테마", "argv":["{python}","-B","-X","utf8","tools/check_device.py","RunHudTest","HudStopVisibilityTest"],"cwd":".","timeout_seconds":120,"expected_tests":8},
+    {"id":"320dp 작은 화면 라이트·다크·긴 안내와 접기", "argv":["{python}","-B","-X","utf8","tools/check_device.py","RunHudTest#bothThemesAndLongStoppedMessageStayInsideSmallViewport"],"cwd":".","timeout_seconds":60,"expected_tests":1,"small":true,"size":"720x1280","density":360,"restore":{"size":"1080x2280","density":420}},
+    {"id":"실제 글꼴1.3 라이트·다크·긴 안내와 접기", "argv":["{python}","-B","-X","utf8","tools/check_device.py","HudLargeFontTest"],"cwd":".","timeout_seconds":60,"expected_tests":1,"font_scale":1.3}
+  ],
+  "limits":"사용자 기기는 조작하지 않으며 원래 화면 크기·밀도·글꼴 설정 원문을 복원합니다. 실제게임/24시간 검증이 아닙니다."
+}

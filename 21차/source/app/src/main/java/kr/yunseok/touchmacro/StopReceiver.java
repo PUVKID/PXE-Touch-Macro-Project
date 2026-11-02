@@ -1,0 +1,1 @@
+package kr.yunseok.touchmacro; import android.content.*; public class StopReceiver extends BroadcastReceiver { @Override public void onReceive(Context c,Intent i){MacroService s=MacroService.get();if(s!=null){s.stop();if("CLOSE".equals(i.getAction()))s.hideControls();if(s.controller().recording)s.controller().endRecording();}else KeepAliveService.close(c);} }
