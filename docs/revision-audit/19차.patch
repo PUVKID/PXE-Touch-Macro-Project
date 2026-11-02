@@ -1,0 +1,1191 @@
+diff --git a/18차-source/README.md b/19차-source/README.md
+index 9e9eebf..600c97b 100644
+--- a/18차-source/README.md
++++ b/19차-source/README.md
+@@ -1,7 +1,19 @@
+-# PXE 18차 · 1.8.0
++# PXE 19차 · 1.9.0
+ 
+ Android 접근성 서비스와 ML Kit 한국어 OCR로 글자 조건·터치·제스처 매크로를 실행합니다. 앱 ID와 저장 형식은 유지하며 기존 설치 앱과 같은 개인 서명으로 만든 APK만 덮어 업데이트할 수 있습니다.
+ 
++## 대상 창 확인의 복구와 실제 상태
++
++개별 창 조회만 취소된 경우에는 현재 실행 세대·서비스 연결·전체 기한을 먼저 확인하고 새 창 조회로 복구합니다. 이미 적용한 단일 조회 및 늦은 결과 폐기는 유지합니다. 중단·연결 해제·전체 최대 시간과 실제 권한 오류를 임의 재시도로 바꾸지 않습니다. 복구 중에는 하단에 **복구 대기 · 정지 가능**이 표시되며 현재 동작과 완료7/15회·8회째 같은 진행 수를 유지합니다.
++
++오류 기록에는 실제 설치 버전과 제한된 예외 타입을 남깁니다. 검색 원문·화면·예외 메시지를 새 진단 필드에 추가하지 않습니다. 기존 기록은 삭제하지 않습니다. 같은 지연을 처리하던17·18차의 안전 복구는 유지합니다. 새 제어 검사에서 확인한 조회 취소/표시 결함과 사용자가 기억한 과거 지연 문구의 실제 원인은 구분합니다. 과거 설치 버전과 원본 오류 스택은 확보하지 않았습니다.
++
++실제 수락한 활성·초점 창의 식별이 바뀌면 기존 터치 허가도 폐기합니다. 창 이벤트가 아직 도착하지 않아도 이미 관측한 앱 전환을 반영하며 메인 스레드에 새 동기 창 조회를 추가하지 않습니다. 조회 순번·실행 세대·일시정지 세대를 대조해 취소된 결과나 더 새로운 조회보다 늦은 결과가 관측 상태를 덮지 않습니다. Android의 창 전환과 제스처 전달을 완전히 원자적으로 묶는 기능이나 아직 관측하지 못한 모든 전환의 차단을 보장하지 않습니다.
++
++기준 소스와 별개 실제 빌드 폴더를 사용하며 빌드 전 선택한 모든 파일의 원문·해시를 대조합니다. 새 바로가기·정션·심볼릭 링크를 만들지 않습니다. 새 집중 계약은 tools/target-window-check-plan.json의6개이며 기존114개 기기 및104개 단위 계약을 보존합니다. 실제 최종 결과는 납품 폴더의 검증 문서를 따릅니다.
++
++관측 순서의 새 결정적 단위5개를 더해 현재 단위 계약은109개입니다. 선택적 성능 비교의 대상은 이전18차와19차로 정합하며 이번 창 복구 작업에서 그 성능 비교는 실행하지 않았습니다.
++
+ ## 작은 진행창과 명확한 반복 횟수
+ 
+ 하단 진행창은 완료7/15회와 현재8회째를 구분하고 현재 동작을 짧게 표시합니다. 실제 전체 반복이 끝난 후에만 완료 횟수를 올리며, 개별 동작 반복 및 목록 탐지 바퀴와 혼합하지 않습니다. 다음 목록 항목에 진입하면0부터 다시 셉니다.
+@@ -54,11 +66,11 @@ Java17, Gradle8.13, Android Gradle Plugin8.9.1, compile/target SDK35, min SDK30,
+ .\gradlew.bat :app:assembleRelease :app:assembleReleaseAndroidTest -PNEX_PC
+ ```
+ 
+-개인 키와 key.properties는 공개하지 않습니다. NEX_SIGNING_DIR가 유효한 개인 서명 폴더를 가리키지 않으면 개발 구성은 debug 서명을 선택하므로 기존 설치본 업데이트용으로 사용하지 않습니다. 납품 빌드.ps1은 프로젝트 소유의 D:/2026/PXE18Build 전용 연결과 기존 개인 키 존재를 확인합니다. PC는 ARM64/x86_64, 휴대전화는 ARM64를 포함합니다.
++개인 키와 key.properties는 공개하지 않습니다. NEX_SIGNING_DIR가 유효한 개인 서명 폴더를 가리키지 않으면 개발 구성은 debug 서명을 선택하므로 기존 설치본 업데이트용으로 사용하지 않습니다. 납품 빌드.ps1은 D:/2026/PXE Project/work/build19/source 실제 일반 폴더와 기존 개인 키 존재를 확인하며 tools/sync_build.py로 선택 소스의 원문·해시를 대조합니다. PC는 ARM64/x86_64, 휴대전화는 ARM64를 포함합니다.
+ 
+ ## 검사 범위
+ 
+-필수 검사 명세는 tools/required-check-plan.json, 추가 인식/UI 검사는 tools/recognition-check-plan.json입니다. 유지한17차 복구와 자동 스크롤 집중 검사는 tools/recovery-check-plan.json의15개이며, 기존89개 회귀와 별도로 확인합니다. 새 조건 대기·제어·입체 화면 검사는 tools/adaptive-check-plan.json, 동일 환경의 두 버전 성능 비교는 tools/performance-check-plan.json에 구분합니다. 기기 검사 도구는 소유 PXE18 AVD, 별도 ADB5043, emulator5598, 설치 버전18를 확인한 후 실행합니다. 사용자 블루스택을 자동 선택하지 않습니다. 서명/원본 보존 검사는 별도로 보관한 이전 차수 APK와 로컬 보존 기준이 필요합니다.
++필수 검사 명세는 tools/required-check-plan.json, 추가 인식/UI 검사는 tools/recognition-check-plan.json입니다. 유지한17차 복구와 자동 스크롤 집중 검사는 tools/recovery-check-plan.json의15개이며, 기존89개 회귀와 별도로 확인합니다. 새 조건 대기·제어·입체 화면 검사는 tools/adaptive-check-plan.json, 동일 환경의 두 버전 성능 비교는 tools/performance-check-plan.json에 구분합니다. 기기 검사 도구는 소유 PXE19 AVD, 별도 ADB5043, emulator5598, 설치 버전19를 확인한 후 실행합니다. 사용자 블루스택을 자동 선택하지 않습니다. 서명/원본 보존 검사는 별도로 보관한 이전 차수 APK와 로컬 보존 기준이 필요합니다.
+ 
+ 실제 사용자 블루스택의 처리 속도, 5개 동시 실행, 24시간 무중단은 이 시험 구성의 검증 범위가 아닙니다. OS가 캡처를 제한하는 화면은 우회하지 않고 해당 단계에서 원인을 표시합니다.
+ 
+diff --git a/18차-source/app/build.gradle b/19차-source/app/build.gradle
+index b7bef5c..2432df9 100644
+--- a/18차-source/app/build.gradle
++++ b/19차-source/app/build.gradle
+@@ -5,7 +5,7 @@ def signingFile = rootProject.file(signingDir + '/key.properties')
+ if (signingFile.exists()) { signingFile.withInputStream { signingProps.load(it) } }
+ android { signingConfigs { personal { storeFile rootProject.file(signingDir + '/macro.jks'); storePassword signingProps.getProperty('storePassword', ''); keyAlias 'yunseokmacro'; keyPassword signingProps.getProperty('storePassword', '') } }
+  namespace 'kr.yunseok.touchmacro'; compileSdk 35
+- defaultConfig { applicationId 'kr.yunseok.touchmacro'; minSdk 30; targetSdk 35; versionCode 18; versionName '1.8.0'; testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner' }
++ defaultConfig { applicationId 'kr.yunseok.touchmacro'; minSdk 30; targetSdk 35; versionCode 19; versionName '1.9.0'; testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner' }
+  // 휴대전화용은 ARM64, PC용은 ARM64와 x86_64를 함께 포함합니다.
+  lint { disable 'ChromeOsAbiSupport' }
+  testBuildType 'release'
+diff --git a/18차-source/app/src/androidTest/java/kr/yunseok/touchmacro/PxeUpgradeTest.java b/19차-source/app/src/androidTest/java/kr/yunseok/touchmacro/PxeUpgradeTest.java
+index b8f7b8e..7be9763 100644
+--- a/18차-source/app/src/androidTest/java/kr/yunseok/touchmacro/PxeUpgradeTest.java
++++ b/19차-source/app/src/androidTest/java/kr/yunseok/touchmacro/PxeUpgradeTest.java
+@@ -8,12 +8,12 @@ import org.junit.*;import org.junit.runner.RunWith;import static org.junit.Asser
+ @RunWith(AndroidJUnit4.class) public class PxeUpgradeTest {
+     Context context(){return InstrumentationRegistry.getInstrumentation().getTargetContext();}
+     @Test public void seedPreviousVersion()throws Exception{
+-        Context c=context();assertEquals(17,c.getPackageManager().getPackageInfo(c.getPackageName(),0).versionCode);
++        Context c=context();assertEquals(18,c.getPackageManager().getPackageInfo(c.getPackageName(),0).versionCode);
+         Macro m=new Macro();m.name="이전 설정 유지 검증";Step wait=new Step("WAIT");wait.duration=1250;wait.repeat=3;m.steps.add(wait);Store.put(c,m);
+         WatchConfig p=new WatchConfig();p.rule.text="유지할 글자";p.macroName=m.name;p.repetitions=15;p.cooldownMs=600000;p.intervalSeconds=10;p.priorityAreas.add(new WatchArea(5,20,95,35));p.priorityAreas.add(new WatchArea(5,40,95,55));WatchStore.save(c,p);SetupFlow.finished(c);Ui.prefs(c).edit().putInt("theme",2).commit();
+     }
+     @Test public void verifyAfterPxeUpdate()throws Exception{
+-        Context c=context();assertEquals(18,c.getPackageManager().getPackageInfo(c.getPackageName(),0).versionCode);assertEquals("PXE",c.getApplicationInfo().loadLabel(c.getPackageManager()).toString());
++        Context c=context();assertEquals(19,c.getPackageManager().getPackageInfo(c.getPackageName(),0).versionCode);assertEquals("PXE",c.getApplicationInfo().loadLabel(c.getPackageManager()).toString());
+         Macro m=Store.load(c);assertEquals("이전 설정 유지 검증",m.name);assertEquals(1250,m.steps.get(0).duration);assertEquals(3,m.steps.get(0).repeat);assertFalse(m.steps.get(0).waitForever);assertFalse(m.steps.get(0).immediate);assertTrue(Store.library(c).containsKey(m.name));
+         WatchConfig p=WatchStore.load(c);assertEquals("유지할 글자",p.rule.text);assertEquals(m.name,p.macroName);assertEquals(15,p.repetitions);assertEquals(600000,p.cooldownMs);assertEquals(10,p.intervalSeconds);assertEquals(2,p.priorityAreas.size());assertFalse(SetupFlow.active(c));assertEquals(2,Ui.prefs(c).getInt("theme",0));
+     }
+diff --git a/19차-source/app/src/androidTest/java/kr/yunseok/touchmacro/TargetWindowRecoveryTest.java b/19차-source/app/src/androidTest/java/kr/yunseok/touchmacro/TargetWindowRecoveryTest.java
+new file mode 100644
+index 0000000..994be45
+--- /dev/null
++++ b/19차-source/app/src/androidTest/java/kr/yunseok/touchmacro/TargetWindowRecoveryTest.java
+@@ -0,0 +1,114 @@
++package kr.yunseok.touchmacro;
++
++import android.content.Intent;
++import android.os.SystemClock;
++import android.provider.Settings;
++import androidx.test.ext.junit.runners.AndroidJUnit4;
++import java.lang.reflect.Field;
++import java.util.Collections;
++import java.util.concurrent.CancellationException;
++import java.util.concurrent.CountDownLatch;
++import java.util.concurrent.TimeUnit;
++import java.util.concurrent.atomic.AtomicInteger;
++import org.junit.*;
++import org.junit.runner.RunWith;
++import static org.junit.Assert.*;
++
++/** 실제 실행 취소와 개별 창 조회 취소를 구분하며 기존 회차를 보존합니다. */
++@RunWith(AndroidJUnit4.class) public class TargetWindowRecoveryTest {
++    final GuidedFlowTest h=new GuidedFlowTest();
++    final AtomicInteger reads=new AtomicInteger(),taps=new AtomicInteger(),captures=new AtomicInteger();
++    final CountDownLatch entered=new CountDownLatch(1),release=new CountDownLatch(1);
++    Field sourceField,captureField;Object originalSource,originalCapture;
++    @Before public void boot()throws Exception{
++        h.boot();h.main(()->Ui.prefs(h.a).edit().putBoolean("hud_collapsed",false).commit());h.fixture();
++        sourceField=field("windowSource");originalSource=sourceField.get(h.svc);
++        captureField=field("screenshotSource");originalCapture=captureField.get(h.svc);
++        h.main(()->h.entry.setOnClickListener(v->taps.incrementAndGet()));
++        h.waitFor(()->h.a.getPackageName().equals(h.svc.activePackage()),4000,"검사 대상 확인 실패");
++        captureField.set(h.svc,(MacroService.ScreenshotSource)(executor,callback)->{
++            captures.incrementAndGet();((MacroService.ScreenshotSource)originalCapture).take(executor,callback);
++        });
++    }
++    @After public void end()throws Exception{
++        h.end();release.countDown();SystemClock.sleep(150);
++        sourceField.set(h.svc,originalSource);captureField.set(h.svc,originalCapture);
++    }
++    Field field(String name)throws Exception{Field value=MacroService.class.getDeclaredField(name);value.setAccessible(true);return value;}
++    Macro macro(int rounds){Macro m=new Macro();m.rounds=rounds;m.startDelay=0;m.gap=0;m.maxMinutes=0;Step text=new Step("TEXT_TAP");text.text="안내 대상";text.match="EXACT";text.source="ACCESS";text.waitForever=true;text.immediate=true;text.after=0;m.steps.add(text);return m;}
++    void start(Macro value){h.main(()->h.svc.start(value));}
++    void waitHeld()throws Exception{assertTrue("제어된 창 조회가 시작되지 않았습니다",entered.await(5,TimeUnit.SECONDS));}
++    RunHudTest hud(){RunHudTest value=new RunHudTest();value.h.in=h.in;value.h.auto=h.auto;value.h.a=h.a;value.h.svc=h.svc;return value;}
++    void recoveryShown()throws Exception{
++        h.waitFor(()->hud().hudText().contains("복구 대기")&&hud().hudText().contains("정지 가능"),2000,"실제 진행창에 복구 대기/정지 가능 표시가 없습니다");
++        h.main(()->{try{assertTrue(hud().hud().isShown());}catch(Exception error){throw new RuntimeException(error);}});
++        h.screenshot("PXE19_대상창_복구대기.png");
++    }
++    String journal()throws Exception{return ((ErrorJournal)field("errorJournal").get(h.svc)).read();}
++    @Test public void canceledWindowQueryRecoversWithNewQueryAndExactlyOneTap()throws Exception{
++        sourceField.set(h.svc,(MacroService.WindowSource)()->{
++            if(reads.incrementAndGet()==1)throw new CancellationException("제어된 개별 창 조회 취소");
++            return ((MacroService.WindowSource)originalSource).read();
++        });
++        start(macro(1));h.waitFor(()->!h.svc.running,7000,"취소된 창 조회 뒤 완료되지 않았습니다");
++        assertEquals("유효한 실행의 조회 취소가 실행 취소로 전파됐습니다: "+h.svc.status,1,taps.get());
++        assertTrue(reads.get()>=2);assertEquals(0,captures.get());assertEquals(1,h.svc.hudProgress().completed);
++    }
++    @Test public void slowQueryShowsRealRecoveryHudAndPhysicalStopRemainsImmediate()throws Exception{
++        sourceField.set(h.svc,(MacroService.WindowSource)()->{
++            reads.incrementAndGet();entered.countDown();try{release.await();}catch(InterruptedException error){Thread.currentThread().interrupt();}
++            return Collections.emptyList();
++        });
++        start(macro(1));waitHeld();SystemClock.sleep(2300);assertTrue(h.svc.running);
++        assertEquals(1,reads.get());assertEquals(0,taps.get());assertEquals(0,captures.get());recoveryShown();
++        long before=SystemClock.elapsedRealtime();h.click("■");long elapsed=SystemClock.elapsedRealtime()-before;
++        assertTrue("실제 정지 버튼이 1초를 넘겼습니다: "+elapsed,elapsed<1000);assertFalse(h.svc.running);
++        release.countDown();SystemClock.sleep(600);assertEquals(1,reads.get());assertEquals(0,taps.get());
++        android.util.Log.i("PXE19_RECOVERY_QA","physical_stop_ms="+elapsed+", reads="+reads.get()+", taps="+taps.get());
++    }
++    @Test public void recoveryAtEighthRoundKeepsSevenCompletedAndFinishesExactlyFifteen()throws Exception{
++        sourceField.set(h.svc,(MacroService.WindowSource)()->{
++            reads.incrementAndGet();if(h.svc.hudProgress().completed==7&&h.svc.hudProgress().current==8&&entered.getCount()>0){
++                entered.countDown();try{release.await();}catch(InterruptedException error){Thread.currentThread().interrupt();}return Collections.emptyList();
++            }
++            return ((MacroService.WindowSource)originalSource).read();
++        });
++        start(macro(15));waitHeld();SystemClock.sleep(2200);assertTrue(h.svc.running);assertEquals(7,taps.get());
++        assertEquals(7,h.svc.hudProgress().completed);assertEquals(8,h.svc.hudProgress().current);recoveryShown();
++        assertTrue(hud().hudText(),hud().hudText().contains("7/15"));assertTrue(hud().hudText(),hud().hudText().contains("8회째"));
++        h.main(()->h.svc.togglePause());release.countDown();SystemClock.sleep(600);assertEquals(7,taps.get());assertEquals(7,h.svc.hudProgress().completed);
++        h.main(()->h.svc.togglePause());h.waitFor(()->!h.svc.running,12000,"복구 후 15회가 끝나지 않았습니다");
++        assertEquals("앞선 회차가 재실행되거나 누락됐습니다",15,taps.get());assertEquals(15,h.svc.hudProgress().completed);assertEquals(0,captures.get());
++    }
++    @Test public void canceledQueryAfterPinnedTargetNeverTouchesOtherApplication()throws Exception{
++        sourceField.set(h.svc,(MacroService.WindowSource)()->{
++            if(reads.incrementAndGet()==2){entered.countDown();try{release.await();}catch(InterruptedException error){Thread.currentThread().interrupt();}throw new CancellationException("제어된 개별 창 조회 취소");}
++            return ((MacroService.WindowSource)originalSource).read();
++        });
++        start(macro(1));waitHeld();
++        h.main(()->h.a.startActivity(new Intent(Settings.ACTION_SETTINGS).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)));
++        // 주입한 창 소스 대신 원래 소스로 실제 활성 전환을 확정합니다.
++        WindowPackages packages=(WindowPackages)field("windowPackages").get(h.svc);
++        h.waitFor(()->"com.android.settings".equals(packages.resolve(((MacroService.WindowSource)originalSource).read(),h.a.getPackageName())),4000,"실제 다른 앱 활성 전환이 없습니다");
++        release.countDown();SystemClock.sleep(1200);assertTrue("조회 취소로 실행이 끝났습니다",h.svc.running);
++        assertEquals(0,taps.get());assertEquals(0,captures.get());assertEquals(0,h.svc.hudProgress().completed);
++        h.main(()->h.svc.stop());
++    }
++    @Test public void permissionFailureStillStopsAndJournalIdentifiesInstalledVersion()throws Exception{
++        sourceField.set(h.svc,(MacroService.WindowSource)()->{reads.incrementAndGet();throw new SecurityException("제어된 권한 거절");});
++        start(macro(1));h.waitFor(()->!h.svc.running,3000,"실제 권한 거절을 무한 재시도했습니다");
++        assertEquals(1,reads.get());assertEquals(0,taps.get());assertEquals(0,captures.get());
++        assertTrue(h.svc.status,h.svc.status.contains("제어된 권한 거절"));
++        String value=journal();assertTrue(value,value.contains("app_version=1.9.0")&&value.contains("version_code=19"));
++        assertTrue(value,value.contains("SecurityException"));assertFalse("새 검색 본문이 오류 기록에 추가됐습니다",value.contains("안내 대상"));
++    }
++    @Test public void repeatedQueryCancellationStillHonorsExplicitOverallDeadline()throws Exception{
++        sourceField.set(h.svc,(MacroService.WindowSource)()->{
++            reads.incrementAndGet();entered.countDown();try{release.await();}catch(InterruptedException error){Thread.currentThread().interrupt();}
++            throw new CancellationException("제어된 개별 창 조회 취소");
++        });
++        start(macro(1));waitHeld();field("deadline").setLong(h.svc,SystemClock.elapsedRealtime()+650);release.countDown();
++        h.waitFor(()->!h.svc.running,2500,"창 조회 취소 복구가 명시 전체 기한을 무시했습니다");
++        assertTrue(h.svc.status,h.svc.status.contains("최대 실행 시간"));assertEquals(0,taps.get());assertEquals(0,captures.get());
++    }
++}
+diff --git a/18차-source/app/src/main/java/kr/yunseok/touchmacro/MacroService.java b/19차-source/app/src/main/java/kr/yunseok/touchmacro/MacroService.java
+index 4e1e2f8..26631cb 100644
+--- a/18차-source/app/src/main/java/kr/yunseok/touchmacro/MacroService.java
++++ b/19차-source/app/src/main/java/kr/yunseok/touchmacro/MacroService.java
+@@ -36,9 +36,13 @@ public class MacroService extends AccessibilityService {
+     private volatile String capturePhase="";
+     private volatile String recognitionPhase="";
+     private volatile String recognitionStage="",requestedSource="",actualSource="",recognitionNote="";
++    private volatile String targetWindowRecovery="";
++    private String installedVersion="app_version=unknown, version_code=unknown";
+     interface ScreenshotSource {void take(java.util.concurrent.Executor executor,TakeScreenshotCallback callback);}
+     private ScreenshotSource screenshotSource=(executor,callback)->takeScreenshot(Display.DEFAULT_DISPLAY,executor,callback);
+     private final AtomicLong generation=new AtomicLong();private final AtomicLong pauseRevision=new AtomicLong();private final AtomicLong windowRevision=new AtomicLong();
++    private final AtomicLong windowQuerySequence=new AtomicLong();
++    private final WindowObservation observedWindow=new WindowObservation(windowRevision);
+     public volatile boolean running=false, paused=false, watching=false; public volatile int watchCompleted=0; public volatile String watchPhase=""; private volatile long watchNextRefresh=0;
+     public volatile String status="준비";
+     private WindowManager wm;private FloatingController controller;
+@@ -57,7 +61,7 @@ public class MacroService extends AccessibilityService {
+     private ErrorJournal errorJournal;
+     private void notification(){if(controller!=null)controller.show();}
+     private void clearNotification(){}
+-    @Override protected void onServiceConnected(){if(controller!=null)controller.dispose();if(recognizer!=null)recognizer.close();connected=true;current=new java.lang.ref.WeakReference<>(this);errorJournal=new ErrorJournal(getFilesDir());wm=(WindowManager)getSystemService(WINDOW_SERVICE);controller=new FloatingController(this);recognizer=TextRecognition.getClient(new KoreanTextRecognizerOptions.Builder().build());log("접근성 서비스 연결됨");}
++    @Override protected void onServiceConnected(){if(controller!=null)controller.dispose();if(recognizer!=null)recognizer.close();connected=true;current=new java.lang.ref.WeakReference<>(this);errorJournal=new ErrorJournal(getFilesDir());installedVersion=readInstalledVersion();wm=(WindowManager)getSystemService(WINDOW_SERVICE);controller=new FloatingController(this);recognizer=TextRecognition.getClient(new KoreanTextRecognizerOptions.Builder().build());log("접근성 서비스 연결됨");}
+     boolean connectionActive(){return connected&&!destroyed&&get()==this;}
+     private void releaseConnection(String reason){
+         connected=false;if(get()==this)current=new java.lang.ref.WeakReference<>(null);stop();if(controller!=null)controller.dispose();if(!reason.isEmpty())log(reason);
+@@ -92,12 +96,22 @@ public class MacroService extends AccessibilityService {
+     }
+     public FloatingController controller(){return controller;}
+     private void recordError(String kind){recordError(kind,recognitionDetail());}
++    private String readInstalledVersion(){
++        try{android.content.pm.PackageInfo info=getPackageManager().getPackageInfo(getPackageName(),0);return "app_version="+info.versionName+", version_code="+info.getLongVersionCode();}
++        catch(android.content.pm.PackageManager.NameNotFoundException error){return "app_version=unknown, version_code=unknown";}
++    }
++    private void recordError(String kind,Throwable error){
++        StringBuilder types=new StringBuilder();int count=0;
++        // 원문 글자·예외 메시지 대신 제한된 예외 타입과 실제 빌드만 기록합니다.
++        for(Throwable cause=error;cause!=null&&count++<6;cause=cause.getCause()){if(types.length()>0)types.append('>');types.append(cause.getClass().getSimpleName());}
++        recordError(kind,"error_types="+types+(recognitionDetail().isEmpty()?"":", "+recognitionDetail()));
++    }
+     private void recognitionStage(String stage){recognitionStage=stage;requestedSource="";actualSource="";recognitionNote="";}
+     private String recognitionDetail(){return requestedSource.isEmpty()?"":"recognition_stage="+recognitionStage+", requested_source="+requestedSource+", actual_source="+actualSource;}
+     private String recognitionSummary(){return actualSource.isEmpty()?"":recognitionStage+" · "+("ACCESS".equals(actualSource)?"화면 정보":"한글 OCR")+("AUTO".equals(requestedSource)?" (자동)":"")+(recognitionNote.isEmpty()?"":" · "+recognitionNote);}
+     private String recognitionFailure(Exception error){String message=error.getMessage()==null?error.toString():error.getMessage();String summary=recognitionSummary();return message+(summary.isEmpty()?"":" · "+summary);}
+     private void recordError(String kind,String detail){
+-        try{if(errorJournal!=null)errorJournal.append(kind,"실행="+running+", 일시정지="+paused+", 캡처대기="+captureRequests.size()+", 인식대기="+(pendingRecognition.get()!=null)+", 단계="+(watching?watchPhase:liveAction)+(detail.isEmpty()?"":"\n"+detail));}
++        try{if(errorJournal!=null)errorJournal.append(kind,installedVersion+(detail.isEmpty()?"":"\n"+detail)+"\n실행="+running+", 일시정지="+paused+", 캡처대기="+captureRequests.size()+", 인식대기="+(pendingRecognition.get()!=null)+", 단계="+(watching?watchPhase:liveAction));}
+         catch(java.io.IOException e){log("오류 기록 파일 저장 실패 · 저장 공간을 확인하세요");}
+     }
+     private String errorKind(Exception error){
+@@ -112,28 +126,42 @@ public class MacroService extends AccessibilityService {
+         if(message.contains("대상 앱 창 확인"))return "TARGET_WINDOW_TIMEOUT";
+         return "RUN_STOP_"+error.getClass().getSimpleName();
+     }
+-    public String activePackage(){return windowPackages.resolve(windowSource.read(),getPackageName());}
++    public String activePackage(){
++        long sequence=windowQuerySequence.incrementAndGet();List<WindowPackages.Window> windows=windowSource.read();String resolved=windowPackages.resolve(windows,getPackageName());
++        return observedWindow.accept(sequence,WindowObservation.key(windows,resolved))?resolved:"";
++    }
+     private List<WindowPackages.Window> windowSnapshot(){
+         List<AccessibilityWindowInfo> windows=getWindows();ArrayList<WindowPackages.Window> result=new ArrayList<>();
+         try{for(AccessibilityWindowInfo window:windows)result.add(new WindowPackages.Window(window.getId(),window.getType(),window.isActive(),window.isFocused()));}
+         finally{for(AccessibilityWindowInfo window:windows)window.recycle();}return result;
+     }
++    private synchronized boolean acceptForegroundObservation(long token,long sequence,long revision,String key){
++        if(token!=generation.get()||!connectionActive()||!running)throw new CancellationException();
++        if(deadline>0&&SystemClock.elapsedRealtime()>deadline)throw new IllegalStateException("최대 실행 시간에 도달했습니다");
++        if(paused||revision!=pauseRevision.get())return false;
++        return observedWindow.accept(sequence,key);
++    }
+     private String foregroundPackage(long token)throws Exception{
+         boolean recovering=false;
+-        for(;;){
+-            ready(token);CompletableFuture<List<WindowPackages.Window>> result=windowReader.submit(windowSource::read);
++        try{for(;;){
++            ready(token);long sequence=windowQuerySequence.incrementAndGet(),revision=pauseRevision.get();CompletableFuture<List<WindowPackages.Window>> result=windowReader.submit(windowSource::read);
+             try{
+-                String foreground=windowPackages.resolve(await(result,token,1500,"대상 앱 창 확인 응답이 지연되었습니다"),getPackageName());
+-                if(recovering)log("대상 화면 응답 복구됨 · 새 화면으로 다시 확인합니다");return foreground;
+-            }catch(CancellationException error){throw error;}
+-            catch(Exception error){
+-                if(!queryCanRecover(error))throw error;
+-                if(!recovering){pauseRevision.incrementAndGet();recordError("TARGET_WINDOW_TIMEOUT");log("대상 화면 응답 복구 대기 · 터치 없이 기다리는 중 · 정지 가능");recovering=true;}
++                List<WindowPackages.Window> windows=await(result,token,1500,"대상 앱 창 확인 응답이 지연되었습니다");
++                ready(token);String foreground=windowPackages.resolve(windows,getPackageName());
++                // 취소·지연 결과와 더 새로운 조회보다 늦은 결과는 관측 세대를 덮지 않습니다.
++                if(acceptForegroundObservation(token,sequence,revision,WindowObservation.key(windows,foreground))){if(recovering)log("대상 화면 응답 복구됨 · 새 화면으로 다시 확인합니다");return foreground;}
++            }catch(Exception error){
++                // 실행 정지·연결 해제·전체 기한은 개별 조회의 취소와 구분합니다.
++                check(token);if(!running)throw new CancellationException();
++                if(!queryCanRecover(error)&&!windowQueryCanceled(error))throw error;
++                targetWindowRecovery="대상 화면 확인 · 응답 복구 대기 · 정지 가능";
++                if(!recovering){pauseRevision.incrementAndGet();recordError(windowQueryCanceled(error)?"TARGET_WINDOW_QUERY_CANCELED":"TARGET_WINDOW_TIMEOUT",error);log("대상 화면 응답 복구 대기 · 터치 없이 기다리는 중 · 정지 가능");recovering=true;}
+             }finally{result.cancel(false);}
+             sleep(250,token);
+-        }
++        }}finally{targetWindowRecovery="";}
+     }
+     private static boolean queryCanRecover(Throwable error){for(Throwable cause=error;cause!=null;cause=cause.getCause())if(cause instanceof QueryLane.Busy||cause instanceof AwaitTimeout)return true;return false;}
++    private static boolean windowQueryCanceled(Throwable error){for(Throwable cause=error;cause!=null;cause=cause.getCause())if(cause instanceof CancellationException)return true;return false;}
+     public boolean hasRunStats(){return startedAt>0;}
+     private synchronized long activeTime(){long now=SystemClock.elapsedRealtime();return now-pausedTotalMs-(paused&&pauseStartedAt>0?Math.max(0,now-pauseStartedAt):0);}
+     private synchronized boolean resetStats(long token){
+@@ -148,6 +176,7 @@ public class MacroService extends AccessibilityService {
+     private String remainingText(long ms){long seconds=Math.max(0,(ms+999)/1000);return seconds>=60?(seconds/60)+"분 "+(seconds%60)+"초":seconds+"초";}
+     public String progressText(){
+         String phase=watching&&!watchPhase.equals("매크로 실행")?watchPhase:liveAction;
++        if(running&&!targetWindowRecovery.isEmpty())phase=targetWindowRecovery;
+         if(watching&&currentPriority>0)phase=currentPriority+"순위 · "+phase;
+         if(running&&queryStartedAt>0)phase+=" · 화면 정보 읽는 중 "+String.format(Locale.KOREA,"%.1f초",(SystemClock.elapsedRealtime()-queryStartedAt)/1000.0);
+         if(running&&!capturePhase.isEmpty())phase+=" · "+capturePhase+(delayUntil>SystemClock.elapsedRealtime()?" · "+remainingText(delayUntil-SystemClock.elapsedRealtime()):"");
+@@ -164,11 +193,13 @@ public class MacroService extends AccessibilityService {
+     private synchronized void displayOutcome(long token,String value){if(token==generation.get()&&running&&connectionActive())runOutcome=value;}
+     public String hudState(){
+         if(!running)return runOutcome;if(paused)return "일시정지";
++        if(!targetWindowRecovery.isEmpty())return "복구 대기";
+         if(watching&&!watchPhase.equals("매크로 실행"))return watchPhase.equals("완료 후 쉬는 중")||watchPhase.equals("새로고침 대기")||watchPhase.equals("중복 차단 · 사라짐 대기")?"대기":"탐지 중";
+         return "실행 중";
+     }
+     public String hudStage(){
+         if(!running)return status;
++        if(!targetWindowRecovery.isEmpty())return targetWindowRecovery;
+         if(watching&&!watchPhase.equals("매크로 실행")){
+             boolean waiting=watchPhase.equals("완료 후 쉬는 중")||watchPhase.equals("새로고침 대기")||watchPhase.equals("중복 차단 · 사라짐 대기");
+             return waiting?"새로고침까지 "+remainingText(watchNextRefresh-SystemClock.elapsedRealtime()):watchPhase;
+@@ -236,7 +267,7 @@ public class MacroService extends AccessibilityService {
+             liveAction="시작 대기";log("시작까지 "+Times.label(m.startDelay));configuredSleep(m.startDelay,token);
+             runSequence(m,token);
+             if(token==generation.get()){displayOutcome(token,"완료");log("완료");}
+-        }catch(CancellationException ignored){}catch(Exception e){if(token==generation.get()){displayOutcome(token,"중단");recordError(errorKind(e));log("중단 · "+recognitionFailure(e));}}
++        }catch(CancellationException ignored){}catch(Exception e){if(token==generation.get()){displayOutcome(token,"중단");recordError(errorKind(e),e);log("중단 · "+recognitionFailure(e));}}
+         finally{if(lock.isHeld())lock.release();synchronized(this){if(token==generation.get()){finishStats();running=false;paused=false;clearNotification();ui.post(()->{if(controller!=null)controller.update();});}}}
+     }
+     private void runSequence(Macro m,long token)throws Exception{
+@@ -350,7 +381,7 @@ public class MacroService extends AccessibilityService {
+                 long remaining=Math.max(1,watchNextRefresh-SystemClock.elapsedRealtime());
+                 sleep(Math.min(armed?100:2000,remaining),token);
+             }
+-        }catch(CancellationException ignored){}catch(Exception e){if(token==generation.get()){displayOutcome(token,"중단");recordError(errorKind(e));log("탐지 중단 · "+recognitionFailure(e));}}
++        }catch(CancellationException ignored){}catch(Exception e){if(token==generation.get()){displayOutcome(token,"중단");recordError(errorKind(e),e);log("탐지 중단 · "+recognitionFailure(e));}}
+         finally{if(lock.isHeld())lock.release();synchronized(this){if(token==generation.get()){finishStats();running=false;watching=false;paused=false;watchPhase="";ui.post(()->{if(controller!=null)controller.update();});}}}
+     }
+     private Integer execute(Step s,long token,StepExecution execution)throws Exception{
+diff --git a/18차-source/app/src/main/java/kr/yunseok/touchmacro/MainActivity.java b/19차-source/app/src/main/java/kr/yunseok/touchmacro/MainActivity.java
+index cc799ae..6ed4aa2 100644
+--- a/18차-source/app/src/main/java/kr/yunseok/touchmacro/MainActivity.java
++++ b/19차-source/app/src/main/java/kr/yunseok/touchmacro/MainActivity.java
+@@ -84,7 +84,7 @@ public class MainActivity extends Activity {
+             settingRow(page,"접근성",connected?"연결됨":"연결 필요",this::accessibility);
+             space(page,16);text(page,"기록과 도움말",13,muted);LinearLayout resources=new LinearLayout(this);resources.setOrientation(LinearLayout.VERTICAL);page.addView(resources);
+             settingsAction(resources,"실행 기록",this::logs);settingsAction(resources,"오류 기록",this::errorLogs);settingsAction(resources,"사용법",this::help);settingsAction(resources,"인식 테스트",this::testScreen);
+-            space(page,12);text(page,"PXE 1.8.0 · 18차",11,muted);
++            space(page,12);text(page,"PXE 1.9.0 · 19차",11,muted);
+         }
+         if(MacroService.get()!=null&&MacroService.get().running){LinearLayout dock=form();dock.setPadding(dp(24),0,dp(24),0);quiet(dock,"실행 정지",()->{MacroService.get().stop();render();});shell.addView(dock);}
+         addStatusDock(shell);addNavigation(shell);content(shell);Ui.font(shell);Ui.enter(page);
+diff --git a/19차-source/app/src/main/java/kr/yunseok/touchmacro/WindowObservation.java b/19차-source/app/src/main/java/kr/yunseok/touchmacro/WindowObservation.java
+new file mode 100644
+index 0000000..bd22329
+--- /dev/null
++++ b/19차-source/app/src/main/java/kr/yunseok/touchmacro/WindowObservation.java
+@@ -0,0 +1,24 @@
++package kr.yunseok.touchmacro;
++
++import java.util.*;
++import java.util.concurrent.atomic.AtomicLong;
++
++/** 실제 수락한 창 관측만 순서대로 반영해 이전 터치 허가를 폐기합니다. */
++final class WindowObservation {
++    private final AtomicLong revision;
++    private long acceptedSequence=-1;
++    private String acceptedKey;
++    WindowObservation(AtomicLong revision){this.revision=revision;}
++    synchronized boolean accept(long sequence,String key){
++        if(sequence<=acceptedSequence)return false;
++        // 키 변경과 기존 허가 세대의 증가는 같은 임계 구역에서 완료합니다.
++        if(acceptedKey!=null&&!acceptedKey.equals(key))revision.incrementAndGet();
++        acceptedSequence=sequence;acceptedKey=key;return true;
++    }
++    static String key(List<WindowPackages.Window> windows,String resolvedPackage){
++        ArrayList<String> identities=new ArrayList<>();
++        for(WindowPackages.Window window:windows)if(window.active||window.focused)
++            identities.add(window.id+":"+window.type+":"+window.active+":"+window.focused);
++        Collections.sort(identities);return resolvedPackage+"|"+String.join(";",identities);
++    }
++}
+diff --git a/19차-source/app/src/test/java/kr/yunseok/touchmacro/WindowObservationTest.java b/19차-source/app/src/test/java/kr/yunseok/touchmacro/WindowObservationTest.java
+new file mode 100644
+index 0000000..ef834f5
+--- /dev/null
++++ b/19차-source/app/src/test/java/kr/yunseok/touchmacro/WindowObservationTest.java
+@@ -0,0 +1,47 @@
++package kr.yunseok.touchmacro;
++
++import java.util.*;
++import java.util.concurrent.*;
++import java.util.concurrent.atomic.AtomicLong;
++import org.junit.Test;
++import static org.junit.Assert.*;
++
++/** 창 식별·수락 순서와 늦은 조회의 세대 덮어쓰기를 검사합니다. */
++public class WindowObservationTest {
++    @Test public void changedAcceptedWindowInvalidatesExistingPermitOnlyOnce(){
++        AtomicLong revision=new AtomicLong();WindowObservation observation=new WindowObservation(revision);
++        assertTrue(observation.accept(1,"원래 창"));assertEquals(0,revision.get());
++        assertTrue(observation.accept(2,"다른 창"));assertEquals(1,revision.get());
++        assertTrue(observation.accept(3,"다른 창"));assertEquals(1,revision.get());
++    }
++    @Test public void olderOrDuplicateResultCannotReplaceNewerAcceptedWindow(){
++        AtomicLong revision=new AtomicLong();WindowObservation observation=new WindowObservation(revision);
++        assertTrue(observation.accept(1,"원래 창"));assertTrue(observation.accept(3,"다른 창"));
++        assertFalse(observation.accept(2,"원래 창"));assertFalse(observation.accept(3,"원래 창"));assertEquals(1,revision.get());
++        assertTrue(observation.accept(4,"다른 창"));assertEquals(1,revision.get());
++    }
++    @Test public void identitiesIgnoreListOrderAndInactiveWindowsButIncludeFocusAndPackage(){
++        WindowPackages.Window first=new WindowPackages.Window(1,1,true,true),inactive=new WindowPackages.Window(2,1,false,false);
++        String key=WindowObservation.key(Arrays.asList(first,inactive),"원래 앱");
++        assertEquals(key,WindowObservation.key(Collections.singletonList(first),"원래 앱"));
++        assertEquals(key,WindowObservation.key(Arrays.asList(inactive,first),"원래 앱"));
++        assertNotEquals(key,WindowObservation.key(Collections.singletonList(new WindowPackages.Window(1,1,true,false)),"원래 앱"));
++        assertNotEquals(key,WindowObservation.key(Collections.singletonList(first),"다른 앱"));
++        assertNotEquals(key,WindowObservation.key(Collections.singletonList(new WindowPackages.Window(3,1,true,true)),"원래 앱"));
++    }
++    @Test public void existingEventRevisionIsNeverResetByAcceptedObservation(){
++        AtomicLong revision=new AtomicLong(7);WindowObservation observation=new WindowObservation(revision);
++        assertTrue(observation.accept(1,"원래 창"));assertEquals(7,revision.get());
++        revision.incrementAndGet();assertTrue(observation.accept(2,"다른 창"));assertEquals(9,revision.get());
++        assertTrue(observation.accept(3,"다른 창"));assertEquals(9,revision.get());
++    }
++    @Test public void olderSlowQueryFinishingAfterNewQueryCannotRestoreOldPermit()throws Exception{
++        AtomicLong revision=new AtomicLong();WindowObservation observation=new WindowObservation(revision);observation.accept(0,"원래 창");
++        CountDownLatch olderStarted=new CountDownLatch(1),newerAccepted=new CountDownLatch(1);ExecutorService worker=Executors.newSingleThreadExecutor();
++        try{
++            Future<Boolean> older=worker.submit(()->{olderStarted.countDown();assertTrue(newerAccepted.await(1,TimeUnit.SECONDS));return observation.accept(1,"원래 창");});
++            assertTrue(olderStarted.await(1,TimeUnit.SECONDS));assertTrue(observation.accept(2,"다른 창"));newerAccepted.countDown();
++            assertFalse(older.get(1,TimeUnit.SECONDS));assertEquals(1,revision.get());assertTrue(observation.accept(3,"다른 창"));assertEquals(1,revision.get());
++        }finally{newerAccepted.countDown();worker.shutdownNow();}
++    }
++}
+diff --git a/19차-source/docs/2026-11-02_19차_대상창복구_명세계획.md b/19차-source/docs/2026-11-02_19차_대상창복구_명세계획.md
+new file mode 100644
+index 0000000..04360a5
+--- /dev/null
++++ b/19차-source/docs/2026-11-02_19차_대상창복구_명세계획.md
+@@ -0,0 +1,41 @@
++# 19차 대상 창 지연·조회 취소 복구
++
++확인일: 2026-11-02. 요구는 대상 앱 창 확인 응답 지연으로 탐지가 종료되지 않도록 해결하는 것입니다. 기존18차를 보존하고19차에만 변경합니다. 사용자 기기의 실제 설치 버전과 과거 오류 원문은 확보하지 않았습니다.
++
++## 실제 조사 결과와 범위
++
++16차는 창 조회의1.5초 지연을 외곽 실행 종료로 전달합니다. 17·18차와19차 초기 복사본은 `AwaitTimeout` 및 `QueryLane.Busy`의 원인 체인을 확인해 단일 조회를 유지하며 무터치 복구합니다. 같은 지연을 다시 주입해 성공한 것을 새로운 결함 RED나 사용자 실제 원인으로 표현하지 않습니다.
++
++별도 `WindowSource` 조회가 `CancellationException`으로 끝나면 현재 `foregroundPackage`는 실제 실행 세대·연결 상태와 구분 없이 취소를 전달합니다. 새 제어 재현으로 실제 실행은 유효한 조회 취소와 사용자 정지·연결 해제를 구분할 수 있는지 확인한 뒤 최소 변경합니다. 메시지 문자열이나 모든 예외를 근거로 무한 재시도하지 않습니다.
++
++복구 대기는 현재 실행 화면에서1순위 확인으로 남을 수 있습니다. 하단 상태에 실제 창 복구 대기와 정지 가능 상태를 표시하고, 복구 후에는 기존 현재 동작과 반복 완료 수를 유지합니다. 오류 기록에는 개인정보를 추가하지 않고 실제 빌드 버전과 오류 종류를 구분할 수 있게 합니다. 이미 존재하는 운영 기록은 삭제하지 않습니다.
++
++## 성공 조건
++
++- 창 지연은 단일 조회·중단 가능한 무터치 복구를 유지합니다. 지연 조회가 돌아오면 이전 좌표와 결과를 폐기하고 새 조회로 확인합니다.
++- 실행 세대와 서비스 연결이 유효한 개별 창 조회 취소는 새 조회를 기다립니다. 실제 정지·연결 해제·전체 최대 실행 시간은 계속 강제합니다.
++- 복구 중에는 OCR·좌표 터치·뒤로가기·스크롤·중복 해제를 임의 실행하지 않습니다. 실제 보안·권한 오류는 숨기지 않습니다.
++-15회 중7회 완료·8회째 대기에서 복구해도 앞선7회를 다시 실행하거나 완료 수를 초기화하지 않습니다. 반복·저장 형식·모든 기존 기능과18차의 작은 접이식 창을 유지합니다.
++- 실제 복구 대기 상태가 하단에 표시되고 정지1초 이내 및 후속 입력0을 확인합니다. 기존114개 기기·104개 단위·lint0·엄격UTF8·두APK ID/버전19/기존서명/ABI/CRC·18차153항목 보존·18→19 업데이트를 유지합니다. 새 집중 검사는 개별/전체 제한을 따로 고정합니다.
++- 구현자와 다른 검증자가 최종 동결에서 직접 검사합니다. 사용자 블루스택·게임·실제 휴대폰 및24시간 무중단은 시험 기기 결과로 보장하지 않습니다.
++
++## 실제 빌드 경로
++
++새 바로가기·정션·심볼릭 링크와 삭제된17·18차 연결을 만들거나 복원하지 않습니다. 기준 소스는19차/source, 실제 ASCII 빌드 사본은 프로젝트 내부 work/build19/source 일반 폴더입니다. SDK와 JDK·Gradle은 기존 실제 폴더를 사용합니다. 빌드 전 선택 소스를 실제 복사·해시 대조하고 생성 APK를19차에 보관합니다. 한글 경로가 포함된 Java properties는 올바르게 이스케이프합니다. 개인 서명 키는 복사·공개하지 않습니다.
++
++## 근거
++
++- [Android 접근성 서비스](https://developer.android.com/reference/android/accessibilityservice/AccessibilityService)
++- [Java17 CompletableFuture의 취소·예외 전달](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/CompletableFuture.html)
++
++현재 확인된 복구 경로와 미확인 사용자 과거 원인을 구분하고, 실제 RED 전 제품 수정을 하지 않습니다. 단순히 중단 문구만 삭제하는 변경은 하지 않습니다.
++
++## 최종 회귀에서 추가 확인한 전달 경계
++
++수리3 제품에서 새6개는 통과했지만 첫 최종 묶음은80개 중79PASS/1FAIL이었다. 기존 TargetDispatchBoundaryTest는18차와 원문 동일하고, 마지막 창 확인 뒤 메인 전달을 보류한 상태에서 Settings의 실제 활성 조회가 확인됐으나 permit/live 세대가4/4로 남아 오래된 좌표 제스처 완료가 기록됐다. 원래 앱의 두 번째 버튼 클릭0이며 Settings의 특정 버튼 클릭까지 증명한 것은 아니다. 새 취소 수정이 원인이라고 단정하지 않는다.
++
++별도 일회 진단은 원메서드와 원단언을 그대로 호출하여1PASS였으며 이전 FAIL을 대체하지 않는다. 실제 활성 창 메타가 바뀐 뒤 서비스 revision 증가까지 약57ms 공백을 관측했다. 별도 UiAutomation 이벤트와 실제 서비스 revision의 수신 시각은 서로 다른 채널로 구분했다. 진단 코드는 최종 소스와 검사 APK에서 제외하고 원문은 비공개 운영 자료에 보존한다.
++
++수리6은 실제 수락한 활성/초점 창과 해석된 패키지 식별 변경을 기존 windowRevision에 연결한다. 조회 시작 순번이 더 오래된 결과와 중단·일시정지 세대가 지난 결과는 관측을 덮지 않는다. 수락과 허가 세대 갱신은 같은 임계 구역에서 마치며 메인 스레드의 동기 플랫폼 조회는 추가하지 않는다. 실제로 아직 관측하지 못한 모든 앱 전환까지 원자 차단한다고 보장하지 않는다.
++
++새 관측 모델의 결정적 단위5개를 추가하여109개/20클래스로 검사한다. 원114개 기기와 새6개를 새 최종 동결에서 모두 다시 실행한다. 선택적 성능 명세의18/19 버전 정합도 실제 검사 코드와 대조하며 이번에는 그 비교를 실행하지 않는다. 앞선80개 실패 묶음·새6개 GREEN과 최종 새120개를 소급 혼합하지 않는다.
+diff --git a/18차-source/tools/adaptive-check-plan.json b/19차-source/tools/adaptive-check-plan.json
+index 9156c76..399374d 100644
+--- a/18차-source/tools/adaptive-check-plan.json
++++ b/19차-source/tools/adaptive-check-plan.json
+@@ -2,7 +2,7 @@
+   "schema_version": 1,
+   "total_timeout_seconds": 480,
+   "device_profile": {
+-    "avd": "PXE18",
++    "avd": "PXE19",
+     "serial": "emulator-5598",
+     "adb_port": 5043,
+     "width": 1080,
+diff --git a/18차-source/tools/check_artifacts.py b/19차-source/tools/check_artifacts.py
+index 8dd9553..fc09bf9 100644
+--- a/18차-source/tools/check_artifacts.py
++++ b/19차-source/tools/check_artifacts.py
+@@ -8,9 +8,8 @@ import shutil
+ import subprocess
+ import zipfile
+ 
+-ROOT = Path(__file__).resolve().parents[1]
+-DELIVERY = ROOT.parent
+-BRIDGE = Path('D:/2026/PXE18Build')
++from project_paths import BUILD, CANONICAL, DELIVERY, JDK, SDK
++ROOT = CANONICAL
+ CERTIFICATE = '57339c32b3661e18f18a7f9f7a08c539130211ab93ab0000812f99c949c5ad3e'
+ 
+ 
+@@ -23,7 +22,7 @@ def digest(path):
+ 
+ 
+ def command(argv):
+-    env = dict(os.environ, JAVA_HOME=str(BRIDGE / 'tools/jdk-17.0.20.1+1'))
++    env = dict(os.environ, JAVA_HOME=str(JDK))
+     result = subprocess.run(argv, shell=False, env=env, cwd=ROOT,
+                             stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                             timeout=30)
+@@ -34,31 +33,31 @@ def command(argv):
+ 
+ 
+ def main():
+-    baseline = json.loads((DELIVERY / '17차_보존기준.json').read_text(encoding='utf-8-sig'))
++    baseline = json.loads((DELIVERY / '18차_보존기준.json').read_text(encoding='utf-8-sig'))
+     for entry in baseline:
+         path = Path(entry['path'])
+         if path.stat().st_size != entry['bytes'] or digest(path).upper() != entry['sha256']:
+             raise RuntimeError(f'이전 차수 변경 감지: {path}')
+-    print(f'17차 원본 보존: {len(baseline)}개 통과')
+-    output = ROOT / 'work/artifact-verification'
++    print(f'18차 원본 보존: {len(baseline)}개 통과')
++    output = BUILD / 'work/artifact-verification'
+     output.mkdir(parents=True, exist_ok=True)
+-    tools = BRIDGE / 'android/android-sdk/build-tools/35.0.0'
++    tools = SDK / 'build-tools/35.0.0'
+     variants = [('노트10플러스', 'phone', {'arm64-v8a'}),
+                 ('PC용', 'pc', {'arm64-v8a', 'x86_64'})]
+     for label, short, expected_abis in variants:
+-        source = DELIVERY / f'PXE_18차_v1.8_{label}.apk'
++        source = DELIVERY / f'PXE_19차_v1.9_{label}.apk'
+         target = output / f'{short}.apk'
+         shutil.copyfile(source, target)
+         if digest(source) != digest(target):
+             raise RuntimeError('검사용 복사본의 해시 불일치')
+         # Windows Android 도구의 한글 경로 제한을 피하되 납품본 해시를 대조합니다.
+-        ascii_target = BRIDGE / f'source/work/artifact-verification/{short}.apk'
++        ascii_target = BUILD / f'work/artifact-verification/{short}.apk'
+         metadata = command([str(tools / 'aapt.exe'), 'dump', 'badging', str(ascii_target)])
+-        if not re.search(r"package: name='kr\.yunseok\.touchmacro'.*versionCode='18'.*versionName='1\.8\.0'", metadata):
++        if not re.search(r"package: name='kr\.yunseok\.touchmacro'.*versionCode='19'.*versionName='1\.9\.0'", metadata):
+             raise RuntimeError('APK 앱 ID 또는 버전 불일치')
+         if "application-label:'PXE'" not in metadata:
+             raise RuntimeError('APK 앱 이름 불일치')
+-        signed = command([str(BRIDGE / 'tools/jdk-17.0.20.1+1/bin/java.exe'),
++        signed = command([str(JDK / 'bin/java.exe'),
+                           '-Dfile.encoding=UTF-8', '-jar', str(tools / 'lib/apksigner.jar'),
+                           'verify', '--print-certs', str(ascii_target)])
+         certificates = re.findall(r'certificate SHA-256 digest: ([0-9a-fA-F]+)', signed)
+@@ -70,7 +69,7 @@ def main():
+             abis = {name.split('/')[1] for name in archive.namelist() if name.startswith('lib/') and name.endswith('.so')}
+         if abis != expected_abis:
+             raise RuntimeError(f'APK 지원 기기 불일치: {abis!r}')
+-        print(f'{label}: 앱 ID·PXE·18/1.8.0·기존 서명·ABI·CRC 통과 / SHA256 {digest(source)}')
++        print(f'{label}: 앱 ID·PXE·19/1.9.0·기존 서명·ABI·CRC 통과 / SHA256 {digest(source)}')
+ 
+ 
+ if __name__ == '__main__':
+diff --git a/18차-source/tools/check_device.py b/19차-source/tools/check_device.py
+index b46be67..21eccd4 100644
+--- a/18차-source/tools/check_device.py
++++ b/19차-source/tools/check_device.py
+@@ -1,4 +1,4 @@
+-"""소유한 PXE18 검사 장치와 18차 설치를 확인한 뒤 기기 회귀 검사를 실행합니다."""
++"""소유한 PXE19 검사 장치와 19차 설치를 확인한 뒤 기기 회귀 검사를 실행합니다."""
+ import re
+ import sys
+ sys.dont_write_bytecode = True
+@@ -7,11 +7,11 @@ from check_regression import PROJECT, run
+ adb = str(PROJECT / "코드/NEXTools/android-sdk/platform-tools/adb.exe")
+ prefix = [adb, "-P", "5043", "-s", "emulator-5598", "shell"]
+ device = run(prefix + ["getprop", "ro.boot.qemu.avd_name"]).strip()
+-if device != "PXE18":
+-    raise SystemExit("소유한 PXE18 검사 장치가 아닙니다")
++if device != "PXE19":
++    raise SystemExit("소유한 PXE19 검사 장치가 아닙니다")
+ package = run(prefix + ["dumpsys", "package", "kr.yunseok.touchmacro"])
+-if not re.search(r"versionCode=18\s", package):
+-    raise SystemExit("설치 버전이 18차가 아닙니다")
++if not re.search(r"versionCode=19\s", package):
++    raise SystemExit("설치 버전이 19차가 아닙니다")
+ classes = sys.argv[1:] or ["OcrStallRecoveryTest", "ContinuousOcrTest", "ScreenDelayRecoveryTest", "ReaderResponsivenessTest"]
+ if any(not re.fullmatch(r"[A-Za-z]+Test(?:#[A-Za-z]+)?", item) for item in classes):
+     raise SystemExit("검사 클래스 또는 메서드 형식 오류")
+diff --git a/18차-source/tools/check_performance.py b/19차-source/tools/check_performance.py
+index 330e01b..d7775be 100644
+--- a/18차-source/tools/check_performance.py
++++ b/19차-source/tools/check_performance.py
+@@ -8,9 +8,9 @@ mode=sys.argv[1] if len(sys.argv)==2 else ''
+ if mode not in ('baseline','adaptive'):
+     raise SystemExit('baseline 또는 adaptive 한 가지를 지정하세요')
+ prefix=[str(PROJECT/'코드/NEXTools/android-sdk/platform-tools/adb.exe'),'-P','5043','-s','emulator-5598','shell']
+-if run(prefix+['getprop','ro.boot.qemu.avd_name'],timeout=10).strip()!='PXE18':
+-    raise SystemExit('소유 PXE18 시험 기기가 아닙니다')
+-version=17 if mode=='baseline' else 18
++if run(prefix+['getprop','ro.boot.qemu.avd_name'],timeout=10).strip()!='PXE19':
++    raise SystemExit('소유 PXE19 시험 기기가 아닙니다')
++version=18 if mode=='baseline' else 19
+ metadata=run(prefix+['dumpsys','package','kr.yunseok.touchmacro'],timeout=10)
+ if not re.search(r'versionCode='+str(version)+r'\s',metadata):
+     raise SystemExit('성능 비교의 설치 버전이 다릅니다')
+diff --git a/18차-source/tools/check_recognition_device.py b/19차-source/tools/check_recognition_device.py
+index acc62f0..b68f7fd 100644
+--- a/18차-source/tools/check_recognition_device.py
++++ b/19차-source/tools/check_recognition_device.py
+@@ -1,4 +1,4 @@
+-"""소유 PXE18에서 신규 집중 검사를 승인된 내부 시간으로로 제한해 실행합니다."""
++"""소유 PXE19에서 신규 집중 검사를 승인된 내부 시간으로로 제한해 실행합니다."""
+ import re
+ import sys
+ import time
+@@ -13,11 +13,11 @@ started = time.monotonic()
+ adb = str(PROJECT / "코드/NEXTools/android-sdk/platform-tools/adb.exe")
+ prefix = [adb, "-P", "5043", "-s", "emulator-5598", "shell"]
+ device = run(prefix + ["getprop", "ro.boot.qemu.avd_name"], timeout=10).strip()
+-if device != "PXE18":
+-    raise SystemExit("소유 PXE18가 아니므로 검사를 중단합니다")
++if device != "PXE19":
++    raise SystemExit("소유 PXE19가 아니므로 검사를 중단합니다")
+ package = run(prefix + ["dumpsys", "package", "kr.yunseok.touchmacro"], timeout=10)
+-if not re.search(r"versionCode=18\s", package):
+-    raise SystemExit("설치 버전이 18차가 아닙니다")
++if not re.search(r"versionCode=19\s", package):
++    raise SystemExit("설치 버전이 19차가 아닙니다")
+ classes = sys.argv[1:]
+ if not classes or any(not re.fullmatch(r"(?:Recognition(?:Mode|Region)|PxeRecognitionSettings)Test(?:#[A-Za-z]+)?", item) for item in classes):
+     raise SystemExit("승인된 신규 인식 검사만 실행합니다")
+diff --git a/18차-source/tools/check_regression.py b/19차-source/tools/check_regression.py
+index 006ab04..a7e6a61 100644
+--- a/18차-source/tools/check_regression.py
++++ b/19차-source/tools/check_regression.py
+@@ -5,8 +5,8 @@ import subprocess
+ import tempfile
+ import threading
+ 
+-ROOT = Path(__file__).resolve().parents[1]
+-PROJECT = ROOT.parents[1]
++from project_paths import BUILD, CANONICAL, PROJECT
++ROOT = CANONICAL
+ JDK = PROJECT / "work/tools/jdk-17.0.20.1+1/bin"
+ CACHE = Path.home() / ".gradle/caches/modules-2/files-2.1"
+ 
+@@ -19,7 +19,7 @@ def jar(group, name):
+ 
+ 
+ def run(argv, timeout=23, require_success=False):
+-    process = subprocess.Popen(argv, cwd=ROOT, shell=False, stdout=subprocess.PIPE,
++    process = subprocess.Popen(argv, cwd=BUILD, shell=False, stdout=subprocess.PIPE,
+                                stderr=subprocess.STDOUT)
+     captured = bytearray()
+     original = 0
+@@ -92,7 +92,7 @@ def check(output):
+ 
+ 
+ def main():
+-    work = ROOT / "work"
++    work = BUILD / "work"
+     work.mkdir(exist_ok=True)
+     # 호출마다 비어 있는 별도 폴더를 써서 이전 클래스 파일의 성공 오판을 막습니다.
+     with tempfile.TemporaryDirectory(prefix="pure-tests-", dir=work) as directory:
+diff --git a/18차-source/tools/check_upgrade.py b/19차-source/tools/check_upgrade.py
+index 6fd7251..24e0f28 100644
+--- a/18차-source/tools/check_upgrade.py
++++ b/19차-source/tools/check_upgrade.py
+@@ -1,4 +1,4 @@
+-"""소유 PXE18 장치에서만 17→18 실제 업데이트와 기존 데이터 보존을 검사합니다."""
++"""소유 PXE19 장치에서만 18→19 실제 업데이트와 기존 데이터 보존을 검사합니다."""
+ import hashlib
+ import json
+ from pathlib import Path
+@@ -7,9 +7,9 @@ import shutil
+ import sys
+ sys.dont_write_bytecode = True
+ from check_regression import ROOT, run
++from project_paths import BUILD, SDK
+ 
+-BRIDGE = Path('D:/2026/PXE18Build')
+-ADB = str(BRIDGE / 'android/android-sdk/platform-tools/adb.exe')
++ADB = str(SDK / 'platform-tools/adb.exe')
+ PREFIX = [ADB, '-P', '5043', '-s', 'emulator-5598']
+ PACKAGE = 'kr.yunseok.touchmacro'
+ 
+@@ -18,17 +18,17 @@ def sha(path):
+ 
+ def main():
+     device = run(PREFIX + ['shell', 'getprop', 'ro.boot.qemu.avd_name']).strip()
+-    if device != 'PXE18':
+-        raise SystemExit('소유한 PXE18 장치가 아닙니다')
++    if device != 'PXE19':
++        raise SystemExit('소유한 PXE19 장치가 아닙니다')
+     delivery = ROOT.parent
+-    baseline = json.loads((delivery / '17차_보존기준.json').read_text(encoding='utf-8-sig'))
+-    previous = Path('D:/2026/PXE Project/17차/PXE_17차_v1.7_PC용.apk')
++    baseline = json.loads((delivery / '18차_보존기준.json').read_text(encoding='utf-8-sig'))
++    previous = Path('D:/2026/PXE Project/18차/PXE_18차_v1.8_PC용.apk')
+     entry = next(item for item in baseline if Path(item['path']) == previous)
+     if previous.stat().st_size != entry['bytes'] or sha(previous).upper() != entry['sha256']:
+-        raise SystemExit('17차 원본 APK 보존 기준 불일치')
+-    current = delivery / 'PXE_18차_v1.8_PC용.apk'
+-    tests = ROOT / 'work/build/app/outputs/apk/androidTest/release/app-release-androidTest.apk'
+-    work = ROOT / 'work/upgrade18'
++        raise SystemExit('18차 원본 APK 보존 기준 불일치')
++    current = delivery / 'PXE_19차_v1.9_PC용.apk'
++    tests = BUILD / 'work/build/app/outputs/apk/androidTest/release/app-release-androidTest.apk'
++    work = BUILD / 'work/upgrade19'
+     work.mkdir(parents=True, exist_ok=True)
+     for source, name in [(previous, 'previous.apk'), (current, 'current.apk'), (tests, 'tests.apk')]:
+         target = work / name
+@@ -37,23 +37,23 @@ def main():
+             raise SystemExit('설치용 ASCII 복사본 해시 불일치')
+         print(f'{name} SHA256 {sha(source)}')
+     metadata = run(PREFIX + ['shell', 'dumpsys', 'package', PACKAGE])
+-    if re.search(r'versionCode=18\s', metadata):
++    if re.search(r'versionCode=19\s', metadata):
+         # 독립 재실행 때에도 같은 전용 시험 앱만 초기화합니다.
+         run(PREFIX + ['uninstall', PACKAGE], timeout=40)
+-    run(PREFIX + ['install', '-r', str(BRIDGE / 'source/work/upgrade18/previous.apk')], timeout=60)
++    run(PREFIX + ['install', '-r', str(work / 'previous.apk')], timeout=60)
+     metadata = run(PREFIX + ['shell', 'dumpsys', 'package', PACKAGE])
+-    if not re.search(r'versionCode=17\s', metadata):
+-        raise SystemExit('업데이트 전 설치 버전이 17차가 아닙니다')
+-    run(PREFIX + ['install', '-r', str(BRIDGE / 'source/work/upgrade18/tests.apk')], timeout=60)
++    if not re.search(r'versionCode=18\s', metadata):
++        raise SystemExit('업데이트 전 설치 버전이 18차가 아닙니다')
++    run(PREFIX + ['install', '-r', str(work / 'tests.apk')], timeout=60)
+     instrument = PREFIX + ['shell', 'am', 'instrument', '-w', '-r', '-e', 'class']
+     runner = PACKAGE + '.test/androidx.test.runner.AndroidJUnitRunner'
+     run(instrument + [PACKAGE + '.PxeUpgradeTest#seedPreviousVersion', runner], timeout=60, require_success=True)
+-    run(PREFIX + ['install', '-r', str(BRIDGE / 'source/work/upgrade18/current.apk')], timeout=60)
++    run(PREFIX + ['install', '-r', str(work / 'current.apk')], timeout=60)
+     metadata = run(PREFIX + ['shell', 'dumpsys', 'package', PACKAGE])
+-    if not re.search(r'versionCode=18\s', metadata):
+-        raise SystemExit('업데이트 후 설치 버전이 18차가 아닙니다')
++    if not re.search(r'versionCode=19\s', metadata):
++        raise SystemExit('업데이트 후 설치 버전이 19차가 아닙니다')
+     run(instrument + [PACKAGE + '.PxeUpgradeTest#verifyAfterPxeUpdate', runner], timeout=60, require_success=True)
+-    print('17→18 실제 업데이트와 기존 저장 데이터 보존: 2개 통과')
++    print('18→19 실제 업데이트와 기존 저장 데이터 보존: 2개 통과')
+ 
+ if __name__ == '__main__':
+     main()
+diff --git a/18차-source/tools/hud-check-plan.json b/19차-source/tools/hud-check-plan.json
+index 95554af..954b5bd 100644
+--- a/18차-source/tools/hud-check-plan.json
++++ b/19차-source/tools/hud-check-plan.json
+@@ -1,7 +1,7 @@
+ {
+   "schema_version": 1,
+   "total_timeout_seconds": 240,
+-  "device_profile": {"avd":"PXE18","serial":"emulator-5598","adb_port":5043,"width":1080,"height":2280,"density":420},
++  "device_profile": {"avd":"PXE19","serial":"emulator-5598","adb_port":5043,"width":1080,"height":2280,"density":420},
+   "checks": [
+     {"id":"진행창 실제15회·접기·캡처·장기제스처정지·다중경로·녹화·테마", "argv":["{python}","-B","-X","utf8","tools/check_device.py","RunHudTest","HudStopVisibilityTest"],"cwd":".","timeout_seconds":120,"expected_tests":8},
+     {"id":"320dp 작은 화면 라이트·다크·긴 안내와 접기", "argv":["{python}","-B","-X","utf8","tools/check_device.py","RunHudTest#bothThemesAndLongStoppedMessageStayInsideSmallViewport"],"cwd":".","timeout_seconds":60,"expected_tests":1,"small":true,"size":"720x1280","density":360,"restore":{"size":"1080x2280","density":420}},
+diff --git a/18차-source/tools/performance-check-plan.json b/19차-source/tools/performance-check-plan.json
+index 6f6f2d5..c110ff3 100644
+--- a/18차-source/tools/performance-check-plan.json
++++ b/19차-source/tools/performance-check-plan.json
+@@ -1,7 +1,7 @@
+ {
+   "schema_version": 1,
+   "total_timeout_seconds": 480,
+-  "owned_avd": "PXE18",
++  "owned_avd": "PXE19",
+   "expected_tests_per_version": 1,
+   "whole_macro_rounds": 15,
+   "text_steps_per_round": 2,
+@@ -13,7 +13,7 @@
+       "width": 1080,
+       "height": 2280,
+       "density": 420,
+-      "status": "이전15→16차 기본1080/CPU2 실패는16차에보존;이번18차성능비교는미실행",
++      "status": "이전15→16차 기본1080/CPU2 실패는16차에보존;이번19차성능비교는미실행",
+       "cpu_cores": 2,
+       "ram_mib": 2048,
+       "gpu": "swiftshader"
+@@ -23,7 +23,7 @@
+       "width": 540,
+       "height": 1140,
+       "density": 210,
+-      "status": "선택적17→18 비교 명세;이번진행표시요청의필수검사아님·미실행",
++      "status": "선택적18→19 비교 명세;이번창복구요청의필수검사아님·미실행",
+       "cpu_cores": 2,
+       "ram_mib": 2048,
+       "gpu": "swiftshader"
+@@ -36,12 +36,12 @@
+       "cpu_cores": 4,
+       "ram_mib": 2048,
+       "gpu": "swiftshader",
+-      "status": "이전15→16차 CPU4비교이력은16차에보존;이번17→18비교미실행"
++      "status": "이전15→16차 CPU4비교이력은16차에보존;이번18→19비교미실행"
+     }
+   ],
+   "checks": [
+     {
+-      "id": "17차 같은 조건 기준 비교",
++      "id": "18차 같은 조건 기준 비교",
+       "argv": [
+         "{python}",
+         "-B",
+@@ -53,10 +53,10 @@
+       "cwd": ".",
+       "timeout_seconds": 240,
+       "expected_tests": 1,
+-      "requires_version": 17
++      "requires_version": 18
+     },
+     {
+-      "id": "18차 같은 조건 적응 실행",
++      "id": "19차 같은 조건 적응 실행",
+       "argv": [
+         "{python}",
+         "-B",
+@@ -68,7 +68,7 @@
+       "cwd": ".",
+       "timeout_seconds": 160,
+       "expected_tests": 1,
+-      "requires_version": 18
++      "requires_version": 19
+     }
+   ],
+   "report_limits": "540 또는 CPU4 성공으로 기본1080/CPU2 실패를 대체하지 않으며 실제 게임·블루스택·5개 동시·24시간·99%로 일반화하지 않습니다. 별도 환경 비교의 각480초 예산과 원래 개별 기한을 유지합니다."
+diff --git a/19차-source/tools/project_paths.py b/19차-source/tools/project_paths.py
+new file mode 100644
+index 0000000..06e5898
+--- /dev/null
++++ b/19차-source/tools/project_paths.py
+@@ -0,0 +1,11 @@
++"""19차의 실제 기준 소스·빌드 사본·도구 경로를 한곳에 둡니다."""
++from pathlib import Path
++
++PROJECT = Path('D:/2026/PXE Project')
++CANONICAL = PROJECT / '19차/source'
++BUILD = PROJECT / 'work/build19/source'
++DELIVERY = PROJECT / '19차'
++SDK = PROJECT / '코드/NEXTools/android-sdk'
++JDK = PROJECT / 'work/tools/jdk-17.0.20.1+1'
++GRADLE = PROJECT / 'work/tools/gradle-8.13/bin/gradle.bat'
++SIGNING = PROJECT / '코드/NEXSigning'
+diff --git a/18차-source/tools/recognition-check-plan.json b/19차-source/tools/recognition-check-plan.json
+index a77fca0..78cb0c2 100644
+--- a/18차-source/tools/recognition-check-plan.json
++++ b/19차-source/tools/recognition-check-plan.json
+@@ -1,71 +1,71 @@
+-{
+-  "schema_version": 1,
+-  "existing_shared_total_timeout_seconds": 720,
+-  "small_screen": {
+-    "classes": [
+-      "PxeDesignReviewTest",
+-      "PxeGuideFlowTest",
+-      "PxeRedesignTest"
+-    ],
+-    "expected_tests": 6,
+-    "size": "720x1280",
+-    "density": 360,
+-    "timeout_seconds": 120,
+-    "restore": {
+-      "size": "1080x2280",
+-      "density": 420
+-    },
+-    "argv": [
+-      "{python}",
+-      "-B",
+-      "-X",
+-      "utf8",
+-      "tools/check_device.py",
+-      "PxeDesignReviewTest",
+-      "PxeGuideFlowTest",
+-      "PxeRedesignTest"
+-    ],
+-    "cwd": "."
+-  },
+-  "focused_total_timeout_seconds": 240,
+-  "checks": [
+-    {
+-      "id": "인식설정 저장과 범위",
+-      "classes": [
+-        "PxeRecognitionSettingsTest"
+-      ],
+-      "expected_tests": 4,
+-      "timeout_seconds": 90,
+-      "inner_timeout_seconds": 60,
+-      "argv": [
+-        "{python}",
+-        "-B",
+-        "-X",
+-        "utf8",
+-        "tools/check_recognition_device.py",
+-        "PxeRecognitionSettingsTest"
+-      ],
+-      "cwd": "."
+-    },
+-    {
+-      "id": "인식방식과 경계영역 보존",
+-      "classes": [
+-        "RecognitionModeTest",
+-        "RecognitionRegionTest"
+-      ],
+-      "expected_tests": 8,
+-      "timeout_seconds": 150,
+-      "inner_timeout_seconds": 120,
+-      "argv": [
+-        "{python}",
+-        "-B",
+-        "-X",
+-        "utf8",
+-        "tools/check_recognition_device.py",
+-        "RecognitionModeTest",
+-        "RecognitionRegionTest"
+-      ],
+-      "cwd": "."
+-    }
+-  ]
++{
++  "schema_version": 1,
++  "existing_shared_total_timeout_seconds": 720,
++  "small_screen": {
++    "classes": [
++      "PxeDesignReviewTest",
++      "PxeGuideFlowTest",
++      "PxeRedesignTest"
++    ],
++    "expected_tests": 6,
++    "size": "720x1280",
++    "density": 360,
++    "timeout_seconds": 120,
++    "restore": {
++      "size": "1080x2280",
++      "density": 420
++    },
++    "argv": [
++      "{python}",
++      "-B",
++      "-X",
++      "utf8",
++      "tools/check_device.py",
++      "PxeDesignReviewTest",
++      "PxeGuideFlowTest",
++      "PxeRedesignTest"
++    ],
++    "cwd": "."
++  },
++  "focused_total_timeout_seconds": 240,
++  "checks": [
++    {
++      "id": "인식설정 저장과 범위",
++      "classes": [
++        "PxeRecognitionSettingsTest"
++      ],
++      "expected_tests": 4,
++      "timeout_seconds": 90,
++      "inner_timeout_seconds": 60,
++      "argv": [
++        "{python}",
++        "-B",
++        "-X",
++        "utf8",
++        "tools/check_recognition_device.py",
++        "PxeRecognitionSettingsTest"
++      ],
++      "cwd": "."
++    },
++    {
++      "id": "인식방식과 경계영역 보존",
++      "classes": [
++        "RecognitionModeTest",
++        "RecognitionRegionTest"
++      ],
++      "expected_tests": 8,
++      "timeout_seconds": 150,
++      "inner_timeout_seconds": 120,
++      "argv": [
++        "{python}",
++        "-B",
++        "-X",
++        "utf8",
++        "tools/check_recognition_device.py",
++        "RecognitionModeTest",
++        "RecognitionRegionTest"
++      ],
++      "cwd": "."
++    }
++  ]
+ }
+\ No newline at end of file
+diff --git a/18차-source/tools/recovery-check-plan.json b/19차-source/tools/recovery-check-plan.json
+index e4bd35f..0a9d5f3 100644
+--- a/18차-source/tools/recovery-check-plan.json
++++ b/19차-source/tools/recovery-check-plan.json
+@@ -2,7 +2,7 @@
+   "schema_version": 1,
+   "total_timeout_seconds": 240,
+   "device_profile": {
+-    "avd": "PXE18",
++    "avd": "PXE19",
+     "serial": "emulator-5598",
+     "adb_port": 5043,
+     "width": 1080,
+diff --git a/18차-source/tools/required-check-plan.json b/19차-source/tools/required-check-plan.json
+index 5a8d129..55bc462 100644
+--- a/18차-source/tools/required-check-plan.json
++++ b/19차-source/tools/required-check-plan.json
+@@ -39,7 +39,7 @@
+       "timeout_seconds": 90
+     },
+     {
+-      "id": "17차에서18차실제업데이트설정보존",
++      "id": "18차에서19차실제업데이트설정보존",
+       "argv": [
+         "{python}",
+         "-B",
+diff --git a/19차-source/tools/sync_build.py b/19차-source/tools/sync_build.py
+new file mode 100644
+index 0000000..f451adc
+--- /dev/null
++++ b/19차-source/tools/sync_build.py
+@@ -0,0 +1,57 @@
++"""연결을 만들지 않고 선택 소스를 실제 빌드 폴더로 복사·대조합니다."""
++from pathlib import Path
++import datetime
++import hashlib
++import json
++import os
++import shutil
++import stat
++from project_paths import BUILD, CANONICAL, SDK
++
++SKIP = {'.git', '.gradle', '.codex', 'evidence', 'work', '__pycache__', 'build'}
++
++def ordinary(path):
++    if path.is_symlink() or path.is_junction() or path.stat().st_file_attributes & stat.FILE_ATTRIBUTE_REPARSE_POINT:
++        raise RuntimeError('빌드 경로에 폴더 연결을 사용할 수 없습니다: ' + str(path))
++
++def selected(root):
++    for folder, directories, names in os.walk(root, followlinks=False):
++        directories[:] = sorted(name for name in directories if name not in SKIP)
++        for name in directories:
++            ordinary(Path(folder) / name)
++        for name in sorted(names):
++            if name == 'local.properties':
++                continue
++            path = Path(folder) / name
++            ordinary(path)
++            yield path
++
++def main():
++    ordinary(CANONICAL)
++    ordinary(BUILD)
++    manifest = []
++    for source in selected(CANONICAL):
++        relative = source.relative_to(CANONICAL)
++        target = BUILD / relative
++        target.parent.mkdir(parents=True, exist_ok=True)
++        if target.exists():
++            ordinary(target)
++        shutil.copyfile(source, target)
++        before, after = source.read_bytes(), target.read_bytes()
++        if before != after:
++            raise RuntimeError('기준 소스와 빌드 사본이 다릅니다: ' + relative.as_posix())
++        manifest.append({'path': relative.as_posix(), 'bytes': len(before),
++                         'sha256': hashlib.sha256(before).hexdigest()})
++    actual = {path.relative_to(BUILD).as_posix() for path in selected(BUILD)}
++    if actual != {entry['path'] for entry in manifest}:
++        raise RuntimeError('실제 빌드 사본에 선택 소스 외 파일이 있습니다')
++    # Java properties는 한글 경로를 ASCII 유니코드 이스케이프로 기록합니다.
++    (BUILD / 'local.properties').write_bytes(('sdk.dir=' + SDK.as_posix() + '\n').encode('ascii', 'backslashreplace'))
++    output = BUILD / 'work/source-sync.json'
++    output.parent.mkdir(exist_ok=True)
++    output.write_bytes((json.dumps({'at_kst': datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9))).isoformat(),
++        'canonical': str(CANONICAL), 'build': str(BUILD), 'new_links': 0, 'files': manifest}, ensure_ascii=False, indent=2) + '\n').encode('utf-8'))
++    print('실제 빌드 사본 원문·해시 대조: ' + str(len(manifest)) + '개 통과 / 새 연결 0')
++
++if __name__ == '__main__':
++    main()
+diff --git a/19차-source/tools/target-window-check-plan.json b/19차-source/tools/target-window-check-plan.json
+new file mode 100644
+index 0000000..6088757
+--- /dev/null
++++ b/19차-source/tools/target-window-check-plan.json
+@@ -0,0 +1,29 @@
++{
++  "schema_version": 1,
++  "total_timeout_seconds": 180,
++  "device_profile": {
++    "avd": "PXE19",
++    "serial": "emulator-5598",
++    "adb_port": 5043,
++    "width": 1080,
++    "height": 2280,
++    "density": 420
++  },
++  "checks": [
++    {
++      "id": "창 조회 취소·실제 복구 표시·15회 보존·타앱·권한·전체 기한",
++      "argv": [
++        "{python}",
++        "-B",
++        "-X",
++        "utf8",
++        "tools/check_device.py",
++        "TargetWindowRecoveryTest"
++      ],
++      "cwd": ".",
++      "timeout_seconds": 150,
++      "expected_tests": 6
++    }
++  ],
++  "limits": "기존114개 회귀와104개 단위 및각기존상한을보존합니다. 사용자앱이나24시간검증이아닙니다."
++}
+diff --git a/18차-source/빌드.ps1 b/19차-source/빌드.ps1
+index 67094d0..c7a12e2 100644
+--- a/18차-source/빌드.ps1
++++ b/19차-source/빌드.ps1
+@@ -1,22 +1,23 @@
+ $ErrorActionPreference = 'Stop'
+-$source18 = 'D:\2026\PXE Project\18차\source'
+-$bridge18 = 'D:\2026\PXE18Build'
+-$delivery18 = 'D:\2026\PXE Project\18차'
+-$sourceLink18 = Get-Item -LiteralPath (Join-Path $bridge18 'source')
+-if ($sourceLink18.LinkType -ne 'Junction' -or $sourceLink18.Target -ne $source18) { throw '18차 전용 빌드 연결을 확인하세요.' }
+-$env:JAVA_HOME = Join-Path $bridge18 'tools\jdk-17.0.20.1+1'
+-$env:ANDROID_HOME = Join-Path $bridge18 'android\android-sdk'
+-$env:NEX_SIGNING_DIR = (Join-Path $bridge18 'signing').Replace('\','/')
++$project19 = 'D:\2026\PXE Project'
++$source19 = Join-Path $project19 '19차\source'
++$build19 = Join-Path $project19 'work\build19\source'
++$delivery19 = Join-Path $project19 '19차'
++$python19 = 'C:\Users\PUVKID\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe'
++& $python19 -B -X utf8 (Join-Path $source19 'tools\sync_build.py')
++if ($LASTEXITCODE -ne 0) { throw '기준 소스와 실제 빌드 사본 대조 실패' }
++$env:JAVA_HOME = Join-Path $project19 'work\tools\jdk-17.0.20.1+1'
++$env:ANDROID_HOME = Join-Path $project19 '코드\NEXTools\android-sdk'
++$env:NEX_SIGNING_DIR = (Join-Path $project19 '코드\NEXSigning').Replace('\','/')
+ if (!(Test-Path -LiteralPath (Join-Path $env:NEX_SIGNING_DIR 'macro.jks'))) { throw '기존 앱과 같은 개인 서명 키가 필요합니다.' }
+-[IO.File]::WriteAllText((Join-Path $source18 'local.properties'), 'sdk.dir='+$env:ANDROID_HOME.Replace('\','/'), [Text.UTF8Encoding]::new($false))
+-Push-Location (Join-Path $bridge18 'source')
++Push-Location $build19
+ try {
+-    $gradle18 = Join-Path $bridge18 'tools\gradle-8.13\bin\gradle.bat'
+-    & $gradle18 :app:assembleRelease :app:testDebugUnitTest :app:lintDebug --console=plain --no-watch-fs --no-daemon --project-cache-dir work/.gradle
++    $gradle19 = Join-Path $project19 'work\tools\gradle-8.13\bin\gradle.bat'
++    & $gradle19 :app:assembleRelease :app:testDebugUnitTest :app:lintDebug --console=plain --no-watch-fs --no-daemon --project-cache-dir work/.gradle
+     if ($LASTEXITCODE -ne 0) { throw '휴대전화 APK 빌드 또는 검사 실패' }
+-    Copy-Item -LiteralPath (Join-Path $source18 'work\build\app\outputs\apk\release\app-release.apk') -Destination (Join-Path $delivery18 'PXE_18차_v1.8_노트10플러스.apk')
+-    & $gradle18 :app:assembleRelease :app:assembleReleaseAndroidTest -PNEX_PC --console=plain --no-watch-fs --no-daemon --project-cache-dir work/.gradle
++    Copy-Item -LiteralPath (Join-Path $build19 'work\build\app\outputs\apk\release\app-release.apk') -Destination (Join-Path $delivery19 'PXE_19차_v1.9_노트10플러스.apk')
++    & $gradle19 :app:assembleRelease :app:assembleReleaseAndroidTest -PNEX_PC --console=plain --no-watch-fs --no-daemon --project-cache-dir work/.gradle
+     if ($LASTEXITCODE -ne 0) { throw 'PC APK 또는 기기 검사 APK 빌드 실패' }
+-    Copy-Item -LiteralPath (Join-Path $source18 'work\build\app\outputs\apk\release\app-release.apk') -Destination (Join-Path $delivery18 'PXE_18차_v1.8_PC용.apk')
++    Copy-Item -LiteralPath (Join-Path $build19 'work\build\app\outputs\apk\release\app-release.apk') -Destination (Join-Path $delivery19 'PXE_19차_v1.9_PC용.apk')
+ } finally { Pop-Location }
+-Write-Host '완료: 18차 폴더에 휴대전화용과 PC용 APK를 저장했습니다.'
++Write-Host '완료: 19차 폴더에 휴대전화용과 PC용 APK를 저장했습니다.'
+diff --git a/18차-source/빌드방법.txt b/19차-source/빌드방법.txt
+index 7ea845a..8129c5a 100644
+--- a/18차-source/빌드방법.txt
++++ b/19차-source/빌드방법.txt
+@@ -1,17 +1,20 @@
+-PXE 1.8.0 · 18차 소스 빌드
++PXE 1.9.0 · 19차 소스 빌드
+ 
+ UTF-8 한국어 스크립트는 PowerShell7에서 실행합니다: pwsh -NoProfile -File .\빌드.ps1
+ Windows PowerShell5의 powershell -File은 BOM없는 한글을 ANSI로 읽을 수 있으므로 사용하지 않습니다.
+ 
+-source의 빌드.ps1은 D:/2026/PXE18Build 전용 연결로 JDK 17 / Gradle 8.13 / Android SDK 35를 사용합니다.
++source의 빌드.ps1은 기준 소스를 tools/sync_build.py로 실제 일반 폴더에 복사하고 모든 선택 파일의 원문·해시를 대조합니다.
++실제 빌드 위치는 D:/2026/PXE Project/work/build19/source이며 바로가기·정션·심볼릭 링크를 만들지 않습니다.
++JDK17과 Gradle8.13은 프로젝트의 work/tools, Android SDK35는 코드/NEXTools/android-sdk 실제 폴더를 사용합니다.
++한글 SDK 경로는 local.properties에 유니코드 이스케이프로 기록합니다.
+ 기존 개인 서명 키와 앱 ID를 유지합니다. 키는 소스에 포함하지 않습니다.
+ 휴대전화용 ARM64 빌드를 먼저 저장하고 PC용 ARM64/x86_64 APK와 기기 검사 APK를 빌드합니다.
+-납품 위치: D:/2026/PXE Project/18차
++납품 위치: D:/2026/PXE Project/19차
+ 
+ 검사: :app:testDebugUnitTest :app:lintDebug
+ 순수 모델: python -B -X utf8 tools/check_regression.py
+ 텍스트: python -B -X utf8 tools/check_utf8.py
+-APK·16차 보존: python -B -X utf8 tools/check_artifacts.py
+-소유 PXE18 AVD에서만: python -B -X utf8 tools/check_device.py <검사 클래스>
++APK·18차 보존: python -B -X utf8 tools/check_artifacts.py
++소유 PXE19 AVD에서만: python -B -X utf8 tools/check_device.py <검사 클래스>
+ 기기 검사는 emulator-5598 / 전용 ADB 서버 5043을 사용합니다.
+ 기존 모델·저장 형식과 내부 밀리초 단위를 유지합니다. 화면 입력은 분/초입니다.

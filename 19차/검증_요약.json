@@ -1,0 +1,66 @@
+{
+  "version": "1.9.0",
+  "revision": 19,
+  "independent_device_tests": 120,
+  "unit_tests": 109,
+  "unit_classes": 20,
+  "lint_issues": 0,
+  "plans": [
+    {
+      "name": "required-check-plan.json",
+      "tests": 52,
+      "elapsed_seconds": 320.39,
+      "limit_seconds": 720
+    },
+    {
+      "name": "recognition-check-plan.json",
+      "tests": 12,
+      "elapsed_seconds": 34.141,
+      "limit_seconds": 240
+    },
+    {
+      "name": "adaptive-check-plan.json",
+      "tests": 25,
+      "elapsed_seconds": 90.562,
+      "limit_seconds": 480
+    },
+    {
+      "name": "recovery-check-plan.json",
+      "tests": 15,
+      "elapsed_seconds": 54.187,
+      "limit_seconds": 240
+    },
+    {
+      "name": "hud-check-plan.json",
+      "tests": 10,
+      "elapsed_seconds": 52.36,
+      "limit_seconds": 240
+    },
+    {
+      "name": "target-window-check-plan.json",
+      "tests": 6,
+      "elapsed_seconds": 22.766,
+      "limit_seconds": 180
+    }
+  ],
+  "previous_revision_preserved_items": 153,
+  "apks": [
+    {
+      "file": "PXE_19차_v1.9_PC용.apk",
+      "bytes": 35351522,
+      "sha256": "46017d7f2bb2736871776d69eb93ce5d28dc8838294999e2e129bee4bf358276"
+    },
+    {
+      "file": "PXE_19차_v1.9_노트10플러스.apk",
+      "bytes": 23714266,
+      "sha256": "ac257ce52d430aac0918f78f282ca1180ff20c3114d6513c2c9b13ff88ce03a6"
+    }
+  ],
+  "limits": [
+    "사용자 실제 설치 버전과 과거 오류 원문 미확보",
+    "사용자 블루스택·게임·실제 휴대폰 및24시간 운용 미검증",
+    "이번 차수의15회 처리속도 비교 미실행",
+    "조회 취소 제어 재현을 사용자 과거 오류의 확정 원인으로 확대하지 않음",
+    "창 전환 허가 폐기는 실제 수락한 조회에 근거하며 아직 관측하지 못한 모든 후발 전환의 원자적 차단을 보장하지 않음"
+  ]
+}

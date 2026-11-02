@@ -50,9 +50,9 @@
   {
     "path": "NEXSigning/key.properties",
     "status": "이전만 존재",
-    "before_bytes": 85,
+    "before_bytes": 226,
     "after_bytes": null,
-    "before_sha256": "f59c4a994533315f8b92ded45e9ed32f886f9ca4448b8d53275d6b6e3cc9ce46",
+    "before_sha256": "042331c8b16b28b9c94453786f539dd804cfedc44fb5fd229a7e68fea071448d",
     "after_sha256": null
   },
   {
