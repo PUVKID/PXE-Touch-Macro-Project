@@ -1,5 +1,5 @@
 {
-  "basis": "현재 저장소의 보존한 공개 18차 전체와 공개 19차 전체. 로컬 비공개 원본·APK는 제외.",
+  "basis": "보존한 공개 18차와 현재 공개 19차의 실제 바이트. 현재 사용자 홈을 기준으로 구성한 Python 경로와 빌드 안내를 포함하며 로컬 키·APK는 제외합니다.",
   "before_files": 155,
   "after_files": 162,
   "counts": {
@@ -40,8 +40,8 @@
         "sha256": "4be5918c446cf58fab0d48ed61c52bd7d4867de03ccd779668d6b6b39d2076ea"
       },
       "after": {
-        "bytes": 12794,
-        "sha256": "08fd38a78e108d267367eed38de462dce0b7c2d697cab6f4c5f7b1f32b1e1da4"
+        "bytes": 13037,
+        "sha256": "99433ca80abfd1f5f7e4cd901136d56c36e7620ab4dbb3dde73931ae17c21997"
       }
     },
     {
@@ -1867,8 +1867,8 @@
         "sha256": "e109eec514957ee7638d93e0e42e24532582167a691e6208aa5d8e00582b8776"
       },
       "after": {
-        "bytes": 1881,
-        "sha256": "d623c4df93fe3a2df092a147d4f194a6b3fbad14e40b8444cde8346ecd769dd7"
+        "bytes": 1892,
+        "sha256": "07d45e28747ba51568003342df52c66182095f148d495b7ad87382fc247633ac"
       }
     },
     {

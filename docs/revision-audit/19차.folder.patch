@@ -20,7 +20,7 @@ index 3b11fe6..2c23da4 100644
    }
  ]
 diff --git a/18차/source/README.md b/19차/source/README.md
-index 9e9eebf..600c97b 100644
+index 9e9eebf..bdccae9 100644
 --- a/18차/source/README.md
 +++ b/19차/source/README.md
 @@ -1,7 +1,19 @@
@@ -58,6 +58,12 @@ index 9e9eebf..600c97b 100644
  
  실제 사용자 블루스택의 처리 속도, 5개 동시 실행, 24시간 무중단은 이 시험 구성의 검증 범위가 아닙니다. OS가 캡처를 제한하는 화면은 우회하지 않고 해당 단계에서 원인을 표시합니다.
  
+@@ -67,3 +79,5 @@ Java17, Gradle8.13, Android Gradle Plugin8.9.1, compile/target SDK35, min SDK30,
+ - [Android31 AccessibilityService 원본](https://android.googlesource.com/platform/prebuilts/fullsdk/sources/android-31/+/refs/heads/androidx-savedstate-release/android/accessibilityservice/AccessibilityService.java)
+ - [Android30 AccessibilityService 원본](https://android.googlesource.com/platform/prebuilts/fullsdk/sources/android-30/+/refs/heads/main/android/accessibilityservice/AccessibilityService.java)
+ - [ML Kit 입력 이미지와 성능 안내](https://developers.google.com/ml-kit/vision/text-recognition/v2/android)
++
++빌드 스크립트는 현재 사용자 홈 아래의 기존 Python 실행 파일을 찾도록 경로를 구성합니다. 컴퓨터별 사용자 이름을 고정하지 않으며 앱 코드·서명 방식·검사 조건은 그대로입니다.
 diff --git a/18차/source/app/build.gradle b/19차/source/app/build.gradle
 index b7bef5c..2432df9 100644
 --- a/18차/source/app/build.gradle
@@ -1137,7 +1143,7 @@ index 0000000..6088757
 +  "limits": "기존114개 회귀와104개 단위 및각기존상한을보존합니다. 사용자앱이나24시간검증이아닙니다."
 +}
 diff --git a/18차/source/빌드.ps1 b/19차/source/빌드.ps1
-index 67094d0..c7a12e2 100644
+index 67094d0..2284737 100644
 --- a/18차/source/빌드.ps1
 +++ b/19차/source/빌드.ps1
 @@ -1,22 +1,23 @@
@@ -1154,7 +1160,7 @@ index 67094d0..c7a12e2 100644
 +$source19 = Join-Path $project19 '19차\source'
 +$build19 = Join-Path $project19 'work\build19\source'
 +$delivery19 = Join-Path $project19 '19차'
-+$python19 = 'C:\Users\PUVKID\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe'
++$python19 = Join-Path $env:USERPROFILE '.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe'
 +& $python19 -B -X utf8 (Join-Path $source19 'tools\sync_build.py')
 +if ($LASTEXITCODE -ne 0) { throw '기준 소스와 실제 빌드 사본 대조 실패' }
 +$env:JAVA_HOME = Join-Path $project19 'work\tools\jdk-17.0.20.1+1'

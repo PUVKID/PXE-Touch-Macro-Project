@@ -79,3 +79,5 @@ Java17, Gradle8.13, Android Gradle Plugin8.9.1, compile/target SDK35, min SDK30,
 - [Android31 AccessibilityService 원본](https://android.googlesource.com/platform/prebuilts/fullsdk/sources/android-31/+/refs/heads/androidx-savedstate-release/android/accessibilityservice/AccessibilityService.java)
 - [Android30 AccessibilityService 원본](https://android.googlesource.com/platform/prebuilts/fullsdk/sources/android-30/+/refs/heads/main/android/accessibilityservice/AccessibilityService.java)
 - [ML Kit 입력 이미지와 성능 안내](https://developers.google.com/ml-kit/vision/text-recognition/v2/android)
+
+빌드 스크립트는 현재 사용자 홈 아래의 기존 Python 실행 파일을 찾도록 경로를 구성합니다. 컴퓨터별 사용자 이름을 고정하지 않으며 앱 코드·서명 방식·검사 조건은 그대로입니다.

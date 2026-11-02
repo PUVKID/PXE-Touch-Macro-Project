@@ -3,7 +3,7 @@ $project19 = 'D:\2026\PXE Project'
 $source19 = Join-Path $project19 '19차\source'
 $build19 = Join-Path $project19 'work\build19\source'
 $delivery19 = Join-Path $project19 '19차'
-$python19 = 'C:\Users\PUVKID\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe'
+$python19 = Join-Path $env:USERPROFILE '.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe'
 & $python19 -B -X utf8 (Join-Path $source19 'tools\sync_build.py')
 if ($LASTEXITCODE -ne 0) { throw '기준 소스와 실제 빌드 사본 대조 실패' }
 $env:JAVA_HOME = Join-Path $project19 'work\tools\jdk-17.0.20.1+1'
