@@ -1,45 +1,31 @@
-# 🗂️ 차수별 변화
+# 🗂️ 차수별 독립 프로젝트 안내
 
-[프로젝트 첫 화면](../README.md)
+[🏠 프로젝트 첫 화면](../README.md)에서 전체 구현을 읽고 아래에서 실제 차수·최종본·부분 자료를 선택할 수 있습니다. 각 상세 페이지에는 해당 코드·설정·자료 종류에 맞는 기능·사용 조건·실제 관측과 전체 비교를 연결했습니다.
 
-## 🧭 모든 차수·보관본과 전체 차이
-
-각 차수의 소스·설정·리소스·사용법·설계를 함께 보관합니다. 부분 자료와 실제 제품 버전을 각 설명에서 구분합니다.
-
-| 차수·보관본 | 파일·폴더 | 설명 | 공개 파일 전체 비교 |
+| 차수·자료 | 자료 폴더·원본 | 상세 설명 | 직전 비교·범위 |
 |---|---|---|---|
-| 기본 | [📁 57개](../%EC%BD%94%EB%93%9C) | [기능·검증 설명](../docs/versions/%EA%B8%B0%EB%B3%B8.md) | [🔍 전체 차이·해시](../docs/revision-audit/%EA%B8%B0%EB%B3%B8.md) |
-| 1차 | [📁 41개](../1%EC%B0%A8) | [기능·검증 설명](../docs/versions/1%EC%B0%A8.md) | [🔍 전체 차이·해시](../docs/revision-audit/1%EC%B0%A8.md) |
-| 2차 | [📁 15개](../2%EC%B0%A8) | [기능·검증 설명](../docs/versions/2%EC%B0%A8.md) | [🔍 전체 차이·해시](../docs/revision-audit/2%EC%B0%A8.md) |
-| 3차 | [📁 42개](../3%EC%B0%A8) | [기능·검증 설명](../docs/versions/3%EC%B0%A8.md) | [🔍 전체 차이·해시](../docs/revision-audit/3%EC%B0%A8.md) |
-| 4차 | [📁 60개](../4%EC%B0%A8) | [기능·검증 설명](../docs/versions/4%EC%B0%A8.md) | [🔍 전체 차이·해시](../docs/revision-audit/4%EC%B0%A8.md) |
-| 5차 | [📁 64개](../5%EC%B0%A8) | [기능·검증 설명](../docs/versions/5%EC%B0%A8.md) | [🔍 전체 차이·해시](../docs/revision-audit/5%EC%B0%A8.md) |
-| 6차 | [📁 78개](../6%EC%B0%A8) | [기능·검증 설명](../docs/versions/6%EC%B0%A8.md) | [🔍 전체 차이·해시](../docs/revision-audit/6%EC%B0%A8.md) |
-| 7차 | [📁 2개](../7%EC%B0%A8) | [보관 범위](../docs/revision-audit/7%EC%B0%A8.md) | [🔍 전체 차이·해시](../docs/revision-audit/7%EC%B0%A8.md) |
-| 8차 | [📁 81개](../8%EC%B0%A8) | [기능·검증 설명](../docs/versions/8%EC%B0%A8.md) | [🔍 전체 차이·해시](../docs/revision-audit/8%EC%B0%A8.md) |
-| 9차 | [📁 96개](../9%EC%B0%A8) | [기능·검증 설명](../docs/versions/9%EC%B0%A8.md) | [🔍 전체 차이·해시](../docs/revision-audit/9%EC%B0%A8.md) |
-| 10차 | [📁 97개](../10%EC%B0%A8) | [기능·검증 설명](../docs/versions/10%EC%B0%A8.md) | [🔍 전체 차이·해시](../docs/revision-audit/10%EC%B0%A8.md) |
-| 11차 | [📁 91개](../11%EC%B0%A8) | [기능·검증 설명](../docs/versions/11%EC%B0%A8.md) | [🔍 전체 차이·해시](../docs/revision-audit/11%EC%B0%A8.md) |
-| 12차 | [📁 92개](../12%EC%B0%A8) | [기능·검증 설명](../docs/versions/12%EC%B0%A8.md) | [🔍 전체 차이·해시](../docs/revision-audit/12%EC%B0%A8.md) |
-| 13차 | [📁 107개](../13%EC%B0%A8) | [기능·검증 설명](../docs/versions/13%EC%B0%A8.md) | [🔍 전체 차이·해시](../docs/revision-audit/13%EC%B0%A8.md) |
-| 14차 | [📁 117개](../14%EC%B0%A8) | [기능·검증 설명](../docs/versions/14%EC%B0%A8.md) | [🔍 전체 차이·해시](../docs/revision-audit/14%EC%B0%A8.md) |
-| 15차 | [📁 120개](../15%EC%B0%A8) | [기능·검증 설명](../docs/versions/15%EC%B0%A8.md) | [🔍 전체 차이·해시](../docs/revision-audit/15%EC%B0%A8.md) |
-| 16차 | [📁 153개](../16%EC%B0%A8) | [기능·검증 설명](../docs/versions/16%EC%B0%A8.md) | [🔍 전체 차이·해시](../docs/revision-audit/16%EC%B0%A8.md) |
-| 17차 | [📁 148개 · 소스143개](../17%EC%B0%A8) | [기능·검증 설명](../docs/versions/17%EC%B0%A8.md) | [🔍 전체 차이·해시](../docs/revision-audit/17%EC%B0%A8.md) |
-| 18차 | [📁 155개 · 소스150개](../18%EC%B0%A8) | [기능·검증 설명](../docs/versions/18%EC%B0%A8.md) | [🔍 전체 차이·해시](../docs/revision-audit/18%EC%B0%A8.md) |
-| 19차 | [📁 162개 · 소스157개](../19%EC%B0%A8) | [기능·검증 설명](../docs/versions/19%EC%B0%A8.md) | [🔍 전체 차이·해시](../docs/revision-audit/19%EC%B0%A8.md) |
-| 20차 · 시험 도구 | [📁 18개 · 소스14개](../20%EC%B0%A8) | [시험 구성·관측 범위](../docs/versions/20%EC%B0%A8.md) | [🔍 19→20 전체 차이·해시](../docs/revision-audit/20%EC%B0%A8.md) |
-| 21차 | [📁 173개 · 소스167개](../21%EC%B0%A8) | [기능·검증 설명](../docs/versions/21%EC%B0%A8.md) | [🔍 전체 차이·해시](../docs/revision-audit/21%EC%B0%A8.md) |
-| 실행점검-2차 | [📁 7개](../%EC%8B%A4%ED%96%89%EC%A0%90%EA%B2%80/2%EC%B0%A8) | [기능·검증 설명](../docs/versions/%EC%8B%A4%ED%96%89%EC%A0%90%EA%B2%80-2%EC%B0%A8.md) | [🔍 전체 차이·해시](../docs/revision-audit/%EC%8B%A4%ED%96%89%EC%A0%90%EA%B2%80-2%EC%B0%A8.md) |
-| 최종.json | [📄 매크로 설정](../최종.json) | [자료 설명](../docs/versions/최종설정.md) | 제품 버전과 구분한 설정 · [자료 폴더](versions) |
-| 고유 작업 자료 | [📁 170개](../보존자료/작업소스/) | [원본 제품자료 목록](../docs/SOURCE_MATERIALS.md) | [전체 비교·차수별 해시](../docs/REVISION_AUDIT.md) |
-
-
-### 🖼️ 차수별 화면과 검증 이미지
-
-[원문 이미지·차수별 출처·파일 해시](../docs/IMAGE_MATERIALS.md)에서 화면과 합성 테스트 입력을 확인할 수 있습니다.
-
-
-
-
-
+| 기본 | [자료 폴더](../%EC%BD%94%EB%93%9C) | [상세 설명](versions/%EA%B8%B0%EB%B3%B8.md) | [전체 비교·범위](revision-audit/%EA%B8%B0%EB%B3%B8.md) |
+| 1차 | [자료 폴더](../1%EC%B0%A8) | [상세 설명](versions/1%EC%B0%A8.md) | [전체 비교·범위](revision-audit/1%EC%B0%A8.md) |
+| 2차 | [자료 폴더](../2%EC%B0%A8) | [상세 설명](versions/2%EC%B0%A8.md) | [전체 비교·범위](revision-audit/2%EC%B0%A8.md) |
+| 3차 | [자료 폴더](../3%EC%B0%A8) | [상세 설명](versions/3%EC%B0%A8.md) | [전체 비교·범위](revision-audit/3%EC%B0%A8.md) |
+| 4차 | [자료 폴더](../4%EC%B0%A8) | [상세 설명](versions/4%EC%B0%A8.md) | [전체 비교·범위](revision-audit/4%EC%B0%A8.md) |
+| 5차 | [자료 폴더](../5%EC%B0%A8) | [상세 설명](versions/5%EC%B0%A8.md) | [전체 비교·범위](revision-audit/5%EC%B0%A8.md) |
+| 6차 | [자료 폴더](../6%EC%B0%A8) | [상세 설명](versions/6%EC%B0%A8.md) | [전체 비교·범위](revision-audit/6%EC%B0%A8.md) |
+| 7차 | [자료 폴더](../7%EC%B0%A8) | [상세 설명](revision-audit/7%EC%B0%A8.md) | [전체 비교·범위](revision-audit/7%EC%B0%A8.md) |
+| 8차 | [자료 폴더](../8%EC%B0%A8) | [상세 설명](versions/8%EC%B0%A8.md) | [전체 비교·범위](revision-audit/8%EC%B0%A8.md) |
+| 9차 | [자료 폴더](../9%EC%B0%A8) | [상세 설명](versions/9%EC%B0%A8.md) | [전체 비교·범위](revision-audit/9%EC%B0%A8.md) |
+| 10차 | [자료 폴더](../10%EC%B0%A8) | [상세 설명](versions/10%EC%B0%A8.md) | [전체 비교·범위](revision-audit/10%EC%B0%A8.md) |
+| 11차 | [자료 폴더](../11%EC%B0%A8) | [상세 설명](versions/11%EC%B0%A8.md) | [전체 비교·범위](revision-audit/11%EC%B0%A8.md) |
+| 12차 | [자료 폴더](../12%EC%B0%A8) | [상세 설명](versions/12%EC%B0%A8.md) | [전체 비교·범위](revision-audit/12%EC%B0%A8.md) |
+| 13차 | [자료 폴더](../13%EC%B0%A8) | [상세 설명](versions/13%EC%B0%A8.md) | [전체 비교·범위](revision-audit/13%EC%B0%A8.md) |
+| 14차 | [자료 폴더](../14%EC%B0%A8) | [상세 설명](versions/14%EC%B0%A8.md) | [전체 비교·범위](revision-audit/14%EC%B0%A8.md) |
+| 15차 | [자료 폴더](../15%EC%B0%A8) | [상세 설명](versions/15%EC%B0%A8.md) | [전체 비교·범위](revision-audit/15%EC%B0%A8.md) |
+| 16차 | [자료 폴더](../16%EC%B0%A8) | [상세 설명](versions/16%EC%B0%A8.md) | [전체 비교·범위](revision-audit/16%EC%B0%A8.md) |
+| 17차 | [자료 폴더](../17%EC%B0%A8) | [상세 설명](versions/17%EC%B0%A8.md) | [전체 비교·범위](revision-audit/17%EC%B0%A8.md) |
+| 18차 | [자료 폴더](../18%EC%B0%A8) | [상세 설명](versions/18%EC%B0%A8.md) | [전체 비교·범위](revision-audit/18%EC%B0%A8.md) |
+| 19차 | [자료 폴더](../19%EC%B0%A8) | [상세 설명](versions/19%EC%B0%A8.md) | [전체 비교·범위](revision-audit/19%EC%B0%A8.md) |
+| 실행점검-2차 | [자료 폴더](../%EC%8B%A4%ED%96%89%EC%A0%90%EA%B2%80/2%EC%B0%A8) | [상세 설명](versions/%EC%8B%A4%ED%96%89%EC%A0%90%EA%B2%80-2%EC%B0%A8.md) | [전체 비교·범위](revision-audit/%EC%8B%A4%ED%96%89%EC%A0%90%EA%B2%80-2%EC%B0%A8.md) |
+| 최종.json | [자료 폴더](materials/022-%EC%B5%9C%EC%A2%85%EC%84%A4%EC%A0%95) · [원본 파일](../%EC%B5%9C%EC%A2%85.json) | [상세 설명](materials/022-%EC%B5%9C%EC%A2%85%EC%84%A4%EC%A0%95/README.md) | [전체 비교·범위](versions/%EC%B5%9C%EC%A2%85%EC%84%A4%EC%A0%95.md) |
+| 고유 작업 자료 | [자료 폴더](../%EB%B3%B4%EC%A1%B4%EC%9E%90%EB%A3%8C/%EC%9E%91%EC%97%85%EC%86%8C%EC%8A%A4) | [상세 설명](SOURCE_MATERIALS.md) | [전체 비교·범위](REVISION_AUDIT.md) |
+| 20차 · 시험 도구 | [자료 폴더](../20%EC%B0%A8) | [상세 설명](versions/20%EC%B0%A8.md) | [전체 비교·범위](revision-audit/20%EC%B0%A8.md) |
+| 21차 | [자료 폴더](../21%EC%B0%A8) | [상세 설명](versions/21%EC%B0%A8.md) | [전체 비교·범위](revision-audit/21%EC%B0%A8.md) |
