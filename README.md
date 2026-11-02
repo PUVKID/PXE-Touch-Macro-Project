@@ -26,6 +26,12 @@
 
 기존 공개 서명 설정은 인증값을 제외한 안내로 바꾸고 관련 비교 자료를 다시 생성했습니다. 과거 Git 이력은 남으며 해당 값의 현재 유효성은 미확인입니다.
 
+## ⏱️ 20차 · 19차 제품의 장시간 시험 도구
+
+[시험 도구와 시작 안내](20차/공개용_변경기록.md) · [시험 구성과 관측 범위](docs/versions/20차.md) · [19→20 전체 비교](docs/revision-audit/20차.md)
+
+기존 19차 APK로 실제 OCR·15회 반복·뒤로가기·중복 차단의 연속성을 관측하는 별도 시험 차수입니다. 2026-11-02 시작 자료를 보관하며 24시간 본시험은 진행 중입니다. 최소 판정 시각은 11월 3일 16:14:52+09:00 이후이며, 새 APK나 24시간 통과 결과로 표시하지 않습니다.
+
 <a name="overview"></a>
 
 <a name="latest-changes"></a>
@@ -236,6 +242,7 @@ PC용은 `-PNEX_PC`로 ARM64와 x86_64를 함께 빌드합니다. 납품용 `빌
 | 17차 | [📁 148개 · 소스143개](17%EC%B0%A8) | [기능·검증 설명](docs/versions/17%EC%B0%A8.md) | [🔍 전체 차이·해시](docs/revision-audit/17%EC%B0%A8.md) |
 | 18차 | [📁 155개 · 소스150개](18%EC%B0%A8) | [기능·검증 설명](docs/versions/18%EC%B0%A8.md) | [🔍 전체 차이·해시](docs/revision-audit/18%EC%B0%A8.md) |
 | 19차 | [📁 162개 · 소스157개](19%EC%B0%A8) | [기능·검증 설명](docs/versions/19%EC%B0%A8.md) | [🔍 전체 차이·해시](docs/revision-audit/19%EC%B0%A8.md) |
+| 20차 · 시험 도구 | [📁 17개 · 소스14개](20%EC%B0%A8) | [시험 구성·관측 범위](docs/versions/20%EC%B0%A8.md) | [🔍 19→20 전체 차이·해시](docs/revision-audit/20%EC%B0%A8.md) |
 | 실행점검-2차 | [📁 7개](%EC%8B%A4%ED%96%89%EC%A0%90%EA%B2%80/2%EC%B0%A8) | [기능·검증 설명](docs/versions/%EC%8B%A4%ED%96%89%EC%A0%90%EA%B2%80-2%EC%B0%A8.md) | [🔍 전체 차이·해시](docs/revision-audit/%EC%8B%A4%ED%96%89%EC%A0%90%EA%B2%80-2%EC%B0%A8.md) |
 | 최종.json | [📄 매크로 설정](최종.json) | [자료 설명](docs/versions/최종설정.md) | 제품 버전과 구분한 설정 · [자료 폴더](docs/versions) |
 | 고유 작업 자료 | [📁 170개](보존자료/작업소스/) | [원본 제품자료 목록](docs/SOURCE_MATERIALS.md) | [전체 비교·차수별 해시](docs/REVISION_AUDIT.md) |
