@@ -1,0 +1,1058 @@
+[
+  {
+    "path": "README.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 714,
+      "sha256": "08f5f4a9f1df1150b88dde9c8aa28213dc36b0e9f9af316addded0d9ae7dab5d"
+    },
+    "after": {
+      "bytes": 2001,
+      "sha256": "d9c1136a5842c756e2ccb63f02ddfe5d08a00798ee4245d8ccd04338681b2c1e"
+    }
+  },
+  {
+    "path": "ai_model/CONTRACT.md",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 1997,
+      "sha256": "7a638b022b255b340ae3516d10bc1905307f6041c4c9d13c34b9c21e3f839e82"
+    }
+  },
+  {
+    "path": "ai_model/README.md",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 2037,
+      "sha256": "f2493136f960c482c65a8dfc4edfda31910ecd283d1342882144b80a4dcbf102"
+    }
+  },
+  {
+    "path": "ai_model/__init__.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "path": "ai_model/batching.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 5453,
+      "sha256": "886b1460e17d96307b15ae2d30331974946f82e8378960c9d85e0ba302128de1"
+    }
+  },
+  {
+    "path": "ai_model/codec_contract.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 4142,
+      "sha256": "f5eb4a9948e3744c75ae8fb94ddc996103889f6472d581329c0aaa559ec2a2e0"
+    }
+  },
+  {
+    "path": "ai_model/data.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 32010,
+      "sha256": "856e47e6e0593feba737577e91cd2c4dcbe0ebf4ca0869246c0301fb108dfe30"
+    }
+  },
+  {
+    "path": "ai_model/diversify.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 15501,
+      "sha256": "dafb8cd9a36d49c7f3b67f00eb9d07066a2e0a1e093b680f8f5b8c52653713b8"
+    }
+  },
+  {
+    "path": "ai_model/evaluate.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 11982,
+      "sha256": "0643a3a9c9f1344c565b8562402da43d960b306f55bc49f15045ea52cc792545"
+    }
+  },
+  {
+    "path": "ai_model/export.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 12688,
+      "sha256": "90545134e08ad319f6952ff99e5efc82f66c5c3553acbbf9f218e5a7d7d4de30"
+    }
+  },
+  {
+    "path": "ai_model/literal_codec.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 16647,
+      "sha256": "3a14b8768613ec5c442e821e420fb549f30e71cfe0cad803af763c8981a5abcc"
+    }
+  },
+  {
+    "path": "ai_model/literal_codec_vectors.json",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 128064,
+      "sha256": "2db51fdc6e4377bc37fbfa7a95a9a2a5052e71c11cd4bb6b4d2041c106b1f69c"
+    }
+  },
+  {
+    "path": "ai_model/literal_metrics.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 3185,
+      "sha256": "c3e7c8f016a1ee0eec0d9da335c5e3faae6329e6ac22eb398f93009f34a90418"
+    }
+  },
+  {
+    "path": "ai_model/model.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 5742,
+      "sha256": "c21d0e872cc0942279e293fc99fea17ef25fc80d79db1350df67032665ba1a1a"
+    }
+  },
+  {
+    "path": "ai_model/numbers.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 4718,
+      "sha256": "4a99b2c89411c88b2927def8ed6766e1ef75977f16dea77af12eca3d668aa5eb"
+    }
+  },
+  {
+    "path": "ai_model/numeric_contract.json",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 1250,
+      "sha256": "98c7e8da9d8a293006b4afb10f1eab8262443b01aaa7f77a43ca4a5b29fd76c2"
+    }
+  },
+  {
+    "path": "ai_model/rephrase.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 13857,
+      "sha256": "cebbfe2ca91d08024ab055f18010308753eb73bacdb5d6ccbcdf933ee0eeb480"
+    }
+  },
+  {
+    "path": "ai_model/rephrase_rules.json",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 15967,
+      "sha256": "cff57f49de59f9c50db09952aa5c93652763b38bbffe8b47d4df1c0944e867fd"
+    }
+  },
+  {
+    "path": "ai_model/requirements.lock",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 4465,
+      "sha256": "29bd887e772bc5229574f2486b8ed65a74e0f5408029cd583416aafb0ef0099f"
+    }
+  },
+  {
+    "path": "ai_model/schema.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 17933,
+      "sha256": "26c02673bcffe9ae9af4390359d4ab00707915f95fe87fe9b50f067aa4de39b1"
+    }
+  },
+  {
+    "path": "ai_model/snapshots.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 5067,
+      "sha256": "16a4a17fd6f21a911619cbb468113b559037dfec3503942c925d2a39dd9c677c"
+    }
+  },
+  {
+    "path": "ai_model/tests/__init__.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "path": "ai_model/tests/test_contract.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 8748,
+      "sha256": "7eaba5002f3fdb3e27982a8e0342d1f6b32827c74743a642d0e4146b337e050e"
+    }
+  },
+  {
+    "path": "ai_model/tests/test_data_model.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 8012,
+      "sha256": "f03d789fa70cd42d65e8819691cf3b77d616a92e4694a9760fac846c733d4e26"
+    }
+  },
+  {
+    "path": "ai_model/tests/test_diversify.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 5121,
+      "sha256": "8f71f01cb81b2d743d8c83fb44dd96106014e9f5ca79901b73dac7ea2efb43fd"
+    }
+  },
+  {
+    "path": "ai_model/tests/test_export.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 2915,
+      "sha256": "d40b70a5d72021a5ca37eb9171a0ea3d5ab039fec982824bb41b5b84f58ddd51"
+    }
+  },
+  {
+    "path": "ai_model/tests/test_literal_codec.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 15830,
+      "sha256": "2e73e86508b486b1b359d0f3669f3547a7d1df34d232e383ee5a467d7d20da36"
+    }
+  },
+  {
+    "path": "ai_model/tests/test_literal_neural.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 10400,
+      "sha256": "9a733033b614da3ac0aaeee9b4cfef5382f8a29d39983e42a69eca6a9991585b"
+    }
+  },
+  {
+    "path": "ai_model/tests/test_neural.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 7389,
+      "sha256": "0681395a2de3635a8b062b5cb71f6ef4ad1dfb0ee7bcc0f689729aba5d015c8d"
+    }
+  },
+  {
+    "path": "ai_model/tests/test_neutral_prefix.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 16763,
+      "sha256": "e6d90d905daccbec57a5e2bde64c6cc1150014aa19feea32de99c29eaadf095b"
+    }
+  },
+  {
+    "path": "ai_model/tests/test_numbers.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 1851,
+      "sha256": "4dcf0b20e70a1c15703eddd8302e60463e36827dda411360403f4d03ccea3a86"
+    }
+  },
+  {
+    "path": "ai_model/tests/test_rephrase.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 6147,
+      "sha256": "a3f1706207a47b5953a5e26167e57117df336078316a161d43786dc620607ede"
+    }
+  },
+  {
+    "path": "ai_model/tests/test_runtime.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 2531,
+      "sha256": "76de8673682df3b1e1e9edc7fb38f226e31607c2fec566831996dc6963f3fb22"
+    }
+  },
+  {
+    "path": "ai_model/tests/test_training_resources.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 10303,
+      "sha256": "6198c4ce5b6b2c2867ae253871fdb8e6fd874c0e3dd625da866aec0a385942d3"
+    }
+  },
+  {
+    "path": "ai_model/tokenizer.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 7622,
+      "sha256": "abd34a312042058510a5ba4a3d5f482415f06a6f38518ee6818fcb3281a12a64"
+    }
+  },
+  {
+    "path": "ai_model/train.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 27759,
+      "sha256": "54579f738df19501ed0da901d69b7bb9d584f7044b4a3a1d96a46ef8cde93587"
+    }
+  },
+  {
+    "path": "app/build.gradle",
+    "kind": "수정",
+    "before": {
+      "bytes": 1565,
+      "sha256": "0ad82a03aeeb7b09525b8e4653b7592d1e00705591e6fc09a34104035ecf1f25"
+    },
+    "after": {
+      "bytes": 1636,
+      "sha256": "0a7f175e9f47955e28b54d4f234aa97a14280ea74e27f61eb8a299aced1efb55"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/AiFirstDispatchBoundaryTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 6567,
+      "sha256": "cf77bee1a86d51c775f5903f1301966224054e0c3f4c4cddfa1e3169bc84d003"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/AiRecoveryTargetBoundaryTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 4971,
+      "sha256": "e55e7b7cd20f82ba339aed8e7b64ad5425382bbf9817d15152550b0f31c6bbf4"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/AiStartBoundaryTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 7647,
+      "sha256": "3b5780925c70fa58ac229f42f668ecccb886636373807606d209c9abaddace1f"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/PxeUpgradeTest.java",
+    "kind": "수정",
+    "before": {
+      "bytes": 2122,
+      "sha256": "03f512cbe841f5cc45c07c758493b62899a895da3adb951f25978d4445640af1"
+    },
+    "after": {
+      "bytes": 2122,
+      "sha256": "33bbe705e047ab0d844028994529f855d7a2b9d32503179d675e1b56d30bc9d2"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/RecognitionRecoveryTest.java",
+    "kind": "수정",
+    "before": {
+      "bytes": 11018,
+      "sha256": "4e875bd06532cb9ef78607365d4cb8a61ffe46ab8c149c9ddf5c44b2985ccc73"
+    },
+    "after": {
+      "bytes": 11003,
+      "sha256": "196fadc2251d0757b6ac1d5e5c6ec082e517c05dd953106a10ccb4885c3cfb88"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/TargetWindowRecoveryTest.java",
+    "kind": "수정",
+    "before": {
+      "bytes": 9408,
+      "sha256": "93af98c77e8ad12f811798b613270b78b3f6be5ec33ef176d6382f6501e4ea58"
+    },
+    "after": {
+      "bytes": 9249,
+      "sha256": "d5ce85b612d841f47d0acbd0f2759aa01440875bdcddc6d072623c36ded371a7"
+    }
+  },
+  {
+    "path": "app/src/main/assets/ONNXRuntime-LICENSE.txt",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 1073,
+      "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c"
+    }
+  },
+  {
+    "path": "app/src/main/assets/ONNXRuntime-ThirdPartyNotices.txt",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 326866,
+      "sha256": "e9e90971a8e75a9a8ac0c6412e29c1202d079998389915aa485f46c816c3b4cc"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiAndroidContext.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 5712,
+      "sha256": "0c0d9ad23795a423ec7bc38f401a8a692e73d1dcfce8eb6abd5cd1db03ccaf0a"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiBundleManifest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 1850,
+      "sha256": "c66c78bcfb82e05de5996f52dc8435aec1b0605c90d7aaa68f3eec97ec0efcba"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiCancellation.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 955,
+      "sha256": "152f39351e29d117a8ebc28557de3b90859565f0cd9d2e1095c48d7cffa44aaa"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiCodecContract.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 2877,
+      "sha256": "685ab03c4fb81d7da775552d31b2a4fd54e2074ba1460b92ecdb918ea4942a11"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiContextJson.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 2776,
+      "sha256": "10860d43130fc58e01fad2191a5a9680e06612d43603e449a5f9352ec379e017"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiCopySelection.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 1024,
+      "sha256": "a0802f9bab0d092ca62e9f22af6c3631fa5e6cc1af3c484816391f34199f1926"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiFirstInputPermit.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 1378,
+      "sha256": "5ba1509e1b0f2aadce72cf1318e2c96886a80d7fad9c883ff33a8a1d63b84923"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiJson.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 5296,
+      "sha256": "435fdfa23fbfe3786e4b942d8c03171ac5836bc6d1360d28bf6767a7b2229be3"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiLiteralCodec.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 10115,
+      "sha256": "33674fe581bc39edaf8c6e63d4f62e93c456f7d855a6585311e8b5d4fa889102"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiNumbers.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 4169,
+      "sha256": "4a96b95ee7ca300e9d0b1166c0dfe05cebe8e9267af4a5b75fcde39c4f79ecdc"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiPlanCompiler.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 23120,
+      "sha256": "d8770d7e36e398a70157d4695e0e20abce1c2b71903c18e2934f1414991eae1f"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiPlanParser.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 8286,
+      "sha256": "53739be4cb3a823f87103dd477e263238606cca8c2d69a7ec188580165fc6d4a"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiPlanPreview.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 10357,
+      "sha256": "fbd8b6c015ea1f0a3446010fb1b8a678094e4fa5e3d33ac120f2b4050dbc529e"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiPlanner.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 7569,
+      "sha256": "1fa2e0a1056d59fa7b2cf3ece95a0808e5ffefebd0f9e7252c1908186e82fc4c"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiPlanningSession.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 2388,
+      "sha256": "bdd7d7cb5ba25b34caaf6dc5125be4108792528e697b6cacdfa9ab1ca3d86de7"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiSchemaSnapshots.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 5156,
+      "sha256": "4547e94d2e70c4b6cbbd543b2ad278bf94536ed60c5d481a36e5b5f312589867"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiStartGate.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 3021,
+      "sha256": "201be051cca284617dfe737458a3f6b5a53a4bdb54ac1ff41627368e9e6355e7"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiTokenizer.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 11085,
+      "sha256": "34ae343a74d1688a8b7bdeb08e5779959678a374d46df3a19d95482b006a6803"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/BehaviorAndroidBridge.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 11032,
+      "sha256": "98b1f71ceceb53426aefce5480571e265084d3c5f5ae8b26d3a56a9a1fe75c08"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/BehaviorAndroidSession.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 8050,
+      "sha256": "688ee72925629c54caefb1f924e6a46ccc569838d23bcb17e3dfd9be6b04ecf6"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/BehaviorBundle.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 13180,
+      "sha256": "12127a789310b65d30cbf61320976d02db0209401d316ad83db7e3b4b7d23956"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/BehaviorExample.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 14601,
+      "sha256": "bf3d81c6781d7e53304b0d18f13b63817cae751db45ad5edb3ccbe29770ee4f1"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/BehaviorFeatures.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 5290,
+      "sha256": "8c3fd9b013676f0bf471fe1ee5f9e44e2f7ffe06093095e0ee79b9b15b504cba"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/BehaviorPolicy.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 11633,
+      "sha256": "e1eb6ec1edde0db31a8dff2f48c6c671b52bcb03acd798f14dde7203abf164f8"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/BehaviorTaskStore.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 10605,
+      "sha256": "71c192f2cd8fc29d9301f77930cf35314f5c513292278aa86109bb2bc879b1ac"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/FloatingController.java",
+    "kind": "수정",
+    "before": {
+      "bytes": 29751,
+      "sha256": "177b04202c22442f071a8c0f32f79ea22f2c8ff8c0b9e3328651e47aa660400f"
+    },
+    "after": {
+      "bytes": 39023,
+      "sha256": "59ada4caa6123d05c300a3be76c1e5782d1aea104d3bc969c40c3072979e5916"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/MacroService.java",
+    "kind": "수정",
+    "before": {
+      "bytes": 86757,
+      "sha256": "9e6490f95ad1e5e4963123f26ea97ccc0480db65b1783831b91135bc3f572bc3"
+    },
+    "after": {
+      "bytes": 112948,
+      "sha256": "db12dfa1a2b3a0c36edaa474d48163c5460ddd603cc25d9a5bd0438024c021fd"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/MainActivity.java",
+    "kind": "수정",
+    "before": {
+      "bytes": 70533,
+      "sha256": "9de9feeecb9d90c5fa65d9ef91f45a559b877881ad2dfaed39786c42a8df762b"
+    },
+    "after": {
+      "bytes": 91994,
+      "sha256": "7542b592979d320fbc19f9c7e0174532b329e637e63fa4ee85f3da5a1c325b8e"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/AiBundleManifestTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 2518,
+      "sha256": "f025ffa5378699515487a44b1ab131067af445105ce6ef695819cb4130f0d21e"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/AiCompilerTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 13414,
+      "sha256": "6c331c726cadef1800897b14486f50b02de7a7049a2cc04ceb17eebb98cc87f4"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/AiFeatureContractTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 601,
+      "sha256": "71d321dc3f509f1dbb7e9991ac3eab1a5485a4d102d165af45acf5332ba82ec8"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/AiFirstInputPermitTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 5131,
+      "sha256": "59d74485cffd83614bade560b365f32c5bc7294812ed193e3973839f88b3fa88"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/AiInteropTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 3664,
+      "sha256": "4d9adddfae86363b83a2e9d47d4d56acb73a6c553de7b1abc4fd66f6e2c5e689"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/AiJsonTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 1587,
+      "sha256": "71997bbb66ab111b793f61080cce658228de01458cc899cf6605153f85ab574c"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/AiLiteralBoundaryTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 7861,
+      "sha256": "929fd9a2abde71a149f8b5a0afe93b70f104ba7ef1a3327a1346c3b734d9349a"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/AiLiteralCodecTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 4575,
+      "sha256": "946eecfc6f3cf4e825293153a3bf47df45b44a56a74a969e2fa45ccd07c63ee8"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/AiNumbersTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 2254,
+      "sha256": "d1dce13c0f75d6795d00be34c41ce229be7621b2b9f592f08e8d0ce7293ffab9"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/AiPlanningSessionTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 3439,
+      "sha256": "1bab98c4d73a4467aa5b904d6f2b40ca19245abfc064bef94fc77548740d2f6c"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/AiPreviewTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 4003,
+      "sha256": "456abad27f56acc9d9b3ba987724187fb3f9b0055f5531caf8feb0c4fdbe3895"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/AiStartGateTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 3824,
+      "sha256": "96ae62a7208aa8a5318b7975296cd624982685d5801acbbb4685990c3e4195fa"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/AiTokenizerTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 1874,
+      "sha256": "93613b69691549112ee3135fa9d85907a9cd89f35e0989ac297fe1741a37a0cf"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/BehaviorAndroidAnchorTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 2486,
+      "sha256": "0fcac976e02f75c6bcc88ffe07097bb91ea6a6b72dd0d8c4c10aec527176f40c"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/BehaviorAndroidFlowTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 3529,
+      "sha256": "a895d8ee400bc053962f04b58c5e888e6ff4b11164478ddfaf8ca207d6f7f513"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/BehaviorAndroidSessionTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 4255,
+      "sha256": "8ebcf7145f413aa827bb1d2721c3a091db5e83cf12d5b4f8cd4610c1803a23bb"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/BehaviorAndroidStoreTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 3806,
+      "sha256": "ecb73ba034f01339ca2f8f9c6d23c1fdcaf0dbb00b9a4bd90fd37d3d43df6036"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/BehaviorBundleTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 13009,
+      "sha256": "29a05041443026b0962f65f649221ce01fa512a04a8fd7a116d6ba1619dde7f8"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/BehaviorExampleTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 5480,
+      "sha256": "6e523e24c6c94431a80a47d6d7fcd3ccb9eb69a6d620b954e497c78045df7082"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/BehaviorFeaturesTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 2741,
+      "sha256": "21bfa6ce5509d430236a9a2f17627ab860f005506b3a0ebaa5f4b8cd783aa9d5"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/BehaviorPolicyTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 8455,
+      "sha256": "5f7b326a599e5216ae0b47947def8ffaee1af14a01ccea7797aa893728b094f2"
+    }
+  },
+  {
+    "path": "app/src/test/resources/ai_contract_vectors.json",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 52550,
+      "sha256": "399cd81fe1dc3c23dd8a36437c9b2253e6190898de56538f459ee317db51acdf"
+    }
+  },
+  {
+    "path": "app/src/test/resources/literal_codec_vectors.json",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 128064,
+      "sha256": "2db51fdc6e4377bc37fbfa7a95a9a2a5052e71c11cd4bb6b4d2041c106b1f69c"
+    }
+  },
+  {
+    "path": "app/src/test/resources/literal_input_contract.json",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 1403,
+      "sha256": "3b8463d3832f43aaad937465f2cd0c5a7e605068344ffd219e930a926b12995d"
+    }
+  },
+  {
+    "path": "app/src/test/resources/합성학습_64단계.pxebehavior",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 159297,
+      "sha256": "f4d4ab78593d43b09bf753cfe647d25f4b33534391fe70f18f4802496badfbb5"
+    }
+  },
+  {
+    "path": "docs/2026-11-03_23차_오프라인언어모델_명세.md",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 3562,
+      "sha256": "e349b9e346e7ec07ae05f0c690f876d5965cefa147ffeeb358f80e15d3f5f28e"
+    }
+  },
+  {
+    "path": "docs/2026-11-03_시범기반_글자행동학습_추가명세.md",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 1505,
+      "sha256": "7ace3ee4e4a5f3654d75106de453040066c92cd13c1071539189f940f2c71a24"
+    }
+  },
+  {
+    "path": "docs/superpowers/plans/2026-11-03-offline-model.md",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 2160,
+      "sha256": "f6c2c0d6ed8878de8ea9b1c73902c4a0ad4382629c460231608cb4931df5d22d"
+    }
+  },
+  {
+    "path": "tools/ai-android-check-plan.json",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 325,
+      "sha256": "65c92737be68520cad3edab788a6e151ae37e67ba1e3de22b0e37a12c5ed14ff"
+    }
+  },
+  {
+    "path": "tools/ai-first-dispatch-check-plan.json",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 336,
+      "sha256": "2868095301ebcb04a87b8bedf73f257b4995106673e871c99b56a2a943058973"
+    }
+  },
+  {
+    "path": "tools/check_ai.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 1682,
+      "sha256": "2b453b42a6fecb4e142ddfb11727cc297db153bf272ae3478b752ddbb5d61e25"
+    }
+  },
+  {
+    "path": "tools/check_artifacts.py",
+    "kind": "수정",
+    "before": {
+      "bytes": 3517,
+      "sha256": "33eeabf22a5f4a8f5d5d86a442fe2402f9a1840e756757bb52078f847bc2eac7"
+    },
+    "after": {
+      "bytes": 13200,
+      "sha256": "e53546f3ede8b3eac3ae892f629183189088dee58266819bf4f3cec26743aea6"
+    }
+  },
+  {
+    "path": "tools/check_device.py",
+    "kind": "수정",
+    "before": {
+      "bytes": 1229,
+      "sha256": "15e55b0df34a4652909fce3957159d6599e6b0a4d805b7d57bcf74f6d1734aa6"
+    },
+    "after": {
+      "bytes": 1229,
+      "sha256": "cfd01b31a9bb1b3277b6eb481fc2782863bdd5bfdc4049b9945823edd50419a5"
+    }
+  },
+  {
+    "path": "tools/check_recognition_device.py",
+    "kind": "수정",
+    "before": {
+      "bytes": 1745,
+      "sha256": "5236acbda34168ee2a4a8760e16cb61f70dc569fe789852116cb7304c48f638a"
+    },
+    "after": {
+      "bytes": 1745,
+      "sha256": "dfdc75f0b1415bffede9e51efe504cf4154a90898c201841cb3f8eb2ab1afc09"
+    }
+  },
+  {
+    "path": "tools/check_regression.py",
+    "kind": "수정",
+    "before": {
+      "bytes": 4394,
+      "sha256": "38db3697c6df8207451bffccb29e2f612b9410744cd4586b2952e37fab197d8a"
+    },
+    "after": {
+      "bytes": 4488,
+      "sha256": "d47fde389836102024f42f5b116242de9ea33ff19cc17a72ce8f81d2f6187a75"
+    }
+  },
+  {
+    "path": "tools/crossuid-fixture/AndroidManifest.xml",
+    "kind": "수정",
+    "before": {
+      "bytes": 370,
+      "sha256": "3cbfd47d9cba0f31c9b33ad4fa76cc8f110cb4d0cdecb521b853c858d4d14dc6"
+    },
+    "after": {
+      "bytes": 591,
+      "sha256": "669888ce07017b45bc14534550bdb35fc27a5c591f3c428f6630e9eded49e792"
+    }
+  },
+  {
+    "path": "tools/project_paths.py",
+    "kind": "수정",
+    "before": {
+      "bytes": 743,
+      "sha256": "36097938eae51cf985785d5ea0dc76c748e3612402789a2d8a6fa1467857f789"
+    },
+    "after": {
+      "bytes": 743,
+      "sha256": "c00e6674f3469a82acd4678253b95751c6b61a3d2cf3b5b42cc723743eb3c975"
+    }
+  },
+  {
+    "path": "빌드.ps1",
+    "kind": "수정",
+    "before": {
+      "bytes": 3704,
+      "sha256": "2f920426eb9d455c078c1413e2e2db4539606f9f1d4bd8b07d81ec8691811cd9"
+    },
+    "after": {
+      "bytes": 3312,
+      "sha256": "67c58c46013cb72e0f20d42bd2d27544257111571a274755948f6b1df27704de"
+    }
+  },
+  {
+    "path": "빌드방법.txt",
+    "kind": "수정",
+    "before": {
+      "bytes": 3056,
+      "sha256": "223bdd172b751bdd1f1a336c55bae8e900f2758e9bf7981f81f2fcee96d899ba"
+    },
+    "after": {
+      "bytes": 4437,
+      "sha256": "8457b655259c542a6c4d01974fd376b2b71409168b9655e71a86e2d73b7b7a10"
+    }
+  }
+]

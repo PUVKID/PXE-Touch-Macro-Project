@@ -29,3 +29,8 @@
 | 고유 작업 자료 | [자료 폴더](../%EB%B3%B4%EC%A1%B4%EC%9E%90%EB%A3%8C/%EC%9E%91%EC%97%85%EC%86%8C%EC%8A%A4) | [상세 설명](SOURCE_MATERIALS.md) | [전체 비교·범위](REVISION_AUDIT.md) |
 | 20차 · 시험 도구 | [자료 폴더](../20%EC%B0%A8) | [상세 설명](versions/20%EC%B0%A8.md) | [전체 비교·범위](revision-audit/20%EC%B0%A8.md) |
 | 21차 | [자료 폴더](../21%EC%B0%A8) | [상세 설명](versions/21%EC%B0%A8.md) | [전체 비교·범위](revision-audit/21%EC%B0%A8.md) |
+| 22차 | [자료 폴더](../22차) | [상세 설명](versions/22차.md) | [전체 비교·범위](revision-audit/22차.md) |
+| 23차 | [자료 폴더](../23차) | [상세 설명](versions/23차.md) | [전체 비교·범위](revision-audit/23차.md) |
+| 최종 | [자료 폴더](../최종) | [상세 설명](../최종/README.md) | [전체 비교·범위](revision-audit/최종.md) |
+
+23차는 [공용 APK 단일 납품](../23차/공용APK_안내.md)와 [현재 검증 범위](../23차/검증_결과.md)를 함께 확인합니다. 기존 차수·비교 링크는 보존합니다.

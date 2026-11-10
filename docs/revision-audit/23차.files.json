@@ -1,0 +1,3062 @@
+[
+  {
+    "path": ".gitignore",
+    "kind": "동일",
+    "before": {
+      "bytes": 53,
+      "sha256": "76bbf877c87000883b47bd677e72fd554ef3077bd394c2051a61850a06a937de"
+    },
+    "after": {
+      "bytes": 53,
+      "sha256": "76bbf877c87000883b47bd677e72fd554ef3077bd394c2051a61850a06a937de"
+    }
+  },
+  {
+    "path": "README.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 714,
+      "sha256": "08f5f4a9f1df1150b88dde9c8aa28213dc36b0e9f9af316addded0d9ae7dab5d"
+    },
+    "after": {
+      "bytes": 2001,
+      "sha256": "d9c1136a5842c756e2ccb63f02ddfe5d08a00798ee4245d8ccd04338681b2c1e"
+    }
+  },
+  {
+    "path": "ai_model/CONTRACT.md",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 1997,
+      "sha256": "7a638b022b255b340ae3516d10bc1905307f6041c4c9d13c34b9c21e3f839e82"
+    }
+  },
+  {
+    "path": "ai_model/README.md",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 2037,
+      "sha256": "f2493136f960c482c65a8dfc4edfda31910ecd283d1342882144b80a4dcbf102"
+    }
+  },
+  {
+    "path": "ai_model/__init__.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "path": "ai_model/batching.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 5453,
+      "sha256": "886b1460e17d96307b15ae2d30331974946f82e8378960c9d85e0ba302128de1"
+    }
+  },
+  {
+    "path": "ai_model/codec_contract.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 4142,
+      "sha256": "f5eb4a9948e3744c75ae8fb94ddc996103889f6472d581329c0aaa559ec2a2e0"
+    }
+  },
+  {
+    "path": "ai_model/data.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 32010,
+      "sha256": "856e47e6e0593feba737577e91cd2c4dcbe0ebf4ca0869246c0301fb108dfe30"
+    }
+  },
+  {
+    "path": "ai_model/diversify.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 15501,
+      "sha256": "dafb8cd9a36d49c7f3b67f00eb9d07066a2e0a1e093b680f8f5b8c52653713b8"
+    }
+  },
+  {
+    "path": "ai_model/evaluate.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 11982,
+      "sha256": "0643a3a9c9f1344c565b8562402da43d960b306f55bc49f15045ea52cc792545"
+    }
+  },
+  {
+    "path": "ai_model/export.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 12688,
+      "sha256": "90545134e08ad319f6952ff99e5efc82f66c5c3553acbbf9f218e5a7d7d4de30"
+    }
+  },
+  {
+    "path": "ai_model/literal_codec.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 16647,
+      "sha256": "3a14b8768613ec5c442e821e420fb549f30e71cfe0cad803af763c8981a5abcc"
+    }
+  },
+  {
+    "path": "ai_model/literal_codec_vectors.json",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 128064,
+      "sha256": "2db51fdc6e4377bc37fbfa7a95a9a2a5052e71c11cd4bb6b4d2041c106b1f69c"
+    }
+  },
+  {
+    "path": "ai_model/literal_metrics.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 3185,
+      "sha256": "c3e7c8f016a1ee0eec0d9da335c5e3faae6329e6ac22eb398f93009f34a90418"
+    }
+  },
+  {
+    "path": "ai_model/model.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 5742,
+      "sha256": "c21d0e872cc0942279e293fc99fea17ef25fc80d79db1350df67032665ba1a1a"
+    }
+  },
+  {
+    "path": "ai_model/numbers.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 4718,
+      "sha256": "4a99b2c89411c88b2927def8ed6766e1ef75977f16dea77af12eca3d668aa5eb"
+    }
+  },
+  {
+    "path": "ai_model/numeric_contract.json",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 1250,
+      "sha256": "98c7e8da9d8a293006b4afb10f1eab8262443b01aaa7f77a43ca4a5b29fd76c2"
+    }
+  },
+  {
+    "path": "ai_model/rephrase.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 13857,
+      "sha256": "cebbfe2ca91d08024ab055f18010308753eb73bacdb5d6ccbcdf933ee0eeb480"
+    }
+  },
+  {
+    "path": "ai_model/rephrase_rules.json",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 15967,
+      "sha256": "cff57f49de59f9c50db09952aa5c93652763b38bbffe8b47d4df1c0944e867fd"
+    }
+  },
+  {
+    "path": "ai_model/requirements.lock",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 4465,
+      "sha256": "29bd887e772bc5229574f2486b8ed65a74e0f5408029cd583416aafb0ef0099f"
+    }
+  },
+  {
+    "path": "ai_model/schema.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 17933,
+      "sha256": "26c02673bcffe9ae9af4390359d4ab00707915f95fe87fe9b50f067aa4de39b1"
+    }
+  },
+  {
+    "path": "ai_model/snapshots.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 5067,
+      "sha256": "16a4a17fd6f21a911619cbb468113b559037dfec3503942c925d2a39dd9c677c"
+    }
+  },
+  {
+    "path": "ai_model/tests/__init__.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "path": "ai_model/tests/test_contract.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 8748,
+      "sha256": "7eaba5002f3fdb3e27982a8e0342d1f6b32827c74743a642d0e4146b337e050e"
+    }
+  },
+  {
+    "path": "ai_model/tests/test_data_model.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 8012,
+      "sha256": "f03d789fa70cd42d65e8819691cf3b77d616a92e4694a9760fac846c733d4e26"
+    }
+  },
+  {
+    "path": "ai_model/tests/test_diversify.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 5121,
+      "sha256": "8f71f01cb81b2d743d8c83fb44dd96106014e9f5ca79901b73dac7ea2efb43fd"
+    }
+  },
+  {
+    "path": "ai_model/tests/test_export.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 2915,
+      "sha256": "d40b70a5d72021a5ca37eb9171a0ea3d5ab039fec982824bb41b5b84f58ddd51"
+    }
+  },
+  {
+    "path": "ai_model/tests/test_literal_codec.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 15830,
+      "sha256": "2e73e86508b486b1b359d0f3669f3547a7d1df34d232e383ee5a467d7d20da36"
+    }
+  },
+  {
+    "path": "ai_model/tests/test_literal_neural.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 10400,
+      "sha256": "9a733033b614da3ac0aaeee9b4cfef5382f8a29d39983e42a69eca6a9991585b"
+    }
+  },
+  {
+    "path": "ai_model/tests/test_neural.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 7389,
+      "sha256": "0681395a2de3635a8b062b5cb71f6ef4ad1dfb0ee7bcc0f689729aba5d015c8d"
+    }
+  },
+  {
+    "path": "ai_model/tests/test_neutral_prefix.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 16763,
+      "sha256": "e6d90d905daccbec57a5e2bde64c6cc1150014aa19feea32de99c29eaadf095b"
+    }
+  },
+  {
+    "path": "ai_model/tests/test_numbers.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 1851,
+      "sha256": "4dcf0b20e70a1c15703eddd8302e60463e36827dda411360403f4d03ccea3a86"
+    }
+  },
+  {
+    "path": "ai_model/tests/test_rephrase.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 6147,
+      "sha256": "a3f1706207a47b5953a5e26167e57117df336078316a161d43786dc620607ede"
+    }
+  },
+  {
+    "path": "ai_model/tests/test_runtime.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 2531,
+      "sha256": "76de8673682df3b1e1e9edc7fb38f226e31607c2fec566831996dc6963f3fb22"
+    }
+  },
+  {
+    "path": "ai_model/tests/test_training_resources.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 10303,
+      "sha256": "6198c4ce5b6b2c2867ae253871fdb8e6fd874c0e3dd625da866aec0a385942d3"
+    }
+  },
+  {
+    "path": "ai_model/tokenizer.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 7622,
+      "sha256": "abd34a312042058510a5ba4a3d5f482415f06a6f38518ee6818fcb3281a12a64"
+    }
+  },
+  {
+    "path": "ai_model/train.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 27759,
+      "sha256": "54579f738df19501ed0da901d69b7bb9d584f7044b4a3a1d96a46ef8cde93587"
+    }
+  },
+  {
+    "path": "app/build.gradle",
+    "kind": "수정",
+    "before": {
+      "bytes": 1565,
+      "sha256": "0ad82a03aeeb7b09525b8e4653b7592d1e00705591e6fc09a34104035ecf1f25"
+    },
+    "after": {
+      "bytes": 1636,
+      "sha256": "0a7f175e9f47955e28b54d4f234aa97a14280ea74e27f61eb8a299aced1efb55"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/AdaptiveWaitBenchmarkTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 7145,
+      "sha256": "8afa02b075ba053d1c56407b338ef7952f8db4f0a2bd0b8edab0ec1ced32c1c4"
+    },
+    "after": {
+      "bytes": 7145,
+      "sha256": "8afa02b075ba053d1c56407b338ef7952f8db4f0a2bd0b8edab0ec1ced32c1c4"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/AdaptiveWaitFlowTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 10259,
+      "sha256": "39416bc6108df83f60e30900cb742465eefa7b2b8527ec6bf186c80c677d9ceb"
+    },
+    "after": {
+      "bytes": 10259,
+      "sha256": "39416bc6108df83f60e30900cb742465eefa7b2b8527ec6bf186c80c677d9ceb"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/AdaptiveWaitSafetyTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 7274,
+      "sha256": "816ddc43480555cc6b03ebf60199260acce8cbd38ba1eefc749e60cded51e44c"
+    },
+    "after": {
+      "bytes": 7274,
+      "sha256": "816ddc43480555cc6b03ebf60199260acce8cbd38ba1eefc749e60cded51e44c"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/AiFirstDispatchBoundaryTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 6567,
+      "sha256": "cf77bee1a86d51c775f5903f1301966224054e0c3f4c4cddfa1e3169bc84d003"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/AiRecoveryTargetBoundaryTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 4971,
+      "sha256": "e55e7b7cd20f82ba339aed8e7b64ad5425382bbf9817d15152550b0f31c6bbf4"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/AiStartBoundaryTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 7647,
+      "sha256": "3b5780925c70fa58ac229f42f668ecccb886636373807606d209c9abaddace1f"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/CaptureRecoveryTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 5343,
+      "sha256": "385a0472e14eb812d950c55bd8740950cd04b72968ff9f8e3299a4648fa1850f"
+    },
+    "after": {
+      "bytes": 5343,
+      "sha256": "385a0472e14eb812d950c55bd8740950cd04b72968ff9f8e3299a4648fa1850f"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/ContinuousOcrTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 7057,
+      "sha256": "e028935248d33d009189570acf2108a9097e0d0447caa84056751dbf7182122a"
+    },
+    "after": {
+      "bytes": 7057,
+      "sha256": "e028935248d33d009189570acf2108a9097e0d0447caa84056751dbf7182122a"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/ControlDiagnostics.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 5584,
+      "sha256": "7dc95403a6e27d24af40b3f71508ff76e94f36b76e63902fb9f223cb912e563b"
+    },
+    "after": {
+      "bytes": 5584,
+      "sha256": "7dc95403a6e27d24af40b3f71508ff76e94f36b76e63902fb9f223cb912e563b"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/ControlVisibilityTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 3877,
+      "sha256": "f491db29007b80fcc1040b678d431efb59d455cb8f0f57e52f9dd9bc3eae0231"
+    },
+    "after": {
+      "bytes": 3877,
+      "sha256": "f491db29007b80fcc1040b678d431efb59d455cb8f0f57e52f9dd9bc3eae0231"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/CrossUidHudTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 4351,
+      "sha256": "64f716fe33f35e0a1671a80a19c6bb68b1182f791aed50d8e892194a894f54a2"
+    },
+    "after": {
+      "bytes": 4351,
+      "sha256": "64f716fe33f35e0a1671a80a19c6bb68b1182f791aed50d8e892194a894f54a2"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/DeviceFlowTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 7414,
+      "sha256": "dca73c062e05d49964cec14de69cad715fe8f79fa2225572fb899e82607edf2f"
+    },
+    "after": {
+      "bytes": 7414,
+      "sha256": "dca73c062e05d49964cec14de69cad715fe8f79fa2225572fb899e82607edf2f"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/EntryBoundaryTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 6781,
+      "sha256": "5f61f16db56e71c22f8454fa696e3b2f6c4a587243e6607d3f80c9c109453e82"
+    },
+    "after": {
+      "bytes": 6781,
+      "sha256": "5f61f16db56e71c22f8454fa696e3b2f6c4a587243e6607d3f80c9c109453e82"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/EntryConfirmationTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 8879,
+      "sha256": "4b177d7ce61c3be40e51688a154fe7a0b43f591bab3d6587d637cf84ae1b7414"
+    },
+    "after": {
+      "bytes": 8879,
+      "sha256": "4b177d7ce61c3be40e51688a154fe7a0b43f591bab3d6587d637cf84ae1b7414"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/EntryImeTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 4457,
+      "sha256": "05fdb8b0876dc011dbb7de20c420c74fa49635895d63650455f6271f6b825dd4"
+    },
+    "after": {
+      "bytes": 4457,
+      "sha256": "05fdb8b0876dc011dbb7de20c420c74fa49635895d63650455f6271f6b825dd4"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/EntryRecoveryClockTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 4899,
+      "sha256": "73dbe3c7991748ff16541a1665b6d4a7d2aa245aff53cde9c9bbcc1ea1870c1d"
+    },
+    "after": {
+      "bytes": 4899,
+      "sha256": "73dbe3c7991748ff16541a1665b6d4a7d2aa245aff53cde9c9bbcc1ea1870c1d"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/EntrySettingsUiTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 5092,
+      "sha256": "9b3ec4126cabbca285785cac4968f59815c7a1c014cb9521050f6c30b4deecdf"
+    },
+    "after": {
+      "bytes": 5092,
+      "sha256": "9b3ec4126cabbca285785cac4968f59815c7a1c014cb9521050f6c30b4deecdf"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/FloatingPlayTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 5241,
+      "sha256": "0426f66b33180decba4b85517290b6fee462a0323e578e44d60742af040ebb01"
+    },
+    "after": {
+      "bytes": 5241,
+      "sha256": "0426f66b33180decba4b85517290b6fee462a0323e578e44d60742af040ebb01"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/GuidedFlowTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 11666,
+      "sha256": "faacc26994786773641d7bce7c12c07b5c0b965502579027ffbabf6826ffacd2"
+    },
+    "after": {
+      "bytes": 11666,
+      "sha256": "faacc26994786773641d7bce7c12c07b5c0b965502579027ffbabf6826ffacd2"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/HudGestureLeaseTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 5717,
+      "sha256": "4f0c0669a8aa0a18c48497e3f25c22fdcb2f5d128f4e5a4baf143fd11e2f9046"
+    },
+    "after": {
+      "bytes": 5717,
+      "sha256": "4f0c0669a8aa0a18c48497e3f25c22fdcb2f5d128f4e5a4baf143fd11e2f9046"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/HudInteractionTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 9547,
+      "sha256": "d89d54f8134c8e83ee0fb18ce9d39924e2c8cb4fdace98cd70dd0f9b6250b8b1"
+    },
+    "after": {
+      "bytes": 9547,
+      "sha256": "d89d54f8134c8e83ee0fb18ce9d39924e2c8cb4fdace98cd70dd0f9b6250b8b1"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/HudLargeFontTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 776,
+      "sha256": "4b9d98ea9dc6d4fefcccd016579d822039e9ea883aacd73caa37b8d352b61265"
+    },
+    "after": {
+      "bytes": 776,
+      "sha256": "4b9d98ea9dc6d4fefcccd016579d822039e9ea883aacd73caa37b8d352b61265"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/HudStopVisibilityTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 4928,
+      "sha256": "0736c8353ce52588b8973c03f4a3de53fb41367e3c27e5598e5098b02ef49a3f"
+    },
+    "after": {
+      "bytes": 4928,
+      "sha256": "0736c8353ce52588b8973c03f4a3de53fb41367e3c27e5598e5098b02ef49a3f"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/MissingRecoveryBoundaryTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 3695,
+      "sha256": "5cadf5727ee354c4ec566276d443bd2fc72625ab4786f4c7c5c90aa32a522182"
+    },
+    "after": {
+      "bytes": 3695,
+      "sha256": "5cadf5727ee354c4ec566276d443bd2fc72625ab4786f4c7c5c90aa32a522182"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/MissingRecoveryClockTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 7053,
+      "sha256": "4cdb3d69e97b953df916af6aa81d65db99f1fdb85d0690a176d035c3ec9f42a8"
+    },
+    "after": {
+      "bytes": 7053,
+      "sha256": "4cdb3d69e97b953df916af6aa81d65db99f1fdb85d0690a176d035c3ec9f42a8"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/MissingRetryFlowTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 10989,
+      "sha256": "e49685a53f5b8ea0360e14616837a31c4c4fd75c58f4ede949bf17c5d31f4cf0"
+    },
+    "after": {
+      "bytes": 10989,
+      "sha256": "e49685a53f5b8ea0360e14616837a31c4c4fd75c58f4ede949bf17c5d31f4cf0"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/MissingSettingsUiTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 3486,
+      "sha256": "46203cfe95c7dc9b1aa8bb0a4766ca1f928e54b1991450ec8da5dd1d42136220"
+    },
+    "after": {
+      "bytes": 3486,
+      "sha256": "46203cfe95c7dc9b1aa8bb0a4766ca1f928e54b1991450ec8da5dd1d42136220"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/MissingTargetBoundaryTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 2217,
+      "sha256": "e04fe9a0a9dbfb0c0ac3d378d3c8e7abdee04200ea3b844eb9570e569f377252"
+    },
+    "after": {
+      "bytes": 2217,
+      "sha256": "e04fe9a0a9dbfb0c0ac3d378d3c8e7abdee04200ea3b844eb9570e569f377252"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/NexFeatureTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 9213,
+      "sha256": "f33bfc48f979d6aefe1909fced91a6015a0c19e3f89ac01784016d1b693c98ad"
+    },
+    "after": {
+      "bytes": 9213,
+      "sha256": "f33bfc48f979d6aefe1909fced91a6015a0c19e3f89ac01784016d1b693c98ad"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/OcrAccuracyCorpusTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 10050,
+      "sha256": "e004cb8a462ed67f099a2f58bf7179b4babee0bbaca1897e2ab5db8d2436bc57"
+    },
+    "after": {
+      "bytes": 10050,
+      "sha256": "e004cb8a462ed67f099a2f58bf7179b4babee0bbaca1897e2ab5db8d2436bc57"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/OcrStallRecoveryTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 13326,
+      "sha256": "5506ad0dc5e43e0a7c3b3a9ad25ae817598949390c610bc06ef33231c69d3b5e"
+    },
+    "after": {
+      "bytes": 13326,
+      "sha256": "5506ad0dc5e43e0a7c3b3a9ad25ae817598949390c610bc06ef33231c69d3b5e"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/PauseStartSafetyTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 5249,
+      "sha256": "eb13aa270a7834733a7e03d7d7432d687dd164b703f1200a2a0532c2b9b692c8"
+    },
+    "after": {
+      "bytes": 5249,
+      "sha256": "eb13aa270a7834733a7e03d7d7432d687dd164b703f1200a2a0532c2b9b692c8"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/PriorityFlowTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 3167,
+      "sha256": "a7f7cb00462a6734ba74aa3884ebbbc832e7acaf2eec030465680a287567df90"
+    },
+    "after": {
+      "bytes": 3167,
+      "sha256": "a7f7cb00462a6734ba74aa3884ebbbc832e7acaf2eec030465680a287567df90"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/PxeAdaptiveSettingsTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 2281,
+      "sha256": "63ca310cb62abf088cd14c5a64347ba254070090905129ec732f175f12625537"
+    },
+    "after": {
+      "bytes": 2281,
+      "sha256": "63ca310cb62abf088cd14c5a64347ba254070090905129ec732f175f12625537"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/PxeDesignReviewTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 3435,
+      "sha256": "22a40ad4b4b95676e7b87479625a1ccf9996f8dfa2fa30c562c9f85034725948"
+    },
+    "after": {
+      "bytes": 3435,
+      "sha256": "22a40ad4b4b95676e7b87479625a1ccf9996f8dfa2fa30c562c9f85034725948"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/PxeGuideFlowTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 644,
+      "sha256": "79a5087369266b395702abc989b7b159578335f23d37b647f8513bfacc90a768"
+    },
+    "after": {
+      "bytes": 644,
+      "sha256": "79a5087369266b395702abc989b7b159578335f23d37b647f8513bfacc90a768"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/PxeModelUiTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 4774,
+      "sha256": "8fd01c1f023a92ac127b0e93a46e3a5ee49711de1b15fe5f40b75bc91de0fa99"
+    },
+    "after": {
+      "bytes": 4774,
+      "sha256": "8fd01c1f023a92ac127b0e93a46e3a5ee49711de1b15fe5f40b75bc91de0fa99"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/PxeRecognitionSettingsTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 9052,
+      "sha256": "ee2b095949d6128e981c3946c9a7c982b2b6816ddc4f80f92b673e58de6c8da2"
+    },
+    "after": {
+      "bytes": 9052,
+      "sha256": "ee2b095949d6128e981c3946c9a7c982b2b6816ddc4f80f92b673e58de6c8da2"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/PxeRedesignTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 12498,
+      "sha256": "544d966c8aaa7716670b61d61d04ce67e480f8d8cf1ede80fd68c8620d23e89c"
+    },
+    "after": {
+      "bytes": 12498,
+      "sha256": "544d966c8aaa7716670b61d61d04ce67e480f8d8cf1ede80fd68c8620d23e89c"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/PxeUpgradeTest.java",
+    "kind": "수정",
+    "before": {
+      "bytes": 2122,
+      "sha256": "03f512cbe841f5cc45c07c758493b62899a895da3adb951f25978d4445640af1"
+    },
+    "after": {
+      "bytes": 2122,
+      "sha256": "33bbe705e047ab0d844028994529f855d7a2b9d32503179d675e1b56d30bc9d2"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/ReaderResponsivenessTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 2662,
+      "sha256": "29036d0671e51002158dab2bf14818db4ec198470d75b03e957812216313c7e0"
+    },
+    "after": {
+      "bytes": 2662,
+      "sha256": "29036d0671e51002158dab2bf14818db4ec198470d75b03e957812216313c7e0"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/RecognitionModeTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 8218,
+      "sha256": "09479cb99da13033ff7b785382e95c5e7c8b297b2e30c1f011c455179609f9a2"
+    },
+    "after": {
+      "bytes": 8218,
+      "sha256": "09479cb99da13033ff7b785382e95c5e7c8b297b2e30c1f011c455179609f9a2"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/RecognitionRecoveryTest.java",
+    "kind": "수정",
+    "before": {
+      "bytes": 11018,
+      "sha256": "4e875bd06532cb9ef78607365d4cb8a61ffe46ab8c149c9ddf5c44b2985ccc73"
+    },
+    "after": {
+      "bytes": 11003,
+      "sha256": "196fadc2251d0757b6ac1d5e5c6ec082e517c05dd953106a10ccb4885c3cfb88"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/RecognitionRegionTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 9779,
+      "sha256": "2d448e717b0bdcd4bcdb12005f39ece2a451ad6ba74e0a0619be17379d93e7ce"
+    },
+    "after": {
+      "bytes": 9779,
+      "sha256": "2d448e717b0bdcd4bcdb12005f39ece2a451ad6ba74e0a0619be17379d93e7ce"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/RecoveryRevisionBoundaryTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 5262,
+      "sha256": "4941cbe44c8b0c9acd890603aa26498efd3a058daeb5e6e9e84775a40647da9b"
+    },
+    "after": {
+      "bytes": 5262,
+      "sha256": "4941cbe44c8b0c9acd890603aa26498efd3a058daeb5e6e9e84775a40647da9b"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/RegionPackageSafetyTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 2941,
+      "sha256": "1408d3d707efde229933ac6a1ffbec6ffa8620c767332d9017f94d1accc3e9b2"
+    },
+    "after": {
+      "bytes": 2941,
+      "sha256": "1408d3d707efde229933ac6a1ffbec6ffa8620c767332d9017f94d1accc3e9b2"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/RepeatFlowTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 1854,
+      "sha256": "60d0816734b21e1392d64d97ade57a185bfc998faa5854dc22a9793683f22464"
+    },
+    "after": {
+      "bytes": 1854,
+      "sha256": "60d0816734b21e1392d64d97ade57a185bfc998faa5854dc22a9793683f22464"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/RestartOcrTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 2127,
+      "sha256": "d57607c8587803748f07d0eff283ebcc2f820a84c359dbda52654e3723a24a82"
+    },
+    "after": {
+      "bytes": 2127,
+      "sha256": "d57607c8587803748f07d0eff283ebcc2f820a84c359dbda52654e3723a24a82"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/RestartRunTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 5140,
+      "sha256": "7b567df77c12119ab15923682b0975136660fa38f29ae717d5090083f1743e48"
+    },
+    "after": {
+      "bytes": 5140,
+      "sha256": "7b567df77c12119ab15923682b0975136660fa38f29ae717d5090083f1743e48"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/RunHudTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 12609,
+      "sha256": "abb76481ea6a73df0f961cfcecc2062d0bb63415466e347aced4c991b5d9ecf6"
+    },
+    "after": {
+      "bytes": 12609,
+      "sha256": "abb76481ea6a73df0f961cfcecc2062d0bb63415466e347aced4c991b5d9ecf6"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/ScreenDelayRecoveryTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 9185,
+      "sha256": "5705c0da757efc9fbde567597df9be4fee4b07ff7cce0c732898fbc52e92c372"
+    },
+    "after": {
+      "bytes": 9185,
+      "sha256": "5705c0da757efc9fbde567597df9be4fee4b07ff7cce0c732898fbc52e92c372"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/ServiceLifecycleTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 6236,
+      "sha256": "9f380b34ad3ef6dedb47faa60181cdf31f4ac9d1eb9254eea95ecf52891760c3"
+    },
+    "after": {
+      "bytes": 6236,
+      "sha256": "9f380b34ad3ef6dedb47faa60181cdf31f4ac9d1eb9254eea95ecf52891760c3"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/ShortScrollTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 3307,
+      "sha256": "2306023e48e9b28ff0279e09e03d424f28bc94d81a4ca64d2824ebc614a4d2c2"
+    },
+    "after": {
+      "bytes": 3307,
+      "sha256": "2306023e48e9b28ff0279e09e03d424f28bc94d81a4ca64d2824ebc614a4d2c2"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/TargetDispatchBoundaryTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 7049,
+      "sha256": "e7c6ff5dff39d21816807c075a786eaad9b65f3c10e371a21aaf2e3468c546f1"
+    },
+    "after": {
+      "bytes": 7049,
+      "sha256": "e7c6ff5dff39d21816807c075a786eaad9b65f3c10e371a21aaf2e3468c546f1"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/TargetWindowRecoveryTest.java",
+    "kind": "수정",
+    "before": {
+      "bytes": 9408,
+      "sha256": "93af98c77e8ad12f811798b613270b78b3f6be5ec33ef176d6382f6501e4ea58"
+    },
+    "after": {
+      "bytes": 9249,
+      "sha256": "d5ce85b612d841f47d0acbd0f2759aa01440875bdcddc6d072623c36ded371a7"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/TextConfirmationTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 7845,
+      "sha256": "8ba07f89c2a065a69a3b8498965f7714d5fea15831c23ae50b23611b52489cd8"
+    },
+    "after": {
+      "bytes": 7845,
+      "sha256": "8ba07f89c2a065a69a3b8498965f7714d5fea15831c23ae50b23611b52489cd8"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/WatchFlowTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 6889,
+      "sha256": "9f901881216a5652fa099dabcd9599eb0869ad4798500eed2ac8380a6e240578"
+    },
+    "after": {
+      "bytes": 6889,
+      "sha256": "9f901881216a5652fa099dabcd9599eb0869ad4798500eed2ac8380a6e240578"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/WatchPresetTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 5993,
+      "sha256": "bf583c4635220d5dc144cb15a5b83eff981c94a150e34ca54ae9b947dac93278"
+    },
+    "after": {
+      "bytes": 5993,
+      "sha256": "bf583c4635220d5dc144cb15a5b83eff981c94a150e34ca54ae9b947dac93278"
+    }
+  },
+  {
+    "path": "app/src/androidTest/java/kr/yunseok/touchmacro/WatchRecoveryBoundaryTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 2499,
+      "sha256": "841a59727c565badc0bf61c10dd1a20a8dc71432378978ce4d7f3d8771a714a8"
+    },
+    "after": {
+      "bytes": 2499,
+      "sha256": "841a59727c565badc0bf61c10dd1a20a8dc71432378978ce4d7f3d8771a714a8"
+    }
+  },
+  {
+    "path": "app/src/main/AndroidManifest.xml",
+    "kind": "동일",
+    "before": {
+      "bytes": 2028,
+      "sha256": "0b0b555dfe5b56f2f0acf4854a6a5abec73edbba0d5075827f707fd22d2efc96"
+    },
+    "after": {
+      "bytes": 2028,
+      "sha256": "0b0b555dfe5b56f2f0acf4854a6a5abec73edbba0d5075827f707fd22d2efc96"
+    }
+  },
+  {
+    "path": "app/src/main/assets/NanumGothic-OFL.txt",
+    "kind": "동일",
+    "before": {
+      "bytes": 5398,
+      "sha256": "9413f0aaff51c59be2ff01113a28759b491e6fd67172c3d0a666e6354af18883"
+    },
+    "after": {
+      "bytes": 5398,
+      "sha256": "9413f0aaff51c59be2ff01113a28759b491e6fd67172c3d0a666e6354af18883"
+    }
+  },
+  {
+    "path": "app/src/main/assets/ONNXRuntime-LICENSE.txt",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 1073,
+      "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c"
+    }
+  },
+  {
+    "path": "app/src/main/assets/ONNXRuntime-ThirdPartyNotices.txt",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 326866,
+      "sha256": "e9e90971a8e75a9a8ac0c6412e29c1202d079998389915aa485f46c816c3b4cc"
+    }
+  },
+  {
+    "path": "app/src/main/assets/pxe_beacon.obj",
+    "kind": "동일",
+    "before": {
+      "bytes": 8656,
+      "sha256": "b631180bacd747af8a3ecacee9e3b41bcffded8970056d6b5e67f2f96cf624a0"
+    },
+    "after": {
+      "bytes": 8656,
+      "sha256": "b631180bacd747af8a3ecacee9e3b41bcffded8970056d6b5e67f2f96cf624a0"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AdaptiveWaitPolicy.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 1079,
+      "sha256": "e2bf3a1752cc53e93fac3f3d533431cd044a9a4dcfdeeca524fffc5592f25674"
+    },
+    "after": {
+      "bytes": 1079,
+      "sha256": "e2bf3a1752cc53e93fac3f3d533431cd044a9a4dcfdeeca524fffc5592f25674"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiAndroidContext.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 5712,
+      "sha256": "0c0d9ad23795a423ec7bc38f401a8a692e73d1dcfce8eb6abd5cd1db03ccaf0a"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiBundleManifest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 1850,
+      "sha256": "c66c78bcfb82e05de5996f52dc8435aec1b0605c90d7aaa68f3eec97ec0efcba"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiCancellation.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 955,
+      "sha256": "152f39351e29d117a8ebc28557de3b90859565f0cd9d2e1095c48d7cffa44aaa"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiCodecContract.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 2877,
+      "sha256": "685ab03c4fb81d7da775552d31b2a4fd54e2074ba1460b92ecdb918ea4942a11"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiContextJson.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 2776,
+      "sha256": "10860d43130fc58e01fad2191a5a9680e06612d43603e449a5f9352ec379e017"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiCopySelection.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 1024,
+      "sha256": "a0802f9bab0d092ca62e9f22af6c3631fa5e6cc1af3c484816391f34199f1926"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiFirstInputPermit.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 1378,
+      "sha256": "5ba1509e1b0f2aadce72cf1318e2c96886a80d7fad9c883ff33a8a1d63b84923"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiJson.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 5296,
+      "sha256": "435fdfa23fbfe3786e4b942d8c03171ac5836bc6d1360d28bf6767a7b2229be3"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiLiteralCodec.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 10115,
+      "sha256": "33674fe581bc39edaf8c6e63d4f62e93c456f7d855a6585311e8b5d4fa889102"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiNumbers.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 4169,
+      "sha256": "4a96b95ee7ca300e9d0b1166c0dfe05cebe8e9267af4a5b75fcde39c4f79ecdc"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiPlanCompiler.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 23120,
+      "sha256": "d8770d7e36e398a70157d4695e0e20abce1c2b71903c18e2934f1414991eae1f"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiPlanParser.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 8286,
+      "sha256": "53739be4cb3a823f87103dd477e263238606cca8c2d69a7ec188580165fc6d4a"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiPlanPreview.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 10357,
+      "sha256": "fbd8b6c015ea1f0a3446010fb1b8a678094e4fa5e3d33ac120f2b4050dbc529e"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiPlanner.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 7569,
+      "sha256": "1fa2e0a1056d59fa7b2cf3ece95a0808e5ffefebd0f9e7252c1908186e82fc4c"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiPlanningSession.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 2388,
+      "sha256": "bdd7d7cb5ba25b34caaf6dc5125be4108792528e697b6cacdfa9ab1ca3d86de7"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiSchemaSnapshots.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 5156,
+      "sha256": "4547e94d2e70c4b6cbbd543b2ad278bf94536ed60c5d481a36e5b5f312589867"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiStartGate.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 3021,
+      "sha256": "201be051cca284617dfe737458a3f6b5a53a4bdb54ac1ff41627368e9e6355e7"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/AiTokenizer.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 11085,
+      "sha256": "34ae343a74d1688a8b7bdeb08e5779959678a374d46df3a19d95482b006a6803"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/BehaviorAndroidBridge.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 11032,
+      "sha256": "98b1f71ceceb53426aefce5480571e265084d3c5f5ae8b26d3a56a9a1fe75c08"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/BehaviorAndroidSession.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 8050,
+      "sha256": "688ee72925629c54caefb1f924e6a46ccc569838d23bcb17e3dfd9be6b04ecf6"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/BehaviorBundle.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 13180,
+      "sha256": "12127a789310b65d30cbf61320976d02db0209401d316ad83db7e3b4b7d23956"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/BehaviorExample.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 14601,
+      "sha256": "bf3d81c6781d7e53304b0d18f13b63817cae751db45ad5edb3ccbe29770ee4f1"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/BehaviorFeatures.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 5290,
+      "sha256": "8c3fd9b013676f0bf471fe1ee5f9e44e2f7ffe06093095e0ee79b9b15b504cba"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/BehaviorPolicy.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 11633,
+      "sha256": "e1eb6ec1edde0db31a8dff2f48c6c671b52bcb03acd798f14dde7203abf164f8"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/BehaviorTaskStore.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 10605,
+      "sha256": "71c192f2cd8fc29d9301f77930cf35314f5c513292278aa86109bb2bc879b1ac"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/CapturePacer.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 860,
+      "sha256": "273a3f7f0dcd38247b900a89c54a29f8ac9d9d4a5b2b0051fb347bb97503ab20"
+    },
+    "after": {
+      "bytes": 860,
+      "sha256": "273a3f7f0dcd38247b900a89c54a29f8ac9d9d4a5b2b0051fb347bb97503ab20"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/CaptureRequests.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 523,
+      "sha256": "d496f9bfdd32d7760f25968bf80039f4ee33c56562ab84faacf1623574225749"
+    },
+    "after": {
+      "bytes": 523,
+      "sha256": "d496f9bfdd32d7760f25968bf80039f4ee33c56562ab84faacf1623574225749"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/ErrorJournal.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 1514,
+      "sha256": "358d57538ea890748a2f1d642f33ed5097d1e84b6da8ca8e03d2d13b3125c571"
+    },
+    "after": {
+      "bytes": 1514,
+      "sha256": "358d57538ea890748a2f1d642f33ed5097d1e84b6da8ca8e03d2d13b3125c571"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/ExecutionMetrics.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 1913,
+      "sha256": "9acfbd11302f7b8b91a92d0c70c1c9361d961b5cd66f5263516e169cdec3c9bb"
+    },
+    "after": {
+      "bytes": 1913,
+      "sha256": "9acfbd11302f7b8b91a92d0c70c1c9361d961b5cd66f5263516e169cdec3c9bb"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/FloatingController.java",
+    "kind": "수정",
+    "before": {
+      "bytes": 29751,
+      "sha256": "177b04202c22442f071a8c0f32f79ea22f2c8ff8c0b9e3328651e47aa660400f"
+    },
+    "after": {
+      "bytes": 39023,
+      "sha256": "59ada4caa6123d05c300a3be76c1e5782d1aea104d3bc969c40c3072979e5916"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/GesturePaths.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 2475,
+      "sha256": "0281ba7d7ef6291cac98514fe7a43e980ef2c9a01f4fa616cc239f3ee841969d"
+    },
+    "after": {
+      "bytes": 2475,
+      "sha256": "0281ba7d7ef6291cac98514fe7a43e980ef2c9a01f4fa616cc239f3ee841969d"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/KeepAliveService.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 2072,
+      "sha256": "081080ecaab5091877990ec7d832a1519f1d8f8ffb6d24d801e44f837a5d9bfd"
+    },
+    "after": {
+      "bytes": 2072,
+      "sha256": "081080ecaab5091877990ec7d832a1519f1d8f8ffb6d24d801e44f837a5d9bfd"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/Macro.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 2625,
+      "sha256": "5cb324ac868aa3055e32ba1b250281b5d6edb4984ad17453627b66da082f6a03"
+    },
+    "after": {
+      "bytes": 2625,
+      "sha256": "5cb324ac868aa3055e32ba1b250281b5d6edb4984ad17453627b66da082f6a03"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/MacroService.java",
+    "kind": "수정",
+    "before": {
+      "bytes": 86757,
+      "sha256": "9e6490f95ad1e5e4963123f26ea97ccc0480db65b1783831b91135bc3f572bc3"
+    },
+    "after": {
+      "bytes": 112948,
+      "sha256": "db12dfa1a2b3a0c36edaa474d48163c5460ddd603cc25d9a5bd0438024c021fd"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/MainActivity.java",
+    "kind": "수정",
+    "before": {
+      "bytes": 70533,
+      "sha256": "9de9feeecb9d90c5fa65d9ef91f45a559b877881ad2dfaed39786c42a8df762b"
+    },
+    "after": {
+      "bytes": 91994,
+      "sha256": "7542b592979d320fbc19f9c7e0174532b329e637e63fa4ee85f3da5a1c325b8e"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/PxeGeometry.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 3857,
+      "sha256": "ff83f838d5faeff282488e3a8822a324c2cf5f35f2c54dce137b1c2ba0f8ac95"
+    },
+    "after": {
+      "bytes": 3857,
+      "sha256": "ff83f838d5faeff282488e3a8822a324c2cf5f35f2c54dce137b1c2ba0f8ac95"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/PxeModelView.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 3177,
+      "sha256": "070c32cf4d6855eb41ba83b4f4b77452176fb83553859802c5280b07023dd64c"
+    },
+    "after": {
+      "bytes": 3177,
+      "sha256": "070c32cf4d6855eb41ba83b4f4b77452176fb83553859802c5280b07023dd64c"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/QueryLane.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 1474,
+      "sha256": "3b4642e6514c6777d6562a82afe24bb46826c0a21878fa4dbfd99e5fa9e49d94"
+    },
+    "after": {
+      "bytes": 1474,
+      "sha256": "3b4642e6514c6777d6562a82afe24bb46826c0a21878fa4dbfd99e5fa9e49d94"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/RegionPicker.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 4342,
+      "sha256": "0b03b48d98fe9f4565a8e05bdd8e370684bdbad97c790f5caf2280372feff724"
+    },
+    "after": {
+      "bytes": 4342,
+      "sha256": "0b03b48d98fe9f4565a8e05bdd8e370684bdbad97c790f5caf2280372feff724"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/RunHud.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 8577,
+      "sha256": "905e1dd0265c73ff7e61e86f470c126f81ddbaf262db4c433724efdba0c84a46"
+    },
+    "after": {
+      "bytes": 8577,
+      "sha256": "905e1dd0265c73ff7e61e86f470c126f81ddbaf262db4c433724efdba0c84a46"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/RunProgress.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 774,
+      "sha256": "47dfc1c736467acbc98c19596e6a5569159c547e4eee4d897723ac990d6e2aeb"
+    },
+    "after": {
+      "bytes": 774,
+      "sha256": "47dfc1c736467acbc98c19596e6a5569159c547e4eee4d897723ac990d6e2aeb"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/SetupCoach.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 2078,
+      "sha256": "38bf028c3610938113a9bc0cc1ec9c70e5ffb7d247b146fd4b4bb08bae225024"
+    },
+    "after": {
+      "bytes": 2078,
+      "sha256": "38bf028c3610938113a9bc0cc1ec9c70e5ffb7d247b146fd4b4bb08bae225024"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/SetupFlow.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 3309,
+      "sha256": "cbd31edec306426094e751d61462e460a561b06fceabab3a8fe05d9dde374c6a"
+    },
+    "after": {
+      "bytes": 3309,
+      "sha256": "cbd31edec306426094e751d61462e460a561b06fceabab3a8fe05d9dde374c6a"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/SetupWizard.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 11297,
+      "sha256": "7c633c9b3db003eab05b1c917642c8829c6011d31f110aa8c8795650fa0a86ae"
+    },
+    "after": {
+      "bytes": 11297,
+      "sha256": "7c633c9b3db003eab05b1c917642c8829c6011d31f110aa8c8795650fa0a86ae"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/Step.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 9610,
+      "sha256": "5ee3cd1cc5457c4ea82db5d4573599c57abcbe75a582acaf35ca53ed0b7142cc"
+    },
+    "after": {
+      "bytes": 9610,
+      "sha256": "5ee3cd1cc5457c4ea82db5d4573599c57abcbe75a582acaf35ca53ed0b7142cc"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/StopReceiver.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 362,
+      "sha256": "5f64a0f1126aba74ed5ae1e0540f182a37d45ad7ab42b53daeffeef71a28b86f"
+    },
+    "after": {
+      "bytes": 362,
+      "sha256": "5f64a0f1126aba74ed5ae1e0540f182a37d45ad7ab42b53daeffeef71a28b86f"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/Store.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 1757,
+      "sha256": "23240a7d974fb0b566a89d6a4dc55be051c9e9564b91eb471d30b56b2b80cfd9"
+    },
+    "after": {
+      "bytes": 1757,
+      "sha256": "23240a7d974fb0b566a89d6a4dc55be051c9e9564b91eb471d30b56b2b80cfd9"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/TextRules.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 1118,
+      "sha256": "bb97a2e81411e8f646ab6249ed08cea3ffed1c854289b5540bb4febdb2cdafb2"
+    },
+    "after": {
+      "bytes": 1118,
+      "sha256": "bb97a2e81411e8f646ab6249ed08cea3ffed1c854289b5540bb4febdb2cdafb2"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/Times.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 1416,
+      "sha256": "7d9e682b2f6c0e2796727a8f41802880c2b2f72226de367cf4a922ea21a91d2f"
+    },
+    "after": {
+      "bytes": 1416,
+      "sha256": "7d9e682b2f6c0e2796727a8f41802880c2b2f72226de367cf4a922ea21a91d2f"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/TouchLabel.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 390,
+      "sha256": "06a6c45ef4e982eae78747b1739287dae4c8f1b05dab19000fdaa90fec675f7d"
+    },
+    "after": {
+      "bytes": 390,
+      "sha256": "06a6c45ef4e982eae78747b1739287dae4c8f1b05dab19000fdaa90fec675f7d"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/TouchPane.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 256,
+      "sha256": "da024f18cead993522fd50982bb4bf79b979b5825e7839506d3984fc8b33d036"
+    },
+    "after": {
+      "bytes": 256,
+      "sha256": "da024f18cead993522fd50982bb4bf79b979b5825e7839506d3984fc8b33d036"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/Ui.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 4363,
+      "sha256": "9419f854bf370466baa80e7306aca2763302ef5e4eda58e8170ad2e4121aaefd"
+    },
+    "after": {
+      "bytes": 4363,
+      "sha256": "9419f854bf370466baa80e7306aca2763302ef5e4eda58e8170ad2e4121aaefd"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/WatchArea.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 842,
+      "sha256": "3976ed3c0cb14a4756f5caf89671adf285ef406b23e3693f5c75b3fb85075e94"
+    },
+    "after": {
+      "bytes": 842,
+      "sha256": "3976ed3c0cb14a4756f5caf89671adf285ef406b23e3693f5c75b3fb85075e94"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/WatchConfig.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 6923,
+      "sha256": "2be727a122d4d4cc03c4f7bbc94f48d8a334e08f1fe3a00a11535bfcdfb8e06c"
+    },
+    "after": {
+      "bytes": 6923,
+      "sha256": "2be727a122d4d4cc03c4f7bbc94f48d8a334e08f1fe3a00a11535bfcdfb8e06c"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/WatchGate.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 835,
+      "sha256": "c196b9a122d0ab66ca65a8573021a718f5c37edf0ff673c37beef86c37e3a5a2"
+    },
+    "after": {
+      "bytes": 835,
+      "sha256": "c196b9a122d0ab66ca65a8573021a718f5c37edf0ff673c37beef86c37e3a5a2"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/WatchStore.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 1604,
+      "sha256": "0ee8881a2952f4268304bfb50fed92b23da33eadb2921db17ead7cada8b06cbc"
+    },
+    "after": {
+      "bytes": 1604,
+      "sha256": "0ee8881a2952f4268304bfb50fed92b23da33eadb2921db17ead7cada8b06cbc"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/WindowObservation.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 1192,
+      "sha256": "2258d7fc2ce1de05a568d2bc886ea88e408d4b55124c25bb0f2ea9303e2372aa"
+    },
+    "after": {
+      "bytes": 1192,
+      "sha256": "2258d7fc2ce1de05a568d2bc886ea88e408d4b55124c25bb0f2ea9303e2372aa"
+    }
+  },
+  {
+    "path": "app/src/main/java/kr/yunseok/touchmacro/WindowPackages.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 2073,
+      "sha256": "e61eead612e8fcb359353608acb4c3aedcdd7cf56d65e1ac8ecaa7d3773f894d"
+    },
+    "after": {
+      "bytes": 2073,
+      "sha256": "e61eead612e8fcb359353608acb4c3aedcdd7cf56d65e1ac8ecaa7d3773f894d"
+    }
+  },
+  {
+    "path": "app/src/main/res/drawable/ic_launcher_foreground.xml",
+    "kind": "동일",
+    "before": {
+      "bytes": 567,
+      "sha256": "36d63fe46a0d6beaee8ea4b4405e4c48aee6c98d72dddfb5a3d486b34be25b04"
+    },
+    "after": {
+      "bytes": 567,
+      "sha256": "36d63fe46a0d6beaee8ea4b4405e4c48aee6c98d72dddfb5a3d486b34be25b04"
+    }
+  },
+  {
+    "path": "app/src/main/res/drawable/ic_macro.xml",
+    "kind": "동일",
+    "before": {
+      "bytes": 593,
+      "sha256": "b386baf9355580655ab7b7f1f3d2a5e67d2ad390de5687ab7bee5c96267a338f"
+    },
+    "after": {
+      "bytes": 593,
+      "sha256": "b386baf9355580655ab7b7f1f3d2a5e67d2ad390de5687ab7bee5c96267a338f"
+    }
+  },
+  {
+    "path": "app/src/main/res/drawable/ic_stat_nex.xml",
+    "kind": "동일",
+    "before": {
+      "bytes": 456,
+      "sha256": "6b79be19cf7799279788c123216882a56465a401f852499c5f97dd77f3523d24"
+    },
+    "after": {
+      "bytes": 456,
+      "sha256": "6b79be19cf7799279788c123216882a56465a401f852499c5f97dd77f3523d24"
+    }
+  },
+  {
+    "path": "app/src/main/res/drawable/nex_dialog_dark.xml",
+    "kind": "동일",
+    "before": {
+      "bytes": 138,
+      "sha256": "7622132c42a2012f4524ad495a2d6a5c9e932327b6e8e7a152124a35d1ab6fab"
+    },
+    "after": {
+      "bytes": 138,
+      "sha256": "7622132c42a2012f4524ad495a2d6a5c9e932327b6e8e7a152124a35d1ab6fab"
+    }
+  },
+  {
+    "path": "app/src/main/res/drawable/nex_dialog_light.xml",
+    "kind": "동일",
+    "before": {
+      "bytes": 138,
+      "sha256": "7094707ea2815c219cc6e589334f3b127ad8fdc181908510c7cfff69c5218d5d"
+    },
+    "after": {
+      "bytes": 138,
+      "sha256": "7094707ea2815c219cc6e589334f3b127ad8fdc181908510c7cfff69c5218d5d"
+    }
+  },
+  {
+    "path": "app/src/main/res/drawable/pxe_accessibility.xml",
+    "kind": "동일",
+    "before": {
+      "bytes": 446,
+      "sha256": "332e236c1f0782b7cfd976fefc7fe2b14965ad4d4cae123b9d80b8d0530ffc8c"
+    },
+    "after": {
+      "bytes": 446,
+      "sha256": "332e236c1f0782b7cfd976fefc7fe2b14965ad4d4cae123b9d80b8d0530ffc8c"
+    }
+  },
+  {
+    "path": "app/src/main/res/drawable/pxe_back.xml",
+    "kind": "동일",
+    "before": {
+      "bytes": 416,
+      "sha256": "2d825769da681d1fc140630d28a5a3cbcc846f50bee9a12cc643e233aa797802"
+    },
+    "after": {
+      "bytes": 416,
+      "sha256": "2d825769da681d1fc140630d28a5a3cbcc846f50bee9a12cc643e233aa797802"
+    }
+  },
+  {
+    "path": "app/src/main/res/drawable/pxe_chevron.xml",
+    "kind": "동일",
+    "before": {
+      "bytes": 382,
+      "sha256": "3802f4a85f565a8886acd40493235bfbc7686dd99cedc6113f18fcc6355d91bd"
+    },
+    "after": {
+      "bytes": 382,
+      "sha256": "3802f4a85f565a8886acd40493235bfbc7686dd99cedc6113f18fcc6355d91bd"
+    }
+  },
+  {
+    "path": "app/src/main/res/drawable/pxe_clock.xml",
+    "kind": "동일",
+    "before": {
+      "bytes": 417,
+      "sha256": "3b3b062e0abd4be4f11f09a7142561dd7a836d968662308d0f41ec5cdc8078d2"
+    },
+    "after": {
+      "bytes": 417,
+      "sha256": "3b3b062e0abd4be4f11f09a7142561dd7a836d968662308d0f41ec5cdc8078d2"
+    }
+  },
+  {
+    "path": "app/src/main/res/drawable/pxe_eye.xml",
+    "kind": "동일",
+    "before": {
+      "bytes": 432,
+      "sha256": "0494bfd90debaeb91f8b9bc4348a196d9b7ba354b58e0aae1ae99c2cc8039234"
+    },
+    "after": {
+      "bytes": 432,
+      "sha256": "0494bfd90debaeb91f8b9bc4348a196d9b7ba354b58e0aae1ae99c2cc8039234"
+    }
+  },
+  {
+    "path": "app/src/main/res/drawable/pxe_focus.xml",
+    "kind": "동일",
+    "before": {
+      "bytes": 447,
+      "sha256": "a4a5bfff5d08b2b59a6d9a9662c9af677a95000ee44e93715f6523376f5cfb66"
+    },
+    "after": {
+      "bytes": 447,
+      "sha256": "a4a5bfff5d08b2b59a6d9a9662c9af677a95000ee44e93715f6523376f5cfb66"
+    }
+  },
+  {
+    "path": "app/src/main/res/drawable/pxe_help.xml",
+    "kind": "동일",
+    "before": {
+      "bytes": 445,
+      "sha256": "906bcee5a4559b54a048632093db061d96123c40b2e11e606cc1fe156acb25f4"
+    },
+    "after": {
+      "bytes": 445,
+      "sha256": "906bcee5a4559b54a048632093db061d96123c40b2e11e606cc1fe156acb25f4"
+    }
+  },
+  {
+    "path": "app/src/main/res/drawable/pxe_refresh.xml",
+    "kind": "동일",
+    "before": {
+      "bytes": 437,
+      "sha256": "2baba68808e328355fdbd4e2d885cfead04507fa3de47954059a6c42cb98d50b"
+    },
+    "after": {
+      "bytes": 437,
+      "sha256": "2baba68808e328355fdbd4e2d885cfead04507fa3de47954059a6c42cb98d50b"
+    }
+  },
+  {
+    "path": "app/src/main/res/drawable/pxe_scan.xml",
+    "kind": "동일",
+    "before": {
+      "bytes": 468,
+      "sha256": "68b9c90e959b6c9b2e763f724eadb93bedd6f9d73ab46866b152b86304996864"
+    },
+    "after": {
+      "bytes": 468,
+      "sha256": "68b9c90e959b6c9b2e763f724eadb93bedd6f9d73ab46866b152b86304996864"
+    }
+  },
+  {
+    "path": "app/src/main/res/drawable/pxe_settings.xml",
+    "kind": "동일",
+    "before": {
+      "bytes": 615,
+      "sha256": "2d83495dd627a0fde549b4288de12886fcb979e77d05bd680e47a7bfd9219f73"
+    },
+    "after": {
+      "bytes": 615,
+      "sha256": "2d83495dd627a0fde549b4288de12886fcb979e77d05bd680e47a7bfd9219f73"
+    }
+  },
+  {
+    "path": "app/src/main/res/drawable/pxe_steps.xml",
+    "kind": "동일",
+    "before": {
+      "bytes": 466,
+      "sha256": "9414335fddf1b1c88dde3c7363264aed6b1e885ee859c05d071f4bc7447df4be"
+    },
+    "after": {
+      "bytes": 466,
+      "sha256": "9414335fddf1b1c88dde3c7363264aed6b1e885ee859c05d071f4bc7447df4be"
+    }
+  },
+  {
+    "path": "app/src/main/res/drawable/pxe_sun.xml",
+    "kind": "동일",
+    "before": {
+      "bytes": 475,
+      "sha256": "d848347c1f6e910e1a43dec0d5411bcaf305151d67bac64031384567a95dcf57"
+    },
+    "after": {
+      "bytes": 475,
+      "sha256": "d848347c1f6e910e1a43dec0d5411bcaf305151d67bac64031384567a95dcf57"
+    }
+  },
+  {
+    "path": "app/src/main/res/drawable/pxe_text.xml",
+    "kind": "동일",
+    "before": {
+      "bytes": 401,
+      "sha256": "dc78563bae759d9ade537bbdb112c6af078790e994015f04c809165d789266bb"
+    },
+    "after": {
+      "bytes": 401,
+      "sha256": "dc78563bae759d9ade537bbdb112c6af078790e994015f04c809165d789266bb"
+    }
+  },
+  {
+    "path": "app/src/main/res/drawable/pxe_warning.xml",
+    "kind": "동일",
+    "before": {
+      "bytes": 398,
+      "sha256": "55f57a3e592c37c876367e0a244caf8b0c07f4d94b1f0e173fe31eabc439ee78"
+    },
+    "after": {
+      "bytes": 398,
+      "sha256": "55f57a3e592c37c876367e0a244caf8b0c07f4d94b1f0e173fe31eabc439ee78"
+    }
+  },
+  {
+    "path": "app/src/main/res/font/nanum_gothic_bold.ttf",
+    "kind": "동일",
+    "before": {
+      "bytes": 4642244,
+      "sha256": "454eb3f503f377782a99eb84fc4bb7dde22a0f075d41b47427737f2985053bc9"
+    },
+    "after": {
+      "bytes": 4642244,
+      "sha256": "454eb3f503f377782a99eb84fc4bb7dde22a0f075d41b47427737f2985053bc9"
+    }
+  },
+  {
+    "path": "app/src/main/res/mipmap-anydpi/ic_launcher.xml",
+    "kind": "동일",
+    "before": {
+      "bytes": 268,
+      "sha256": "34cc7c1866744eb4f9e7ea2edd5805fcb09ecdbe11a3fc8d2875f31b04e72a2c"
+    },
+    "after": {
+      "bytes": 268,
+      "sha256": "34cc7c1866744eb4f9e7ea2edd5805fcb09ecdbe11a3fc8d2875f31b04e72a2c"
+    }
+  },
+  {
+    "path": "app/src/main/res/values/nex_colors.xml",
+    "kind": "동일",
+    "before": {
+      "bytes": 61,
+      "sha256": "17b80d8246677e5b7e762d3d81a7c6c8ceb5b91211956d2c8ac5dbbf4895d91c"
+    },
+    "after": {
+      "bytes": 61,
+      "sha256": "17b80d8246677e5b7e762d3d81a7c6c8ceb5b91211956d2c8ac5dbbf4895d91c"
+    }
+  },
+  {
+    "path": "app/src/main/res/values/strings.xml",
+    "kind": "동일",
+    "before": {
+      "bytes": 783,
+      "sha256": "4aca5d5c8ffd9cc5c910cb06f5084b70d07e149b4ae3f46a78971f3c7d1b535e"
+    },
+    "after": {
+      "bytes": 783,
+      "sha256": "4aca5d5c8ffd9cc5c910cb06f5084b70d07e149b4ae3f46a78971f3c7d1b535e"
+    }
+  },
+  {
+    "path": "app/src/main/res/values/styles.xml",
+    "kind": "동일",
+    "before": {
+      "bytes": 1897,
+      "sha256": "ad3bfac910a2365070519099fe83412d9ebfda3f3a5a246b45b0acdba24e58f3"
+    },
+    "after": {
+      "bytes": 1897,
+      "sha256": "ad3bfac910a2365070519099fe83412d9ebfda3f3a5a246b45b0acdba24e58f3"
+    }
+  },
+  {
+    "path": "app/src/main/res/xml/accessibility.xml",
+    "kind": "동일",
+    "before": {
+      "bytes": 607,
+      "sha256": "9c1b21ec93cdcca866f0b24b525851535fdba0a333916e59bac61bf427917419"
+    },
+    "after": {
+      "bytes": 607,
+      "sha256": "9c1b21ec93cdcca866f0b24b525851535fdba0a333916e59bac61bf427917419"
+    }
+  },
+  {
+    "path": "app/src/main/res/xml/data_extraction.xml",
+    "kind": "동일",
+    "before": {
+      "bytes": 177,
+      "sha256": "66c2d7c6ac2a3c03200235a556e0f410620cae5bdfedd4ebdf18528fcbc42886"
+    },
+    "after": {
+      "bytes": 177,
+      "sha256": "66c2d7c6ac2a3c03200235a556e0f410620cae5bdfedd4ebdf18528fcbc42886"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/AdaptiveWaitModelTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 1500,
+      "sha256": "cc42826f31ce6aab6f6ceeaed248e66662880320518569654df88d2e0ca74a03"
+    },
+    "after": {
+      "bytes": 1500,
+      "sha256": "cc42826f31ce6aab6f6ceeaed248e66662880320518569654df88d2e0ca74a03"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/AdaptiveWaitPolicyTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 2061,
+      "sha256": "f8a45eb4891e4a2951e18394dfacf978c1582d61d1147e9afaaa902d8441ef55"
+    },
+    "after": {
+      "bytes": 2061,
+      "sha256": "f8a45eb4891e4a2951e18394dfacf978c1582d61d1147e9afaaa902d8441ef55"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/AiBundleManifestTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 2518,
+      "sha256": "f025ffa5378699515487a44b1ab131067af445105ce6ef695819cb4130f0d21e"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/AiCompilerTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 13414,
+      "sha256": "6c331c726cadef1800897b14486f50b02de7a7049a2cc04ceb17eebb98cc87f4"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/AiFeatureContractTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 601,
+      "sha256": "71d321dc3f509f1dbb7e9991ac3eab1a5485a4d102d165af45acf5332ba82ec8"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/AiFirstInputPermitTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 5131,
+      "sha256": "59d74485cffd83614bade560b365f32c5bc7294812ed193e3973839f88b3fa88"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/AiInteropTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 3664,
+      "sha256": "4d9adddfae86363b83a2e9d47d4d56acb73a6c553de7b1abc4fd66f6e2c5e689"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/AiJsonTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 1587,
+      "sha256": "71997bbb66ab111b793f61080cce658228de01458cc899cf6605153f85ab574c"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/AiLiteralBoundaryTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 7861,
+      "sha256": "929fd9a2abde71a149f8b5a0afe93b70f104ba7ef1a3327a1346c3b734d9349a"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/AiLiteralCodecTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 4575,
+      "sha256": "946eecfc6f3cf4e825293153a3bf47df45b44a56a74a969e2fa45ccd07c63ee8"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/AiNumbersTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 2254,
+      "sha256": "d1dce13c0f75d6795d00be34c41ce229be7621b2b9f592f08e8d0ce7293ffab9"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/AiPlanningSessionTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 3439,
+      "sha256": "1bab98c4d73a4467aa5b904d6f2b40ca19245abfc064bef94fc77548740d2f6c"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/AiPreviewTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 4003,
+      "sha256": "456abad27f56acc9d9b3ba987724187fb3f9b0055f5531caf8feb0c4fdbe3895"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/AiStartGateTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 3824,
+      "sha256": "96ae62a7208aa8a5318b7975296cd624982685d5801acbbb4685990c3e4195fa"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/AiTokenizerTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 1874,
+      "sha256": "93613b69691549112ee3135fa9d85907a9cd89f35e0989ac297fe1741a37a0cf"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/BehaviorAndroidAnchorTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 2486,
+      "sha256": "0fcac976e02f75c6bcc88ffe07097bb91ea6a6b72dd0d8c4c10aec527176f40c"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/BehaviorAndroidFlowTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 3529,
+      "sha256": "a895d8ee400bc053962f04b58c5e888e6ff4b11164478ddfaf8ca207d6f7f513"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/BehaviorAndroidSessionTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 4255,
+      "sha256": "8ebcf7145f413aa827bb1d2721c3a091db5e83cf12d5b4f8cd4610c1803a23bb"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/BehaviorAndroidStoreTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 3806,
+      "sha256": "ecb73ba034f01339ca2f8f9c6d23c1fdcaf0dbb00b9a4bd90fd37d3d43df6036"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/BehaviorBundleTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 13009,
+      "sha256": "29a05041443026b0962f65f649221ce01fa512a04a8fd7a116d6ba1619dde7f8"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/BehaviorExampleTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 5480,
+      "sha256": "6e523e24c6c94431a80a47d6d7fcd3ccb9eb69a6d620b954e497c78045df7082"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/BehaviorFeaturesTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 2741,
+      "sha256": "21bfa6ce5509d430236a9a2f17627ab860f005506b3a0ebaa5f4b8cd783aa9d5"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/BehaviorPolicyTest.java",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 8455,
+      "sha256": "5f7b326a599e5216ae0b47947def8ffaee1af14a01ccea7797aa893728b094f2"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/CapturePacerTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 2372,
+      "sha256": "fd4942daa85e52eb605f31f4f32d54840fc48b262d9d3203f55835afc09ac518"
+    },
+    "after": {
+      "bytes": 2372,
+      "sha256": "fd4942daa85e52eb605f31f4f32d54840fc48b262d9d3203f55835afc09ac518"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/CaptureRequestsTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 987,
+      "sha256": "1b8d214762ee70ae6518381c5c195854546c8b81eaa7f0a6f9545ba61cd5069f"
+    },
+    "after": {
+      "bytes": 987,
+      "sha256": "1b8d214762ee70ae6518381c5c195854546c8b81eaa7f0a6f9545ba61cd5069f"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/ContinuousWaitTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 2286,
+      "sha256": "162d0adc161932a35c15723d008cf6f587c2b850c5bfaa2f0851093057d7f407"
+    },
+    "after": {
+      "bytes": 2286,
+      "sha256": "162d0adc161932a35c15723d008cf6f587c2b850c5bfaa2f0851093057d7f407"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/ErrorJournalTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 1526,
+      "sha256": "eacedd2642485efbd4ccf7c0286640732ffd9465bef77c664208ec7c008dd423"
+    },
+    "after": {
+      "bytes": 1526,
+      "sha256": "eacedd2642485efbd4ccf7c0286640732ffd9465bef77c664208ec7c008dd423"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/ExecutionMetricsTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 1981,
+      "sha256": "860b060d7ee403d445f5a8c01c4d4efe536a5dbe883296dd615fba620f7b47e8"
+    },
+    "after": {
+      "bytes": 1981,
+      "sha256": "860b060d7ee403d445f5a8c01c4d4efe536a5dbe883296dd615fba620f7b47e8"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/GestureModelTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 3075,
+      "sha256": "49e065b526e7e3501078f3967f2ca11e785d5227b975d5cb5f6770a3149c2bbf"
+    },
+    "after": {
+      "bytes": 3075,
+      "sha256": "49e065b526e7e3501078f3967f2ca11e785d5227b975d5cb5f6770a3149c2bbf"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/ModelTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 1942,
+      "sha256": "8ffd9b2e77a5e5c80797f9da8e3e81d1d74c7f21a20b01c2f769795cd7a091f3"
+    },
+    "after": {
+      "bytes": 1942,
+      "sha256": "8ffd9b2e77a5e5c80797f9da8e3e81d1d74c7f21a20b01c2f769795cd7a091f3"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/PxeGeometryTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 3657,
+      "sha256": "8fe52ad55be78881953df68c2caf717b24ca29da80df36d19d969cc91a67fcac"
+    },
+    "after": {
+      "bytes": 3657,
+      "sha256": "8fe52ad55be78881953df68c2caf717b24ca29da80df36d19d969cc91a67fcac"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/QueryLaneTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 1859,
+      "sha256": "b7f04233e7a5d4aa245252830bd51cc1579cc7d4423df9281cc4944f3286bedd"
+    },
+    "after": {
+      "bytes": 1859,
+      "sha256": "b7f04233e7a5d4aa245252830bd51cc1579cc7d4423df9281cc4944f3286bedd"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/RepeatMeaningTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 607,
+      "sha256": "8adeef654e6b31c3bc9f12716dd1e13142735fa13640bd13028ada03e3d98123"
+    },
+    "after": {
+      "bytes": 607,
+      "sha256": "8adeef654e6b31c3bc9f12716dd1e13142735fa13640bd13028ada03e3d98123"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/RetryPolicyTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 2736,
+      "sha256": "817b8a55039a60aa5045edb950d02a3c3590ff2758744c0ef432352a1dac9a23"
+    },
+    "after": {
+      "bytes": 2736,
+      "sha256": "817b8a55039a60aa5045edb950d02a3c3590ff2758744c0ef432352a1dac9a23"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/RunProgressTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 966,
+      "sha256": "f9f7fbb9f6eef385113209a4e4f0eb861ae665316dc46594281b3c809c57bf4a"
+    },
+    "after": {
+      "bytes": 966,
+      "sha256": "f9f7fbb9f6eef385113209a4e4f0eb861ae665316dc46594281b3c809c57bf4a"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/ShortRefreshTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 740,
+      "sha256": "ee8a26dea45f81230d76137ace4076379592fe9d66be48d911486803a6950962"
+    },
+    "after": {
+      "bytes": 740,
+      "sha256": "ee8a26dea45f81230d76137ace4076379592fe9d66be48d911486803a6950962"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/TextRulesTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 1229,
+      "sha256": "f5052ee6d6d0609f8de55e990db67088c2659de44450d4ff7778a83ce9abdf2d"
+    },
+    "after": {
+      "bytes": 1229,
+      "sha256": "f5052ee6d6d0609f8de55e990db67088c2659de44450d4ff7778a83ce9abdf2d"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/TimesTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 1257,
+      "sha256": "4de05ac7b4676eac79279b5ba8864200e76e3a10fffda223ca34c5e0b06c6c73"
+    },
+    "after": {
+      "bytes": 1257,
+      "sha256": "4de05ac7b4676eac79279b5ba8864200e76e3a10fffda223ca34c5e0b06c6c73"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/WatchConfigTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 3549,
+      "sha256": "7d33bda932f48c446196c214e4cf2743d919f12b2946859c4a3b525104ddd6cc"
+    },
+    "after": {
+      "bytes": 3549,
+      "sha256": "7d33bda932f48c446196c214e4cf2743d919f12b2946859c4a3b525104ddd6cc"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/WatchEntryConfigTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 3638,
+      "sha256": "048114adf941aa2398e185679101d185df6cd5229a2f8ce265f6bdb17f95a8c4"
+    },
+    "after": {
+      "bytes": 3638,
+      "sha256": "048114adf941aa2398e185679101d185df6cd5229a2f8ce265f6bdb17f95a8c4"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/WatchGateTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 2974,
+      "sha256": "73f4c588903719d444c7ea3cb089758b15b3e35737c80bf777b671cf08979f84"
+    },
+    "after": {
+      "bytes": 2974,
+      "sha256": "73f4c588903719d444c7ea3cb089758b15b3e35737c80bf777b671cf08979f84"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/WindowObservationTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 3611,
+      "sha256": "5012effffa0f5af2c99e5e71900c6e06a24ffdb8aae8a2c985c6a63a4160833a"
+    },
+    "after": {
+      "bytes": 3611,
+      "sha256": "5012effffa0f5af2c99e5e71900c6e06a24ffdb8aae8a2c985c6a63a4160833a"
+    }
+  },
+  {
+    "path": "app/src/test/java/kr/yunseok/touchmacro/WindowPackagesTest.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 2494,
+      "sha256": "9fbf2ba72dfd16a82113afe1b4e075500a346f3c0d786189882d6c053e4d6c3b"
+    },
+    "after": {
+      "bytes": 2494,
+      "sha256": "9fbf2ba72dfd16a82113afe1b4e075500a346f3c0d786189882d6c053e4d6c3b"
+    }
+  },
+  {
+    "path": "app/src/test/resources/ai_contract_vectors.json",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 52550,
+      "sha256": "399cd81fe1dc3c23dd8a36437c9b2253e6190898de56538f459ee317db51acdf"
+    }
+  },
+  {
+    "path": "app/src/test/resources/literal_codec_vectors.json",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 128064,
+      "sha256": "2db51fdc6e4377bc37fbfa7a95a9a2a5052e71c11cd4bb6b4d2041c106b1f69c"
+    }
+  },
+  {
+    "path": "app/src/test/resources/literal_input_contract.json",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 1403,
+      "sha256": "3b8463d3832f43aaad937465f2cd0c5a7e605068344ffd219e930a926b12995d"
+    }
+  },
+  {
+    "path": "app/src/test/resources/합성학습_64단계.pxebehavior",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 159297,
+      "sha256": "f4d4ab78593d43b09bf753cfe647d25f4b33534391fe70f18f4802496badfbb5"
+    }
+  },
+  {
+    "path": "build.gradle",
+    "kind": "동일",
+    "before": {
+      "bytes": 266,
+      "sha256": "cace31ba942453288a3dfda03600b9a37cbb18cd8b5eb459237a0a3a903aa62f"
+    },
+    "after": {
+      "bytes": 266,
+      "sha256": "cace31ba942453288a3dfda03600b9a37cbb18cd8b5eb459237a0a3a903aa62f"
+    }
+  },
+  {
+    "path": "docs/2026-10-26_재디자인_명세와계획.md",
+    "kind": "동일",
+    "before": {
+      "bytes": 13383,
+      "sha256": "7f5d7dbafb3d273dc702bb655f89ffe0104f03449475f6c4e02430884505f936"
+    },
+    "after": {
+      "bytes": 13383,
+      "sha256": "7f5d7dbafb3d273dc702bb655f89ffe0104f03449475f6c4e02430884505f936"
+    }
+  },
+  {
+    "path": "docs/2026-10-28_15차_인식개선_명세와계획.md",
+    "kind": "동일",
+    "before": {
+      "bytes": 7384,
+      "sha256": "e2e4e4b1cbb387e293eda45d2450914c066ed91c73ec50e0c02b5bac88664d4e"
+    },
+    "after": {
+      "bytes": 7384,
+      "sha256": "e2e4e4b1cbb387e293eda45d2450914c066ed91c73ec50e0c02b5bac88664d4e"
+    }
+  },
+  {
+    "path": "docs/2026-10-28_16차_적응대기와입체UI_명세계획.md",
+    "kind": "동일",
+    "before": {
+      "bytes": 11151,
+      "sha256": "c4905f268f640b82a6bafc7b222c9038e89d9071d7c5451097a35fd6b7253f52"
+    },
+    "after": {
+      "bytes": 11151,
+      "sha256": "c4905f268f640b82a6bafc7b222c9038e89d9071d7c5451097a35fd6b7253f52"
+    }
+  },
+  {
+    "path": "docs/2026-11-02_17차_인식복구와짧은스크롤_명세계획.md",
+    "kind": "동일",
+    "before": {
+      "bytes": 5382,
+      "sha256": "0d9af525b63a857d8bdac45332814e9501ca7bc8163201af0070ee26bbc52b44"
+    },
+    "after": {
+      "bytes": 5382,
+      "sha256": "0d9af525b63a857d8bdac45332814e9501ca7bc8163201af0070ee26bbc52b44"
+    }
+  },
+  {
+    "path": "docs/2026-11-02_18차_작은진행창_명세계획.md",
+    "kind": "동일",
+    "before": {
+      "bytes": 4728,
+      "sha256": "897bcafade8b4f19218e2c88b0a0170e5a0f6653ec1d6df07891e97361a9465f"
+    },
+    "after": {
+      "bytes": 4728,
+      "sha256": "897bcafade8b4f19218e2c88b0a0170e5a0f6653ec1d6df07891e97361a9465f"
+    }
+  },
+  {
+    "path": "docs/2026-11-02_19차_대상창복구_명세계획.md",
+    "kind": "동일",
+    "before": {
+      "bytes": 6028,
+      "sha256": "583cf3af9c5ef82b763b59a9ecf8cf6f53384b2fbb6c65d2562e1b4663b95a54"
+    },
+    "after": {
+      "bytes": 6028,
+      "sha256": "583cf3af9c5ef82b763b59a9ecf8cf6f53384b2fbb6c65d2562e1b4663b95a54"
+    }
+  },
+  {
+    "path": "docs/2026-11-02_21차_진입확인_새시작_흑백테마.md",
+    "kind": "동일",
+    "before": {
+      "bytes": 6828,
+      "sha256": "6fa113d267699a7deea241fc3b45ae5d10bc134bebba403b3048bf433576205a"
+    },
+    "after": {
+      "bytes": 6828,
+      "sha256": "6fa113d267699a7deea241fc3b45ae5d10bc134bebba403b3048bf433576205a"
+    }
+  },
+  {
+    "path": "docs/2026-11-03_22차_이동진행창과미발견재시도.md",
+    "kind": "동일",
+    "before": {
+      "bytes": 5795,
+      "sha256": "ee6bec2f8bde3d6ee24fb8923429e270200c337d2039636e269858d83554bbd9"
+    },
+    "after": {
+      "bytes": 5795,
+      "sha256": "ee6bec2f8bde3d6ee24fb8923429e270200c337d2039636e269858d83554bbd9"
+    }
+  },
+  {
+    "path": "docs/2026-11-03_23차_오프라인언어모델_명세.md",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 3562,
+      "sha256": "e349b9e346e7ec07ae05f0c690f876d5965cefa147ffeeb358f80e15d3f5f28e"
+    }
+  },
+  {
+    "path": "docs/2026-11-03_시범기반_글자행동학습_추가명세.md",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 1505,
+      "sha256": "7ace3ee4e4a5f3654d75106de453040066c92cd13c1071539189f940f2c71a24"
+    }
+  },
+  {
+    "path": "docs/superpowers/plans/2026-11-03-offline-model.md",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 2160,
+      "sha256": "f6c2c0d6ed8878de8ea9b1c73902c4a0ad4382629c460231608cb4931df5d22d"
+    }
+  },
+  {
+    "path": "gradle.properties",
+    "kind": "동일",
+    "before": {
+      "bytes": 140,
+      "sha256": "8097d687b525291028e82bcc3e166f04c064375747cc8556294709dd29140ada"
+    },
+    "after": {
+      "bytes": 140,
+      "sha256": "8097d687b525291028e82bcc3e166f04c064375747cc8556294709dd29140ada"
+    }
+  },
+  {
+    "path": "gradle/wrapper/gradle-wrapper.jar",
+    "kind": "동일",
+    "before": {
+      "bytes": 43705,
+      "sha256": "81a82aaea5abcc8ff68b3dfcb58b3c3c429378efd98e7433460610fecd7ae45f"
+    },
+    "after": {
+      "bytes": 43705,
+      "sha256": "81a82aaea5abcc8ff68b3dfcb58b3c3c429378efd98e7433460610fecd7ae45f"
+    }
+  },
+  {
+    "path": "gradle/wrapper/gradle-wrapper.properties",
+    "kind": "동일",
+    "before": {
+      "bytes": 251,
+      "sha256": "cdab1ffb439219b1db125e3c99a86cf2424f8762b9b3faa404ed061e3635ecde"
+    },
+    "after": {
+      "bytes": 251,
+      "sha256": "cdab1ffb439219b1db125e3c99a86cf2424f8762b9b3faa404ed061e3635ecde"
+    }
+  },
+  {
+    "path": "gradlew",
+    "kind": "동일",
+    "before": {
+      "bytes": 8752,
+      "sha256": "734b3879d3501dce471cf0522d3bcbafe76873d9fc5129345b67fb43bd15e933"
+    },
+    "after": {
+      "bytes": 8752,
+      "sha256": "734b3879d3501dce471cf0522d3bcbafe76873d9fc5129345b67fb43bd15e933"
+    }
+  },
+  {
+    "path": "gradlew.bat",
+    "kind": "동일",
+    "before": {
+      "bytes": 2966,
+      "sha256": "57931b17dd228e5c24dac90e815d0bf82477e831a4618dfab4136f5446b42a9f"
+    },
+    "after": {
+      "bytes": 2966,
+      "sha256": "57931b17dd228e5c24dac90e815d0bf82477e831a4618dfab4136f5446b42a9f"
+    }
+  },
+  {
+    "path": "settings.gradle",
+    "kind": "동일",
+    "before": {
+      "bytes": 264,
+      "sha256": "08028e7135ab111ef0747fc68d5d97a94fd8283f39b8c27a554834d0c2f14b33"
+    },
+    "after": {
+      "bytes": 264,
+      "sha256": "08028e7135ab111ef0747fc68d5d97a94fd8283f39b8c27a554834d0c2f14b33"
+    }
+  },
+  {
+    "path": "tools/adaptive-check-plan.json",
+    "kind": "동일",
+    "before": {
+      "bytes": 2053,
+      "sha256": "3c7232fa597c06582aa77bed0092caa2b87472fa584a052a63138e8e961e5ff1"
+    },
+    "after": {
+      "bytes": 2053,
+      "sha256": "3c7232fa597c06582aa77bed0092caa2b87472fa584a052a63138e8e961e5ff1"
+    }
+  },
+  {
+    "path": "tools/ai-android-check-plan.json",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 325,
+      "sha256": "65c92737be68520cad3edab788a6e151ae37e67ba1e3de22b0e37a12c5ed14ff"
+    }
+  },
+  {
+    "path": "tools/ai-first-dispatch-check-plan.json",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 336,
+      "sha256": "2868095301ebcb04a87b8bedf73f257b4995106673e871c99b56a2a943058973"
+    }
+  },
+  {
+    "path": "tools/check_ai.py",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 1682,
+      "sha256": "2b453b42a6fecb4e142ddfb11727cc297db153bf272ae3478b752ddbb5d61e25"
+    }
+  },
+  {
+    "path": "tools/check_artifacts.py",
+    "kind": "수정",
+    "before": {
+      "bytes": 3517,
+      "sha256": "33eeabf22a5f4a8f5d5d86a442fe2402f9a1840e756757bb52078f847bc2eac7"
+    },
+    "after": {
+      "bytes": 13200,
+      "sha256": "e53546f3ede8b3eac3ae892f629183189088dee58266819bf4f3cec26743aea6"
+    }
+  },
+  {
+    "path": "tools/check_device.py",
+    "kind": "수정",
+    "before": {
+      "bytes": 1229,
+      "sha256": "15e55b0df34a4652909fce3957159d6599e6b0a4d805b7d57bcf74f6d1734aa6"
+    },
+    "after": {
+      "bytes": 1229,
+      "sha256": "cfd01b31a9bb1b3277b6eb481fc2782863bdd5bfdc4049b9945823edd50419a5"
+    }
+  },
+  {
+    "path": "tools/check_performance.py",
+    "kind": "동일",
+    "before": {
+      "bytes": 1473,
+      "sha256": "7dfbfd5f57ab00d4bfcecdbf305a82fb33f13e07f6288c41e7c50ec279f6ac5f"
+    },
+    "after": {
+      "bytes": 1473,
+      "sha256": "7dfbfd5f57ab00d4bfcecdbf305a82fb33f13e07f6288c41e7c50ec279f6ac5f"
+    }
+  },
+  {
+    "path": "tools/check_recognition_device.py",
+    "kind": "수정",
+    "before": {
+      "bytes": 1745,
+      "sha256": "5236acbda34168ee2a4a8760e16cb61f70dc569fe789852116cb7304c48f638a"
+    },
+    "after": {
+      "bytes": 1745,
+      "sha256": "dfdc75f0b1415bffede9e51efe504cf4154a90898c201841cb3f8eb2ab1afc09"
+    }
+  },
+  {
+    "path": "tools/check_regression.py",
+    "kind": "수정",
+    "before": {
+      "bytes": 4394,
+      "sha256": "38db3697c6df8207451bffccb29e2f612b9410744cd4586b2952e37fab197d8a"
+    },
+    "after": {
+      "bytes": 4488,
+      "sha256": "d47fde389836102024f42f5b116242de9ea33ff19cc17a72ce8f81d2f6187a75"
+    }
+  },
+  {
+    "path": "tools/check_utf8.py",
+    "kind": "동일",
+    "before": {
+      "bytes": 835,
+      "sha256": "da6c2adbec613602b04defcb1c7caa9f940b2be51b8f66d70c82661501c46018"
+    },
+    "after": {
+      "bytes": 835,
+      "sha256": "da6c2adbec613602b04defcb1c7caa9f940b2be51b8f66d70c82661501c46018"
+    }
+  },
+  {
+    "path": "tools/crossuid-fixture/AndroidManifest.xml",
+    "kind": "수정",
+    "before": {
+      "bytes": 370,
+      "sha256": "3cbfd47d9cba0f31c9b33ad4fa76cc8f110cb4d0cdecb521b853c858d4d14dc6"
+    },
+    "after": {
+      "bytes": 591,
+      "sha256": "669888ce07017b45bc14534550bdb35fc27a5c591f3c428f6630e9eded49e792"
+    }
+  },
+  {
+    "path": "tools/crossuid-fixture/build.gradle",
+    "kind": "동일",
+    "before": {
+      "bytes": 1166,
+      "sha256": "0196afd8a0e7a5e66156141fde721db45e8d1a9c8483c9310fe539b173d57465"
+    },
+    "after": {
+      "bytes": 1166,
+      "sha256": "0196afd8a0e7a5e66156141fde721db45e8d1a9c8483c9310fe539b173d57465"
+    }
+  },
+  {
+    "path": "tools/crossuid-fixture/gradle.properties",
+    "kind": "동일",
+    "before": {
+      "bytes": 82,
+      "sha256": "e041fb5e79d2419c8c7f22b0b96df60abb422ee585b47794b20a0acd755c5f78"
+    },
+    "after": {
+      "bytes": 82,
+      "sha256": "e041fb5e79d2419c8c7f22b0b96df60abb422ee585b47794b20a0acd755c5f78"
+    }
+  },
+  {
+    "path": "tools/crossuid-fixture/settings.gradle",
+    "kind": "동일",
+    "before": {
+      "bytes": 258,
+      "sha256": "70bdf00256b5dfbb40730dfe16cae744c36a4132e32c20c4dac00bd9ecfcac85"
+    },
+    "after": {
+      "bytes": 258,
+      "sha256": "70bdf00256b5dfbb40730dfe16cae744c36a4132e32c20c4dac00bd9ecfcac85"
+    }
+  },
+  {
+    "path": "tools/crossuid-fixture/src/kr/yunseok/pxe22fixture/FixtureActivity.java",
+    "kind": "동일",
+    "before": {
+      "bytes": 1130,
+      "sha256": "a144088ad8c9462fa603820d46aa411d747fea4e29448a9532114366df1f07e4"
+    },
+    "after": {
+      "bytes": 1130,
+      "sha256": "a144088ad8c9462fa603820d46aa411d747fea4e29448a9532114366df1f07e4"
+    }
+  },
+  {
+    "path": "tools/crossuid-fixture/src/main/res/values/strings.xml",
+    "kind": "동일",
+    "before": {
+      "bytes": 183,
+      "sha256": "dadfd3ff4477eb9d414740cd4f3773b8fa96f95430bfb26d4ebb8c3e09115003"
+    },
+    "after": {
+      "bytes": 183,
+      "sha256": "dadfd3ff4477eb9d414740cd4f3773b8fa96f95430bfb26d4ebb8c3e09115003"
+    }
+  },
+  {
+    "path": "tools/entry-check-plan.json",
+    "kind": "동일",
+    "before": {
+      "bytes": 2406,
+      "sha256": "18d039db72d62f58652f9c2e2f7687f83bc8cb0c2d03d17128e9d73fc63d19d4"
+    },
+    "after": {
+      "bytes": 2406,
+      "sha256": "18d039db72d62f58652f9c2e2f7687f83bc8cb0c2d03d17128e9d73fc63d19d4"
+    }
+  },
+  {
+    "path": "tools/hud-check-plan.json",
+    "kind": "동일",
+    "before": {
+      "bytes": 1187,
+      "sha256": "3c4333819b19fbe2d8180f4cc7acc016734ee39bc2c085457c6a9bd6c3056996"
+    },
+    "after": {
+      "bytes": 1187,
+      "sha256": "3c4333819b19fbe2d8180f4cc7acc016734ee39bc2c085457c6a9bd6c3056996"
+    }
+  },
+  {
+    "path": "tools/moving-retry-check-plan.json",
+    "kind": "동일",
+    "before": {
+      "bytes": 3744,
+      "sha256": "6895f0a918339fe9fbd15b8b4c1edbb625a2f2449b626c3d9b53075f8a978c75"
+    },
+    "after": {
+      "bytes": 3744,
+      "sha256": "6895f0a918339fe9fbd15b8b4c1edbb625a2f2449b626c3d9b53075f8a978c75"
+    }
+  },
+  {
+    "path": "tools/performance-check-plan.json",
+    "kind": "동일",
+    "before": {
+      "bytes": 2031,
+      "sha256": "7248506d99aca03493f596588473cb94f791dd2201b7a49e23799cc1a315ddf3"
+    },
+    "after": {
+      "bytes": 2031,
+      "sha256": "7248506d99aca03493f596588473cb94f791dd2201b7a49e23799cc1a315ddf3"
+    }
+  },
+  {
+    "path": "tools/project_paths.py",
+    "kind": "수정",
+    "before": {
+      "bytes": 743,
+      "sha256": "36097938eae51cf985785d5ea0dc76c748e3612402789a2d8a6fa1467857f789"
+    },
+    "after": {
+      "bytes": 743,
+      "sha256": "c00e6674f3469a82acd4678253b95751c6b61a3d2cf3b5b42cc723743eb3c975"
+    }
+  },
+  {
+    "path": "tools/recognition-check-plan.json",
+    "kind": "동일",
+    "before": {
+      "bytes": 1494,
+      "sha256": "7651227f6ccaa752b20c5aad142d0f124d4ec62cd26d5828b74f6a0c4820b4b4"
+    },
+    "after": {
+      "bytes": 1494,
+      "sha256": "7651227f6ccaa752b20c5aad142d0f124d4ec62cd26d5828b74f6a0c4820b4b4"
+    }
+  },
+  {
+    "path": "tools/recovery-check-plan.json",
+    "kind": "동일",
+    "before": {
+      "bytes": 932,
+      "sha256": "4f886fa9fc1d2d9b10d6ab9dec82e604cb3be5a2cbe44aa1ba114807a414551a"
+    },
+    "after": {
+      "bytes": 932,
+      "sha256": "4f886fa9fc1d2d9b10d6ab9dec82e604cb3be5a2cbe44aa1ba114807a414551a"
+    }
+  },
+  {
+    "path": "tools/sync_build.py",
+    "kind": "동일",
+    "before": {
+      "bytes": 2671,
+      "sha256": "4e50d3679bad209a77bbc906615fd709b26afa46e5c54200a4bdac402b8047d8"
+    },
+    "after": {
+      "bytes": 2671,
+      "sha256": "4e50d3679bad209a77bbc906615fd709b26afa46e5c54200a4bdac402b8047d8"
+    }
+  },
+  {
+    "path": "tools/target-window-check-plan.json",
+    "kind": "동일",
+    "before": {
+      "bytes": 716,
+      "sha256": "ef11cc7c6c9f2a0e06de192f3536772110673bab6db846901a118eb58a55b664"
+    },
+    "after": {
+      "bytes": 716,
+      "sha256": "ef11cc7c6c9f2a0e06de192f3536772110673bab6db846901a118eb58a55b664"
+    }
+  },
+  {
+    "path": "빌드.ps1",
+    "kind": "수정",
+    "before": {
+      "bytes": 3704,
+      "sha256": "2f920426eb9d455c078c1413e2e2db4539606f9f1d4bd8b07d81ec8691811cd9"
+    },
+    "after": {
+      "bytes": 3312,
+      "sha256": "67c58c46013cb72e0f20d42bd2d27544257111571a274755948f6b1df27704de"
+    }
+  },
+  {
+    "path": "빌드방법.txt",
+    "kind": "수정",
+    "before": {
+      "bytes": 3056,
+      "sha256": "223bdd172b751bdd1f1a336c55bae8e900f2758e9bf7981f81f2fcee96d899ba"
+    },
+    "after": {
+      "bytes": 4437,
+      "sha256": "8457b655259c542a6c4d01974fd376b2b71409168b9655e71a86e2d73b7b7a10"
+    }
+  }
+]

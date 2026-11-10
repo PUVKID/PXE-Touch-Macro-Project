@@ -1,0 +1,23 @@
+# PXE 22차 공개 소스 빌드 안내
+
+PowerShell7에서 공개 저장소의 `22차/source` 폴더로 이동한 뒤 `pwsh -NoProfile -File ./빌드.ps1`을 실행합니다. Python3.12, JDK17, Gradle8.13, Android SDK35와 플랫폼 도구를 별도로 준비합니다. 이 공개 사본을 다른 PC에서 실제 빌드한 결과는 아직 없습니다.
+
+| 설정 이름 | 의미 |
+|---|---|
+| PXE_PYTHON | 실제 Python 실행 파일 |
+| JAVA_HOME | JDK17 폴더 |
+| ANDROID_HOME | Android SDK35 폴더 |
+| PXE_GRADLE | Gradle8.13 실행 파일 |
+| PXE_PROJECT_ROOT | 선택 설정. 기본은 이 저장소 루트, `22차/source` 상대 구조 유지 |
+| PXE_BUILD_ROOT | 선택 설정. 기본 `work/build22/source` 실제 작업 폴더 |
+| NEX_SIGNING_DIR | 공개 저장소 밖에서 사용자가 제공하는 서명 자료 폴더 |
+
+위 이름은 설정 인터페이스이며 실제 환경값·키·비밀번호는 예제에 넣지 않습니다. 빌드 스크립트는 기존 앱과 같은 개인 키가 없으면 안내 후 중단합니다. Gradle의 기존 debug 서명 대체 경로가 공식 APK와 같은 인증서를 보증하지는 않습니다.
+
+선택 설정인 PXE_PROJECT_ROOT와 PXE_BUILD_ROOT는 미설정과 빈 문자열을 모두 기본값으로 처리합니다. 동기화 전에 빌드 경로와 기존 상위 경로가 일반 폴더인지 확인하고 필요한 실제 폴더만 준비합니다. 파일·연결 경로를 작업 폴더로 사용하지 않으며 기존 파일이나 폴더를 삭제하지 않습니다.
+
+`tools/project_paths.py` 공개 사본은 동일한 프로젝트·빌드·도구 설정을 사용합니다. `tools/sync_build.py`는 원문과 실제 작업 사본을 전체 바이트·경로로 대조하고 `local.properties`의 SDK 경로를 ASCII escape로 저장합니다. 새 바로가기·정션·심볼릭 링크는 만들지 않으며 원본 경로와 작업 폴더가 겹치지 않도록 설정합니다. 선택적인 로컬 검사 도구 중 일부는 기존 상대 도구 배치와 개인 캐시를 전제로 하므로 이 경로 변환만으로 모든 검사 도구의 이식성을 보증하지 않습니다.
+
+기존 검사·빌드 과제는 `:app:assembleRelease :app:testDebugUnitTest :app:lintDebug`와 `:app:assembleRelease :app:assembleReleaseAndroidTest -PNEX_PC`입니다. 첫 빌드는 arm64-v8a 휴대전화용, `-PNEX_PC` 빌드는 arm64-v8a와 x86_64용입니다. 산출물 이름은 원래 22차 버전 표기를 유지하며 `22차` 폴더로 복사합니다. 의존성과 SDK·버전·ABI 설정은 `app/build.gradle` 원문을 유지합니다.
+
+개인 원APK·비공개 보존 JSON·전용 장치 복원에 종속된 `check_upgrade.py`와 그 운영 검사 묶음은 공개 소스에서 제외합니다. 해당 검사는 이전 버전 설치→새 버전 업데이트 뒤 저장 설정 보존을 다루는 운영 시험입니다. 제품 APK의 Gradle 빌드 필수 입력은 아닙니다. 다른 기기의 앱을 초기화하거나 이 운영 시험을 자동 실행하지 않습니다.

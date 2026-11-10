@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "total_timeout_seconds": 180,
+  "checks": [
+    {
+      "id": "AI 최초 전달의 실제 대상·창·세대 경계",
+      "argv": ["{python}", "-B", "-X", "utf8", "tools/check_device.py", "AiFirstDispatchBoundaryTest"],
+      "cwd": ".",
+      "timeout_seconds": 180,
+      "expected_tests": 7
+    }
+  ]
+}

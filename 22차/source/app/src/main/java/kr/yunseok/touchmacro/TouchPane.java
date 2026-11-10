@@ -1,0 +1,1 @@
+package kr.yunseok.touchmacro; import android.content.Context; import android.widget.LinearLayout; public class TouchPane extends LinearLayout { public TouchPane(Context c){super(c);} @Override public boolean performClick(){return super.performClick();} }

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "total_timeout_seconds": 180,
+  "device_profile": {
+    "avd": "PXE19",
+    "serial": "emulator-5598",
+    "adb_port": 5043,
+    "width": 1080,
+    "height": 2280,
+    "density": 420
+  },
+  "checks": [
+    {
+      "id": "창 조회 취소·실제 복구 표시·15회 보존·타앱·권한·전체 기한",
+      "argv": [
+        "{python}",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_device.py",
+        "TargetWindowRecoveryTest"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 150,
+      "expected_tests": 6
+    }
+  ],
+  "limits": "기존114개 회귀와104개 단위 및각기존상한을보존합니다. 사용자앱이나24시간검증이아닙니다."
+}

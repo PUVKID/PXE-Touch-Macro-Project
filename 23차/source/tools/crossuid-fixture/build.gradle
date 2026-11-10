@@ -1,0 +1,15 @@
+plugins { id 'com.android.application' version '8.9.1' }
+// 전용 시험 앱도 기존 서명 경로를 Gradle에만 전달하며 키를 복사하지 않습니다.
+def signingDir = System.getenv('NEX_SIGNING_DIR')
+if (!signingDir) { throw new GradleException('기존 서명 경로가 필요합니다') }
+def signingProps = new Properties()
+file(signingDir + '/key.properties').withInputStream { signingProps.load(it) }
+layout.buildDirectory = layout.projectDirectory.dir('work/build')
+android {
+ namespace 'kr.yunseok.pxe22fixture'; compileSdk 35
+ defaultConfig { applicationId 'kr.yunseok.pxe22fixture'; minSdk 30; targetSdk 35; versionCode 1; versionName '1.0' }
+ signingConfigs { personal { storeFile file(signingDir + '/macro.jks'); storePassword signingProps.getProperty('storePassword',''); keyAlias 'yunseokmacro'; keyPassword signingProps.getProperty('storePassword','') } }
+ buildTypes { release { signingConfig signingConfigs.personal; minifyEnabled false } }
+ sourceSets { main { manifest.srcFile 'AndroidManifest.xml'; java.srcDirs=['src'] } }
+ compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+}
