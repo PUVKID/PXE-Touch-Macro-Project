@@ -1,6 +1,7 @@
 <div align="center">
 
-# 🤖 PXE Project
+<a name="-pxe-project"></a>
+# PXE Project
 
 화면의 글자와 접근성 정보를 읽어 조건에 맞는 터치를 실행하는 Android 앱입니다.
 
@@ -27,16 +28,18 @@
 <a name="overview"></a>
 
 <a name="latest-changes"></a>
-## ✨ 이전 14차의 변화와 차수 탐색
+<a name="-이전-14차의-변화와-차수-탐색"></a>
+## 이전 14차의 변화와 차수 탐색
 
 **14차 · 이전 보관본** — 청록 UI·터치 영역과 글자 재확인 분기
 
 - 청록색 UI·48dp 터치 영역·시스템 모션 설정을 적용합니다. 정지·일시정지·대상 앱 경계는 UI 변경과 함께 확인해야 합니다.
 - TEXT_TAP 재확인에서 글자가 사라지면 waitForever 상태의 원래 대기를 재개합니다. TEXT_NOT_FOUND 상세 오류 기록도 13차와 구별됩니다.
 
-[🔍 14차 자료 자세히 보기](docs/versions/14%EC%B0%A8.md) · [🗂️ 전체 차수 의미 비교](docs/VERSIONS.md)
+[14차 자료 자세히 보기](docs/versions/14%EC%B0%A8.md) · [전체 차수 의미 비교](docs/VERSIONS.md)
 
-### 🧭 차수 바로가기
+<a name="-차수-바로가기"></a>
+### 차수 바로가기
 
 [기본](docs/versions/%EA%B8%B0%EB%B3%B8.md) · [1차](docs/versions/1%EC%B0%A8.md) · [3차](docs/versions/3%EC%B0%A8.md) · [4차](docs/versions/4%EC%B0%A8.md) · [5차](docs/versions/5%EC%B0%A8.md) · [6차](docs/versions/6%EC%B0%A8.md) · [8차](docs/versions/8%EC%B0%A8.md) · [9차](docs/versions/9%EC%B0%A8.md) · [10차](docs/versions/10%EC%B0%A8.md) · [11차](docs/versions/11%EC%B0%A8.md) · [12차](docs/versions/12%EC%B0%A8.md) · [13차](docs/versions/13%EC%B0%A8.md) · [14차](docs/versions/14%EC%B0%A8.md) · [15차](../../../../../../15%EC%B0%A8/source/README.md) · [16차](../../../../../../16%EC%B0%A8/source/README.md) · [실행점검/2차](docs/versions/%EC%8B%A4%ED%96%89%EC%A0%90%EA%B2%80-2%EC%B0%A8.md)
 
@@ -53,20 +56,22 @@
 
 <a name="input-processing-output"></a>
 
-## 🔄 입력·처리·출력
+<a name="-입력처리출력"></a>
+## 입력·처리·출력
 
 | 단계 | 이 프로젝트에서 다루는 내용 |
 | :--- | :--- |
-| 📥 입력 | 동작 목록·화면 글자·좌표 |
-| ⚙️ 처리 | AccessibilityService·ML Kit OCR·글자 조건·제스처 |
-| 📤 출력 | 터치 실행·플로팅 상태·로그 |
+| 입력 | 동작 목록·화면 글자·좌표 |
+| 처리 | AccessibilityService·ML Kit OCR·글자 조건·제스처 |
+| 출력 | 터치 실행·플로팅 상태·로그 |
 
 
 ---
 
 <a name="introduction"></a>
 
-## ✨ 프로젝트 소개
+<a name="-프로젝트-소개"></a>
+## 프로젝트 소개
 
 반복하는 터치와 화면 확인을 동작 목록으로 구성하는 안드로이드 프로젝트입니다.
 
@@ -93,7 +98,8 @@ flowchart LR
 
 <a name="repository-structure"></a>
 
-## 📁 저장소 구성
+<a name="-저장소-구성"></a>
+## 저장소 구성
 
 초기 코드와 여러 개발 단계의 주요 경로는 다음과 같습니다.
 
@@ -122,13 +128,15 @@ flowchart LR
 
 <a name="implementation"></a>
 
-## 🧩 주요 기술과 실행 흐름
+<a name="-주요-기술과-실행-흐름"></a>
+## 주요 기술과 실행 흐름
 
 저장한 동작은 `MacroService`가 실행합니다. 이 서비스는 Android `AccessibilityService`를 확장하고 스크린샷과 OCR 요청의 상태를 관리합니다. 서비스가 연결 해제되거나 화면 방향이 바뀌는 경로에서 실행 상태를 정리합니다. `Step.validate()`는 좌표·시간·반복·분기 번호·텍스트 조건을 검사합니다.
 
 접근성 권한은 실제 기기에서 사용자가 설정해야 합니다. 앱의 코드 존재만으로 다른 앱의 화면 제어 권한이 자동 부여되는 것은 아닙니다.
 
-### 🔒 저장·인식 요청의 경계
+<a name="-저장인식-요청의-경계"></a>
+### 저장·인식 요청의 경계
 
 매크로는 SharedPreferences의 JSON으로 저장하며 불러오기 실패 시 예제로 돌아가는 경로가 있습니다. `SetupFlow`의 초안·백업 보존 기능과 별개로 모든 실패에서 무손실 복구를 보장하지는 않습니다.
 
@@ -136,7 +144,8 @@ flowchart LR
 
 `TextRules`는 NFKC·공백·소문자 정규화를 거친 일치·포함 비교와 정규식 검색을 제공합니다. 제스처 경로는 1~20개, 경로당 점은 1~512개로 검사합니다. 원본 14차 개발 구성은 Java 17·AGP 8.9.1·Gradle 8.13·Android SDK 35이며, 최소 Android API 30과 ML Kit 한국어 인식 16.0.1을 사용합니다.
 
-### 🗂️ 차수별로 달라진 동작
+<a name="️-차수별로-달라진-동작"></a>
+### 차수별로 달라진 동작
 
 | 차수 | 주요 변화 |
 | :--- | :--- |
@@ -151,13 +160,15 @@ flowchart LR
 
 위자드 기본값은 완료 후 새로고침 대기 켜짐(`waitForRefresh=true`), 중복 방지 꺼짐(`preventDuplicate=false`)입니다. 완료 후 대기와 글자 부재에 따른 중복 잠금 해제는 서로 다른 설정입니다.
 
-### 📝 기록에 남는 정보
+<a name="-기록에-남는-정보"></a>
+### 기록에 남는 정보
 
 일반 실행 기록은 최근 150줄을 보관하며 인식한 본문과 탐지 문구가 들어갈 수 있습니다. 사용자가 저장하는 로그와 시험 도구의 화면·인식 결과를 외부에 공유할 때 이 내용을 확인해야 합니다. 별도 `ErrorJournal`은 128KiB 파일 두 개를 순환하며 오류 종류·상태를 기록합니다. 일반 로그에는 인식 본문이 남을 수 있어 공유 전에 개인정보를 확인해야 합니다.
 
 <a name="quick-start"></a>
 
-## 🚀 빠른 시작
+<a name="-빠른-시작"></a>
+## 빠른 시작
 
 최신 15차는 소스·Gradle 설정·Manifest·리소스와 글꼴 라이선스를 포함합니다. JDK17과 Android SDK35를 준비한 뒤 [15차 빌드 안내](../../../../../../15%EC%B0%A8/source/README.md)를 따릅니다. 과거 14차 공개 사본에서 일부 빌드 입력이 빠졌던 상태와 구분합니다.
 
@@ -172,7 +183,8 @@ PC용은 `-PNEX_PC`로 ARM64와 x86_64를 함께 빌드합니다. 납품용 `빌
 
 <a name="data-settings"></a>
 
-## 📊 데이터와 동작 구성
+<a name="-데이터와-동작-구성"></a>
+## 데이터와 동작 구성
 
 | 항목 | 15차 코드의 구성 |
 | :--- | :--- |
@@ -188,7 +200,8 @@ PC용은 `-PNEX_PC`로 ARM64와 x86_64를 함께 빌드합니다. 납품용 `빌
 
 <a name="troubleshooting"></a>
 
-## 🛠️ 문제 해결
+<a name="️-문제-해결"></a>
+## 문제 해결
 
 | 증상 | 확인할 내용 |
 | :--- | :--- |
