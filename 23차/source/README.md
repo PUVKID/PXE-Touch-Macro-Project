@@ -1,6 +1,10 @@
 # PXE 23차 · 공용 소스
 
-현재 선택형 모델은 시범 OCR 글자 특징을 사용하는 **584→32→K 구조의 F64 오프라인 MLP**입니다. 기존 매크로가 주 기능이며 AI는 기본 꺼짐입니다.
+<!-- user-levels:start -->
+**수준별 전체 안내:** [LEVEL 1 - Beginner](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A81.md) · [LEVEL 2 - Explorer](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A82.md) · [LEVEL 3 - Practitioner](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A83.md) · [LEVEL 4 - Advanced](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A84.md) · [LEVEL 5 - Expert](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A85.md)
+<!-- user-levels:end -->
+
+현재 선택형 모델은 시범 OCR 글자 특징을 사용하는 **584→32→K 구조의 F64 오프라인 MLP**입니다. 기존 **매크로**가 주 기능이며 AI는 기본 꺼짐입니다.
 
 과거 한국어 자연어 Transformer 실험은 개발 평가11/64, 17.18%(소수 둘째 자리까지 버림; 원값17.1875%)로 실패했고 언어모델 자산은 앱에 포함하지 않았습니다(assets0). 현재 행동 MLP의 통과를 LLM 전체 완성으로 표시하지 않습니다.
 

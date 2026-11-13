@@ -1,7 +1,11 @@
 <a name="-23차-공용-apk"></a>
 # 23차 공용 APK
 
-공용 APK `PXE_23차_v2.3_공용.apk`는 ARM64 휴대전화와 x86_64 기반64비트 Android 에뮬레이터에서 사용하는 한 파일입니다. Android API30 이상이며 ARM32는 포함하지 않습니다. 78,457,218바이트(십진 약78.46MB), SHA-256 `d95dfd884da3d44dd35f5df31e7a92c1710059b754b8c5c4c736c86b3d0111ad`입니다. 파일당64MiB 공개 상한을 넘으므로 APK는 Git 저장소에서 보류하고 로컬 납품·크기/해시·재현 소스를 제공합니다. 검사 APK와 ARM64 비교 APK는 사용자 납품 파일이 아닙니다.
+<!-- user-levels:start -->
+**수준별 전체 안내:** [LEVEL 1 - Beginner](../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A81.md) · [LEVEL 2 - Explorer](../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A82.md) · [LEVEL 3 - Practitioner](../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A83.md) · [LEVEL 4 - Advanced](../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A84.md) · [LEVEL 5 - Expert](../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A85.md)
+<!-- user-levels:end -->
+
+공용 **APK** `PXE_23차_v2.3_공용.apk`는 ARM64 휴대전화와 x86_64 기반64비트 Android 에뮬레이터에서 사용하는 한 파일입니다. Android API30 이상이며 ARM32는 포함하지 않습니다. 78,457,218바이트(십진 약78.46MB), SHA-256 `d95dfd884da3d44dd35f5df31e7a92c1710059b754b8c5c4c736c86b3d0111ad`입니다. 파일당64MiB 공개 상한을 넘으므로 APK는 Git 저장소에서 보류하고 로컬 납품·크기/해시·재현 소스를 제공합니다. 검사 APK와 ARM64 비교 APK는 사용자 납품 파일이 아닙니다.
 
 [사용 안내](사용안내.md) · [소스·빌드](source/README.md) · [검증 범위](검증_결과.md) · [전체 차이](../docs/revision-audit/23차.md)
 

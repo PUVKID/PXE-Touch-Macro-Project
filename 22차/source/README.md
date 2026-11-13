@@ -1,6 +1,10 @@
 # PXE 22차 소스
 
-기존 매크로의 이동 가능한 작은 진행창과 글자 미발견 재시도 동작을 보존한 Android Java 소스입니다.
+<!-- user-levels:start -->
+**수준별 전체 안내:** [LEVEL 1 - Beginner](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A81.md) · [LEVEL 2 - Explorer](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A82.md) · [LEVEL 3 - Practitioner](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A83.md) · [LEVEL 4 - Advanced](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A84.md) · [LEVEL 5 - Expert](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A85.md)
+<!-- user-levels:end -->
+
+기존 **매크로**의 이동 가능한 작은 진행창과 글자 미발견 재시도 동작을 보존한 Android Java 소스입니다.
 
 [빌드 안내](빌드방법.txt) · [차수 설명](../../docs/versions/22차.md) · [전체 비교](../../docs/revision-audit/22차.md) · [검증 결과](../검증_결과.md)
 

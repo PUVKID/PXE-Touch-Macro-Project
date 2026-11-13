@@ -1,6 +1,10 @@
 # 자체 오프라인 명령 모델 연구 소스
 
-한국어 명령을 구조 토큰과 COPY 위치로 예측하는 무작위 초기화 소형 encoder-decoder Transformer의 학습·평가·codec 코드입니다. 사전학습 가중치·외부 tokenizer·유료 추론 API를 연결하지 않습니다. 별도 시범 행동 정책 및 OCR 엔진과 구분합니다.
+<!-- user-levels:start -->
+**수준별 전체 안내:** [LEVEL 1 - Beginner](../../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A81.md) · [LEVEL 2 - Explorer](../../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A82.md) · [LEVEL 3 - Practitioner](../../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A83.md) · [LEVEL 4 - Advanced](../../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A84.md) · [LEVEL 5 - Expert](../../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A85.md)
+<!-- user-levels:end -->
+
+한국어 명령을 구조 토큰과 COPY 위치로 예측하는 무작위 초기화 소형 encoder-decoder Transformer의 학습·평가·codec 코드입니다. 사전학습 가중치·외부 tokenizer·유료 추론 API를 연결하지 않습니다. 별도 시범 행동 정책 및 **OCR** 엔진과 구분합니다.
 
 문자 어휘와 UTF-8 byte fallback, 인용 리터럴을 가역적으로 분리하는 540 입력 codec, 고정 72 출력 구조 토큰을 사용합니다. 의미 구조와 슬롯은 신경망이 선택하며 인용문 안 명령을 재해석하지 않습니다. 규칙이 한국어 동사를 AST로 대신 변환하는 방식은 사용하지 않습니다. 모델은 192차원·4 heads·encoder 2/decoder 2·FFN 768이며 540 구성의 실제 파라미터는 2,651,976개입니다.
 
