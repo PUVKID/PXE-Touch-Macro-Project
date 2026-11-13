@@ -6,30 +6,30 @@
 
 각 차수의 소스·설정·리소스·사용법·설계를 함께 보관합니다. 부분 자료와 실제 제품 버전을 각 설명에서 구분합니다.
 
-| 차수·보관본 | 파일·폴더 | 설명 | 공개 파일 전체 비교 |
-|---|---|---|---|
-| 기본 | [57개](../%EC%BD%94%EB%93%9C) | [기능·검증 설명](../docs/versions/%EA%B8%B0%EB%B3%B8.md) | [전체 차이·해시](../docs/revision-audit/%EA%B8%B0%EB%B3%B8.md) |
-| 1차 | [41개](../1%EC%B0%A8) | [기능·검증 설명](../docs/versions/1%EC%B0%A8.md) | [전체 차이·해시](../docs/revision-audit/1%EC%B0%A8.md) |
-| 2차 | [15개](../2%EC%B0%A8) | [기능·검증 설명](../docs/versions/2%EC%B0%A8.md) | [전체 차이·해시](../docs/revision-audit/2%EC%B0%A8.md) |
-| 3차 | [42개](../3%EC%B0%A8) | [기능·검증 설명](../docs/versions/3%EC%B0%A8.md) | [전체 차이·해시](../docs/revision-audit/3%EC%B0%A8.md) |
-| 4차 | [60개](../4%EC%B0%A8) | [기능·검증 설명](../docs/versions/4%EC%B0%A8.md) | [전체 차이·해시](../docs/revision-audit/4%EC%B0%A8.md) |
-| 5차 | [64개](../5%EC%B0%A8) | [기능·검증 설명](../docs/versions/5%EC%B0%A8.md) | [전체 차이·해시](../docs/revision-audit/5%EC%B0%A8.md) |
-| 6차 | [78개](../6%EC%B0%A8) | [기능·검증 설명](../docs/versions/6%EC%B0%A8.md) | [전체 차이·해시](../docs/revision-audit/6%EC%B0%A8.md) |
-| 7차 | [2개](../7%EC%B0%A8) | [보관 범위](../docs/revision-audit/7%EC%B0%A8.md) | [전체 차이·해시](../docs/revision-audit/7%EC%B0%A8.md) |
-| 8차 | [81개](../8%EC%B0%A8) | [기능·검증 설명](../docs/versions/8%EC%B0%A8.md) | [전체 차이·해시](../docs/revision-audit/8%EC%B0%A8.md) |
-| 9차 | [96개](../9%EC%B0%A8) | [기능·검증 설명](../docs/versions/9%EC%B0%A8.md) | [전체 차이·해시](../docs/revision-audit/9%EC%B0%A8.md) |
-| 10차 | [97개](../10%EC%B0%A8) | [기능·검증 설명](../docs/versions/10%EC%B0%A8.md) | [전체 차이·해시](../docs/revision-audit/10%EC%B0%A8.md) |
-| 11차 | [91개](../11%EC%B0%A8) | [기능·검증 설명](../docs/versions/11%EC%B0%A8.md) | [전체 차이·해시](../docs/revision-audit/11%EC%B0%A8.md) |
-| 12차 | [92개](../12%EC%B0%A8) | [기능·검증 설명](../docs/versions/12%EC%B0%A8.md) | [전체 차이·해시](../docs/revision-audit/12%EC%B0%A8.md) |
-| 13차 | [107개](../13%EC%B0%A8) | [기능·검증 설명](../docs/versions/13%EC%B0%A8.md) | [전체 차이·해시](../docs/revision-audit/13%EC%B0%A8.md) |
-| 14차 | [117개](../14%EC%B0%A8) | [기능·검증 설명](../docs/versions/14%EC%B0%A8.md) | [전체 차이·해시](../docs/revision-audit/14%EC%B0%A8.md) |
-| 15차 | [120개](../15%EC%B0%A8) | [기능·검증 설명](../docs/versions/15%EC%B0%A8.md) | [전체 차이·해시](../docs/revision-audit/15%EC%B0%A8.md) |
-| 16차 | [153개](../16%EC%B0%A8) | [기능·검증 설명](../docs/versions/16%EC%B0%A8.md) | [전체 차이·해시](../docs/revision-audit/16%EC%B0%A8.md) |
-| 17차 | [148개 · 소스143개](../17%EC%B0%A8) | [기능·검증 설명](../docs/versions/17%EC%B0%A8.md) | [전체 차이·해시](../docs/revision-audit/17%EC%B0%A8.md) |
-| 18차 | [155개 · 소스150개](../18%EC%B0%A8) | [기능·검증 설명](../docs/versions/18%EC%B0%A8.md) | [전체 차이·해시](../docs/revision-audit/18%EC%B0%A8.md) |
-| 19차 | [162개 · 소스157개](../19%EC%B0%A8) | [기능·검증 설명](../docs/versions/19%EC%B0%A8.md) | [전체 차이·해시](../docs/revision-audit/19%EC%B0%A8.md) |
-| 20차 · 시험 도구 | [18개 · 소스14개](../20%EC%B0%A8) | [시험 구성·관측 범위](../docs/versions/20%EC%B0%A8.md) | [19→20 전체 차이·해시](../docs/revision-audit/20%EC%B0%A8.md) |
-| 21차 | [173개 · 소스167개](../21%EC%B0%A8) | [기능·검증 설명](../docs/versions/21%EC%B0%A8.md) | [전체 차이·해시](../docs/revision-audit/21%EC%B0%A8.md) |
-| 실행점검-2차 | [7개](../%EC%8B%A4%ED%96%89%EC%A0%90%EA%B2%80/2%EC%B0%A8) | [기능·검증 설명](../docs/versions/%EC%8B%A4%ED%96%89%EC%A0%90%EA%B2%80-2%EC%B0%A8.md) | [전체 차이·해시](../docs/revision-audit/%EC%8B%A4%ED%96%89%EC%A0%90%EA%B2%80-2%EC%B0%A8.md) |
-| 최종.json | [매크로 설정](../최종.json) | [자료 설명](../docs/versions/최종설정.md) | 제품 버전과 구분한 설정 |
-| 고유 작업 자료 | [170개](../보존자료/작업소스/) | [원본 제품자료 목록](../docs/SOURCE_MATERIALS.md) | 원래 차수·경로와 파일별 SHA-256 유지 |
+| 차수·보관본 · 파일·폴더 · 설명 · 공개 파일 전체 비교 |
+| --- |
+| **차수·보관본:** 기본<br>**파일·폴더:** [57개](../%EC%BD%94%EB%93%9C)<br>**설명:** [기능·검증 설명](../docs/versions/%EA%B8%B0%EB%B3%B8.md)<br>**공개 파일 전체 비교:** [전체 차이·해시](../docs/revision-audit/%EA%B8%B0%EB%B3%B8.md) |
+| **차수·보관본:** 1차<br>**파일·폴더:** [41개](../1%EC%B0%A8)<br>**설명:** [기능·검증 설명](../docs/versions/1%EC%B0%A8.md)<br>**공개 파일 전체 비교:** [전체 차이·해시](../docs/revision-audit/1%EC%B0%A8.md) |
+| **차수·보관본:** 2차<br>**파일·폴더:** [15개](../2%EC%B0%A8)<br>**설명:** [기능·검증 설명](../docs/versions/2%EC%B0%A8.md)<br>**공개 파일 전체 비교:** [전체 차이·해시](../docs/revision-audit/2%EC%B0%A8.md) |
+| **차수·보관본:** 3차<br>**파일·폴더:** [42개](../3%EC%B0%A8)<br>**설명:** [기능·검증 설명](../docs/versions/3%EC%B0%A8.md)<br>**공개 파일 전체 비교:** [전체 차이·해시](../docs/revision-audit/3%EC%B0%A8.md) |
+| **차수·보관본:** 4차<br>**파일·폴더:** [60개](../4%EC%B0%A8)<br>**설명:** [기능·검증 설명](../docs/versions/4%EC%B0%A8.md)<br>**공개 파일 전체 비교:** [전체 차이·해시](../docs/revision-audit/4%EC%B0%A8.md) |
+| **차수·보관본:** 5차<br>**파일·폴더:** [64개](../5%EC%B0%A8)<br>**설명:** [기능·검증 설명](../docs/versions/5%EC%B0%A8.md)<br>**공개 파일 전체 비교:** [전체 차이·해시](../docs/revision-audit/5%EC%B0%A8.md) |
+| **차수·보관본:** 6차<br>**파일·폴더:** [78개](../6%EC%B0%A8)<br>**설명:** [기능·검증 설명](../docs/versions/6%EC%B0%A8.md)<br>**공개 파일 전체 비교:** [전체 차이·해시](../docs/revision-audit/6%EC%B0%A8.md) |
+| **차수·보관본:** 7차<br>**파일·폴더:** [2개](../7%EC%B0%A8)<br>**설명:** [보관 범위](../docs/revision-audit/7%EC%B0%A8.md)<br>**공개 파일 전체 비교:** [전체 차이·해시](../docs/revision-audit/7%EC%B0%A8.md) |
+| **차수·보관본:** 8차<br>**파일·폴더:** [81개](../8%EC%B0%A8)<br>**설명:** [기능·검증 설명](../docs/versions/8%EC%B0%A8.md)<br>**공개 파일 전체 비교:** [전체 차이·해시](../docs/revision-audit/8%EC%B0%A8.md) |
+| **차수·보관본:** 9차<br>**파일·폴더:** [96개](../9%EC%B0%A8)<br>**설명:** [기능·검증 설명](../docs/versions/9%EC%B0%A8.md)<br>**공개 파일 전체 비교:** [전체 차이·해시](../docs/revision-audit/9%EC%B0%A8.md) |
+| **차수·보관본:** 10차<br>**파일·폴더:** [97개](../10%EC%B0%A8)<br>**설명:** [기능·검증 설명](../docs/versions/10%EC%B0%A8.md)<br>**공개 파일 전체 비교:** [전체 차이·해시](../docs/revision-audit/10%EC%B0%A8.md) |
+| **차수·보관본:** 11차<br>**파일·폴더:** [91개](../11%EC%B0%A8)<br>**설명:** [기능·검증 설명](../docs/versions/11%EC%B0%A8.md)<br>**공개 파일 전체 비교:** [전체 차이·해시](../docs/revision-audit/11%EC%B0%A8.md) |
+| **차수·보관본:** 12차<br>**파일·폴더:** [92개](../12%EC%B0%A8)<br>**설명:** [기능·검증 설명](../docs/versions/12%EC%B0%A8.md)<br>**공개 파일 전체 비교:** [전체 차이·해시](../docs/revision-audit/12%EC%B0%A8.md) |
+| **차수·보관본:** 13차<br>**파일·폴더:** [107개](../13%EC%B0%A8)<br>**설명:** [기능·검증 설명](../docs/versions/13%EC%B0%A8.md)<br>**공개 파일 전체 비교:** [전체 차이·해시](../docs/revision-audit/13%EC%B0%A8.md) |
+| **차수·보관본:** 14차<br>**파일·폴더:** [117개](../14%EC%B0%A8)<br>**설명:** [기능·검증 설명](../docs/versions/14%EC%B0%A8.md)<br>**공개 파일 전체 비교:** [전체 차이·해시](../docs/revision-audit/14%EC%B0%A8.md) |
+| **차수·보관본:** 15차<br>**파일·폴더:** [120개](../15%EC%B0%A8)<br>**설명:** [기능·검증 설명](../docs/versions/15%EC%B0%A8.md)<br>**공개 파일 전체 비교:** [전체 차이·해시](../docs/revision-audit/15%EC%B0%A8.md) |
+| **차수·보관본:** 16차<br>**파일·폴더:** [153개](../16%EC%B0%A8)<br>**설명:** [기능·검증 설명](../docs/versions/16%EC%B0%A8.md)<br>**공개 파일 전체 비교:** [전체 차이·해시](../docs/revision-audit/16%EC%B0%A8.md) |
+| **차수·보관본:** 17차<br>**파일·폴더:** [148개 · 소스143개](../17%EC%B0%A8)<br>**설명:** [기능·검증 설명](../docs/versions/17%EC%B0%A8.md)<br>**공개 파일 전체 비교:** [전체 차이·해시](../docs/revision-audit/17%EC%B0%A8.md) |
+| **차수·보관본:** 18차<br>**파일·폴더:** [155개 · 소스150개](../18%EC%B0%A8)<br>**설명:** [기능·검증 설명](../docs/versions/18%EC%B0%A8.md)<br>**공개 파일 전체 비교:** [전체 차이·해시](../docs/revision-audit/18%EC%B0%A8.md) |
+| **차수·보관본:** 19차<br>**파일·폴더:** [162개 · 소스157개](../19%EC%B0%A8)<br>**설명:** [기능·검증 설명](../docs/versions/19%EC%B0%A8.md)<br>**공개 파일 전체 비교:** [전체 차이·해시](../docs/revision-audit/19%EC%B0%A8.md) |
+| **차수·보관본:** 20차 · 시험 도구<br>**파일·폴더:** [18개 · 소스14개](../20%EC%B0%A8)<br>**설명:** [시험 구성·관측 범위](../docs/versions/20%EC%B0%A8.md)<br>**공개 파일 전체 비교:** [19→20 전체 차이·해시](../docs/revision-audit/20%EC%B0%A8.md) |
+| **차수·보관본:** 21차<br>**파일·폴더:** [173개 · 소스167개](../21%EC%B0%A8)<br>**설명:** [기능·검증 설명](../docs/versions/21%EC%B0%A8.md)<br>**공개 파일 전체 비교:** [전체 차이·해시](../docs/revision-audit/21%EC%B0%A8.md) |
+| **차수·보관본:** 실행점검-2차<br>**파일·폴더:** [7개](../%EC%8B%A4%ED%96%89%EC%A0%90%EA%B2%80/2%EC%B0%A8)<br>**설명:** [기능·검증 설명](../docs/versions/%EC%8B%A4%ED%96%89%EC%A0%90%EA%B2%80-2%EC%B0%A8.md)<br>**공개 파일 전체 비교:** [전체 차이·해시](../docs/revision-audit/%EC%8B%A4%ED%96%89%EC%A0%90%EA%B2%80-2%EC%B0%A8.md) |
+| **차수·보관본:** 최종.json<br>**파일·폴더:** [매크로 설정](../최종.json)<br>**설명:** [자료 설명](../docs/versions/최종설정.md)<br>**공개 파일 전체 비교:** 제품 버전과 구분한 설정 |
+| **차수·보관본:** 고유 작업 자료<br>**파일·폴더:** [170개](../보존자료/작업소스/)<br>**설명:** [원본 제품자료 목록](../docs/SOURCE_MATERIALS.md)<br>**공개 파일 전체 비교:** 원래 차수·경로와 파일별 SHA-256 유지 |
