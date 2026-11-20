@@ -21,4 +21,4 @@
 | 14차 | 108 | [파일·공백·주석·해시](revision-audit/14%EC%B0%A8.md) |
 | 15차 | 117 | [파일·공백·주석·해시](revision-audit/15%EC%B0%A8.md) |
 | 16차 | 138 | [파일·공백·주석·해시](revision-audit/16%EC%B0%A8.md) |
-| 실행점검-2차 | 7 | [파일·공백·주석·해시](revision-audit/%EC%8B%A4%ED%96%89%EC%A0%90%EA%B2%80-2%EC%B0%A8.md) |
+| 실행 점검-2차 | 7 | [파일·공백·주석·해시](revision-audit/%EC%8B%A4%ED%96%89%EC%A0%90%EA%B2%80-2%EC%B0%A8.md) |
