@@ -1,27 +1,43 @@
 [
   {
-    "path": "PXE_23차_v2.3_공용.apk",
-    "kind": "원문 동일",
+    "path": "PXE_24차_v2.4_공용.apk",
+    "kind": "이전23차에서현재24차로교체",
+    "previous_path": "PXE_23차_v2.3_공용.apk",
     "before": {
       "bytes": 78457218,
       "sha256": "d95dfd884da3d44dd35f5df31e7a92c1710059b754b8c5c4c736c86b3d0111ad"
     },
     "after": {
-      "bytes": 78457218,
-      "sha256": "d95dfd884da3d44dd35f5df31e7a92c1710059b754b8c5c4c736c86b3d0111ad"
+      "bytes": 78473602,
+      "sha256": "6b45cc8c7b3dc43bedc1f91811e3de63bd583e22ee3830a9fff2a2cee7f489c6"
+    },
+    "public": "held"
+  },
+  {
+    "path": "PXE_24차_v2.4_공용.zip",
+    "kind": "이전23차에서현재24차로교체",
+    "previous_path": "PXE_23차_v2.3_공용.zip",
+    "before": {
+      "bytes": 31358817,
+      "sha256": "f44796db85970059ffe8fe8d8a8fa2701acbd62ea9c0efc98861280d88f80f48"
+    },
+    "after": {
+      "bytes": 31271319,
+      "sha256": "2f5d0652f960b9b7bdefdf280e426fc37d9302e4bb4f50af35e3535cc8776dcb"
     },
     "public": "held"
   },
   {
     "path": "사용안내.md",
-    "kind": "원문 동일",
+    "kind": "이전23차에서현재24차로교체",
+    "previous_path": "사용안내.md",
     "before": {
       "bytes": 3344,
       "sha256": "9a749ddce2d0d1b5a24f0a86a539e64d2fd481a1d6c3f9f418bd3496644ee2da"
     },
     "after": {
-      "bytes": 3344,
-      "sha256": "9a749ddce2d0d1b5a24f0a86a539e64d2fd481a1d6c3f9f418bd3496644ee2da"
+      "bytes": 5818,
+      "sha256": "baa2cfa9fd019b66ed5b90b94205db12094a6355c6db9f5dd03c1cfdd9ee1c2e"
     },
     "public": "public"
   }

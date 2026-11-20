@@ -1,0 +1,28 @@
+[
+  {
+    "path": "PXE_23차_v2.3_공용.apk",
+    "kind": "원문 동일",
+    "before": {
+      "bytes": 78457218,
+      "sha256": "d95dfd884da3d44dd35f5df31e7a92c1710059b754b8c5c4c736c86b3d0111ad"
+    },
+    "after": {
+      "bytes": 78457218,
+      "sha256": "d95dfd884da3d44dd35f5df31e7a92c1710059b754b8c5c4c736c86b3d0111ad"
+    },
+    "public": "held"
+  },
+  {
+    "path": "사용안내.md",
+    "kind": "원문 동일",
+    "before": {
+      "bytes": 3344,
+      "sha256": "9a749ddce2d0d1b5a24f0a86a539e64d2fd481a1d6c3f9f418bd3496644ee2da"
+    },
+    "after": {
+      "bytes": 3344,
+      "sha256": "9a749ddce2d0d1b5a24f0a86a539e64d2fd481a1d6c3f9f418bd3496644ee2da"
+    },
+    "public": "public"
+  }
+]

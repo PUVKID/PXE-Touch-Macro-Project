@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "existing_shared_total_timeout_seconds": 720,
+  "small_screen": {
+    "classes": [
+      "PxeDesignReviewTest",
+      "PxeGuideFlowTest",
+      "PxeRedesignTest"
+    ],
+    "expected_tests": 6,
+    "size": "720x1280",
+    "density": 360,
+    "timeout_seconds": 120,
+    "restore": {
+      "size": "1080x2280",
+      "density": 420
+    },
+    "argv": [
+      "{python}",
+      "-B",
+      "-X",
+      "utf8",
+      "tools/check_device.py",
+      "PxeDesignReviewTest",
+      "PxeGuideFlowTest",
+      "PxeRedesignTest"
+    ],
+    "cwd": "."
+  },
+  "focused_total_timeout_seconds": 240,
+  "checks": [
+    {
+      "id": "인식설정 저장과 범위",
+      "classes": [
+        "PxeRecognitionSettingsTest"
+      ],
+      "expected_tests": 4,
+      "timeout_seconds": 90,
+      "inner_timeout_seconds": 60,
+      "argv": [
+        "{python}",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_recognition_device.py",
+        "PxeRecognitionSettingsTest"
+      ],
+      "cwd": "."
+    },
+    {
+      "id": "인식방식과 경계영역 보존",
+      "classes": [
+        "RecognitionModeTest",
+        "RecognitionRegionTest"
+      ],
+      "expected_tests": 8,
+      "timeout_seconds": 150,
+      "inner_timeout_seconds": 120,
+      "argv": [
+        "{python}",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_recognition_device.py",
+        "RecognitionModeTest",
+        "RecognitionRegionTest"
+      ],
+      "cwd": "."
+    }
+  ]
+}

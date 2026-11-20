@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "total_timeout_seconds": 240,
+  "device_profile": {
+    "avd": "PXE19",
+    "serial": "emulator-5598",
+    "adb_port": 5043,
+    "width": 1080,
+    "height": 2280,
+    "density": 420,
+    "cpu": 4,
+    "ram_mb": 2048
+  },
+  "checks": [
+    {
+      "id": "인식 일시 실패 복구 및 정상 실패 경계",
+      "argv": [
+        "{python}",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_device.py",
+        "RecognitionRecoveryTest",
+        "WatchRecoveryBoundaryTest"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 180,
+      "expected_tests": 12
+    },
+    {
+      "id": "자동 두 경로 짧은 스크롤 및 수동 스와이프 보존",
+      "argv": [
+        "{python}",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_device.py",
+        "ShortScrollTest"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 60,
+      "expected_tests": 3
+    }
+  ]
+}

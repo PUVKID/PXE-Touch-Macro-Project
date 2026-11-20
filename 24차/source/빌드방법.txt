@@ -1,0 +1,15 @@
+# PXE 24차 공용 소스 빌드
+
+PowerShell7에서 `24차/source`의 빌드.ps1을 실행합니다. 실제 Python, JDK17, Gradle8.13, Android SDK35를 준비하고 PXE_PYTHON·JAVA_HOME·PXE_GRADLE·ANDROID_HOME을 지정하세요. 기존 앱 업데이트에는 같은 개인 서명이 필요하며, NEX_SIGNING_DIR은 공개 저장소 밖의 사용자가 보유한 서명 폴더를 가리켜야 합니다. 키와 비밀번호는 포함하지 않습니다.
+
+PXE_PROJECT_ROOT의 기본은 공개 저장소 루트이고 PXE_BUILD_ROOT의 기본은 `work/build24/source`입니다. 없는 작업 폴더는 전체 조상과 대상부모를 검사한 뒤 일반 폴더로만 만듭니다. 바로가기·정션·심볼릭 링크를 만들지 않습니다.
+
+기존 단위·린트·Android 검사 APK 과제를 유지한 한 Gradle 호출로 ARM64와 x86_64 공용 APK를 빌드합니다.
+
+```
+:app:assembleRelease :app:testDebugUnitTest :app:lintDebug :app:assembleReleaseAndroidTest -PNEX_PC
+```
+
+출력은24차의 `PXE_24차_v2.4_공용.apk` 한 개입니다. 이전24차 로컬 빌드는 CPU4·workers2·heap512MiB에서 단위280개와 린트를 통과했습니다. 새 최종 소스와 후속 실기의 결과는 검증 문서에서 별도로 확인합니다. 공개 경로 변환 사본을 다른 PC에서 재현 빌드한 것은 아닙니다. 개인 원APK·보존 JSON이 필요한 운영 검사는 공개하지 않으며 기기 검사를 자동 실행하지 않습니다.
+
+[사용 안내](../사용안내.md) · [검증 범위](../검증_결과.md) · [상세 설명](../../docs/versions/24차.md)

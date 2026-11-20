@@ -1,0 +1,43 @@
+{
+  "literal": {
+    "format": "pxe-literal-slot-utf8-v1",
+    "input_vocab": 540,
+    "characters_sha256": "aedc046b93b4067fde801364ef6d85b2bed2ff784df2777e599d8701b6c7c93d",
+    "base_tokenizer_sha256": "665b17f85d2187d3f09510f75957d7430b389805fb9e3fb8836b57f84787775f",
+    "special_ids": {
+      "LIT": 535,
+      "ENTITY": 536,
+      "UNMENTIONED": 537,
+      "REC_END": 538,
+      "INVENTORY": 539
+    },
+    "registry_kinds": [
+      "points",
+      "gestures",
+      "regions",
+      "macros",
+      "apps",
+      "actions"
+    ],
+    "normalization": "none",
+    "offset_unit": "unicode-codepoint-half-open",
+    "max_input": 1024,
+    "copy_contract": "literal-anchor-or-contiguous-unquoted-v1",
+    "output_vocab": 72,
+    "output_tokens_sha256": "fbe84e0cfccde2d3502db6f2fc070cd57da98284b4bc48d08aaaa6d67714a644"
+  },
+  "legacy": {
+    "format": "pxe-codepoint-utf8-v1",
+    "input_vocab": 535,
+    "characters_sha256": "aedc046b93b4067fde801364ef6d85b2bed2ff784df2777e599d8701b6c7c93d",
+    "base_tokenizer_sha256": null,
+    "special_ids": {},
+    "registry_kinds": [],
+    "normalization": "none",
+    "offset_unit": "unicode-codepoint-half-open",
+    "max_input": 1024,
+    "copy_contract": "legacy-codepoint-span-v1",
+    "output_vocab": 72,
+    "output_tokens_sha256": "fbe84e0cfccde2d3502db6f2fc070cd57da98284b4bc48d08aaaa6d67714a644"
+  }
+}

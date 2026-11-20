@@ -1,0 +1,69 @@
+{
+  "format": "pxe-numeric-v1",
+  "offset_unit": "unicode-codepoint-half-open",
+  "integer_valid": {
+    "한": 1,
+    "두": 2,
+    "세": 3,
+    "열다섯": 15,
+    "스물": 20,
+    "스무": 20,
+    "스물 다섯": 25,
+    "십오": 15,
+    "이십삼": 23,
+    "천삼백이십일": 1321,
+    "십만": 100000
+  },
+  "duration_valid": [
+    {
+      "text": "1.5",
+      "unit": "SEC",
+      "ms": 1500
+    },
+    {
+      "text": "0.001",
+      "unit": "SEC",
+      "ms": 1
+    },
+    {
+      "text": "1.25",
+      "unit": "MIN",
+      "ms": 75000
+    },
+    {
+      "text": "한",
+      "unit": "HOUR",
+      "ms": 3600000
+    }
+  ],
+  "integer_invalid": [
+    "",
+    " ",
+    "-1",
+    "+1",
+    "NaN",
+    "Inf",
+    "1.5",
+    "일일",
+    "십백",
+    "이이십",
+    "영십",
+    "스무하나",
+    "123abc"
+  ],
+  "duration_invalid": [
+    {
+      "text": "0.0001",
+      "unit": "SEC"
+    },
+    {
+      "text": "1.5",
+      "unit": "MS"
+    },
+    {
+      "text": "-1",
+      "unit": "MIN"
+    }
+  ],
+  "java_requirement": "BigDecimal 정수 ms 검사·고유어 표·한자 단위 내림차순·동작별 기존 범위 동일 대조. 구현 완료 아님."
+}
