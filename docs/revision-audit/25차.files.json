@@ -1,0 +1,470 @@
+[
+  {
+    "path": "24차/검증_결과.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 4673,
+      "sha256": "1b56dbcbe9e54db55cb06f2f36a1596eaf4cc7638cf7fd7b032920cc67e53297"
+    },
+    "after": {
+      "bytes": 2930,
+      "sha256": "7ede5467de606b7d0c20d895440ee4811bfc7b6a942091927067c606bfaa9f47"
+    }
+  },
+  {
+    "path": "25차/README.md",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 758,
+      "sha256": "d22f5d8dc3a92f5cd080b4d976a38818352b066efeabe6c3dae516ce7dc02c6f"
+    }
+  },
+  {
+    "path": "CHANGELOG.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 30261,
+      "sha256": "de98fcd17813c195d207150ffe05cedbef48303660507f6d08597dad7ea66a63"
+    },
+    "after": {
+      "bytes": 1494,
+      "sha256": "92953133a7ea7121f9c1e663ab6c68900367e5d7325c493b5834f3586079569d"
+    }
+  },
+  {
+    "path": "README.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 39910,
+      "sha256": "6d5f31f2438193693a28b23d694d7b84186305fc551a5aceb938b055409afa84"
+    },
+    "after": {
+      "bytes": 13928,
+      "sha256": "f8d8e7d24a46348b12d3ff03a98a959cd32b13d1604e209187e027799e77adff"
+    }
+  },
+  {
+    "path": "docs/REVISION_INDEX.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 10914,
+      "sha256": "63c099c0daeb79ca8ad4781e583d1442eee71ad5bddf40d473416accee094688"
+    },
+    "after": {
+      "bytes": 11175,
+      "sha256": "2d6feca11c21b12c71cfa3b4b9de64dbbe2e93e45ce29f94ca16dd96f1a04531"
+    }
+  },
+  {
+    "path": "docs/revision-audit/24차.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 2349,
+      "sha256": "060d4895ce835c8f5586284df52ed6dc2f757b8074ddf07dfd88a42d3f445105"
+    },
+    "after": {
+      "bytes": 911,
+      "sha256": "4e991617ce011ce97beffd5778940e73f01b03f6e30fd234dd4147a99eb572b0"
+    }
+  },
+  {
+    "path": "docs/revision-audit/25차.md",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 1290,
+      "sha256": "f3bcac46568b14d7c0d3945a002bc363f139ec76d79fc325fe1b7dfc8b30cbe4"
+    }
+  },
+  {
+    "path": "docs/revision-audit/7차.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 26181,
+      "sha256": "6ee39d9db84247b2a5cb7f9e201844207782ab0a674dac69e74a66b58550d931"
+    },
+    "after": {
+      "bytes": 26856,
+      "sha256": "93af25c72b9a921833e2c652b50b281513e0059ad3914b26649c076ddb3659ca"
+    }
+  },
+  {
+    "path": "docs/revision-audit/최종.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 2273,
+      "sha256": "9dc35d5087df89d5ed8cfd09444699813e24d1d592aa97debf17edef67fb6a7e"
+    },
+    "after": {
+      "bytes": 695,
+      "sha256": "2b3ad91d438c1211e77d65891c8126cfcfdea0ebbde4b8f69647a3ea3ac4bff6"
+    }
+  },
+  {
+    "path": "docs/versions/10차.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 68205,
+      "sha256": "084baff21bf7d26d83e7d84a3670f2a38dc86584cc4133845e9d2c1a8e6c54a2"
+    },
+    "after": {
+      "bytes": 68702,
+      "sha256": "b35eb2bce24db940791367767737d28c8cd41a4a8ed64b562f8560474047f395"
+    }
+  },
+  {
+    "path": "docs/versions/11차.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 56005,
+      "sha256": "008b0899df9d1d31e46555faddc719c9c9940925be7c230ace0e08bad2141b5e"
+    },
+    "after": {
+      "bytes": 56501,
+      "sha256": "82b2f88bf045423a0cf9c862d40f021ec86b670a24b8a95a37e09649cb64e2cd"
+    }
+  },
+  {
+    "path": "docs/versions/12차.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 58324,
+      "sha256": "e0ff9803c5dabcb5f3690cbb5230ca674f980c092db2999c1a56b39dd18be9f0"
+    },
+    "after": {
+      "bytes": 58820,
+      "sha256": "aa28621bce55656eef43016e7856b237798673890eb630cc3de9053d19194847"
+    }
+  },
+  {
+    "path": "docs/versions/13차.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 65558,
+      "sha256": "3a3997d4911a5466940dbe605c3d34e1b960ec2caebb961a35a253b4c494b355"
+    },
+    "after": {
+      "bytes": 66054,
+      "sha256": "0e7d39b3d93968997d93f75f5e32a8a0c968815018d95366df65565b240e204b"
+    }
+  },
+  {
+    "path": "docs/versions/14차.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 64103,
+      "sha256": "62b90c60a976499ce294f64ed194924963f823fe0c81d3c09edfb0c82ede2862"
+    },
+    "after": {
+      "bytes": 64660,
+      "sha256": "90d07e8940eeb0b2cb03e7ffe054ba518e9b7d410fd088d44fa9bc2f4286f9be"
+    }
+  },
+  {
+    "path": "docs/versions/15차.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 44231,
+      "sha256": "4219d215054e7dcb40a53585ecd2f3d48bb2da30fb50771aee0a56b36710bc6b"
+    },
+    "after": {
+      "bytes": 44758,
+      "sha256": "1fb086900b3d9fe1013307bd3d0584198dbbfa89214a0e5ec8dc215238bf1497"
+    }
+  },
+  {
+    "path": "docs/versions/16차.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 54020,
+      "sha256": "ee0492af71e29230affda929aef53e8bc30ad98220d9f1986201ab51a0238995"
+    },
+    "after": {
+      "bytes": 54555,
+      "sha256": "e8129c3daa2aa331d8879a0435e10f2958476c3baeb6e9d103b0bd8995dcd9cc"
+    }
+  },
+  {
+    "path": "docs/versions/17차.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 62762,
+      "sha256": "e7fa5d3f58b46d75f1a900ef14fb1e9af549264a714125a2c40775469a44513c"
+    },
+    "after": {
+      "bytes": 63494,
+      "sha256": "4845f5bd50cd79bca950a46881c59550c2f4868eee736b2085a1e66a1606849e"
+    }
+  },
+  {
+    "path": "docs/versions/18차.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 65928,
+      "sha256": "6f727d33d13a64ba24837b114966899b965d6b752c099781cdf49fa4168bd84f"
+    },
+    "after": {
+      "bytes": 66662,
+      "sha256": "d12b86a7b51c952bbc9cf466ea2509ef75b0f3b6587e463ae8e551e7084eb75f"
+    }
+  },
+  {
+    "path": "docs/versions/19차.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 53384,
+      "sha256": "97fbbaa0e31b414cbc35d2881f00e9b6b2ae01ca65e7bb31abd6a2c3aacb7c4d"
+    },
+    "after": {
+      "bytes": 54400,
+      "sha256": "56e885d265f293b4c4281e8b98d2c8cdcbbc76cf69cc8ed162b9802462cc780e"
+    }
+  },
+  {
+    "path": "docs/versions/1차.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 46511,
+      "sha256": "a1e03c60a84661ce1d4b608b77b2c8fa09ebcdd859aee81cb366c07b9f80416b"
+    },
+    "after": {
+      "bytes": 47051,
+      "sha256": "441f10b4d8fc6530db79ca989773c7f35e1aab9a959c4af42ef66de2ae200a41"
+    }
+  },
+  {
+    "path": "docs/versions/20차.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 44889,
+      "sha256": "754e29b59c28cb48ba7cf0cdb0992f47e2da7a97900536907739b29da3261309"
+    },
+    "after": {
+      "bytes": 45563,
+      "sha256": "5afef95359706431c6bae71fb037ac774c83fb8d289977b105c60e05b5b8cf91"
+    }
+  },
+  {
+    "path": "docs/versions/21차.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 64307,
+      "sha256": "96b7c1c2d112dfbb923f3bae0874fb5930ca11b64d72cb57d4977ee134068bbd"
+    },
+    "after": {
+      "bytes": 65079,
+      "sha256": "af0783e77448bfe2981a12691674b8e2a043ab233ab8f4f675f57ffde24be6f5"
+    }
+  },
+  {
+    "path": "docs/versions/22차.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 15684,
+      "sha256": "e9e192e34aa57dd12d03b68a0d032cf9ada6ce348cf8b1826821b8f3d5ecd85d"
+    },
+    "after": {
+      "bytes": 16389,
+      "sha256": "b71c02f506201119d3c54536693a92796d64825be15f321e8c04ae3359ebdd8c"
+    }
+  },
+  {
+    "path": "docs/versions/23차.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 28423,
+      "sha256": "a50742f9d41d9ac020fe8ee3fc74bcd37423655d8833360ea65df8652d9ed790"
+    },
+    "after": {
+      "bytes": 29067,
+      "sha256": "79f77f04b9d7923061529d424e83025c90e9bb6ad3b6b24a4c5e6047391a9a9a"
+    }
+  },
+  {
+    "path": "docs/versions/24차.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 44666,
+      "sha256": "5961bb3aa336967bb333fc62ab2872e64e4cc71f540dfddaffc5ad0be56ade0c"
+    },
+    "after": {
+      "bytes": 16844,
+      "sha256": "abb33ca588c0d28ff8dc1751030a33832ce2b2f044f2581b7ab674a18a733b54"
+    }
+  },
+  {
+    "path": "docs/versions/25차.md",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 3225,
+      "sha256": "575e264027cf314c2a40c665901420cb00de7edc6d915a19f323d4868ea0f63d"
+    }
+  },
+  {
+    "path": "docs/versions/2차.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 23867,
+      "sha256": "d7b73ca375d3c2b6f22c7ddbbee98f6ef8ad5910008eb36125b86a7898f2cdca"
+    },
+    "after": {
+      "bytes": 24589,
+      "sha256": "c3b7a1b6fe703c249309e786957279320849a33798ace4fe45eac5e8c99a4c5c"
+    }
+  },
+  {
+    "path": "docs/versions/3차.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 59578,
+      "sha256": "6ead77dc4ff8cf662f2825ab6c7b8c7065df34613d448554099482fccb984398"
+    },
+    "after": {
+      "bytes": 60097,
+      "sha256": "3c164a3bdc8a924844d41e45a5a5b736357643b7e83f9c26559cbedbf0588b33"
+    }
+  },
+  {
+    "path": "docs/versions/4차.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 55934,
+      "sha256": "896eef6ee57dfb7e33f430e46f2218db1be64289a8dd168cb873e8d54ed3d64c"
+    },
+    "after": {
+      "bytes": 56434,
+      "sha256": "409adcdfb093e285ea792e522c8105073fd3fcc4559403d9e4be54635c200fc2"
+    }
+  },
+  {
+    "path": "docs/versions/5차.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 54665,
+      "sha256": "1d2d96f7ac23ce227ee3ab4243936603f2dfb5f704cf9b5ed49d7bb1636a1f25"
+    },
+    "after": {
+      "bytes": 55165,
+      "sha256": "39ba975c75f400835659fb93e33039337437cd8476bd3ad5b706e08185beda56"
+    }
+  },
+  {
+    "path": "docs/versions/6차.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 65309,
+      "sha256": "b828fa5c5654cdb700c522a6a2299189534657b5a064707974e1df97339bb79b"
+    },
+    "after": {
+      "bytes": 65809,
+      "sha256": "bce22aa5c740756453d75a5a5da29f573ba76ff2d6babdbf34b25cbe6b62828e"
+    }
+  },
+  {
+    "path": "docs/versions/8차.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 53876,
+      "sha256": "ff4faef6e67692a0ab4a7ea97441dd6e97c9f437d3178d4c8d54873196044dc8"
+    },
+    "after": {
+      "bytes": 54391,
+      "sha256": "f20e0280376738061814356a64589423d1c38cca84dabec3b66c5cc4c9e72949"
+    }
+  },
+  {
+    "path": "docs/versions/9차.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 54566,
+      "sha256": "01e94f9b36dc5aace167d5bc7ad75d625465dc55da22321e0338e913aab5300e"
+    },
+    "after": {
+      "bytes": 55063,
+      "sha256": "77cd0b099b674d31bc7e85181c02abddf1b45d7bab0bd8bedad49b71e1c15284"
+    }
+  },
+  {
+    "path": "docs/읽기안내/레벨1.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 30641,
+      "sha256": "76e9cb93b32fbd93e06c35d5225de57e9222afd5c5b19014786e97cd0e1bbbce"
+    },
+    "after": {
+      "bytes": 12747,
+      "sha256": "70b50bfa5ab8740ee35f28f84cb1b2de6b55d6bd1b5b3e7ac789404b4bbf828e"
+    }
+  },
+  {
+    "path": "docs/읽기안내/레벨2.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 27569,
+      "sha256": "07d6b8c2e8f6cea57cbccb0b5804285eb60d1b2a01f9b99468ff2b2d552dbb20"
+    },
+    "after": {
+      "bytes": 13015,
+      "sha256": "c793045e20c6f385dc8e51949ce7c4d567014b965bc86e7f5b54041377cc829a"
+    }
+  },
+  {
+    "path": "docs/읽기안내/레벨3.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 27010,
+      "sha256": "db86a438238146136185f77c6b52725e80b26d99493c620ad519a279f1df6195"
+    },
+    "after": {
+      "bytes": 12691,
+      "sha256": "88cb3b80c6f64f782b9fdc8641381c9b05f427738275674f3d94a14ec8bd1419"
+    }
+  },
+  {
+    "path": "docs/읽기안내/레벨4.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 25853,
+      "sha256": "0e9340aa4cc2a6fba9ef5a1a5221d1e5d5ee67dd02334501de410ac2d3238779"
+    },
+    "after": {
+      "bytes": 12179,
+      "sha256": "1b0305742db85a08765de698c7a96f522039b85351f6881f4671646b2e0b6ce7"
+    }
+  },
+  {
+    "path": "docs/읽기안내/레벨5.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 27071,
+      "sha256": "1c43bd3864a5cb28754eb6506f00772869cabfd2f3a47ba2de3f321d2238a7ca"
+    },
+    "after": {
+      "bytes": 11663,
+      "sha256": "a6f8b195cf7e5e926fb8d69d5c849b8ffffb9cbff7a35554bac890cdbded9589"
+    }
+  },
+  {
+    "path": "docs/차수별_문서작성기준.md",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 1704,
+      "sha256": "b9f2071a0049186253c3f48dc78dd21991749d2d60635f7d9aec8a866e5425c2"
+    }
+  },
+  {
+    "path": "최종/README.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 29523,
+      "sha256": "edf1acf449999776d9de55f3d5767bed23401a76fc628b86fe8459d79a61a742"
+    },
+    "after": {
+      "bytes": 4692,
+      "sha256": "04fdf28e79d97cffa3ce4462fb350c90e697276ff42fa74b842fa6304da63618"
+    }
+  }
+]
