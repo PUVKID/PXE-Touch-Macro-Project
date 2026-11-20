@@ -1,0 +1,185 @@
+[
+  {
+    "path": "24차/문서수정내용.md",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 982,
+      "sha256": "9011b1842d074743bc34582089d201425535f6e0263dabc142f5eeca8691562e"
+    }
+  },
+  {
+    "path": "25차/README.md",
+    "kind": "삭제",
+    "before": {
+      "bytes": 758,
+      "sha256": "d22f5d8dc3a92f5cd080b4d976a38818352b066efeabe6c3dae516ce7dc02c6f"
+    },
+    "after": null
+  },
+  {
+    "path": "CHANGELOG.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 1494,
+      "sha256": "92953133a7ea7121f9c1e663ab6c68900367e5d7325c493b5834f3586079569d"
+    },
+    "after": {
+      "bytes": 1505,
+      "sha256": "b5111c265b2385b435901291cda96b1814340892a9413f35fc014eb48b30ed3f"
+    }
+  },
+  {
+    "path": "README.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 13928,
+      "sha256": "f8d8e7d24a46348b12d3ff03a98a959cd32b13d1604e209187e027799e77adff"
+    },
+    "after": {
+      "bytes": 13672,
+      "sha256": "4d872fa479e5897ee64e92adb6efd1851d183d288ac80e4def2312c587139caa"
+    }
+  },
+  {
+    "path": "docs/REVISION_INDEX.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 11175,
+      "sha256": "2d6feca11c21b12c71cfa3b4b9de64dbbe2e93e45ce29f94ca16dd96f1a04531"
+    },
+    "after": {
+      "bytes": 10907,
+      "sha256": "6c5e09f1cfb33dbbfdc8f847213c2f8cac75a8e3a000894a5ede26b7c04be35a"
+    }
+  },
+  {
+    "path": "docs/revision-audit/24차.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 911,
+      "sha256": "4e991617ce011ce97beffd5778940e73f01b03f6e30fd234dd4147a99eb572b0"
+    },
+    "after": {
+      "bytes": 932,
+      "sha256": "c5ea4dbf24a15d98c61109935a8fc5e99cccadc97fc0e21b4964b4654afac782"
+    }
+  },
+  {
+    "path": "docs/revision-audit/24차_문서정리.md",
+    "kind": "추가",
+    "before": null,
+    "after": {
+      "bytes": 712,
+      "sha256": "6ca48ec297fab28f837af04b2c8940afdb307418f15cdf1b6829b0eb6f52d8fe"
+    }
+  },
+  {
+    "path": "docs/revision-audit/25차.files.json",
+    "kind": "삭제",
+    "before": {
+      "bytes": 12500,
+      "sha256": "dc4cc18b2a63c6bea8d4893ea80966099b68db061f2fd0741c8cd6488a2847e5"
+    },
+    "after": null
+  },
+  {
+    "path": "docs/revision-audit/25차.md",
+    "kind": "삭제",
+    "before": {
+      "bytes": 1290,
+      "sha256": "f3bcac46568b14d7c0d3945a002bc363f139ec76d79fc325fe1b7dfc8b30cbe4"
+    },
+    "after": null
+  },
+  {
+    "path": "docs/revision-audit/25차.patch",
+    "kind": "삭제",
+    "before": {
+      "bytes": 1245838,
+      "sha256": "896176ab611df4f44c73923a384906081e9088212e162925505c81604c74d983"
+    },
+    "after": null
+  },
+  {
+    "path": "docs/versions/25차.md",
+    "kind": "삭제",
+    "before": {
+      "bytes": 3225,
+      "sha256": "575e264027cf314c2a40c665901420cb00de7edc6d915a19f323d4868ea0f63d"
+    },
+    "after": null
+  },
+  {
+    "path": "docs/읽기안내/레벨1.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 12747,
+      "sha256": "70b50bfa5ab8740ee35f28f84cb1b2de6b55d6bd1b5b3e7ac789404b4bbf828e"
+    },
+    "after": {
+      "bytes": 12489,
+      "sha256": "4c68fe06d2a672fe7007e4ffaad798cd7e3f236b9e861f91992fd3945586ead9"
+    }
+  },
+  {
+    "path": "docs/읽기안내/레벨2.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 13015,
+      "sha256": "c793045e20c6f385dc8e51949ce7c4d567014b965bc86e7f5b54041377cc829a"
+    },
+    "after": {
+      "bytes": 12757,
+      "sha256": "ec1a728ca0823472ca2ceba3533f1d42529f641a5ed1fde6db9758fb40634946"
+    }
+  },
+  {
+    "path": "docs/읽기안내/레벨3.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 12691,
+      "sha256": "88cb3b80c6f64f782b9fdc8641381c9b05f427738275674f3d94a14ec8bd1419"
+    },
+    "after": {
+      "bytes": 12433,
+      "sha256": "77f9e254931418abcce9c75fb773e2581302283c8ddb8bb152f6933b6705a844"
+    }
+  },
+  {
+    "path": "docs/읽기안내/레벨4.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 12179,
+      "sha256": "1b0305742db85a08765de698c7a96f522039b85351f6881f4671646b2e0b6ce7"
+    },
+    "after": {
+      "bytes": 11921,
+      "sha256": "5252f1336575d4d656251a6c6077035c5768ed486e0f9c751650d72db79aba31"
+    }
+  },
+  {
+    "path": "docs/읽기안내/레벨5.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 11663,
+      "sha256": "a6f8b195cf7e5e926fb8d69d5c849b8ffffb9cbff7a35554bac890cdbded9589"
+    },
+    "after": {
+      "bytes": 11405,
+      "sha256": "f57e45b95d5b9c693596582e3cf7a985a28bfc309e4a801324d164405a80c8a4"
+    }
+  },
+  {
+    "path": "docs/차수별_문서작성기준.md",
+    "kind": "수정",
+    "before": {
+      "bytes": 1704,
+      "sha256": "b9f2071a0049186253c3f48dc78dd21991749d2d60635f7d9aec8a866e5425c2"
+    },
+    "after": {
+      "bytes": 2584,
+      "sha256": "211d64b3940558498b29a5a4cdfa29100032de6164636f9e11a3cef8effa55bc"
+    }
+  }
+]
