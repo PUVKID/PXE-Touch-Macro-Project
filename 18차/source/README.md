@@ -117,7 +117,7 @@ Java17, Gradle8.13, Android Gradle Plugin8.9.1, compile/target SDK35, min SDK30,
 
 Windows PowerShell5의 `powershell -File`로 읽으면 인코딩 때문에 파서 오류가 날 수 있습니다.
 
-납품 빌 드는 Gradle daemon의 중간 DEX 잠금이 남지 않도록 `--no-daemon`을 사용합니다.
+납품 빌드는 Gradle daemon의 중간 DEX 잠금이 남지 않도록 `--no-daemon`을 사용합니다.
 
 ```powershell
 .\gradlew.bat :app:assembleRelease :app:testDebugUnitTest :app:lintDebug
@@ -128,7 +128,7 @@ Windows PowerShell5의 `powershell -File`로 읽으면 인코딩 때문에 파�
 
 NEX_SIGNING_DIR가 유효한 개인 서명 폴더를 가리키지 않으면 개발 구성은 debug 서명을 선택하므로 기존 설치 본 업데이트용으로 사용하지 않습니다.
 
-납품 빌 드.ps1은 프로젝트 소유의 D:/2026/PXE18Build 전용 연결과 기존 개인 키 존재를 확인합니다.
+납품 빌드.ps1은 프로젝트 소유의 D:/2026/PXE18Build 전용 연결과 기존 개인 키 존재를 확인합니다.
 
 PC는 ARM64/x86_64, 휴대 전화는 ARM64를 포함합니다.
 

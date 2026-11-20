@@ -90,7 +90,7 @@ Android 접근성 서비스와 ML Kit 한국어 OCR로 글자 조건·터치·�
 
 Android의 창 전환과 제스처 전달을 완전히 원자적으로 묶는 기능이나 아직 관측하지 못한 모든 전환의 차단을 보장하지 않습니다.
 
-기준 소스와 별개 실제 빌 드 폴더를 사용하며 빌드 전 선택한 모든 파일의 원문·해시를 대조합니다.
+기준 소스와 별개 실제 빌드 폴더를 사용하며 빌드 전 선택한 모든 파일의 원문·해시를 대조합니다.
 
 새 바로가기·정션·심볼릭 링크를 만들지 않습니다.
 
@@ -211,7 +211,7 @@ Java17, Gradle8.13, Android Gradle Plugin8.9.1, compile/target SDK35, min SDK30,
 
 Windows PowerShell5의 `powershell -File`로 읽으면 인코딩 때문에 파서 오류가 날 수 있습니다.
 
-납품 빌 드는 Gradle daemon의 중간 DEX 잠금이 남지 않도록 `--no-daemon`을 사용합니다.
+납품 빌드는 Gradle daemon의 중간 DEX 잠금이 남지 않도록 `--no-daemon`을 사용합니다.
 
 ```powershell
 .\gradlew.bat :app:assembleRelease :app:testDebugUnitTest :app:lintDebug
@@ -222,7 +222,7 @@ Windows PowerShell5의 `powershell -File`로 읽으면 인코딩 때문에 파�
 
 NEX_SIGNING_DIR가 유효한 개인 서명 폴더를 가리키지 않으면 개발 구성은 debug 서명을 선택하므로 기존 설치 본 업데이트용으로 사용하지 않습니다.
 
-납품 빌 드.ps1은 D:/2026/PXE Project/work/build21/source 실제 일반 폴더와 기존 개인 키 존재를 확인하며 tools/sync _build.py로 선택 소스의 원문·해시를 대조합니다.
+납품 빌드.ps1은 D:/2026/PXE Project/work/build21/source 실제 일반 폴더와 기존 개인 키 존재를 확인하며 tools/sync _build.py로 선택 소스의 원문·해시를 대조합니다.
 
 PC는 ARM64/x86_64, 휴대 전화는 ARM64를 포함합니다.
 
