@@ -11,17 +11,20 @@
 
 </div>
 <!-- reading-levels:start -->
-[LEVEL 1 - Beginner](#reading-level-1) · [LEVEL 2 - Explorer](#reading-level-2) · [LEVEL 3 - Practitioner](#reading-level-3) · [LEVEL 4 - Advanced](#reading-level-4) · [LEVEL 5 - Expert](#reading-level-5)
+[LEVEL 1 - Beginner](#user-content-reading-level-1) · [LEVEL 2 - Explorer](#user-content-reading-level-2) · [LEVEL 3 - Practitioner](#user-content-reading-level-3) · [LEVEL 4 - Advanced](#user-content-reading-level-4) · [LEVEL 5 - Expert](#user-content-reading-level-5)
 
 프로젝트 전체의 설명은 [LEVEL 1 - Beginner](%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A81.md)부터 [LEVEL 5 - Expert](%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A85.md)까지 같은 범위로 연결됩니다.
 
 전체 상세와 같은 수준 탐색: [LEVEL 5 프로젝트](읽기안내/레벨5.md) · [LEVEL 5 프로필](https://github.com/PUVKID/PUVKID/blob/main/docs/읽기안내/레벨5.md)
 
+<details open>
+<summary>LEVEL 1 · Beginner — 목적과 동작부터</summary>
+
 <a id="reading-level-1"></a>
 
 ## LEVEL 1 - Beginner · 고유 작업 자료
 
-[LEVEL 2](#reading-level-2) · [LEVEL 3](#reading-level-3) · [LEVEL 4](#reading-level-4) · [LEVEL 5](#reading-level-5)
+[LEVEL 2](#user-content-reading-level-2) · [LEVEL 3](#user-content-reading-level-3) · [LEVEL 4](#user-content-reading-level-4) · [LEVEL 5](#user-content-reading-level-5)
 
 [같은 수준 프로젝트](읽기안내/레벨1.md) · [같은 수준 프로필](https://github.com/PUVKID/PUVKID/blob/main/docs/읽기안내/레벨1.md) · [프로젝트 첫 화면](../README.md)
 
@@ -49,7 +52,7 @@ ZIP은 파일을 묶은 압축 형식입니다.
 
 BOM은 텍스트 맨 앞 인코딩 표식이고 개 행은 줄 바꿈입니다.
 
-**실행 바이너리·캐시·인증 자료·운영 DB·실 거래 계좌·원 작 추출 표현 자산은 제외**했습니다.
+실행 바이너리·캐시·인증 자료·운영 DB·실 거래 계좌·원 작 추출 표현 자산은 제외했습니다.
 
 모든 ZIP 멤버 판단은 비공개 검토 명세에, 공개 대응은 아래 JSON에 있습니다.
 
@@ -133,11 +136,17 @@ README·사용법은 읽는 안내, JSON은 설정이나 구조화된 기록, �
 [파일 전체 명세](source-materials/files.json) · [공개 ZIP 멤버 대응](source-materials/archive-members.json)
 
 
+
+</details>
+
+<details>
+<summary>LEVEL 2 · Explorer — 구성과 연결 원리</summary>
+
 <a id="reading-level-2"></a>
 
 ## LEVEL 2 - Explorer · 고유 작업 자료
 
-[LEVEL 1](#reading-level-1) · [LEVEL 3](#reading-level-3) · [LEVEL 4](#reading-level-4) · [LEVEL 5](#reading-level-5)
+[LEVEL 1](#user-content-reading-level-1) · [LEVEL 3](#user-content-reading-level-3) · [LEVEL 4](#user-content-reading-level-4) · [LEVEL 5](#user-content-reading-level-5)
 
 [같은 수준 프로젝트](읽기안내/레벨2.md) · [같은 수준 프로필](https://github.com/PUVKID/PUVKID/blob/main/docs/읽기안내/레벨2.md) · [프로젝트 첫 화면](../README.md)
 
@@ -155,7 +164,7 @@ ZIP 검토는 중앙 목록·경로 탈출·링크·암호화·크기 경계와 
 
 바이너리·캐시·실제 인증·운영 DB·실 거래 계좌·원 작 추출 표현 자산은 제외합니다.
 
-**멤버별 판단 전체와 공개 대응 JSON의 범위도 다릅니다.** 전자는 비공개 검토 명세, 후자는 아래 공개 링크에서 확인합니다.
+멤버별 판단 전체와 공개 대응 JSON의 범위도 다릅니다. 전자는 비공개 검토 명세, 후자는 아래 공개 링크에서 확인합니다.
 
 원래 위치·크기·SHA-256으로 동일성을 확인하며 같은 이름만으로 합치지 않습니다.
 
@@ -219,11 +228,17 @@ ZIP 검토는 중앙 목록·경로 탈출·링크·암호화·크기 경계와 
 [파일 전체 명세](source-materials/files.json) · [공개 ZIP 멤버 대응](source-materials/archive-members.json)
 
 
+
+</details>
+
+<details>
+<summary>LEVEL 3 · Practitioner — 준비·실행·결과 확인</summary>
+
 <a id="reading-level-3"></a>
 
 ## LEVEL 3 - Practitioner · 고유 작업 자료
 
-[LEVEL 1](#reading-level-1) · [LEVEL 2](#reading-level-2) · [LEVEL 4](#reading-level-4) · [LEVEL 5](#reading-level-5)
+[LEVEL 1](#user-content-reading-level-1) · [LEVEL 2](#user-content-reading-level-2) · [LEVEL 4](#user-content-reading-level-4) · [LEVEL 5](#user-content-reading-level-5)
 
 [같은 수준 프로젝트](읽기안내/레벨3.md) · [같은 수준 프로필](https://github.com/PUVKID/PUVKID/blob/main/docs/읽기안내/레벨3.md) · [프로젝트 첫 화면](../README.md)
 
@@ -241,7 +256,7 @@ ZIP의 중앙 목록·경로 탈출·링크·암호화·크기 검사와 실제 
 
 전체 멤버 판단은 비공개, 공개 대응은 아래 JSON입니다.
 
-**제외한 바이너리·캐시·인증·운영 DB·계좌·원 작 추출 표현 자산을 이 목록에 복구하지 않습니다.** 단일 앱 폴더가 아니라는 한계를 유지합니다.
+제외한 바이너리·캐시·인증·운영 DB·계좌·원 작 추출 표현 자산을 이 목록에 복구하지 않습니다. 단일 앱 폴더가 아니라는 한계를 유지합니다.
 
 ### LEVEL 3 · 원문이 연결한 파일과 구성
 
@@ -303,11 +318,17 @@ ZIP의 중앙 목록·경로 탈출·링크·암호화·크기 검사와 실제 
 [파일 전체 명세](source-materials/files.json) · [공개 ZIP 멤버 대응](source-materials/archive-members.json)
 
 
+
+</details>
+
+<details>
+<summary>LEVEL 4 · Advanced — 구현·설계·실패 처리</summary>
+
 <a id="reading-level-4"></a>
 
 ## LEVEL 4 - Advanced · 고유 작업 자료
 
-[LEVEL 1](#reading-level-1) · [LEVEL 2](#reading-level-2) · [LEVEL 3](#reading-level-3) · [LEVEL 5](#reading-level-5)
+[LEVEL 1](#user-content-reading-level-1) · [LEVEL 2](#user-content-reading-level-2) · [LEVEL 3](#user-content-reading-level-3) · [LEVEL 5](#user-content-reading-level-5)
 
 [같은 수준 프로젝트](읽기안내/레벨4.md) · [같은 수준 프로필](https://github.com/PUVKID/PUVKID/blob/main/docs/읽기안내/레벨4.md) · [프로젝트 첫 화면](../README.md)
 
@@ -319,7 +340,7 @@ ZIP의 중앙 목록·경로 탈출·링크·암호화·크기 검사와 실제 
 
 코드·설정·문서·실험·자체 리소스·라이선스를 동일 시점의 단일 앱으로 조립하지 않습니다.
 
-**아카이브 검토 경계는 중앙 목록/경로 탈출/링크/암호화/크기와 실제 멤버 읽기**입니다.
+아카이브 검토 경계는 중앙 목록/경로 탈출/링크/암호화/크기와 실제 멤버 읽기입니다.
 
 바이트 동일 또는 BOM·개행만 같은 멤버는 대응 링크로 중복을 설명하고 고유 소스는 압축 원본 소스로 보존합니다.
 
@@ -389,10 +410,16 @@ ZIP의 중앙 목록·경로 탈출·링크·암호화·크기 검사와 실제 
 [파일 전체 명세](source-materials/files.json) · [공개 ZIP 멤버 대응](source-materials/archive-members.json)
 
 
+
+</details>
+
+<details>
+<summary>LEVEL 5 · Expert — 근거·프로토콜·한계 검토</summary>
+
 <a id="reading-level-5"></a>
 ## LEVEL 5 - Expert
 
-기존의 전체 설명·표·코드·함수 참조·파일별 비교는 아래에 그대로 이어집니다. [자료 폴더](../%EB%B3%B4%EC%A1%B4%EC%9E%90%EB%A3%8C/%EC%9E%91%EC%97%85%EC%86%8C%EC%8A%A4) · [직전 비교·자료 범위](REVISION_AUDIT.md) · [이 차수의 원래 전체 상세](#reading-level-5)
+기존의 전체 설명·표·코드·함수 참조·파일별 비교는 아래에 그대로 이어집니다. [자료 폴더](../%EB%B3%B4%EC%A1%B4%EC%9E%90%EB%A3%8C/%EC%9E%91%EC%97%85%EC%86%8C%EC%8A%A4) · [직전 비교·자료 범위](REVISION_AUDIT.md) · [이 차수의 원래 전체 상세](#user-content-reading-level-5)
 <!-- reading-levels:end -->
 
 
@@ -543,3 +570,6 @@ ZIP의 중앙 목록·경로 탈출·링크·암호화·크기 검사와 실제 
 </details>
 
 [프로젝트](../README.md) · [전체 차수](REVISION_INDEX.md) · [원본 자료](../%EB%B3%B4%EC%A1%B4%EC%9E%90%EB%A3%8C/%EC%9E%91%EC%97%85%EC%86%8C%EC%8A%A4)
+
+</details>
+

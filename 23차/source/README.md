@@ -1,7 +1,18 @@
 # PXE 23차·공용 소스
 
 <!-- user-levels:start -->
-**수준별 전체 안내:** [LEVEL 1 - Beginner](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A81.md) · [LEVEL 2 - Explorer](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A82.md) · [LEVEL 3 - Practitioner](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A83.md) · [LEVEL 4 - Advanced](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A84.md) · [LEVEL 5 - Expert](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A85.md)
+<details>
+<summary>읽기 수준 선택</summary>
+
+| 레벨 | 읽는 목적 |
+| --- | --- |
+| [LEVEL 1 - Beginner](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A81.md) | 목적과 입력·출력을 쉬운 말로 이해하기 |
+| [LEVEL 2 - Explorer](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A82.md) | 주요 기능과 전체 처리 흐름 살펴보기 |
+| [LEVEL 3 - Practitioner](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A83.md) | 설정·실행 순서와 결과 확인하기 |
+| [LEVEL 4 - Advanced](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A84.md) | 구현 선택과 조건·한계 비교하기 |
+| [LEVEL 5 - Expert](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A85.md) | 세부 근거와 재현 조건 검토하기 |
+
+</details>
 <!-- user-levels:end -->
 
 현재 선택형 모델은 시범 OCR 글자 특징을 사용하는 **584→32→K 구조의 F64 오프라인 MLP**입니다. 기존 **매크로**가 주 기능이며 AI 는 기본 꺼짐입니다.
@@ -16,7 +27,9 @@
 
 실제 단일 기기 검사와 원 복은 통과했고 별도 독립 대조도 통과했습니다.
 
-다른 설치·휴대 전화 간 이식, Android 파일 선택 창(SAF)의 실제 조작, 모든 게임·사용자 작업·24시간 연속 운용은 검증하지 않았습니다. 중단된 장기 시험은 재개하지 않았습니다. 전체 실행 207.468초에는 설치·증거·복원이 포함되므로 매크로 사이클 속도가 아닙니다.
+다른 설치·휴대 전화 간 이식, Android 파일 선택 창(SAF)의 실제 조작, 모든 게임·사용자 작업·24시간 연속 운용은 검증하지 않았습니다.  
+중단된 장기 시험은 재개하지 않았습니다.  
+전체 실행 207.468초에는 설치·증거·복원이 포함되므로 매크로 사이클 속도가 아닙니다.
 
 공개 빌드 스크립트는 일반 폴더 확인·연결 경로 거절과 상대 경로·환경 인터페이스를 유지하며 `-PNEX_PC`를 포함한 한 호출로 공용 제품과 검사 APK를 빌드하고 공용 제품만 한 번 복사합니다.
 

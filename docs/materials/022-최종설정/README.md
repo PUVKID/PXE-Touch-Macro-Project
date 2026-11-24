@@ -11,17 +11,20 @@ schema =1·이름 최종인 7 단계 글자 터치 설정입니다.
 
 </div>
 <!-- reading-levels:start -->
-[LEVEL 1 - Beginner](#reading-level-1) · [LEVEL 2 - Explorer](#reading-level-2) · [LEVEL 3 - Practitioner](#reading-level-3) · [LEVEL 4 - Advanced](#reading-level-4) · [LEVEL 5 - Expert](#reading-level-5)
+[LEVEL 1 - Beginner](#user-content-reading-level-1) · [LEVEL 2 - Explorer](#user-content-reading-level-2) · [LEVEL 3 - Practitioner](#user-content-reading-level-3) · [LEVEL 4 - Advanced](#user-content-reading-level-4) · [LEVEL 5 - Expert](#user-content-reading-level-5)
 
 프로젝트 전체의 설명은 [LEVEL 1 - Beginner](../../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A81.md)부터 [LEVEL 5 - Expert](../../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A85.md)까지 같은 범위로 연결됩니다.
 
 전체 상세와 같은 수준 탐색: [LEVEL 5 프로젝트](../../읽기안내/레벨5.md) · [LEVEL 5 프로필](https://github.com/PUVKID/PUVKID/blob/main/docs/읽기안내/레벨5.md)
 
+<details open>
+<summary>LEVEL 1 · Beginner — 목적과 동작부터</summary>
+
 <a id="reading-level-1"></a>
 
 ## LEVEL 1 - Beginner · 최종.json
 
-[LEVEL 2](#reading-level-2) · [LEVEL 3](#reading-level-3) · [LEVEL 4](#reading-level-4) · [LEVEL 5](#reading-level-5)
+[LEVEL 2](#user-content-reading-level-2) · [LEVEL 3](#user-content-reading-level-3) · [LEVEL 4](#user-content-reading-level-4) · [LEVEL 5](#user-content-reading-level-5)
 
 [같은 수준 프로젝트](../../읽기안내/레벨1.md) · [같은 수준 프로필](https://github.com/PUVKID/PUVKID/blob/main/docs/읽기안내/레벨1.md) · [프로젝트 첫 화면](../../../README.md)
 
@@ -41,7 +44,7 @@ CONTAINS는 부분 일치, AUTO는 자동 인식이며 ignoreSpaces·ignoreCase�
 
 텍스트·좌표·재시도·대기·스크롤 재시도 값이 있다는 것은 실행 조건을 저장했다는 뜻입니다.
 
-**실제 인식·터치·제출 성공이나 APK 버전 기록은 없습니다.** 지원 앱에서 의미를 확인한 뒤 사용 여부를 결정합니다.
+실제 인식·터치·제출 성공이나 APK 버전 기록은 없습니다. 지원 앱에서 의미를 확인한 뒤 사용 여부를 결정합니다.
 
 이 안내 폴더는 원본을 이동하거나 실행 코드를 복제한 것이 아닙니다.
 
@@ -75,14 +78,20 @@ README·사용법은 읽는 안내, JSON은 설정이나 구조화된 기록, �
 
 이 묶음의 직전 제품 차수는 임의로 만들지 않습니다.
 
-[원본 파일 직접 열기](../../../%EC%B5%9C%EC%A2%85.json) · [같은 수준 상세](#reading-level-1)
+[원본 파일 직접 열기](../../../%EC%B5%9C%EC%A2%85.json) · [같은 수준 상세](#user-content-reading-level-1)
 
+
+
+</details>
+
+<details>
+<summary>LEVEL 2 · Explorer — 구성과 연결 원리</summary>
 
 <a id="reading-level-2"></a>
 
 ## LEVEL 2 - Explorer · 최종.json
 
-[LEVEL 1](#reading-level-1) · [LEVEL 3](#reading-level-3) · [LEVEL 4](#reading-level-4) · [LEVEL 5](#reading-level-5)
+[LEVEL 1](#user-content-reading-level-1) · [LEVEL 3](#user-content-reading-level-3) · [LEVEL 4](#user-content-reading-level-4) · [LEVEL 5](#user-content-reading-level-5)
 
 [같은 수준 프로젝트](../../읽기안내/레벨2.md) · [같은 수준 프로필](https://github.com/PUVKID/PUVKID/blob/main/docs/읽기안내/레벨2.md) · [프로젝트 첫 화면](../../../README.md)
 
@@ -90,7 +99,7 @@ README·사용법은 읽는 안내, JSON은 설정이나 구조화된 기록, �
 
 ### LEVEL 2 · 자료의 목적·입력과 확인 순서
 
-이 자료의 출력은 실행 결과가 아니라 지원 앱에서 해석할 설정 값입니다. schema1·이름 최종·7개 TEXT_TAP이 구조이고, 대상 문구/부분 일치/자동 인식/좌표/재시도/대기/스크롤 재시도가 행동의 조건을 연결합니다. **설정 이름과 제품 버전은 관계가 없습니다.**
+이 자료의 출력은 실행 결과가 아니라 지원 앱에서 해석할 설정 값입니다. schema1·이름 최종·7개 TEXT_TAP이 구조이고, 대상 문구/부분 일치/자동 인식/좌표/재시도/대기/스크롤 재시도가 행동의 조건을 연결합니다. 설정 이름과 제품 버전은 관계가 없습니다.
 
 상위 설정 schema =1/startAt =1/rounds =1/gap =1000/startDelay =0/maxMinutes =30과 각 동작의 text/failure를 분리해 읽습니다.
 
@@ -116,14 +125,20 @@ UTF-8 편집기 열람에는 빌드·서명이 필요 없으며 schema 지원 �
 
 이 묶음의 직전 제품 차수는 임의로 만들지 않습니다.
 
-[원본 파일 직접 열기](../../../%EC%B5%9C%EC%A2%85.json) · [같은 수준 상세](#reading-level-2)
+[원본 파일 직접 열기](../../../%EC%B5%9C%EC%A2%85.json) · [같은 수준 상세](#user-content-reading-level-2)
 
+
+
+</details>
+
+<details>
+<summary>LEVEL 3 · Practitioner — 준비·실행·결과 확인</summary>
 
 <a id="reading-level-3"></a>
 
 ## LEVEL 3 - Practitioner · 최종.json
 
-[LEVEL 1](#reading-level-1) · [LEVEL 2](#reading-level-2) · [LEVEL 4](#reading-level-4) · [LEVEL 5](#reading-level-5)
+[LEVEL 1](#user-content-reading-level-1) · [LEVEL 2](#user-content-reading-level-2) · [LEVEL 4](#user-content-reading-level-4) · [LEVEL 5](#user-content-reading-level-5)
 
 [같은 수준 프로젝트](../../읽기안내/레벨3.md) · [같은 수준 프로필](https://github.com/PUVKID/PUVKID/blob/main/docs/읽기안내/레벨3.md) · [프로젝트 첫 화면](../../../README.md)
 
@@ -131,7 +146,7 @@ UTF-8 편집기 열람에는 빌드·서명이 필요 없으며 schema 지원 �
 
 ### LEVEL 3 · 자료의 목적·입력과 확인 순서
 
-schema =1·이름 최종·7개 TEXT_TAP을 확인합니다. 열람 자체는 UTF-8 JSON 편집기를 사용하며 빌드/서명 준비와 구분합니다. **schema를 지원하는 앱에서만 불러오기 의미를 대조**하십시오.
+schema =1·이름 최종·7개 TEXT_TAP을 확인합니다. 열람 자체는 UTF-8 JSON 편집기를 사용하며 빌드/서명 준비와 구분합니다. schema를 지원하는 앱에서만 불러오기 의미를 대조하십시오.
 
 검토 순서는 상위 값 schema =1/startAt =1/rounds =1/gap =1000/startDelay =0/maxMinutes =30 →7개 text/failure의 실제 대상 화면 대조 →CONTAINS/AUTO/ignoreSpaces/ignoreCase/전체 화면 영역 →불러오기 화면에서 사용 여부 결정입니다.
 
@@ -157,14 +172,20 @@ schema =1·이름 최종·7개 TEXT_TAP을 확인합니다. 열람 자체는 UTF
 
 이 묶음의 직전 제품 차수는 임의로 만들지 않습니다.
 
-[원본 파일 직접 열기](../../../%EC%B5%9C%EC%A2%85.json) · [같은 수준 상세](#reading-level-3)
+[원본 파일 직접 열기](../../../%EC%B5%9C%EC%A2%85.json) · [같은 수준 상세](#user-content-reading-level-3)
 
+
+
+</details>
+
+<details>
+<summary>LEVEL 4 · Advanced — 구현·설계·실패 처리</summary>
 
 <a id="reading-level-4"></a>
 
 ## LEVEL 4 - Advanced · 최종.json
 
-[LEVEL 1](#reading-level-1) · [LEVEL 2](#reading-level-2) · [LEVEL 3](#reading-level-3) · [LEVEL 5](#reading-level-5)
+[LEVEL 1](#user-content-reading-level-1) · [LEVEL 2](#user-content-reading-level-2) · [LEVEL 3](#user-content-reading-level-3) · [LEVEL 5](#user-content-reading-level-5)
 
 [같은 수준 프로젝트](../../읽기안내/레벨4.md) · [같은 수준 프로필](https://github.com/PUVKID/PUVKID/blob/main/docs/읽기안내/레벨4.md) · [프로젝트 첫 화면](../../../README.md)
 
@@ -172,7 +193,7 @@ schema =1·이름 최종·7개 TEXT_TAP을 확인합니다. 열람 자체는 UTF
 
 ### LEVEL 4 · 자료의 목적·입력과 확인 순서
 
-설정 계약과 런 타임 증거를 분리합니다. schema1·이름 최종의 7개 TEXT_TAP은 상위 실행 설정과 개별 텍스트/좌표/부분 일치/AUTO/재시도/대기/스크롤 재시도 필드를 결합합니다. **파일 이름은 제품 배포 식별자가 아닙니다.**
+설정 계약과 런 타임 증거를 분리합니다. schema1·이름 최종의 7개 TEXT_TAP은 상위 실행 설정과 개별 텍스트/좌표/부분 일치/AUTO/재시도/대기/스크롤 재시도 필드를 결합합니다. 파일 이름은 제품 배포 식별자가 아닙니다.
 
 상위 startAt1/rounds1/gap1000/startDelay0/maxMinutes30, 전 동작 CONTAINS/ignoreSpaces/ignoreCase/전체 화면 범위와 첫 SCROLL_RETRY·이후 RETRY를 보존합니다. timeout1000대 3000, retries3/retryDelay1000 은 실패 경로 분석의 입력이고 실제 관측 시간으로 바꾸지 않습니다.
 
@@ -196,13 +217,19 @@ UTF-8 편집기 열람에는 빌드 도구·서명이 필요 없고 schema 지�
 
 이 묶음의 직전 제품 차수는 임의로 만들지 않습니다.
 
-[원본 파일 직접 열기](../../../%EC%B5%9C%EC%A2%85.json) · [같은 수준 상세](#reading-level-4)
+[원본 파일 직접 열기](../../../%EC%B5%9C%EC%A2%85.json) · [같은 수준 상세](#user-content-reading-level-4)
 
+
+
+</details>
+
+<details>
+<summary>LEVEL 5 · Expert — 근거·프로토콜·한계 검토</summary>
 
 <a id="reading-level-5"></a>
 ## LEVEL 5 - Expert
 
-기존의 전체 설명·표·코드·함수 참조·파일별 비교는 아래에 그대로 이어집니다. [자료 폴더](.) · [직전 비교·자료 범위](../../versions/%EC%B5%9C%EC%A2%85%EC%84%A4%EC%A0%95.md) · [이 차수의 원래 전체 상세](#reading-level-5)
+기존의 전체 설명·표·코드·함수 참조·파일별 비교는 아래에 그대로 이어집니다. [자료 폴더](.) · [직전 비교·자료 범위](../../versions/%EC%B5%9C%EC%A2%85%EC%84%A4%EC%A0%95.md) · [이 차수의 원래 전체 상세](#user-content-reading-level-5)
 <!-- reading-levels:end -->
 
 
@@ -295,3 +322,6 @@ JSON에는 입력 조건만 들어 있습니다. 실제 인식·터치·제출 �
 이 폴더는 원본 파일을 읽는 독립 안내입니다. 실행 코드 폴더를 복제하거나 원본을 옮기지 않았습니다.
 
 [원본 파일 직접 열기](../../../%EC%B5%9C%EC%A2%85.json) · [기존 설명 주소](../../versions/%EC%B5%9C%EC%A2%85%EC%84%A4%EC%A0%95.md)
+
+</details>
+

@@ -2,12 +2,24 @@
 # 23차 공용 APK
 
 <!-- user-levels:start -->
-**수준별 전체 안내:** [LEVEL 1 - Beginner](../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A81.md) · [LEVEL 2 - Explorer](../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A82.md) · [LEVEL 3 - Practitioner](../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A83.md) · [LEVEL 4 - Advanced](../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A84.md) · [LEVEL 5 - Expert](../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A85.md)
+<details>
+<summary>읽기 수준 선택</summary>
+
+| 레벨 | 읽는 목적 |
+| --- | --- |
+| [LEVEL 1 - Beginner](../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A81.md) | 목적과 입력·출력을 쉬운 말로 이해하기 |
+| [LEVEL 2 - Explorer](../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A82.md) | 주요 기능과 전체 처리 흐름 살펴보기 |
+| [LEVEL 3 - Practitioner](../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A83.md) | 설정·실행 순서와 결과 확인하기 |
+| [LEVEL 4 - Advanced](../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A84.md) | 구현 선택과 조건·한계 비교하기 |
+| [LEVEL 5 - Expert](../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A85.md) | 세부 근거와 재현 조건 검토하기 |
+
+</details>
 <!-- user-levels:end -->
 
 공용 **APK** `PXE_23차_v2.3_공용.apk`는 ARM64 휴대 전화와 x86_64 기반 64비트 Android 에뮬레이터에서 사용하는 한 파일입니다.
 
-Android API30 이상이며 ARM32는 포함하지 않습니다. 78,457,218바이트(십 진 약 78.46MB), SHA-256 `d95dfd884da3d44dd35f5df31e7a92c1710059b754b8c5c4c736c86b3d0111ad`입니다.
+Android API30 이상이며 ARM32는 포함하지 않습니다.  
+78,457,218바이트(십 진 약 78.46MB), SHA-256 `d95dfd884da3d44dd35f5df31e7a92c1710059b754b8c5c4c736c86b3d0111ad`입니다.
 
 파일당 64MiB 공개 상한을 넘으므로 APK는 Git 저장소에서 보류하고 로컬 납품·크기/해시·재현 소스를 제공합니다.
 
