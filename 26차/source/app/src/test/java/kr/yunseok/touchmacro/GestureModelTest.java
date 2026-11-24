@@ -1,0 +1,15 @@
+package kr.yunseok.touchmacro;
+import org.junit.Test;import org.json.*;import static org.junit.Assert.*;
+public class GestureModelTest {
+ @Test public void pinchUsesSimultaneousTwoPaths()throws Exception{Step s=new Step("PINCH_OUT");JSONArray paths=GesturePaths.forStep(s);GesturePaths.validate(paths);assertEquals(2,paths.length());assertEquals(45,paths.getJSONObject(0).getJSONArray("points").getJSONArray(0).getDouble(0),.01);assertEquals(30,paths.getJSONObject(0).getJSONArray("points").getJSONArray(1).getDouble(0),.01);}
+ @Test public void curveContainsControlShape()throws Exception{Step s=new Step("CURVE");s.x=20;s.y=80;s.x2=80;s.y2=80;s.cx=50;s.cy=10;JSONArray paths=GesturePaths.forStep(s);GesturePaths.validate(paths);JSONArray p=paths.getJSONObject(0).getJSONArray("points");assertEquals(33,p.length());assertEquals(45,p.getJSONArray(16).getDouble(1),.01);}
+ @Test public void multiTapCoordinatesStaySimultaneous()throws Exception{Step s=new Step("MULTI_TAP");s.text="20,40;80,40;50,60";JSONArray paths=GesturePaths.forStep(s);GesturePaths.validate(paths);assertEquals(3,paths.length());for(int i=0;i<3;i++)assertEquals(0,paths.getJSONObject(i).getInt("start"));}
+ @Test public void recordedStrokeAndRegionRoundTrip()throws Exception{Step s=new Step("GESTURE");JSONArray p=new JSONArray();p.put(GesturePaths.point(10,20));p.put(GesturePaths.point(80,70));s.strokes.put(GesturePaths.stroke(p,100,500));s.left=5;s.top=10;s.right=80;s.bottom=90;s.offsetX=-2;Step clone=new Step(s.json());clone.validate(1);assertEquals(100,clone.strokes.getJSONObject(0).getInt("start"));assertEquals(-2,clone.offsetX,.01);}
+ @Test(expected=IllegalArgumentException.class) public void emptyRecordingRejected(){new Step("GESTURE").validate(1);}
+ @Test(expected=IllegalArgumentException.class) public void reversedRegionRejected(){Step s=new Step("TEXT_TAP");s.text="확인";s.left=90;s.right=10;s.validate(1);}
+ @Test(expected=IllegalArgumentException.class) public void pinchOutsideScreenRejected(){Step s=new Step("PINCH_OUT");s.x=5;s.y2=20;s.validate(1);}
+ @Test(expected=IllegalArgumentException.class) public void tooManyFingersRejected(){Step s=new Step("MULTI_TAP");s.text=String.join(";",java.util.Collections.nCopies(21,"10,20"));s.validate(1);}
+ @Test public void duplicatedRecordingDoesNotShareMutablePoints()throws Exception{Step s=new Step("GESTURE");JSONArray points=new JSONArray();points.put(GesturePaths.point(20,30));s.strokes.put(GesturePaths.stroke(points,0,100));Step copy=new Step(s.json());copy.strokes.getJSONObject(0).getJSONArray("points").getJSONArray(0).put(0,80);assertEquals(20,s.strokes.getJSONObject(0).getJSONArray("points").getJSONArray(0).getDouble(0),.01);}
+ @Test public void firstRoundStartNumberPreserved(){Macro m=new Macro();m.steps.add(new Step("WAIT"));m.steps.add(new Step("STOP"));m.startAt=2;Macro clone=new Macro(m.json());clone.validate();assertEquals(2,clone.startAt);}
+ @Test(expected=IllegalArgumentException.class) public void badStartNumberRejected(){Macro m=new Macro();m.steps.add(new Step("WAIT"));m.startAt=2;m.validate();}
+}

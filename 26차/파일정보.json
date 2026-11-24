@@ -1,0 +1,18 @@
+{
+  "bytes": 32717854,
+  "sha256": "c1df900cfd54489e96d77eca7453f3a72799c70af315c4080fbdd878a0be36e1",
+  "version_code": 26,
+  "version_name": "2.6.0",
+  "abi": [
+    "arm64-v8a",
+    "x86_64"
+  ],
+  "cert_sha256": "57339c32b3661e18f18a7f9f7a08c539130211ab93ab0000812f99c949c5ad3e",
+  "internet_permission": false,
+  "optional_ai_assets": [],
+  "zip_crc": "PASS",
+  "baseline_16_pc_bytes": 35351122,
+  "reduction_vs16pc_percent": 7.4,
+  "baseline_24_bytes": 78473602,
+  "reduction_vs24_percent": 58.3
+}
