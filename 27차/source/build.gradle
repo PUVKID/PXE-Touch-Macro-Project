@@ -1,0 +1,3 @@
+plugins { id 'com.android.application' version '8.9.1' apply false }
+// 검사 영수증에서 제외하는 작업 폴더 안에만 생성물을 둡니다.
+allprojects { layout.buildDirectory = rootProject.layout.projectDirectory.dir("work/build/${project.name}") }

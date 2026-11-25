@@ -1,0 +1,18 @@
+<resources>
+    <color name="nex_blue">#101B24</color>
+    <!-- 화면·팝업·컨트롤이 함께 사용하는 라이트/다크 팔레트입니다. -->
+    <color name="nex_bg_dark">#111318</color>
+    <color name="nex_bg_light">#FFFFFF</color>
+    <color name="nex_card_dark">#1B1E25</color>
+    <color name="nex_card_light">#FFFFFF</color>
+    <color name="nex_ink_dark">#F3F4F7</color>
+    <color name="nex_ink_light">#171A20</color>
+    <color name="nex_muted_dark">#B8BFCC</color>
+    <color name="nex_muted_light">#5D6572</color>
+    <color name="nex_accent_dark">#A9C7F5</color>
+    <color name="nex_accent_light">#365F9D</color>
+    <color name="nex_soft_dark">#252E3E</color>
+    <color name="nex_soft_light">#EDF2F9</color>
+    <color name="nex_line_dark">#373D49</color>
+    <color name="nex_line_light">#DDE2E9</color>
+</resources>

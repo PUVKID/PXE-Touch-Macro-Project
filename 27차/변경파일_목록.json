@@ -1,0 +1,306 @@
+[
+  {
+    "path": "README.md",
+    "kind": "modified",
+    "before_bytes": 794,
+    "after_bytes": 2329,
+    "before_sha256": "697f0e5a1e436f6f714a975f3f88d5d9193141052fb1bdb12ad31a40c1413938",
+    "after_sha256": "47e237dcf5e23d0fa90f982085ce6b7fec129e9d93252e02904c57a80ff899cc"
+  },
+  {
+    "path": "source/README.md",
+    "kind": "modified",
+    "before_bytes": 330,
+    "after_bytes": 805,
+    "before_sha256": "783ec1264e4602b8765e21a3abbbc24c72a7138e1959adada896d99b8d8a3ba1",
+    "after_sha256": "c3a099c7e2692a56d7382d1fc41aa0df86d2f0eacaeed9f41150d8b17bb0f810"
+  },
+  {
+    "path": "source/app/build.gradle",
+    "kind": "modified",
+    "before_bytes": 1724,
+    "after_bytes": 1739,
+    "before_sha256": "6bd98cd53c0a29152a07b14d6cee56fdc9d09618f5effcf7ecbbd548e1c5002e",
+    "after_sha256": "7fc14c5f023e90a82b954b8beb725bb32bdb8fb4b1873cbd3cab54c098d0d1c6"
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/FloatingController.java",
+    "kind": "modified",
+    "before_bytes": 28424,
+    "after_bytes": 28526,
+    "before_sha256": "b2956bd12d2fedff86fdfd0b4c3d8799ecf4aaa4d69bedba5e4525a73852ca46",
+    "after_sha256": "2f709bd0dc25637b5cc2f01e335e62bfd3c7ef0c5156cd669a4009a129f39f2d"
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/MacroService.java",
+    "kind": "modified",
+    "before_bytes": 67264,
+    "after_bytes": 68157,
+    "before_sha256": "f688b11d2c3daefee50b353bb8a308d830f34df504401a03e8010c15babb5867",
+    "after_sha256": "5119365fafec51d634139c56613078c93f05f692a3b02803dc6ebd2f77eabf22"
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/MainActivity.java",
+    "kind": "modified",
+    "before_bytes": 62915,
+    "after_bytes": 63384,
+    "before_sha256": "f896847147085e435457a22e1eff0c7036cf7e63d1b85b855861fa9972829440",
+    "after_sha256": "455af6c9b73cda180b19886962505f300f731dab42aa778899716ee7bb0c6491"
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/RunHud.java",
+    "kind": "modified",
+    "before_bytes": 1818,
+    "after_bytes": 1923,
+    "before_sha256": "786bbdd0540e064b738b918d7ad37b102258b9a794b427c6a204b9ab41024dba",
+    "after_sha256": "a8ce6e9e935e26481d29193954562b260ccfcd1f96d61a424e678037a6baf65a"
+  },
+  {
+    "path": "source/app/src/main/java/kr/yunseok/touchmacro/Ui.java",
+    "kind": "modified",
+    "before_bytes": 4363,
+    "after_bytes": 4764,
+    "before_sha256": "c609c76c8668398e422459743ba939f98ba83ca78e1d2b8338ba77b3587aa489",
+    "after_sha256": "09f6a09a4cbff7203e9e5252e55042014a5644412eef3736196a7550947c230b"
+  },
+  {
+    "path": "source/app/src/main/res/drawable/nex_dialog_dark.xml",
+    "kind": "modified",
+    "before_bytes": 138,
+    "after_bytes": 151,
+    "before_sha256": "18bd2872b359fb115071fb833173a76b01fe57871c66e22e747c04745a35318d",
+    "after_sha256": "1d149d7f2bb1ac2842aa879722575a173d1934497a5de0386e67098abb65ae7d"
+  },
+  {
+    "path": "source/app/src/main/res/drawable/nex_dialog_light.xml",
+    "kind": "modified",
+    "before_bytes": 138,
+    "after_bytes": 152,
+    "before_sha256": "7094707ea2815c219cc6e589334f3b127ad8fdc181908510c7cfff69c5218d5d",
+    "after_sha256": "8613d4b3d8bf701dc052d3ab7bb5c765b45b413979e79d2fb770bbfdcb4ee4d3"
+  },
+  {
+    "path": "source/app/src/main/res/values/nex_colors.xml",
+    "kind": "modified",
+    "before_bytes": 61,
+    "after_bytes": 864,
+    "before_sha256": "ddca9846052b821c279ee776b081b4ccef359877597ae845605c0b56957fc580",
+    "after_sha256": "25c8e43ac064150b23af626a986de9a0e5b02387b6b44bb8f42df5cc3bf54bf5"
+  },
+  {
+    "path": "source/app/src/main/res/values/styles.xml",
+    "kind": "modified",
+    "before_bytes": 1897,
+    "after_bytes": 2036,
+    "before_sha256": "d8698d0145f859ac4aa8c261eb7480284b597dbcf3fd18c4bef93596ec40154f",
+    "after_sha256": "fa1e87d778fc4c9a140dc52dbc9822658fd68382ec1f08b9d805dea2aca04902"
+  },
+  {
+    "path": "source/docs/2026-11-25_26차_경량인식_명세.md",
+    "kind": "deleted",
+    "before_bytes": 2104,
+    "after_bytes": 0,
+    "before_sha256": "ee1cc812a44cd500f1abfc916f164c618df75e4064fd84d6e34b8b0e947bf96b",
+    "after_sha256": null
+  },
+  {
+    "path": "source/docs/2026-11-25_27차_속도와연속운용_명세.md",
+    "kind": "added",
+    "before_bytes": 0,
+    "after_bytes": 1387,
+    "before_sha256": null,
+    "after_sha256": "e14f627772bc1654ad66e952c570baaee758d46a2b16115478d00554c0805bd7"
+  },
+  {
+    "path": "source/tools/build_release.py",
+    "kind": "added",
+    "before_bytes": 0,
+    "after_bytes": 1097,
+    "before_sha256": null,
+    "after_sha256": "12c0fb1c8679bab055ade73c287990b812303abbcd4efe667709520cc2021538"
+  },
+  {
+    "path": "source/tools/check_device26.py",
+    "kind": "deleted",
+    "before_bytes": 1332,
+    "after_bytes": 0,
+    "before_sha256": "5b70d0dd7d120bfedee65f6909bd39d9227f6f8b1dc5fcabd79a8e0b67690206",
+    "after_sha256": null
+  },
+  {
+    "path": "source/tools/check_device27.py",
+    "kind": "added",
+    "before_bytes": 0,
+    "after_bytes": 1301,
+    "before_sha256": null,
+    "after_sha256": "29ccaee5c1500e3d37781109d0fd7b53b9212d27e1957988faed82fb7daa619f"
+  },
+  {
+    "path": "source/tools/check_evidence.py",
+    "kind": "added",
+    "before_bytes": 0,
+    "after_bytes": 5509,
+    "before_sha256": null,
+    "after_sha256": "6bd9ed089644a3f4757b9a5ff5224246cb585d85e5a2dd260d4d9b8198cf30ab"
+  },
+  {
+    "path": "source/tools/check_regression.py",
+    "kind": "modified",
+    "before_bytes": 4392,
+    "after_bytes": 4498,
+    "before_sha256": "a182480027c783e939a7124311d581bf1542d6e7d5b9b3d9b9a48b9b4e353345",
+    "after_sha256": "dccfa67bad65001cfabc2a7a18f9d2b437373a79f0152d0e921d196699acfe42"
+  },
+  {
+    "path": "source/tools/project_paths.py",
+    "kind": "modified",
+    "before_bytes": 743,
+    "after_bytes": 1231,
+    "before_sha256": "7d173ed18e60c17a10b26a4bf2d1f378d7fdd4a2a5988fac410bf49b5eecf1e5",
+    "after_sha256": "734c9bf3b929f551746b91d650798bcd6eafd9106f39620650a1936baf29fc45"
+  },
+  {
+    "path": "source/빌드.ps1",
+    "kind": "modified",
+    "before_bytes": 1394,
+    "after_bytes": 203,
+    "before_sha256": "7f5447322c9e8daec987e6d3f38ea13c0cc74d82e5cfd524cfdc0e2dbd0e487a",
+    "after_sha256": "5321ab35dce2977447e9650d886a34a4da648d77b060a27be6f13bfd541e30b7"
+  },
+  {
+    "path": "source/빌드방법.txt",
+    "kind": "modified",
+    "before_bytes": 796,
+    "after_bytes": 642,
+    "before_sha256": "ea338b95a83ba1e055f8975dfece9e9a86e302f2f675c8c7ac6aa0aa2e60492a",
+    "after_sha256": "11b9a5e3813231ecb40d9f3f7213101f783eb018e7e6f0d6d73da7f93a129088"
+  },
+  {
+    "path": "검증_결과.md",
+    "kind": "modified",
+    "before_bytes": 7997,
+    "after_bytes": 10165,
+    "before_sha256": "7f824a569addc4f9418feeb7cb0f6e401d5bf8fc953ab46fa97be3eb25e56046",
+    "after_sha256": "361e9dfc2a494bff7595542171457f3a6c342ea2e04c59ea3319efede6df1aad"
+  },
+  {
+    "path": "사용안내.md",
+    "kind": "modified",
+    "before_bytes": 8199,
+    "after_bytes": 10423,
+    "before_sha256": "48a412f69886b560dbcd8d491fd26a916ca4f004b0f00bd318042caf6d1a17cc",
+    "after_sha256": "ce467e591a2d995de7368aceb3ea59bfbbbb1e7e050cae3283d6981aeb0ea133"
+  },
+  {
+    "path": "상세설명.md",
+    "kind": "added",
+    "before_bytes": 0,
+    "after_bytes": 22529,
+    "before_sha256": null,
+    "after_sha256": "ed9f0d393d3910ec99dd492054dc1aae94978bedef2dca89cb5ad456bb79c4c3"
+  },
+  {
+    "path": "추가검사/Endurance27Test.java",
+    "kind": "added",
+    "before_bytes": 0,
+    "after_bytes": 5595,
+    "before_sha256": null,
+    "after_sha256": "02b4cdccfd7a8f260c5d41a45e13a9468c0d76de4ef553b33e877017d7bc8b53"
+  },
+  {
+    "path": "추가검사/Sustained26Test.java",
+    "kind": "added",
+    "before_bytes": 0,
+    "after_bytes": 6025,
+    "before_sha256": null,
+    "after_sha256": "0d4162baf94540d57af4103ded40dd5c1ad07085d12f4ba9b4c46c24256798ed"
+  },
+  {
+    "path": "추가검사/Ui27Test.java",
+    "kind": "added",
+    "before_bytes": 0,
+    "after_bytes": 2437,
+    "before_sha256": null,
+    "after_sha256": "c5ddacd9302dd11cb66695c13982fe8ed94c3b24fe366c8422768feba474ef65"
+  },
+  {
+    "path": "추가검사/안내.md",
+    "kind": "added",
+    "before_bytes": 0,
+    "after_bytes": 837,
+    "before_sha256": null,
+    "after_sha256": "482b0521026a6eb66447026428c91090acec8ca5615084b496d30a500f908a85"
+  },
+  {
+    "path": "측정원값.json",
+    "kind": "added",
+    "before_bytes": 0,
+    "after_bytes": 1460,
+    "before_sha256": null,
+    "after_sha256": "b1c6b4ca2cf2f6e67c3fd3c42249b739d5f572f900b778898b2a671a5bd72100"
+  },
+  {
+    "path": "파일정보.json",
+    "kind": "modified",
+    "before_bytes": 521,
+    "after_bytes": 448,
+    "before_sha256": "a8437952c4acd7f476728afe2aaebeb846a24e8447493d45322d6c007cbb77af",
+    "after_sha256": "cafcdf149913fcf4cc751b9e643676409a3cf8823b3a455cec17c69cf9d3eb7c"
+  },
+  {
+    "path": "패키지정보.json",
+    "kind": "deleted",
+    "before_bytes": 173,
+    "after_bytes": 0,
+    "before_sha256": "c41fa7c464f7217cbb24094e251ca1b4be2bf0dd836695d011feffc1c90c08e3",
+    "after_sha256": null
+  },
+  {
+    "path": "화면_확인/27_dark.png",
+    "kind": "added",
+    "before_bytes": 0,
+    "after_bytes": 157960,
+    "before_sha256": null,
+    "after_sha256": "cab17cea3d5bface7f3e26615bf09226019ae020f4e5f792ccbcb85c92d04532"
+  },
+  {
+    "path": "화면_확인/27_dark_settings.png",
+    "kind": "added",
+    "before_bytes": 0,
+    "after_bytes": 108653,
+    "before_sha256": null,
+    "after_sha256": "7ca8de10129842b31a30d50370ced959556f343fb36e1d2ee4b60b1ae6cf9599"
+  },
+  {
+    "path": "화면_확인/27_dark_text.png",
+    "kind": "added",
+    "before_bytes": 0,
+    "after_bytes": 102903,
+    "before_sha256": null,
+    "after_sha256": "895dca05c9dacd3c58353b4222ba24e62a477702bb9b066a369d8c35c36db305"
+  },
+  {
+    "path": "화면_확인/27_light.png",
+    "kind": "added",
+    "before_bytes": 0,
+    "after_bytes": 155993,
+    "before_sha256": null,
+    "after_sha256": "a089322d5c7e980735bbc382826d864c614222156316dee00683b7be8248d88a"
+  },
+  {
+    "path": "화면_확인/27_light_settings.png",
+    "kind": "added",
+    "before_bytes": 0,
+    "after_bytes": 107775,
+    "before_sha256": null,
+    "after_sha256": "acd3e928acf601f9922a88d569cec6161b99dfdbf71494e52d2cb92a21dc3943"
+  },
+  {
+    "path": "화면_확인/27_light_text.png",
+    "kind": "added",
+    "before_bytes": 0,
+    "after_bytes": 100565,
+    "before_sha256": null,
+    "after_sha256": "571461eeab9d764265ff078e95cb73f68df752c196ddc54a836b41ef0f0bf3ee"
+  }
+]

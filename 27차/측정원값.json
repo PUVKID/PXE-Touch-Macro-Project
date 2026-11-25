@@ -1,0 +1,49 @@
+{
+  "speed": {
+    "26": {
+      "blocks_ms": [
+        10278,
+        10080,
+        10253,
+        10090,
+        10264
+      ],
+      "sum_ms": 50965,
+      "all_mean_ms": 10193.0,
+      "secondary_mean_ms": 10171.75
+    },
+    "27": {
+      "blocks_ms": [
+        9934,
+        9434,
+        9527,
+        8312,
+        8053
+      ],
+      "sum_ms": 45260,
+      "all_mean_ms": 9052.0,
+      "secondary_mean_ms": 8831.5
+    }
+  },
+  "all_reduction_ratio": 0.11193956636907687,
+  "all_reduction_percent": 11.193956636907687,
+  "secondary_reduction_percent": 13.176198785852977,
+  "long_run": {
+    "state": "INCOMPLETE",
+    "device_record_complete": false,
+    "recovered_rows": 0,
+    "host_rows": 54,
+    "reason": "호스트 재부팅 확인, 원래 검사/관측 프로세스 종료. 최종 JUnit 및 종료 연속성 근거 없음. 재시작 합산하지 않음.",
+    "observation_kind": "남은 호스트 heartbeat 표본의 누적 상태",
+    "last_observed_elapsed_ms": 3271842,
+    "last_observed_cycles": 247,
+    "last_observed_ocr_taps": 3705,
+    "last_observed_entries": 247,
+    "last_observed_backs": 247,
+    "pss_first_KiB": 91845,
+    "pss_last_KiB": 95444,
+    "pss_min_KiB": null,
+    "pss_max_KiB": null
+  },
+  "scope": "자체 Android12 시험. 상세 조건은 검증 결과. 원시 실행 로그·장치 식별자는 비공개, 여기에는 집계된 실제 관측값만 포함."
+}

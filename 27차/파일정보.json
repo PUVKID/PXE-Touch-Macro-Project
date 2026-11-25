@@ -1,0 +1,16 @@
+{
+  "bytes": 32718470,
+  "sha256": "a6ce7b3aa3889117a790e0cab33dd6c659253fe010bfa2d625d7222a4dcc85a8",
+  "version_code": 27,
+  "version_name": "2.7.0",
+  "abi": [
+    "arm64-v8a",
+    "x86_64"
+  ],
+  "cert_sha256": "57339c32b3661e18f18a7f9f7a08c539130211ab93ab0000812f99c949c5ad3e",
+  "internet_permission": false,
+  "optional_ai_assets": [],
+  "apk_zip_crc": "PASS",
+  "baseline_26_bytes": 32717854,
+  "difference_vs26_bytes": 616
+}
