@@ -47,6 +47,8 @@ public class MacroService extends AccessibilityService {
     private volatile String lastAction="";
     private volatile int currentPriority=0;
     private volatile int hudRound=0,hudTotal=0;
+    private volatile Macro singleWordRun;
+    private volatile String activeTargetWord="";
     private volatile long pauseStartedAt=0,pausedTotalMs=0;
     private volatile ExecutionMetrics executionMetrics=new ExecutionMetrics();
     private final ArrayDeque<String> logs=new ArrayDeque<>();
@@ -186,7 +188,7 @@ public class MacroService extends AccessibilityService {
     public synchronized void start(Macro original){
         if(!connectionActive())throw new IllegalStateException("PXE 접근성을 다시 켜세요");
         if(running)return;if(controller!=null&&controller.recording)throw new IllegalStateException("녹화를 먼저 끝내세요");original.validate();
-        Macro m=new Macro(original.json());long token=generation.incrementAndGet();accessibleFallback=false;running=true;paused=false;showControls();notification();
+        Macro m=new Macro(original.json());singleWordRun=null;activeTargetWord="";long token=generation.incrementAndGet();accessibleFallback=false;running=true;paused=false;showControls();notification();
         worker.execute(()->run(m,token));
     }
     // 잘못된 새 설정은 현재 실행을 끊지 않고, 유효할 때만 이전 세대를 폐기합니다.
@@ -202,7 +204,26 @@ public class MacroService extends AccessibilityService {
         WatchConfig next=new WatchConfig(original.json());next.validate();WatchStore.resolve(this,next);
         if(running)stop();startWatch(next);
     }
+    // 사용자 매크로 이름과 무관하게 단독 글자 화면의 시작 경로에서만 표시합니다.
+    public synchronized void restartWord(Macro original){
+        Macro next=new Macro(original.json());next.validate();
+        if(next.steps.size()!=1||!java.util.Arrays.asList("TEXT_TAP","TEXT_CHECK").contains(next.steps.get(0).type))throw new IllegalArgumentException("단독 글자 동작을 확인하세요");
+        restart(next);singleWordRun=new Macro(next.json());activeTargetWord=next.steps.get(0).text;
+    }
     public String compactCounter(){return Math.max(0,hudRound)+"/"+(hudTotal==0?"∞":hudTotal);}
+    String activeTargetWord(){return running?activeTargetWord:"";}
+    // 새 글자와 실행 준비를 먼저 확인한 뒤 한 번의 저장과 새 실행으로 교체합니다.
+    public synchronized void replaceTargetWord(String text){
+        if(controller!=null&&controller.recording)throw new IllegalStateException("녹화를 먼저 끝내세요");
+        WatchConfig next=WatchStore.load(this);next.rule.text=text;next.validate();
+        Step single=FloatingController.wordStep(this);single.text=text;single.validate(1);
+        boolean replaceWatch=running&&watching;Macro replacement=running&&singleWordRun!=null?new Macro(singleWordRun.json()):null;
+        if(replaceWatch){if(!connectionActive())throw new IllegalStateException("PXE 접근성을 다시 켜세요");WatchStore.resolve(this,next);}
+        if(replacement!=null){replacement.steps.get(0).text=text;replacement.validate();}
+        if(!Ui.prefs(this).edit().putString("word",text).putString("watch_config",next.json().toString()).commit())throw new IllegalStateException("찾을 글자를 저장하지 못했습니다");
+        if(replaceWatch)restartWatch(next);else if(replacement!=null)restartWord(replacement);
+        else if(controller!=null)controller.update();
+    }
     long runRevision(){return generation.get();}
     public synchronized void stop(){generation.incrementAndGet();if(running)finishStats();running=false;paused=false;watching=false;watchPhase="";clearNotification();log("정지");}
     private void check(long token)throws Exception {
@@ -229,11 +250,17 @@ public class MacroService extends AccessibilityService {
     }
     private <T> T readScreen(Callable<T> action,long token)throws Exception{
         ready(token);queryStartedAt=SystemClock.elapsedRealtime();
-        CompletableFuture<T> result=screenReader.submit(()->{check(token);return action.call();});
-        try{return await(result,token,3500);}
+        CompletableFuture<T> result=null;
+        try{
+            // 글자 교체 직후 이전 세대의 플랫폼 조회가 끝날 때까지 기다리고 새 조회를 쌓지 않습니다.
+            long started=activeTime();
+            while(screenReader.busy()){ready(token);if(activeTime()-started>=3500)throw new IllegalStateException("이전 화면 정보 응답이 아직 끝나지 않았습니다");sleep(70,token);}
+            result=screenReader.submit(()->{check(token);return action.call();});
+            return await(result,token,3500);
+        }
         catch(CancellationException e){throw e;}
         catch(Exception e){throw new ScreenReadFailure("화면 정보 응답 지연 · 화면 정보 모드를 완료하지 못했습니다 ("+e.getMessage()+")",e);}
-        finally{result.cancel(false);queryStartedAt=0;}
+        finally{if(result!=null)result.cancel(false);queryStartedAt=0;}
     }
     private static final class ScreenReadFailure extends IllegalStateException {ScreenReadFailure(String message,Throwable cause){super(message,cause);}}
     @SuppressWarnings("deprecation") private void run(Macro m,long token){
@@ -287,7 +314,7 @@ public class MacroService extends AccessibilityService {
         if(running)throw new IllegalStateException("먼저 실행을 정지하세요");
         if(controller!=null&&controller.recording)throw new IllegalStateException("녹화를 먼저 끝내세요");
         original.validate();Macro m=WatchStore.resolve(this,original);WatchConfig p=new WatchConfig(original.json());
-        long token=generation.incrementAndGet();accessibleFallback=false;watching=true;running=true;paused=false;watchCompleted=0;watchPhase="시작 대기";
+        singleWordRun=null;activeTargetWord=p.rule.text;long token=generation.incrementAndGet();accessibleFallback=false;watching=true;running=true;paused=false;watchCompleted=0;watchPhase="시작 대기";
         showControls();ui.post(()->{if(controller!=null)controller.minimize();});
         worker.execute(()->runWatch(p,m,token));
     }
@@ -312,7 +339,7 @@ public class MacroService extends AccessibilityService {
                 if(foreground.isEmpty()||!p.targetPackage.equals(foreground)){for(WatchGate gate:gates)gate.interruptAbsence();watchPhase=foreground.isEmpty()?"대상 앱 확인 대기 · 대상 앱을 한 번 터치하세요":"대상 앱 대기";sleep(500,token);continue;}
                 if(SystemClock.elapsedRealtime()>=watchNextRefresh){
                     long refreshAt=SystemClock.elapsedRealtime();watchPhase="새로고침";log("탐지 · "+(p.direction.equals("PULL_DOWN")?"아래로 당겨 새로고침":"목록 아래로 스크롤"));
-                    gesture(50,p.swipeStartY(),50,p.swipeEndY(),500,token);lastAction="목록 새로고침 완료";watchPhase="새로고침 완료 · 화면 대기";sleep(p.settleMs,token);
+                    gesture(50,p.swipeStartY(),50,p.swipeEndY(),ScrollMotion.DURATION_MS,token);lastAction="목록 새로고침 완료";watchPhase="새로고침 완료 · 화면 대기";sleep(p.settleMs,token);
                     watchNextRefresh=refreshAt+p.intervalSeconds*1000L;armed=true;
                 }
                 if(armed){
@@ -411,7 +438,7 @@ public class MacroService extends AccessibilityService {
                         return null;
                     }
                     if(s.type.equals("TEXT_BRANCH"))return s.missing==0?null:s.missing-1;
-                    if(attempt<s.retries&&Arrays.asList("BACK_RETRY","RETRY","SCROLL_RETRY").contains(s.failure)){if("BACK_RETRY".equals(s.failure)){log("글자 없음 · 뒤로가기 "+(attempt+1)+"/"+s.retries);global(GLOBAL_ACTION_BACK,token);}else if("SCROLL_RETRY".equals(s.failure)){log("글자 없음 · 스크롤 "+(attempt+1)+"/"+s.retries);gesture(50,75,50,30,450,token);}else log("글자 없음 · 재확인 "+(attempt+1)+"/"+s.retries);sleep(s.retryDelay,token);attempt++;continue;}
+                    if(attempt<s.retries&&Arrays.asList("BACK_RETRY","RETRY","SCROLL_RETRY").contains(s.failure)){if("BACK_RETRY".equals(s.failure)){log("글자 없음 · 뒤로가기 "+(attempt+1)+"/"+s.retries);global(GLOBAL_ACTION_BACK,token);}else if("SCROLL_RETRY".equals(s.failure)){log("글자 없음 · 스크롤 "+(attempt+1)+"/"+s.retries);gesture(50,ScrollMotion.START_Y,50,ScrollMotion.END_Y,ScrollMotion.DURATION_MS,token);}else log("글자 없음 · 재확인 "+(attempt+1)+"/"+s.retries);sleep(s.retryDelay,token);attempt++;continue;}
                     if("SKIP".equals(s.failure)){log("글자 없음 · 다음 동작");return null;}
                     recordError("TEXT_NOT_FOUND","source="+s.source+", match="+s.match+", 영역="+s.left+","+s.top+","+s.right+","+s.bottom+", waitForever="+s.waitForever+", immediate="+s.immediate+", timeout_ms="+s.timeout+", "+recognitionDetail());
                     throw new IllegalStateException("글자를 찾지 못했습니다: "+s.text);

@@ -68,6 +68,6 @@ public final class WatchConfig {
     public String lockKey(){return targetPackage+"|"+rule.text+"|"+rule.match+"|"+rule.source+"|"+rule.occurrence+"|"+rule.left+","+rule.top+","+rule.right+","+rule.bottom;}
     public int areaCount(){return priorityAreas.isEmpty()?1:priorityAreas.size();}
     public WatchConfig areaConfig(int index){WatchConfig p=new WatchConfig(json());if(!priorityAreas.isEmpty()){priorityAreas.get(index).apply(p.rule);p.rule.occurrence=1;}p.priorityAreas.clear();return p;}
-    public double swipeStartY(){return direction.equals("PULL_DOWN")?30:75;}
-    public double swipeEndY(){return direction.equals("PULL_DOWN")?75:30;}
+    public double swipeStartY(){return direction.equals("PULL_DOWN")?30:ScrollMotion.START_Y;}
+    public double swipeEndY(){return direction.equals("PULL_DOWN")?75:ScrollMotion.END_Y;}
 }

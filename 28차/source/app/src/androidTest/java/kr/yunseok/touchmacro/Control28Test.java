@@ -31,13 +31,13 @@ import static org.junit.Assert.*;
   h.main(()->{Ui.prefs(h.a).edit().putString("word","새 글자").putString("word_source","ACCESS").apply();Macro next=new Macro();next.name="새 글자 실행";next.startDelay=0;Step word=FloatingController.wordStep(h.a);word.immediate=true;word.after=0;next.steps.add(word);h.svc.restart(next);});
   h.waitFor(()->taps.get()==1&&!h.svc.running,10000,"새 글자 실행 실패");SystemClock.sleep(500);assertEquals("이전 실행의 늦은 터치",1,taps.get());
  }
- @Test public void compactHudMovesExpandsPausesAndDoesNotBlockOutsideTouch()throws Exception{
+ @Test public void compactHudMovesExpandsEditsWordsAndDoesNotBlockOutsideTouch()throws Exception{
   AtomicInteger touches=new AtomicInteger();h.main(()->{h.entry.setOnClickListener(v->touches.incrementAndGet());h.svc.start(waiting(15,60000));});h.waitFor(()->h.find("1/15")!=null,5000,"작은 반복 위젯 없음");h.screenshot("28_run_compact.png");
   AccessibilityNodeInfo count=h.find("1/15");Rect before=new Rect();count.getBoundsInScreen(before);count.recycle();h.drag(before.exactCenterX(),before.exactCenterY(),before.exactCenterX()+110,before.exactCenterY()-180);h.waitFor(()->Ui.prefs(h.a).getInt("hud_x",30)!=30,3000,"위젯 위치 저장 안 됨");
   Rect[] target={null};h.main(()->target[0]=h.bounds(h.entry));h.tap(target[0].exactCenterX(),target[0].exactCenterY());h.waitFor(()->touches.get()==1,3000,"위젯 바깥 터치 차단");
   control("진행 상세 펼치기");assertTrue(Ui.prefs(h.a).getBoolean("hud_expanded",false));h.screenshot("28_run_expanded.png");
-  control("진행 창 일시정지");assertTrue(h.svc.paused);control("진행 창 계속 실행");assertFalse(h.svc.paused);control("진행 상세 접기");assertFalse(Ui.prefs(h.a).getBoolean("hud_expanded",true));
-  control("진행 상세 펼치기");control("진행 창 정지");h.waitFor(()->!h.svc.running,2000,"위젯 정지 실패");
+  assertNull("하단 일시정지 제거",desc("진행 창 일시정지"));assertNull("하단 정지 제거",desc("진행 창 정지"));assertNotNull("하단 글자 편집",desc("인식할 글자 바로 변경"));control("진행 상세 접기");assertFalse(Ui.prefs(h.a).getBoolean("hud_expanded",true));
+  control("정지");h.waitFor(()->!h.svc.running,2000,"상단 정지 실패");
  }
  @Test public void macroTapPassesThroughHudAtSamePosition()throws Exception{
   AtomicInteger touches=new AtomicInteger();h.main(()->{h.entry.setOnClickListener(v->touches.incrementAndGet());h.svc.start(waiting(15,60000));});h.waitFor(()->h.find("1/15")!=null,5000,"진행 위젯 없음");

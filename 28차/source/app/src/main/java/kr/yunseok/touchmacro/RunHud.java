@@ -8,13 +8,14 @@ import android.widget.*;
 public final class RunHud {
     private final MacroService owner;
     private final WindowManager wm;
-    private LinearLayout view,details;
+    private LinearLayout view,details,shortcuts;
     private TextView counter,progress,times;
-    private ImageButton expand,pause;
+    private ImageButton expand;
+    private Button target;
     private WindowManager.LayoutParams params;
     private boolean expanded;
     private boolean darkTheme;
-    private int pauseIcon;
+    private String shortcutState="",watchState="",wordState="",activeState="";
     private int screenWidth,screenHeight;
     public RunHud(MacroService owner){this.owner=owner;wm=(WindowManager)owner.getSystemService(Context.WINDOW_SERVICE);}
     private int dp(float value){return Ui.dp(owner,value);}
@@ -22,7 +23,7 @@ public final class RunHud {
         ImageButton b=new ImageButton(c);b.setImageResource(drawable);b.setColorFilter(Ui.ink(c));b.setPadding(dp(12),dp(12),dp(12),dp(12));b.setBackground(Ui.ripple(c,android.graphics.Color.TRANSPARENT,10));b.setContentDescription(description);return b;
     }
     private void build(){
-        Context c=Ui.themed(owner);darkTheme=Ui.dark(owner);pauseIcon=0;int[] size=owner.size();screenWidth=size[0];screenHeight=size[1];expanded=Ui.prefs(owner).getBoolean("hud_expanded",false);
+        Context c=Ui.themed(owner);darkTheme=Ui.dark(owner);int[] size=owner.size();screenWidth=size[0];screenHeight=size[1];expanded=Ui.prefs(owner).getBoolean("hud_expanded",false);
         view=new LinearLayout(c);view.setOrientation(LinearLayout.VERTICAL);view.setBackground(Ui.outline(c,Ui.card(c),12));view.setElevation(dp(3));
         LinearLayout header=new LinearLayout(c);header.setGravity(Gravity.CENTER_VERTICAL);view.addView(header,new LinearLayout.LayoutParams(-1,dp(44)));
         counter=new TextView(c);counter.setTextSize(13);counter.setAutoSizeTextTypeUniformWithConfiguration(10,13,1,android.util.TypedValue.COMPLEX_UNIT_SP);counter.setTextColor(Ui.ink(c));counter.setGravity(Gravity.CENTER);counter.setSingleLine(true);counter.setPadding(dp(8),0,0,0);header.addView(counter,new LinearLayout.LayoutParams(0,-1,1));drag(counter);
@@ -33,9 +34,8 @@ public final class RunHud {
         TextView title=new TextView(c);title.setText("현재 실행");title.setTextSize(13);title.setTextColor(Ui.ink(c));title.setPadding(dp(8),0,0,0);state.addView(title);
         progress=new TextView(c);progress.setTextSize(13);progress.setTextColor(Ui.ink(c));progress.setMaxLines(5);progress.setPadding(0,dp(8),0,dp(8));details.addView(progress);
         times=new TextView(c);times.setTextSize(11);times.setTextColor(Ui.muted(c));times.setMaxLines(3);details.addView(times);
-        LinearLayout controls=new LinearLayout(c);controls.setPadding(0,dp(8),0,0);details.addView(controls);
-        pause=icon(c,R.drawable.pxe_hud_pause,"진행 창 일시정지");controls.addView(pause,new LinearLayout.LayoutParams(0,dp(44),1));pause.setOnClickListener(v->{owner.togglePause();refreshState();});
-        ImageButton stop=icon(c,R.drawable.pxe_hud_stop,"진행 창 정지");controls.addView(stop,new LinearLayout.LayoutParams(0,dp(44),1));stop.setOnClickListener(v->{owner.stop();refreshState();});
+        target=Ui.button(c,"");target.setContentDescription("인식할 글자 바로 변경");target.setTextSize(13);target.setMaxLines(2);details.addView(target,new LinearLayout.LayoutParams(-1,-2));target.setOnClickListener(v->TargetWords.showEditor(owner,this::refreshTargets));
+        shortcuts=new LinearLayout(c);details.addView(shortcuts,new LinearLayout.LayoutParams(-1,-2));refreshTargets();
         Ui.font(view);params=new WindowManager.LayoutParams(width(),WindowManager.LayoutParams.WRAP_CONTENT,WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY,WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE|WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL|WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN,PixelFormat.TRANSLUCENT);
         params.gravity=Gravity.TOP|Gravity.START;params.x=Ui.prefs(owner).getInt("hud_x",dp(12));params.y=Ui.prefs(owner).getInt("hud_y",owner.size()[1]-dp(120));applyExpanded();clamp();
         try{wm.addView(view,params);}catch(WindowManager.BadTokenException error){view=null;owner.overlayTokenInvalid(error);return;}
@@ -58,7 +58,8 @@ public final class RunHud {
             default:return false;
         }}
     });}
-    private void refreshState(){if(view==null)return;Ui.textIfChanged(counter,owner.compactCounter());String description="매크로 반복 "+owner.compactCounter()+" · 끌어서 이동";if(!android.text.TextUtils.equals(counter.getContentDescription(),description))counter.setContentDescription(description);int icon=owner.paused?R.drawable.pxe_hud_play:R.drawable.pxe_hud_pause;if(pauseIcon!=icon){pause.setImageResource(icon);pauseIcon=icon;}String control=owner.paused?"진행 창 계속 실행":"진행 창 일시정지";if(!android.text.TextUtils.equals(pause.getContentDescription(),control))pause.setContentDescription(control);if(pause.isEnabled()!=owner.running)pause.setEnabled(owner.running);counter.setTextColor(owner.paused?Ui.muted(owner):Ui.ink(owner));}
+    private void refreshTargets(){if(shortcuts==null)return;android.content.SharedPreferences p=Ui.prefs(owner);shortcutState=p.getString("target_words","[]");watchState=p.getString("watch_config","");wordState=p.getString("word","");activeState=owner.activeTargetWord();Ui.textIfChanged(target,"글자 변경 · "+TargetWords.current(owner));TargetWords.fillShortcuts(shortcuts.getContext(),shortcuts,this::refreshTargets);if(view!=null&&params!=null)view.post(()->{if(view!=null){clamp();wm.updateViewLayout(view,params);savePosition();}});}
+    private void refreshState(){if(view==null)return;Ui.textIfChanged(counter,owner.compactCounter());String description="매크로 반복 "+owner.compactCounter()+" · 끌어서 이동";if(!android.text.TextUtils.equals(counter.getContentDescription(),description))counter.setContentDescription(description);counter.setTextColor(owner.paused?Ui.muted(owner):Ui.ink(owner));android.content.SharedPreferences p=Ui.prefs(owner);if(!shortcutState.equals(p.getString("target_words","[]"))||!watchState.equals(p.getString("watch_config",""))||!wordState.equals(p.getString("word",""))||!activeState.equals(owner.activeTargetWord()))refreshTargets();}
     public void update(String line,String timing,boolean visible){
         if(view!=null&&darkTheme!=Ui.dark(owner))close();if(view==null)build();if(view==null)return;fitScreen();refreshState();Ui.textIfChanged(progress,line);Ui.textIfChanged(times,timing);float alpha=Ui.prefs(owner).getInt("hud_opacity",95)/100f;if(view.getAlpha()!=alpha)view.setAlpha(alpha);visible(visible);
     }

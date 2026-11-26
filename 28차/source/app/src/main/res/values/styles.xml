@@ -1,6 +1,8 @@
 <resources>
     <style name="AppTheme" parent="android:style/Theme.Material.Light.NoActionBar">
         <item name="android:fontFamily">@font/nanum_gothic_bold</item>
+        <item name="android:textColorPrimary">@color/astryx_text_light</item>
+        <item name="android:textColorSecondary">@color/astryx_muted_light</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowLightNavigationBar">true</item>
         <item name="android:statusBarColor">@color/astryx_surface_light</item>
@@ -11,15 +13,20 @@
     </style>
     <style name="NexDark" parent="android:style/Theme.Material.NoActionBar">
         <item name="android:fontFamily">@font/nanum_gothic_bold</item>
+        <item name="android:textColorPrimary">@color/astryx_text_dark</item>
+        <item name="android:textColorSecondary">@color/astryx_muted_dark</item>
         <item name="android:windowLightStatusBar">false</item>
         <item name="android:windowLightNavigationBar">false</item>
         <item name="android:statusBarColor">@color/astryx_background_dark</item>
         <item name="android:navigationBarColor">@color/astryx_background_dark</item>
+        <item name="android:colorControlHighlight">@color/nex_soft_dark</item>
         <item name="android:colorAccent">@color/astryx_accent_dark</item>
         <item name="android:alertDialogTheme">@style/NexDarkDialog</item>
     </style>
     <style name="NexLightDialog" parent="android:style/Theme.Material.Light.Dialog.Alert">
         <item name="android:fontFamily">@font/nanum_gothic_bold</item>
+        <item name="android:textColorPrimary">@color/astryx_text_light</item>
+        <item name="android:textColorSecondary">@color/astryx_muted_light</item>
         <item name="android:colorAccent">@color/astryx_accent_light</item>
         <item name="android:listPreferredItemHeightSmall">48dp</item>
         <item name="android:listPreferredItemHeight">48dp</item>
@@ -28,6 +35,8 @@
     </style>
     <style name="NexDarkDialog" parent="android:style/Theme.Material.Dialog.Alert">
         <item name="android:fontFamily">@font/nanum_gothic_bold</item>
+        <item name="android:textColorPrimary">@color/astryx_text_dark</item>
+        <item name="android:textColorSecondary">@color/astryx_muted_dark</item>
         <item name="android:colorAccent">@color/astryx_accent_dark</item>
         <item name="android:listPreferredItemHeightSmall">48dp</item>
         <item name="android:listPreferredItemHeight">48dp</item>
