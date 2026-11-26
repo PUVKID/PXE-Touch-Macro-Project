@@ -1,3 +1,7 @@
+<!-- language-choice:start -->
+🔵 **한국어** · [English overview](../en/README.md)
+<!-- language-choice:end -->
+
 # PXE 최종 · 26차
 
 현재 제품은 2.6.0이며, 16차를 기준으로 별도 AI를 제외한 공용 APK입니다.

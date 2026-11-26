@@ -1,3 +1,7 @@
+<!-- language-choice:start -->
+🔵 **한국어** · [English overview](../../../en/README.md)
+<!-- language-choice:end -->
+
 # 자체 오프라인 명령 모델 연구 소스
 
 <!-- user-levels:start -->

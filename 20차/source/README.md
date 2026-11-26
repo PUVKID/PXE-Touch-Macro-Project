@@ -1,3 +1,7 @@
+<!-- language-choice:start -->
+🔵 **한국어** · [English overview](../../en/README.md)
+<!-- language-choice:end -->
+
 # ⏱️ PXE 20차·실제 OCR 24 시간 시험 도구
 
 <!-- user-levels:start -->

@@ -1,3 +1,7 @@
+<!-- language-choice:start -->
+🔵 **한국어** · [English overview](../../../en/README.md)
+<!-- language-choice:end -->
+
 <div align="center">
 
 <a name="-최종json--매크로-설정-예제"></a>
