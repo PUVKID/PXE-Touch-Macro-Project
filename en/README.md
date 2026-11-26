@@ -23,7 +23,7 @@ Additional operational checks: [75 actual OCR operations and five cycles of entr
   <source media="(max-width: 600px)" srcset="../assets/readme/flow-en-light-mobile.svg" />
   <source media="(prefers-color-scheme: dark)" srcset="../assets/readme/flow-en-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="../assets/readme/flow-en-light.svg" />
-  <img src="../assets/readme/flow-en-light.svg" alt="PXE Project: Screen text · regions → OCR · condition checks → Touch · macro execution" width="100%" />
+  <img src="../assets/readme/flow-en-light.svg" alt="Screen text · regions: User-defined text and screen regions → OCR · condition checks: Check conditions with offline Korean OCR → Touch · macro execution: Run touch, scroll and back actions" width="100%" />
 </picture>
 <!-- readme-header32:end -->
 

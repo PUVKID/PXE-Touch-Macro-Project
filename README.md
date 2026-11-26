@@ -23,7 +23,7 @@
   <source media="(max-width: 600px)" srcset="assets/readme/flow-ko-light-mobile.svg" />
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/flow-ko-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/flow-ko-light.svg" />
-  <img src="assets/readme/flow-ko-light.svg" alt="PXE Project: 화면 글자 · 영역 → OCR · 조건 판단 → 터치 · 매크로 실행" width="100%" />
+  <img src="assets/readme/flow-ko-light.svg" alt="화면 글자 · 영역: 사용자가 정한 글자와 화면 영역 → OCR · 조건 판단: 오프라인 한글 OCR로 조건 확인 → 터치 · 매크로 실행: 터치·스크롤·뒤로가기 실행" width="100%" />
 </picture>
 <!-- readme-header32:end -->
 
