@@ -14,9 +14,9 @@
       "path": "source/README.md",
       "change": "수정",
       "before_bytes": 805,
-      "after_bytes": 3007,
+      "after_bytes": 3262,
       "before_sha256": "c3a099c7e2692a56d7382d1fc41aa0df86d2f0eacaeed9f41150d8b17bb0f810",
-      "after_sha256": "18f9f5b6281f7cdca7801ca01eb3fe3783c97ca3a3fa511559f13b71e6260d0a"
+      "after_sha256": "48bdf6606ca8d498768ae277f88f9427d2af4efb995b42384fa30a09272b927f"
     },
     {
       "path": "source/app/build.gradle",
@@ -24,7 +24,7 @@
       "before_bytes": 1739,
       "after_bytes": 1739,
       "before_sha256": "7fc14c5f023e90a82b954b8beb725bb32bdb8fb4b1873cbd3cab54c098d0d1c6",
-      "after_sha256": "0f1207783b16a82f66c5e13bfdc38877e2fb4802e27a740b538ec88e9fc43f94"
+      "after_sha256": "2095f188a432b98b2ea0efadd1ce1743cd517aba33535a6d1934b4e5a224ba07"
     },
     {
       "path": "source/app/src/androidTest/java/kr/yunseok/touchmacro/Control28Test.java",
@@ -59,12 +59,20 @@
       "after_sha256": null
     },
     {
+      "path": "source/app/src/androidTest/java/kr/yunseok/touchmacro/RecognitionRecovery28Test.java",
+      "change": "추가",
+      "before_bytes": 0,
+      "after_bytes": 3580,
+      "before_sha256": null,
+      "after_sha256": "fd54a6882fd6197e47c8dfda11cea0a3b980e33199b077d8f9123c218e3cd61a"
+    },
+    {
       "path": "source/app/src/androidTest/java/kr/yunseok/touchmacro/StrictRecognition28Test.java",
       "change": "추가",
       "before_bytes": 0,
-      "after_bytes": 1844,
+      "after_bytes": 1842,
       "before_sha256": null,
-      "after_sha256": "a4a6827901d66258ad5af28477c78a18200a1f082d12e28f0bd448f82a509a6a"
+      "after_sha256": "31fa5ae64f2586fc4c82c5b6514d5a0e17304595d27d516fce74e3842aa9184f"
     },
     {
       "path": "source/app/src/androidTest/java/kr/yunseok/touchmacro/Sustained26Test.java",
@@ -110,9 +118,9 @@
       "path": "source/app/src/main/java/kr/yunseok/touchmacro/MacroService.java",
       "change": "수정",
       "before_bytes": 68157,
-      "after_bytes": 71489,
+      "after_bytes": 72318,
       "before_sha256": "5119365fafec51d634139c56613078c93f05f692a3b02803dc6ebd2f77eabf22",
-      "after_sha256": "bda8221988adf79ba1f304c766a503699814c58291e43848042a3e0a266e9560"
+      "after_sha256": "01a4f2366a31bb816c6138eb4e6c3b40b80ff4e5fc7c54a3a810bd4fd85a4606"
     },
     {
       "path": "source/app/src/main/java/kr/yunseok/touchmacro/MainActivity.java",
@@ -190,9 +198,9 @@
       "path": "source/app/src/main/java/kr/yunseok/touchmacro/TextRules.java",
       "change": "수정",
       "before_bytes": 2251,
-      "after_bytes": 2599,
+      "after_bytes": 5160,
       "before_sha256": "710f9edce05e86e400080c37e129e134490116ce43482d746a8a7264f40a514c",
-      "after_sha256": "a8206dad2f6bc9d7eb8dc9d51b8fc0f4c82a91a3eb6d085f33fe8694adb2729f"
+      "after_sha256": "2bb207cc5685c7412bd1f2ec4e798416718cc4d3982627cefe8773d844a7c2b8"
     },
     {
       "path": "source/app/src/main/java/kr/yunseok/touchmacro/Ui.java",
@@ -331,6 +339,14 @@
       "after_sha256": "5ab9da662999ada033cb3144d40e91488b715933d46ab508c7604f3a81c80426"
     },
     {
+      "path": "source/app/src/test/java/kr/yunseok/touchmacro/OcrWordBoundaryTest.java",
+      "change": "추가",
+      "before_bytes": 0,
+      "after_bytes": 2134,
+      "before_sha256": null,
+      "after_sha256": "4c25ffa80bc50fdd6eb207d1a2bbd04e5ab83bfed4eed8519bd93c8f20e6f44a"
+    },
+    {
       "path": "source/app/src/test/java/kr/yunseok/touchmacro/PxeGeometryTest.java",
       "change": "삭제",
       "before_bytes": 3657,
@@ -374,9 +390,9 @@
       "path": "source/docs/28차_Astryx_계획.md",
       "change": "추가",
       "before_bytes": 0,
-      "after_bytes": 1482,
+      "after_bytes": 1384,
       "before_sha256": null,
-      "after_sha256": "9ab90e7871fbb022f8c118b64ccf281d8a062f8e50b8f1f579f183c43e45b551"
+      "after_sha256": "c570aac4b6a0063c2deb2978ed5082dbdbcadc6aa1d64605a97ff0d257bc5710"
     },
     {
       "path": "source/theme-engine/Cargo.lock",
@@ -470,9 +486,9 @@
       "path": "source/빌드방법.txt",
       "change": "수정",
       "before_bytes": 642,
-      "after_bytes": 3128,
+      "after_bytes": 3143,
       "before_sha256": "11b9a5e3813231ecb40d9f3f7213101f783eb018e7e6f0d6d73da7f93a129088",
-      "after_sha256": "14998bb7dcb72181ab9c05b3452817b905fedf1c344cf767e66608932fc113b9"
+      "after_sha256": "ced3390e34726f3187f19492bff34f0eede932921c6266f1fbed6b8791a50cc7"
     }
   ]
 }

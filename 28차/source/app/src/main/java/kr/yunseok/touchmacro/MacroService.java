@@ -628,7 +628,15 @@ public class MacroService extends AccessibilityService {
             for(com.google.mlkit.vision.text.Text.TextBlock b:t.getTextBlocks()){
                 int beforeBlock=candidates.size();
                 for(com.google.mlkit.vision.text.Text.Line line:b.getLines()){
-                    if(line.getBoundingBox()!=null&&rule.matches(line.getText()))candidates.add(new Hit(line.getBoundingBox(),line.getText()));
+                    boolean elementMatch=false;
+                    java.util.List<com.google.mlkit.vision.text.Text.Element> elements=line.getElements();
+                    ArrayList<String> originals=new ArrayList<>(elements.size());for(com.google.mlkit.vision.text.Text.Element element:elements)originals.add(element.getText());
+                    for(int[] span:TextRules.elementSpans(line.getText(),originals,s.text)){
+                        Rect box=null;boolean complete=true;
+                        for(int i=span[0];i<=span[1];i++){Rect part=elements.get(i).getBoundingBox();if(part==null){complete=false;break;}if(box==null)box=new Rect(part);else box.union(part);}
+                        if(complete&&box!=null){candidates.add(new Hit(box,s.text));elementMatch=true;}
+                    }
+                    if(!elementMatch&&line.getBoundingBox()!=null&&rule.matches(line.getText()))candidates.add(new Hit(line.getBoundingBox(),line.getText()));
                 }
                 if(candidates.size()==beforeBlock&&b.getBoundingBox()!=null&&rule.matches(b.getText()))candidates.add(new Hit(b.getBoundingBox(),b.getText()));
             }
