@@ -14,9 +14,9 @@
       "path": "source/README.md",
       "change": "수정",
       "before_bytes": 805,
-      "after_bytes": 2765,
+      "after_bytes": 3007,
       "before_sha256": "c3a099c7e2692a56d7382d1fc41aa0df86d2f0eacaeed9f41150d8b17bb0f810",
-      "after_sha256": "898707051442b787e11955d21424d08aab5c67590a7394317d1f49e819fe5a7e"
+      "after_sha256": "18f9f5b6281f7cdca7801ca01eb3fe3783c97ca3a3fa511559f13b71e6260d0a"
     },
     {
       "path": "source/app/build.gradle",
@@ -24,7 +24,7 @@
       "before_bytes": 1739,
       "after_bytes": 1739,
       "before_sha256": "7fc14c5f023e90a82b954b8beb725bb32bdb8fb4b1873cbd3cab54c098d0d1c6",
-      "after_sha256": "c53c168b67de2428fe506d091e8f7c77c204465e708afb68a290ba8c040052d2"
+      "after_sha256": "0f1207783b16a82f66c5e13bfdc38877e2fb4802e27a740b538ec88e9fc43f94"
     },
     {
       "path": "source/app/src/androidTest/java/kr/yunseok/touchmacro/Control28Test.java",
@@ -33,6 +33,14 @@
       "after_bytes": 8890,
       "before_sha256": null,
       "after_sha256": "e77764fcad56085a6b0148eb40c23a207897e0c886076e4f0b43e531019a04fb"
+    },
+    {
+      "path": "source/app/src/androidTest/java/kr/yunseok/touchmacro/DesignConsistency28Test.java",
+      "change": "추가",
+      "before_bytes": 0,
+      "after_bytes": 4215,
+      "before_sha256": null,
+      "after_sha256": "c009664acab01ccc2f9e483d12a034b905959f84bc566cdac24f801d1891a5b8"
     },
     {
       "path": "source/app/src/androidTest/java/kr/yunseok/touchmacro/MainControls28Test.java",
@@ -94,9 +102,9 @@
       "path": "source/app/src/main/java/kr/yunseok/touchmacro/FloatingController.java",
       "change": "수정",
       "before_bytes": 28526,
-      "after_bytes": 29245,
+      "after_bytes": 29349,
       "before_sha256": "2f709bd0dc25637b5cc2f01e335e62bfd3c7ef0c5156cd669a4009a129f39f2d",
-      "after_sha256": "8e16072f894af5e7537224f3e8f00c7d6e2e2c6341eb34f73e8193fef58b8cc7"
+      "after_sha256": "3e7180c28e5537b420f49bb28d87ee137643eacf395a371e4d89b8b7359cd014"
     },
     {
       "path": "source/app/src/main/java/kr/yunseok/touchmacro/MacroService.java",
@@ -110,9 +118,9 @@
       "path": "source/app/src/main/java/kr/yunseok/touchmacro/MainActivity.java",
       "change": "수정",
       "before_bytes": 63384,
-      "after_bytes": 66583,
+      "after_bytes": 67032,
       "before_sha256": "455af6c9b73cda180b19886962505f300f731dab42aa778899716ee7bb0c6491",
-      "after_sha256": "96cf4a11f2e22d3bc4980142ba3d2443291d04133001da69ec455611c70b9b17"
+      "after_sha256": "03242f1d42c338460152cbc1bfabfb53466ef445039d32ce82582f0fbd9eb8c9"
     },
     {
       "path": "source/app/src/main/java/kr/yunseok/touchmacro/PxeGeometry.java",
@@ -190,9 +198,9 @@
       "path": "source/app/src/main/java/kr/yunseok/touchmacro/Ui.java",
       "change": "수정",
       "before_bytes": 4764,
-      "after_bytes": 9768,
+      "after_bytes": 11101,
       "before_sha256": "09f6a09a4cbff7203e9e5252e55042014a5644412eef3736196a7550947c230b",
-      "after_sha256": "b794f3e429650f9bd79eb68919410f97a31e0e9b8259e120721c5fd6a9be7373"
+      "after_sha256": "1e91099a37eb215f809401a6e262fd279377af5faf7d26420562dc7f1467819f"
     },
     {
       "path": "source/app/src/main/java/kr/yunseok/touchmacro/WatchConfig.java",
@@ -208,7 +216,7 @@
       "before_bytes": 567,
       "after_bytes": 477,
       "before_sha256": "cbb7445ba8bc59a12cd1966fb7b54bfa6e494475d81dbf44a1539ada4d47ece5",
-      "after_sha256": "3b18d3a6bdd4fbc0ee9baa59bf932cf102697b9c4b1c8796caeb96cd179be71c"
+      "after_sha256": "45cfcfba96e4cc197bb3355446cb4eb98ac9aef430e4e7aa25474a85f182e4de"
     },
     {
       "path": "source/app/src/main/res/drawable/ic_macro.xml",
@@ -216,7 +224,7 @@
       "before_bytes": 593,
       "after_bytes": 483,
       "before_sha256": "c0ef2c85e5fef03089323dd497859290f585301398d60e57c974d11d87667558",
-      "after_sha256": "279337bbca68747c0fbd32d8237f3f8d5274f0af3dae76c04a241baff9d28aab"
+      "after_sha256": "945120b301cfc62672650eda9e64d0bf472aa8e86f85f63aed945fadc36d05b5"
     },
     {
       "path": "source/app/src/main/res/drawable/ic_stat_nex.xml",
@@ -224,7 +232,7 @@
       "before_bytes": 456,
       "after_bytes": 362,
       "before_sha256": "6b79be19cf7799279788c123216882a56465a401f852499c5f97dd77f3523d24",
-      "after_sha256": "9be9d21da1ef3525b5630c1ff4a6bf890b381077b86d592147ca47bbcdf59419"
+      "after_sha256": "c0ac9a297a82646d1ec54d7f6a328b7044101b33a7bb525764df75a09a05131f"
     },
     {
       "path": "source/app/src/main/res/drawable/nex_dialog_dark.xml",
@@ -272,7 +280,7 @@
       "before_bytes": 0,
       "after_bytes": 247,
       "before_sha256": null,
-      "after_sha256": "5c46828f82fdeda628c0b22eb832deb46adc16a3f464ef9925ab2cb12d3f899f"
+      "after_sha256": "1b5f0aa0bdee40bc46f20baf4eed9a4576ed8d815d92fcc66481c0a457a08c9c"
     },
     {
       "path": "source/app/src/main/res/drawable/pxe_control_stop.xml",
@@ -280,7 +288,7 @@
       "before_bytes": 0,
       "after_bytes": 246,
       "before_sha256": null,
-      "after_sha256": "34e32eb9561bb02306d80c232b64a33c0cd015fac48fc9184c9c11e39f84bd7a"
+      "after_sha256": "b9cf01e458484490915b736193702976c61f65c0f6f3bd24063485dbd3ef8fe9"
     },
     {
       "path": "source/app/src/main/res/drawable/pxe_refresh.xml",
@@ -296,7 +304,15 @@
       "before_bytes": 0,
       "after_bytes": 710,
       "before_sha256": null,
-      "after_sha256": "7dbe0e14f4dfc4d25e4d54b513120f39c1b1b91a5c87cfa6267e551c9bca12f2"
+      "after_sha256": "1ed6e2589208076b838038f9996b5eed7a949e19140c0f1f11c37bd20ec7dae1"
+    },
+    {
+      "path": "source/app/src/main/res/values/ids.xml",
+      "change": "추가",
+      "before_bytes": 0,
+      "after_bytes": 66,
+      "before_sha256": null,
+      "after_sha256": "1248bae01de98306fad250950246438578b020887efd1270a025ecd344fbb168"
     },
     {
       "path": "source/app/src/main/res/values/nex_colors.xml",
@@ -304,7 +320,7 @@
       "before_bytes": 864,
       "after_bytes": 210,
       "before_sha256": "25c8e43ac064150b23af626a986de9a0e5b02387b6b44bb8f42df5cc3bf54bf5",
-      "after_sha256": "3e491bc9b335cce1e02f3f5ad03f81d9f0adadfb4da21ca8a9279603ef8a3cf1"
+      "after_sha256": "58f7c3d192ee045b5f7e2f668a219549d3a59b771fe0b89f5ac3897c0a155304"
     },
     {
       "path": "source/app/src/main/res/values/styles.xml",
@@ -358,9 +374,9 @@
       "path": "source/docs/28차_Astryx_계획.md",
       "change": "추가",
       "before_bytes": 0,
-      "after_bytes": 1327,
+      "after_bytes": 1482,
       "before_sha256": null,
-      "after_sha256": "eb4a1fd158ecc004c96bd07d776f3832846e882faac3aa6174f4a26c14d174b7"
+      "after_sha256": "9ab90e7871fbb022f8c118b64ccf281d8a062f8e50b8f1f579f183c43e45b551"
     },
     {
       "path": "source/theme-engine/Cargo.lock",
@@ -432,7 +448,7 @@
       "before_bytes": 0,
       "after_bytes": 1999,
       "before_sha256": null,
-      "after_sha256": "be9cee82c35ba413caf1e8dc0a160f9725117f5af5bcaefffe9253bcdc0b62dc"
+      "after_sha256": "e93686fab67701db95251eab98fc999f3cd60fdf6d194caafadbf7f5d869a129"
     },
     {
       "path": "source/tools/project_paths.py",
@@ -456,7 +472,7 @@
       "before_bytes": 642,
       "after_bytes": 3128,
       "before_sha256": "11b9a5e3813231ecb40d9f3f7213101f783eb018e7e6f0d6d73da7f93a129088",
-      "after_sha256": "d84696cc06cd7c7b7908d30a21fdd382b0c5b088453102886fceb1701925e686"
+      "after_sha256": "14998bb7dcb72181ab9c05b3452817b905fedf1c344cf767e66608932fc113b9"
     }
   ]
 }

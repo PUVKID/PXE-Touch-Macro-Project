@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="astryx_accent_light">#245CE2</color>
-    <color name="astryx_background_light">#F6F7F9</color>
-    <color name="astryx_border_light">#DDE2E8</color>
-    <color name="astryx_muted_light">#596270</color>
-    <color name="astryx_surface_light">#FFFFFF</color>
-    <color name="astryx_text_light">#161A22</color>
-    <color name="astryx_accent_dark">#90B4FF</color>
-    <color name="astryx_background_dark">#101216</color>
-    <color name="astryx_border_dark">#323844</color>
-    <color name="astryx_muted_dark">#A9B2C0</color>
-    <color name="astryx_surface_dark">#1A1D24</color>
-    <color name="astryx_text_dark">#F3F5F9</color>
+    <color name="astryx_accent_light">#505C52</color>
+    <color name="astryx_background_light">#F3F3EF</color>
+    <color name="astryx_border_light">#D7DDD4</color>
+    <color name="astryx_muted_light">#60685F</color>
+    <color name="astryx_surface_light">#FBFCF8</color>
+    <color name="astryx_text_light">#242A25</color>
+    <color name="astryx_accent_dark">#BCCDBB</color>
+    <color name="astryx_background_dark">#181C19</color>
+    <color name="astryx_border_dark">#3D483E</color>
+    <color name="astryx_muted_dark">#B0BBAE</color>
+    <color name="astryx_surface_dark">#232924</color>
+    <color name="astryx_text_dark">#E7EDE4</color>
 </resources>

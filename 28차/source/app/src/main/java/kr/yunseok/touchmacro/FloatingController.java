@@ -21,7 +21,7 @@ public final class FloatingController {
  public void show(){if(!usable()||panel!=null)return;KeepAliveService.show(owner);build();if(panel!=null)h.post(ticker);}
  public void refresh(){if(!usable()||panel==null)return;removePanel();build();}
  private final Runnable ticker=new Runnable(){@Override public void run(){if(!usable()||panel==null)return;if(builtRunning!=owner.running)refresh();if(!usable()||panel==null)return;Ui.textIfChanged(status,caption());updatePlay();updateHud();h.postDelayed(this,250);}};
- private void updatePlay(){if(play!=null){Ui.textIfChanged(play,recording?"완료":!owner.running?"▶":owner.paused?"▶":"Ⅱ");String description=recording?"녹화 완료":!owner.running?"글자 탐지 시작":owner.paused?"계속 실행":"일시정지";if(!android.text.TextUtils.equals(play.getContentDescription(),description))play.setContentDescription(description);}}
+ private void updatePlay(){if(play!=null){if(recording){Ui.textIfChanged(play,"완료");}else Ui.controlIcon(play,!owner.running||owner.paused?R.drawable.pxe_control_play:R.drawable.pxe_control_pause);String description=recording?"녹화 완료":!owner.running?"글자 탐지 시작":owner.paused?"계속 실행":"일시정지";if(!android.text.TextUtils.equals(play.getContentDescription(),description))play.setContentDescription(description);}}
  private void startDetection(){
   if(!Ui.prefs(owner).contains("watch_config")){toast("찾을 글자·영역·매크로를 먼저 설정하세요");openSettings(true);return;}
   owner.restartWatch(WatchStore.load(owner));
@@ -57,12 +57,12 @@ public final class FloatingController {
   if(!collapsed||recording){
    play=button(r,recording?"완료":!owner.running?"▶":owner.paused?"▶":"Ⅱ",()->{if(recording){endRecording();return;}if(owner.running)owner.togglePause();else try{startDetection();}catch(Exception e){toast(e.getMessage());}});
    updatePlay();play.setTextSize(recording?10:17);play.setTextColor(Ui.accent(c));
-   Button stop=button(r,"■",()->{owner.stop();if(recording)endRecording();});stop.setContentDescription("정지");stop.setTextSize(17);
+   Button stop=button(r,"■",()->{owner.stop();if(recording)endRecording();});stop.setContentDescription("정지");stop.setTextSize(17);Ui.controlIcon(stop,R.drawable.pxe_control_stop);
    Button more=button(r,"⋮",()->{if(recording){endRecording();return;}moreMenu();});more.setTextSize(22);more.setContentDescription(recording?"녹화 끝내기":"컨트롤 더보기");
   }
-  if(collapsed&&!recording&&owner.running){play=button(r,owner.paused?"▶":"Ⅱ",owner::togglePause);updatePlay();play.setTextSize(17);play.setTypeface(android.graphics.Typeface.DEFAULT);Button stop=button(r,"■",owner::stop);stop.setContentDescription("정지");stop.setTextSize(17);stop.setTextColor(Ui.accent(c));}
+  if(collapsed&&!recording&&owner.running){play=button(r,owner.paused?"▶":"Ⅱ",owner::togglePause);updatePlay();play.setTextSize(17);play.setTypeface(android.graphics.Typeface.DEFAULT);Button stop=button(r,"■",owner::stop);stop.setContentDescription("정지");stop.setTextSize(17);Ui.controlIcon(stop,R.drawable.pxe_control_stop);stop.setTextColor(Ui.accent(c));}
   params=layout(collapsed&&!recording?scaled(owner.running?144:48):scaled(192),scaled(48),true);int[] s=owner.size();params.x=Math.max(0,Math.min(s[0]-params.width,Ui.prefs(owner).getInt("panel_x",dp(6))));params.y=Math.max(dp(30),Math.min(s[1]-scaled(60),Ui.prefs(owner).getInt("panel_y",dp(95))));
-  panel=box;Ui.font(box);if(play!=null&&!recording)play.setTypeface(android.graphics.Typeface.DEFAULT);
+  panel=box;Ui.font(box);updatePlay();
   // 시스템의 토큰 제거가 해제 콜백보다 먼저 도착하면 해당 연결을 종료합니다.
   try{wm.addView(panel,params);}catch(WindowManager.BadTokenException error){panel=null;status=null;play=null;owner.overlayTokenInvalid(error);return;}
   if(!visible)panel.setVisibility(View.GONE);rebuildMarkers();
