@@ -184,14 +184,14 @@ public class MainActivity extends Activity {
         CheckBox waitRefresh=check(advanced,"완료 후 새로고침부터 다시 시작",p.waitForRefresh);text(advanced,"켜면 뒤로간 뒤 설정한 초만큼 기다려 새로고침합니다. 끄면 바로 다시 탐지합니다.",12,muted);
         CheckBox duplicate=check(advanced,"같은 글자가 사라진 뒤에만 다시 실행",p.preventDuplicate);text(advanced,"켜면 새로고침 전 재실행도 막습니다. 완료한 글자가 계속 보이면 새로고침 후에도 건너뜁니다.",12,muted);
         EditText rearm=timeField(advanced,"글자 사라짐 확인 시간 · 초, 최소 1",p.rearmMs);
-        Spinner match=spinner(advanced,"글자 비교",new String[]{"포함","완전 일치","정규식"},selected(new String[]{"CONTAINS","EXACT","REGEX"},p.rule.match));
+        Spinner match=spinner(advanced,"글자 비교",new String[]{"완전 일치 · 공백/대소문자 구분"},0);
         EditText left=field(advanced,"영역 왼쪽 %",Double.toString(p.rule.left),true),top=field(advanced,"영역 위 %",Double.toString(p.rule.top),true),right=field(advanced,"영역 오른쪽 %",Double.toString(p.rule.right),true),bottom=field(advanced,"영역 아래 %",Double.toString(p.rule.bottom),true);
         EditText count=field(advanced,"뒤로가기 횟수",Integer.toString(p.backCount),true),limit=field(advanced,"전체 제한 · 분, 0은 제한 없음",Integer.toString(p.maxMinutes),true);
         text(advanced,"저장한 매크로를 첫 동작부터 지정 횟수만큼 실행합니다. 각 동작의 개별 반복은 그대로 적용됩니다. 매크로 실행 제한이 없으면 한 번 들어가서 최대 30분까지 실행합니다.",12,muted);
         AlertDialog d=new AlertDialog.Builder(this).setIcon(R.drawable.ic_macro).setTitle("글자 · 매크로 설정").setView(wrap(f)).setPositiveButton("저장",null).setNegativeButton("취소",null).create();
         d.setOnShowListener(v->{styleDialog(d);d.getButton(-1).setOnClickListener(b->{try{
             p.rule.text=word.getText().toString().trim();p.macroName=keys.get(macroChoice.getSelectedItemPosition());p.repetitions=number(repetitions);p.intervalSeconds=number(seconds);p.direction=direction.getSelectedItemPosition()==0?"PULL_DOWN":"SCROLL_DOWN";
-            p.rule.source=new String[]{"AUTO","ACCESS","OCR"}[source.getSelectedItemPosition()];p.rule.match=new String[]{"CONTAINS","EXACT","REGEX"}[match.getSelectedItemPosition()];p.rule.immediate=immediateEntry.isChecked();
+            p.rule.source=new String[]{"AUTO","ACCESS","OCR"}[source.getSelectedItemPosition()];p.rule.match="EXACT";p.rule.ignoreSpaces=false;p.rule.ignoreCase=false;p.rule.immediate=immediateEntry.isChecked();
             p.rule.left=decimal(left);p.rule.top=decimal(top);p.rule.right=decimal(right);p.rule.bottom=decimal(bottom);p.backCount=number(count);p.entryMs=timeValue(entry);p.settleMs=timeValue(settle);p.returnMs=timeValue(backWait);p.maxMinutes=number(limit);p.tapFound=tap.isChecked();p.waitForRefresh=waitRefresh.isChecked();
             p.preventDuplicate=duplicate.isChecked();p.startMs=timeValue(startWait);p.repeatGapMs=timeValue(repeatGap);p.beforeBackMs=timeValue(beforeBack);p.rearmMs=timeValue(rearm);p.cooldownMs=timeValue(cooldown);
             WatchStore.save(this,p);d.dismiss();render();
@@ -211,9 +211,9 @@ public class MainActivity extends Activity {
     private void recognitionSettings(){
         LinearLayout f=form();Spinner source=spinner(f,"인식 방식",Ui.recognitionNames(),selected(new String[]{"AUTO","ACCESS","OCR"},Ui.prefs(this).getString("word_source","AUTO")));
         text(f,"글자 탭의 단독 실행과 글자 탭에서 추가하는 동작에 적용합니다. 이미 저장한 동작과 목록 탐지 설정은 유지됩니다.",12,muted);
-        Spinner match=spinner(f,"비교 방식",new String[]{"포함","완전 일치","정규식"},selected(new String[]{"CONTAINS","EXACT","REGEX"},Ui.prefs(this).getString("word_match","CONTAINS")));
+        Spinner match=spinner(f,"비교 방식",new String[]{"완전 일치 · 공백/대소문자 구분"},0);
         text(f,"뒤로가기 재검색은 최대 3회입니다.\n검색 영역·터치 보정은 매크로 동작을 추가한 뒤 편집할 수 있습니다.",12,muted);
-        show(new AlertDialog.Builder(this).setTitle("인식 설정").setView(wrap(f)).setPositiveButton("적용",(d,w)->Ui.prefs(this).edit().putString("word_source",new String[]{"AUTO","ACCESS","OCR"}[source.getSelectedItemPosition()]).putString("word_match",new String[]{"CONTAINS","EXACT","REGEX"}[match.getSelectedItemPosition()]).apply()).setNegativeButton("취소",null),null);
+        show(new AlertDialog.Builder(this).setTitle("인식 설정").setView(wrap(f)).setPositiveButton("적용",(d,w)->Ui.prefs(this).edit().putString("word_source",new String[]{"AUTO","ACCESS","OCR"}[source.getSelectedItemPosition()]).putString("word_match","EXACT").apply()).setNegativeButton("취소",null),null);
     }
     private void controlSettings(){
         LinearLayout f=form();slider(f,"크기 %",75,140,"scale",100);slider(f,"컨트롤 불투명도 %",40,100,"opacity",95);slider(f,"하단 위젯 불투명도 %",40,100,"hud_opacity",95);
@@ -283,7 +283,7 @@ public class MainActivity extends Activity {
         if(s.type.equals("MULTI_TAP"))fields.put("text",field(f,"동시 터치 좌표 · 25,50;75,50",s.text,false));
         if(s.type.equals("GESTURE")){text(f,s.strokes.length()+"개의 손가락 경로가 기록되어 있습니다.",13,muted);button(f,"이 동작을 다시 녹화",()->{if(service()){save();moveTaskToBack(true);MacroService.get().controller().beginRecording(true,macro.steps.indexOf(original));}});}
         Spinner matching=null,source=null,failure=null;CheckBox spaces=null,casing=null,forever=null,immediate=null;
-        String[] matchValues={"CONTAINS","EXACT","REGEX"},sourceValues={"AUTO","ACCESS","OCR"},failureValues={"STOP","SKIP","BACK_RETRY","RETRY","SCROLL_RETRY"};
+        String[] matchValues={"EXACT"},sourceValues={"AUTO","ACCESS","OCR"},failureValues={"STOP","SKIP","BACK_RETRY","RETRY","SCROLL_RETRY"};
         if(s.textAction()){
             fields.put("text",field(f,"찾을 글자",s.text,false));
             source=spinner(f,"검색 방식",Ui.recognitionNames(),selected(sourceValues,s.source));
@@ -295,8 +295,8 @@ public class MainActivity extends Activity {
                 final CheckBox nextNow=immediate;forever.setOnCheckedChangeListener((v,on)->{if(on)nextNow.setChecked(true);});
                 text(f,"계속 기다리는 동안 정지할 수 있습니다. 즉시 진행은 완료 후 대기를 생략하고, 글자 터치는 터치 전 재확인도 생략합니다. 실제 인식 시간은 필요합니다.",12,muted);
             }
-            matching=spinner(advanced,"글자 비교",new String[]{"포함","완전 일치","정규식"},selected(matchValues,s.match));
-            spaces=check(advanced,"공백·줄바꿈 무시",s.ignoreSpaces);casing=check(advanced,"영문 대소문자 무시",s.ignoreCase);
+            matching=spinner(advanced,"글자 비교",new String[]{"완전 일치 · 공백/대소문자 구분"},0);
+            spaces=check(advanced,"공백·줄바꿈 무시",false);casing=check(advanced,"영문 대소문자 무시",false);spaces.setEnabled(false);casing.setEnabled(false);text(advanced,"입력한 글자와 완전히 같을 때만 실행합니다. 포함·정규식·번역 비교는 적용하지 않습니다.",12,muted);
             fields.put("occurrence",field(advanced,"같은 글자 중 몇 번째 · 위에서 아래, 왼쪽에서 오른쪽",Integer.toString(s.occurrence),true));
             fields.put("left",field(advanced,"검색 영역 왼쪽 %",Double.toString(s.left),true));fields.put("top",field(advanced,"검색 영역 위 %",Double.toString(s.top),true));fields.put("right",field(advanced,"검색 영역 오른쪽 %",Double.toString(s.right),true));fields.put("bottom",field(advanced,"검색 영역 아래 %",Double.toString(s.bottom),true));fields.put("offsetX",field(advanced,"터치 X 보정 % · -50~50",Double.toString(s.offsetX),false));fields.put("offsetY",field(advanced,"터치 Y 보정 % · -50~50",Double.toString(s.offsetY),false));
             if(s.type.equals("TEXT_BRANCH")){

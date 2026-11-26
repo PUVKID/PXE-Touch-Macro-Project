@@ -1,18 +1,18 @@
 {
-  "at": "2026-11-26T21:35:32.881477+09:00",
-  "version": "2.8.1",
+  "at": "2026-11-26T22:40:05.420469+09:00",
+  "version": "2.8.2",
   "version_code": 28,
   "files": {
     "PXE_28차_v2.8_공용.apk": {
       "bytes": 32732731,
-      "sha256": "5d6a55aa1a674daecc5e9b2448e4c2bf32bd1133fba116900274b96494f0df08"
+      "sha256": "3cc74e59cc5c0f968c917b305e5fb13f4633ef82a8d1dfc020b4a8deefa58b80"
     },
     "PXE_28차_전체소스.zip": {
-      "bytes": 2896687,
-      "sha256": "267d4a7bf4cf4066300794094c4433b96fa5daa80712a787c39cc301f86f962f"
+      "bytes": 2899189,
+      "sha256": "7c9eb35f94e902942cd9c952cad2d0dfca80e8c176a267cbb33d300346953fe8"
     }
   },
-  "source_entries": 147,
+  "source_entries": 149,
   "apk_v2_verified": true,
   "signer_sha256": "57339c32b3661e18f18a7f9f7a08c539130211ab93ab0000812f99c949c5ad3e"
 }

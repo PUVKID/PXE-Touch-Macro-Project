@@ -37,7 +37,7 @@ public final class Step {
         if(type.equals("MULTI_TAP"))return text;
         if(type.equals("CURVE"))return "곡선 · "+Times.label(duration);
         if(type.startsWith("PINCH"))return "중심 "+Math.round(x)+", "+Math.round(y)+"% · 간격 "+Math.round(x2)+" ↔ "+Math.round(y2)+"%";
-        if(textAction()) return "“"+text+"” · "+("EXACT".equals(match)?"일치":"REGEX".equals(match)?"정규식":"포함")+("BACK_RETRY".equals(failure)?" · 없으면 뒤로 "+retries+"회":"")+(type.equals("TEXT_BRANCH")?" · 있음 "+(found==0?"다음":found)+" / 없음 "+(missing==0?"다음":missing):"");
+        if(textAction()) return "“"+text+"” · "+"완전 일치"+("BACK_RETRY".equals(failure)?" · 없으면 뒤로 "+retries+"회":"")+(type.equals("TEXT_BRANCH")?" · 있음 "+(found==0?"다음":found)+" / 없음 "+(missing==0?"다음":missing):"");
         switch(type){case "TAP":case "DOUBLE":case "LONG":return Math.round(x)+"%, "+Math.round(y)+"%";case "SWIPE":return Math.round(x)+","+Math.round(y)+" → "+Math.round(x2)+","+Math.round(y2)+"%";case "WAIT":return Times.label(duration);case "INPUT":return text;case "APP":return packageName;case "GOTO":return target+"번으로 이동";default:return "완료 후 "+Times.label(after);}
     }
     public void validate(int count) {
@@ -53,7 +53,6 @@ public final class Step {
         if(durationJitter<0||durationJitter>30000||afterJitter<0||afterJitter>60000)throw new IllegalArgumentException("무작위 범위를 확인하세요");
         if((type.equals("CURVE")||type.startsWith("PINCH")||type.equals("MULTI_TAP")||type.equals("GESTURE")))GesturePaths.validate(GesturePaths.forStep(this));
         if(!java.util.Arrays.asList("CONTAINS","EXACT","REGEX").contains(match)||!java.util.Arrays.asList("AUTO","ACCESS","OCR").contains(source)||!java.util.Arrays.asList("STOP","SKIP","BACK_RETRY","RETRY","SCROLL_RETRY").contains(failure))throw new IllegalArgumentException("글자 비교 옵션을 확인하세요");
-        if("REGEX".equals(match))java.util.regex.Pattern.compile(text);
         if("APP".equals(type)&&!packageName.matches("[a-zA-Z][a-zA-Z0-9_]*(\\.[a-zA-Z0-9_]+)+"))throw new IllegalArgumentException("앱 패키지 이름을 확인하세요");
         if("GOTO".equals(type)&&(target<1||target>count))throw new IllegalArgumentException("이동할 동작 번호가 없습니다");
         if("TEXT_BRANCH".equals(type)&&(found<0||missing<0||found>count||missing>count))throw new IllegalArgumentException("분기 번호는 0(다음)~"+count+"입니다");

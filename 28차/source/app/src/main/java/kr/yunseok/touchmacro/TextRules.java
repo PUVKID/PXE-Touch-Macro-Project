@@ -17,6 +17,8 @@ public final class TextRules {
     public static Prepared prepare(String wanted,String mode,boolean spaces,boolean ignoreCase){
         return new Prepared(wanted,mode,spaces,ignoreCase);
     }
+    /** 실행 시 저장된 구형 비교 옵션보다 원문 완전 일치를 우선합니다. */
+    public static Prepared prepareExact(String wanted){return new Prepared(wanted,"LITERAL",false,false);}
     public static boolean matches(String actual,String wanted,String mode,boolean spaces,boolean ignoreCase){
         return prepare(wanted,mode,spaces,ignoreCase).matches(actual);
     }
@@ -28,11 +30,12 @@ public final class TextRules {
             this.mode=mode;this.spaces=spaces;this.ignoreCase=ignoreCase;
             boolean supplied=raw!=null&&!raw.trim().isEmpty();
             expression=supplied&&"REGEX".equals(mode)?Pattern.compile(raw,ignoreCase?Pattern.CASE_INSENSITIVE|Pattern.UNICODE_CASE:0):null;
-            wanted=supplied&&! "REGEX".equals(mode)?normalize(raw,spaces,ignoreCase):"";
+            wanted=supplied&&! "REGEX".equals(mode)?("LITERAL".equals(mode)?raw:normalize(raw,spaces,ignoreCase)):"";
             valid=supplied&&("REGEX".equals(mode)||!wanted.isEmpty());
         }
         public boolean matches(String actual){
             if(!valid)return false;
+            if("LITERAL".equals(mode))return wanted.equals(actual);
             String displayed=normalize(actual,spaces,ignoreCase);
             if(expression!=null)return expression.matcher(displayed).find();
             return "EXACT".equals(mode)?displayed.equals(wanted):displayed.contains(wanted);

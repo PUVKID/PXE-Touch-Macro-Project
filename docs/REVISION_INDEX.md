@@ -33,7 +33,7 @@
 | 22차 | 작은 진행 창 이동·접기와 대기 흐름을 보강하고 공개 소스와 운영 자료를 분리합니다. | [자료 폴더](../22차) · [같은 수준 상세](versions/22차.md#user-content-reading-level-5) · [전체 비교](revision-audit/22차.md) |
 | 23차 | OCR584 →32 →K F64 MLP·시범 2·학습 192·자동 터치 1·종료 뒤 입력 0·가져온 뒤 64를 버전에 결합합니다. | [자료 폴더](../23차) · [같은 수준 상세](versions/23차.md#user-content-reading-level-5) · [전체 비교](revision-audit/23차.md) |
 | 24차 | 1160차원 OCR +RGB 정책·구형 584호환·동일 future 대기·제어창수리와 정상 빌드 13의 단위 44 클래스 280개 통과를 구분합니다. | [자료 폴더](../24차) · [같은 수준 상세](versions/24차.md#user-content-reading-level-5) · [전체 비교](revision-audit/24차.md) |
-| 28차 | 2.8.1 · 느린 자동 스크롤·가로 글자 단축키·하단 직접 편집·26차 기반 내부 정리 | [자료](../28차) · [같은 수준 상세](versions/28차.md#user-content-reading-level-5) · [전체 비교](revision-audit/28차.md) |
+| 28차 | 2.8.2 · 원문 완전 일치·느린 자동 스크롤·가로 글자 단축키·하단 직접 편집·26차 기반 내부 정리 | [자료](../28차) · [같은 수준 상세](versions/28차.md#user-content-reading-level-5) · [전체 비교](revision-audit/28차.md) |
 | 27차 · 준비본 | 캡처 대기와 상태 표시·색상을 정리했습니다. 60분 종료 근거가 없어 장기 완료 판정은 보류합니다. | [자료 폴더](../27차) · [같은 수준 상세](versions/27차.md#user-content-reading-level-5) · [전체 비교](revision-audit/27차.md) |
 | 26차 | 16차의 기본 매크로·UI를 기준으로 별도 AI를 제외하고 글자 비교·창 응답·축소를 보강합니다. | [자료 폴더](../26차) · [같은 수준 상세](versions/26차.md#user-content-reading-level-5) · [전체 비교](revision-audit/26차.md) |
 | 최종 | 26차 공용 APK·전체 소스 패키지 ZIP·사용 안내입니다. | [자료 폴더](../최종) · [같은 수준 상세](../최종/README.md#user-content-reading-level-5) · [전체 비교](revision-audit/최종.md) |

@@ -623,16 +623,12 @@ public class MacroService extends AccessibilityService {
         }finally{recognitionPhase="";}
     }
     private Hit ocrHit(Step s,com.google.mlkit.vision.text.Text t){
-            TextRules.Prepared rule=TextRules.prepare(s.text,s.match,s.ignoreSpaces,s.ignoreCase);
+            TextRules.Prepared rule=TextRules.prepareExact(s.text);
             ArrayList<Hit> candidates=new ArrayList<>();
             for(com.google.mlkit.vision.text.Text.TextBlock b:t.getTextBlocks()){
                 int beforeBlock=candidates.size();
                 for(com.google.mlkit.vision.text.Text.Line line:b.getLines()){
-                    boolean elementMatch=false;
-                    for(com.google.mlkit.vision.text.Text.Element e:line.getElements()){
-                        if(e.getBoundingBox()!=null&&rule.matches(e.getText())){candidates.add(new Hit(e.getBoundingBox(),e.getText()));elementMatch=true;}
-                    }
-                    if(!elementMatch&&line.getBoundingBox()!=null&&rule.matches(line.getText()))candidates.add(new Hit(line.getBoundingBox(),line.getText()));
+                    if(line.getBoundingBox()!=null&&rule.matches(line.getText()))candidates.add(new Hit(line.getBoundingBox(),line.getText()));
                 }
                 if(candidates.size()==beforeBlock&&b.getBoundingBox()!=null&&rule.matches(b.getText()))candidates.add(new Hit(b.getBoundingBox(),b.getText()));
             }
@@ -642,7 +638,7 @@ public class MacroService extends AccessibilityService {
     }
     private boolean inside(Step s,Rect r){double x=r.exactCenterX()*100.0/initialW,y=r.exactCenterY()*100.0/initialH;return x>=s.left&&x<=s.right&&y>=s.top&&y<=s.bottom;}
     private Hit accessibleHit(Step s,ArrayList<Hit> snapshot){
-        TextRules.Prepared rule=TextRules.prepare(s.text,s.match,s.ignoreSpaces,s.ignoreCase);
+        TextRules.Prepared rule=TextRules.prepareExact(s.text);
         ArrayList<Hit> list=new ArrayList<>();
         for(Hit h:snapshot)if(inside(s,h.rect)&&rule.matches(h.text)){
             boolean duplicate=false;for(Hit other:list)if(other.rect.equals(h.rect)){duplicate=true;break;}if(!duplicate)list.add(h);
@@ -660,7 +656,7 @@ public class MacroService extends AccessibilityService {
         if(token!=generation.get()||destroyed)throw new CancellationException();
         if(depth>70||++visited[0]>2000||SystemClock.elapsedRealtime()>until)throw new IllegalStateException("화면 항목이 너무 많거나 응답이 느립니다");
         if(n.isVisibleToUser()){
-            CharSequence txt=n.getText(),desc=n.getContentDescription();String value=txt!=null?txt.toString():desc==null?"":desc.toString();
+            CharSequence txt=n.getText();String value=txt==null?"":txt.toString();
             Rect r=new Rect();n.getBoundsInScreen(r);
             if(!value.isEmpty()&&!r.isEmpty()&&r.intersect(0,0,initialW,initialH))out.add(new Hit(r,value));
         }
