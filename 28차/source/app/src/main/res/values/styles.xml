@@ -3,6 +3,9 @@
         <item name="android:fontFamily">@font/nanum_gothic_bold</item>
         <item name="android:textColorPrimary">@color/astryx_text_light</item>
         <item name="android:textColorSecondary">@color/astryx_muted_light</item>
+        <item name="android:textColorHint">@color/astryx_muted_light</item>
+        <item name="android:colorControlNormal">@color/astryx_muted_light</item>
+        <item name="android:colorControlActivated">@color/astryx_accent_light</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowLightNavigationBar">true</item>
         <item name="android:statusBarColor">@color/astryx_surface_light</item>
@@ -15,6 +18,9 @@
         <item name="android:fontFamily">@font/nanum_gothic_bold</item>
         <item name="android:textColorPrimary">@color/astryx_text_dark</item>
         <item name="android:textColorSecondary">@color/astryx_muted_dark</item>
+        <item name="android:textColorHint">@color/astryx_muted_dark</item>
+        <item name="android:colorControlNormal">@color/astryx_muted_dark</item>
+        <item name="android:colorControlActivated">@color/astryx_accent_dark</item>
         <item name="android:windowLightStatusBar">false</item>
         <item name="android:windowLightNavigationBar">false</item>
         <item name="android:statusBarColor">@color/astryx_background_dark</item>
@@ -27,6 +33,9 @@
         <item name="android:fontFamily">@font/nanum_gothic_bold</item>
         <item name="android:textColorPrimary">@color/astryx_text_light</item>
         <item name="android:textColorSecondary">@color/astryx_muted_light</item>
+        <item name="android:textColorHint">@color/astryx_muted_light</item>
+        <item name="android:colorControlNormal">@color/astryx_muted_light</item>
+        <item name="android:colorControlActivated">@color/astryx_accent_light</item>
         <item name="android:colorAccent">@color/astryx_accent_light</item>
         <item name="android:listPreferredItemHeightSmall">48dp</item>
         <item name="android:listPreferredItemHeight">48dp</item>
@@ -37,6 +46,9 @@
         <item name="android:fontFamily">@font/nanum_gothic_bold</item>
         <item name="android:textColorPrimary">@color/astryx_text_dark</item>
         <item name="android:textColorSecondary">@color/astryx_muted_dark</item>
+        <item name="android:textColorHint">@color/astryx_muted_dark</item>
+        <item name="android:colorControlNormal">@color/astryx_muted_dark</item>
+        <item name="android:colorControlActivated">@color/astryx_accent_dark</item>
         <item name="android:colorAccent">@color/astryx_accent_dark</item>
         <item name="android:listPreferredItemHeightSmall">48dp</item>
         <item name="android:listPreferredItemHeight">48dp</item>

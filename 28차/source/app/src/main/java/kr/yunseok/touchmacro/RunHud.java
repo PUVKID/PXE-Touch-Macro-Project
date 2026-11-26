@@ -24,13 +24,13 @@ public final class RunHud {
     }
     private void build(){
         Context c=Ui.themed(owner);darkTheme=Ui.dark(owner);int[] size=owner.size();screenWidth=size[0];screenHeight=size[1];expanded=Ui.prefs(owner).getBoolean("hud_expanded",false);
-        view=new LinearLayout(c);view.setOrientation(LinearLayout.VERTICAL);view.setBackground(Ui.outline(c,Ui.card(c),12));view.setElevation(dp(3));
+        view=new LinearLayout(c);view.setOrientation(LinearLayout.VERTICAL);view.setBackground(Ui.outline(c,Ui.card(c),12));view.setElevation(dp(2));
         LinearLayout header=new LinearLayout(c);header.setGravity(Gravity.CENTER_VERTICAL);view.addView(header,new LinearLayout.LayoutParams(-1,dp(44)));
         counter=new TextView(c);counter.setTextSize(13);counter.setAutoSizeTextTypeUniformWithConfiguration(10,13,1,android.util.TypedValue.COMPLEX_UNIT_SP);counter.setTextColor(Ui.ink(c));counter.setGravity(Gravity.CENTER);counter.setSingleLine(true);counter.setPadding(dp(8),0,0,0);header.addView(counter,new LinearLayout.LayoutParams(0,-1,1));drag(counter);
         expand=icon(c,R.drawable.pxe_chevron,"진행 상세 펼치기");expand.setPadding(dp(10),dp(10),dp(10),dp(10));header.addView(expand,new LinearLayout.LayoutParams(dp(40),-1));expand.setOnClickListener(v->setExpanded(!expanded));
         details=new LinearLayout(c);details.setOrientation(LinearLayout.VERTICAL);details.setPadding(dp(12),0,dp(12),dp(12));view.addView(details);
         LinearLayout state=new LinearLayout(c);state.setGravity(Gravity.CENTER_VERTICAL);details.addView(state);
-        ImageView symbol=new ImageView(c);symbol.setImageResource(R.drawable.pxe_sun);symbol.setColorFilter(0xffd6a73e);symbol.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);state.addView(symbol,new LinearLayout.LayoutParams(dp(20),dp(20)));
+        ImageView symbol=new ImageView(c);symbol.setImageResource(R.drawable.pxe_sun);symbol.setColorFilter(Ui.accent(c));symbol.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);state.addView(symbol,new LinearLayout.LayoutParams(dp(20),dp(20)));
         TextView title=new TextView(c);title.setText("현재 실행");title.setTextSize(13);title.setTextColor(Ui.ink(c));title.setPadding(dp(8),0,0,0);state.addView(title);
         progress=new TextView(c);progress.setTextSize(13);progress.setTextColor(Ui.ink(c));progress.setMaxLines(5);progress.setPadding(0,dp(8),0,dp(8));details.addView(progress);
         times=new TextView(c);times.setTextSize(11);times.setTextColor(Ui.muted(c));times.setMaxLines(3);details.addView(times);

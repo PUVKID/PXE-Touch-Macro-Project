@@ -7,28 +7,39 @@
 +**/target/
 --- 27차/source/README.md
 +++ 28차/source/README.md
-@@ -1,7 +1,17 @@
+@@ -1,7 +1,28 @@
 -# PXE 27차 · 캡처 대기와 상태 표시 정리
-+# PXE 28차 소스 · 2.8.2
++# PXE 28차 소스 · 2.8.3
  
 -16차 기반의 기본 매크로·오프라인 한글 OCR·최대6영역·중복방지·조건분기·일시정지/정지를 유지합니다. 덮개 숨김과 캡처 간격 대기를 겹치고 동일 상태의 불필요한 화면 갱신을 줄였습니다. 별도 행동 AI·ONNX·새 모델은 포함하지 않습니다.
-+기존 터치 매크로·내장 한글 OCR을 유지하고 자동 스크롤, 26차 기반 내부 배치, 등록 글자 가로 단축키와 하단 글자 변경을 정리했습니다. 하단 일시정지/정지는 제거하고 상단/메인 제어는 유지합니다. 새 기능 연결·실제 결과는 차수의 사용 안내·검증 결과를 따릅니다.
++28차 2.8.3은 기존 기능을 유지하면서 내부 화면과 화면 위 창의 색상·간격·로고를 통일한 수정본입니다. 밝은 화면은 연회색 바탕과 흰 카드, 어두운 화면은 짙은 회색 바탕과 카드로 구분하고 파란색은 주요 동작·선택 상태에 사용합니다.
  
 -[사용 안내](../사용안내.md) · [검증 결과](../검증_결과.md) · [빌드 방법](빌드방법.txt)
++| 디자인 요소 | 현재 기준 | 적용 범위 |
++|---|---|---|
++| 색상 | 라이트 #F6F7F9 / 흰 카드, 다크 #101216 / #1A1D24 카드 | 앱·입력·팝업·화면 위 창 |
++| 포인트 | 라이트 #245CE2 / 다크 #90B4FF | 실행·선택·포커스·체크박스 |
++| 글자 | 나눔고딕700, 제목24sp·주요 입력22~23sp·본문14sp | 큰 제목 축소·설명 대비·줄 간격 |
++| 선·모서리 | 1dp 구분선, 입력/버튼12dp·카드14~16dp | 행·폼·팝업·탐지 영역 선택 |
++| 로고 | 파란 사각형과 흰 P | 런처·헤더·접힌 단축창·알림(단색) |
++| 작은 진행 창 | 1/15와 화살표, 드래그·글자 변경·단축키 유지 | 하단 일시정지/정지 없음 |
+ 
+-[LEVEL 1](../상세설명.md#user-content-reading-level-1) · [LEVEL 2](../상세설명.md#user-content-reading-level-2) · [LEVEL 3](../상세설명.md#user-content-reading-level-3) · [LEVEL 4](../상세설명.md#user-content-reading-level-4) · [LEVEL 5](../상세설명.md#user-content-reading-level-5)
++기존 터치 매크로·내장 한글 OCR을 유지하고 자동 스크롤, 26차 기반 내부 배치, 등록 글자 가로 단축키와 하단 글자 변경을 정리했습니다. 하단 일시정지/정지는 제거하고 상단/메인 제어는 유지합니다. 새 기능 연결·실제 결과는 차수의 사용 안내·검증 결과를 따릅니다.
++
 +| 경로 | 역할 |
 +|---|---|
 +| app | Android 네이티브 화면·접근성·MLKit OCR·실행과 검사 |
 +| theme-engine | Windows에서 실제 색상 XML을 만드는 Rust 엔진 |
 +| tools | 팔레트 생성·원본 대조·빌드 사본 동기화 |
 +| docs | 이번 구현 계획과 보존한 이전 기반 명세 |
- 
--[LEVEL 1](../상세설명.md#user-content-reading-level-1) · [LEVEL 2](../상세설명.md#user-content-reading-level-2) · [LEVEL 3](../상세설명.md#user-content-reading-level-3) · [LEVEL 4](../상세설명.md#user-content-reading-level-4) · [LEVEL 5](../상세설명.md#user-content-reading-level-5)
++
 +[빌드 방법](빌드방법.txt) · [현재 계획](docs/28차_Astryx_계획.md) · [현재 검증](../검증_결과.md)
 +
 +Rust 색상 생성 뒤 Gradle release/단위/린트를 실행합니다. 키·캐시·운영 기록은 소스 묶음과 공개 대상에서 제외합니다. 사용자 블루스택이나 기본 ADB 서버를 검사 도구가 임의 조작하지 않습니다.
 +
 +
-+이번 2.8.2는 입력한 글자와 인식 결과의 원문 완전 일치만 사용합니다. `Adobe`와 `어도비`, `ADOBE`, `Adobe Pro`, 앞뒤 공백이 붙은 문구는 서로 다릅니다. 저장된 포함·정규식·공백/대소문자 무시 옵션도 실행 시 적용하지 않습니다. OCR은 낱말 일부 대신 한 줄 전체를 비교하고, 화면 정보는 접근성 설명(contentDescription) 대신 text만 비교합니다. text를 제공하지 않는 화면은 OCR을 사용하세요. OCR이 잘못 읽은 글자 자체를 완벽히 구별한다고 보장하는 기능은 아닙니다.
++이번 2.8.3는 입력한 글자와 인식 결과의 원문 완전 일치만 사용합니다. `Adobe`와 `어도비`, `ADOBE`, `Adobe Pro`, 앞뒤 공백이 붙은 문구는 서로 다릅니다. 저장된 포함·정규식·공백/대소문자 무시 옵션도 실행 시 적용하지 않습니다. OCR은 낱말 일부 대신 한 줄 전체를 비교하고, 화면 정보는 접근성 설명(contentDescription) 대신 text만 비교합니다. text를 제공하지 않는 화면은 OCR을 사용하세요. OCR이 잘못 읽은 글자 자체를 완벽히 구별한다고 보장하는 기능은 아닙니다.
 --- 27차/source/app/build.gradle
 +++ 28차/source/app/build.gradle
 @@ -5,7 +5,7 @@
@@ -36,7 +47,7 @@
  android { signingConfigs { personal { storeFile rootProject.file(signingDir + '/macro.jks'); storePassword signingProps.getProperty('storePassword', ''); keyAlias 'yunseokmacro'; keyPassword signingProps.getProperty('storePassword', '') } }
   namespace 'kr.yunseok.touchmacro'; compileSdk 35
 - defaultConfig { applicationId 'kr.yunseok.touchmacro'; minSdk 30; targetSdk 35; versionCode 27; versionName '2.7.0'; testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'; testProguardFiles 'test-proguard-rules.pro' }
-+ defaultConfig { applicationId 'kr.yunseok.touchmacro'; minSdk 30; targetSdk 35; versionCode 28; versionName '2.8.2'; testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'; testProguardFiles 'test-proguard-rules.pro' }
++ defaultConfig { applicationId 'kr.yunseok.touchmacro'; minSdk 30; targetSdk 35; versionCode 28; versionName '2.8.3'; testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'; testProguardFiles 'test-proguard-rules.pro' }
   // 휴대전화용은 ARM64, PC용은 ARM64와 x86_64를 함께 포함합니다.
   lint { disable 'ChromeOsAbiSupport' }
   testBuildType 'release'
@@ -778,6 +789,15 @@
   }
   private void updateHud(){if(panel==null)return;if(hud==null&&(owner.running||owner.hasRunStats()))hud=new RunHud(owner);if(hud!=null)hud.update(owner.progressText(),owner.timingText(),visible&&!captureMode);}
   public void showSetupCoach(String kind){
+@@ -49,7 +49,7 @@
+  private void build(){
+   if(!usable())return;
+   builtRunning=owner.running;
+-  Context c=ctx();LinearLayout box=new LinearLayout(c);box.setOrientation(LinearLayout.VERTICAL);box.setPadding(0,0,0,0);box.setBackground(Ui.outline(c,Ui.card(c),14));box.setElevation(dp(2));box.setAlpha(Ui.prefs(owner).getInt("opacity",95)/100f);
++  Context c=ctx();LinearLayout box=new LinearLayout(c);box.setOrientation(LinearLayout.VERTICAL);box.setPadding(0,0,0,0);box.setBackground(Ui.outline(c,Ui.card(c),12));box.setElevation(dp(2));box.setAlpha(Ui.prefs(owner).getInt("opacity",95)/100f);
+   LinearLayout r=row(box);
+   ImageButton logo=new ImageButton(c);logo.setImageResource(R.drawable.ic_macro);logo.setScaleType(ImageView.ScaleType.FIT_CENTER);logo.setPadding(scaled(4),scaled(4),scaled(4),scaled(4));logo.setBackgroundColor(Color.TRANSPARENT);
+   logo.setContentDescription(collapsed?"PXE 컨트롤 펼치기 · 길게 눌러 정지":"PXE 컨트롤 바로 접기");r.addView(logo,new LinearLayout.LayoutParams(scaled(48),scaled(48)));
 @@ -60,9 +60,9 @@
     Button stop=button(r,"■",()->{owner.stop();if(recording)endRecording();});stop.setContentDescription("정지");stop.setTextSize(17);
     Button more=button(r,"⋮",()->{if(recording){endRecording();return;}moreMenu();});more.setTextSize(22);more.setContentDescription(recording?"녹화 끝내기":"컨트롤 더보기");
@@ -802,7 +822,17 @@
   }
   public void setVisible(boolean on){visible=on;if(panel!=null)panel.setVisibility(on?View.VISIBLE:View.GONE);for(View m:markers)m.setVisibility(on&&!captureMode?View.VISIBLE:View.GONE);if(highlight!=null)highlight.setVisibility(on&&!captureMode?View.VISIBLE:View.GONE);if(hud!=null)hud.visible(on&&!captureMode);}
   public void setCaptureMode(boolean on){captureMode=on;setVisible(visible);}
-@@ -106,10 +106,12 @@
+@@ -98,18 +98,20 @@
+  private void openApp(){owner.startActivity(new Intent(owner,MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_SINGLE_TOP));}
+  private void toast(String message){Toast.makeText(owner,message==null?"설정을 확인하세요":message,Toast.LENGTH_LONG).show();}
+  private AlertDialog dialog(String title,View body,String positive,Runnable action){
+-  AlertDialog d=new AlertDialog.Builder(ctx()).setTitle(title).setView(body).setPositiveButton(positive,null).setNegativeButton("취소",null).create();d.getWindow().setType(WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY);d.setOnShowListener(v->{Ui.font(d.getWindow().getDecorView());d.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(x->{try{action.run();d.dismiss();}catch(Exception e){toast(e.getMessage());}});});d.show();return d;
++  AlertDialog d=new AlertDialog.Builder(ctx()).setTitle(title).setView(body).setPositiveButton(positive,null).setNegativeButton("취소",null).create();d.getWindow().setType(WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY);d.setOnShowListener(v->{Ui.styleDialog(d);d.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(x->{try{action.run();d.dismiss();}catch(Exception e){toast(e.getMessage());}});});d.show();return d;
+  }
+- private void choices(String title,String[] values,java.util.function.IntConsumer choose){AlertDialog d=new AlertDialog.Builder(ctx()).setTitle(title).setItems(values,(a,w)->choose.accept(w)).setNegativeButton("닫기",null).create();d.getWindow().setType(WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY);d.setOnShowListener(v->Ui.font(d.getWindow().getDecorView()));d.show();}
++ private void choices(String title,String[] values,java.util.function.IntConsumer choose){AlertDialog d=new AlertDialog.Builder(ctx()).setTitle(title).setItems(values,(a,w)->choose.accept(w)).setNegativeButton("닫기",null).create();d.getWindow().setType(WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY);d.setOnShowListener(v->Ui.styleDialog(d));d.show();}
+  private LinearLayout form(){LinearLayout f=new LinearLayout(ctx());f.setOrientation(LinearLayout.VERTICAL);f.setPadding(dp(18),dp(8),dp(18),dp(12));return f;}
+  private EditText field(LinearLayout f,String hint,String value){EditText e=new EditText(ctx());e.setHint(hint);e.setText(value);e.setTextColor(Ui.ink(owner));e.setHintTextColor(Ui.muted(owner));f.addView(e);return e;}
   private void readyEdit(){if(owner.running||recording)throw new IllegalStateException("먼저 실행·녹화를 정지하세요");}
   public void wordDialog(){
    if(recording){toast("녹화를 먼저 끝내세요");return;}
@@ -817,6 +847,15 @@
   private void actionMenu(){try{readyEdit();choices("동작 추가",new String[]{"화면에서 터치 위치 선택","곡선·멀티터치 한 동작 녹화","글자 찾아 터치","뒤로가기","대기 1초","홈","최근 앱"},i->{try{if(i==0){beginPoint();return;}if(i==1){beginRecording(true,-1);return;}if(i==2){wordDialog();return;}Step s=new Step(i==3?"BACK":i==4?"WAIT":i==5?"HOME":"RECENTS");if(i==4)s.duration=1000;Macro m=Store.load(owner);m.steps.add(s);Store.save(owner,m);refresh();owner.log("동작 추가");}catch(Exception e){toast(e.getMessage());}});}catch(Exception e){toast(e.getMessage());}}
   private void sequenceDialog(){try{readyEdit();Macro m=Store.load(owner);String[] names=new String[m.steps.size()];for(int i=0;i<names.length;i++)names[i]=(i+1)+" · "+m.steps.get(i).name()+"\n"+m.steps.get(i).detail();choices("현재 동작 · 눌러 편집",names,i->choices((i+1)+"번 동작",new String[]{"여기서부터 실행","위로 이동","아래로 이동","복제","사용/사용 안 함","삭제","이 위치를 다시 녹화"},w->{try{Macro now=Store.load(owner);if(i>=now.steps.size())return;if(w==0){now.startAt=i+1;owner.start(now);return;}if(w==1&&i>0)Collections.swap(now.steps,i,i-1);if(w==2&&i<now.steps.size()-1)Collections.swap(now.steps,i,i+1);if(w==3)now.steps.add(i+1,new Step(now.steps.get(i).json()));if(w==4)now.steps.get(i).enabled=!now.steps.get(i).enabled;if(w==5)now.steps.remove(i);if(w==6){beginRecording(true,i);return;}now.startAt=1;Store.save(owner,now);refresh();}catch(Exception e){toast(e.getMessage());}}));}catch(Exception e){toast(e.getMessage());}}
   private void saveDialog(){LinearLayout f=form();Macro m=Store.load(owner);EditText name=field(f,"저장 이름",m.name);dialog("현재 매크로 저장",f,"저장",()->{String n=name.getText().toString().trim();if(n.isEmpty())throw new IllegalArgumentException("이름을 입력하세요");m.name=n;Store.put(owner,m);owner.log("저장 완료");});}
+@@ -152,7 +154,7 @@
+   Macro m=Store.load(owner);int[] sz=owner.size();
+   for(int i=0;i<Math.min(40,m.steps.size());i++){final int index=i;Step s=m.steps.get(i);if(!s.enabled||!Arrays.asList("TAP","DOUBLE","LONG","SWIPE","CURVE","PINCH_IN","PINCH_OUT","GESTURE").contains(s.type))continue;
+    if(s.type.equals("GESTURE")&&s.strokes.length()>0){JSONArray p0=s.strokes.optJSONObject(0).optJSONArray("points").optJSONArray(0);s.x=p0.optDouble(0);s.y=p0.optDouble(1);}
+-   Button marker=Ui.button(ctx(),String.valueOf(i+1));marker.setTextSize(12);marker.setTextColor(Ui.dark(owner)?Ui.bg(owner):Color.WHITE);marker.setContentDescription((i+1)+"번 터치 위치 · 끌어서 이동");marker.setBackground(Ui.rounded((Ui.accent(owner)&0x00FFFFFF)|0xDF000000,dp(24)));WindowManager.LayoutParams p=layout(dp(48),dp(48),!owner.running);p.x=(int)(s.x*sz[0]/100)-dp(24);p.y=(int)(s.y*sz[1]/100)-dp(24);
++   Button marker=Ui.button(ctx(),String.valueOf(i+1));marker.setTextSize(12);marker.setTextColor(Ui.onAccent(owner));marker.setContentDescription((i+1)+"번 터치 위치 · 끌어서 이동");marker.setBackground(Ui.rounded((Ui.accent(owner)&0x00FFFFFF)|0xDF000000,dp(24)));WindowManager.LayoutParams p=layout(dp(48),dp(48),!owner.running);p.x=(int)(s.x*sz[0]/100)-dp(24);p.y=(int)(s.y*sz[1]/100)-dp(24);
+    marker.setOnClickListener(v->sequenceDialog());dragMarker(marker,p,index);wm.addView(marker,p);if(!visible)marker.setVisibility(View.GONE);markers.add(marker);
+   }
+  }
 --- 27차/source/app/src/main/java/kr/yunseok/touchmacro/MacroService.java
 +++ 28차/source/app/src/main/java/kr/yunseok/touchmacro/MacroService.java
 @@ -46,6 +46,9 @@
@@ -1039,19 +1078,19 @@
 -        LinearLayout brand=row(header);brand.setGravity(Gravity.CENTER_VERTICAL);TextView logo=text(brand,"PXE",25,ink);logo.setLetterSpacing(.02f);
 -        ImageView brandIcon=new ImageView(this);brandIcon.setImageResource(R.drawable.pxe_focus);brandIcon.setColorFilter(blue);LinearLayout.LayoutParams brandSize=new LinearLayout.LayoutParams(dp(25),dp(25));brandSize.setMargins(dp(7),0,dp(12),0);brand.addView(brandIcon,brandSize);View flexible=new View(this);brand.addView(flexible,new LinearLayout.LayoutParams(0,1,1));
 +        LinearLayout header=form();header.setPadding(dp(24),dp(8),dp(24),dp(8));shell.addView(header);
-+        LinearLayout brand=row(header);brand.setGravity(Gravity.CENTER_VERTICAL);TextView logo=text(brand,"PXE",24,ink);logo.setLayoutParams(new LinearLayout.LayoutParams(0,-2,1));
++        LinearLayout brand=row(header);brand.setGravity(Gravity.CENTER_VERTICAL);ImageView mark=new ImageView(this);mark.setImageResource(R.drawable.ic_macro);mark.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);LinearLayout.LayoutParams markSize=new LinearLayout.LayoutParams(dp(30),dp(30));markSize.setMargins(0,0,dp(10),0);brand.addView(mark,markSize);TextView logo=text(brand,"PXE",19,ink);logo.setLayoutParams(new LinearLayout.LayoutParams(0,-2,1));
          boolean connected=MacroService.get()!=null;shownConnected=connected;
 -        state=text(brand,connected?"● 연결됨":"연결하기",11,connected?blue:muted);state.setGravity(Gravity.CENTER);state.setMinHeight(dp(48));state.setPadding(dp(10),0,dp(10),0);state.setBackground(Ui.ripple(this,Ui.soft(this),10));state.setContentDescription(connected?"접근성 연결됨 · 눌러 연결 설정":"접근성 연결 필요 · 눌러 연결 설정");state.setOnClickListener(v->accessibility());
 -        Button shortcut=Ui.button(this,"단축창 ↗");shortcut.setTextSize(11);shortcut.setBackgroundColor(Color.TRANSPARENT);brand.addView(shortcut,new LinearLayout.LayoutParams(-2,dp(48)));shortcut.setOnClickListener(v->{if(service()){save();MacroService.get().showControls();moveTaskToBack(true);}});
 -        ScrollView scroll=new ScrollView(this);scroll.setFillViewport(true);scroll.setVerticalScrollBarEnabled(false);page=form();page.setPadding(dp(24),dp(16),dp(24),dp(24));scroll.addView(page);shell.addView(scroll,new LinearLayout.LayoutParams(-1,0,1));
-+        state=text(brand,connected?"연결됨":"연결하기",12,connected?blue:muted);state.setGravity(Gravity.CENTER);state.setMinHeight(dp(48));state.setPadding(dp(12),0,dp(12),0);state.setBackground(Ui.ripple(this,Ui.soft(this),10));state.setFocusable(true);state.setContentDescription(connected?"접근성 연결됨 · 눌러 연결 설정":"접근성 연결 필요 · 눌러 연결 설정");state.setOnClickListener(v->accessibility());
-+        Button shortcut=Ui.button(this,"단축창");shortcut.setTextSize(14);shortcut.setPadding(dp(12),dp(8),dp(12),dp(8));LinearLayout.LayoutParams shortcutSize=new LinearLayout.LayoutParams(-2,-2);shortcutSize.setMargins(dp(8),0,0,0);brand.addView(shortcut,shortcutSize);shortcut.setOnClickListener(v->{if(service()){save();MacroService.get().showControls();moveTaskToBack(true);}});
-+        ScrollView scroll=new ScrollView(this);scroll.setFillViewport(true);scroll.setVerticalScrollBarEnabled(false);page=form();page.setPadding(dp(24),dp(16),dp(24),dp(40));scroll.addView(page);shell.addView(scroll,new LinearLayout.LayoutParams(-1,0,1));
++        state=text(brand,connected?"연결됨":"연결하기",12,connected?blue:muted);state.setGravity(Gravity.CENTER);state.setMinHeight(dp(48));state.setPadding(dp(12),0,dp(12),0);state.setBackground(Ui.ripple(this,Color.TRANSPARENT,12));state.setFocusable(true);state.setContentDescription(connected?"접근성 연결됨 · 눌러 연결 설정":"접근성 연결 필요 · 눌러 연결 설정");state.setOnClickListener(v->accessibility());
++        Button shortcut=Ui.button(this,"단축창");shortcut.setTextSize(12);shortcut.setPadding(dp(12),dp(8),dp(12),dp(8));LinearLayout.LayoutParams shortcutSize=new LinearLayout.LayoutParams(-2,-2);shortcutSize.setMargins(dp(8),0,0,0);brand.addView(shortcut,shortcutSize);shortcut.setOnClickListener(v->{if(service()){save();MacroService.get().showControls();moveTaskToBack(true);}});
++        ScrollView scroll=new ScrollView(this);scroll.setFillViewport(true);scroll.setVerticalScrollBarEnabled(false);page=form();page.setPadding(dp(24),dp(12),dp(24),dp(32));scroll.addView(page);shell.addView(scroll,new LinearLayout.LayoutParams(-1,0,1));
          if(tab==0){
 -            text(page,"글자 찾기",32,ink);text(page,"원하는 글자를 찾아 바로 터치하세요.",13,muted);space(page,24);
 -            EditText word=new EditText(this);word.setText(Ui.prefs(this).getString("word","확인"));word.setHint("찾을 글자 입력");word.setSingleLine(true);word.setSelectAllOnFocus(true);word.setTextSize(24);word.setTextColor(ink);word.setHintTextColor(muted);word.setPadding(dp(18),dp(16),dp(18),dp(16));word.setBackground(Ui.rounded(Ui.card(this),dp(14)));page.addView(word,new LinearLayout.LayoutParams(-1,dp(80)));
-+            text(page,"글자 찾기",28,ink);text(page,"원하는 글자를 찾아 바로 터치하세요.",13,muted);space(page,16);
-+            EditText word=new EditText(this);word.setText(Ui.prefs(this).getString("word","확인"));word.setHint("찾을 글자 입력");word.setSingleLine(false);word.setMaxLines(3);word.setHorizontallyScrolling(false);word.setSelectAllOnFocus(true);word.setTextSize(24);word.setTextColor(ink);word.setHintTextColor(muted);word.setPadding(dp(16),dp(16),dp(16),dp(16));word.setBackground(Ui.rounded(Ui.card(this),dp(14)));word.setMinHeight(dp(64));word.setContentDescription("찾을 글자 입력");page.addView(word,new LinearLayout.LayoutParams(-1,-2));
++            text(page,"글자 찾기",24,ink);text(page,"원하는 글자를 찾아 바로 터치하세요.",13,muted);space(page,16);
++            EditText word=new EditText(this);word.setText(Ui.prefs(this).getString("word","확인"));word.setHint("찾을 글자 입력");word.setSingleLine(false);word.setMaxLines(3);word.setHorizontallyScrolling(false);word.setSelectAllOnFocus(true);word.setTextSize(22);word.setTextColor(ink);word.setHintTextColor(muted);word.setPadding(dp(16),dp(16),dp(16),dp(16));word.setBackground(Ui.rounded(Ui.card(this),dp(14)));word.setMinHeight(dp(64));word.setContentDescription("찾을 글자 입력");page.addView(word,new LinearLayout.LayoutParams(-1,-2));
              word.addTextChangedListener(new android.text.TextWatcher(){public void beforeTextChanged(CharSequence s,int st,int count,int after){}public void onTextChanged(CharSequence s,int st,int before,int count){Ui.prefs(MainActivity.this).edit().putString("word",s.toString()).apply();}public void afterTextChanged(android.text.Editable e){}});
 -            space(page,12);CheckBox back=check(page,"없으면 뒤로가서 다시 찾기",Ui.prefs(this).getBoolean("word_back",true));back.setTextSize(13);back.setTextColor(ink);back.setOnCheckedChangeListener((v,on)->Ui.prefs(this).edit().putBoolean("word_back",on).apply());
 +            targetWordShortcuts(page);
@@ -1060,13 +1099,13 @@
              LinearLayout actions=row(page);quietHalf(actions,"미리보기",()->quickWord(true));quietHalf(actions,"인식 설정",this::recognitionSettings);
              space(page,12);quiet(page,"매크로에 이 글자 추가",()->{Step s=FloatingController.wordStep(this);try{s.validate(macro.steps.size()+1);macro.steps.add(s);save();tab=1;render();edit(s);}catch(Exception e){toast(e.getMessage());}});
 -            space(page,18);text(page,"실행하면 3초 뒤 시작합니다.\n다른 앱에서는 아래 컨트롤을 사용하세요.",12,muted);
-+            space(page,16);text(page,"실행하면 3초 뒤 시작합니다.\n다른 앱에서는 아래 컨트롤을 사용하세요.",12,muted);
++            space(page,16);text(page,"실행하면 3초 뒤 시작합니다.\n다른 앱에서는 화면 위 단축창을 사용하세요.",12,muted);
          }else if(tab==4){buildWatchPage();
          }else if(tab==1){
              LinearLayout heading=row(page);TextView name=text(heading,macro.name,23,ink);name.setLayoutParams(new LinearLayout.LayoutParams(0,-2,1));quietHalfFixed(heading,"더보기",this::macroMenu);
              text(page,macro.steps.size()+"개 동작 · "+(macro.rounds==0?"무한 반복":macro.rounds+"회 반복"),12,muted);space(page,16);
 -            LinearLayout add=row(page);halfButton(add,"＋ 동작 추가",this::chooseStep);halfButton(add,"녹화",this::record);Button addAction=(Button)add.getChildAt(0);addAction.setBackground(Ui.ripple(this,blue,8));addAction.setTextColor(Ui.dark(this)?Ui.bg(this):Color.WHITE);
-+            LinearLayout add=row(page);halfButton(add,"동작 추가",this::chooseStep);halfButton(add,"녹화",this::record);Button addAction=(Button)add.getChildAt(0);addAction.setBackground(Ui.ripple(this,blue,10));addAction.setTextColor(Ui.dark(this)?Ui.bg(this):Color.WHITE);
++            LinearLayout add=row(page);halfButton(add,"동작 추가",this::chooseStep);halfButton(add,"녹화",this::record);Button addAction=(Button)add.getChildAt(0);addAction.setBackground(Ui.ripple(this,blue,10));addAction.setTextColor(Ui.onAccent(this));
              space(page,12);list=new LinearLayout(this);list.setOrientation(LinearLayout.VERTICAL);page.addView(list);refreshList();
              space(page,12);settingRow(page,"반복 · 시간 설정",(macro.rounds==0?"무한":macro.rounds+"회")+" 반복 · 지연 시간 설정",this::settings);space(page,16);primary(page,"매크로 시작",this::start);
          }else if(tab==2){
@@ -1075,7 +1114,7 @@
              quiet(page,"저장본 관리",this::library);
          }else{
 -            text(page,"설정",32,ink);text(page,"화면과 실행 환경을 설정하세요.",13,muted);space(page,18);
-+            text(page,"설정",28,ink);text(page,"화면과 실행 환경을 설정하세요.",13,muted);space(page,16);
++            text(page,"설정",24,ink);text(page,"화면과 실행 환경을 설정하세요.",13,muted);space(page,16);
              settingRow(page,"화면 모드",Ui.prefs(this).getInt("theme",0)==0?"기기 설정":Ui.dark(this)?"다크":"라이트",this::themeChoice);
              settingRow(page,"화면 위 컨트롤","크기 · 투명도 · 번호 표시",this::controlSettings);
              settingRow(page,"접근성",connected?"연결됨":"연결 필요",this::accessibility);
@@ -1124,16 +1163,16 @@
      private void rule(LinearLayout parent){View line=new View(this);line.setBackgroundColor(Ui.line(this));parent.addView(line,new LinearLayout.LayoutParams(-1,dp(1)));}
      private void addNavigation(LinearLayout shell){
 -        LinearLayout nav=new LinearLayout(this);nav.setGravity(Gravity.CENTER_VERTICAL);nav.setPadding(dp(8),0,dp(8),0);nav.setBackgroundColor(Ui.bg(this));rule(shell);shell.addView(nav,new LinearLayout.LayoutParams(-1,dp(68)));
-+        LinearLayout nav=new LinearLayout(this);nav.setGravity(Gravity.CENTER_VERTICAL);nav.setPadding(dp(8),0,dp(8),0);nav.setBackgroundColor(Ui.bg(this));nav.setMinimumHeight(dp(64));rule(shell);shell.addView(nav,new LinearLayout.LayoutParams(-1,-2));
++        LinearLayout nav=new LinearLayout(this);nav.setGravity(Gravity.CENTER_VERTICAL);nav.setPadding(dp(8),0,dp(8),0);nav.setBackgroundColor(Ui.card(this));nav.setMinimumHeight(dp(64));rule(shell);shell.addView(nav,new LinearLayout.LayoutParams(-1,-2));
          String[] labels={"탐지","동작","글자","설정"};int[] pages={4,1,0,3},icons={R.drawable.pxe_scan,R.drawable.pxe_steps,R.drawable.pxe_text,R.drawable.pxe_settings};
 -        for(int i=0;i<pages.length;i++){final int chosen=pages[i];boolean active=tab==chosen||(chosen==1&&tab==2);LinearLayout item=new LinearLayout(this);item.setOrientation(LinearLayout.VERTICAL);item.setGravity(Gravity.CENTER);item.setContentDescription(labels[i]);item.setClickable(true);item.setSelected(active);item.setBackground(Ui.ripple(this,active?Ui.soft(this):Color.TRANSPARENT,10));nav.addView(item,new LinearLayout.LayoutParams(0,-1,1));
 -            ImageView icon=new ImageView(this);icon.setImageResource(icons[i]);icon.setColorFilter(active?blue:muted);icon.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);item.addView(icon,new LinearLayout.LayoutParams(dp(23),dp(23)));TextView label=text(item,labels[i],11,active?blue:muted);label.setPadding(0,dp(4),0,dp(5));label.setGravity(Gravity.CENTER);label.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);View marker=new View(this);marker.setBackground(Ui.rounded(active?blue:Color.TRANSPARENT,dp(2)));item.addView(marker,new LinearLayout.LayoutParams(dp(44),dp(3)));item.setOnClickListener(v->{tab=chosen;render();});}
-+        for(int i=0;i<pages.length;i++){final int chosen=pages[i];boolean active=tab==chosen||(chosen==1&&tab==2);LinearLayout item=new LinearLayout(this);item.setOrientation(LinearLayout.VERTICAL);item.setGravity(Gravity.CENTER);item.setContentDescription(labels[i]);item.setClickable(true);item.setFocusable(true);item.setSelected(active);item.setPadding(0,dp(8),0,dp(8));item.setMinimumHeight(dp(64));item.setBackground(Ui.ripple(this,active?Ui.soft(this):Color.TRANSPARENT,10));nav.addView(item,new LinearLayout.LayoutParams(0,-2,1));
-+            ImageView icon=new ImageView(this);icon.setImageResource(icons[i]);icon.setColorFilter(active?blue:muted);icon.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);item.addView(icon,new LinearLayout.LayoutParams(dp(23),dp(23)));TextView label=text(item,labels[i],11,active?blue:muted);label.setPadding(0,dp(4),0,dp(4));label.setGravity(Gravity.CENTER);label.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);View marker=new View(this);marker.setBackground(Ui.rounded(active?blue:Color.TRANSPARENT,dp(2)));item.addView(marker,new LinearLayout.LayoutParams(dp(44),dp(3)));item.setOnClickListener(v->{tab=chosen;render();});}
++        for(int i=0;i<pages.length;i++){final int chosen=pages[i];boolean active=tab==chosen||(chosen==1&&tab==2);LinearLayout item=new LinearLayout(this);item.setOrientation(LinearLayout.VERTICAL);item.setGravity(Gravity.CENTER);item.setContentDescription(labels[i]);item.setClickable(true);item.setFocusable(true);item.setSelected(active);item.setPadding(0,dp(8),0,dp(8));item.setMinimumHeight(dp(64));item.setBackground(Ui.ripple(this,active?Ui.soft(this):Color.TRANSPARENT,14));nav.addView(item,new LinearLayout.LayoutParams(0,-2,1));
++            ImageView icon=new ImageView(this);icon.setImageResource(icons[i]);icon.setColorFilter(active?blue:muted);icon.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);item.addView(icon,new LinearLayout.LayoutParams(dp(23),dp(23)));TextView label=text(item,labels[i],11,active?blue:muted);label.setPadding(0,dp(4),0,dp(4));label.setGravity(Gravity.CENTER);label.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);item.setOnClickListener(v->{tab=chosen;render();});}
      }
      private void actionRow(LinearLayout parent,int icon,String title,String detail,boolean selected,Runnable action){
 -        LinearLayout r=new LinearLayout(this);r.setGravity(Gravity.CENTER_VERTICAL);r.setPadding(dp(12),dp(14),dp(12),dp(14));r.setMinimumHeight(dp(76));r.setBackground(Ui.ripple(this,selected?Ui.soft(this):Color.TRANSPARENT,8));parent.addView(r,new LinearLayout.LayoutParams(-1,-2));
-+        LinearLayout r=new LinearLayout(this);r.setGravity(Gravity.CENTER_VERTICAL);r.setPadding(dp(12),dp(12),dp(12),dp(12));r.setMinimumHeight(dp(detail.isEmpty()?56:72));r.setFocusable(true);r.setSelected(selected);r.setBackground(Ui.ripple(this,selected?Ui.soft(this):Color.TRANSPARENT,10));parent.addView(r,new LinearLayout.LayoutParams(-1,-2));
++        LinearLayout r=new LinearLayout(this);r.setGravity(Gravity.CENTER_VERTICAL);r.setPadding(dp(12),dp(12),dp(12),dp(12));r.setMinimumHeight(dp(detail.isEmpty()?56:72));r.setFocusable(true);r.setSelected(selected);r.setBackground(Ui.ripple(this,selected?Ui.soft(this):Ui.card(this),12));parent.addView(r,new LinearLayout.LayoutParams(-1,-2));
          ImageView symbol=new ImageView(this);symbol.setImageResource(icon);symbol.setColorFilter(selected?blue:muted);symbol.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);LinearLayout.LayoutParams iconSize=new LinearLayout.LayoutParams(dp(26),dp(26));iconSize.setMargins(0,0,dp(16),0);r.addView(symbol,iconSize);
 -        LinearLayout copy=new LinearLayout(this);copy.setOrientation(LinearLayout.VERTICAL);r.addView(copy,new LinearLayout.LayoutParams(0,-2,1));TextView label=text(copy,title,16,ink);label.setPadding(0,0,0,dp(5));TextView value=text(copy,detail,12,muted);value.setPadding(0,0,0,0);
 -        ImageView arrow=new ImageView(this);arrow.setImageResource(R.drawable.pxe_chevron);arrow.setColorFilter(muted);arrow.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);r.addView(arrow,new LinearLayout.LayoutParams(dp(20),dp(20)));r.setOnClickListener(v->action.run());r.setContentDescription(title+" · "+detail);if(!selected)rule(parent);
@@ -1150,8 +1189,8 @@
 -        actionRow(page,R.drawable.pxe_steps,"실행 매크로",(p.macroName.isEmpty()?Store.load(this).name:p.macroName)+" · "+p.repetitions+"회",false,this::watchSettings);
 -        actionRow(page,R.drawable.pxe_clock,"완료 후 대기",Times.durationLabel(p.cooldownMs),false,this::watchSettings);
 -        actionRow(page,R.drawable.pxe_refresh,"새로고침 간격",p.intervalSeconds+"초",false,this::watchSettings);
-+        text(page,"목록 탐지",26,ink);text(page,"찾을 글자",12,muted);
-+        TextView word=text(page,p.rule.text.isEmpty()?"글자를 설정하세요":p.rule.text,28,ink);word.setContentDescription("현재 탐지할 글자");word.setSingleLine(false);word.setHorizontallyScrolling(false);word.setBreakStrategy(android.graphics.text.LineBreaker.BREAK_STRATEGY_SIMPLE);
++        text(page,"목록 탐지",24,ink);text(page,"찾을 글자",12,muted);
++        TextView word=text(page,p.rule.text.isEmpty()?"글자를 설정하세요":p.rule.text,23,ink);word.setContentDescription("현재 탐지할 글자");word.setPadding(dp(16),dp(14),dp(16),dp(14));word.setBackground(Ui.outline(this,Ui.card(this),14));word.setSingleLine(false);word.setHorizontallyScrolling(false);word.setBreakStrategy(android.graphics.text.LineBreaker.BREAK_STRATEGY_SIMPLE);
 +        targetWordShortcuts(page);
          space(page,12);primary(page,"탐지 시작",this::startWatch);
 -        LinearLayout actions=row(page);quietHalf(actions,"글자 · 매크로 설정",this::watchSettings);quietHalf(actions,"탐지 영역 지정",this::watchRegion);
@@ -1207,7 +1246,7 @@
 -    private Button quiet(LinearLayout box,String label,Runnable action){Button b=button(box,label,action);b.setBackgroundColor(Color.TRANSPARENT);b.setTextColor(muted);return b;}
 -    private void quietHalf(LinearLayout box,String label,Runnable action){Button b=button(box,label,action);b.setTextColor(ink);b.setTextSize(12);b.setBackground(Ui.ripple(this,Color.TRANSPARENT,0));LinearLayout.LayoutParams p=new LinearLayout.LayoutParams(0,dp(48),1);int index=box.indexOfChild(b);p.setMargins(index==0?0:dp(4),dp(6),index==0?dp(4):0,dp(2));b.setLayoutParams(p);}
 -    private void quietHalfFixed(LinearLayout box,String label,Runnable action){Button b=quiet(box,label,action);b.setTextSize(12);b.setLayoutParams(new LinearLayout.LayoutParams(dp(72),dp(48)));}
-+    private Button primary(LinearLayout box,String label,Runnable action){Button b=button(box,label,action);b.setTextSize(17);b.setTextColor(Ui.dark(this)?Ui.bg(this):Color.WHITE);b.setBackground(Ui.ripple(this,blue,10));b.setMinHeight(dp(56));b.setLayoutParams(new LinearLayout.LayoutParams(-1,-2));return b;}
++    private Button primary(LinearLayout box,String label,Runnable action){Button b=button(box,label,action);b.setTextSize(16);b.setTextColor(Ui.onAccent(this));b.setBackground(Ui.ripple(this,blue,14));b.setMinHeight(dp(52));b.setLayoutParams(new LinearLayout.LayoutParams(-1,-2));return b;}
 +    private Button quiet(LinearLayout box,String label,Runnable action){Button b=button(box,label,action);b.setBackground(Ui.ripple(this,Color.TRANSPARENT,10));b.setTextColor(muted);return b;}
 +    private void quietHalf(LinearLayout box,String label,Runnable action){Button b=button(box,label,action);b.setTextColor(ink);b.setTextSize(14);b.setBackground(Ui.ripple(this,Color.TRANSPARENT,10));b.setLayoutParams(actionSize(box));}
 +    private void quietHalfFixed(LinearLayout box,String label,Runnable action){Button b=quiet(box,label,action);b.setTextSize(14);b.setLayoutParams(new LinearLayout.LayoutParams(dp(88),-2));}
@@ -1228,7 +1267,7 @@
          CheckBox dots=check(f,"터치 위치 번호 표시",Ui.prefs(this).getBoolean("markers",true));dots.setOnCheckedChangeListener((v,on)->{Ui.prefs(this).edit().putBoolean("markers",on).apply();refreshFloating();});
          CheckBox awake=check(f,"실행 중 화면 켜짐 유지",Ui.prefs(this).getBoolean("keep_screen",true));awake.setOnCheckedChangeListener((v,on)->Ui.prefs(this).edit().putBoolean("keep_screen",on).apply());
          show(new AlertDialog.Builder(this).setTitle("화면 위 컨트롤").setView(wrap(f)).setPositiveButton("완료",null),null);
-@@ -212,42 +227,48 @@
+@@ -212,42 +227,44 @@
      private void themeChoice(){show(new AlertDialog.Builder(this).setTitle("라이트 / 다크").setSingleChoiceItems(new String[]{"기기 설정 따르기","라이트","다크"},Ui.prefs(this).getInt("theme",0),(d,w)->{if(!Ui.prefs(this).edit().putInt("theme",w).commit()){toast("테마 저장에 실패했습니다");return;}save();d.dismiss();refreshFloating();recreate();}).setNegativeButton("취소",null),null);}
      private void slider(LinearLayout box,String label,int min,int max,String key,int def){TextView value=text(box,label+" · "+Ui.prefs(this).getInt(key,def),12,muted);SeekBar bar=new SeekBar(this);bar.setMax(max-min);bar.setProgress(Ui.prefs(this).getInt(key,def)-min);box.addView(bar);bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){public void onStartTrackingTouch(SeekBar s){}public void onStopTrackingTouch(SeekBar s){refreshFloating();}public void onProgressChanged(SeekBar s,int n,boolean user){if(user){Ui.prefs(MainActivity.this).edit().putInt(key,n+min).apply();value.setText(getString(R.string.nex_slider,label,n+min));}}});}
      private void record(){if(service()){save();if(MacroService.get().running){toast("먼저 실행을 정지하세요");return;}moveTaskToBack(true);MacroService.get().controller().beginRecording(false,-1);}}
@@ -1285,16 +1324,12 @@
      private int timeValue(EditText e){return Times.millis(e.getText().toString());}
      private double decimal(EditText e){return Double.parseDouble(e.getText().toString().trim());}
 -    private void show(AlertDialog.Builder b,Runnable ready){AlertDialog d=b.create();d.setOnShowListener(x->{font(d.getWindow().getDecorView());if(ready!=null)ready.run();});d.show();}
-+    private void styleDialog(AlertDialog dialog){
-+        Window window=dialog.getWindow();if(window==null)return;font(window.getDecorView());window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
-+        int available=getWindowManager().getCurrentWindowMetrics().getBounds().width();int width=Math.min(dp(560),available-dp(32));if(width>0)window.setLayout(width,WindowManager.LayoutParams.WRAP_CONTENT);
-+        for(int which:new int[]{AlertDialog.BUTTON_POSITIVE,AlertDialog.BUTTON_NEGATIVE,AlertDialog.BUTTON_NEUTRAL}){Button action=dialog.getButton(which);if(action!=null){action.setSingleLine(false);action.setMaxLines(Integer.MAX_VALUE);action.setMinHeight(dp(48));action.setPadding(dp(12),dp(10),dp(12),dp(10));}}
-+    }
++    private void styleDialog(AlertDialog dialog){Ui.styleDialog(dialog);}
 +    private void show(AlertDialog.Builder b,Runnable ready){AlertDialog d=b.create();d.setOnShowListener(x->{styleDialog(d);if(ready!=null)ready.run();});d.show();}
      private void edit(Step original){
          Step s=new Step(original.json());LinearLayout f=form();text(f,s.name(),21,ink);LinearLayout advanced=new LinearLayout(this);advanced.setOrientation(LinearLayout.VERTICAL);advanced.setVisibility(View.GONE);
          HashMap<String,EditText> fields=new HashMap<>();
-@@ -262,7 +283,7 @@
+@@ -262,7 +279,7 @@
          if(s.type.equals("MULTI_TAP"))fields.put("text",field(f,"동시 터치 좌표 · 25,50;75,50",s.text,false));
          if(s.type.equals("GESTURE")){text(f,s.strokes.length()+"개의 손가락 경로가 기록되어 있습니다.",13,muted);button(f,"이 동작을 다시 녹화",()->{if(service()){save();moveTaskToBack(true);MacroService.get().controller().beginRecording(true,macro.steps.indexOf(original));}});}
          Spinner matching=null,source=null,failure=null;CheckBox spaces=null,casing=null,forever=null,immediate=null;
@@ -1303,7 +1338,7 @@
          if(s.textAction()){
              fields.put("text",field(f,"찾을 글자",s.text,false));
              source=spinner(f,"검색 방식",Ui.recognitionNames(),selected(sourceValues,s.source));
-@@ -274,8 +295,8 @@
+@@ -274,8 +291,8 @@
                  final CheckBox nextNow=immediate;forever.setOnCheckedChangeListener((v,on)->{if(on)nextNow.setChecked(true);});
                  text(f,"계속 기다리는 동안 정지할 수 있습니다. 즉시 진행은 완료 후 대기를 생략하고, 글자 터치는 터치 전 재확인도 생략합니다. 실제 인식 시간은 필요합니다.",12,muted);
              }
@@ -1314,7 +1349,7 @@
              fields.put("occurrence",field(advanced,"같은 글자 중 몇 번째 · 위에서 아래, 왼쪽에서 오른쪽",Integer.toString(s.occurrence),true));
              fields.put("left",field(advanced,"검색 영역 왼쪽 %",Double.toString(s.left),true));fields.put("top",field(advanced,"검색 영역 위 %",Double.toString(s.top),true));fields.put("right",field(advanced,"검색 영역 오른쪽 %",Double.toString(s.right),true));fields.put("bottom",field(advanced,"검색 영역 아래 %",Double.toString(s.bottom),true));fields.put("offsetX",field(advanced,"터치 X 보정 % · -50~50",Double.toString(s.offsetX),false));fields.put("offsetY",field(advanced,"터치 Y 보정 % · -50~50",Double.toString(s.offsetY),false));
              if(s.type.equals("TEXT_BRANCH")){
-@@ -296,7 +317,7 @@
+@@ -296,7 +313,7 @@
          if(!Arrays.asList("GOTO","STOP","TEXT_BRANCH").contains(s.type)){fields.put("repeat",field(advanced,"이 동작 한 세트만 반복 · 회",Integer.toString(s.repeat),true));text(advanced,"기본 1회입니다. 3으로 정하면 이 동작만 3번 하고 다음 동작으로 넘어갑니다. 전체 매크로 15회와는 별도입니다. 입력 범위는 1~1000회입니다.",12,muted);}else{text(advanced,"순서 이동과 정지는 개별 반복 대신 실행 흐름을 바꾸는 동작입니다.",12,muted);}Button detail=quiet(f,"세부 설정 보기",()->{});detail.setOnClickListener(v->{boolean open=advanced.getVisibility()!=View.VISIBLE;advanced.setVisibility(open?View.VISIBLE:View.GONE);detail.setText(open?"세부 설정 접기":"세부 설정 보기");});f.addView(advanced);fields.put("after",timeField(f,"동작 완료 후 대기 · 초",s.after));CheckBox enabled=check(f,"이 동작 사용",s.enabled);
          final Spinner fm=matching,fsrc=source,ff=failure;final CheckBox fsp=spaces,fca=casing,fforever=forever,fimmediate=immediate;
          AlertDialog d=new AlertDialog.Builder(this).setView(wrap(f)).setPositiveButton("적용",null).setNegativeButton("취소",null).create();
@@ -1323,7 +1358,7 @@
              if(fields.containsKey("x")){s.x=decimal(fields.get("x"));s.y=decimal(fields.get("y"));}if(fields.containsKey("x2")){s.x2=decimal(fields.get("x2"));s.y2=decimal(fields.get("y2"));}
              if(fields.containsKey("cx")){s.cx=decimal(fields.get("cx"));s.cy=decimal(fields.get("cy"));}if(fields.containsKey("durationJitter"))s.durationJitter=timeValue(fields.get("durationJitter"));s.afterJitter=timeValue(fields.get("afterJitter"));
              if(fields.containsKey("duration"))s.duration=timeValue(fields.get("duration"));if(fields.containsKey("text"))s.text=fields.get("text").getText().toString();
-@@ -316,10 +337,10 @@
+@@ -316,10 +333,10 @@
          EditText rounds=field(f,"전체 반복 횟수 · 0 = 무한",Integer.toString(macro.rounds),true),gap=timeField(f,"전체 반복 사이 대기 · 초",macro.gap),start=timeField(f,"시작 전 대기 · 초",macro.startDelay),max=field(f,"최대 실행 시간 분 · 0 = 제한 없음",Integer.toString(macro.maxMinutes),true);
          EditText startAt=field(f,"시작할 동작 번호",Integer.toString(macro.startAt),true);
          text(f,"화면이 꺼지거나 방향이 바뀌면 중단됩니다. 긴 실행은 화면 자동 꺼짐 시간을 직접 조정하세요.",12,muted);
@@ -1434,6 +1469,17 @@
 -        // 예약 프레임이나 반복 무효화를 만들지 않아 실행·백그라운드의 모델 연산이 이어지지 않습니다.
 -    }
 -}
+--- 27차/source/app/src/main/java/kr/yunseok/touchmacro/RegionPicker.java
++++ 28차/source/app/src/main/java/kr/yunseok/touchmacro/RegionPicker.java
+@@ -30,7 +30,7 @@
+         wm.addView(canvas,layout(-1,-1));
+         LinearLayout box=new LinearLayout(c);box.setOrientation(LinearLayout.VERTICAL);box.setPadding(Ui.dp(c,16),Ui.dp(c,13),Ui.dp(c,16),Ui.dp(c,13));box.setBackground(Ui.outline(c,Ui.card(c),12));
+         TextView hint=new TextView(c);hint.setText("탐지할 부분을 사각형으로 그리세요");hint.setTextColor(Ui.ink(c));hint.setTextSize(13);box.addView(hint);
+-        LinearLayout actions=new LinearLayout(c);box.addView(actions);Button ok=Ui.button(c,"이 영역 사용"),cancel=Ui.button(c,"취소");actions.addView(ok,new LinearLayout.LayoutParams(0,Ui.dp(c,48),1));actions.addView(cancel,new LinearLayout.LayoutParams(0,Ui.dp(c,48),1));
++        LinearLayout actions=new LinearLayout(c);box.addView(actions);Button ok=Ui.button(c,"이 영역 사용"),cancel=Ui.button(c,"취소");ok.setBackground(Ui.ripple(c,Ui.accent(c),12));ok.setTextColor(Ui.onAccent(c));actions.addView(ok,new LinearLayout.LayoutParams(0,Ui.dp(c,48),1));actions.addView(cancel,new LinearLayout.LayoutParams(0,Ui.dp(c,48),1));
+         cancel.setOnClickListener(v->{close();if(this.cancel!=null)this.cancel.run();});ok.setOnClickListener(v->{if(rect.width()<Ui.dp(c,12)||rect.height()<Ui.dp(c,12)){Toast.makeText(owner,"손가락으로 탐지할 영역을 그려 주세요",Toast.LENGTH_SHORT).show();return;}int[] s=owner.size();RectF percent=new RectF(Math.max(0,rect.left*100/s[0]),Math.max(0,rect.top*100/s[1]),Math.min(100,rect.right*100/s[0]),Math.min(100,rect.bottom*100/s[1]));try{accept.accept(percent);close();Toast.makeText(owner,"탐지 영역 저장 완료",Toast.LENGTH_SHORT).show();}catch(Exception e){Toast.makeText(owner,e.getMessage(),Toast.LENGTH_LONG).show();}});
+         Ui.font(box);bar=box;WindowManager.LayoutParams p=layout(Ui.dp(c,300),-2);p.x=Math.max(0,(owner.size()[0]-p.width)/2);p.y=Ui.dp(c,40);wm.addView(bar,p);
+     }
 --- 27차/source/app/src/main/java/kr/yunseok/touchmacro/RunHud.java
 +++ 28차/source/app/src/main/java/kr/yunseok/touchmacro/RunHud.java
 @@ -4,17 +4,64 @@
@@ -1462,13 +1508,13 @@
 +    }
 +    private void build(){
 +        Context c=Ui.themed(owner);darkTheme=Ui.dark(owner);int[] size=owner.size();screenWidth=size[0];screenHeight=size[1];expanded=Ui.prefs(owner).getBoolean("hud_expanded",false);
-+        view=new LinearLayout(c);view.setOrientation(LinearLayout.VERTICAL);view.setBackground(Ui.outline(c,Ui.card(c),12));view.setElevation(dp(3));
++        view=new LinearLayout(c);view.setOrientation(LinearLayout.VERTICAL);view.setBackground(Ui.outline(c,Ui.card(c),12));view.setElevation(dp(2));
 +        LinearLayout header=new LinearLayout(c);header.setGravity(Gravity.CENTER_VERTICAL);view.addView(header,new LinearLayout.LayoutParams(-1,dp(44)));
 +        counter=new TextView(c);counter.setTextSize(13);counter.setAutoSizeTextTypeUniformWithConfiguration(10,13,1,android.util.TypedValue.COMPLEX_UNIT_SP);counter.setTextColor(Ui.ink(c));counter.setGravity(Gravity.CENTER);counter.setSingleLine(true);counter.setPadding(dp(8),0,0,0);header.addView(counter,new LinearLayout.LayoutParams(0,-1,1));drag(counter);
 +        expand=icon(c,R.drawable.pxe_chevron,"진행 상세 펼치기");expand.setPadding(dp(10),dp(10),dp(10),dp(10));header.addView(expand,new LinearLayout.LayoutParams(dp(40),-1));expand.setOnClickListener(v->setExpanded(!expanded));
 +        details=new LinearLayout(c);details.setOrientation(LinearLayout.VERTICAL);details.setPadding(dp(12),0,dp(12),dp(12));view.addView(details);
 +        LinearLayout state=new LinearLayout(c);state.setGravity(Gravity.CENTER_VERTICAL);details.addView(state);
-+        ImageView symbol=new ImageView(c);symbol.setImageResource(R.drawable.pxe_sun);symbol.setColorFilter(0xffd6a73e);symbol.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);state.addView(symbol,new LinearLayout.LayoutParams(dp(20),dp(20)));
++        ImageView symbol=new ImageView(c);symbol.setImageResource(R.drawable.pxe_sun);symbol.setColorFilter(Ui.accent(c));symbol.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);state.addView(symbol,new LinearLayout.LayoutParams(dp(20),dp(20)));
 +        TextView title=new TextView(c);title.setText("현재 실행");title.setTextSize(13);title.setTextColor(Ui.ink(c));title.setPadding(dp(8),0,0,0);state.addView(title);
 +        progress=new TextView(c);progress.setTextSize(13);progress.setTextColor(Ui.ink(c));progress.setMaxLines(5);progress.setPadding(0,dp(8),0,dp(8));details.addView(progress);
 +        times=new TextView(c);times.setTextSize(11);times.setTextColor(Ui.muted(c));times.setMaxLines(3);details.addView(times);
@@ -1521,6 +1567,20 @@
 +    public static final double START_Y=75;
 +    public static final double END_Y=52.5;
 +}
+--- 27차/source/app/src/main/java/kr/yunseok/touchmacro/SetupCoach.java
++++ 28차/source/app/src/main/java/kr/yunseok/touchmacro/SetupCoach.java
+@@ -9,9 +9,9 @@
+     private final MacroService owner;private final WindowManager wm;private View view;
+     public SetupCoach(MacroService owner){this.owner=owner;wm=(WindowManager)owner.getSystemService(Context.WINDOW_SERVICE);}
+     public void show(String instruction,String label,Runnable action,Runnable back){
+-        close();Context c=Ui.themed(owner);LinearLayout box=new LinearLayout(c);box.setOrientation(LinearLayout.VERTICAL);box.setPadding(Ui.dp(c,16),Ui.dp(c,13),Ui.dp(c,16),Ui.dp(c,13));box.setBackground(Ui.outline(c,Ui.card(c),12));box.setElevation(Ui.dp(c,3));
++        close();Context c=Ui.themed(owner);LinearLayout box=new LinearLayout(c);box.setOrientation(LinearLayout.VERTICAL);box.setPadding(Ui.dp(c,16),Ui.dp(c,13),Ui.dp(c,16),Ui.dp(c,13));box.setBackground(Ui.outline(c,Ui.card(c),12));box.setElevation(Ui.dp(c,2));
+         TextView hint=new TextView(c);hint.setText(instruction);hint.setTextSize(12);hint.setTextColor(Ui.ink(c));box.addView(hint);
+-        LinearLayout row=new LinearLayout(c);row.setPadding(0,Ui.dp(c,10),0,0);box.addView(row);Button go=Ui.button(c,label),settings=Ui.button(c,"설정으로");go.setTextSize(12);go.setBackground(Ui.rounded(Ui.accent(c),Ui.dp(c,8)));go.setTextColor(Ui.dark(c)?0xFF101828:0xFFFFFFFF);settings.setTextSize(11);settings.setBackgroundColor(android.graphics.Color.TRANSPARENT);row.addView(go,new LinearLayout.LayoutParams(0,Ui.dp(c,48),1.4f));row.addView(settings,new LinearLayout.LayoutParams(0,Ui.dp(c,48),1));
++        LinearLayout row=new LinearLayout(c);row.setPadding(0,Ui.dp(c,10),0,0);box.addView(row);Button go=Ui.button(c,label),settings=Ui.button(c,"설정으로");go.setTextSize(12);go.setBackground(Ui.ripple(c,Ui.accent(c),12));go.setTextColor(Ui.onAccent(c));settings.setTextSize(11);settings.setBackgroundColor(android.graphics.Color.TRANSPARENT);row.addView(go,new LinearLayout.LayoutParams(0,Ui.dp(c,48),1.4f));row.addView(settings,new LinearLayout.LayoutParams(0,Ui.dp(c,48),1));
+         go.setOnClickListener(v->{try{action.run();}catch(Exception e){Toast.makeText(owner,e.getMessage(),Toast.LENGTH_LONG).show();}});settings.setOnClickListener(v->back.run());Ui.font(box);
+         WindowManager.LayoutParams p=new WindowManager.LayoutParams(Ui.dp(c,270),-2,WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY,WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,PixelFormat.TRANSLUCENT);p.gravity=Gravity.TOP|Gravity.END;p.x=Ui.dp(c,8);p.y=Ui.dp(c,36);view=box;wm.addView(view,p);
+     }
 --- 27차/source/app/src/main/java/kr/yunseok/touchmacro/Step.java
 +++ 28차/source/app/src/main/java/kr/yunseok/touchmacro/Step.java
 @@ -1,61 +1,60 @@
@@ -1690,26 +1750,26 @@
 +        TextView note=new TextView(c);note.setText("실행 중이면 새 글자로 처음부터 다시 시작합니다.");note.setTextColor(Ui.muted(c));note.setTextSize(12);body.addView(note);
 +        AlertDialog dialog=new AlertDialog.Builder(c).setTitle("인식할 글자 변경").setView(body).setPositiveButton("적용",null).setNegativeButton("취소",null).create();overlay(c,dialog);
 +        dialog.setOnDismissListener(d->{if(!applied[0]&&resume&&service.runRevision()==generation&&service.running&&service.paused)service.togglePause();});
-+        dialog.setOnShowListener(d->{Ui.font(dialog.getWindow().getDecorView());dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v->{try{String word=checked(input.getText().toString());if(keep.isChecked()&&!items(c).contains(word)&&items(c).size()>=30)throw new IllegalArgumentException("자주 쓰는 글자는 최대 30개입니다");select(c,word);if(keep.isChecked())add(c,word);applied[0]=true;if(resume&&service.runRevision()==generation&&service.running&&service.paused)service.togglePause();dialog.dismiss();changed.run();}catch(Exception error){toast(c,error);}});});dialog.show();
++        dialog.setOnShowListener(d->{Ui.styleDialog(dialog);dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v->{try{String word=checked(input.getText().toString());if(keep.isChecked()&&!items(c).contains(word)&&items(c).size()>=30)throw new IllegalArgumentException("자주 쓰는 글자는 최대 30개입니다");select(c,word);if(keep.isChecked())add(c,word);applied[0]=true;if(resume&&service.runRevision()==generation&&service.running&&service.paused)service.togglePause();dialog.dismiss();changed.run();}catch(Exception error){toast(c,error);}});});dialog.show();
 +    }
 +    public static void fillShortcuts(Context c,LinearLayout host,Runnable changed){
 +        host.removeAllViews();host.setOrientation(LinearLayout.VERTICAL);
 +        LinearLayout heading=new LinearLayout(c);heading.setGravity(android.view.Gravity.CENTER_VERTICAL);host.addView(heading,new LinearLayout.LayoutParams(-1,-2));
 +        TextView label=new TextView(c);label.setText("자주 쓰는 글자");label.setTextSize(12);label.setTextColor(Ui.muted(c));heading.addView(label,new LinearLayout.LayoutParams(0,-2,1));
-+        Button manage=Ui.button(c,"등록 · 관리");manage.setTextSize(12);heading.addView(manage,new LinearLayout.LayoutParams(-2,-2));manage.setOnClickListener(v->manage(c,changed));
++        Button manage=Ui.button(c,"등록 · 관리");manage.setTextSize(12);manage.setTextColor(Ui.accent(c));manage.setBackground(Ui.ripple(c,android.graphics.Color.TRANSPARENT,12));heading.addView(manage,new LinearLayout.LayoutParams(-2,-2));manage.setOnClickListener(v->manage(c,changed));
 +        HorizontalScrollView scroll=new HorizontalScrollView(c);scroll.setHorizontalScrollBarEnabled(false);host.addView(scroll,new LinearLayout.LayoutParams(-1,-2));LinearLayout row=new LinearLayout(c);scroll.addView(row);
 +        List<String> words=items(c);String selected=current(c);
 +        if(words.isEmpty()){TextView empty=new TextView(c);empty.setText("글자를 등록하면 여기에 표시됩니다");empty.setTextSize(12);empty.setTextColor(Ui.muted(c));empty.setPadding(0,0,0,Ui.dp(c,8));row.addView(empty);}
-+        for(String word:words){Button chip=Ui.button(c,word);chip.setMaxWidth(Ui.dp(c,180));chip.setMaxLines(2);chip.setTextSize(13);chip.setContentDescription("글자 단축키 · "+word);chip.setSelected(word.equals(selected));chip.setTextColor(word.equals(selected)?Ui.accent(c):Ui.ink(c));chip.setBackground(Ui.ripple(c,word.equals(selected)?Ui.soft(c):Ui.card(c),10));LinearLayout.LayoutParams p=new LinearLayout.LayoutParams(-2,-2);p.setMargins(0,0,Ui.dp(c,6),0);row.addView(chip,p);chip.setOnClickListener(v->{try{select(c,word);changed.run();}catch(Exception error){toast(c,error);}});}
++        for(String word:words){Button chip=Ui.button(c,word);chip.setMaxWidth(Ui.dp(c,180));chip.setMaxLines(2);chip.setTextSize(13);chip.setContentDescription("글자 단축키 · "+word);chip.setSelected(word.equals(selected));chip.setTextColor(word.equals(selected)?Ui.accent(c):Ui.ink(c));chip.setBackground(Ui.ripple(c,word.equals(selected)?Ui.soft(c):Ui.card(c),24));LinearLayout.LayoutParams p=new LinearLayout.LayoutParams(-2,-2);p.setMargins(0,0,Ui.dp(c,6),0);row.addView(chip,p);chip.setOnClickListener(v->{try{select(c,word);changed.run();}catch(Exception error){toast(c,error);}});}
 +        Ui.font(host);
 +    }
 +    private static void manage(Context c,Runnable changed){
 +        List<String> words=items(c);String[] choices=new String[words.size()+1];choices[0]="새 글자 등록";for(int i=0;i<words.size();i++)choices[i+1]="삭제 · "+words.get(i);
-+        AlertDialog dialog=new AlertDialog.Builder(Ui.themed(c)).setTitle("자주 쓰는 글자 관리").setItems(choices,(d,index)->{if(index==0){register(c,changed);return;}try{remove(c,words.get(index-1));changed.run();}catch(Exception error){toast(c,error);}}).setNegativeButton("닫기",null).create();overlay(c,dialog);dialog.setOnShowListener(d->Ui.font(dialog.getWindow().getDecorView()));dialog.show();
++        AlertDialog dialog=new AlertDialog.Builder(Ui.themed(c)).setTitle("자주 쓰는 글자 관리").setItems(choices,(d,index)->{if(index==0){register(c,changed);return;}try{remove(c,words.get(index-1));changed.run();}catch(Exception error){toast(c,error);}}).setNegativeButton("닫기",null).create();overlay(c,dialog);dialog.setOnShowListener(d->Ui.styleDialog(dialog));dialog.show();
 +    }
 +    private static void register(Context c,Runnable changed){
 +        LinearLayout body=new LinearLayout(c);body.setPadding(Ui.dp(c,20),Ui.dp(c,8),Ui.dp(c,20),0);EditText input=new EditText(c);input.setHint("등록할 글자");input.setContentDescription("등록할 글자 입력");input.setMaxLines(3);body.addView(input,new LinearLayout.LayoutParams(-1,-2));
-+        AlertDialog dialog=new AlertDialog.Builder(Ui.themed(c)).setTitle("글자 등록").setView(body).setPositiveButton("등록",null).setNegativeButton("취소",null).create();overlay(c,dialog);dialog.setOnShowListener(d->{Ui.font(dialog.getWindow().getDecorView());dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v->{try{add(c,input.getText().toString());dialog.dismiss();changed.run();}catch(Exception error){toast(c,error);}});});dialog.show();
++        AlertDialog dialog=new AlertDialog.Builder(Ui.themed(c)).setTitle("글자 등록").setView(body).setPositiveButton("등록",null).setNegativeButton("취소",null).create();overlay(c,dialog);dialog.setOnShowListener(d->{Ui.styleDialog(dialog);dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v->{try{add(c,input.getText().toString());dialog.dismiss();changed.run();}catch(Exception error){toast(c,error);}});});dialog.show();
 +    }
 +}
 --- 27차/source/app/src/main/java/kr/yunseok/touchmacro/TextRules.java
@@ -1822,7 +1882,7 @@
   // 같은 문구를 주기적으로 다시 설정해 불필요한 배치 갱신을 만들지 않습니다.
   public static void textIfChanged(TextView view,CharSequence value){if(view!=null&&!android.text.TextUtils.equals(view.getText(),value))view.setText(value);}
   public static String[] recognitionNames(){return new String[]{"자동 · 화면 정보 → OCR","화면 정보","한글 OCR"};}
-@@ -26,8 +26,30 @@
+@@ -26,8 +26,37 @@
   public static void enter(View v){if(!android.animation.ValueAnimator.areAnimatorsEnabled())return;v.setAlpha(0f);v.setTranslationY(dp(v.getContext(),6));v.animate().alpha(1f).translationY(0).setDuration(180).setInterpolator(new android.view.animation.DecelerateInterpolator()).start();}
   public static int dp(Context c,float n){return (int)(n*c.getResources().getDisplayMetrics().density+.5f);}
   public static GradientDrawable rounded(int color,int radius){GradientDrawable g=new GradientDrawable();g.setColor(color);g.setCornerRadius(radius);return g;}
@@ -1836,9 +1896,9 @@
 +  states.addState(new int[]{-android.R.attr.state_enabled},disabled);
 +  GradientDrawable focused=rounded(color,dp(c,radius));focused.setStroke(dp(c,2),accent(c));
 +  states.addState(new int[]{android.R.attr.state_focused},focused);
-+  GradientDrawable pressed=rounded(color==Color.TRANSPARENT?soft(c):color,dp(c,radius));pressed.setStroke(dp(c,2),accent(c));
++  GradientDrawable pressed=rounded(color==Color.TRANSPARENT?soft(c):color,dp(c,radius));if(border)pressed.setStroke(dp(c,1),accent(c));
 +  states.addState(new int[]{android.R.attr.state_pressed},pressed);
-+  GradientDrawable selected=rounded(color==Color.TRANSPARENT?soft(c):color,dp(c,radius));selected.setStroke(dp(c,1),accent(c));
++  GradientDrawable selected=rounded(color==Color.TRANSPARENT?soft(c):color,dp(c,radius));if(border)selected.setStroke(dp(c,1),accent(c));
 +  states.addState(new int[]{android.R.attr.state_selected},selected);
 +  states.addState(new int[]{android.R.attr.state_hovered},rounded(color==Color.TRANSPARENT?soft(c):color,dp(c,radius)));
 +  states.addState(new int[]{},border?outline(c,color,radius):rounded(color,dp(c,radius)));return states;
@@ -1846,12 +1906,19 @@
 + // 일반 행은 평평하게, 버튼과 입력은 경계를 표시해 같은 테두리의 반복을 줄입니다.
 + public static android.graphics.drawable.RippleDrawable ripple(Context c,int color,int radius){return interaction(c,color,radius,false);}
 + public static android.graphics.drawable.RippleDrawable outlinedRipple(Context c,int color,int radius){return interaction(c,color,radius,true);}
-+ public static android.graphics.drawable.RippleDrawable buttonBackground(Context c){return interaction(c,Color.TRANSPARENT,10,true);}
++ public static android.graphics.drawable.RippleDrawable buttonBackground(Context c){return interaction(c,card(c),12,true);}
 + private static android.graphics.drawable.RippleDrawable interaction(Context c,int color,int radius,boolean border){return new android.graphics.drawable.RippleDrawable(android.content.res.ColorStateList.valueOf(dark(c)?0x26FFFFFF:0x14000000),stateBackground(c,color,radius,border),rounded(Color.WHITE,dp(c,radius)));}
 + public static android.graphics.drawable.StateListDrawable focusRing(Context c){
 +  android.graphics.drawable.StateListDrawable states=new android.graphics.drawable.StateListDrawable();GradientDrawable focus=rounded(Color.TRANSPARENT,dp(c,10));focus.setStroke(dp(c,2),accent(c));states.addState(new int[]{android.R.attr.state_focused},focus);states.addState(new int[]{},rounded(Color.TRANSPARENT,dp(c,10)));return states;
 + }
-+ public static void font(View v){if(v instanceof TextView){TextView text=(TextView)v;String label=text.getText().toString().trim();boolean symbolOnly=!label.isEmpty()&&label.matches("[Ⅱ▶■⋮↗＋]+");text.setTypeface(symbolOnly?android.graphics.Typeface.DEFAULT:v.getResources().getFont(R.font.nanum_gothic_bold));text.setIncludeFontPadding(true);text.setFallbackLineSpacing(true);}if(v instanceof Button){Button b=(Button)v;b.setMinHeight(Math.max(b.getMinHeight(),dp(v.getContext(),48)));b.setForeground(focusRing(v.getContext()));b.setTextColor(new android.content.res.ColorStateList(new int[][]{new int[]{-android.R.attr.state_enabled},new int[]{}},new int[]{muted(v.getContext()),b.getTextColors().getDefaultColor()}));}if(v instanceof CompoundButton)((CompoundButton)v).setMinHeight(dp(v.getContext(),48));if(v instanceof SeekBar)((SeekBar)v).setMinHeight(dp(v.getContext(),48));if(v instanceof CompoundButton||v instanceof SeekBar||v instanceof Spinner){v.setForeground(focusRing(v.getContext()));}if(v instanceof ListView){ListView list=(ListView)v;list.setSelector(ripple(v.getContext(),Color.TRANSPARENT,10));}if(v instanceof EditText){EditText e=(EditText)v;Context c=e.getContext();e.setBackground(controlStates(c,card(c),10));e.setPadding(dp(c,16),dp(c,12),dp(c,16),dp(c,12));e.setMinHeight(dp(c,48));}if(v instanceof ViewGroup)for(int i=0;i<((ViewGroup)v).getChildCount();i++)font(((ViewGroup)v).getChildAt(i));}
++ public static void font(View v){if(v instanceof TextView){TextView text=(TextView)v;String label=text.getText().toString().trim();boolean symbolOnly=!label.isEmpty()&&label.matches("[Ⅱ▶■⋮↗＋]+");text.setTypeface(symbolOnly?android.graphics.Typeface.DEFAULT:v.getResources().getFont(R.font.nanum_gothic_bold));text.setIncludeFontPadding(true);text.setFallbackLineSpacing(true);text.setLineSpacing(dp(v.getContext(),2),1.05f);}if(v instanceof Button){Button b=(Button)v;b.setMinHeight(Math.max(b.getMinHeight(),dp(v.getContext(),48)));b.setForeground(focusRing(v.getContext()));b.setTextColor(new android.content.res.ColorStateList(new int[][]{new int[]{-android.R.attr.state_enabled},new int[]{}},new int[]{muted(v.getContext()),b.getTextColors().getDefaultColor()}));}if(v instanceof CompoundButton){CompoundButton b=(CompoundButton)v;b.setMinHeight(dp(v.getContext(),48));b.setButtonTintList(new android.content.res.ColorStateList(new int[][]{new int[]{-android.R.attr.state_enabled},new int[]{android.R.attr.state_checked},new int[]{}},new int[]{line(v.getContext()),accent(v.getContext()),muted(v.getContext())}));}if(v instanceof SeekBar)((SeekBar)v).setMinHeight(dp(v.getContext(),48));if(v instanceof CompoundButton||v instanceof SeekBar||v instanceof Spinner){v.setForeground(focusRing(v.getContext()));}if(v instanceof ListView){ListView list=(ListView)v;list.setSelector(ripple(v.getContext(),Color.TRANSPARENT,10));}if(v instanceof EditText){EditText e=(EditText)v;Context c=e.getContext();e.setBackground(controlStates(c,card(c),12));e.setPadding(dp(c,16),dp(c,12),dp(c,16),dp(c,12));e.setMinHeight(dp(c,48));}if(v instanceof ViewGroup)for(int i=0;i<((ViewGroup)v).getChildCount();i++)font(((ViewGroup)v).getChildAt(i));}
++ public static int onAccent(Context c){return dark(c)?0xff101216:Color.WHITE;}
++ public static void styleDialog(android.app.AlertDialog dialog){
++  Window window=dialog.getWindow();if(window==null)return;Context c=dialog.getContext();font(window.getDecorView());window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
++  int available=((WindowManager)c.getSystemService(Context.WINDOW_SERVICE)).getCurrentWindowMetrics().getBounds().width();window.setLayout(Math.min(dp(c,560),available-dp(c,32)),WindowManager.LayoutParams.WRAP_CONTENT);
++  TextView message=dialog.findViewById(android.R.id.message);if(message!=null){message.setTextColor(muted(c));message.setTextSize(14);message.setLineSpacing(dp(c,4),1f);}
++  for(int id:new int[]{android.app.AlertDialog.BUTTON_POSITIVE,android.app.AlertDialog.BUTTON_NEGATIVE,android.app.AlertDialog.BUTTON_NEUTRAL}){Button b=dialog.getButton(id);if(b==null)continue;b.setMinHeight(dp(c,48));b.setPadding(dp(c,16),dp(c,10),dp(c,16),dp(c,10));b.setTextSize(14);b.setSingleLine(false);b.setMaxLines(Integer.MAX_VALUE);b.setBackground(ripple(c,id==android.app.AlertDialog.BUTTON_POSITIVE?accent(c):Color.TRANSPARENT,12));b.setTextColor(id==android.app.AlertDialog.BUTTON_POSITIVE?onAccent(c):muted(c));}
++ }
   public static android.graphics.Bitmap brandBitmap(Context c){int s=dp(c,48);android.graphics.Bitmap b=android.graphics.Bitmap.createBitmap(s,s,android.graphics.Bitmap.Config.ARGB_8888);android.graphics.drawable.Drawable d=androidx.core.content.ContextCompat.getDrawable(c,R.drawable.ic_macro);d.setBounds(0,0,s,s);d.draw(new android.graphics.Canvas(b));return b;}
 - public static Button button(Context c,String text){Button b=new Button(c);b.setStateListAnimator(null);b.setElevation(0);b.setText(text);b.setAllCaps(false);b.setTextColor(ink(c));b.setTextSize(13);b.setMinWidth(0);b.setMinimumWidth(0);b.setMinimumHeight(dp(c,48));b.setPadding(dp(c,12),0,dp(c,12),0);android.content.res.ColorStateList ripple=android.content.res.ColorStateList.valueOf(dark(c)?0x26FFFFFF:0x14000000);b.setBackground(new android.graphics.drawable.RippleDrawable(ripple,outline(c,Color.TRANSPARENT,8),null));font(b);return b;}
 + public static Button button(Context c,String text){Button b=new Button(c);b.setStateListAnimator(null);b.setElevation(0);b.setText(text);b.setAllCaps(false);b.setTextColor(ink(c));b.setTextSize(14);b.setSingleLine(false);b.setMaxLines(Integer.MAX_VALUE);b.setEllipsize(null);b.setMinWidth(0);b.setMinimumWidth(0);b.setMinimumHeight(dp(c,48));b.setPadding(dp(c,12),dp(c,10),dp(c,12),dp(c,10));b.setTextColor(new android.content.res.ColorStateList(new int[][]{new int[]{-android.R.attr.state_enabled},new int[]{}},new int[]{muted(c),ink(c)}));b.setBackground(buttonBackground(c));font(b);return b;}
@@ -1867,6 +1934,31 @@
 +    public double swipeStartY(){return direction.equals("PULL_DOWN")?30:ScrollMotion.START_Y;}
 +    public double swipeEndY(){return direction.equals("PULL_DOWN")?75:ScrollMotion.END_Y;}
  }
+--- 27차/source/app/src/main/res/drawable/ic_launcher_foreground.xml
++++ 28차/source/app/src/main/res/drawable/ic_launcher_foreground.xml
+@@ -1,5 +1 @@
+-<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="108dp" android:height="108dp" android:viewportWidth="108" android:viewportHeight="108">
+-<group android:scaleX="1.5" android:scaleY="1.5" android:translateX="18" android:translateY="18">
+-<path android:fillColor="#FFFFFF" android:fillType="evenOdd" android:pathData="M12,36V12H24C32,12 36,16 36,23C36,30 31,34 24,34H18V36ZM18,18V28H24C28,28 30,26 30,23C30,20 28,18 24,18Z"/>
+-<path android:fillColor="#56D7C7" android:pathData="M33,36a3,3 0,1 0,6 0a3,3 0,1 0,-6 0"/>
+-</group></vector>+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="108dp" android:height="108dp" android:viewportWidth="108" android:viewportHeight="108"><group android:scaleX="1.35" android:scaleY="1.35" android:translateX="21.6" android:translateY="21.6"><path android:fillColor="#FFFFFF" android:fillType="evenOdd" android:pathData="M14,35V13H25C31,13 35,17 35,22C35,28 31,31 25,31H20V35ZM20,19V25H25C28,25 29,24 29,22C29,20 28,19 25,19Z"/></group></vector>
+--- 27차/source/app/src/main/res/drawable/ic_macro.xml
++++ 28차/source/app/src/main/res/drawable/ic_macro.xml
+@@ -1,5 +1,4 @@
+ <vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="48dp" android:height="48dp" android:viewportWidth="48" android:viewportHeight="48">
+-<path android:fillColor="#101B24" android:pathData="M13,0H35C43,0 48,5 48,13V35C48,43 43,48 35,48H13C5,48 0,43 0,35V13C0,5 5,0 13,0Z"/>
+-<path android:fillColor="#FFFFFF" android:fillType="evenOdd" android:pathData="M12,36V12H24C32,12 36,16 36,23C36,30 31,34 24,34H18V36ZM18,18V28H24C28,28 30,26 30,23C30,20 28,18 24,18Z"/>
+-<path android:fillColor="#56D7C7" android:pathData="M33,36a3,3 0,1 0,6 0a3,3 0,1 0,-6 0"/>
+-</vector>+<path android:fillColor="#245CE2" android:pathData="M12,0H36Q48,0 48,12V36Q48,48 36,48H12Q0,48 0,36V12Q0,0 12,0Z"/>
++<path android:fillColor="#FFFFFF" android:fillType="evenOdd" android:pathData="M14,35V13H25C31,13 35,17 35,22C35,28 31,31 25,31H20V35ZM20,19V25H25C28,25 29,24 29,22C29,20 28,19 25,19Z"/>
++</vector>
+--- 27차/source/app/src/main/res/drawable/ic_stat_nex.xml
++++ 28차/source/app/src/main/res/drawable/ic_stat_nex.xml
+@@ -1,4 +1 @@
+-<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="24dp" android:height="24dp" android:viewportWidth="48" android:viewportHeight="48">
+-<path android:fillColor="#FFFFFF" android:fillType="evenOdd" android:pathData="M12,36V12H24C32,12 36,16 36,23C36,30 31,34 24,34H18V36ZM18,18V28H24C28,28 30,26 30,23C30,20 28,18 24,18Z"/>
+-<path android:fillColor="#FFFFFF" android:pathData="M33,36a3,3 0,1 0,6 0a3,3 0,1 0,-6 0"/>
+-</vector>+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="24dp" android:height="24dp" android:viewportWidth="48" android:viewportHeight="48"><path android:fillColor="#FFFFFF" android:fillType="evenOdd" android:pathData="M14,35V13H25C31,13 35,17 35,22C35,28 31,31 25,31H20V35ZM20,19V25H25C28,25 29,24 29,22C29,20 28,19 25,19Z"/></vector>
 --- 27차/source/app/src/main/res/drawable/nex_dialog_dark.xml
 +++ 28차/source/app/src/main/res/drawable/nex_dialog_dark.xml
 @@ -1 +1 @@
@@ -1906,23 +1998,24 @@
 @@ -0,0 +1,15 @@
 +<?xml version="1.0" encoding="utf-8"?>
 +<resources>
-+    <color name="astryx_accent_light">#365F9D</color>
-+    <color name="astryx_background_light">#FFFFFF</color>
-+    <color name="astryx_border_light">#DDE2E9</color>
-+    <color name="astryx_muted_light">#5D6572</color>
++    <color name="astryx_accent_light">#245CE2</color>
++    <color name="astryx_background_light">#F6F7F9</color>
++    <color name="astryx_border_light">#DDE2E8</color>
++    <color name="astryx_muted_light">#596270</color>
 +    <color name="astryx_surface_light">#FFFFFF</color>
-+    <color name="astryx_text_light">#171A20</color>
-+    <color name="astryx_accent_dark">#A9C7F5</color>
-+    <color name="astryx_background_dark">#111318</color>
-+    <color name="astryx_border_dark">#373D49</color>
-+    <color name="astryx_muted_dark">#B8BFCC</color>
-+    <color name="astryx_surface_dark">#1B1E25</color>
-+    <color name="astryx_text_dark">#F3F4F7</color>
++    <color name="astryx_text_light">#161A22</color>
++    <color name="astryx_accent_dark">#90B4FF</color>
++    <color name="astryx_background_dark">#101216</color>
++    <color name="astryx_border_dark">#323844</color>
++    <color name="astryx_muted_dark">#A9B2C0</color>
++    <color name="astryx_surface_dark">#1A1D24</color>
++    <color name="astryx_text_dark">#F3F5F9</color>
 +</resources>
 --- 27차/source/app/src/main/res/values/nex_colors.xml
 +++ 28차/source/app/src/main/res/values/nex_colors.xml
 @@ -1,18 +1,6 @@
--<resources>
++<?xml version="1.0" encoding="utf-8"?>
+ <resources>
 -    <color name="nex_blue">#101B24</color>
 -    <!-- 화면·팝업·컨트롤이 함께 사용하는 라이트/다크 팔레트입니다. -->
 -    <color name="nex_bg_dark">#111318</color>
@@ -1939,21 +2032,21 @@
 -    <color name="nex_soft_light">#EDF2F9</color>
 -    <color name="nex_line_dark">#373D49</color>
 -    <color name="nex_line_light">#DDE2E9</color>
--</resources>
-+<?xml version="1.0" encoding="utf-8"?>
-+<resources>
-+    <color name="nex_blue">#101B24</color>
-+    <color name="nex_soft_dark">#252E3E</color>
-+    <color name="nex_soft_light">#EDF2F9</color>
-+</resources>
++    <color name="nex_blue">#245CE2</color>
++    <color name="nex_soft_dark">#242F46</color>
++    <color name="nex_soft_light">#EAF0FF</color>
+ </resources>
 --- 27차/source/app/src/main/res/values/styles.xml
 +++ 28차/source/app/src/main/res/values/styles.xml
-@@ -1,32 +1,46 @@
+@@ -1,32 +1,58 @@
  <resources>
      <style name="AppTheme" parent="android:style/Theme.Material.Light.NoActionBar">
          <item name="android:fontFamily">@font/nanum_gothic_bold</item>
 +        <item name="android:textColorPrimary">@color/astryx_text_light</item>
 +        <item name="android:textColorSecondary">@color/astryx_muted_light</item>
++        <item name="android:textColorHint">@color/astryx_muted_light</item>
++        <item name="android:colorControlNormal">@color/astryx_muted_light</item>
++        <item name="android:colorControlActivated">@color/astryx_accent_light</item>
          <item name="android:windowLightStatusBar">true</item>
          <item name="android:windowLightNavigationBar">true</item>
 -        <item name="android:statusBarColor">@color/nex_card_light</item>
@@ -1969,6 +2062,9 @@
          <item name="android:fontFamily">@font/nanum_gothic_bold</item>
 +        <item name="android:textColorPrimary">@color/astryx_text_dark</item>
 +        <item name="android:textColorSecondary">@color/astryx_muted_dark</item>
++        <item name="android:textColorHint">@color/astryx_muted_dark</item>
++        <item name="android:colorControlNormal">@color/astryx_muted_dark</item>
++        <item name="android:colorControlActivated">@color/astryx_accent_dark</item>
          <item name="android:windowLightStatusBar">false</item>
          <item name="android:windowLightNavigationBar">false</item>
 -        <item name="android:statusBarColor">@color/nex_bg_dark</item>
@@ -1986,6 +2082,9 @@
 -        <item name="android:colorBackgroundFloating">@color/nex_card_light</item>
 +        <item name="android:textColorPrimary">@color/astryx_text_light</item>
 +        <item name="android:textColorSecondary">@color/astryx_muted_light</item>
++        <item name="android:textColorHint">@color/astryx_muted_light</item>
++        <item name="android:colorControlNormal">@color/astryx_muted_light</item>
++        <item name="android:colorControlActivated">@color/astryx_accent_light</item>
 +        <item name="android:colorAccent">@color/astryx_accent_light</item>
 +        <item name="android:listPreferredItemHeightSmall">48dp</item>
 +        <item name="android:listPreferredItemHeight">48dp</item>
@@ -1998,6 +2097,9 @@
 -        <item name="android:colorBackgroundFloating">@color/nex_card_dark</item>
 +        <item name="android:textColorPrimary">@color/astryx_text_dark</item>
 +        <item name="android:textColorSecondary">@color/astryx_muted_dark</item>
++        <item name="android:textColorHint">@color/astryx_muted_dark</item>
++        <item name="android:colorControlNormal">@color/astryx_muted_dark</item>
++        <item name="android:colorControlActivated">@color/astryx_accent_dark</item>
 +        <item name="android:colorAccent">@color/astryx_accent_dark</item>
 +        <item name="android:listPreferredItemHeightSmall">48dp</item>
 +        <item name="android:listPreferredItemHeight">48dp</item>
@@ -2099,22 +2201,21 @@
  | 항목 | 구현 | 확인 조건 |
 --- 27차/source/docs/28차_Astryx_계획.md
 +++ 28차/source/docs/28차_Astryx_계획.md
-@@ -0,0 +1,15 @@
-+# 28차 재수정 · 2.8.2
+@@ -0,0 +1,14 @@
++# 28차 2.8.3 화면 통일
 +
-+| 수정 | 2.8.2 구현 | 유지한 부분 |
++28차 2.8.3은 기존 기능을 유지하면서 내부 화면과 화면 위 창의 색상·간격·로고를 통일한 수정본입니다. 밝은 화면은 연회색 바탕과 흰 카드, 어두운 화면은 짙은 회색 바탕과 카드로 구분하고 파란색은 주요 동작·선택 상태에 사용합니다.
++
++| 디자인 요소 | 현재 기준 | 적용 범위 |
 +|---|---|---|
-+| 자동 이동 | 목록 하강·미인식 재시도 0.9초·화면 높이 22.5% 이동 | 아래로 당겨 새로고침은 거리 45%·시간 0.9초, 녹화 제스처는 저장값 그대로 |
-+| 내부 디자인 | 26차의 단순한 행·구분선 기반, 동작 설명 전체 폭·입력/선택/팝업 간격 | 흑백·블루·나눔고딕700·라이트/다크 저장 |
-+| 하단 편집 | 1/15 옆 화살표 → 글자 변경 → 적용 | 숫자 드래그·위치 저장·바깥 화면 터치 |
-+| 빠른 글자 전환 | 가로 단축키를 누르면 첫 탐지 글자와 단독 글자 설정을 함께 저장 | 실행 중 탐지/단독 글자는 처음부터 새 실행, 일반 매크로 목록 자체는 변경하지 않음 |
-+| 화면 조회 경합 | 글자 교체 직후 이전 조회가 끝날 때까지 취소 가능한 대기 | 조회를 누적하지 않음·실제 미응답 경계·늦은 결과 폐기 유지 |
-+| 작은 진행 창 | 접힘 104×44dp, 펼침 너비 280dp·진행/시간/글자/단축키 | 하단 일시정지·정지 제거, 상단과 앱 제어 유지 |
++| 색상 | 라이트 #F6F7F9 / 흰 카드, 다크 #101216 / #1A1D24 카드 | 앱·입력·팝업·화면 위 창 |
++| 포인트 | 라이트 #245CE2 / 다크 #90B4FF | 실행·선택·포커스·체크박스 |
++| 글자 | 나눔고딕700, 제목24sp·주요 입력22~23sp·본문14sp | 큰 제목 축소·설명 대비·줄 간격 |
++| 선·모서리 | 1dp 구분선, 입력/버튼12dp·카드14~16dp | 행·폼·팝업·탐지 영역 선택 |
++| 로고 | 파란 사각형과 흰 P | 런처·헤더·접힌 단축창·알림(단색) |
++| 작은 진행 창 | 1/15와 화살표, 드래그·글자 변경·단축키 유지 | 하단 일시정지/정지 없음 |
 +
-+26차의 단순한 배치를 기준으로 현재 28차 네이티브 화면을 교체합니다. 구 UI를 선택 가능한 운영본으로 병행하지 않습니다. Rust의 PC 빌드 팔레트 생성 경로·MLKit 한글 OCR·기존 저장/실행 기능을 유지합니다. 실제 변경은 source와 연결하고 이전 APK/ZIP·실패 원문을 보존합니다. 현재 검사와 공개 상태는 [검증 결과](../../검증_결과.md)를 따릅니다.
-+
-+
-+이번 2.8.2는 입력한 글자와 인식 결과의 원문 완전 일치만 사용합니다. `Adobe`와 `어도비`, `ADOBE`, `Adobe Pro`, 앞뒤 공백이 붙은 문구는 서로 다릅니다. 저장된 포함·정규식·공백/대소문자 무시 옵션도 실행 시 적용하지 않습니다. OCR은 낱말 일부 대신 한 줄 전체를 비교하고, 화면 정보는 접근성 설명(contentDescription) 대신 text만 비교합니다. text를 제공하지 않는 화면은 OCR을 사용하세요. OCR이 잘못 읽은 글자 자체를 완벽히 구별한다고 보장하는 기능은 아닙니다.
++원문 완전 일치·기존 매크로·느린 스크롤·글자 단축키는 유지합니다. Android 네이티브 UI와 빌드 시 Rust 색상 생성을 사용합니다. 실제 결과는 [검증 결과](../../검증_결과.md)를 따릅니다.
 --- 27차/source/theme-engine/Cargo.lock
 +++ 28차/source/theme-engine/Cargo.lock
 @@ -0,0 +1,7 @@
@@ -2383,10 +2484,10 @@ Binary theme-engine/astryx-theme.exe
 +
 +ROOT = Path(__file__).resolve().parents[1]
 +PALETTES = {
-+    'light': dict(accent='#365F9D', background='#FFFFFF', surface='#FFFFFF',
-+                  text='#171A20', muted='#5D6572', border='#DDE2E9'),
-+    'dark': dict(accent='#A9C7F5', background='#111318', surface='#1B1E25',
-+                 text='#F3F4F7', muted='#B8BFCC', border='#373D49'),
++    'light': dict(accent='#245CE2', background='#F6F7F9', surface='#FFFFFF',
++                  text='#161A22', muted='#596270', border='#DDE2E8'),
++    'dark': dict(accent='#90B4FF', background='#101216', surface='#1A1D24',
++                 text='#F3F5F9', muted='#A9B2C0', border='#323844'),
 +}
 +
 +def generate(engine):
@@ -2483,7 +2584,7 @@ Binary theme-engine/astryx-theme.exe
 +1. 실제 Python 실행 파일을 확인하고 source의 빌드.ps1 -Python <실제 Python 실행 파일 경로>를 실행합니다.
 +2. tools/build_release.py는 Rust 색상 생성·두 팔레트 원색 대조 → 실제 work/build28/source 동기화 → assembleRelease·testDebugUnitTest·lintDebug 순서로 실행합니다.
 +3. -PNEX_PC 공용 설정은 ARM64와 x86_64를 포함합니다. 예정 APK는 28차/PXE_28차_v2.8_공용.apk입니다. 실제 크기·SHA-256·ABI·서명은 최종 산출물에서 확정합니다.
-+4. 현재 2.8.2의 제품 빌드·설치·서명 검증은 성공했습니다. 단위107개 실패0·오류0·skipped0, 린트 오류0·경고0입니다. Android12 실제 완전 일치 회귀2개 방법이 통과했습니다. 이후 추가 빈 입력/취소 검사는 전용 장치 소실로 미완료, UI 추가 검사는 미실행이며 통과 수에 넣지 않았습니다. 독립 검토·소스 묶음·공개 상태와 실패 원문 구분은 상위 검증_결과.md를 확인합니다.
++4. 현재 2.8.3의 최종 빌드·단위·린트·실제 기기 화면 검사·서명은 상위 검증_결과.md와 파일정보.json을 확인합니다. 이전 검사 수를 이번 검사 수로 합산하지 않습니다.
 +
 +Rust는 PC 빌드 시 Android 색상 XML을 생성하는 데 사용하며 Android 런타임 라이브러리가 아닙니다. APK 사용자는 Rust를 설치할 필요가 없습니다. 제품 빌드·단위·린트는 실제 기기 전체 기능 검증을 대신하지 않습니다. 새 속도 개선과 장기 안정성은 미측정이며 기존 최종26을 유지합니다.
 +

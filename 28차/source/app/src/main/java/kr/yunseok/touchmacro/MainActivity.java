@@ -60,26 +60,26 @@ public class MainActivity extends Activity {
         int lightBars=View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR|View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR;int barFlags=getWindow().getDecorView().getSystemUiVisibility();getWindow().getDecorView().setSystemUiVisibility(Ui.dark(this)?barFlags&~lightBars:barFlags|lightBars);
         LinearLayout shell=new LinearLayout(this);shell.setOrientation(LinearLayout.VERTICAL);shell.setBackgroundColor(Ui.bg(this));
         LinearLayout header=form();header.setPadding(dp(24),dp(8),dp(24),dp(8));shell.addView(header);
-        LinearLayout brand=row(header);brand.setGravity(Gravity.CENTER_VERTICAL);TextView logo=text(brand,"PXE",24,ink);logo.setLayoutParams(new LinearLayout.LayoutParams(0,-2,1));
+        LinearLayout brand=row(header);brand.setGravity(Gravity.CENTER_VERTICAL);ImageView mark=new ImageView(this);mark.setImageResource(R.drawable.ic_macro);mark.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);LinearLayout.LayoutParams markSize=new LinearLayout.LayoutParams(dp(30),dp(30));markSize.setMargins(0,0,dp(10),0);brand.addView(mark,markSize);TextView logo=text(brand,"PXE",19,ink);logo.setLayoutParams(new LinearLayout.LayoutParams(0,-2,1));
         boolean connected=MacroService.get()!=null;shownConnected=connected;
-        state=text(brand,connected?"연결됨":"연결하기",12,connected?blue:muted);state.setGravity(Gravity.CENTER);state.setMinHeight(dp(48));state.setPadding(dp(12),0,dp(12),0);state.setBackground(Ui.ripple(this,Ui.soft(this),10));state.setFocusable(true);state.setContentDescription(connected?"접근성 연결됨 · 눌러 연결 설정":"접근성 연결 필요 · 눌러 연결 설정");state.setOnClickListener(v->accessibility());
-        Button shortcut=Ui.button(this,"단축창");shortcut.setTextSize(14);shortcut.setPadding(dp(12),dp(8),dp(12),dp(8));LinearLayout.LayoutParams shortcutSize=new LinearLayout.LayoutParams(-2,-2);shortcutSize.setMargins(dp(8),0,0,0);brand.addView(shortcut,shortcutSize);shortcut.setOnClickListener(v->{if(service()){save();MacroService.get().showControls();moveTaskToBack(true);}});
-        ScrollView scroll=new ScrollView(this);scroll.setFillViewport(true);scroll.setVerticalScrollBarEnabled(false);page=form();page.setPadding(dp(24),dp(16),dp(24),dp(40));scroll.addView(page);shell.addView(scroll,new LinearLayout.LayoutParams(-1,0,1));
+        state=text(brand,connected?"연결됨":"연결하기",12,connected?blue:muted);state.setGravity(Gravity.CENTER);state.setMinHeight(dp(48));state.setPadding(dp(12),0,dp(12),0);state.setBackground(Ui.ripple(this,Color.TRANSPARENT,12));state.setFocusable(true);state.setContentDescription(connected?"접근성 연결됨 · 눌러 연결 설정":"접근성 연결 필요 · 눌러 연결 설정");state.setOnClickListener(v->accessibility());
+        Button shortcut=Ui.button(this,"단축창");shortcut.setTextSize(12);shortcut.setPadding(dp(12),dp(8),dp(12),dp(8));LinearLayout.LayoutParams shortcutSize=new LinearLayout.LayoutParams(-2,-2);shortcutSize.setMargins(dp(8),0,0,0);brand.addView(shortcut,shortcutSize);shortcut.setOnClickListener(v->{if(service()){save();MacroService.get().showControls();moveTaskToBack(true);}});
+        ScrollView scroll=new ScrollView(this);scroll.setFillViewport(true);scroll.setVerticalScrollBarEnabled(false);page=form();page.setPadding(dp(24),dp(12),dp(24),dp(32));scroll.addView(page);shell.addView(scroll,new LinearLayout.LayoutParams(-1,0,1));
         if(tab==0){
-            text(page,"글자 찾기",28,ink);text(page,"원하는 글자를 찾아 바로 터치하세요.",13,muted);space(page,16);
-            EditText word=new EditText(this);word.setText(Ui.prefs(this).getString("word","확인"));word.setHint("찾을 글자 입력");word.setSingleLine(false);word.setMaxLines(3);word.setHorizontallyScrolling(false);word.setSelectAllOnFocus(true);word.setTextSize(24);word.setTextColor(ink);word.setHintTextColor(muted);word.setPadding(dp(16),dp(16),dp(16),dp(16));word.setBackground(Ui.rounded(Ui.card(this),dp(14)));word.setMinHeight(dp(64));word.setContentDescription("찾을 글자 입력");page.addView(word,new LinearLayout.LayoutParams(-1,-2));
+            text(page,"글자 찾기",24,ink);text(page,"원하는 글자를 찾아 바로 터치하세요.",13,muted);space(page,16);
+            EditText word=new EditText(this);word.setText(Ui.prefs(this).getString("word","확인"));word.setHint("찾을 글자 입력");word.setSingleLine(false);word.setMaxLines(3);word.setHorizontallyScrolling(false);word.setSelectAllOnFocus(true);word.setTextSize(22);word.setTextColor(ink);word.setHintTextColor(muted);word.setPadding(dp(16),dp(16),dp(16),dp(16));word.setBackground(Ui.rounded(Ui.card(this),dp(14)));word.setMinHeight(dp(64));word.setContentDescription("찾을 글자 입력");page.addView(word,new LinearLayout.LayoutParams(-1,-2));
             word.addTextChangedListener(new android.text.TextWatcher(){public void beforeTextChanged(CharSequence s,int st,int count,int after){}public void onTextChanged(CharSequence s,int st,int before,int count){Ui.prefs(MainActivity.this).edit().putString("word",s.toString()).apply();}public void afterTextChanged(android.text.Editable e){}});
             targetWordShortcuts(page);
             space(page,8);CheckBox back=check(page,"없으면 뒤로가서 다시 찾기",Ui.prefs(this).getBoolean("word_back",true));back.setTextSize(13);back.setTextColor(ink);back.setOnCheckedChangeListener((v,on)->Ui.prefs(this).edit().putBoolean("word_back",on).apply());
             space(page,16);primary(page,"글자 찾기 시작",()->quickWord(false));
             LinearLayout actions=row(page);quietHalf(actions,"미리보기",()->quickWord(true));quietHalf(actions,"인식 설정",this::recognitionSettings);
             space(page,12);quiet(page,"매크로에 이 글자 추가",()->{Step s=FloatingController.wordStep(this);try{s.validate(macro.steps.size()+1);macro.steps.add(s);save();tab=1;render();edit(s);}catch(Exception e){toast(e.getMessage());}});
-            space(page,16);text(page,"실행하면 3초 뒤 시작합니다.\n다른 앱에서는 아래 컨트롤을 사용하세요.",12,muted);
+            space(page,16);text(page,"실행하면 3초 뒤 시작합니다.\n다른 앱에서는 화면 위 단축창을 사용하세요.",12,muted);
         }else if(tab==4){buildWatchPage();
         }else if(tab==1){
             LinearLayout heading=row(page);TextView name=text(heading,macro.name,23,ink);name.setLayoutParams(new LinearLayout.LayoutParams(0,-2,1));quietHalfFixed(heading,"더보기",this::macroMenu);
             text(page,macro.steps.size()+"개 동작 · "+(macro.rounds==0?"무한 반복":macro.rounds+"회 반복"),12,muted);space(page,16);
-            LinearLayout add=row(page);halfButton(add,"동작 추가",this::chooseStep);halfButton(add,"녹화",this::record);Button addAction=(Button)add.getChildAt(0);addAction.setBackground(Ui.ripple(this,blue,10));addAction.setTextColor(Ui.dark(this)?Ui.bg(this):Color.WHITE);
+            LinearLayout add=row(page);halfButton(add,"동작 추가",this::chooseStep);halfButton(add,"녹화",this::record);Button addAction=(Button)add.getChildAt(0);addAction.setBackground(Ui.ripple(this,blue,10));addAction.setTextColor(Ui.onAccent(this));
             space(page,12);list=new LinearLayout(this);list.setOrientation(LinearLayout.VERTICAL);page.addView(list);refreshList();
             space(page,12);settingRow(page,"반복 · 시간 설정",(macro.rounds==0?"무한":macro.rounds+"회")+" 반복 · 지연 시간 설정",this::settings);space(page,16);primary(page,"매크로 시작",this::start);
         }else if(tab==2){
@@ -88,7 +88,7 @@ public class MainActivity extends Activity {
             for(String name:all.keySet())button(page,name,()->{macro=new Macro(all.get(name).json());save();tab=1;render();});
             quiet(page,"저장본 관리",this::library);
         }else{
-            text(page,"설정",28,ink);text(page,"화면과 실행 환경을 설정하세요.",13,muted);space(page,16);
+            text(page,"설정",24,ink);text(page,"화면과 실행 환경을 설정하세요.",13,muted);space(page,16);
             settingRow(page,"화면 모드",Ui.prefs(this).getInt("theme",0)==0?"기기 설정":Ui.dark(this)?"다크":"라이트",this::themeChoice);
             settingRow(page,"화면 위 컨트롤","크기 · 투명도 · 번호 표시",this::controlSettings);
             settingRow(page,"접근성",connected?"연결됨":"연결 필요",this::accessibility);
@@ -122,13 +122,13 @@ public class MainActivity extends Activity {
     }
     private void rule(LinearLayout parent){View line=new View(this);line.setBackgroundColor(Ui.line(this));parent.addView(line,new LinearLayout.LayoutParams(-1,dp(1)));}
     private void addNavigation(LinearLayout shell){
-        LinearLayout nav=new LinearLayout(this);nav.setGravity(Gravity.CENTER_VERTICAL);nav.setPadding(dp(8),0,dp(8),0);nav.setBackgroundColor(Ui.bg(this));nav.setMinimumHeight(dp(64));rule(shell);shell.addView(nav,new LinearLayout.LayoutParams(-1,-2));
+        LinearLayout nav=new LinearLayout(this);nav.setGravity(Gravity.CENTER_VERTICAL);nav.setPadding(dp(8),0,dp(8),0);nav.setBackgroundColor(Ui.card(this));nav.setMinimumHeight(dp(64));rule(shell);shell.addView(nav,new LinearLayout.LayoutParams(-1,-2));
         String[] labels={"탐지","동작","글자","설정"};int[] pages={4,1,0,3},icons={R.drawable.pxe_scan,R.drawable.pxe_steps,R.drawable.pxe_text,R.drawable.pxe_settings};
-        for(int i=0;i<pages.length;i++){final int chosen=pages[i];boolean active=tab==chosen||(chosen==1&&tab==2);LinearLayout item=new LinearLayout(this);item.setOrientation(LinearLayout.VERTICAL);item.setGravity(Gravity.CENTER);item.setContentDescription(labels[i]);item.setClickable(true);item.setFocusable(true);item.setSelected(active);item.setPadding(0,dp(8),0,dp(8));item.setMinimumHeight(dp(64));item.setBackground(Ui.ripple(this,active?Ui.soft(this):Color.TRANSPARENT,10));nav.addView(item,new LinearLayout.LayoutParams(0,-2,1));
-            ImageView icon=new ImageView(this);icon.setImageResource(icons[i]);icon.setColorFilter(active?blue:muted);icon.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);item.addView(icon,new LinearLayout.LayoutParams(dp(23),dp(23)));TextView label=text(item,labels[i],11,active?blue:muted);label.setPadding(0,dp(4),0,dp(4));label.setGravity(Gravity.CENTER);label.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);View marker=new View(this);marker.setBackground(Ui.rounded(active?blue:Color.TRANSPARENT,dp(2)));item.addView(marker,new LinearLayout.LayoutParams(dp(44),dp(3)));item.setOnClickListener(v->{tab=chosen;render();});}
+        for(int i=0;i<pages.length;i++){final int chosen=pages[i];boolean active=tab==chosen||(chosen==1&&tab==2);LinearLayout item=new LinearLayout(this);item.setOrientation(LinearLayout.VERTICAL);item.setGravity(Gravity.CENTER);item.setContentDescription(labels[i]);item.setClickable(true);item.setFocusable(true);item.setSelected(active);item.setPadding(0,dp(8),0,dp(8));item.setMinimumHeight(dp(64));item.setBackground(Ui.ripple(this,active?Ui.soft(this):Color.TRANSPARENT,14));nav.addView(item,new LinearLayout.LayoutParams(0,-2,1));
+            ImageView icon=new ImageView(this);icon.setImageResource(icons[i]);icon.setColorFilter(active?blue:muted);icon.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);item.addView(icon,new LinearLayout.LayoutParams(dp(23),dp(23)));TextView label=text(item,labels[i],11,active?blue:muted);label.setPadding(0,dp(4),0,dp(4));label.setGravity(Gravity.CENTER);label.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);item.setOnClickListener(v->{tab=chosen;render();});}
     }
     private void actionRow(LinearLayout parent,int icon,String title,String detail,boolean selected,Runnable action){
-        LinearLayout r=new LinearLayout(this);r.setGravity(Gravity.CENTER_VERTICAL);r.setPadding(dp(12),dp(12),dp(12),dp(12));r.setMinimumHeight(dp(detail.isEmpty()?56:72));r.setFocusable(true);r.setSelected(selected);r.setBackground(Ui.ripple(this,selected?Ui.soft(this):Color.TRANSPARENT,10));parent.addView(r,new LinearLayout.LayoutParams(-1,-2));
+        LinearLayout r=new LinearLayout(this);r.setGravity(Gravity.CENTER_VERTICAL);r.setPadding(dp(12),dp(12),dp(12),dp(12));r.setMinimumHeight(dp(detail.isEmpty()?56:72));r.setFocusable(true);r.setSelected(selected);r.setBackground(Ui.ripple(this,selected?Ui.soft(this):Ui.card(this),12));parent.addView(r,new LinearLayout.LayoutParams(-1,-2));
         ImageView symbol=new ImageView(this);symbol.setImageResource(icon);symbol.setColorFilter(selected?blue:muted);symbol.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);LinearLayout.LayoutParams iconSize=new LinearLayout.LayoutParams(dp(26),dp(26));iconSize.setMargins(0,0,dp(16),0);r.addView(symbol,iconSize);
         LinearLayout copy=new LinearLayout(this);copy.setOrientation(LinearLayout.VERTICAL);r.addView(copy,new LinearLayout.LayoutParams(0,-2,1));TextView label=text(copy,title,16,ink);label.setPadding(0,0,0,detail.isEmpty()?0:dp(4));if(!detail.isEmpty()){TextView value=text(copy,detail,13,muted);value.setPadding(0,0,0,0);}
         ImageView arrow=new ImageView(this);arrow.setImageResource(R.drawable.pxe_chevron);arrow.setColorFilter(muted);arrow.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);r.addView(arrow,new LinearLayout.LayoutParams(dp(20),dp(20)));r.setOnClickListener(v->action.run());r.setContentDescription(title+" · "+detail);rule(parent);
@@ -136,8 +136,8 @@ public class MainActivity extends Activity {
     private void buildWatchPage(){
         if(SetupFlow.active(this)){new SetupWizard(this).render(page);return;}
         WatchConfig p=WatchStore.load(this);
-        text(page,"목록 탐지",26,ink);text(page,"찾을 글자",12,muted);
-        TextView word=text(page,p.rule.text.isEmpty()?"글자를 설정하세요":p.rule.text,28,ink);word.setContentDescription("현재 탐지할 글자");word.setSingleLine(false);word.setHorizontallyScrolling(false);word.setBreakStrategy(android.graphics.text.LineBreaker.BREAK_STRATEGY_SIMPLE);
+        text(page,"목록 탐지",24,ink);text(page,"찾을 글자",12,muted);
+        TextView word=text(page,p.rule.text.isEmpty()?"글자를 설정하세요":p.rule.text,23,ink);word.setContentDescription("현재 탐지할 글자");word.setPadding(dp(16),dp(14),dp(16),dp(14));word.setBackground(Ui.outline(this,Ui.card(this),14));word.setSingleLine(false);word.setHorizontallyScrolling(false);word.setBreakStrategy(android.graphics.text.LineBreaker.BREAK_STRATEGY_SIMPLE);
         targetWordShortcuts(page);
         space(page,12);primary(page,"탐지 시작",this::startWatch);
         text(page,"글자나 설정을 바꾼 뒤 다시 시작할 수 있습니다.",12,muted);
@@ -202,7 +202,7 @@ public class MainActivity extends Activity {
         LinearLayout body=new LinearLayout(this);body.setOrientation(LinearLayout.VERTICAL);body.setVisibility(View.GONE);
         Button toggle=quiet(parent,getString(R.string.pxe_section_show,title),()->{});toggle.setOnClickListener(v->{boolean open=body.getVisibility()!=View.VISIBLE;body.setVisibility(open?View.VISIBLE:View.GONE);toggle.setText(getString(open?R.string.pxe_section_hide:R.string.pxe_section_show,title));});parent.addView(body);return body;
     }
-    private Button primary(LinearLayout box,String label,Runnable action){Button b=button(box,label,action);b.setTextSize(17);b.setTextColor(Ui.dark(this)?Ui.bg(this):Color.WHITE);b.setBackground(Ui.ripple(this,blue,10));b.setMinHeight(dp(56));b.setLayoutParams(new LinearLayout.LayoutParams(-1,-2));return b;}
+    private Button primary(LinearLayout box,String label,Runnable action){Button b=button(box,label,action);b.setTextSize(16);b.setTextColor(Ui.onAccent(this));b.setBackground(Ui.ripple(this,blue,14));b.setMinHeight(dp(52));b.setLayoutParams(new LinearLayout.LayoutParams(-1,-2));return b;}
     private Button quiet(LinearLayout box,String label,Runnable action){Button b=button(box,label,action);b.setBackground(Ui.ripple(this,Color.TRANSPARENT,10));b.setTextColor(muted);return b;}
     private void quietHalf(LinearLayout box,String label,Runnable action){Button b=button(box,label,action);b.setTextColor(ink);b.setTextSize(14);b.setBackground(Ui.ripple(this,Color.TRANSPARENT,10));b.setLayoutParams(actionSize(box));}
     private void quietHalfFixed(LinearLayout box,String label,Runnable action){Button b=quiet(box,label,action);b.setTextSize(14);b.setLayoutParams(new LinearLayout.LayoutParams(dp(88),-2));}
@@ -263,11 +263,7 @@ public class MainActivity extends Activity {
     private EditText timeField(LinearLayout f,String label,int millis){return field(f,label,Times.seconds(millis),true);}
     private int timeValue(EditText e){return Times.millis(e.getText().toString());}
     private double decimal(EditText e){return Double.parseDouble(e.getText().toString().trim());}
-    private void styleDialog(AlertDialog dialog){
-        Window window=dialog.getWindow();if(window==null)return;font(window.getDecorView());window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
-        int available=getWindowManager().getCurrentWindowMetrics().getBounds().width();int width=Math.min(dp(560),available-dp(32));if(width>0)window.setLayout(width,WindowManager.LayoutParams.WRAP_CONTENT);
-        for(int which:new int[]{AlertDialog.BUTTON_POSITIVE,AlertDialog.BUTTON_NEGATIVE,AlertDialog.BUTTON_NEUTRAL}){Button action=dialog.getButton(which);if(action!=null){action.setSingleLine(false);action.setMaxLines(Integer.MAX_VALUE);action.setMinHeight(dp(48));action.setPadding(dp(12),dp(10),dp(12),dp(10));}}
-    }
+    private void styleDialog(AlertDialog dialog){Ui.styleDialog(dialog);}
     private void show(AlertDialog.Builder b,Runnable ready){AlertDialog d=b.create();d.setOnShowListener(x->{styleDialog(d);if(ready!=null)ready.run();});d.show();}
     private void edit(Step original){
         Step s=new Step(original.json());LinearLayout f=form();text(f,s.name(),21,ink);LinearLayout advanced=new LinearLayout(this);advanced.setOrientation(LinearLayout.VERTICAL);advanced.setVisibility(View.GONE);

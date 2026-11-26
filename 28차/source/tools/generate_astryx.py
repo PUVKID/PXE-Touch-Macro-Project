@@ -8,10 +8,10 @@ import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 PALETTES = {
-    'light': dict(accent='#365F9D', background='#FFFFFF', surface='#FFFFFF',
-                  text='#171A20', muted='#5D6572', border='#DDE2E9'),
-    'dark': dict(accent='#A9C7F5', background='#111318', surface='#1B1E25',
-                 text='#F3F4F7', muted='#B8BFCC', border='#373D49'),
+    'light': dict(accent='#245CE2', background='#F6F7F9', surface='#FFFFFF',
+                  text='#161A22', muted='#596270', border='#DDE2E8'),
+    'dark': dict(accent='#90B4FF', background='#101216', surface='#1A1D24',
+                 text='#F3F5F9', muted='#A9B2C0', border='#323844'),
 }
 
 def generate(engine):

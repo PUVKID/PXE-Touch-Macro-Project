@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="nex_blue">#101B24</color>
-    <color name="nex_soft_dark">#252E3E</color>
-    <color name="nex_soft_light">#EDF2F9</color>
+    <color name="nex_blue">#245CE2</color>
+    <color name="nex_soft_dark">#242F46</color>
+    <color name="nex_soft_light">#EAF0FF</color>
 </resources>
