@@ -29,9 +29,11 @@
 
 사용자가 정한 글자와 영역을 확인해 터치·스크롤·뒤로가기를 실행하는 Android 매크로입니다.
 
-현재 앱: 26차 · 2.6.0 · Android 11 이상 · ARM64 / x86_64 · 오프라인 한글 OCR
+최신 수정본: 28차 · 2.8.0 · Android 11 이상 · ARM64 / x86_64 · 오프라인 한글 OCR
 
-[사용 안내](최종/사용안내.md) · [26차 상세](docs/versions/26차.md#user-content-reading-level-1) · [전체 소스](26차/source) · [검증 결과](26차/검증_결과.md)
+이전 최종본 26차와 준비본 27차는 별도로 보존합니다.
+
+[사용 안내](28차/사용안내.md) · [28차 상세](docs/versions/28차.md#user-content-reading-level-1) · [전체 소스](28차/source) · [검증 결과](28차/검증_결과.md)
 
 ## 읽는 수준 선택
 
@@ -42,6 +44,21 @@
 | [LEVEL 3 - Practitioner](docs/읽기안내/레벨3.md) | 설정·저장·빌드 방법 |
 | [LEVEL 4 - Advanced](docs/읽기안내/레벨4.md) | 구현과 오류·취소 처리 |
 | [LEVEL 5 - Expert](docs/읽기안내/레벨5.md) | 코드·실행 근거·전체 비교 |
+
+## 28차 · 실행 제어와 작은 진행 창
+
+16차의 매크로·탐지 설정을 유지하면서 모든 탭의 일시정지·계속 실행·정지, 글자 변경 뒤 바로 재시작, 작은 이동식 진행 창을 정리했습니다. 검정·흰색과 파란 포인트, 라이트·다크 모드와 한글 글꼴을 유지하고 3D 장식은 제거했습니다. 학습형 행동 AI는 포함하지 않으며 오프라인 한글 OCR은 유지합니다.
+
+| 자료 | 확인할 내용 |
+|---|---|
+| [28차 자료](28차) · [사용 안내](28차/사용안내.md) | 글자·영역·매크로 설정과 실행 제어 |
+| [28차 상세](docs/versions/28차.md#user-content-reading-level-1) · [전체 비교](docs/revision-audit/28차.md) | 다섯 읽기 수준·구현·변경 범위 |
+| [검증 결과](28차/검증_결과.md) · [파일 지문](28차/파일정보.json) | 단위 102개·린트 오류/경고 0·Android12 검사 11개 |
+| [작은 진행 창](28차/화면_확인/28_run_compact.png) · [펼친 상세](28차/화면_확인/28_run_expanded.png) | 실제 시험 장치의 화면, 생성 시안 아님 |
+
+실제 시험 화면에서 목록 진입 → OCR 동작 15회 → 뒤로가기 → 재탐지를 5바퀴 진행해 터치 75회·진입 5회·뒤로가기 5회를 확인했습니다. 정지 후 관찰을 포함한 총 경과는 65.9초입니다. 같은 조건의 이전 차수와 비교한 속도 향상 수치나 게임 완료 시간이 아니며, 장기·모든 환경의 무오류를 뜻하지 않습니다.
+
+Rust는 Windows 빌드 시 실제 화면 색상 XML을 생성합니다. Android 런타임 OCR 엔진을 Rust로 교체한 것은 아닙니다. APK와 전체 소스 ZIP은 로컬 28차에 두고 공개 저장소에는 소스·설명·실제 화면·바이너리 지문을 반영합니다.
 
 ## 27차 준비본 · 속도와 화면 정리
 
@@ -127,6 +144,7 @@
 | 22차 | 작은 진행 창 이동·접기와 대기 흐름을 보강하고 공개 소스와 운영 자료를 분리합니다. | [자료 폴더](22차) · [같은 수준 상세](docs/versions/22차.md#user-content-reading-level-5) · [전체 비교](docs/revision-audit/22차.md) |
 | 23차 | OCR 584 → 32 → K의 F64 MLP·시범 2·학습 192·자동 터치 1·종료 뒤 입력 0·가져온 뒤 64를 버전에 결합합니다. | [자료 폴더](23차) · [같은 수준 상세](docs/versions/23차.md#user-content-reading-level-5) · [전체 비교](docs/revision-audit/23차.md) |
 | 24차 | 1160차원 OCR +RGB 정책·구형 584호환·동일 future 대기·제어창수리와 정상 빌드 13의 단위 44 클래스 280개 통과를 구분합니다. | [자료 폴더](24차) · [같은 수준 상세](docs/versions/24차.md#user-content-reading-level-5) · [전체 비교](docs/revision-audit/24차.md) |
+| 28차 | 실행 제어·글자 재시작·작은 진행 창, 단위102·기기11개 검사 | [자료 폴더](28차) · [같은 수준 상세](docs/versions/28차.md#user-content-reading-level-5) · [전체 비교](docs/revision-audit/28차.md) |
 | 27차 · 준비본 | 캡처 대기·상태 표시·색상 정리, 장기 판정 미완료 | [자료 폴더](27차) · [같은 수준 상세](docs/versions/27차.md#user-content-reading-level-1) · [전체 비교](docs/revision-audit/27차.md) |
 | 26차 | 16차의 기본 매크로·UI를 기준으로 별도 AI를 제외하고 글자 비교·창 응답·축소를 보강합니다. | [자료 폴더](26차) · [같은 수준 상세](docs/versions/26차.md#user-content-reading-level-5) · [전체 비교](docs/revision-audit/26차.md) |
 | 최종 | 26차 공용 APK·전체 소스 패키지 ZIP·사용 안내입니다. | [자료 폴더](최종) · [같은 수준 상세](최종/README.md#user-content-reading-level-5) · [전체 비교](docs/revision-audit/최종.md) |

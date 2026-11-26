@@ -1,0 +1,25 @@
+PXE 28차 공용 APK 빌드
+
+실제 환경
+- Android: 실제 Python, JDK17, Android SDK, Gradle, 기존 서명 폴더가 필요합니다. JAVA_HOME, ANDROID_HOME, PXE_GRADLE, NEX_SIGNING_DIR로 지정할 수 있습니다.
+- Rust: theme-engine/빌드.ps1은 E:/2026/개발 도구 및 캐시/Rust Astryx를 toolRoot로 사용합니다. Rust rustup/cargo와 격리 Windows SDK의 x64 c/um/x64 및 c/ucrt/x64 라이브러리, Visual Studio 2022 Community의 Launch-VsDevShell.ps1이 필요합니다. 이 경로는 실제 스크립트에 고정되어 있으므로 다른 PC에서는 지원되는 실제 도구·SDK 경로에 맞춰 스크립트를 검토해야 합니다. 환경이 자동 설치되거나 경로가 자동 이식되는 것으로 가정하지 마세요.
+- 인증·서명 키와 개인 실행 환경은 공개 소스에 포함하지 않습니다. 새 정션·심볼릭 링크·바로가기를 만들지 않습니다.
+
+공개 소스로부터 Rust 실행 파일 준비
+공개 소스에는 theme-engine/astryx-theme.exe가 없습니다. source 폴더의 PowerShell에서 다음 순서로 실제 컴파일·복사를 수행합니다.
+
+& './theme-engine/빌드.ps1' -Mode test
+& './theme-engine/빌드.ps1' -Mode release
+Copy-Item -LiteralPath './theme-engine/target/release/astryx-theme.exe' -Destination './theme-engine/astryx-theme.exe'
+
+각 단계의 종료 코드가 0인지 확인하고 실패하면 다음 단계로 진행하지 않습니다. 실제 소스에서 cargo test 6개 통과와 release 빌드 로그를 확인했습니다. 다른 환경의 동일 성공을 보장하지 않습니다. 다른 생성기 경로를 사용할 때는 PXE_ASTRYX_ENGINE에 실제 실행 파일을 지정할 수 있습니다.
+
+Android 빌드
+1. 실제 Python 실행 파일을 확인하고 source의 빌드.ps1 -Python <실제 Python 실행 파일 경로>를 실행합니다.
+2. tools/build_release.py는 Rust 색상 생성·두 팔레트 원색 대조 → 실제 work/build28/source 동기화 → assembleRelease·testDebugUnitTest·lintDebug 순서로 실행합니다.
+3. -PNEX_PC 공용 설정은 ARM64와 x86_64를 포함합니다. 예정 APK는 28차/PXE_28차_v2.8_공용.apk입니다. 실제 크기·SHA-256·ABI·서명은 최종 산출물에서 확정합니다.
+4. 새 제어·위젯·재시작·장식 제거를 포함한 제품 빌드는 성공했습니다. 초기 단위106개와 초기 린트12경고를 최종 결과로 사용하지 않습니다. 제거한 장식 전용4개 검사를 제외한 남은102개 대상 단위는 실패0·오류0·skipped0, 최종 린트는 오류0·경고0입니다. Android12 설치는 성공했고 실제 UI·제어·OCR 기기 검사 11개 방법은 통과했습니다. 독립 종합 검토·패키지·공개 상태는 별도 차수 검증 문서에서 확인합니다.
+
+Rust는 PC 빌드 시 Android 색상 XML을 생성하는 데 사용하며 Android 런타임 라이브러리가 아닙니다. APK 사용자는 Rust를 설치할 필요가 없습니다. 제품 빌드·단위·린트는 실제 기기 전체 기능 검증을 대신하지 않습니다. 새 속도 개선과 장기 안정성은 미측정이며 기존 최종26을 유지합니다.
+
+최신 차수 검증 문서: source 폴더의 상위 28차/검증_결과.md를 확인하세요. 소스 내부 안내의 검사 구현·빌드 환경 설명과 차수의 최종 패키지·독립 검토·공개 상태를 구분합니다.
